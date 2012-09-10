@@ -40,7 +40,7 @@ Name: chs; MessagesFile: compiler:Default.isl;
 ;Name: eng; MessagesFile: compiler:Languages\english.isl;
 
 [Messages]
-chs.BeveledLabel=¼òÌåÖĞÎÄ
+chs.BeveledLabel=Chinese
 ;eng.BeveledLabel=English
 
 [CustomMessages]
