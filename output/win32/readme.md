@@ -39,4 +39,4 @@
     - Yamlpp.............._0._3._0 ............................................OK! [DLL/***] [D/R]  
     - Zlib................_1._2._7 ............................................OK! [DLL/***] [D/R]   
 
-###if you have any problems, please mail to [me](mailto:wisbyme@yahoo.com).  
+###if you have any problems, please mail it to [me](mailto:wisbyme@gmail.com).  
