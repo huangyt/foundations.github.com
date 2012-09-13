@@ -1,0 +1,11 @@
+-libraryjars <java.home>\lib\rt.jar;<java.home>\..\..\javamail-1.4.1\mail.jar;<java.home>\..\..\jaf-1.1.1\activation.jar
+-injars JBugTrapServer.tmp.jar
+-outjars JBugTrapServer.jar
+-printmapping BugTrapServer.map
+-renamesourcefileattribute BugTrapServer
+-keepattributes SourceFile,LineNumberTable
+-overloadaggressively
+-dontusemixedcaseclassnames
+-keep class BugTrapServer.ServerApp {
+    public static void main(java.lang.String[]);
+}
