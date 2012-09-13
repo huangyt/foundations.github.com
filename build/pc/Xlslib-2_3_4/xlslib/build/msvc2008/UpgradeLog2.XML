@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="xlslib">
+</Property><Property Name="Solution File" Value="C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib.sln">
+</Property><Property Name="Date" Value="2012年8月20日星期一">
+</Property><Property Name="Time" Value="10:22:43">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj'.">
+</Event><Event ErrorLevel="2" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="File 'C:\MSVCLib\build\Xlslib-2_3_4\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj' was not found.">
+</Event><Event ErrorLevel="2" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Not Converted">
+</Event></UpgradeLog>

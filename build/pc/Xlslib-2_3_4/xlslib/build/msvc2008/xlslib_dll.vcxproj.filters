@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Preprocessed Files">
+      <UniqueIdentifier>{42962655-e2ab-4d14-aa58-9d531f99a86e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{cb78969d-9554-4be8-9bcb-2b156731b965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OLEdoc">
+      <UniqueIdentifier>{8dd7c4f3-ded7-4627-8afd-cd6853721048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\build">
+      <UniqueIdentifier>{b2e35464-f03e-478b-b68e-d22492cb9098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\build\MSVC2008">
+      <UniqueIdentifier>{9f1ba880-9f51-4996-920a-33955cbe73d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\common">
+      <UniqueIdentifier>{8b718c58-02c1-4513-9028-17677f17b4af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OLEdoc">
+      <UniqueIdentifier>{0852a674-72fd-4fd0-9938-9681f16385dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{be3d4368-0ac2-4582-8e92-bbce60e3385f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extra Files">
+      <UniqueIdentifier>{865ff2de-364f-4eed-9fbb-5c10cba7c237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extra Files\src">
+      <UniqueIdentifier>{9d917ab3-306a-41ad-aa03-38c0d31959a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extra Files\doc">
+      <UniqueIdentifier>{a03808ff-0d1b-46fd-9d98-3528db46956e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extra Files\m4">
+      <UniqueIdentifier>{2cdf3a36-e960-401e-9b27-e9537c829c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Cases">
+      <UniqueIdentifier>{9dafbcba-1a12-4b21-977d-93bbc9591226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility Files">
+      <UniqueIdentifier>{e5027b83-8a87-494d-a30b-ec6639b92be7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\xlslib\assert_assist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\blank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\boolean.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\cbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\cell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\colinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\colors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\continue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\datast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\docsumminfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\err.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\extformat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\format.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\formula.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\globalrec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\HPSF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\index.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\merged.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\note.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\number.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\range.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\recdef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\record.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\row.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\sheetrec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\summinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\unit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\xlslib\workbook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\overnew.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\oledoc\binfile.cpp">
+      <Filter>Source Files\OLEdoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\oledoc\oledoc.cpp">
+      <Filter>Source Files\OLEdoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\oledoc\olefs.cpp">
+      <Filter>Source Files\OLEdoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\oledoc\oleprop.cpp">
+      <Filter>Source Files\OLEdoc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\xlslib\biffsection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\blank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\boolean.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\cbridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\cell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\colinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\colors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\continue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\datast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\docsumminfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\err.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\extformat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\format.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\formtags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\formula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\globalrec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\HPSF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\index.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\label.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\merged.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\note.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\number.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\range.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\recdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\record.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\rectypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\row.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\sheetrec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\summinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\tostr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\unit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\xlslib\workbook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ac-config.win32.h">
+      <Filter>Header Files\build\MSVC2008</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\overnew.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\stringtok.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\systype.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\timespan.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xlconfig.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xls_poppack.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xls_pshpack1.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xls_pshpack2.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xls_pshpack4.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xlslib.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xlstypes.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\xlsys.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\oledoc\binfile.h">
+      <Filter>Header Files\OLEdoc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\oledoc\oledoc.h">
+      <Filter>Header Files\OLEdoc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\oledoc\olefs.h">
+      <Filter>Header Files\OLEdoc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\oledoc\oleprop.h">
+      <Filter>Header Files\OLEdoc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ac-config.win32.h.in">
+      <Filter>Header Files\build\MSVC2008</Filter>
+    </None>
+    <None Include="..\..\xlslibRefGuide.pdf">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\xlslibRefManual.xls">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\bootstrap">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\configure.ac">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\COPYING">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\COPYING.LESSER">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\INSTALL">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\Makefile.am">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\NEWS">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\README">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\StandardObjectiveC++.xcconfig">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\TODO">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\VERSION.txt">
+      <Filter>Extra Files</Filter>
+    </None>
+    <None Include="..\..\src\Makefile.am">
+      <Filter>Extra Files\src</Filter>
+    </None>
+    <None Include="..\..\acinclude.m4">
+      <Filter>Extra Files\m4</Filter>
+    </None>
+  </ItemGroup>
+</Project>

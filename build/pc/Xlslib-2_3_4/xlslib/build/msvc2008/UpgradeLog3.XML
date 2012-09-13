@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="xlslib">
+</Property><Property Name="Solution File" Value="C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib.sln">
+</Property><Property Name="Date" Value="2012年8月20日星期一">
+</Property><Property Name="Time" Value="10:43">
+</Property><Property Name="Log Number" Value="3">
+</Property></Properties><Event ErrorLevel="3" Project="xlslib_dll" Source="xlslib_dll.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj'.">
+</Event><Event ErrorLevel="2" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="File 'C:\MSVCLib\build\Xlslib-2_3_4\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj' was not found.">
+</Event><Event ErrorLevel="2" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="3" Project="xlslib-testC" Source="xlslib-testC.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="xlslib-testCPP" Source="xlslib-testCPP.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="xlslib_lib" Source="xlslib_lib.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="xlslib.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="xlslib.sln" Description="No Conversion Required">
+</Event></UpgradeLog>

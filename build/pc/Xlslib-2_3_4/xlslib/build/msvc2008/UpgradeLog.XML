@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="xlslib">
+</Property><Property Name="Solution File" Value="C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib.sln">
+</Property><Property Name="Date" Value="2012年8月20日星期一">
+</Property><Property Name="Time" Value="09:48">
+</Property></Properties><Event ErrorLevel="0" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib_dll.vcproj'.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Done converting to new project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib_dll.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="xlslib_dll" Source="xlslib_dll.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj'.">
+</Event><Event ErrorLevel="2" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="File 'C:\MSVCLib\build\Xlslib-2_3_4\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj' was not found.">
+</Event><Event ErrorLevel="2" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="createDLL" Source="..\..\..\OpenEXR\IlmBase\vc\vc9\IlmBase\createDLL\createDLL.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="0" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-testC.vcproj'.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Done converting to new project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-testC.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="xlslib-testC" Source="xlslib-testC.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-testCPP.vcproj'.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Done converting to new project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-testCPP.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="xlslib-testCPP" Source="xlslib-testCPP.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib_lib.vcproj'.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Done converting to new project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib_lib.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="xlslib_lib" Source="xlslib_lib.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-PR2859188.vcproj'.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Done converting to new project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-PR2859188.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="xlslib-PR2859188" Source="xlslib-PR2859188.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Converting project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-PR3076678.vcproj'.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Done converting to new project file 'C:\MSVCLib\build\Xlslib-2_3_4\xlslib\build\msvc2008\xlslib-PR3076678.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="xlslib-PR3076678" Source="xlslib-PR3076678.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="xlslib.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="xlslib.sln" Description="Converted">
+</Event></UpgradeLog>
