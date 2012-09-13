@@ -1,0 +1,24 @@
+﻿     0>C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\xml.vcxproj(76,5): warning MSB4011: "C:\Documents and Settings\Administrator\Local Settings\Application Data\Microsoft\MSBuild\v4.0\Microsoft.Cpp.Win32.user.props" cannot be imported again. It was already imported at "C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\xml.vcxproj (70,5)". This is most likely a build authoring error. This subsequent import will be ignored. 
+Build started 2012-8-14 11:31:01.
+     1>Project "C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\xml.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\LibR\xml.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D COMPILED_FROM_DSP /D XML_STATIC /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\LibR\\" /Fd".\LibR\xml" /Gd /TC /analyze- /errorReport:prompt xmlparse.c xmlrole.c xmltok.c
+         xmlparse.c
+         xmlrole.c
+         xmltok.c
+         Generating Code...
+       Lib:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"LibR\xml.lib" /NOLOGO .\LibR\xmlparse.obj
+         .\LibR\xmlrole.obj
+         .\LibR\xmltok.obj
+         xml.vcxproj -> C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\.\LibR\xml.lib
+       FinalizeBuildStatus:
+         Deleting file ".\LibR\xml.unsuccessfulbuild".
+         Touching ".\LibR\xml.lastbuildstate".
+     1>Done Building Project "C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\xml.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.48

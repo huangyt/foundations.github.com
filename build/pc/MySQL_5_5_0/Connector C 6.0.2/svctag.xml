@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registration_data version="1.0">
+	<environment>
+		<hostname>WISPEDIA</hostname>
+		<hostId/>
+		<osName>Windows_NT</osName>
+		<osVersion>Unk SP(0) (601.7600)</osVersion>
+		<osArchitecture>x86</osArchitecture>
+		<systemModel>7675L12</systemModel>
+		<systemManufacturer>LENOVO</systemManufacturer>
+		<cpuManufacturer>GenuineIntel</cpuManufacturer>
+		<serialNumber>L3H8085         </serialNumber>
+	</environment>
+	<registry version="1.0" urn="urn:st:uuid:299aaaec-115d-4bf4-ae47-0797ad86270b">
+		<service_tag>
+			<instance_urn>urn:st:uuid:d3f3db6b-8044-4175-9e9f-1ec15ac719ec</instance_urn>
+			<product_name>MySQL Connector C 6.0.2</product_name>
+			<product_version>6.0.2</product_version>
+			<product_urn>MSQZC-600-ZZZZ</product_urn>
+			<product_parent_urn>N/A</product_parent_urn>
+			<product_parent>N/A</product_parent>
+			<product_defined_inst_id>license=gpl</product_defined_inst_id>
+			<product_vendor>Sun Microsystems</product_vendor>
+			<platform_arch>Windows</platform_arch>
+			<timestamp>2012-03-05 13:53:38 UTC</timestamp>
+			<container/>
+			<source>mysql-connector-c-6.0.2-win32.msi</source>
+			<installer_uid>-1</installer_uid>
+		</service_tag>
+	</registry>
+</registration_data>

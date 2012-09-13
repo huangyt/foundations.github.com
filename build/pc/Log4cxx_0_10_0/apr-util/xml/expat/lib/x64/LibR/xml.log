@@ -1,0 +1,48 @@
+﻿Build started 2012-8-14 11:27:52.
+     1>Project "C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\xml.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\x64\LibR\xml.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I. /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D COMPILED_FROM_DSP /D XML_STATIC /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\x64\LibR\\" /Fd".\x64\LibR\xml" /Gd /TC /errorReport:prompt xmlparse.c xmlrole.c xmltok.c
+         xmlparse.c
+     1>xmlparse.c(1502): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1504): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1513): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1526): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1540): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1576): warning C4244: 'return' : conversion from '__int64' to 'long', possible loss of data
+     1>xmlparse.c(1584): warning C4244: 'return' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1593): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(1594): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2125): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2130): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2316): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2321): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2342): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2351): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2851): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(2860): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(3676): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(4760): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(4765): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(5651): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>xmlparse.c(5665): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+         xmlrole.c
+         xmltok.c
+     1>c:\msvclib\build\log4cxx_0_10_0\apr-util\xml\expat\lib\xmltok_impl.c(1717): warning C4244: 'return' : conversion from '__int64' to 'int', possible loss of data
+     1>c:\msvclib\build\log4cxx_0_10_0\apr-util\xml\expat\lib\xmltok_impl.c(1717): warning C4244: 'return' : conversion from '__int64' to 'int', possible loss of data
+     1>c:\msvclib\build\log4cxx_0_10_0\apr-util\xml\expat\lib\xmltok_impl.c(1717): warning C4244: 'return' : conversion from '__int64' to 'int', possible loss of data
+         Generating Code...
+       Lib:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"x64\LibR\xml.lib" /NOLOGO .\x64\LibR\xmlparse.obj
+         .\x64\LibR\xmlrole.obj
+         .\x64\LibR\xmltok.obj
+         xml.vcxproj -> C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\.\x64\LibR\xml.lib
+       FinalizeBuildStatus:
+         Deleting file ".\x64\LibR\xml.unsuccessfulbuild".
+         Touching ".\x64\LibR\xml.lastbuildstate".
+     1>Done Building Project "C:\MSVCLib\build\Log4cxx_0_10_0\apr-util\xml\expat\lib\xml.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.53

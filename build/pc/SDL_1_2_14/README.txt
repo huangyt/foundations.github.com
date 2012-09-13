@@ -1,0 +1,1 @@
+http://www.libsdl.org/download-1.2.php

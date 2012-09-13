@@ -1,0 +1,10 @@
+﻿     0>C:\MSVCLib\build\Log4cxx_0_10_0\apr\build\preaprapp.vcxproj(101,5): warning MSB4011: "C:\Documents and Settings\Administrator\Local Settings\Application Data\Microsoft\MSBuild\v4.0\Microsoft.Cpp.Win32.user.props" cannot be imported again. It was already imported at "C:\MSVCLib\build\Log4cxx_0_10_0\apr\build\preaprapp.vcxproj (91,5)". This is most likely a build authoring error. This subsequent import will be ignored. 
+Build started 2012-8-14 11:31:00.
+     1>Project "C:\MSVCLib\build\Log4cxx_0_10_0\apr\build\preaprapp.vcxproj" on node 3 (build target(s)).
+     1>Build:
+         NMAKE /nologo /f NUL
+     1>Done Building Project "C:\MSVCLib\build\Log4cxx_0_10_0\apr\build\preaprapp.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.12

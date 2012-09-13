@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "businesscard", "VS2005\businesscard.vcproj", "{CA1DC4B4-550F-4A07-9A33-C59093FA9E20}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chartab", "VS2005\chartab.vcproj", "{CA1DC4B4-550F-4A07-9A33-C59093FA9E21}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hello", "VS2005\hello.vcproj", "{BF3ABF6A-AAC2-4C06-B340-FB4E92E23D87}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "image", "VS2005\image.vcproj", "{F88B076C-2B66-464F-BF37-48915B054B41}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "invoice", "VS2005\invoice.vcproj", "{2E6012DC-3030-4201-8692-355FF4D823E2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pdfclock", "VS2005\pdfclock.vcproj", "{3B3C1ADF-15EE-43D5-98A3-80F5FA782B4B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickreference", "VS2005\quickreference.vcproj", "{F52BE75B-BE5A-4F99-989D-2990F4621B88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_3d", "VS2005\starter_3d.vcproj", "{9A28FC73-67E9-4056-BD31-BC80641F1E50}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_basic", "VS2005\starter_basic.vcproj", "{B3E61354-A3CF-4F3D-A526-916B07C18C15}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_block", "VS2005\starter_block.vcproj", "{83A2411B-A5E4-4ADE-8D15-35E62EE805D9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_color", "VS2005\starter_color.vcproj", "{91BC9A1D-065B-4AB0-94DE-C94090EDA844}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_fallback", "VS2005\starter_fallback.vcproj", "{3C01A12C-1E16-4381-9804-78ED80AAADFB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_geospatial", "VS2005\starter_geospatial.vcproj", "{AFE31389-9129-43B5-A15D-1628F72226CE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_graphics", "VS2005\starter_graphics.vcproj", "{6A72FA64-F7EB-42E8-BF0E-252FCE20E50D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_image", "VS2005\starter_image.vcproj", "{F6EF9D6E-79AE-4D48-9A5D-F75AD7348ABA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_layer", "VS2005\starter_layer.vcproj", "{51C6F184-CBE5-4DFC-9AFD-0C4471E1E32D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_opentype", "VS2005\starter_opentype.vcproj", "{7FD9788B-AD9A-45F2-8493-0D1B4C0199B2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pcos", "VS2005\starter_pcos.vcproj", "{7FE47EFA-63BA-4210-8660-E84622934AF0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pdfa1b", "VS2005\starter_pdfa1b.vcproj", "{4670BA1F-2CB8-46BE-A833-2E40B6555BDF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pdfmerge", "VS2005\starter_pdfmerge.vcproj", "{3A2B49AC-5956-4D01-AD66-88472B4CE30C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pdfx3", "VS2005\starter_pdfx3.vcproj", "{1CC62CC9-6E43-415E-A8FB-B3A3865CD5D4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pdfx4", "VS2005\starter_pdfx4.vcproj", "{4B9564E4-62D7-4D1D-B4A1-FAC0341831C5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pdfx5g", "VS2005\starter_pdfx5g.vcproj", "{567F5C53-500B-4BFF-973A-E644B05EA87E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_portfolio", "VS2005\starter_portfolio.vcproj", "{338B641B-BA05-473D-92A1-81A61A7C465C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_pvf", "VS2005\starter_pvf.vcproj", "{25AA097C-E821-4882-8359-C82A9A403B33}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_shaping", "VS2005\starter_shaping.vcproj", "{74DB98E1-C2ED-438C-BBF3-81DA8492B3EC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_table", "VS2005\starter_table.vcproj", "{51F8BB85-D2F6-4DF0-9C8C-866AC36C7F81}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_tagged", "VS2005\starter_tagged.vcproj", "{5A035F84-2929-4A8C-8B14-FE825B229FD5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_textflow", "VS2005\starter_textflow.vcproj", "{E7C2FFBA-6911-4A71-A169-9E1E32768FB7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_textline", "VS2005\starter_textline.vcproj", "{CB3FB09E-B6B4-4EF9-807D-0E1762815E78}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_type3font", "VS2005\starter_type3font.vcproj", "{D6C9F2A2-3C07-4E8A-B334-876BA42FD0D2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starter_webform", "VS2005\starter_webform.vcproj", "{218C3821-4FF3-4F3F-8C9C-8A117CC3D90E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hellodl", "VS2005\hellodl.vcproj", "{218C3821-4FF3-4F3F-8C9C-8A117CC3D90E}"
+EndProject
