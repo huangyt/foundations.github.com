@@ -1,0 +1,5 @@
+LIBRARY "re"
+EXPORTS
+  boot_re
+  _boot_re = boot_re
+  

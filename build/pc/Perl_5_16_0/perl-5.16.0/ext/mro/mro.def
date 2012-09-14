@@ -1,0 +1,5 @@
+LIBRARY "mro"
+EXPORTS
+  boot_mro
+  _boot_mro = boot_mro
+  

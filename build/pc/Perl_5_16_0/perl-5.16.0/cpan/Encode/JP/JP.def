@@ -1,0 +1,5 @@
+LIBRARY "JP"
+EXPORTS
+  boot_Encode__JP
+  _boot_Encode__JP = boot_Encode__JP
+  

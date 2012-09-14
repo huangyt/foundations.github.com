@@ -1,0 +1,5 @@
+LIBRARY "Zlib"
+EXPORTS
+  boot_Compress__Raw__Zlib
+  _boot_Compress__Raw__Zlib = boot_Compress__Raw__Zlib
+  

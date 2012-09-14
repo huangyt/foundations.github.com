@@ -1,0 +1,5 @@
+LIBRARY "Socket"
+EXPORTS
+  boot_Socket
+  _boot_Socket = boot_Socket
+  

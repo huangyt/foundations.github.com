@@ -1,0 +1,5 @@
+LIBRARY "Bzip2"
+EXPORTS
+  boot_Compress__Raw__Bzip2
+  _boot_Compress__Raw__Bzip2 = boot_Compress__Raw__Bzip2
+  

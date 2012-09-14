@@ -1,0 +1,5 @@
+LIBRARY "shared"
+EXPORTS
+  boot_threads__shared
+  _boot_threads__shared = boot_threads__shared
+  

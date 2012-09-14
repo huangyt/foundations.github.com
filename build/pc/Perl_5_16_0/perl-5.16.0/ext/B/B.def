@@ -1,0 +1,5 @@
+LIBRARY "B"
+EXPORTS
+  boot_B
+  _boot_B = boot_B
+  

@@ -1,0 +1,5 @@
+LIBRARY "HiRes"
+EXPORTS
+  boot_Time__HiRes
+  _boot_Time__HiRes = boot_Time__HiRes
+  

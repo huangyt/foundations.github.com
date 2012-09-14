@@ -1,0 +1,5 @@
+LIBRARY "Storable"
+EXPORTS
+  boot_Storable
+  _boot_Storable = boot_Storable
+  

@@ -1,0 +1,5 @@
+LIBRARY "Byte"
+EXPORTS
+  boot_Encode__Byte
+  _boot_Encode__Byte = boot_Encode__Byte
+  

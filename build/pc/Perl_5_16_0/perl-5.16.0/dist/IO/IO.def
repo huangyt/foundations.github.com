@@ -1,0 +1,5 @@
+LIBRARY "IO"
+EXPORTS
+  boot_IO
+  _boot_IO = boot_IO
+  

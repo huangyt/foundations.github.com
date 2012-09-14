@@ -1,0 +1,5 @@
+LIBRARY "Symbol"
+EXPORTS
+  boot_Encode__Symbol
+  _boot_Encode__Symbol = boot_Encode__Symbol
+  

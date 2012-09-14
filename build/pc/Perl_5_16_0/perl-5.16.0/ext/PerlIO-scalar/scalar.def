@@ -1,0 +1,5 @@
+LIBRARY "scalar"
+EXPORTS
+  boot_PerlIO__scalar
+  _boot_PerlIO__scalar = boot_PerlIO__scalar
+  

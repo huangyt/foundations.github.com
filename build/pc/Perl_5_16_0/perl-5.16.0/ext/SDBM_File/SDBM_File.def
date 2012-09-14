@@ -1,0 +1,5 @@
+LIBRARY "SDBM_File"
+EXPORTS
+  boot_SDBM_File
+  _boot_SDBM_File = boot_SDBM_File
+  

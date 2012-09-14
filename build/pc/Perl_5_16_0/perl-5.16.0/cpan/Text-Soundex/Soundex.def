@@ -1,0 +1,5 @@
+LIBRARY "Soundex"
+EXPORTS
+  boot_Text__Soundex
+  _boot_Text__Soundex = boot_Text__Soundex
+  

@@ -1,0 +1,5 @@
+LIBRARY "FastCalc"
+EXPORTS
+  boot_Math__BigInt__FastCalc
+  _boot_Math__BigInt__FastCalc = boot_Math__BigInt__FastCalc
+  

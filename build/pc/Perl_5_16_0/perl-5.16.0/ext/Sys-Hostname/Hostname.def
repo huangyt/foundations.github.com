@@ -1,0 +1,5 @@
+LIBRARY "Hostname"
+EXPORTS
+  boot_Sys__Hostname
+  _boot_Sys__Hostname = boot_Sys__Hostname
+  

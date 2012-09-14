@@ -1,0 +1,5 @@
+LIBRARY "MD5"
+EXPORTS
+  boot_Digest__MD5
+  _boot_Digest__MD5 = boot_Digest__MD5
+  

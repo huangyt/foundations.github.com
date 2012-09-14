@@ -1,0 +1,5 @@
+LIBRARY "File"
+EXPORTS
+  boot_Win32API__File
+  _boot_Win32API__File = boot_Win32API__File
+  

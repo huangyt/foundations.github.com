@@ -1,0 +1,5 @@
+LIBRARY "Opcode"
+EXPORTS
+  boot_Opcode
+  _boot_Opcode = boot_Opcode
+  

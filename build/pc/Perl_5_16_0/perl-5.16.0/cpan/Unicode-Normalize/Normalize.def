@@ -1,0 +1,5 @@
+LIBRARY "Normalize"
+EXPORTS
+  boot_Unicode__Normalize
+  _boot_Unicode__Normalize = boot_Unicode__Normalize
+  

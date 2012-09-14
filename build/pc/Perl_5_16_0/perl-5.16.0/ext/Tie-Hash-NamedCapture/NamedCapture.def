@@ -1,0 +1,5 @@
+LIBRARY "NamedCapture"
+EXPORTS
+  boot_Tie__Hash__NamedCapture
+  _boot_Tie__Hash__NamedCapture = boot_Tie__Hash__NamedCapture
+  

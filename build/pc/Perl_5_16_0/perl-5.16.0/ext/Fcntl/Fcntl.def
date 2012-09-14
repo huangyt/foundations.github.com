@@ -1,0 +1,5 @@
+LIBRARY "Fcntl"
+EXPORTS
+  boot_Fcntl
+  _boot_Fcntl = boot_Fcntl
+  

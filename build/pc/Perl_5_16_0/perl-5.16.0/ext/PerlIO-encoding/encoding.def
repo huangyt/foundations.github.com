@@ -1,0 +1,5 @@
+LIBRARY "encoding"
+EXPORTS
+  boot_PerlIO__encoding
+  _boot_PerlIO__encoding = boot_PerlIO__encoding
+  

@@ -1,0 +1,5 @@
+LIBRARY "CN"
+EXPORTS
+  boot_Encode__CN
+  _boot_Encode__CN = boot_Encode__CN
+  

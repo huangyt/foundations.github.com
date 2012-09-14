@@ -1,0 +1,5 @@
+LIBRARY "POSIX"
+EXPORTS
+  boot_POSIX
+  _boot_POSIX = boot_POSIX
+  

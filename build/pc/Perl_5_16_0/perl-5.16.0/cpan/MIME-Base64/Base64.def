@@ -1,0 +1,5 @@
+LIBRARY "Base64"
+EXPORTS
+  boot_MIME__Base64
+  _boot_MIME__Base64 = boot_MIME__Base64
+  

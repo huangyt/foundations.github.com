@@ -1,0 +1,5 @@
+LIBRARY "Collate"
+EXPORTS
+  boot_Unicode__Collate
+  _boot_Unicode__Collate = boot_Unicode__Collate
+  

@@ -1,0 +1,5 @@
+LIBRARY "APItest"
+EXPORTS
+  boot_XS__APItest
+  _boot_XS__APItest = boot_XS__APItest
+  

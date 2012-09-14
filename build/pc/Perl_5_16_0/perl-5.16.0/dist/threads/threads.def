@@ -1,0 +1,5 @@
+LIBRARY "threads"
+EXPORTS
+  boot_threads
+  _boot_threads = boot_threads
+  

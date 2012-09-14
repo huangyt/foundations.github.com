@@ -1,0 +1,717 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+
+
+########################################################################
+####
+#### STARTING VISUAL STUDIO BUILD (vs100, Win32)
+####
+########################################################################
+
+
+The following configurations will be built:
+debug_shared
+release_shared
+
+
+########################################################################
+####
+#### Building CppUnit
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Foundation
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestApp, Configuration: debug_shared Win32 ------
+2>------ Build started: Project: TestLibrary, Configuration: debug_shared Win32 ------
+1>Build started 2012/8/11 0:00:04.
+1>InitializeBuildStatus:
+2>Build started 2012/8/11 0:00:04.
+1>  Creating "obj\debug_shared\TestApp.unsuccessfulbuild" because "AlwaysCreate" was specified.
+2>InitializeBuildStatus:
+2>  Creating "obj\debug_shared\TestLibrary.unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  All outputs are up-to-date.
+2>ClCompile:
+2>  All outputs are up-to-date.
+1>ManifestResourceCompile:
+1>  All outputs are up-to-date.
+1>Link:
+1>  All outputs are up-to-date.
+1>Manifest:
+1>  All outputs are up-to-date.
+1>FinalizeBuildStatus:
+1>  Deleting file "obj\debug_shared\TestApp.unsuccessfulbuild".
+1>  Touching "obj\debug_shared\TestApp.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:00.42
+2>  TestPlugin.cpp
+2>ManifestResourceCompile:
+2>  All outputs are up-to-date.
+2>Manifest:
+2>  All outputs are up-to-date.
+2>LinkEmbedManifest:
+2>  All outputs are up-to-date.
+2>  TestLibrary_vs100.vcxproj -> E:\MSVCLib\build\POCO_1_4_3\poco-1.4.3p1-all\Foundation\testsuite\bin\TestLibraryd.dll
+2>FinalizeBuildStatus:
+2>  Deleting file "obj\debug_shared\TestLibrary.unsuccessfulbuild".
+2>  Touching "obj\debug_shared\TestLibrary.lastbuildstate".
+2>
+2>Build succeeded.
+2>
+2>Time Elapsed 00:00:03.91
+========== Build: 2 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestApp, Configuration: release_shared Win32 ------
+2>------ Build started: Project: TestSuite, Configuration: release_shared Win32 ------
+1>Build started 2012/8/11 0:00:14.
+2>Build started 2012/8/11 0:00:14.
+1>InitializeBuildStatus:
+1>  Creating "obj\release_shared\TestApp.unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>Link:
+1>  All outputs are up-to-date.
+1>  TestApp_vs100.vcxproj -> E:\MSVCLib\build\POCO_1_4_3\poco-1.4.3p1-all\Foundation\testsuite\bin\TestApp.exe
+1>FinalizeBuildStatus:
+1>  Deleting file "obj\release_shared\TestApp.unsuccessfulbuild".
+1>  Touching "obj\release_shared\TestApp.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:00.45
+2>InitializeBuildStatus:
+2>  Creating "obj\release_shared\TestSuite.unsuccessfulbuild" because "AlwaysCreate" was specified.
+2>ClCompile:
+2>  All outputs are up-to-date.
+2>  TestPlugin.cpp
+2>Link:
+2>  TestSuite_vs100.vcxproj -> E:\MSVCLib\build\POCO_1_4_3\poco-1.4.3p1-all\Foundation\testsuite\bin\TestSuite.exe
+2>FinalizeBuildStatus:
+2>  Deleting file "obj\release_shared\TestSuite.unsuccessfulbuild".
+2>  Touching "obj\release_shared\TestSuite.lastbuildstate".
+2>
+2>Build succeeded.
+2>
+2>Time Elapsed 00:00:04.25
+========== Build: 2 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building XML
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Util
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Net
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Crypto
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestSuite, Configuration: debug_shared Win32 ------
+1>Build started 2012/8/11 0:00:47.
+1>InitializeBuildStatus:
+1>  Touching "obj\debug_shared\TestSuite.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>ManifestResourceCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1104: cannot open file 'libeay32mdd.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:01.21
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestSuite, Configuration: release_shared Win32 ------
+1>Build started 2012/8/11 0:00:53.
+1>InitializeBuildStatus:
+1>  Touching "obj\release_shared\TestSuite.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1181: cannot open input file 'libeay32md.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.97
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+
+########################################################################
+####
+#### Building NetSSL_OpenSSL
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestSuite, Configuration: debug_shared Win32 ------
+1>Build started 2012/8/11 0:00:59.
+1>InitializeBuildStatus:
+1>  Touching "obj\debug_shared\TestSuite.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>ManifestResourceCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1104: cannot open file 'libeay32mdd.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.36
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestSuite, Configuration: release_shared Win32 ------
+1>Build started 2012/8/11 0:01:04.
+1>InitializeBuildStatus:
+1>  Touching "obj\release_shared\TestSuite.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1181: cannot open input file 'libeay32md.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.35
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+
+########################################################################
+####
+#### Building Data
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Data/SQLite
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Data/ODBC
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Data/MySQL
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestSuite, Configuration: debug_shared Win32 ------
+1>Build started 2012/8/11 0:01:33.
+1>InitializeBuildStatus:
+1>  Touching "obj\debug_shared\TestSuite.unsuccessfulbuild".
+1>ClCompile:
+1>  SQLExecutor.cpp
+1>e:\msvclib\build\poco_1_4_3\poco-1.4.3p1-all\data\mysql\testsuite\src\sqlexecutor.cpp(1408): error C2440: 'initializing' : cannot convert from 'Poco::DynamicAny' to 'std::basic_string<_Elem,_Traits,_Ax>'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          No constructor could take the source type, or constructor overload resolution was ambiguous
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:04.83
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: TestSuite, Configuration: release_shared Win32 ------
+1>Build started 2012/8/11 0:01:42.
+1>InitializeBuildStatus:
+1>  Touching "obj\release_shared\TestSuite.unsuccessfulbuild".
+1>ClCompile:
+1>  SQLExecutor.cpp
+1>src\SQLExecutor.cpp(1408): error C2440: 'initializing' : cannot convert from 'Poco::DynamicAny' to 'std::basic_string<_Elem,_Traits,_Ax>'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          No constructor could take the source type, or constructor overload resolution was ambiguous
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:02.18
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+
+########################################################################
+####
+#### Building Zip
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building PageCompiler
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building PageCompiler/File2Page
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Foundation/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 19 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 19 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building XML/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 4 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 4 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Util/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 3 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 3 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Net/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 12 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 12 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Crypto/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: genrsakey, Configuration: debug_shared Win32 ------
+1>Build started 2012/8/11 0:02:52.
+1>InitializeBuildStatus:
+1>  Touching "obj\debug_shared\genrsakey.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>ManifestResourceCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1104: cannot open file 'libeay32mdd.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.48
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: genrsakey, Configuration: release_shared Win32 ------
+1>Build started 2012/8/11 0:02:56.
+1>InitializeBuildStatus:
+1>  Touching "obj\release_shared\genrsakey.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1181: cannot open input file 'libeay32md.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.31
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+
+
+########################################################################
+####
+#### Building NetSSL_OpenSSL/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: HTTPSTimeServer, Configuration: debug_shared Win32 ------
+2>------ Build started: Project: download, Configuration: debug_shared Win32 ------
+1>Build started 2012/8/11 0:03:00.
+2>Build started 2012/8/11 0:03:01.
+2>InitializeBuildStatus:
+2>  Touching "obj\debug_shared\download.unsuccessfulbuild".
+2>ClCompile:
+2>  All outputs are up-to-date.
+1>InitializeBuildStatus:
+1>  Touching "obj\debug_shared\HTTPSTimeServer.unsuccessfulbuild".
+2>ManifestResourceCompile:
+2>  All outputs are up-to-date.
+2>LINK : fatal error LNK1104: cannot open file 'libeay32mdd.lib'
+1>ClCompile:
+1>  All outputs are up-to-date.
+2>
+2>Build FAILED.
+2>
+2>Time Elapsed 00:00:00.39
+1>ManifestResourceCompile:
+1>  All outputs are up-to-date.
+1>LINK : fatal error LNK1104: cannot open file 'libeay32mdd.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.65
+========== Build: 0 succeeded, 2 failed, 1 up-to-date, 0 skipped ==========
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: HTTPSTimeServer, Configuration: release_shared Win32 ------
+2>------ Build started: Project: download, Configuration: release_shared Win32 ------
+2>Build started 2012/8/11 0:03:05.
+1>Build started 2012/8/11 0:03:05.
+1>InitializeBuildStatus:
+1>  Touching "obj\release_shared\HTTPSTimeServer.unsuccessfulbuild".
+1>ClCompile:
+1>  All outputs are up-to-date.
+2>InitializeBuildStatus:
+2>  Touching "obj\release_shared\download.unsuccessfulbuild".
+2>ClCompile:
+2>  All outputs are up-to-date.
+1>LINK : fatal error LNK1181: cannot open input file 'libeay32md.lib'
+1>
+1>Build FAILED.
+1>
+1>Time Elapsed 00:00:00.37
+2>LINK : fatal error LNK1181: cannot open input file 'libeay32md.lib'
+2>
+2>Build FAILED.
+2>
+2>Time Elapsed 00:00:00.53
+========== Build: 0 succeeded, 2 failed, 1 up-to-date, 0 skipped ==========
+
+
+########################################################################
+####
+#### Building Data/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 4 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 4 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building Zip/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+
+########################################################################
+####
+#### Building PageCompiler/samples
+####
+########################################################################
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+ 
+ 
+
+
+Microsoft (R) Visual Studio Version 10.0.31118.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+ 
+ 
+

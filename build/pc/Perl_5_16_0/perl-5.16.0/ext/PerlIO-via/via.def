@@ -1,0 +1,5 @@
+LIBRARY "via"
+EXPORTS
+  boot_PerlIO__via
+  _boot_PerlIO__via = boot_PerlIO__via
+  

@@ -1,0 +1,5 @@
+LIBRARY "EBCDIC"
+EXPORTS
+  boot_Encode__EBCDIC
+  _boot_Encode__EBCDIC = boot_Encode__EBCDIC
+  

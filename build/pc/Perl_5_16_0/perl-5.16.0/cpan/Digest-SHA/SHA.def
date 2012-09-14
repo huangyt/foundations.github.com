@@ -1,0 +1,5 @@
+LIBRARY "SHA"
+EXPORTS
+  boot_Digest__SHA
+  _boot_Digest__SHA = boot_Digest__SHA
+  

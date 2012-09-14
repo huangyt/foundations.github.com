@@ -1,0 +1,5 @@
+LIBRARY "PPPort"
+EXPORTS
+  boot_Devel__PPPort
+  _boot_Devel__PPPort = boot_Devel__PPPort
+  

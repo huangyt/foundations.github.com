@@ -1,0 +1,5 @@
+LIBRARY "KR"
+EXPORTS
+  boot_Encode__KR
+  _boot_Encode__KR = boot_Encode__KR
+  

@@ -1,0 +1,50 @@
+{
+
+local EXTRA_SRCS ;
+if $(MSVCNT)
+{
+	EXTRA_SRCS = src/wsocket.c src/wsocket.h ;
+}
+else
+{
+	EXTRA_SRCS = src/usocket.c src/usocket.h ;
+}
+
+local SRCS =
+	src/buffer.c
+	src/buffer.h
+	src/context.c
+	src/context.h
+	src/io.c
+	src/io.h
+	src/socket.h
+	src/ssl.c
+	src/ssl.h
+	src/ssl.lua
+	src/timeout.c
+	src/timeout.h
+	$(EXTRA_SRCS)
+;
+
+CopyFile luasec : $(LUA_LDIR)/https.lua : $(SUBDIR)/src/https.lua ;
+CopyFile luasec : $(LUA_LDIR)/ssl.lua : $(SUBDIR)/src/ssl.lua ;
+
+if $(MSVCNT)  &&  $(PLATFORM) in win32 win64 {
+	C.Defines luasec : "LUASEC_API=__declspec(dllexport)" ;
+	C.LinkPrebuiltLibraries luasec : wsock32 ;
+	if $(PLATFORM) = win32 {
+		C.IncludeDirectories luasec : c:/OpenSSL-Win32/include c:/OpenSSL-Win32/include/openssl ;
+		C.LinkDirectories luasec : c:/OpenSSL-Win32/lib/VC/static ;
+	} else {
+		C.IncludeDirectories luasec : c:/OpenSSL-Win64/include c:/OpenSSL-Win64/include/openssl ;
+		C.LinkDirectories luasec : c:/OpenSSL-Win64/lib/VC/static ;
+	}
+	C.LinkPrebuiltLibraries luasec : libeay32MT ssleay32MT advapi32 gdi32 user32 ;
+} else {
+	C.Defines luasec : LUASEC_API ;
+}
+
+Lua.CModule luasec : ssl ssl_core : $(SRCS) ;
+
+}
+

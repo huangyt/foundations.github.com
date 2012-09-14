@@ -1,0 +1,5 @@
+LIBRARY "attributes"
+EXPORTS
+  boot_attributes
+  _boot_attributes = boot_attributes
+  

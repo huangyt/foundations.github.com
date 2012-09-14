@@ -1,0 +1,5 @@
+LIBRARY "arybase"
+EXPORTS
+  boot_arybase
+  _boot_arybase = boot_arybase
+  

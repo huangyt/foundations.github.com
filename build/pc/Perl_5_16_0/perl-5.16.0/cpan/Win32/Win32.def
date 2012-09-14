@@ -1,0 +1,5 @@
+LIBRARY "Win32"
+EXPORTS
+  boot_Win32
+  _boot_Win32 = boot_Win32
+  

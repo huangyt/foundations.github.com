@@ -1,0 +1,5 @@
+LIBRARY "mmap"
+EXPORTS
+  boot_PerlIO__mmap
+  _boot_PerlIO__mmap = boot_PerlIO__mmap
+  

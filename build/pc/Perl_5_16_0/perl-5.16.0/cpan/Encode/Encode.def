@@ -1,0 +1,5 @@
+LIBRARY "Encode"
+EXPORTS
+  boot_Encode
+  _boot_Encode = boot_Encode
+  
