@@ -1,0 +1,151 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDKX_COM_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_tools_mc.lib" "..\..\bin\acdk_net.lib" "..\..\bin\acdk_cfgscript.lib"
+
+OUTFILE="..\..\bin\acdkx_com.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdkx_com\bcc"
+SOURCES= 	"acdkx\com\AcdkObject.cpp" \
+	"acdkx\com\ActiveScript.cpp" \
+	"acdkx\com\Co.cpp" \
+	"acdkx\com\CoException.cpp" \
+	"acdkx\com\ComDmiClient.cpp" \
+	"acdkx\com\ComObject.cpp" \
+	"acdkx\com\CoSys.cpp" \
+	"acdkx\com\CreateTypeInfo.cpp" \
+	"acdkx\com\CreateTypeLib.cpp" \
+	"acdkx\com\IUnknown.cpp" \
+	"acdkx\com\RegisterServer.cpp" \
+	"acdkx\com\TypeInfo.cpp" \
+	"acdkx\com\acdkx_com.def" \
+
+HEADER= 	"acdkx\com\AbstractCoInterface.h" \
+	"acdkx\com\AcdkObject.h" \
+	"acdkx\com\ActiveScript.h" \
+	"acdkx\com\Co.h" \
+	"acdkx\com\CoException.h" \
+	"acdkx\com\com.h" \
+	"acdkx\com\ComDmiClient.h" \
+	"acdkx\com\ComObject.h" \
+	"acdkx\com\Config.h" \
+	"acdkx\com\CoSys.h" \
+	"acdkx\com\CreateTypeInfo.h" \
+	"acdkx\com\CreateTypeLib.h" \
+	"acdkx\com\IAcdkObject.h" \
+	"acdkx\com\IUnknown.h" \
+	"acdkx\com\RegisterServer.h" \
+	"acdkx\com\TypeInfo.h" \
+
+OBJECTS= 	"..\tobj\acdkx_com\bcc\AcdkObject.obj" \
+	"..\tobj\acdkx_com\bcc\ActiveScript.obj" \
+	"..\tobj\acdkx_com\bcc\Co.obj" \
+	"..\tobj\acdkx_com\bcc\CoException.obj" \
+	"..\tobj\acdkx_com\bcc\ComDmiClient.obj" \
+	"..\tobj\acdkx_com\bcc\ComObject.obj" \
+	"..\tobj\acdkx_com\bcc\CoSys.obj" \
+	"..\tobj\acdkx_com\bcc\CreateTypeInfo.obj" \
+	"..\tobj\acdkx_com\bcc\CreateTypeLib.obj" \
+	"..\tobj\acdkx_com\bcc\IUnknown.obj" \
+	"..\tobj\acdkx_com\bcc\RegisterServer.obj" \
+	"..\tobj\acdkx_com\bcc\TypeInfo.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdkx_com\bcc\AcdkObject.obj": "acdkx\com\AcdkObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\AcdkObject.cpp"
+
+"..\tobj\acdkx_com\bcc\ActiveScript.obj": "acdkx\com\ActiveScript.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\ActiveScript.cpp"
+
+"..\tobj\acdkx_com\bcc\Co.obj": "acdkx\com\Co.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\Co.cpp"
+
+"..\tobj\acdkx_com\bcc\CoException.obj": "acdkx\com\CoException.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\CoException.cpp"
+
+"..\tobj\acdkx_com\bcc\ComDmiClient.obj": "acdkx\com\ComDmiClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\ComDmiClient.cpp"
+
+"..\tobj\acdkx_com\bcc\ComObject.obj": "acdkx\com\ComObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\ComObject.cpp"
+
+"..\tobj\acdkx_com\bcc\CoSys.obj": "acdkx\com\CoSys.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\CoSys.cpp"
+
+"..\tobj\acdkx_com\bcc\CreateTypeInfo.obj": "acdkx\com\CreateTypeInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\CreateTypeInfo.cpp"
+
+"..\tobj\acdkx_com\bcc\CreateTypeLib.obj": "acdkx\com\CreateTypeLib.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\CreateTypeLib.cpp"
+
+"..\tobj\acdkx_com\bcc\IUnknown.obj": "acdkx\com\IUnknown.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\IUnknown.cpp"
+
+"..\tobj\acdkx_com\bcc\RegisterServer.obj": "acdkx\com\RegisterServer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\RegisterServer.cpp"
+
+"..\tobj\acdkx_com\bcc\TypeInfo.obj": "acdkx\com\TypeInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\TypeInfo.cpp"
+
+"..\tobj\acdkx_com\bcc\acdkx_com.obj": "acdkx\com\acdkx_com.def"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_com\bcc" "acdkx\com\acdkx_com.def"
+
+
+
+clean:
+	del "..\..\bin\acdkx_com.dll"
+	del "..\tobj\acdkx_com\bcc\AcdkObject.obj"
+	del "..\tobj\acdkx_com\bcc\ActiveScript.obj"
+	del "..\tobj\acdkx_com\bcc\Co.obj"
+	del "..\tobj\acdkx_com\bcc\CoException.obj"
+	del "..\tobj\acdkx_com\bcc\ComDmiClient.obj"
+	del "..\tobj\acdkx_com\bcc\ComObject.obj"
+	del "..\tobj\acdkx_com\bcc\CoSys.obj"
+	del "..\tobj\acdkx_com\bcc\CreateTypeInfo.obj"
+	del "..\tobj\acdkx_com\bcc\CreateTypeLib.obj"
+	del "..\tobj\acdkx_com\bcc\IUnknown.obj"
+	del "..\tobj\acdkx_com\bcc\RegisterServer.obj"
+	del "..\tobj\acdkx_com\bcc\TypeInfo.obj"
+
+

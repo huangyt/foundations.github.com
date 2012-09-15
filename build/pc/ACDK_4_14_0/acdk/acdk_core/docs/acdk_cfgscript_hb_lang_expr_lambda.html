@@ -1,0 +1,193 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="delegate, lambda, closure">
+<title>CfgScript Lambda Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Lambda<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | Lambda |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Lambda Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Lambda Expressions</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | Lambda |</p>
+<p class="PageIntro">
+The lambda expression is a easy way to define methods in place. The result
+of a lambda expression is a Delegate object.
+</p>
+
+<br>
+<br>
+<pre>
+LambdaExpression
+: 'lambda' [ LambdaDefineTimeArgs ] [ UnamedMethodSignature ] '{' Statement* '}'
+;
+
+LambdaDefineTimeArgs 
+: '[' LambdaDefineTimeArgList ']'
+;
+LambdaDefineTimeArgList
+: LambdaDefineTimeArg [ ',' LambdaDefineTimeArgList ]
+;
+
+LambdaDefineTimeArg
+: Identifier
+| 'this'
+| Identifier ':' Expression
+;
+
+UnamedMethodSignature
+: ReturnType '(' ArgumentDecl ')'
+;
+</pre>
+<br>
+There are several forms of this expression:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// generates a anonymous function with void return value and no parameter
+</FONT></I>Delegate d1 = lambda <B><FONT COLOR="#228B22">void</FONT></B> () { out.println(<B><FONT COLOR="#BC8F8F">&quot;Called via Lambda&quot;</FONT></B>); };
+d1.call();
+<I><FONT COLOR="#B22222">// prints &quot;Called via Lambda&quot;</FONT></I>
+
+<I><FONT COLOR="#B22222">// generates a anonymous function with int return and two parameter
+</FONT></I>Delegate d2 = lambda <B><FONT COLOR="#228B22">int</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> a1, <B><FONT COLOR="#228B22">int</FONT></B> a2) { <B><FONT COLOR="#A020F0">return</FONT></B> a1 + a2; };
+<B><FONT COLOR="#228B22">int</FONT></B> erg = d2.call(2, 3);
+<I><FONT COLOR="#B22222">// erg == 5</FONT></I>
+</PRE></td></tr></table>
+<br>
+The declaration of the lambda method specification (return type and arguments) is
+optionional. 
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// generates a anonymous function
+</FONT></I><I><FONT COLOR="#B22222">// syntax 'lambda { &lt;MethodBody&gt; }'
+</FONT></I>Delegate d1 = lambda { out.println(<B><FONT COLOR="#BC8F8F">&quot;Called via Lambda&quot;</FONT></B>); };
+d1.call();
+
+<I><FONT COLOR="#B22222">// this lambda is equal to
+</FONT></I>Delegate d2 = lambda Any (Rest rest) { out.println(<B><FONT COLOR="#BC8F8F">&quot;Called via Lambda&quot;</FONT></B>); };
+d2.call();
+
+<I><FONT COLOR="#B22222">// here the alternative form of the adder expression above:
+</FONT></I>Delegate d3 = lambda { <B><FONT COLOR="#A020F0">return</FONT></B> rest.get(0) + rest.get(1); };
+<B><FONT COLOR="#228B22">int</FONT></B> erg2 = d3.call(2, 3);
+</PRE></td></tr></table>
+<br>
+Lambda expression support also arguments, which will passed to the
+the method body at declaration time.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Delegate d4;
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> ivar = 42;
+  String text = <B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>;
+  <I><FONT COLOR="#B22222">// pass variable ivar to the lambda block
+</FONT></I>  <I><FONT COLOR="#B22222">// It is like an argument, but initialized with a value at 
+</FONT></I>  <I><FONT COLOR="#B22222">// definition time and not at call time
+</FONT></I>  d4 = lambda [text, ivar] { out.println(<B><FONT COLOR="#BC8F8F">&quot;local variable ivar: &quot;</FONT></B> + ivar + <B><FONT COLOR="#BC8F8F">&quot; and: &quot;</FONT></B> + text); };
+} <I><FONT COLOR="#B22222">// ivar and text goes out of scope
+</FONT></I>d4.call();
+</PRE></td></tr></table>
+The arguments must be variable names.<br>
+<br>
+An alternative form for definition time arguments with expressions is:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// use the named parameter syntax to pass expressions to lambda at defintion time
+</FONT></I>Delegate d5 = lambda [ivar: 42 - 1, text: <B><FONT COLOR="#BC8F8F">&quot;Hello again&quot;</FONT></B>] { out.println(<B><FONT COLOR="#BC8F8F">&quot;local expressions ivar: &quot;</FONT></B> + ivar + <B><FONT COLOR="#BC8F8F">&quot; and: &quot;</FONT></B> + text); };
+d5.call();
+</PRE></td></tr></table>
+<br>
+Additionally the definition time arguments gives the possibility to
+make a lambda expression a method of a object class with full access to
+members an methods of this Object:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<B><FONT COLOR="#228B22">class</FONT></B> BClass
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> _ivar = 42;
+  BClass() {}
+  <B><FONT COLOR="#228B22">int</FONT></B> makeIt() { <B><FONT COLOR="#A020F0">return</FONT></B> 3; }
+  Delegate getLocalDelegate()
+  {
+    <B><FONT COLOR="#A020F0">return</FONT></B> lambda [<B><FONT COLOR="#A020F0">this</FONT></B>] 
+    { 
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;Accessing members and methods of this: _ivar=&quot;</FONT></B> + _ivar + <B><FONT COLOR="#BC8F8F">&quot;; makeIt()=&quot;</FONT></B> + makeIt()); 
+    };
+  }
+}
+BClass acls = <B><FONT COLOR="#A020F0">new</FONT></B> BClass();
+Delegate del = acls.getLocalDelegate();
+del.call();
+<I><FONT COLOR="#B22222">// now same same in one line (lispish)
+</FONT></I>(<B><FONT COLOR="#A020F0">new</FONT></B> BClass()).getLocalDelegate().call();
+
+</PRE></td></tr></table>
+<br>
+All forms of defintition time arguments (identifier, named parameter, and this) can be combined in
+one lambda expression.<br>
+<br>
+Lambda and delegate expressions are very usefull to define callback/event mechanism found
+in <a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK WX</a>.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | Lambda |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

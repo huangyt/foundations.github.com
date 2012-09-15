@@ -1,0 +1,111 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdkx_com
+
+default: all
+all:: install compile
+
+compile:: acdkx_com acdkx_com_Test 
+clean:: acdkx_com-clean acdkx_com_Test-clean 
+metainfo:: acdkx_com-metainfo acdkx_com_Test-metainfo 
+acdkx_com:  
+	cd src
+	$(MAKE) -f acdkx_com.bcc
+	cd ..
+
+
+acdkx_com-clean:
+	cd src
+	$(MAKE) -f acdkx_com.bcc clean
+	cd ..
+
+
+acdkx_com-metainfo:
+	cd src
+	$(MAKE) -f acdkx_com.bcc metainfo
+	cd ..
+
+
+acdkx_com_Test:  acdkx_com
+	cd tests/acdkx/com
+	$(MAKE) -f acdkx_com_Test.bcc
+	cd ../../..
+
+
+acdkx_com_Test-clean:
+	cd tests/acdkx/com
+	$(MAKE) -f acdkx_com_Test.bcc clean
+	cd ../../..
+
+
+acdkx_com_Test-metainfo:
+	cd tests/acdkx/com
+	$(MAKE) -f acdkx_com_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdkx_com_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdkx_com-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src linux
+
+acdkx_com_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com linux
+
+
+makemake:: acdkx_com-makemake acdkx_com_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com dsp
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com cbx
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com linux
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdkx_com.lsp
+
+

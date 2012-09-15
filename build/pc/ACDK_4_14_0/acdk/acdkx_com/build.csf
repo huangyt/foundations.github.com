@@ -1,0 +1,35 @@
+
+
+#include "amake_config.csf"
+
+
+
+acdkx_com = new acdk.make.AcdkLibTask("acdkx_com");
+acdkx_com.addSource("src/acdkx/com");
+acdkx_com.addSource("src/acdkx/com/acdkx_com.def");
+acdkx_com.addAcdkLib("acdk_core");
+acdkx_com.addAcdkLib("acdk_net");
+acdkx_com.addAcdkLib("acdk_cfgscript");
+acdkx_com.addModuleConfigTask("amake_com_config");
+
+
+acdkx_com_Test = new acdk.make.AcdkTestExeTask("acdkx_com_Test");
+acdkx_com_Test.setBaseDir("tests/acdkx/com");
+acdkx_com_Test.addSource("tests/acdkx/com");
+acdkx_com_Test.addAcdkLib("acdk_core");
+//acdkx_com_Test.addAcdkLib("acdk_text");
+//acdkx_com_Test.addAcdkLib("acdk_net");
+acdkx_com_Test.addAcdkLib("acdk_tools_aunit");
+acdkx_com_Test.addAcdkLib("acdkx_com");
+acdkx_com_Test.addModuleConfigTask("amake_com_config");
+acdkx_com_Test.addSubTask("acdkx_com");
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("acdkx_com_prj");
+default.registerTask("default");
+default.addSubTask("acdkx_com");
+default.addSubTask("acdkx_com_Test");
+
+

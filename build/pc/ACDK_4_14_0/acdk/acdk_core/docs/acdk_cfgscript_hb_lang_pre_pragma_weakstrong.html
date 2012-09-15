@@ -1,0 +1,114 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="pragma weak, pragma strong">
+<title>CfgScript Weak/Strong Pragma</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Pragma weak/strong
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a> | Pragma weak/strong | <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Weak/Strong Pragma</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Weak/Strong Pragma</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a> | Pragma weak/strong | <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a> |</p>
+<p class="PageIntro">
+The <code>pragma weak/strong</code> controls how type declarations
+are requested by the CfgScript interpreter.
+</p>
+
+<br>
+<a name="jumptable21"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Syntax"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Syntax</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Usage"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Usage</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<br>
+<h2><a href="#jumptable21"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax">Syntax</a></h2>
+<pre>
+PragmaStrictWeakStatement
+: '#' 'pragma' 'strict'
+| '#' 'pragma' 'weak'
+;
+</pre>
+<br>
+<h2><a href="#jumptable21"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Usage">Usage</a></h2>
+<code>#pragma strict</code> force interpreter only to accept typed
+variable declarations.<br>
+<code>#pragma weak</code> - which is default - also allows ad hoc
+untyped variable declarations.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">strict</FONT>
+<B><FONT COLOR="#228B22">int</FONT></B> k = 3;
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+  i = 42; <I><FONT COLOR="#B22222">// i is not declared before, trows an exception
+</FONT></I>  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST FAILED&quot;</FONT></B>);
+} <B><FONT COLOR="#A020F0">catch</FONT></B> (acdk.cfgscript.ScriptException ex) {
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;expected exception: &quot;</FONT></B> + ex.getMessage()); 
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST OK&quot;</FONT></B>);
+}
+
+#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">weak</FONT>
+
+j = 42; <I><FONT COLOR="#B22222">// weak mode should allow ad hoc variables</FONT></I>
+out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST OK&quot;</FONT></B>);
+
+</PRE></td></tr></table>
+Please refer also to <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Variable Declaration</a>.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a> | Pragma weak/strong | <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

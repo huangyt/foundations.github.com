@@ -1,0 +1,327 @@
+%id: acdk_java_serialization_sample
+%title: ACDK/Java serialization Sample
+%shorttitle: Sample
+%body:
+<htmlauto/>
+
+<pageintro>
+Step by step sample how to use Java/ACDK compatible serialization.
+</pageintro>
+
+The corresponding files can be found in
+ACDKHOME/acdk_java/tests/acdk/java/serialization/sample
+
+
+<fl>
+<f> 
+Create an java class, which should be serialized:
+
+<source>
+public
+class JavaSerSample
+implements java.io.Serializable
+{
+  private int _x;
+  private int _y;
+  transient String privateData;
+  public JavaSerSample(int x, int y)
+  {
+    _x = x;
+    _y = y;
+  }
+  public int getX() { return _x; }
+  public int getY() { return _y; }
+  String toString()
+  {
+    return "x=" + _x + ", y=" + _y;
+  }
+}
+</source>
+
+<f> 
+Compile the JavaSerSample.java -> JavaSerSample.class
+<c>javac JavaSerSample.java</c>
+
+<f>
+Use JavaClassDeclToAcdkSer to generate type mapping:
+
+<c>java -classpath "$ACDKHOME/acdk_java/src/java:$ACDKHOME/acdk_java/tests/acdk/java/serialization/sample" JavaClassDeclToAcdkSer JavaSerSample > a2jser_JavaSerSample.cpp</c>
+Replace $ACDKHOME/acdk_java/tests/acdk/java/serialization/sample with your working dir.
+
+<f>
+Add the generated file a2jser_JavaSerSample.cpp to your project:
+<source>
+#include <acdk.h>
+#include <acdk/java/serialization/ClassDescription.h>
+
+
+
+::acdk::java::serialization::MemberTypeMapping a2jser_JavaSerSample_field__x = 
+{
+  "_x", // acdk_name
+  "int", // acdk_type
+  "_x", // java_name
+  "I" // java_type
+};
+
+::acdk::java::serialization::MemberTypeMapping a2jser_JavaSerSample_field__y = 
+{
+  "_y", // acdk_name
+  "int", // acdk_type
+  "_y", // java_name
+  "I" // java_type
+};
+
+::acdk::java::serialization::MemberTypeMapping* a2jser_JavaSerSample_fields[] = 
+{
+  &a2jser_JavaSerSample_field__x,
+  &a2jser_JavaSerSample_field__y,
+  0
+};
+
+::acdk::java::serialization::ClassTypeMapping a2jser_JavaSerSample = 
+{
+  "JavaSerSample", // acdk_name
+  "JavaSerSample", // java_name
+  "", // acdk_super
+  "", // java_super
+  ::acdk::java::serialization::SC_SERIALIZABLE, // flags
+  JLONG_CONSTANT(0x8ec745aeeeefa3b0), // UID
+  JLONG_CONSTANT(0xd02f4135bf6de609), //[] UID
+  a2jser_JavaSerSample_fields, // Fields
+  0, // read_func
+  0, // write_func
+  0 // used for internal linked list
+};
+
+::acdk::java::serialization::RegisterTypeMapping register_a2jser_JavaSerSample(&a2jser_JavaSerSample);
+
+</source>
+
+
+<f> Create the corresponding ACDK class source:
+<source>
+
+#ifndef tests_acdk_java_serialization_JavaSerSample_h
+#define tests_acdk_java_serialization_JavaSerSample_h
+
+#include <acdk.h>
+#include <acdk/io/Serializable.h>
+
+ACDK_DECL_CLASS(JavaSerSample);
+
+class JavaSerSample
+: extends ::acdk::lang::Object
+, implements ::acdk::io::Serializable
+{
+  // need meta info for serialization
+  ACDK_WITH_METAINFO(JavaSerSample)
+private:
+  int _x;
+  int _y;
+  // don't use this in serialization
+  mutable RString _privateString;
+public:
+  JavaSerSample(int x, int y) 
+  : _x(x)
+  , _y(y)
+  {
+  }
+  int getX() { return _x; }
+  int getY() { return _y; }
+  RString toString() 
+  { 
+    StringBuffer sb;
+    sb << "x=" << _x << ", y=" << _y;
+    return sb.toString();
+  }
+};
+
+#endif //tests_acdk_java_serialization_JavaSerSample_h
+
+</source>
+
+<f> Use acdkmc to generate meta info for ACKD class JavaSerSample.
+    This is needed for serialization.
+<c> $ACDKHOME/bin/acdmc $ACDKHOME/acdk_java/tests/acdk/java/serialization/sample</c>
+This will generate the files
+  <c>sample_metainf_base.cpp</c> and <c>sample_metainf/sample_metainf_ext.cpp</c>.
+  Add these file to the project.
+  
+<f> 
+create an empty sample.h.
+
+<f> 
+The main program source reads/write java serialized instances to/from file:
+<source>
+// Main.cpp
+
+#include <acdk.h>
+#include <acdk/lang/System.h>
+#include <acdk/io/FileReader.h>
+#include <acdk/io/FileWriter.h>
+
+#include <acdk/java/serialization/JavaObjectReader.h>
+#include <acdk/java/serialization/JavaObjectWriter.h>
+#include "JavaSerSample.h"
+
+namespace acdk {
+namespace java {
+namespace serialization {
+namespace sample {
+
+class Main
+: extends acdk::lang::Object
+{
+public:
+  /**
+    write JavaSerSample and JavaSerSampleArray to be read by Java
+  */
+  static void writeJavaSerSample()
+  {
+    RString acdkhome = System::getProperties()->getProperty("ACDKHOME");
+    {
+      RString rfname = acdkhome + "/acdk_java/tests/acdk/java/serialization/sample/JavaSerSample_a2j.dat";
+      ::acdk::io::FileWriter fout(rfname);
+      ::acdk::java::serialization::JavaObjectWriter jout(&fout);
+      RJavaSerSample sample = new JavaSerSample(44, 45);
+      jout.writeObject(&sample);
+    }
+    {
+      RString rfname = acdkhome + "/acdk_java/tests/acdk/java/serialization/sample/JavaSerSampleArray_a2j.dat";
+      ::acdk::io::FileWriter fout(rfname);
+      ::acdk::java::serialization::JavaObjectWriter jout(&fout);
+      RJavaSerSampleArray sampleArray = new JavaSerSampleArray(2);
+      sampleArray[0] = new JavaSerSample(50, 51);
+      sampleArray[1] = new JavaSerSample(52, 53);
+      jout.writeObject(&sampleArray);
+    }
+  }
+  /**
+    read JavaSerSample and JavaSerSampleArray wrote by Java
+  */
+  static void readJavaSerSample()
+  {
+    RString acdkhome = System::getProperties()->getProperty("ACDKHOME");
+    {
+      RString rfname = acdkhome + "/acdk_java/tests/acdk/java/serialization/sample/JavaSerSample_j2a.dat";
+      ::acdk::io::FileReader fin(rfname);
+      ::acdk::java::serialization::JavaObjectReader jin(&fin);
+      RObject obj = jin.readObject();
+      System::out->println("JavaSerSample readed: " + obj->getClass()->getName() + ": " + obj->toString());
+      
+      RJavaSerSample sample = (RJavaSerSample)obj;
+
+    }
+    {
+      RString rfname = acdkhome + "/acdk_java/tests/acdk/java/serialization/sample/JavaSerSampleArray_j2a.dat";
+      ::acdk::io::FileReader fin(rfname);
+      ::acdk::java::serialization::JavaObjectReader jin(&fin);
+      RObject obj = jin.readObject();
+      System::out->println("JavaSerSample Array readed: " + obj->getClass()->getName() + ": " + obj->toString());
+      RJavaSerSampleArray samplearray = (RJavaSerSampleArray)obj;
+    }
+  }
+  static int acdkmain(RStringArray args)
+  {
+    try {
+      writeJavaSerSample();
+      readJavaSerSample();
+    } catch (::acdk::io::RIOException ex) {
+      ex->printStackTrace();
+      System::out->println("IOException caught: " + ex->getMessage());
+    }
+    return 0;
+  }
+
+};
+
+}
+}
+}
+}
+
+int
+main(int argc, char* argv[], char** envptr)
+{
+  return ::acdk::lang::System::main(acdk::java::serialization::sample::Main::acdkmain, argc, argv, envptr);
+} 
+</source>
+
+Add these files to your project.
+
+<f> Create a sample java program, which writes and reads an instance of JavaSerSample.
+<source>
+// ReadWriteJavaSerSample.java
+import java.io.*;
+
+public class ReadWriteJavaSerSample
+{
+  /**
+    write JavaSerSample and JavaSerSample[] to be read by ACDK
+  */
+  static void writeJavaSerSample() throws java.io.IOException
+  {
+    {
+      // write single object
+      JavaSerSample obj = new JavaSerSample(41, 42);
+      FileOutputStream ostream = new FileOutputStream("JavaSerSample_j2a.dat");
+	    ObjectOutputStream p = new ObjectOutputStream(ostream);
+	    p.writeObject(obj);
+      p.flush();
+	    ostream.close();
+	  }
+	  {
+	    // write array of objects
+      JavaSerSample[] obj = new JavaSerSample[2];
+      obj[0] = new JavaSerSample(41, 42);
+      obj[1] = new JavaSerSample(43, 44);
+      FileOutputStream ostream = new FileOutputStream("JavaSerSampleArray_j2a.dat");
+	    ObjectOutputStream p = new ObjectOutputStream(ostream);
+	    p.writeObject(obj);
+      p.flush();
+	    ostream.close();
+	  }
+  }
+  /**
+    read JavaSerSample and JavaSerSample[] written by ACDK
+  */
+  static void readJavaSerSample() throws java.io.IOException, ClassNotFoundException
+  {
+    {
+      FileInputStream fin = new FileInputStream("JavaSerSample_a2j.dat");
+      ObjectInputStream oin = new ObjectInputStream(fin);
+      Object obj = oin.readObject();
+      System.out.println("Read Java Object written by ACDK serialization: " + obj.toString());
+      JavaSerSample sample = (JavaSerSample)obj;
+      sample.getX();
+    }
+	  {
+      FileInputStream fin = new FileInputStream("JavaSerSampleArray_a2j.dat");
+      ObjectInputStream oin = new ObjectInputStream(fin);
+      Object obj = oin.readObject();
+      System.out.println("Read Java Object Array written by ACDK serialization: " + obj.toString());
+      JavaSerSample[] sample = (JavaSerSample[])obj;
+      sample[0].getX();
+    }
+  }
+  public static void main(String[] args)
+  {
+   try {
+    writeJavaSerSample();
+    readJavaSerSample();
+  } catch (Throwable ex) {
+    System.out.println("Exception in serialization: " + ex.getMessage());
+  }
+  }
+</source>
+<f> 
+Run ACDK and Java executable.
+In case the .dat files doesn't already exists, the executable will throw
+exceptions the first time running.
+
+</fl>
+.
+
+
+

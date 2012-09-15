@@ -1,0 +1,37 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+#pragma strict
+
+int globalVal = 42;
+class AClass 
+extends acdk.lang.Object
+{
+  static bool staticVar = true;
+  static int staticCopyOfGV = globalVal;
+  bool boolVar = true;
+  int copyOfGV = globalVal;
+  
+  int _avar = 3 + 2;
+  int _bvar;
+  AClass() { _bvar = 6; }
+}
+
+
+out.println(
+"===================================
+Test for accessing parent classes members
+");
+
+AClass cls = new AClass();
+if (cls._avar == 5 && 
+    cls._bvar == 6 && 
+    cls.boolVar == true && 
+    cls.copyOfGV == globalVal &&
+    AClass.staticVar == true &&
+    AClass.staticCopyOfGV == globalVal)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

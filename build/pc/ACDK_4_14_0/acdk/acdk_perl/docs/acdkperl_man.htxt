@@ -1,0 +1,42 @@
+%id: acdkperl_man
+%title: acdkperl Manual
+%shorttitle: acdkperl Manual
+%seealso: acdk_perl_dll_man
+%body:
+<htmlauto/>
+<pageintro>
+The acdkperl executable is just a smal wrapper to the embedded acdk 
+Perl interpreter.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Installation</jump1>
+Please refer to %ref[acdk_perl_dll_man].
+
+<jump1>Usage</jump1>
+<jump2>Command Line</jump2>
+<pre>
+acdkperl [acdk-flags] [perl file].
+</pre>
+acdkperl want as only argument a perl file 
+to interpret.
+If there is no argument, acdkperl read the 
+perl code to interpret from the stdin. 
+
+<pre>
+> acdkperl
+print "Hello acdkperl\n";
+[Ctrl-D]
+</pre>
+prints 
+
+<pre>"Hello acdkperl"
+</pre>
+on the screen.
+
+
+.
+
+
+

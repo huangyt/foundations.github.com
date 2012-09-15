@@ -1,0 +1,387 @@
+<html><body>
+<h1>Unit Test 2004-03-20T09:23:39</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 5; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#TransactionConsumer_Test.standard">TransactionConsumer_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#TransactionConsumer_Test.exception">TransactionConsumer_Test.exception</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#RollingFileAppender_Test.standard">RollingFileAppender_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.standard">Logging_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.parameters">Logging_Test.parameters</a> <br>
+</td></tr></table>
+<h2><a id="TransactionConsumer_Test.standard">TransactionConsumer_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][TransactionConsumer_Test.standard] Start Test
+[AUNIT:STRT] Start Test: TransactionConsumer_Test.standard
+I: Blub1
+I: Blub2
+]: Blub2
+[: Sub1
+I: Blub2a
+]: Blub2b
+I: Blub3
+I: Blub4
+E: An error
+2004-03-20T09:23:37|I|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:85|Blub3
+2004-03-20T09:23:37|I|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:86|Blub4
+2004-03-20T09:23:37|E|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:87|An error
+</pre>
+<h2><a id="TransactionConsumer_Test.exception">TransactionConsumer_Test.exception</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][TransactionConsumer_Test.standard] End Test
+[AUNIT:ENDT] End Test: TransactionConsumer_Test.standard
+[AUNIT:STRT][TransactionConsumer_Test.exception] Start Test
+[AUNIT:STRT] Start Test: TransactionConsumer_Test.exception
+[: Start LogTrans: Transact
+I: Blub2a
+]: Commit LogTrans (0 ms):Transact
+[: Start LogTrans: Transact 2
+I: Blub3
+I: Blub4
+~: Failed LogTrans (0 ms):Transact 2
+2004-03-20T09:23:37|[|3706|1024|acdk/util/logging/TransactionConsumer.cpp:67|Start LogTrans: Transact 2
+2004-03-20T09:23:37|I|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:109|Blub3
+2004-03-20T09:23:37|I|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:110|Blub4
+2004-03-20T09:23:37|~|3706|1024|acdk/util/logging/TransactionConsumer.cpp:83|Failed LogTrans (0 ms):Transact 2
+2004-03-20T09:23:37|[|3706|1024|acdk/util/logging/TransactionConsumer.cpp:67|Start LogTrans: Transact 2
+2004-03-20T09:23:37|I|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:109|Blub3
+2004-03-20T09:23:37|I|3706|1024|acdk_util_logging_TransactionConsumer_Test.cpp:110|Blub4
+2004-03-20T09:23:37|~|3706|1024|acdk/util/logging/TransactionConsumer.cpp:83|Failed LogTrans (0 ms):Transact 2
+</pre>
+<h2><a id="RollingFileAppender_Test.standard">RollingFileAppender_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][TransactionConsumer_Test.exception] End Test
+[AUNIT:ENDT] End Test: TransactionConsumer_Test.exception
+[AUNIT:STRT][RollingFileAppender_Test.standard] Start Test
+[AUNIT:STRT] Start Test: RollingFileAppender_Test.standard
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:37|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:38|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+F: Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_RollingFileAppender_Test.cpp:76|Blub
+</pre>
+<h2><a id="Logging_Test.standard">Logging_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][RollingFileAppender_Test.standard] End Test
+[AUNIT:ENDT] End Test: RollingFileAppender_Test.standard
+[AUNIT:STRT][Logging_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Logging_Test.standard
+F: Bla
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_Basics_Test.cpp:67|Bla
+2004-03-20T09:23:39|F|3706|1024|acdk_util_logging_Basics_Test.cpp:67|Bla
+F: Bla
+F: Blub
+</pre>
+<h2><a id="Logging_Test.parameters">Logging_Test.parameters</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Logging_Test.standard] End Test
+[AUNIT:ENDT] End Test: Logging_Test.standard
+[AUNIT:STRT][Logging_Test.parameters] Start Test
+[AUNIT:STRT] Start Test: Logging_Test.parameters
+E: A Message with 1 parameters: String=[<string value>]; 
+E: A Message with 1 parameters: int=[42]; 
+E: A Message with 1 parameters: Comparable=[42]; 
+E: A Message with 1 parameters: boolean=[true]; 
+E: A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+E: A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+</pre>
+</body></html>

@@ -1,0 +1,27 @@
+%id: acdkx_com_install
+%title: How to Install acdkx_com
+%shorttitle: Install
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+To use ACDK Objects from COM the COM server has to be registered.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Installation</jump1>
+You can use regsvr32 to registere the DLL as COM server:
+<code>
+regsvr32 acdkx_com_d.dll
+</code>
+
+<jump1>De-Installation</jump1>
+To unregister the ACDK COM server just run 
+regsvr32 with flag /u
+<code>
+regsvr32 /u acdkx_com_d.dll
+</code>
+.
+
+

@@ -1,0 +1,147 @@
+%id: acdk_aal_ip
+%title: AAL as Intentional Programming System
+%shorttitle: Intentional Programming
+%body:
+<chapterline/>
+<pageintro>
+How to use AAL as Intentional Programming System.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Topics</jump1>
+<fl>
+<f> Multipass Parser.
+<f> Parser allows ambiguitys.
+<f> Parsing allows to modify the Parse Tree.
+<f> Nodes has Attributes to identify the level of
+    Parse/Interpret/Compile pass.
+</fl>
+
+<jump1>Internal Architecture</jump1>
+Language definition levels:
+<fl>
+<f> Abstract Parse Syntax definition (ParseNode).
+    -> generates an Abstract Code Tree (Code).
+    
+<f> Code
+    -> Semantic analysis.
+    -> mapps semantic to Object Representation (ClazzInfo).
+    -> generates SymbolTable .
+    -> generates OpCodes.
+<f> OpCode.
+    -> stack based operations.
+    -> can be executed using ClazzInfo.
+</fl>
+
+<jump1>Builin Attributes</jump1>
+<rs>
+String s = new [StackAlloc] String("asdf");
+</rs>
+
+<jump1>User defined Attributes</jump1>
+<rs>
+void foo(int i)
+{
+}
+[ 
+  compiler.findNode("FunctionDecl").getType().attatchAttribute("Key", "Value);
+]
+</rs>
+
+<jump1>Type Library interface</jump1>
+<rs>
+[
+  compiler.loadTypeLib(new JavaLib("java/net"));
+  // all classes of java.net are available
+]
+java.net.SocketServer ss = new java.net.SocketServer();
+
+</rs>
+<jump1>Extend Language</jump1>
+<rs>
+[ 
+  compiler.pushGrammar(); // make new scope block for the grammar
+  compiler.registerRule("RegExpExpr", new RegExp("Expression [ '=~' REGEX_EXPRESSION ]" )); 
+  compiler.replaceRule("Expression", "RegExpExpr");
+]  // now this new Grammar element is available
+  ("asdf" + b) =~ /asdf/;
+[
+  // remove the Grammar defintion.
+  compiler.popGrammar();
+]
+</rs>
+<jump1>Language switch</jump1>
+
+<rs>
+[ 
+  compiler.registerToken("END_OF_LISP", "<<EndOfLisp");
+  compiler.replaceGrammarUntil(new LispInterpreter(), "END_OF_LISP");
+]
+ (defun x (a b) (+ a b))
+<<EndOfLisp
+
+acdk.lang.System.println("now back in ACDK");
+// using the method defined in lisp
+acdk.lang.System.println(x(1, 2));
+</rs>
+
+<jump1>Code Weafer</jump1>
+<rs>
+[
+  Code logAdder = new LogInOutAdder(orgRule: compiler.getRule("FunctionBody"), classname: "MyClass", funcname: "foo");
+  compiler.replaceRule("FunctionBody", locAdder);
+]
+
+class MyClass
+{
+  public void bar() {}
+  public int foo(int i) 
+  { 
+    // LogInOutAdder whould insert a statement to print out something like "MyClass.foo(42) entered"
+    return i + 1;
+  }
+}
+
+</rs>
+<jump1>Implementation Issues</jump1>
+<jump2>Multipass Parser</jump2>
+PassLevel:
+<fl>
+<f> Abstract Syntax Tree (AST): Context Free Tree with Rules and Token
+<f> Language Syntax Tree (LST): AST, but fixed ambiguities.
+<f> Semantik Resolution Tree (SRT): Based on the LST Check and fix semantic issues.
+    For example the construct
+<rs>Object o = "asdf";
+    o.length(); // this line will be explained
+</rs>
+    Will translated from Rule "Expression Operator('.') Function" to 
+    "Expression" DmiObjFuncCall Function in case the o is a Object
+    available via DMI functionality.
+    Inlining, static overloading, etc. may be resolved here.
+<f> Interpret Syntax Tree (IST): Does interpret the code.
+<f> CodeGen Syntax Tree (CST): Does generate byte code or asm.
+</fl>
+
+<rs>
+class AClass 
+{
+  void foo();
+} // commit point to generate LST here fore the class Rule.
+
+[ // AClass as LST definition is alrady available 
+  compiler.dosomething();
+  // has to be interpreted.
+]
+
+</rs>
+
+Maybe the transforming from Source to AST to LST to IST and CST may
+be restarted by one Rule, because it modified the ST.
+
+
+<jump1>Links</jump1>
+<fl>
+<f> %ref[http://www.ccs.neu.edu/home/lieber/connection-to-aop.html, http://www.ccs.neu.edu/home/lieber/connection-to-aop.html].
+</fl>
+.

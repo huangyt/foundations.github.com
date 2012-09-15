@@ -1,0 +1,113 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acidbg
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT  $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) $(WX_LIBS) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_cfgscript -lacdk_aci -lacdk_aci_guidbg -lacdk_wx 
+CFLAGSX = $(WX_CFLAGS)
+LDFLAGSX = 
+
+SOURCES= 	acdk/tools/acidbg/acidbg.cpp \
+
+HEADER= 	acdk/tools/acidbg/AciDbgFrame.h \
+
+OBJECTS= 	../tobj/acidbg/acidbg.o \
+
+
+FINALTARGET=../../bin/acidbg
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/acidbg: $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../bin/acidbg $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acidbg.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acidbg/acidbg.o: acdk/tools/acidbg/acidbg.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acidbg/acidbg.o -c acdk/tools/acidbg/acidbg.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acidbg $(OBJECTS)
+
+  

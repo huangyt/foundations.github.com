@@ -1,0 +1,114 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="instanceof">
+<title>CfgScript Instanceof Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Instanceof
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | Instanceof | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Instanceof Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Instanceof Expressions</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | Instanceof | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p>
+<p class="PageIntro">
+instanceof check if an object is type of a class
+</p>
+
+<br>
+<br>
+<pre>
+InstanceOfExpression
+: Expression 'instanceof' TypeName
+;
+
+</pre>
+<br>
+Please refer also to <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Variable Declaration</a>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> AClass
+extends acdk.lang.Object
+implements acdk.lang.Comparable
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> _numb;
+  <B><FONT COLOR="#228B22">public</FONT></B> AClass(<B><FONT COLOR="#228B22">int</FONT></B> number) { _numb = number; }
+  <B><FONT COLOR="#228B22">int</FONT></B> compareTo(Object other) 
+  { 
+    <B><FONT COLOR="#A020F0">return</FONT></B> _numb - other._numb; 
+  }
+}
+
+Integer cls = <B><FONT COLOR="#A020F0">new</FONT></B> Integer(42);
+acdk.lang.Comparable comp1;
+{
+  comp1 = <B><FONT COLOR="#A020F0">new</FONT></B> AClass(42);
+}
+
+<B><FONT COLOR="#0000FF">if</FONT></B> ((comp1 instanceof AClass) == false)
+  <B><FONT COLOR="#A020F0">throw</FONT></B> <B><FONT COLOR="#A020F0">new</FONT></B> acdk.tools.aunit.TestException(<B><FONT COLOR="#BC8F8F">&quot;instanceof seems not to work 1&quot;</FONT></B>);
+acdk.lang.Comparable comp2 = <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;bla&quot;</FONT></B>);
+<B><FONT COLOR="#0000FF">if</FONT></B> ((comp2 instanceof acdk.lang.Comparable) == false)
+  <B><FONT COLOR="#A020F0">throw</FONT></B> <B><FONT COLOR="#A020F0">new</FONT></B> acdk.tools.aunit.TestException(<B><FONT COLOR="#BC8F8F">&quot;instanceof seems not to work 2&quot;</FONT></B>);
+
+comp1.compareTo(<B><FONT COLOR="#A020F0">new</FONT></B> AClass(cls)); <I><FONT COLOR="#B22222">// convert it automatically from Integer to int
+</FONT></I>out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST OK&quot;</FONT></B>);
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | Instanceof | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,215 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>CfgScript Literal Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Literals
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Literals | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Literal Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Literal Expressions</h1> -->
+<p class="curchapterline"> | Literals | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p>
+<p class="PageIntro">
+Literals are hard coded values of basic or component types.
+</p>
+
+<br>
+<a name="jumptable29"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#LiteralExpression"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;LiteralExpression</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#BoolLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;BoolLiteral</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#IntegerLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;IntegerLiteral</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#FloatLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FloatLiteral</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#NilLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;NilLiteral</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#StringLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;StringLiteral</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#CharLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CharLiteral</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<br>
+<h2><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="LiteralExpression">LiteralExpression</a></h2>
+<pre>
+LiteralExpression
+: <a  href="acdk_cfgscript_hb_lang_expr_literal.html#IntegerLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;IntegerLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_literal.html#BoolLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BoolLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_literal.html#FloatLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;FloatLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_literal.html#NilLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;NilLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_literal.html#StringLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;StringLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_literal.html#CharLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CharLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_types_arrays.html#ArrayLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ArrayLiteral</a>
+| <a  href="acdk_cfgscript_hb_lang_types_props.html#PropsLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;PropsLiteral</a>
+;
+</pre>
+<br>
+<h3><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="BoolLiteral">BoolLiteral</a></h3>
+<pre>
+BoolLiteral
+: 'true'
+| 'false'
+;
+</pre>
+<br>
+<br>
+<h3><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="IntegerLiteral">IntegerLiteral</a></h3>
+<pre>
+IntegerLiteral
+: '0x'(0-F)+ 
+| 0(0-7)+ 
+| (0-9)+ [IntegerLiteralTypeSuffix]
+;
+
+IntegerLiteralTypeSuffix
+: 'b' 
+| 'B' 
+| 's' 
+| 'S' 
+| 'i'
+| 'I' 
+| 'l' 
+| 'L'
+;
+</pre>
+<br>
+<h3><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FloatLiteral">FloatLiteral</a></h3>
+<pre>
+FloatLiteral
+: (0-9)+ '.' (0-9)+[ 'e' (0-9)+] [d|D|f|F]
+;
+</pre>
+<br>
+<h3><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="NilLiteral">NilLiteral</a></h3>
+<pre>
+NilLiteral
+: 'Nil'
+| 'nil'
+| 'null'
+;
+</pre>
+A Nil literal represends an uninitialized (via <code>new</code>) Object variable.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+acdk.lang.Object obj;
+obj == Nil;
+obj = <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>);
+obj != Nil;
+obj = Nil; <I><FONT COLOR="#B22222">// free reference to object
+</FONT></I>obj == Nil;
+</PRE></td></tr></table>
+<br>
+<br>
+<h3><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="StringLiteral">StringLiteral</a></h3>
+String literals in CfgScript followings the rules of String in C/C++ 
+with following exceptions:<br>
+<ul class="FeatureList">
+<li class="Feature"> Automatic String concanating is not supported yet.<br>
+<li class="Feature"> String literals can be in multiple lines. The resulting string contains the new lines
+</ul>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+s1 = <B><FONT COLOR="#BC8F8F">&quot;Hello\nWorld&quot;</FONT></B>;
+s2 = <B><FONT COLOR="#BC8F8F">&quot;Hello
+World&quot;</FONT></B>;
+s1.equals(s2) == true;
+</PRE></td></tr></table>
+CfgScript supports also unicode characters using <code>\uxxxx</code> escape sequence.<br>
+The <code>xxxx</code> is a hexdecimal number identifying the character.<br>
+Please refer also to <a  href="http://www.unicode.org/charts/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;charts</a>.<br>
+<br>
+A sample converting &uuml; &auml; &ouml; to upper case:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+String s = <B><FONT COLOR="#BC8F8F">&quot;ue=\u00fc; ae=\u00e4; oe=\u00f6&quot;</FONT></B>; <I><FONT COLOR="#B22222">// 
+</FONT></I>String us = s.toUpperCase();
+out.println(<B><FONT COLOR="#BC8F8F">&quot;lc: &quot;</FONT></B> + s + <B><FONT COLOR="#BC8F8F">&quot;; uc: &quot;</FONT></B> + us + <B><FONT COLOR="#BC8F8F">&quot;; = &quot;</FONT></B> + <B><FONT COLOR="#BC8F8F">&quot;UE=\u00dc; AE=\u00c4; OE=\u00d6&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+The standard C escape codes (<code>"\n\t\r\b"</code>) are also supported.<br>
+<br>
+With the <a  href="acdk_cfgscript_hb_lang_expr_backtick.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BacktickOperator</a> it
+is possible to expand variable inline in the string, similar to perl, tcl or sh.<br>
+<br>
+<h3><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CharLiteral">CharLiteral</a></h3>
+Single Character are quoted with single '.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">char</FONT></B> c1 = <B><FONT COLOR="#BC8F8F">'c'</FONT></B>;
+<B><FONT COLOR="#228B22">char</FONT></B> c2 = <B><FONT COLOR="#BC8F8F">'\0'</FONT></B>;
+<B><FONT COLOR="#228B22">char</FONT></B> c3 = <B><FONT COLOR="#BC8F8F">'A'</FONT></B>;
+</PRE></td></tr></table>
+<br>
+Unicode characters are supported using <code>\uxxxx</code> escape sequence.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+UnicodeCharacter.toUpperCase('\u00e4') == '\u00c4'
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable29"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_0_types_15_ExtIntegerLiterals_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_0_types_15_ExtIntegerLiterals_Test_csf</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_0_types_20_Float_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_0_types_20_Float_Test_csf</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_0_types_23_Character_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_0_types_23_Character_Test_csf</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_0_types_30_Arrays_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_0_types_30_Arrays_Test_csf</a>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Literals | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | <a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a> | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

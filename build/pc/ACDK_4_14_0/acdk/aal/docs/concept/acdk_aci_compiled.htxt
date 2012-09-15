@@ -1,0 +1,76 @@
+%id: acdk_aci_compiled
+%title: Compiled Format
+%shorttitle: Compiled Format
+%body:
+<pageintro>
+Thinking about compiled format
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+Name and extentions: Acdk compiled class 
+<jump1>Requirements</jump1>
+<fl>
+<f> The acc should be laoded fast
+<f> Loading should be possible in multiple steps:
+    - Loading type description (compiling)
+    - Loading compiler plugins (only for top level EvalBlocks) (compiling)
+    - Loading executable code (execution)
+<f> The information inside acc should also contains optional AST information.
+<f> The information inside acc should also contains optional source.
+</fl>
+<jump1>Format</jump1>
+<jump2>Header information</jump2>
+
+<jump2>Format of Type information</jump1>
+
+<pre>
+struct ACCHeader 
+{
+  int magic;
+  int version;
+}
+
+struct CompiledClass
+{
+  ACCHeader header;
+  // offset to the refTableOffset;
+  int refTableOffset;
+  ClassContent classContent;
+  
+};
+
+struct ClassContent 
+{
+// 0 terminated list of type definitions
+  RefIndex startOfTypes;
+  RefIndex startOfEvalBlock;
+};
+
+RefIndex[] types; // 0 terminated list of TypeInfo
+RefIndex[] evalBlocks; // 0 terminated list of EvalBlock
+
+evalBlock is ClassContent;
+
+
+
+struct TypeInfo
+{
+  int flags; // see MetaInfo
+  int attributeResRef;
+};
+
+
+struct AttributeRes
+{
+  int flags; // ???
+  SerializedObj value;
+};
+
+typedef RefTableEntry int; // contains byte offset in current file
+
+
+</pre>
+
+.

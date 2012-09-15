@@ -1,0 +1,8 @@
+*.deps
+lib
+projects
+targets
+lisp
+*.cmd
+acdkx
+general

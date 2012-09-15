@@ -1,0 +1,6 @@
+*.deps
+*.o
+*.obj
+*.sbr
+*.tmp
+ACDK.class

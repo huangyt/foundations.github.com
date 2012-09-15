@@ -1,0 +1,120 @@
+%id: acdk_cfgscript_hb_lang_stmt_loop
+%title: CfgScript Loop Statements
+%shorttitle: Loop Statements
+%keywords: for, while, do, foreach
+%body:
+<chapterline/>
+<pageintro>
+Various loops, like do/while, while, for, foreach are available
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>LoopStatement</jump1>
+<pre>
+LoopStatement
+: %ref[WhileStatement, #WhileStatement]
+| %ref[DoWhileStatement, #DoWhileStatement]
+| %ref[ForStatement, #ForStatement]
+| %ref[ForEachStatement, #ForEachStatement]
+;
+</pre>
+
+<jump3>WhileStatement</jump3>
+<pre>
+WhileStatement
+: 'while' '(' %ref[Expression, acdk_cfgscript_hb_lang_expr] ')' 
+              %ref[Statement, acdk_cfgscript_hb_lang_stmt]
+;
+</pre>
+Sample:
+<source>
+int i = 1;
+while (i > 1 && i < 5)
+{
+  if (i == 2)
+  {
+    i = 3;
+    continue;
+  }
+  if (i == 4)
+    break;
+  i = i + 1;
+}
+</source>
+
+<jump3>DoWhileStatement</jump3>
+<pre>
+DoWhileStatement
+: 'do' %ref[Statement, acdk_cfgscript_hb_lang_stmt] 
+  'while' '(' %ref[Expression, acdk_cfgscript_hb_lang_expr] ')' ';'
+;
+</pre>
+
+Sample:
+<source>
+StringBuffer sb = new StringBuffer("");
+do {
+  sb.append(" ");
+} while (sb.length() < 10);
+</source>
+<jump3>ForStatement</jump3>
+<pre>
+ForStatement
+: 'for' '(' (VarDecl | %ref[Expression, acdk_cfgscript_hb_lang_expr]) ';' 
+                       %ref[Expression, acdk_cfgscript_hb_lang_expr] ';' 
+                       %ref[Expression, acdk_cfgscript_hb_lang_expr] ')' 
+        %ref[Statement, acdk_cfgscript_hb_lang_stmt]
+;
+</pre>
+<source>
+for (int i = 0; i < 5; ++i)
+{
+  if (i < 2)
+    continue;
+  if (i > 3)
+    break;
+}
+</source>
+
+
+<jump3>ForEachStatement</jump3>
+<pre>
+ForStatement
+: 'foreach' '(' VarDecl 'in' %ref[Expression, acdk_cfgscript_hb_lang_expr] ')' 
+      %ref[Statement, acdk_cfgscript_hb_lang_stmt]
+</pre>
+
+The Expression has to be one of following types:
+<fl>
+<f> %cref[acdk::util::Collection]
+<f> %cref[acdk::util::Iterator]
+<f> ObjectArray
+<f> BasicArray (boolArray, intArray, etc.)
+</fl>
+In all other cases the the loop will initialized with the Expression
+value and will looping once with this value.
+
+Sample:
+<source>
+ObjectArray array = [ 1, 2, 3, 4, 5, 6, 7 ];
+
+bool reachedEnd = false;
+foreach (i in array)
+{
+ 
+  if (i == 2)
+    continue;
+  out.println("foreach: " + i);
+  if (i == 4)
+  {
+    reachedEnd = true;
+    break;
+  }
+  if (i == 5)
+    reachedEnd = false;
+}
+</source>
+
+.

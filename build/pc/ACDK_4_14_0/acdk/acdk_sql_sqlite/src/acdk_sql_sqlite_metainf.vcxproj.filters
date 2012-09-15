@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{f8fe64dd-a95b-4412-8f2a-5e6697c2c975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql">
+      <UniqueIdentifier>{8480cb6e-25b4-475c-831d-b91caf4de930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql\sqlite">
+      <UniqueIdentifier>{694c31a4-459a-46d7-ac86-62b727aec0b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql\sqlite\sqlite_metainf">
+      <UniqueIdentifier>{7d20c03b-2e82-43df-a7c7-8ecf193c09e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\sql\sqlite\sqlite_metainf\sqlite_metainf_ext.cpp">
+      <Filter>acdk\sql\sqlite\sqlite_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\sqlite_metainf\sqlite_metainf_ext1.cpp">
+      <Filter>acdk\sql\sqlite\sqlite_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\sqlite_metainf\sqlite_metainf_ext2.cpp">
+      <Filter>acdk\sql\sqlite\sqlite_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

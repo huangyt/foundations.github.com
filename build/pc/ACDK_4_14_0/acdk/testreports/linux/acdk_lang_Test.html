@@ -1,0 +1,1578 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-04-23T12:53:06</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 93; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#System_Test.standardProperties">System_Test.standardProperties</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#CmdLineParser_Test.standard">CmdLineParser_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#CmdLineParser_Test.strip">CmdLineParser_Test.strip</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ExtObject_Test.standard">ExtObject_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ExtObject_Test.arrays">ExtObject_Test.arrays</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Runtime_Test.standard">Runtime_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Runtime_Test.timout">Runtime_Test.timout</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Runtime_Test.signalEnventHandler">Runtime_Test.signalEnventHandler</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Runtime_Test.stopResume">Runtime_Test.stopResume</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Number_Test.parseInts">Number_Test.parseInts</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Number_Test.parseFloats">Number_Test.parseFloats</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Number_Test.parseNumbers">Number_Test.parseNumbers</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Float_Test.standard">Float_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Float_Test.toAndFromString">Float_Test.toAndFromString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Double_Test.standard">Double_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Double_Test.toAndFromString">Double_Test.toAndFromString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Double_Test.limits">Double_Test.limits</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Integer_Test.standard">Integer_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Integer_Test.toAndFromString">Integer_Test.toAndFromString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Integer_Test.toHexString">Integer_Test.toHexString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Integer_Test.toOctalString">Integer_Test.toOctalString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Integer_Test.toBinaryString">Integer_Test.toBinaryString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Integer_Test.limits">Integer_Test.limits</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClassLoader_Test.findExistant">ClassLoader_Test.findExistant</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClassLoader_Test.findToLoad">ClassLoader_Test.findToLoad</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClassLoader_Test.unicode">ClassLoader_Test.unicode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClassLoader_Test.aliase">ClassLoader_Test.aliase</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ThreadLocal_Test.standard">ThreadLocal_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test2.ProducerConsumer">Thread_Test2.ProducerConsumer</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test2.interruptSleep">Thread_Test2.interruptSleep</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test2.interruptWait">Thread_Test2.interruptWait</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test2.interruptJoin">Thread_Test2.interruptJoin</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.core">Thread_Test.core</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.standard">Thread_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.threadLocalStorage">Thread_Test.threadLocalStorage</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.runnableRecursive">Thread_Test.runnableRecursive</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.ProducerConsumer">Thread_Test.ProducerConsumer</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.refCounting">Thread_Test.refCounting</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Thread_Test.threadStress">Thread_Test.threadStress</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.standard">Throwable_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.derived">Throwable_Test.derived</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.throwInstance">Throwable_Test.throwInstance</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.throwNullPointer">Throwable_Test.throwNullPointer</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.throwThreadNullPointer">Throwable_Test.throwThreadNullPointer</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.throwThreadUnhandledNullPointer">Throwable_Test.throwThreadUnhandledNullPointer</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.divideByZeroTest">Throwable_Test.divideByZeroTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.stackOverflowException">Throwable_Test.stackOverflowException</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Throwable_Test.linuxSignalTest">Throwable_Test.linuxSignalTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.standard">StringBuffer_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.equalsTest">StringBuffer_Test.equalsTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.replaceChar">StringBuffer_Test.replaceChar</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.replaceString">StringBuffer_Test.replaceString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.fromByteArray">StringBuffer_Test.fromByteArray</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.streaming">StringBuffer_Test.streaming</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StringBuffer_Test.appending">StringBuffer_Test.appending</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.defaultString">String2_Test.defaultString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.isEmpty">String2_Test.isEmpty</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.isBlank">String2_Test.isBlank</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.isType">String2_Test.isType</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.contains">String2_Test.contains</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.indexOfAny">String2_Test.indexOfAny</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.join">String2_Test.join</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.format">String2_Test.format</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String2_Test.distance">String2_Test.distance</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.standard">String_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.equalsTest">String_Test.equalsTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.find">String_Test.find</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.findLast">String_Test.findLast</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.startsWith">String_Test.startsWith</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.endsWith">String_Test.endsWith</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.regionMatches">String_Test.regionMatches</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.replaceChar">String_Test.replaceChar</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.replaceString">String_Test.replaceString</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.toLowerAndUpper">String_Test.toLowerAndUpper</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.fromByteArray">String_Test.fromByteArray</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.operatorMultiply">String_Test.operatorMultiply</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.basicUnicode">String_Test.basicUnicode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.Utf8Samples">String_Test.Utf8Samples</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#String_Test.intern">String_Test.intern</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Character_Test.standard">Character_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Character_Test.invalidLiteral">Character_Test.invalidLiteral</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Character_Test.unicode">Character_Test.unicode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Character_Test.misc">Character_Test.misc</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectArray_Test.standard">ObjectArray_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectArray_Test.testClone">ObjectArray_Test.testClone</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectArray_Test.iteratoren">ObjectArray_Test.iteratoren</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectArray_Test.interfaces">ObjectArray_Test.interfaces</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectArray_Test.find">ObjectArray_Test.find</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectArray_Test.className">ObjectArray_Test.className</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectBase_Test.badCast">ObjectBase_Test.badCast</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectBase_Test.perfIn">ObjectBase_Test.perfIn</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectBase_Test.inOutParams">ObjectBase_Test.inOutParams</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ObjectBase_Test.serializedClone">ObjectBase_Test.serializedClone</a> <br>
+</td></tr></table>
+<h2><a id="System_Test.standardProperties">System_Test.standardProperties</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][System_Test.standardProperties] Start Test
+[AUNIT:STRT] Start Test: System_Test.standardProperties
+ACDK is running with following parameter:
+acdk.vm.version: 41400
+acdk.vm.vendor: Ing.Buero Kommer, Artefaktur
+acdk.vm.name: ACDK 4.14.0
+acdk.io.tmpdir: Nil
+user.name: roger
+user.home: /home/roger
+line.separator: 
+
+os.name: linux
+os.arch: i386
+file.separator: /
+path.separator: :
+user.language: en
+user.region: US
+user.variant: 
+user.encoding: utf-8
+
+</pre>
+<h2><a id="CmdLineParser_Test.standard">CmdLineParser_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][System_Test.standardProperties] End Test
+[AUNIT:ENDT] End Test: System_Test.standardProperties
+[AUNIT:STRT][CmdLineParser_Test.standard] Start Test
+[AUNIT:STRT] Start Test: CmdLineParser_Test.standard
+	-thirdopt 	With firstopt set THIRD
+	-firstopt 	With firstopt set FIRST
+	/secondval <value>	set VAL2
+	-firstval <value>	set VAL1
+	-thirdval <value>	set VAL3
+	/secondopt 	With firstopt set FIRST
+[AUNIT:SUCC]: CmdLineParser_Test.standard:
+acdk_lang_CmdLineParser_Test.cpp(73): props->getProperty("VAL1") != Nil && props->getProperty("VAL1")->equals("value1") == true
+[AUNIT:SUCC]: CmdLineParser_Test.standard:
+acdk_lang_CmdLineParser_Test.cpp(74): props->getProperty("SECOND") != Nil
+[AUNIT:SUCC]: CmdLineParser_Test.standard:
+acdk_lang_CmdLineParser_Test.cpp(75): props->getProperty("THIRD") == Nil
+</pre>
+<h2><a id="CmdLineParser_Test.strip">CmdLineParser_Test.strip</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][CmdLineParser_Test.standard] End Test
+[AUNIT:ENDT] End Test: CmdLineParser_Test.standard
+[AUNIT:STRT][CmdLineParser_Test.strip] Start Test
+[AUNIT:STRT] Start Test: CmdLineParser_Test.strip
+[AUNIT:SUCC]: CmdLineParser_Test.strip:
+acdk_lang_CmdLineParser_Test.cpp(92): props->getProperty("VAL2") != Nil && props->getProperty("VAL2")->equals("value 2") == true
+[AUNIT:SUCC]: CmdLineParser_Test.strip:
+acdk_lang_CmdLineParser_Test.cpp(94): args->length() == 3
+</pre>
+<h2><a id="ExtObject_Test.standard">ExtObject_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][CmdLineParser_Test.strip] End Test
+[AUNIT:ENDT] End Test: CmdLineParser_Test.strip
+[AUNIT:STRT][ExtObject_Test.standard] Start Test
+[AUNIT:STRT] Start Test: ExtObject_Test.standard
+[AUNIT:SUCC]: ExtObject_Test.standard:
+acdk_lang_ExtObject_Test.cpp(79): i == 42
+[AUNIT:SUCC]: ExtObject_Test.standard:
+acdk_lang_ExtObject_Test.cpp(82): s->equals("42") == true
+</pre>
+<h2><a id="ExtObject_Test.arrays">ExtObject_Test.arrays</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ExtObject_Test.standard] End Test
+[AUNIT:ENDT] End Test: ExtObject_Test.standard
+[AUNIT:STRT][ExtObject_Test.arrays] Start Test
+[AUNIT:STRT] Start Test: ExtObject_Test.arrays
+[AUNIT:SUCC]: ExtObject_Test.arrays:
+acdk_lang_ExtObject_Test.cpp(100): sa->length() == 1
+[AUNIT:SUCC]: ExtObject_Test.arrays:
+acdk_lang_ExtObject_Test.cpp(103): sa[0]->getI() == 41
+[AUNIT:SUCC]: ExtObject_Test.arrays:
+acdk_lang_ExtObject_Test.cpp(104): sa[1]->getI() == 42
+</pre>
+<h2><a id="Runtime_Test.standard">Runtime_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ExtObject_Test.arrays] End Test
+[AUNIT:ENDT] End Test: ExtObject_Test.arrays
+[AUNIT:STRT][Runtime_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Runtime_Test.standard
+starting: ls  /home/roger/artefaktur/acdk
+Exec ls  /home/roger/artefaktur/acdk std: aal
+acdk_all.bcc
+acdk_all.bsd
+acdk_all.dsw
+acdk_all.linux
+acdk_all.nmake
+acdk_all.nmake7
+acdk_all.sunos-gcc
+acdk_all.vc6.compile.cmd
+acdk_boot
+acdk_core
+acdk_dmi
+acdk_doc_urlify
+acdkenv.cmd
+acdkenv.linux
+acdkenv.linux.~1.1.~
+acdk_globals.bcc
+acdk_globals.bsd
+acdk_globals.darwin
+acdk_globals.kylix
+acdk_globals.linux
+acdk_globals.mingw
+acdk_globals.nmake
+acdk_globals.nmake7
+acdk_globals.sunos-gcc
+acdk_globals.sunos-ws6
+acdk_java
+acdk_lisp
+acdk_make
+acdk_net
+acdk_perl
+acdk_python
+acdk_sql
+acdk_sql_odbc
+acdk_sql_sqlite
+acdk_tcl
+acdk_text
+acdk_tools
+acdk_tools_java2acdk
+acdk_tools_java2cpp
+acdk_tools_modtests
+acdk_tutorial
+acdk_vfile
+acdk_wx
+acdkx_com
+acdkx_corba
+acdk_xml
+acdkx_orb
+acdkx_rdmi
+acdkx_servlet
+acdkx_sol
+bin
+build.csf
+cfg
+ChangeLog
+CVS
+distrib
+DistribInfo
+docs
+DONE
+include
+includeacdksample.cpp
+index.htxt
+make_all.log
+make_bcc.cmd
+Makefile
+Makefile.linux
+make_mod7.cmd
+make_mod.cmd
+page.outhttp.tmp
+page.outhurl.tmp
+README
+startvstudio2005expr.cmd
+startvstudio6.cmd
+startvstudio7.cmd
+strace.log
+testreports
+TODO
+
+Exec ls  /home/roger/artefaktur/acdk err: 
+</pre>
+<h2><a id="Runtime_Test.timout">Runtime_Test.timout</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Runtime_Test.standard] End Test
+[AUNIT:ENDT] End Test: Runtime_Test.standard
+[AUNIT:STRT][Runtime_Test.timout] Start Test
+[AUNIT:STRT] Start Test: Runtime_Test.timout
+start cmd: /home/roger/artefaktur/acdk/bin/acdkcfgscript -e "while(true) { out.println((new acdk.util.SysDate()).toString()); Thread.sleep(250); }"
+process->waitFor(3000): 4096
+[AUNIT:SUCC]: Runtime_Test.timout:
+acdk_lang_Runtime_Test.cpp(161): ret == ProcessStillRunning
+Exec /home/roger/artefaktur/acdk/bin/acdkcfgscript -e "while(true) { out.println((new acdk.util.SysDate()).toString()); Thread.sleep(250); }" std: 2005-04-23T12:50:08
+2005-04-23T12:50:08
+2005-04-23T12:50:09
+2005-04-23T12:50:09
+2005-04-23T12:50:09
+2005-04-23T12:50:09
+2005-04-23T12:50:10
+2005-04-23T12:50:10
+2005-04-23T12:50:10
+2005-04-23T12:50:10
+2005-04-23T12:50:11
+
+Exec /home/roger/artefaktur/acdk/bin/acdkcfgscript -e "while(true) { out.println((new acdk.util.SysDate()).toString()); Thread.sleep(250); }" err: 
+exit status: 4096
+</pre>
+<h2><a id="Runtime_Test.signalEnventHandler">Runtime_Test.signalEnventHandler</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Runtime_Test.timout] End Test
+[AUNIT:ENDT] End Test: Runtime_Test.timout
+[AUNIT:STRT][Runtime_Test.signalEnventHandler] Start Test
+[AUNIT:STRT] Start Test: Runtime_Test.signalEnventHandler
+</pre>
+<h2><a id="Runtime_Test.stopResume">Runtime_Test.stopResume</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Runtime_Test.signalEnventHandler] End Test
+[AUNIT:ENDT] End Test: Runtime_Test.signalEnventHandler
+[AUNIT:STRT][Runtime_Test.stopResume] Start Test
+[AUNIT:STRT] Start Test: Runtime_Test.stopResume
+start cmd: /home/roger/artefaktur/acdk/bin/acdkcfgscript -e "for (int i = 0; i < 10; ++i) { out.println((new acdk.util.SysDate()).toString()); Thread.sleep(250); }"
+Thread now suspended for 2 seconds
+Thread now resume
+Exec  std: 2005-04-23T12:50:11
+2005-04-23T12:50:12
+2005-04-23T12:50:12
+2005-04-23T12:50:12
+2005-04-23T12:50:12
+2005-04-23T12:50:13
+2005-04-23T12:50:13
+2005-04-23T12:50:13
+2005-04-23T12:50:13
+2005-04-23T12:50:14
+
+Exec  err: 
+</pre>
+<h2><a id="Number_Test.parseInts">Number_Test.parseInts</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Runtime_Test.stopResume] End Test
+[AUNIT:ENDT] End Test: Runtime_Test.stopResume
+[AUNIT:STRT][Number_Test.parseInts] Start Test
+[AUNIT:STRT] Start Test: Number_Test.parseInts
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(70): Number::decodeIntegerNumber("1234", tryOnly, typeChar, ignoreTrailing) == 1234
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(71): Number::decodeIntegerNumber("-1234", tryOnly, typeChar, ignoreTrailing) == -1234
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(73): Number::decodeIntegerNumber("-1234s", tryOnly, typeChar, ignoreTrailing) == -1234
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(74): typeChar == 's'
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(76): Number::decodeIntegerNumber("-1234i", tryOnly, typeChar, ignoreTrailing) == -1234
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(77): typeChar == 'i'
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(80): Number::decodeIntegerNumber("-1234l", tryOnly, typeChar, ignoreTrailing) == -1234
+[AUNIT:SUCC]: Number_Test.parseInts:
+acdk_lang_Number_Test.cpp(81): typeChar == 'l'
+</pre>
+<h2><a id="Number_Test.parseFloats">Number_Test.parseFloats</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 6  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Number_Test.parseInts] End Test
+[AUNIT:ENDT] End Test: Number_Test.parseInts
+[AUNIT:STRT][Number_Test.parseFloats] Start Test
+[AUNIT:STRT] Start Test: Number_Test.parseFloats
+[AUNIT:SUCC]: Number_Test.parseFloats:
+acdk_lang_Number_Test.cpp(93): Number::parseFloatNumber("1234", tryOnly, typeChar, ignoreTrailing) == 1234
+[AUNIT:SUCC]: Number_Test.parseFloats:
+acdk_lang_Number_Test.cpp(94): Number::parseFloatNumber("-1234", tryOnly, typeChar, ignoreTrailing) == -1234
+[AUNIT:SUCC]: Number_Test.parseFloats:
+acdk_lang_Number_Test.cpp(95): Number::parseFloatNumber("-1234.32", tryOnly, typeChar, ignoreTrailing) == -1234.32
+[AUNIT:SUCC]: Number_Test.parseFloats:
+acdk_lang_Number_Test.cpp(96): Number::parseFloatNumber("-1234.32e10", tryOnly, typeChar, ignoreTrailing) == -1234.32e10
+[AUNIT:SUCC]: Number_Test.parseFloats:
+acdk_lang_Number_Test.cpp(97): Number::parseFloatNumber("-1234.32e-10", tryOnly, typeChar, ignoreTrailing) == -1234.32e-10
+[AUNIT:SUCC]: Number_Test.parseFloats:
+acdk_lang_Number_Test.cpp(102): tryOnly == false
+</pre>
+<h2><a id="Number_Test.parseNumbers">Number_Test.parseNumbers</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 11  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Number_Test.parseFloats] End Test
+[AUNIT:ENDT] End Test: Number_Test.parseFloats
+[AUNIT:STRT][Number_Test.parseNumbers] Start Test
+[AUNIT:STRT] Start Test: Number_Test.parseNumbers
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(118): numerg == Nil
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(120): numerg == Nil
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(125): numerg->byteValue() == 12 && instanceof(numerg, Byte) == true
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(127): numerg->byteValue() == 12 && instanceof(numerg, Short) == true
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(129): numerg->longValue() == 12 && instanceof(numerg, Long) == true
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(131): numerg->shortValue() == -12 && instanceof(numerg, Short) == true
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(133): numerg->shortValue() == 0x12 && instanceof(numerg, Short) == true
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(136): numerg->shortValue() == -0x12 && instanceof(numerg, Short) == true
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(139): numerg->intValue() == 0xFFFFFF
+float: -12.420000; ::acdk::lang::Double
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(145): numerg->floatValue() < -12.41 && numerg->floatValue() > -12.43 && (instanceof(numerg, Float) == true || instanceof(numerg, Double) == true)
+[AUNIT:SUCC]: Number_Test.parseNumbers:
+acdk_lang_Number_Test.cpp(147): numerg->intValue() == 12 && instanceof(numerg, Double) == true
+</pre>
+<h2><a id="Float_Test.standard">Float_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Number_Test.parseNumbers] End Test
+[AUNIT:ENDT] End Test: Number_Test.parseNumbers
+[AUNIT:STRT][Float_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Float_Test.standard
+</pre>
+<h2><a id="Float_Test.toAndFromString">Float_Test.toAndFromString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Float_Test.standard] End Test
+[AUNIT:ENDT] End Test: Float_Test.standard
+[AUNIT:STRT][Float_Test.toAndFromString] Start Test
+[AUNIT:STRT] Start Test: Float_Test.toAndFromString
+[AUNIT:SUCC]: Float_Test.toAndFromString:
+acdk_lang_Float_Test.cpp(99): dv == dr
+[AUNIT:SUCC]: Float_Test.toAndFromString:
+acdk_lang_Float_Test.cpp(102): dv == dr
+[AUNIT:SUCC]: Float_Test.toAndFromString:
+acdk_lang_Float_Test.cpp(105): dv == dr
+[AUNIT:SUCC]: Float_Test.toAndFromString:
+acdk_lang_Float_Test.cpp(109): widths == 123.0
+123.000000
+</pre>
+<h2><a id="Double_Test.standard">Double_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Float_Test.toAndFromString] End Test
+[AUNIT:ENDT] End Test: Float_Test.toAndFromString
+[AUNIT:STRT][Double_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Double_Test.standard
+[AUNIT:SUCC]: Double_Test.standard:
+acdk_lang_Double_Test.cpp(55): d.doubleValue() == dv
+</pre>
+<h2><a id="Double_Test.toAndFromString">Double_Test.toAndFromString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Double_Test.standard] End Test
+[AUNIT:ENDT] End Test: Double_Test.standard
+[AUNIT:STRT][Double_Test.toAndFromString] Start Test
+[AUNIT:STRT] Start Test: Double_Test.toAndFromString
+[AUNIT:SUCC]: Double_Test.toAndFromString:
+acdk_lang_Double_Test.cpp(64): dv == dr
+[AUNIT:SUCC]: Double_Test.toAndFromString:
+acdk_lang_Double_Test.cpp(67): dv == dr
+[AUNIT:SUCC]: Double_Test.toAndFromString:
+acdk_lang_Double_Test.cpp(70): dv == dr
+</pre>
+<h2><a id="Double_Test.limits">Double_Test.limits</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Double_Test.toAndFromString] End Test
+[AUNIT:ENDT] End Test: Double_Test.toAndFromString
+[AUNIT:STRT][Double_Test.limits] Start Test
+[AUNIT:STRT] Start Test: Double_Test.limits
+[AUNIT:SUCC]: Double_Test.limits:
+acdk_lang_Double_Test.cpp(83): Double::isNaN(Double(Double::NaN).doubleValue()) == true
+</pre>
+<h2><a id="Integer_Test.standard">Integer_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Double_Test.limits] End Test
+[AUNIT:ENDT] End Test: Double_Test.limits
+[AUNIT:STRT][Integer_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Integer_Test.standard
+[AUNIT:SUCC]: Integer_Test.standard:
+acdk_lang_Integer_Test.cpp(60): i.intValue() == 42
+</pre>
+<h2><a id="Integer_Test.toAndFromString">Integer_Test.toAndFromString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Integer_Test.standard] End Test
+[AUNIT:ENDT] End Test: Integer_Test.standard
+[AUNIT:STRT][Integer_Test.toAndFromString] Start Test
+[AUNIT:STRT] Start Test: Integer_Test.toAndFromString
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(68): i == 42
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(70): i == 66
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(72): i == 34
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(74): i == 34
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(77): integer->intValue() == 66
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(79): integer->intValue() == 34
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(81): Integer::toString(34, 8)->equals("42")
+[AUNIT:SUCC]: Integer_Test.toAndFromString:
+acdk_lang_Integer_Test.cpp(82): Integer::toString(66, 16)->equals("42")
+</pre>
+<h2><a id="Integer_Test.toHexString">Integer_Test.toHexString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Integer_Test.toAndFromString] End Test
+[AUNIT:ENDT] End Test: Integer_Test.toAndFromString
+[AUNIT:STRT][Integer_Test.toHexString] Start Test
+[AUNIT:STRT] Start Test: Integer_Test.toHexString
+[AUNIT:SUCC]: Integer_Test.toHexString:
+acdk_lang_Integer_Test.cpp(90): str->equals("abcdef") == true
+[AUNIT:SUCC]: Integer_Test.toHexString:
+acdk_lang_Integer_Test.cpp(93): str->equals("100abcdef") == true
+</pre>
+<h2><a id="Integer_Test.toOctalString">Integer_Test.toOctalString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Integer_Test.toHexString] End Test
+[AUNIT:ENDT] End Test: Integer_Test.toHexString
+[AUNIT:STRT][Integer_Test.toOctalString] Start Test
+[AUNIT:STRT] Start Test: Integer_Test.toOctalString
+[AUNIT:SUCC]: Integer_Test.toOctalString:
+acdk_lang_Integer_Test.cpp(101): str->equals("1234567") == true
+[AUNIT:SUCC]: Integer_Test.toOctalString:
+acdk_lang_Integer_Test.cpp(104): str->equals("40001234567") == true
+</pre>
+<h2><a id="Integer_Test.toBinaryString">Integer_Test.toBinaryString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Integer_Test.toOctalString] End Test
+[AUNIT:ENDT] End Test: Integer_Test.toOctalString
+[AUNIT:STRT][Integer_Test.toBinaryString] Start Test
+[AUNIT:STRT] Start Test: Integer_Test.toBinaryString
+[AUNIT:SUCC]: Integer_Test.toBinaryString:
+acdk_lang_Integer_Test.cpp(113): str->equals("111010110111100110100010101") == true
+[AUNIT:SUCC]: Integer_Test.toBinaryString:
+acdk_lang_Integer_Test.cpp(116): str->equals("100000111010110111100110100010101") == true
+</pre>
+<h2><a id="Integer_Test.limits">Integer_Test.limits</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Integer_Test.toBinaryString] End Test
+[AUNIT:ENDT] End Test: Integer_Test.toBinaryString
+[AUNIT:STRT][Integer_Test.limits] Start Test
+[AUNIT:STRT] Start Test: Integer_Test.limits
+</pre>
+<h2><a id="ClassLoader_Test.findExistant">ClassLoader_Test.findExistant</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Integer_Test.limits] End Test
+[AUNIT:ENDT] End Test: Integer_Test.limits
+[AUNIT:STRT][ClassLoader_Test.findExistant] Start Test
+[AUNIT:STRT] Start Test: ClassLoader_Test.findExistant
+[AUNIT:SUCC]: ClassLoader_Test.findExistant:
+acdk_lang_ClassLoader_Test.cpp(57): cls != Nil
+[AUNIT:SUCC]: ClassLoader_Test.findExistant:
+acdk_lang_ClassLoader_Test.cpp(58): cls == StringBuffer::GetClass()
+</pre>
+<h2><a id="ClassLoader_Test.findToLoad">ClassLoader_Test.findToLoad</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ClassLoader_Test.findExistant] End Test
+[AUNIT:ENDT] End Test: ClassLoader_Test.findExistant
+[AUNIT:STRT][ClassLoader_Test.findToLoad] Start Test
+[AUNIT:STRT] Start Test: ClassLoader_Test.findToLoad
+[AUNIT:SUCC]: ClassLoader_Test.findToLoad:
+acdk_lang_ClassLoader_Test.cpp(66): gseclass != Nil
+[AUNIT:SUCC]: ClassLoader_Test.findToLoad:
+acdk_lang_ClassLoader_Test.cpp(68): obj != Nil
+</pre>
+<h2><a id="ClassLoader_Test.unicode">ClassLoader_Test.unicode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ClassLoader_Test.findToLoad] End Test
+[AUNIT:ENDT] End Test: ClassLoader_Test.findToLoad
+[AUNIT:STRT][ClassLoader_Test.unicode] Start Test
+[AUNIT:STRT] Start Test: ClassLoader_Test.unicode
+</pre>
+<h2><a id="ClassLoader_Test.aliase">ClassLoader_Test.aliase</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ClassLoader_Test.unicode] End Test
+[AUNIT:ENDT] End Test: ClassLoader_Test.unicode
+[AUNIT:STRT][ClassLoader_Test.aliase] Start Test
+[AUNIT:STRT] Start Test: ClassLoader_Test.aliase
+[AUNIT:SUCC]: ClassLoader_Test.aliase:
+acdk_lang_ClassLoader_Test.cpp(87): erg == true
+</pre>
+<h2><a id="ThreadLocal_Test.standard">ThreadLocal_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ClassLoader_Test.aliase] End Test
+[AUNIT:ENDT] End Test: ClassLoader_Test.aliase
+[AUNIT:STRT][ThreadLocal_Test.standard] Start Test
+[AUNIT:STRT] Start Test: ThreadLocal_Test.standard
+[AUNIT:SUCC]: ThreadLocal_Test.standard:
+acdk_lang_ThreadLocal_Test.cpp(106): (int)p == 42
+[AUNIT:SUCC]: ThreadLocal_Test.standard:
+acdk_lang_ThreadLocal_Test.cpp(121): true
+</pre>
+<h2><a id="Thread_Test2.ProducerConsumer">Thread_Test2.ProducerConsumer</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ThreadLocal_Test.standard] End Test
+[AUNIT:ENDT] End Test: ThreadLocal_Test.standard
+[AUNIT:STRT][Thread_Test2.ProducerConsumer] Start Test
+[AUNIT:STRT] Start Test: Thread_Test2.ProducerConsumer
+</pre>
+<h2><a id="Thread_Test2.interruptSleep">Thread_Test2.interruptSleep</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test2.ProducerConsumer] End Test
+[AUNIT:ENDT] End Test: Thread_Test2.ProducerConsumer
+[AUNIT:STRT][Thread_Test2.interruptSleep] Start Test
+[AUNIT:STRT] Start Test: Thread_Test2.interruptSleep
+[AUNIT:SUCC]: Thread_Test2.interruptSleep:
+acdk_lang_Thread_Test2.cpp(209): t->interruptCalled == true
+</pre>
+<h2><a id="Thread_Test2.interruptWait">Thread_Test2.interruptWait</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test2.interruptSleep] End Test
+[AUNIT:ENDT] End Test: Thread_Test2.interruptSleep
+[AUNIT:STRT][Thread_Test2.interruptWait] Start Test
+[AUNIT:STRT] Start Test: Thread_Test2.interruptWait
+[AUNIT:SUCC]: Thread_Test2.interruptWait:
+acdk_lang_Thread_Test2.cpp(245): t->interruptCalled == true
+</pre>
+<h2><a id="Thread_Test2.interruptJoin">Thread_Test2.interruptJoin</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test2.interruptWait] End Test
+[AUNIT:ENDT] End Test: Thread_Test2.interruptWait
+[AUNIT:STRT][Thread_Test2.interruptJoin] Start Test
+[AUNIT:STRT] Start Test: Thread_Test2.interruptJoin
+[AUNIT:SUCC]: Thread_Test2.interruptJoin:
+acdk_lang_Thread_Test2.cpp(275): caught expected RInterruptedException
+</pre>
+<h2><a id="Thread_Test.core">Thread_Test.core</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test2.interruptJoin] End Test
+[AUNIT:ENDT] End Test: Thread_Test2.interruptJoin
+[AUNIT:STRT][Thread_Test.core] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.core
+</pre>
+<h2><a id="Thread_Test.standard">Thread_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.core] End Test
+[AUNIT:ENDT] End Test: Thread_Test.core
+[AUNIT:STRT][Thread_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.standard
+</pre>
+<h2><a id="Thread_Test.threadLocalStorage">Thread_Test.threadLocalStorage</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.standard] End Test
+[AUNIT:ENDT] End Test: Thread_Test.standard
+[AUNIT:STRT][Thread_Test.threadLocalStorage] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.threadLocalStorage
+create ThreadLocal
+ThreadLocal created
+create ThreadLocal
+ThreadLocal created
+</pre>
+<h2><a id="Thread_Test.runnableRecursive">Thread_Test.runnableRecursive</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.threadLocalStorage] End Test
+[AUNIT:ENDT] End Test: Thread_Test.threadLocalStorage
+[AUNIT:STRT][Thread_Test.runnableRecursive] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.runnableRecursive
+</pre>
+<h2><a id="Thread_Test.ProducerConsumer">Thread_Test.ProducerConsumer</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.runnableRecursive] End Test
+[AUNIT:ENDT] End Test: Thread_Test.runnableRecursive
+[AUNIT:STRT][Thread_Test.ProducerConsumer] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.ProducerConsumer
+</pre>
+<h2><a id="Thread_Test.refCounting">Thread_Test.refCounting</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.ProducerConsumer] End Test
+[AUNIT:ENDT] End Test: Thread_Test.ProducerConsumer
+[AUNIT:STRT][Thread_Test.refCounting] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.refCounting
+</pre>
+<h2><a id="Thread_Test.threadStress">Thread_Test.threadStress</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.refCounting] End Test
+[AUNIT:ENDT] End Test: Thread_Test.refCounting
+[AUNIT:STRT][Thread_Test.threadStress] Start Test
+[AUNIT:STRT] Start Test: Thread_Test.threadStress
+Started and finished 100 threads in 100 ms incs=(100)
+</pre>
+<h2><a id="Throwable_Test.standard">Throwable_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in : acdk::lang::sys::BackTrace::BackTrace(int)                                                                                                                                                                                                                      
+  called in : acdk::lang::Throwable::Throwable(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : tests::acdk::lang::Throwable_Test::standard()                                                                                                                                                                                                                   
+  called in : ../bin/acdk_lang_Test [0x8098064]
+  called in : acdk::tools::aunit::TestCase::run(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                             
+  called in : acdk::tools::aunit::TestSuite::run(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                            
+  called in : acdk::tools::aunit::TestRunner::executeTest(InterfaceHolder<acdk::tools::aunit::Test> const&, RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                 
+  called in : acdk::tools::aunit::TestRunner::executeTests(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                  
+  called in : acdk::tools::aunit::TestRunner::executeTests(RObjectArrayImpl<acdk::lang::RString> const&)                                                                                                                                                                      
+  called in : acdk::tools::aunit::TestRunner::testmain(RObjectArrayImpl<acdk::lang::RString>)                                                                                                                                                                                 
+  called in : acdk::lang::System::main2(int (*)(RObjectArrayImpl<acdk::lang::RString>), int, char**, char**, char const**)                                                                                                                                                    
+  called in : acdk::lang::System::main(int (*)(RObjectArrayImpl<acdk::lang::RString>), int, char**, char**, char const**)                                                                                                                                                     
+  called in : acdk::lang::Thread::getPriority()                                                                                                                                                                                                                               
+  called in :                                                                                                                                                                                                                                                                 
+  called in : acdk::lang::Object::~Object()                                                                                                                                                                                                                                   
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Thread_Test.threadStress] End Test
+[AUNIT:ENDT] End Test: Thread_Test.threadStress
+[AUNIT:STRT][Throwable_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.standard
+[AUNIT:SUCC]: Throwable_Test.standard:
+acdk_lang_Throwable_Test.cpp(76): ex->getMessage()->equals(msg) == true
+</pre>
+<h2><a id="Throwable_Test.derived">Throwable_Test.derived</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in : acdk::lang::sys::BackTrace::BackTrace(int)                                                                                                                                                                                                                      
+  called in : acdk::lang::Throwable::Throwable(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : acdk::lang::Exception::Exception(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : tests::acdk::lang::Throwable_Test::derived()                                                                                                                                                                                                                    
+  called in : ../bin/acdk_lang_Test [0x8098064]
+  called in : acdk::tools::aunit::TestCase::run(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                             
+  called in : acdk::tools::aunit::TestSuite::run(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                            
+  called in : acdk::tools::aunit::TestRunner::executeTest(InterfaceHolder<acdk::tools::aunit::Test> const&, RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                 
+  called in : acdk::tools::aunit::TestRunner::executeTests(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                  
+  called in : acdk::tools::aunit::TestRunner::executeTests(RObjectArrayImpl<acdk::lang::RString> const&)                                                                                                                                                                      
+  called in : acdk::tools::aunit::TestRunner::testmain(RObjectArrayImpl<acdk::lang::RString>)                                                                                                                                                                                 
+  called in : acdk::lang::System::main2(int (*)(RObjectArrayImpl<acdk::lang::RString>), int, char**, char**, char const**)                                                                                                                                                    
+  called in : acdk::lang::System::main(int (*)(RObjectArrayImpl<acdk::lang::RString>), int, char**, char**, char const**)                                                                                                                                                     
+  called in : acdk::lang::Thread::getPriority()                                                                                                                                                                                                                               
+  called in :                                                                                                                                                                                                                                                                 
+  called in : acdk::lang::Object::~Object()                                                                                                                                                                                                                                   
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.standard] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.standard
+[AUNIT:STRT][Throwable_Test.derived] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.derived
+[AUNIT:SUCC]: Throwable_Test.derived:
+acdk_lang_Throwable_Test.cpp(92): catched == true
+</pre>
+<h2><a id="Throwable_Test.throwInstance">Throwable_Test.throwInstance</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.derived] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.derived
+[AUNIT:STRT][Throwable_Test.throwInstance] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.throwInstance
+</pre>
+<h2><a id="Throwable_Test.throwNullPointer">Throwable_Test.throwNullPointer</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in : acdk::lang::sys::BackTrace::BackTrace(int)                                                                                                                                                                                                                      
+  called in : acdk::lang::Throwable::Throwable(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : acdk::lang::Exception::Exception(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : acdk::lang::RuntimeException::RuntimeException(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                       
+  called in : acdk::lang::NullPointerException::NullPointerException(acdk::lang::RString const&)                                                                                                                                                                              
+  called in : acdk::lang::ObjectBase::_throwNullPointerException(char const*)                                                                                                                                                                                                 
+  called in : RefHolder<acdk::lang::Object>::operator->() const                                                                                                                                                                                                               
+  called in : tests::acdk::lang::Throwable_Test::throwNullPointer()                                                                                                                                                                                                           
+  called in : ../bin/acdk_lang_Test [0x8098064]
+  called in : acdk::tools::aunit::TestCase::run(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                             
+  called in : acdk::tools::aunit::TestSuite::run(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                            
+  called in : acdk::tools::aunit::TestRunner::executeTest(InterfaceHolder<acdk::tools::aunit::Test> const&, RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                 
+  called in : acdk::tools::aunit::TestRunner::executeTests(RefHolder<acdk::tools::aunit::TestResult> const&)                                                                                                                                                                  
+  called in : acdk::tools::aunit::TestRunner::executeTests(RObjectArrayImpl<acdk::lang::RString> const&)                                                                                                                                                                      
+  called in : acdk::tools::aunit::TestRunner::testmain(RObjectArrayImpl<acdk::lang::RString>)                                                                                                                                                                                 
+  called in : acdk::lang::System::main2(int (*)(RObjectArrayImpl<acdk::lang::RString>), int, char**, char**, char const**)                                                                                                                                                    
+  called in : acdk::lang::System::main(int (*)(RObjectArrayImpl<acdk::lang::RString>), int, char**, char**, char const**)                                                                                                                                                     
+  called in : acdk::lang::Thread::getPriority()                                                                                                                                                                                                                               
+  called in :                                                                                                                                                                                                                                                                 
+  called in : acdk::lang::Object::~Object()                                                                                                                                                                                                                                   
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.throwInstance] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.throwInstance
+[AUNIT:STRT][Throwable_Test.throwNullPointer] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.throwNullPointer
+</pre>
+<h2><a id="Throwable_Test.throwThreadNullPointer">Throwable_Test.throwThreadNullPointer</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in : acdk::lang::sys::BackTrace::BackTrace(int)                                                                                                                                                                                                                      
+  called in : acdk::lang::Throwable::Throwable(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : acdk::lang::Exception::Exception(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                                     
+  called in : acdk::lang::RuntimeException::RuntimeException(acdk::lang::RString const&, ThrowableHolder<acdk::lang::Throwable, RefHolder<acdk::lang::Object> > const&)                                                                                                       
+  called in : acdk::lang::NullPointerException::NullPointerException(acdk::lang::RString const&)                                                                                                                                                                              
+  called in : acdk::lang::ObjectBase::_throwNullPointerException(char const*)                                                                                                                                                                                                 
+  called in : RefHolder<acdk::lang::Object>::operator->() const                                                                                                                                                                                                               
+  called in : ../bin/acdk_lang_Test [0x8099ce4]
+  called in : ../bin/acdk_lang_Test [0x8099d6a]
+  called in : acdk::lang::Thread::_run()                                                                                                                                                                                                                                      
+  called in : acdk::lang::Thread::_posixThreadFunc(void*)                                                                                                                                                                                                                     
+  called in : /lib/tls/libpthread.so.0 [0x400369dd]
+  called in :                                                                                                                                                                                                                                                                 
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.throwNullPointer] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.throwNullPointer
+[AUNIT:STRT][Throwable_Test.throwThreadNullPointer] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.throwThreadNullPointer
+</pre>
+<h2><a id="Throwable_Test.throwThreadUnhandledNullPointer">Throwable_Test.throwThreadUnhandledNullPointer</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.throwThreadNullPointer] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.throwThreadNullPointer
+[AUNIT:STRT][Throwable_Test.throwThreadUnhandledNullPointer] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.throwThreadUnhandledNullPointer
+</pre>
+<h2><a id="Throwable_Test.divideByZeroTest">Throwable_Test.divideByZeroTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.throwThreadUnhandledNullPointer] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.throwThreadUnhandledNullPointer
+[AUNIT:STRT][Throwable_Test.divideByZeroTest] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.divideByZeroTest
+this testcase is not supported on this platform
+</pre>
+<h2><a id="Throwable_Test.stackOverflowException">Throwable_Test.stackOverflowException</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.divideByZeroTest] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.divideByZeroTest
+[AUNIT:STRT][Throwable_Test.stackOverflowException] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.stackOverflowException
+this testcase is not supported on this platform
+</pre>
+<h2><a id="Throwable_Test.linuxSignalTest">Throwable_Test.linuxSignalTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.stackOverflowException] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.stackOverflowException
+[AUNIT:STRT][Throwable_Test.linuxSignalTest] Start Test
+[AUNIT:STRT] Start Test: Throwable_Test.linuxSignalTest
+</pre>
+<h2><a id="StringBuffer_Test.standard">StringBuffer_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 5  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Throwable_Test.linuxSignalTest] End Test
+[AUNIT:ENDT] End Test: Throwable_Test.linuxSignalTest
+[AUNIT:STRT][StringBuffer_Test.standard] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.standard
+[AUNIT:SUCC]: StringBuffer_Test.standard:
+acdk_lang_StringBuffer_Test.cpp(70): sb.toString()->equals("Hello")
+[AUNIT:SUCC]: StringBuffer_Test.standard:
+acdk_lang_StringBuffer_Test.cpp(72): sb.toString()->equals("Hello World")
+[AUNIT:SUCC]: StringBuffer_Test.standard:
+acdk_lang_StringBuffer_Test.cpp(74): sb.toString()->equals("ACDK")
+[AUNIT:SUCC]: StringBuffer_Test.standard:
+acdk_lang_StringBuffer_Test.cpp(76): sb.toString()->equals("ACDK ")
+[AUNIT:SUCC]: StringBuffer_Test.standard:
+acdk_lang_StringBuffer_Test.cpp(81): s->equals("ABC42") == true
+</pre>
+<h2><a id="StringBuffer_Test.equalsTest">StringBuffer_Test.equalsTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.standard] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.standard
+[AUNIT:STRT][StringBuffer_Test.equalsTest] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.equalsTest
+</pre>
+<h2><a id="StringBuffer_Test.replaceChar">StringBuffer_Test.replaceChar</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.equalsTest] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.equalsTest
+[AUNIT:STRT][StringBuffer_Test.replaceChar] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.replaceChar
+</pre>
+<h2><a id="StringBuffer_Test.replaceString">StringBuffer_Test.replaceString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.replaceChar] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.replaceChar
+[AUNIT:STRT][StringBuffer_Test.replaceString] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.replaceString
+</pre>
+<h2><a id="StringBuffer_Test.fromByteArray">StringBuffer_Test.fromByteArray</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.replaceString] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.replaceString
+[AUNIT:STRT][StringBuffer_Test.fromByteArray] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.fromByteArray
+</pre>
+<h2><a id="StringBuffer_Test.streaming">StringBuffer_Test.streaming</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.fromByteArray] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.fromByteArray
+[AUNIT:STRT][StringBuffer_Test.streaming] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.streaming
+[AUNIT:SUCC]: StringBuffer_Test.streaming:
+acdk_lang_StringBuffer_Test.cpp(138): erg2->equals(erg) == true
+</pre>
+<h2><a id="StringBuffer_Test.appending">StringBuffer_Test.appending</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.streaming] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.streaming
+[AUNIT:STRT][StringBuffer_Test.appending] Start Test
+[AUNIT:STRT] Start Test: StringBuffer_Test.appending
+[0=[AasdfasdfasdfasdfasdfasdfB[1=[AasdfasdfasdfasdfasdfasdfB[2=[AasdfasdfasdfasdfasdfasdfB[3=[AasdfasdfasdfasdfasdfasdfB[4=[AasdfasdfasdfasdfasdfasdfB[5=[AasdfasdfasdfasdfasdfasdfB[6=[AasdfasdfasdfasdfasdfasdfB[7=[AasdfasdfasdfasdfasdfasdfB[8=[AasdfasdfasdfasdfasdfasdfB[9=[AasdfasdfasdfasdfasdfasdfB[10=[AasdfasdfasdfasdfasdfasdfB[11=[AasdfasdfasdfasdfasdfasdfB[12=[AasdfasdfasdfasdfasdfasdfB[13=[AasdfasdfasdfasdfasdfasdfB[14=[AasdfasdfasdfasdfasdfasdfB[15=[AasdfasdfasdfasdfasdfasdfB[16=[AasdfasdfasdfasdfasdfasdfB[17=[AasdfasdfasdfasdfasdfasdfB[18=[AasdfasdfasdfasdfasdfasdfB[19=[AasdfasdfasdfasdfasdfasdfB[20=[AasdfasdfasdfasdfasdfasdfB[21=[AasdfasdfasdfasdfasdfasdfB[22=[AasdfasdfasdfasdfasdfasdfB[23=[AasdfasdfasdfasdfasdfasdfB[24=[AasdfasdfasdfasdfasdfasdfB[25=[AasdfasdfasdfasdfasdfasdfB[26=[AasdfasdfasdfasdfasdfasdfB[27=[AasdfasdfasdfasdfasdfasdfB[28=[AasdfasdfasdfasdfasdfasdfB[29=[AasdfasdfasdfasdfasdfasdfB[30=[AasdfasdfasdfasdfasdfasdfB[31=[AasdfasdfasdfasdfasdfasdfB[32=[AasdfasdfasdfasdfasdfasdfB[33=[AasdfasdfasdfasdfasdfasdfB[34=[AasdfasdfasdfasdfasdfasdfB[35=[AasdfasdfasdfasdfasdfasdfB[36=[AasdfasdfasdfasdfasdfasdfB[37=[AasdfasdfasdfasdfasdfasdfB[38=[AasdfasdfasdfasdfasdfasdfB[39=[AasdfasdfasdfasdfasdfasdfB
+[AUNIT:SUCC]: StringBuffer_Test.appending:
+acdk_lang_StringBuffer_Test.cpp(159): sb.length() == 1
+[AUNIT:SUCC]: StringBuffer_Test.appending:
+acdk_lang_StringBuffer_Test.cpp(161): sb.length() == 2
+[AUNIT:SUCC]: StringBuffer_Test.appending:
+acdk_lang_StringBuffer_Test.cpp(162): sb.toString()->equals("AB") == true
+[AUNIT:SUCC]: StringBuffer_Test.appending:
+acdk_lang_StringBuffer_Test.cpp(167): sb.length() == 4
+</pre>
+<h2><a id="String2_Test.defaultString">String2_Test.defaultString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StringBuffer_Test.appending] End Test
+[AUNIT:ENDT] End Test: StringBuffer_Test.appending
+[AUNIT:STRT][String2_Test.defaultString] Start Test
+[AUNIT:STRT] Start Test: String2_Test.defaultString
+[AUNIT:SUCC]: String2_Test.defaultString:
+acdk_lang_String2_Test.cpp(71): String::defaultString("")->equals("") == true
+[AUNIT:SUCC]: String2_Test.defaultString:
+acdk_lang_String2_Test.cpp(72): String::defaultString(Nil)->equals("") == true
+[AUNIT:SUCC]: String2_Test.defaultString:
+acdk_lang_String2_Test.cpp(73): String::defaultString(Nil, "a")->equals("a") == true
+</pre>
+<h2><a id="String2_Test.isEmpty">String2_Test.isEmpty</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 6  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.defaultString] End Test
+[AUNIT:ENDT] End Test: String2_Test.defaultString
+[AUNIT:STRT][String2_Test.isEmpty] Start Test
+[AUNIT:STRT] Start Test: String2_Test.isEmpty
+[AUNIT:SUCC]: String2_Test.isEmpty:
+acdk_lang_String2_Test.cpp(78): String::isEmpty(Nil) == true
+[AUNIT:SUCC]: String2_Test.isEmpty:
+acdk_lang_String2_Test.cpp(79): String::isEmpty("") == true
+[AUNIT:SUCC]: String2_Test.isEmpty:
+acdk_lang_String2_Test.cpp(80): String::isEmpty("awsdf") == false
+[AUNIT:SUCC]: String2_Test.isEmpty:
+acdk_lang_String2_Test.cpp(81): String::isNotEmpty("") == false
+[AUNIT:SUCC]: String2_Test.isEmpty:
+acdk_lang_String2_Test.cpp(82): String::isNotEmpty(Nil) == false
+[AUNIT:SUCC]: String2_Test.isEmpty:
+acdk_lang_String2_Test.cpp(83): String::isNotEmpty("asdf") == true
+</pre>
+<h2><a id="String2_Test.isBlank">String2_Test.isBlank</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 6  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.isEmpty] End Test
+[AUNIT:ENDT] End Test: String2_Test.isEmpty
+[AUNIT:STRT][String2_Test.isBlank] Start Test
+[AUNIT:STRT] Start Test: String2_Test.isBlank
+[AUNIT:SUCC]: String2_Test.isBlank:
+acdk_lang_String2_Test.cpp(90): String::isBlank(Nil) == true
+[AUNIT:SUCC]: String2_Test.isBlank:
+acdk_lang_String2_Test.cpp(91): String::isBlank("") == true
+[AUNIT:SUCC]: String2_Test.isBlank:
+acdk_lang_String2_Test.cpp(92): String::isBlank(" \n\t") == true
+[AUNIT:SUCC]: String2_Test.isBlank:
+acdk_lang_String2_Test.cpp(93): String::isBlank("asdf") == false
+[AUNIT:SUCC]: String2_Test.isBlank:
+acdk_lang_String2_Test.cpp(94): String::isNotBlank("asdf") == true
+[AUNIT:SUCC]: String2_Test.isBlank:
+acdk_lang_String2_Test.cpp(95): String::isNotBlank(Nil) == false
+</pre>
+<h2><a id="String2_Test.isType">String2_Test.isType</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 5  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.isBlank] End Test
+[AUNIT:ENDT] End Test: String2_Test.isBlank
+[AUNIT:STRT][String2_Test.isType] Start Test
+[AUNIT:STRT] Start Test: String2_Test.isType
+[AUNIT:SUCC]: String2_Test.isType:
+acdk_lang_String2_Test.cpp(102): String::isAlpha(Nil) == false
+[AUNIT:SUCC]: String2_Test.isType:
+acdk_lang_String2_Test.cpp(103): String::isAlpha("") == true
+[AUNIT:SUCC]: String2_Test.isType:
+acdk_lang_String2_Test.cpp(104): String::isAlpha("abc") == true
+[AUNIT:SUCC]: String2_Test.isType:
+acdk_lang_String2_Test.cpp(105): String::isAlpha("1") == false
+[AUNIT:SUCC]: String2_Test.isType:
+acdk_lang_String2_Test.cpp(106): String::isAlpha("\n") == false
+</pre>
+<h2><a id="String2_Test.contains">String2_Test.contains</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 16  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.isType] End Test
+[AUNIT:ENDT] End Test: String2_Test.isType
+[AUNIT:STRT][String2_Test.contains] Start Test
+[AUNIT:STRT] Start Test: String2_Test.contains
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(114): String::contains(Nil, 'a') == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(115): String::contains("", 'a') == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(116): String::contains("bca", 'a') == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(117): String::contains("bca", 'a') == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(118): String::containsNone("bca", "axx") == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(119): String::containsNone(Nil, "axx") == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(120): String::containsNone("", "") == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(121): String::containsNone("abc", "bca") == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(122): String::containsNone("abc", "xy") == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(123): String::containsNone("abc", Nil) == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(124): String::containsOnly("abc", "xy") == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(125): String::containsOnly("abcabc", "abcd") == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(126): String::containsOnly("abcabc", "abc") == true
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(127): String::containsOnly(Nil, "abc") == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(128): String::containsOnly(Nil, Nil) == false
+[AUNIT:SUCC]: String2_Test.contains:
+acdk_lang_String2_Test.cpp(129): String::containsOnly("asdf", Nil) == false
+</pre>
+<h2><a id="String2_Test.indexOfAny">String2_Test.indexOfAny</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.contains] End Test
+[AUNIT:ENDT] End Test: String2_Test.contains
+[AUNIT:STRT][String2_Test.indexOfAny] Start Test
+[AUNIT:STRT] Start Test: String2_Test.indexOfAny
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(135): String::indexOfAny(Nil, "a") == -1
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(136): String::indexOfAny("asdf", (RString)Nil) == -1
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(137): String::indexOfAny("asdfas", "sd") == 1
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(138): String::indexOfAny("asdfas", "x") == -1
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(140): String::lastIndexOfAny(Nil, "a") == -1
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(141): String::lastIndexOfAny("asdf", (RString)Nil) == -1
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(142): String::lastIndexOfAny("asdfas", "s") == 5
+[AUNIT:SUCC]: String2_Test.indexOfAny:
+acdk_lang_String2_Test.cpp(143): String::lastIndexOfAny("asdfas", "x") == -1
+</pre>
+<h2><a id="String2_Test.join">String2_Test.join</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.indexOfAny] End Test
+[AUNIT:ENDT] End Test: String2_Test.indexOfAny
+[AUNIT:STRT][String2_Test.join] Start Test
+[AUNIT:STRT] Start Test: String2_Test.join
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(155): String::join((RObjectArray)sa)->equals("firstsecondthird") == true
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(156): String::join((RObjectArray)sa, "|")->equals("first|second|third") == true
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(157): String::join(sa->iterator())->equals("firstsecondthird") == true
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(158): String::join(sa->iterator(), "|")->equals("first|second|third") == true
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(159): String::join(sa->iterator(), '|')->equals("first|second|third") == true
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(160): String::join((RObjectArray)Nil, "|") == Nil
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(162): RString("a b  c")->split()->length() == 3
+[AUNIT:SUCC]: String2_Test.join:
+acdk_lang_String2_Test.cpp(163): RString("a|b|c")->split('|')->length() == 3
+</pre>
+<h2><a id="String2_Test.format">String2_Test.format</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 15  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.join] End Test
+[AUNIT:ENDT] End Test: String2_Test.join
+[AUNIT:STRT][String2_Test.format] Start Test
+[AUNIT:STRT] Start Test: String2_Test.format
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(169): String::deleteWhitespace(Nil) == Nil
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(170): String::deleteWhitespace("")->equals("") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(171): String::deleteWhitespace("abc")->equals("abc") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(172): String::deleteWhitespace("a b\n\tc")->equals("abc") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(174): RString(" ")->repeat(3)->equals("   ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(176): RString("")->rightPad(3)->equals("   ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(177): RString("a")->rightPad(3)->equals("a  ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(178): RString("abcd")->rightPad(3)->equals("abcd") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(180): RString("")->leftPad(3)->equals("   ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(181): RString("a")->leftPad(3)->equals("  a") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(182): RString("abcd")->leftPad(3)->equals("abcd") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(184): RString("")->center(3)->equals("   ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(185): RString("a")->center(3)->equals(" a ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(186): RString("ab")->center(3)->equals("ab ") == true
+[AUNIT:SUCC]: String2_Test.format:
+acdk_lang_String2_Test.cpp(187): RString("abcd")->center(3)->equals("abcd") == true
+</pre>
+<h2><a id="String2_Test.distance">String2_Test.distance</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 10  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.format] End Test
+[AUNIT:ENDT] End Test: String2_Test.format
+[AUNIT:STRT][String2_Test.distance] Start Test
+[AUNIT:STRT] Start Test: String2_Test.distance
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(193): String::indexOfDifference(Nil, "asdf") == -1
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(194): String::indexOfDifference("asdf", Nil) == -1
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(195): String::indexOfDifference("a b c", "a b_c") == 3
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(196): String::getDistance("", "") == 0
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(197): String::getDistance("", "a") == 1
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(198): String::getDistance("a", "a") == 0
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(200): String::getDistance("abcd", "a") == 3
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(201): String::getDistance("Roger", "Rger") == 1
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(202): String::getDistance("kommer", "koer") == 2
+[AUNIT:SUCC]: String2_Test.distance:
+acdk_lang_String2_Test.cpp(203): String::getDistance("abc", "xyz") == 3
+</pre>
+<h2><a id="String_Test.standard">String_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String2_Test.distance] End Test
+[AUNIT:ENDT] End Test: String2_Test.distance
+[AUNIT:STRT][String_Test.standard] Start Test
+[AUNIT:STRT] Start Test: String_Test.standard
+[AUNIT:SUCC]: String_Test.standard:
+acdk_lang_String_Test.cpp(105): subs->compareTo(subs2) == 0
+[AUNIT:SUCC]: String_Test.standard:
+acdk_lang_String_Test.cpp(107): subs->compareTo(ses) == 0
+</pre>
+<h2><a id="String_Test.equalsTest">String_Test.equalsTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 14  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.standard] End Test
+[AUNIT:ENDT] End Test: String_Test.standard
+[AUNIT:STRT][String_Test.equalsTest] Start Test
+[AUNIT:STRT] Start Test: String_Test.equalsTest
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(118): s->equals("Hallo Leute") == true
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(121): ss->equals("Hallo") == true
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(122): ss->equals(s->substr(0, 5)) == true
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(125): nss->equals("Hallo") == true
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(127): nss->compareToIgnoreCase(RCS("Hallo")) == 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(128): nss->compareToIgnoreCase(RCS("HALLO")) == 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(129): String("a").compareTo("b") < 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(130): String("b").compareTo("a") > 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(131): nss->compareTo("Hallo") == 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(132): nss->compareTo("Hallo Leute") < 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(133): nss->compareTo("Hall") > 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(134): nss->compareTo("hallo") < 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(135): nss->compareTo("xallo") < 0
+[AUNIT:SUCC]: String_Test.equalsTest:
+acdk_lang_String_Test.cpp(136): nss->compareTo("Xallo") < 0
+</pre>
+<h2><a id="String_Test.find">String_Test.find</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.equalsTest] End Test
+[AUNIT:ENDT] End Test: String_Test.equalsTest
+[AUNIT:STRT][String_Test.find] Start Test
+[AUNIT:STRT] Start Test: String_Test.find
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(145): idx != -1
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(147): l->equals("Leute")
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(150): idx != -1
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(152): l->equals("ll")
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(156): idx == 6
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(161): idx == 0
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(165): f->elementCount("/") == 3
+[AUNIT:SUCC]: String_Test.find:
+acdk_lang_String_Test.cpp(167): f->elementCount("/") == 3
+</pre>
+<h2><a id="String_Test.findLast">String_Test.findLast</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.find] End Test
+[AUNIT:ENDT] End Test: String_Test.find
+[AUNIT:STRT][String_Test.findLast] Start Test
+[AUNIT:STRT] Start Test: String_Test.findLast
+[AUNIT:SUCC]: String_Test.findLast:
+acdk_lang_String_Test.cpp(176): idx != -1
+[AUNIT:SUCC]: String_Test.findLast:
+acdk_lang_String_Test.cpp(178): l->equals("Leute")
+[AUNIT:SUCC]: String_Test.findLast:
+acdk_lang_String_Test.cpp(181): idx != -1
+[AUNIT:SUCC]: String_Test.findLast:
+acdk_lang_String_Test.cpp(183): l->equals("ll")
+</pre>
+<h2><a id="String_Test.startsWith">String_Test.startsWith</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.findLast] End Test
+[AUNIT:ENDT] End Test: String_Test.findLast
+[AUNIT:STRT][String_Test.startsWith] Start Test
+[AUNIT:STRT] Start Test: String_Test.startsWith
+[AUNIT:SUCC]: String_Test.startsWith:
+acdk_lang_String_Test.cpp(191): s->startsWith("Hallo") == true
+[AUNIT:SUCC]: String_Test.startsWith:
+acdk_lang_String_Test.cpp(192): s->startsWith("Leute") == false
+</pre>
+<h2><a id="String_Test.endsWith">String_Test.endsWith</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.startsWith] End Test
+[AUNIT:ENDT] End Test: String_Test.startsWith
+[AUNIT:STRT][String_Test.endsWith] Start Test
+[AUNIT:STRT] Start Test: String_Test.endsWith
+[AUNIT:SUCC]: String_Test.endsWith:
+acdk_lang_String_Test.cpp(199): s->endsWith("Hallo") == false
+[AUNIT:SUCC]: String_Test.endsWith:
+acdk_lang_String_Test.cpp(200): s->endsWith("Leute") == true
+</pre>
+<h2><a id="String_Test.regionMatches">String_Test.regionMatches</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.endsWith] End Test
+[AUNIT:ENDT] End Test: String_Test.endsWith
+[AUNIT:STRT][String_Test.regionMatches] Start Test
+[AUNIT:STRT] Start Test: String_Test.regionMatches
+[AUNIT:SUCC]: String_Test.regionMatches:
+acdk_lang_String_Test.cpp(207): s->regionMatches(6, "xLeute", 1, 5, false) == true
+[AUNIT:SUCC]: String_Test.regionMatches:
+acdk_lang_String_Test.cpp(208): s->regionMatches(6, "xleute", 1, 5, true) == true
+</pre>
+<h2><a id="String_Test.replaceChar">String_Test.replaceChar</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.regionMatches] End Test
+[AUNIT:ENDT] End Test: String_Test.regionMatches
+[AUNIT:STRT][String_Test.replaceChar] Start Test
+[AUNIT:STRT] Start Test: String_Test.replaceChar
+[AUNIT:SUCC]: String_Test.replaceChar:
+acdk_lang_String_Test.cpp(216): s == r1
+[AUNIT:SUCC]: String_Test.replaceChar:
+acdk_lang_String_Test.cpp(219): r2->equals("UUaaUaU")
+</pre>
+<h2><a id="String_Test.replaceString">String_Test.replaceString</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.replaceChar] End Test
+[AUNIT:ENDT] End Test: String_Test.replaceChar
+[AUNIT:STRT][String_Test.replaceString] Start Test
+[AUNIT:STRT] Start Test: String_Test.replaceString
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(238): s == r1
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(240): r2->equals("UUaaUaU")
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(247): r1->equals("in a Text")
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(250): r1->equals("in a Text")
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(253): r1->equals("in a Text")
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(260): r1->equals("StringReplace in a Text")
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(263): r1->equals("in a Text StringReplace")
+[AUNIT:SUCC]: String_Test.replaceString:
+acdk_lang_String_Test.cpp(266): r1->equals("in StringReplace a Text")
+</pre>
+<h2><a id="String_Test.toLowerAndUpper">String_Test.toLowerAndUpper</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.replaceString] End Test
+[AUNIT:ENDT] End Test: String_Test.replaceString
+[AUNIT:STRT][String_Test.toLowerAndUpper] Start Test
+[AUNIT:STRT] Start Test: String_Test.toLowerAndUpper
+[AUNIT:SUCC]: String_Test.toLowerAndUpper:
+acdk_lang_String_Test.cpp(278): str->length() == str->toLowerCase()->length()
+[AUNIT:SUCC]: String_Test.toLowerAndUpper:
+acdk_lang_String_Test.cpp(279): str->length() == str->toUpperCase()->length()
+[AUNIT:SUCC]: String_Test.toLowerAndUpper:
+acdk_lang_String_Test.cpp(281): str->length() == str->toLowerCase()->length()
+[AUNIT:SUCC]: String_Test.toLowerAndUpper:
+acdk_lang_String_Test.cpp(282): str->length() == str->toUpperCase()->length()
+</pre>
+<h2><a id="String_Test.fromByteArray">String_Test.fromByteArray</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.toLowerAndUpper] End Test
+[AUNIT:ENDT] End Test: String_Test.toLowerAndUpper
+[AUNIT:STRT][String_Test.fromByteArray] Start Test
+[AUNIT:STRT] Start Test: String_Test.fromByteArray
+[AUNIT:SUCC]: String_Test.fromByteArray:
+acdk_lang_String_Test.cpp(295): str->equals("RK") == true
+</pre>
+<h2><a id="String_Test.operatorMultiply">String_Test.operatorMultiply</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.fromByteArray] End Test
+[AUNIT:ENDT] End Test: String_Test.fromByteArray
+[AUNIT:STRT][String_Test.operatorMultiply] Start Test
+[AUNIT:STRT] Start Test: String_Test.operatorMultiply
+[AUNIT:SUCC]: String_Test.operatorMultiply:
+acdk_lang_String_Test.cpp(310): sbstr->equals(plusstr) == true
+</pre>
+<h2><a id="String_Test.basicUnicode">String_Test.basicUnicode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 10  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.operatorMultiply] End Test
+[AUNIT:ENDT] End Test: String_Test.operatorMultiply
+[AUNIT:STRT][String_Test.basicUnicode] Start Test
+[AUNIT:STRT] Start Test: String_Test.basicUnicode
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(359): us->equals(_US("UE=\\u00dc; AE=\\u00c4; OE=\\u00d6")) == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(364): s->equals(uc) == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(367): s->indexOf(_UC("\ß")) == 4
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(374): erg->equals(_US("text\üa")) == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(382): s2->equals("Straenberasschung ") == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(385): s2->equals("Stra?en?berasschung ?") == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(390): s2->equals(s1) == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(396): s1->equals(s2) == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(398): s2->equals(_US("Stra\ßen\äberasschung \é")) == true
+[AUNIT:SUCC]: String_Test.basicUnicode:
+acdk_lang_String_Test.cpp(401): s1->charAt(idx) == _UC("\ü")
+using encoding: utf-8
+
+some samples for console:
+German: ss: ß
+German umlaut ue: ä
+a acute: á
+g acute: ǵ
+greek alpha: Α
+CYRILLIC CAPITAL LETTER A: А
+ARMENIAN SMALL LETTER AYB: ա
+HEBREW LETTER ALEF: א
+ARABIC LETTER ALEF: ا
+SYRIAC LETTER ALAPH: ܐ
+THAANA LETTER HAA: ހ
+DEVANAGARI LETTER A: अ
+BENGALI LETTER AU: ঔ
+GURMUKHI LETTER A: ਅ
+GUJARATI LETTER A: અ
+ORIYA LETTER A: ଅ
+TAMIL LETTER A: அ
+TELUGU LETTER A: అ
+KANNADA LETTER A: ಅ
+MALAYALAM LETTER A: അ
+SINHALA LETTER AYANNA: අ
+THAI CHARACTER SARA A: ะ
+LAO LETTER DO: ດ
+TIBETAN LETTER KA: ཀ
+MYANMAR LETTER KA: က
+GEORGIAN LETTER AN: ა
+HANGUL CHOSEONG KIYEOK: ᄀ
+ETHIOPIC SYLLABLE LA: ለ
+ETHIOPIC SYLLABLE HA: ሀ
+CHEROKEE LETTER A: Ꭰ
+CANADIAN SYLLABICS AAI: ᐂ
+OGHAM LETTER BEITH: ᚁ
+RUNIC LETTER ANSUZ A: ᚨ
+TAGALOG LETTER A: ᜀ
+HANUNOO LETTER A: ᜠ
+BUHID LETTER A: ᝀ
+TAGBANWA LETTER A: ᝠ
+KHMER LETTER KA: ក
+MONGOLIAN LETTER A: ᠠ
+LIMBU LETTER KA: ᤁ
+TAI LE LETTER KA: ᥐ
+BRAILLE PATTERN DOTS-23: ⠆
+HIRAGANA LETTER A: あ
+KATAKANA LETTER A: ア
+BOPOMOFO LETTER A: ㄚ
+CJK Ideograph Extension A: 㐠
+CJK Ideograph: 一
+
+</pre>
+<h2><a id="String_Test.Utf8Samples">String_Test.Utf8Samples</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.basicUnicode] End Test
+[AUNIT:ENDT] End Test: String_Test.basicUnicode
+[AUNIT:STRT][String_Test.Utf8Samples] Start Test
+[AUNIT:STRT] Start Test: String_Test.Utf8Samples
+</pre>
+<h2><a id="String_Test.intern">String_Test.intern</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.Utf8Samples] End Test
+[AUNIT:ENDT] End Test: String_Test.Utf8Samples
+[AUNIT:STRT][String_Test.intern] Start Test
+[AUNIT:STRT] Start Test: String_Test.intern
+</pre>
+<h2><a id="Character_Test.standard">Character_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 6  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][String_Test.intern] End Test
+[AUNIT:ENDT] End Test: String_Test.intern
+[AUNIT:STRT][Character_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Character_Test.standard
+[AUNIT:SUCC]: Character_Test.standard:
+acdk_lang_Character_Test.cpp(64): UnicodeCharacter::toLowerCase('A') == 'a'
+[AUNIT:SUCC]: Character_Test.standard:
+acdk_lang_Character_Test.cpp(65): UnicodeCharacter::toUpperCase('b') == 'B'
+[AUNIT:SUCC]: Character_Test.standard:
+acdk_lang_Character_Test.cpp(66): UnicodeCharacter::isLetter(_UC("A")) == true
+[AUNIT:SUCC]: Character_Test.standard:
+acdk_lang_Character_Test.cpp(67): UnicodeCharacter::isLetter(_UC("\ß")) == true
+[AUNIT:SUCC]: Character_Test.standard:
+acdk_lang_Character_Test.cpp(70): UnicodeCharacter::isLetter(_UC("\ä")) == true
+[AUNIT:SUCC]: Character_Test.standard:
+acdk_lang_Character_Test.cpp(73): c == c2
+</pre>
+<h2><a id="Character_Test.invalidLiteral">Character_Test.invalidLiteral</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Character_Test.standard] End Test
+[AUNIT:ENDT] End Test: Character_Test.standard
+[AUNIT:STRT][Character_Test.invalidLiteral] Start Test
+[AUNIT:STRT] Start Test: Character_Test.invalidLiteral
+</pre>
+<h2><a id="Character_Test.unicode">Character_Test.unicode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Character_Test.invalidLiteral] End Test
+[AUNIT:ENDT] End Test: Character_Test.invalidLiteral
+[AUNIT:STRT][Character_Test.unicode] Start Test
+[AUNIT:STRT] Start Test: Character_Test.unicode
+</pre>
+<h2><a id="Character_Test.misc">Character_Test.misc</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Character_Test.unicode] End Test
+[AUNIT:ENDT] End Test: Character_Test.unicode
+[AUNIT:STRT][Character_Test.misc] Start Test
+[AUNIT:STRT] Start Test: Character_Test.misc
+</pre>
+<h2><a id="ObjectArray_Test.standard">ObjectArray_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Character_Test.misc] End Test
+[AUNIT:ENDT] End Test: Character_Test.misc
+[AUNIT:STRT][ObjectArray_Test.standard] Start Test
+[AUNIT:STRT] Start Test: ObjectArray_Test.standard
+</pre>
+<h2><a id="ObjectArray_Test.testClone">ObjectArray_Test.testClone</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectArray_Test.standard] End Test
+[AUNIT:ENDT] End Test: ObjectArray_Test.standard
+[AUNIT:STRT][ObjectArray_Test.testClone] Start Test
+[AUNIT:STRT] Start Test: ObjectArray_Test.testClone
+[AUNIT:SUCC]: ObjectArray_Test.testClone:
+acdk_lang_ObjectArray_Test.cpp(86): ba->equals(&ba2) == true
+</pre>
+<h2><a id="ObjectArray_Test.iteratoren">ObjectArray_Test.iteratoren</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectArray_Test.testClone] End Test
+[AUNIT:ENDT] End Test: ObjectArray_Test.testClone
+[AUNIT:STRT][ObjectArray_Test.iteratoren] Start Test
+[AUNIT:STRT] Start Test: ObjectArray_Test.iteratoren
+Hallo
+IsNil
+ACDK
+</pre>
+<h2><a id="ObjectArray_Test.interfaces">ObjectArray_Test.interfaces</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectArray_Test.iteratoren] End Test
+[AUNIT:ENDT] End Test: ObjectArray_Test.iteratoren
+[AUNIT:STRT][ObjectArray_Test.interfaces] Start Test
+[AUNIT:STRT] Start Test: ObjectArray_Test.interfaces
+Casting to interface arrays will copy storage
+</pre>
+<h2><a id="ObjectArray_Test.find">ObjectArray_Test.find</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectArray_Test.interfaces] End Test
+[AUNIT:ENDT] End Test: ObjectArray_Test.interfaces
+[AUNIT:STRT][ObjectArray_Test.find] Start Test
+[AUNIT:STRT] Start Test: ObjectArray_Test.find
+[AUNIT:SUCC]: ObjectArray_Test.find:
+acdk_lang_ObjectArray_Test.cpp(133): sa->find("A") == 0
+[AUNIT:SUCC]: ObjectArray_Test.find:
+acdk_lang_ObjectArray_Test.cpp(134): sa->find("B") == 2
+[AUNIT:SUCC]: ObjectArray_Test.find:
+acdk_lang_ObjectArray_Test.cpp(135): sa->find("c") == -1
+[AUNIT:SUCC]: ObjectArray_Test.find:
+acdk_lang_ObjectArray_Test.cpp(136): sa->find(Nil) == 1
+</pre>
+<h2><a id="ObjectArray_Test.className">ObjectArray_Test.className</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectArray_Test.find] End Test
+[AUNIT:ENDT] End Test: ObjectArray_Test.find
+[AUNIT:STRT][ObjectArray_Test.className] Start Test
+[AUNIT:STRT] Start Test: ObjectArray_Test.className
+</pre>
+<h2><a id="ObjectBase_Test.badCast">ObjectBase_Test.badCast</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectArray_Test.className] End Test
+[AUNIT:ENDT] End Test: ObjectArray_Test.className
+[AUNIT:STRT][ObjectBase_Test.badCast] Start Test
+[AUNIT:STRT] Start Test: ObjectBase_Test.badCast
+Expected ClassCast: Cannot cast type [::acdk::lang::RString] to [::acdk::lang::RInteger]
+</pre>
+<h2><a id="ObjectBase_Test.perfIn">ObjectBase_Test.perfIn</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectBase_Test.badCast] End Test
+[AUNIT:ENDT] End Test: ObjectBase_Test.badCast
+[AUNIT:STRT][ObjectBase_Test.perfIn] Start Test
+[AUNIT:STRT] Start Test: ObjectBase_Test.perfIn
+</pre>
+<h2><a id="ObjectBase_Test.inOutParams">ObjectBase_Test.inOutParams</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectBase_Test.perfIn] End Test
+[AUNIT:ENDT] End Test: ObjectBase_Test.perfIn
+[AUNIT:STRT][ObjectBase_Test.inOutParams] Start Test
+[AUNIT:STRT] Start Test: ObjectBase_Test.inOutParams
+[AUNIT:SUCC]: ObjectBase_Test.inOutParams:
+acdk_lang_ObjectBase_Test.cpp(128): outv == 2
+[AUNIT:SUCC]: ObjectBase_Test.inOutParams:
+acdk_lang_ObjectBase_Test.cpp(129): str->equals("val returned") == true
+</pre>
+<h2><a id="ObjectBase_Test.serializedClone">ObjectBase_Test.serializedClone</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ObjectBase_Test.inOutParams] End Test
+[AUNIT:ENDT] End Test: ObjectBase_Test.inOutParams
+[AUNIT:STRT][ObjectBase_Test.serializedClone] Start Test
+[AUNIT:STRT] Start Test: ObjectBase_Test.serializedClone
+</pre>
+</body></html>

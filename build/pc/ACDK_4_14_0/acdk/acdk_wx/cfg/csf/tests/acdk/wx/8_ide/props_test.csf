@@ -1,0 +1,3 @@
+acdk.util.Properties props = new acdk.util.Properties();
+String fn = "C:\\d\\artefaktur\\acdk\\acdk_wx\\cfg\\csf\\tests\\8_ide\\cpp.properties";
+props.load((new File(fn)).getReader());

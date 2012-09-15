@@ -1,0 +1,1123 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-05-02T15:33:44</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 20; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.standard">LibXML_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.files">LibXML_Test.files</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.invalideXml">LibXML_Test.invalideXml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.invalideValidatedXml">LibXML_Test.invalideValidatedXml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.singleFile">LibXML_Test.singleFile</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.selectNodes">LibXML_Test.selectNodes</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.selectNodesTyped">LibXML_Test.selectNodesTyped</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.xpath">LibXML_Test.xpath</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.xmlWriter">LibXML_Test.xmlWriter</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.buildDocument">LibXML_Test.buildDocument</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.manipulateDocument">LibXML_Test.manipulateDocument</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.createDocument">LibXML_Test.createDocument</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.createDocument2">LibXML_Test.createDocument2</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.copyBetweenDocuments">LibXML_Test.copyBetweenDocuments</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.parsePrintHtml">LibXML_Test.parsePrintHtml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.memConsumingTest">LibXML_Test.memConsumingTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.standard">DomBasic_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.files">DomBasic_Test.files</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.invalideXml">DomBasic_Test.invalideXml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.singleFile">DomBasic_Test.singleFile</a> <br>
+</td></tr></table>
+<h2><a id="LibXML_Test.standard">LibXML_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][LibXML_Test.standard] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.standard
+acdk/xml/libxmldom/LibXMLDocument[version=1.0,standalone=true]
+ acdk/xml/libxmldom/LibXMLElement[tagName=book]
+  acdk/xml/libxmldom/LibXMLElement[tagName=title]
+  acdk/xml/libxmldom/LibXMLElement[tagName=content]
+   acdk/xml/libxmldom/LibXMLText[data=Text of Book]
+</pre>
+<h2><a id="LibXML_Test.files">LibXML_Test.files</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.standard] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.standard
+[AUNIT:STRT][LibXML_Test.files] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.files
+[AUNIT:SUCC]: LibXML_Test.files:
+acdk_xml_dom_LibXML_Test.cpp(187): One or more tests are failed
+</pre>
+<h2><a id="LibXML_Test.invalideXml">LibXML_Test.invalideXml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.files] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.files
+[AUNIT:STRT][LibXML_Test.invalideXml] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.invalideXml
+Expected Exception: /export/home/dhldamin/src/acdk/acdk_xml/cfg/tests/acdk/xml/invalid/10_NotWellFormed.xml]: error parsing attribute name
+
+Expected Exception: /export/home/dhldamin/src/acdk/acdk_xml/cfg/tests/acdk/xml/invalid/11_NotWellFormed.xml]: Unescaped '<' not allowed in attributes values
+
+[AUNIT:SUCC]: LibXML_Test.invalideXml:
+acdk_xml_dom_LibXML_Test.cpp(208): One or more tests are failed
+</pre>
+<h2><a id="LibXML_Test.invalideValidatedXml">LibXML_Test.invalideValidatedXml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.invalideXml] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.invalideXml
+[AUNIT:STRT][LibXML_Test.invalideValidatedXml] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.invalideValidatedXml
+Expected Exception: /export/home/dhldamin/src/acdk/acdk_xml/cfg/tests/acdk/xml/validate/invalid/01_web_local.xml]: No declaration for element wrong_servlet
+
+[AUNIT:SUCC]: LibXML_Test.invalideValidatedXml:
+acdk_xml_dom_LibXML_Test.cpp(229): One or more tests are failed
+</pre>
+<h2><a id="LibXML_Test.singleFile">LibXML_Test.singleFile</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.invalideValidatedXml] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.invalideValidatedXml
+[AUNIT:STRT][LibXML_Test.singleFile] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.singleFile
+This test is for development only
+</pre>
+<h2><a id="LibXML_Test.selectNodes">LibXML_Test.selectNodes</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.singleFile] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.singleFile
+[AUNIT:STRT][LibXML_Test.selectNodes] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.selectNodes
+[AUNIT:SUCC]: LibXML_Test.selectNodes:
+acdk_xml_dom_LibXML_Test.cpp(281): n != Nil
+[AUNIT:SUCC]: LibXML_Test.selectNodes:
+acdk_xml_dom_LibXML_Test.cpp(283): n->getNodeValue()->equals("sampleapp.war") == true
+[AUNIT:SUCC]: LibXML_Test.selectNodes:
+acdk_xml_dom_LibXML_Test.cpp(288): nl != Nil && nl->getLength() > 0
+Node: init-param
+Node: init-param
+Node: init-param
+Node: init-param
+Node: init-param
+Node: init-param
+</pre>
+<h2><a id="LibXML_Test.selectNodesTyped">LibXML_Test.selectNodesTyped</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.selectNodes] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.selectNodes
+[AUNIT:STRT][LibXML_Test.selectNodesTyped] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.selectNodesTyped
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(308): instanceof(o, NodeList) == true
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(310): instanceof(o, Node) == true
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(316): instanceof(o, String) == true
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(318): s->equals("asdf") == true
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(322): instanceof(o, Number) == true
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(324): n->intValue() == 12345
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(328): instanceof(o, Boolean) == true
+[AUNIT:SUCC]: LibXML_Test.selectNodesTyped:
+acdk_xml_dom_LibXML_Test.cpp(330): b->booleanValue() == true
+</pre>
+<h2><a id="LibXML_Test.xpath">LibXML_Test.xpath</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.selectNodesTyped] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.selectNodesTyped
+[AUNIT:STRT][LibXML_Test.xpath] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.xpath
+[AUNIT:SUCC]: LibXML_Test.xpath:
+acdk_xml_dom_LibXML_Test.cpp(338): node != Nil
+[AUNIT:SUCC]: LibXML_Test.xpath:
+acdk_xml_dom_LibXML_Test.cpp(341): node != Nil
+</pre>
+<h2><a id="LibXML_Test.xmlWriter">LibXML_Test.xmlWriter</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.xpath] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.xpath
+[AUNIT:STRT][LibXML_Test.xmlWriter] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.xmlWriter
+<?xml version = "1.0" encoding="UTF8"?>
+
+<!-- <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "web-app_2_3.dtd"> -->
+<web-app>  
+  <display-name>sampleapp.war</display-name>  
+  <servlet>    
+    <servlet-name>action</servlet-name>    
+    <servlet-class>com.artefaktur.acdk.xml.SampleServlet</servlet-class>    
+    <init-param>      
+      <param-name>validate</param-name>      
+      <param-value>true</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>config</param-name>      
+      <param-value>/WEB-INF/struts-config.xml</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>application</param-name>      
+      <param-value>com.artefaktur.acdk.xml.util.MessageRessource</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>factory</param-name>      
+      <param-value>com.artefaktur.acdk.xml.util.MessageRessourceFactory</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>debug</param-name>      
+      <param-value>0</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>detail</param-name>      
+      <param-value>0</param-value>    
+    </init-param>    
+    <load-on-startup>2</load-on-startup>  
+  </servlet>  
+  <servlet-mapping>    
+    <servlet-name>action</servlet-name>    
+    <url-pattern>*.do</url-pattern>  
+  </servlet-mapping>  
+  <session-config>    
+    <session-timeout>10</session-timeout>  
+  </session-config>  
+  <welcome-file-list>    
+    <welcome-file>index.html</welcome-file>  
+  </welcome-file-list>  
+  <!-- error -->  
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>    
+    <location>/jsp/error.html</location>  
+  </error-page>  
+  <!-- taglibs -->  
+  <taglib>    
+    <taglib-uri>/WEB-INF/nol.tld</taglib-uri>    
+    <taglib-location>/WEB-INF/nol.tld</taglib-location>  
+  </taglib>  
+  <taglib>    
+    <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>    
+    <taglib-location>/WEB-INF/struts-html.tld</taglib-location>  
+  </taglib>  
+  <taglib>    
+    <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>    
+    <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>  
+  </taglib>  
+  <login-config>    
+    <auth-method>BASIC</auth-method>    
+    <realm-name>nexttonline_realm</realm-name>  
+  </login-config>  
+  <security-role>    
+    <description>neXtt Online Role</description>    
+    <role-name>nexttonline_role</role-name>  
+  </security-role>  
+  <env-entry>      
+    <env-entry-name>NexttUrl</env-entry-name>      
+    <env-entry-value>https://secure2.examind.com:8443/nexttjlib/nexttservlet</env-entry-value>      
+    <env-entry-type>java.lang.String</env-entry-type> 
+  </env-entry>
+</web-app>
+
+</pre>
+<h2><a id="LibXML_Test.buildDocument">LibXML_Test.buildDocument</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.xmlWriter] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.xmlWriter
+[AUNIT:STRT][LibXML_Test.buildDocument] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.buildDocument
+<?xml version = "1.0" encoding="UTF8"?>
+
+<rootNode>
+  <childNode>
+    <!--This is comment-->
+    <listel/>BlaBla
+    <!--This is comment-->
+    <listel/>BlaBla
+    <!--This is comment-->
+    <listel/>BlaBla
+    <!--This is comment-->
+    <listel/>BlaBla
+  </childNode>
+</rootNode>
+
+</pre>
+<h2><a id="LibXML_Test.manipulateDocument">LibXML_Test.manipulateDocument</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.buildDocument] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.buildDocument
+[AUNIT:STRT][LibXML_Test.manipulateDocument] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.manipulateDocument
+</pre>
+<h2><a id="LibXML_Test.createDocument">LibXML_Test.createDocument</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.manipulateDocument] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.manipulateDocument
+[AUNIT:STRT][LibXML_Test.createDocument] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.createDocument
+[AUNIT:SUCC]: LibXML_Test.createDocument:
+acdk_xml_dom_LibXML_Test.cpp(416): oldFirst->isEqualNode(&first) == true
+[AUNIT:SUCC]: LibXML_Test.createDocument:
+acdk_xml_dom_LibXML_Test.cpp(421): ELEMENT_NODE == firstChild->getNodeType()
+[AUNIT:SUCC]: LibXML_Test.createDocument:
+acdk_xml_dom_LibXML_Test.cpp(422): newFirst->isEqualNode(&firstChild) == true
+Created Document: <?xml version="1.0"?>
+ <Parent>
+  <NewFirst/>
+  <SecondChild/>
+  <ThirdChild/>
+ </Parent>
+
+[AUNIT:SUCC]: LibXML_Test.createDocument:
+acdk_xml_dom_LibXML_Test.cpp(431): NOT_FOUND_ERR == e->getCode()
+</pre>
+<h2><a id="LibXML_Test.createDocument2">LibXML_Test.createDocument2</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.createDocument] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.createDocument
+[AUNIT:STRT][LibXML_Test.createDocument2] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.createDocument2
+Created Document: <?xml version="1.0"?>
+ <root>
+  <author name="James" location="UK">James Strachan</author>
+  <author name="Bob" location="US">Bob McWhirter</author>
+ </root>
+
+</pre>
+<h2><a id="LibXML_Test.copyBetweenDocuments">LibXML_Test.copyBetweenDocuments</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.createDocument2] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.createDocument2
+[AUNIT:STRT][LibXML_Test.copyBetweenDocuments] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.copyBetweenDocuments
+<?xml version="1.0"?>
+<book>
+	<chapter>Chapter 1</chapter>
+	<p>
+		asdfasdf
+	</p>
+<chapter>Chapter 1a</chapter><chapter>Chapter 2</chapter><chapter>Chapter 3</chapter></book>
+</pre>
+<h2><a id="LibXML_Test.parsePrintHtml">LibXML_Test.parsePrintHtml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.copyBetweenDocuments] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.copyBetweenDocuments
+[AUNIT:STRT][LibXML_Test.parsePrintHtml] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.parsePrintHtml
+</pre>
+<h2><a id="LibXML_Test.memConsumingTest">LibXML_Test.memConsumingTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.parsePrintHtml] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.parsePrintHtml
+[AUNIT:STRT][LibXML_Test.memConsumingTest] Start Test
+[AUNIT:STRT] Start Test: LibXML_Test.memConsumingTest
+</pre>
+<h2><a id="DomBasic_Test.standard">DomBasic_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.memConsumingTest] End Test
+[AUNIT:ENDT] End Test: LibXML_Test.memConsumingTest
+[AUNIT:STRT][DomBasic_Test.standard] Start Test
+[AUNIT:STRT] Start Test: DomBasic_Test.standard
+</pre>
+<h2><a id="DomBasic_Test.files">DomBasic_Test.files</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.standard] End Test
+[AUNIT:ENDT] End Test: DomBasic_Test.standard
+[AUNIT:STRT][DomBasic_Test.files] Start Test
+[AUNIT:STRT] Start Test: DomBasic_Test.files
+Parsed: XMLDocument: 
+[XMLElement(entries): 
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: strval="asdf" XMLAttr: intval="12345" XMLAttr: floatval="0.4"]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry): 
+[XMLCharacterData: "
+    asdf
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="stringval"
+[XMLCharacterData: "asdf"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="intval"
+[XMLCharacterData: "12345"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="floatval"
+[XMLCharacterData: "12.123"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="boolval"
+[XMLCharacterData: "true"]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <entries>
+    <entry strval="asdf" intval="12345" floatval="0.4"/>
+
+    <entry>
+    asdf
+  </entry>
+
+    <entry type="stringval">asdf</entry>
+
+    <entry type="intval">12345</entry>
+
+    <entry type="floatval">12.123</entry>
+
+    <entry type="boolval">true</entry>
+
+</entries>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    This is the text
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(body2): 
+[XMLCharacterData: "
+  void foo()
+  {
+    ++i; "CDATA";
+  }"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(body3): 
+[XMLCharacterData: "
+  void foo()
+  {
+    ++i; "CDATA";
+  }"]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    This is the text
+  </body>
+
+    <body2>
+  void foo()
+  {
+    ++i; "CDATA";
+  }</body2>
+
+    <body3>
+  void foo()
+  {
+    ++i; "CDATA";
+  }</body3>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  void foo()
+  {
+    ++i; "PCDATA";
+  }
+"]]
+<?xml version="1.0"?>
+ <book>
+  void foo()
+  {
+    ++i; "PCDATA";
+  }
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    This is the text
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    This is the text
+  </body>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(person):  XMLAttr: xmlns="http://xml.oreilly.com/person"
+[XMLCharacterData: "
+  "]
+[XMLElement(name:name):  XMLAttr: xmlns:name="http://xml.oreilly.com/name"
+[XMLCharacterData: "
+    "]
+[XMLElement(name:first): 
+[XMLCharacterData: "Sydney"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(name:last): 
+[XMLCharacterData: "Lee"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(assignment):  XMLAttr: project_id="p2"]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <person xmlns="http://xml.oreilly.com/person">
+    <name:name xmlns:name="http://xml.oreilly.com/name">
+       <name:first>Sydney</name:first>
+
+       <name:last>Lee</name:last>
+
+  </name:name>
+
+    <assignment project_id="p2"/>
+
+</person>
+
+Parsed: XMLDocument: 
+[XMLElement(web-app): 
+[XMLCharacterData: "
+  "]
+[XMLElement(display-name): 
+[XMLCharacterData: "MyApp.war"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(servlet): 
+[XMLCharacterData: "
+    "]
+[XMLElement(servlet-name): 
+[XMLCharacterData: "action"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(servlet-class): 
+[XMLCharacterData: "com.artefaktur.sample.MyApp.NOLActionServlet"]]
+[XMLCharacterData: "
+
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "validate"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "true"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "config"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "/WEB-INF/struts-config.xml"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "application"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "com.artefaktur.sample.MyApp.util.NOLMessageResources"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "factory"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "com.artefaktur.sample.MyApp.util.NOLMessageResourcesFactory"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "debug"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "0"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "detail"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "0"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(load-on-startup): 
+[XMLCharacterData: "2"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(servlet-mapping): 
+[XMLCharacterData: "
+    "]
+[XMLElement(servlet-name): 
+[XMLCharacterData: "action"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(url-pattern): 
+[XMLCharacterData: "*.do"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(session-config): 
+[XMLCharacterData: "
+    "]
+[XMLElement(session-timeout): 
+[XMLCharacterData: "10"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(welcome-file-list): 
+[XMLCharacterData: "
+    "]
+[XMLElement(welcome-file): 
+[XMLCharacterData: "index.html"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+
+
+  
+  "]
+[XMLElement(error-page): 
+[XMLCharacterData: "
+	"]
+[XMLElement(exception-type): 
+[XMLCharacterData: "java.lang.Throwable"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(location): 
+[XMLCharacterData: "/jsp/error.html"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+
+  
+  "]
+[XMLElement(taglib): 
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-uri): 
+[XMLCharacterData: "/WEB-INF/nol.tld"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-location): 
+[XMLCharacterData: "/WEB-INF/nol.tld"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(taglib): 
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-uri): 
+[XMLCharacterData: "/WEB-INF/struts-html.tld"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-location): 
+[XMLCharacterData: "/WEB-INF/struts-html.tld"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(taglib): 
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-uri): 
+[XMLCharacterData: "/WEB-INF/struts-logic.tld"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-location): 
+[XMLCharacterData: "/WEB-INF/struts-logic.tld"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+
+  
+  "]
+[XMLElement(security-constraint): 
+[XMLCharacterData: "
+    "]
+[XMLElement(web-resource-collection): 
+[XMLCharacterData: "
+      "]
+[XMLElement(web-resource-name): 
+[XMLCharacterData: "Sample Online JSPs"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(url-pattern): 
+[XMLCharacterData: "*.jsp"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(auth-constraint): 
+[XMLCharacterData: "
+      "]
+[XMLElement(role-name): 
+[XMLCharacterData: "MyApp_role"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(login-config): 
+[XMLCharacterData: "
+    "]
+[XMLElement(auth-method): 
+[XMLCharacterData: "BASIC"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(realm-name): 
+[XMLCharacterData: "MyApp_realm"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(security-role): 
+[XMLCharacterData: "
+    "]
+[XMLElement(description): 
+[XMLCharacterData: "MyApp Online Role"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(role-name): 
+[XMLCharacterData: "MyApp_role"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <web-app>
+    <display-name>MyApp.war</display-name>
+
+    <servlet>
+       <servlet-name>action</servlet-name>
+
+       <servlet-class>com.artefaktur.sample.MyApp.NOLActionServlet</servlet-class>
+
+
+       <init-param>
+          <param-name>validate</param-name>
+
+          <param-value>true</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>config</param-name>
+
+          <param-value>/WEB-INF/struts-config.xml</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>application</param-name>
+
+          <param-value>com.artefaktur.sample.MyApp.util.NOLMessageResources</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>factory</param-name>
+
+          <param-value>com.artefaktur.sample.MyApp.util.NOLMessageResourcesFactory</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>debug</param-name>
+
+          <param-value>0</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>detail</param-name>
+
+          <param-value>0</param-value>
+
+    </init-param>
+
+       <load-on-startup>2</load-on-startup>
+
+  </servlet>
+
+    <servlet-mapping>
+       <servlet-name>action</servlet-name>
+
+       <url-pattern>*.do</url-pattern>
+
+  </servlet-mapping>
+
+    <session-config>
+       <session-timeout>10</session-timeout>
+
+  </session-config>
+
+    <welcome-file-list>
+       <welcome-file>index.html</welcome-file>
+
+  </welcome-file-list>
+
+
+
+  
+    <error-page>
+	   <exception-type>java.lang.Throwable</exception-type>
+
+       <location>/jsp/error.html</location>
+
+  </error-page>
+
+
+  
+    <taglib>
+       <taglib-uri>/WEB-INF/nol.tld</taglib-uri>
+
+       <taglib-location>/WEB-INF/nol.tld</taglib-location>
+
+  </taglib>
+
+    <taglib>
+       <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+
+       <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+
+  </taglib>
+
+    <taglib>
+       <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+
+       <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+
+  </taglib>
+
+
+  
+    <security-constraint>
+       <web-resource-collection>
+          <web-resource-name>Sample Online JSPs</web-resource-name>
+
+          <url-pattern>*.jsp</url-pattern>
+
+    </web-resource-collection>
+
+       <auth-constraint>
+          <role-name>MyApp_role</role-name>
+
+    </auth-constraint>
+
+  </security-constraint>
+
+    <login-config>
+       <auth-method>BASIC</auth-method>
+
+       <realm-name>MyApp_realm</realm-name>
+
+  </login-config>
+
+    <security-role>
+       <description>MyApp Online Role</description>
+
+       <role-name>MyApp_role</role-name>
+
+  </security-role>
+
+</web-app>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+	"]
+[XMLElement(chapter): 
+[XMLCharacterData: "Chapter 1a"]]
+[XMLCharacterData: "
+	"]
+[XMLElement(p): 
+[XMLCharacterData: "
+		asdfasdf
+	"]]
+[XMLCharacterData: "
+	"]
+[XMLElement(chapter): 
+[XMLCharacterData: "Chapter 2"]]
+[XMLCharacterData: "
+	"]
+[XMLElement(p): 
+[XMLCharacterData: "
+		asdfasdf
+	"]]
+[XMLCharacterData: "
+	"]
+[XMLElement(chapter): 
+[XMLCharacterData: "Chapter 3"]]
+[XMLCharacterData: "
+	"]
+[XMLElement(p): 
+[XMLCharacterData: "
+		asdfasdf
+	"]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+	  <chapter>Chapter 1a</chapter>
+
+	  <p>
+		asdfasdf
+	</p>
+
+	  <chapter>Chapter 2</chapter>
+
+	  <p>
+		asdfasdf
+	</p>
+
+	  <chapter>Chapter 3</chapter>
+
+	  <p>
+		asdfasdf
+	</p>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+	"]
+[XMLElement(chapter): 
+[XMLCharacterData: "Chapter 1"]]
+[XMLCharacterData: "
+	"]
+[XMLElement(p): 
+[XMLCharacterData: "
+		asdfasdf
+	"]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+	  <chapter>Chapter 1</chapter>
+
+	  <p>
+		asdfasdf
+	</p>
+
+</book>
+
+[AUNIT:SUCC]: DomBasic_Test.files:
+acdk_xml_dom_Basic.cpp(123): One or more tests are failed
+</pre>
+<h2><a id="DomBasic_Test.invalideXml">DomBasic_Test.invalideXml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.files] End Test
+[AUNIT:ENDT] End Test: DomBasic_Test.files
+[AUNIT:STRT][DomBasic_Test.invalideXml] Start Test
+[AUNIT:STRT] Start Test: DomBasic_Test.invalideXml
+Parsing file failed: /export/home/dhldamin/src/acdk/acdk_xml/cfg/tests/acdk/xml/invalid/10_NotWellFormed.xml: ] at 4,2: not well-formed (invalid token)
+Parsing file failed: /export/home/dhldamin/src/acdk/acdk_xml/cfg/tests/acdk/xml/invalid/11_NotWellFormed.xml: ] at 4,2: not well-formed (invalid token)
+[AUNIT:SUCC]: DomBasic_Test.invalideXml:
+acdk_xml_dom_Basic.cpp(142): One or more tests are failed
+</pre>
+<h2><a id="DomBasic_Test.singleFile">DomBasic_Test.singleFile</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.invalideXml] End Test
+[AUNIT:ENDT] End Test: DomBasic_Test.invalideXml
+[AUNIT:STRT][DomBasic_Test.singleFile] Start Test
+[AUNIT:STRT] Start Test: DomBasic_Test.singleFile
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+[AUNIT:SUCC]: DomBasic_Test.singleFile:
+acdk_xml_dom_Basic.cpp(168): v->equals(v2) == true
+
+    Roger René Kommer;
+    Dörnbergstraße 11
+  
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+
+    Roger René Kommer;
+    Dörnbergstraße 11
+  
+[AUNIT:SUCC]: DomBasic_Test.singleFile:
+acdk_xml_dom_Basic.cpp(176): v->equals(v2) == true
+</pre>
+</body></html>

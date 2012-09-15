@@ -1,0 +1,231 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_core
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_lang_sys_RefHolder_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_sys_RefHolder_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_lang_sys_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_sys_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_lang_Object_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_Object_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_tools_aunit_TestSuite_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_tools_aunit_TestSuite_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_lang_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_lang_dmi_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_dmi_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_lang_ref_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_ref_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_lang_reflect_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_lang_reflect_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_io_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_io_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_util_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_util_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_util_logging_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_util_logging_Test failed; exit 1; 
+
+
+
+acdk_core-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_core.lsp -pdir src mingw
+
+acdk_security-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_security.lsp -pdir src mingw
+
+acdk_tools_mc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_mc.lsp -pdir src mingw
+
+acdkmc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmc.lsp -pdir src mingw
+
+acdk_tools_aunit-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_aunit.lsp -pdir src mingw
+
+acdk_lang_sys_RefHolder_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.lsp -pdir tests/acdk/lang/sys mingw
+
+acdk_lang_sys_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/sys\acdk_lang_sys_Test.lsp -pdir tests/acdk/lang/sys mingw
+
+acdk_tools_aunit_TestSuite_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.lsp -pdir tests/acdk/tools/aunit mingw
+
+acdk_lang_Object_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Object_Test.lsp -pdir tests/acdk/lang mingw
+
+acdk_lang_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang\acdk_lang_Test.lsp -pdir tests/acdk/lang mingw
+
+acdk_lang_dmi_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/dmi\acdk_lang_dmi_Test.lsp -pdir tests/acdk/lang/dmi mingw
+
+acdk_lang_ref_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/ref\acdk_lang_ref_Test.lsp -pdir tests/acdk/lang/ref mingw
+
+acdk_lang_reflect_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lang/reflect\acdk_lang_reflect_Test.lsp -pdir tests/acdk/lang/reflect mingw
+
+acdk_io_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/io\acdk_io_Test.lsp -pdir tests/acdk/io mingw
+
+acdk_util_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util\acdk_util_Test.lsp -pdir tests/acdk/util mingw
+
+acdk_util_logging_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/util/logging\acdk_util_logging_Test.lsp -pdir tests/acdk/util/logging mingw
+
+acdk_tools_mc_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc darwin
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc cygwin-static
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tools/mc\acdk_tools_mc_Test.lsp -pdir tests/acdk/tools/mc mingw
+
+
+makemake:: acdk_core-makemake acdk_security-makemake acdk_tools_mc-makemake acdkmc-makemake acdk_tools_aunit-makemake acdk_lang_sys_RefHolder_Test-makemake acdk_lang_sys_Test-makemake acdk_tools_aunit_TestSuite_Test-makemake acdk_lang_Object_Test-makemake acdk_lang_Test-makemake acdk_lang_dmi_Test-makemake acdk_lang_ref_Test-makemake acdk_lang_reflect_Test-makemake acdk_io_Test-makemake acdk_util_Test-makemake acdk_util_logging_Test-makemake acdk_tools_mc_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_core.lsp
+
+

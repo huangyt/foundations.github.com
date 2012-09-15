@@ -1,0 +1,62 @@
+# acdk_globals.bsd
+
+
+#####################################################################
+# OpenSSL
+ACDK_OPENSSL_INCLUDE=.
+#ACDK_OPENSSL_LIBPATH=. 
+ACDK_OPENSSL_LIBS=ssl
+
+#####################################################################
+# Tcl
+ACDK_TCL_LDFLAGS=-L/artefaktur/extsrc/lib -ltcl8.4
+ACDK_TCL_CFLAGS=-I /artefaktur/extsrc/include
+
+#####################################################################
+# Python
+ACDK_PYTHON_CFLAGS=-I /artefaktur/extsrc/include/python2.4
+ACDK_PYTHON_LDFLAGS=-L /artefaktur/extsrc/lib -lutil -lpython2.4
+
+# command argument when executing test target
+AUNIT_TESTOPTS=-test-htmlreport
+
+
+SHELL=/bin/sh
+PERL=perl
+SRC2HTML=src2html
+WEBHOME=/home/roger/artefaktur/wweb/products/acdk/modules
+GENWEBHOME=../../genweb
+
+INSTALL=/usr/bin/install -c
+INSTALL_PROGRAM=${INSTALL}
+INSTALL_SCRIPT=${INSTALL_PROGRAM}
+INSTALL_DATA=${INSTALL} -m 644
+MAN_PATH=/usr/local/man
+ACDKLISP=$(ACDKHOME)/bin/acdklisp
+
+# if set, will overwritten
+# in case of release
+#CCOPTS=-fpic -O2
+#SYSLDFLAGS= -fpic
+# else
+CCOPTS=-fpic -ggdb
+SYSLDFLAGS=-g -fpic
+#endif
+
+
+# will be before to the default CCOPTS
+XCCOPTS=
+
+# will be after the default CCOPTS
+CCOPTSX= 
+
+XDEFINES=-DACDK_HAS_LIBERTY
+
+SYSLIBRARIES=-lc_r -lm 
+
+# LDFLAGS must be empty, otherwise user defined ldflags cannot 
+# set
+LDFLAGS=
+
+
+TEMPFILES = '*.o' '*.tmp'

@@ -1,0 +1,135 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdkmc/bsd
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT  $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++
+SYSLDFLAGS?=-g
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_cfgscript -lacdk_tools_mc -lacdk_security 
+
+
+SOURCES= 	acdk/tools/acdkmc/acdkmc.cpp \
+	acdk/tools/acdkmc/GenARB.cpp \
+	acdk/tools/acdkmc/GenORB.cpp \
+	acdk/tools/acdkmc/GenORBIDL.cpp \
+	acdk/tools/acdkmc/MetaInfoGenDispatch.cpp \
+	acdk/tools/acdkmc/MetaInfoGenDispatchEx.cpp \
+	acdk/tools/acdkmc/MetaInfoParse.cpp \
+
+HEADER= 	acdk/tools/acdkmc/ClassInfo.h \
+	acdk/tools/acdkmc/MetaInfoGenDispatch.h \
+	acdk/tools/acdkmc/stringstream.h \
+
+OBJECTS= 	../tobj/acdkmc/bsd/acdkmc.o \
+	../tobj/acdkmc/bsd/GenARB.o \
+	../tobj/acdkmc/bsd/GenORB.o \
+	../tobj/acdkmc/bsd/GenORBIDL.o \
+	../tobj/acdkmc/bsd/MetaInfoGenDispatch.o \
+	../tobj/acdkmc/bsd/MetaInfoGenDispatchEx.o \
+	../tobj/acdkmc/bsd/MetaInfoParse.o \
+
+
+FINALTARGET=../../bin/acdkmc
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/acdkmc: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../bin/acdkmc $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdkmc.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdkmc/bsd/acdkmc.o: acdk/tools/acdkmc/acdkmc.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/acdkmc.o -c acdk/tools/acdkmc/acdkmc.cpp
+
+../tobj/acdkmc/bsd/GenARB.o: acdk/tools/acdkmc/GenARB.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/GenARB.o -c acdk/tools/acdkmc/GenARB.cpp
+
+../tobj/acdkmc/bsd/GenORB.o: acdk/tools/acdkmc/GenORB.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/GenORB.o -c acdk/tools/acdkmc/GenORB.cpp
+
+../tobj/acdkmc/bsd/GenORBIDL.o: acdk/tools/acdkmc/GenORBIDL.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/GenORBIDL.o -c acdk/tools/acdkmc/GenORBIDL.cpp
+
+../tobj/acdkmc/bsd/MetaInfoGenDispatch.o: acdk/tools/acdkmc/MetaInfoGenDispatch.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/MetaInfoGenDispatch.o -c acdk/tools/acdkmc/MetaInfoGenDispatch.cpp
+
+../tobj/acdkmc/bsd/MetaInfoGenDispatchEx.o: acdk/tools/acdkmc/MetaInfoGenDispatchEx.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/MetaInfoGenDispatchEx.o -c acdk/tools/acdkmc/MetaInfoGenDispatchEx.cpp
+
+../tobj/acdkmc/bsd/MetaInfoParse.o: acdk/tools/acdkmc/MetaInfoParse.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkmc/bsd/MetaInfoParse.o -c acdk/tools/acdkmc/MetaInfoParse.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdkmc $(OBJECTS)
+
+  

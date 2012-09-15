@@ -1,0 +1,89 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "../../../../bin/acdk_core.lib" "../../../../bin/acdk_text.lib" "../../../../bin/acdk_tools_aunit.lib" "../../../../bin/acdk_sql.lib"
+
+OUTFILE="../../../../bin/acdk_sql_Test.exe"
+OUTDIR = "../../../../bin"
+INTDIR = "./tobj/acdk_sql_Test/bcc"
+SOURCES= 	"acdk_sql_Test.cpp" \
+	"acdk_sql_Select.cpp" \
+	"acdk_sql_CallableStatement.cpp" \
+	"acdk_sql_PreparedStatement.cpp" \
+	"acdk_sql_DatabaseMetaData.cpp" \
+
+HEADER= 
+OBJECTS= 	"./tobj/acdk_sql_Test/bcc/acdk_sql_Test.obj" \
+	"./tobj/acdk_sql_Test/bcc/acdk_sql_Select.obj" \
+	"./tobj/acdk_sql_Test/bcc/acdk_sql_CallableStatement.obj" \
+	"./tobj/acdk_sql_Test/bcc/acdk_sql_PreparedStatement.obj" \
+	"./tobj/acdk_sql_Test/bcc/acdk_sql_DatabaseMetaData.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"./tobj/acdk_sql_Test/bcc/acdk_sql_Test.obj": "acdk_sql_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"./tobj/acdk_sql_Test/bcc" "acdk_sql_Test.cpp"
+
+"./tobj/acdk_sql_Test/bcc/acdk_sql_Select.obj": "acdk_sql_Select.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"./tobj/acdk_sql_Test/bcc" "acdk_sql_Select.cpp"
+
+"./tobj/acdk_sql_Test/bcc/acdk_sql_CallableStatement.obj": "acdk_sql_CallableStatement.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"./tobj/acdk_sql_Test/bcc" "acdk_sql_CallableStatement.cpp"
+
+"./tobj/acdk_sql_Test/bcc/acdk_sql_PreparedStatement.obj": "acdk_sql_PreparedStatement.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"./tobj/acdk_sql_Test/bcc" "acdk_sql_PreparedStatement.cpp"
+
+"./tobj/acdk_sql_Test/bcc/acdk_sql_DatabaseMetaData.obj": "acdk_sql_DatabaseMetaData.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"./tobj/acdk_sql_Test/bcc" "acdk_sql_DatabaseMetaData.cpp"
+
+
+
+clean:
+	del "../../../../bin/acdk_sql_Test.exe"
+	del "./tobj/acdk_sql_Test/bcc/acdk_sql_Test.obj"
+	del "./tobj/acdk_sql_Test/bcc/acdk_sql_Select.obj"
+	del "./tobj/acdk_sql_Test/bcc/acdk_sql_CallableStatement.obj"
+	del "./tobj/acdk_sql_Test/bcc/acdk_sql_PreparedStatement.obj"
+	del "./tobj/acdk_sql_Test/bcc/acdk_sql_DatabaseMetaData.obj"
+
+

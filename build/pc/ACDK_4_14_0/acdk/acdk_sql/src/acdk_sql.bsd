@@ -1,0 +1,159 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_sql/bsd
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDK_SQL_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text 
+
+
+SOURCES= 	acdk/sql/Connection.cpp \
+	acdk/sql/DatabaseMetaData.cpp \
+	acdk/sql/DriverManager.cpp \
+	acdk/sql/ResultSet.cpp \
+	acdk/sql/sql_metainf_base.cpp \
+	acdk/sql/Time.cpp \
+	acdk/sql/Timestamp.cpp \
+	acdk/sql/Types.cpp \
+
+HEADER= 	acdk/sql/Array.h \
+	acdk/sql/Blob.h \
+	acdk/sql/CallableStatement.h \
+	acdk/sql/Config.h \
+	acdk/sql/Connection.h \
+	acdk/sql/DatabaseMetaData.h \
+	acdk/sql/Driver.h \
+	acdk/sql/DriverManager.h \
+	acdk/sql/DriverPropertyInfo.h \
+	acdk/sql/PreparedStatement.h \
+	acdk/sql/ResultSet.h \
+	acdk/sql/ResultSetMetaData.h \
+	acdk/sql/sql.h \
+	acdk/sql/SQLConfig.h \
+	acdk/sql/SQLException.h \
+	acdk/sql/SQLWarning.h \
+	acdk/sql/sql_all.h \
+	acdk/sql/Statement.h \
+	acdk/sql/Time.h \
+	acdk/sql/Timestamp.h \
+	acdk/sql/Types.h \
+
+OBJECTS= 	../tobj/acdk_sql/bsd/Connection.o \
+	../tobj/acdk_sql/bsd/DatabaseMetaData.o \
+	../tobj/acdk_sql/bsd/DriverManager.o \
+	../tobj/acdk_sql/bsd/ResultSet.o \
+	../tobj/acdk_sql/bsd/sql_metainf_base.o \
+	../tobj/acdk_sql/bsd/Time.o \
+	../tobj/acdk_sql/bsd/Timestamp.o \
+	../tobj/acdk_sql/bsd/Types.o \
+
+
+FINALTARGET=../../bin/libacdk_sql.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_sql.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_sql.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_sql.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdk_sql/bsd/Connection.o: acdk/sql/Connection.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/Connection.o -c acdk/sql/Connection.cpp
+
+../tobj/acdk_sql/bsd/DatabaseMetaData.o: acdk/sql/DatabaseMetaData.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/DatabaseMetaData.o -c acdk/sql/DatabaseMetaData.cpp
+
+../tobj/acdk_sql/bsd/DriverManager.o: acdk/sql/DriverManager.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/DriverManager.o -c acdk/sql/DriverManager.cpp
+
+../tobj/acdk_sql/bsd/ResultSet.o: acdk/sql/ResultSet.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/ResultSet.o -c acdk/sql/ResultSet.cpp
+
+../tobj/acdk_sql/bsd/sql_metainf_base.o: acdk/sql/sql_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/sql_metainf_base.o -c acdk/sql/sql_metainf_base.cpp
+
+../tobj/acdk_sql/bsd/Time.o: acdk/sql/Time.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/Time.o -c acdk/sql/Time.cpp
+
+../tobj/acdk_sql/bsd/Timestamp.o: acdk/sql/Timestamp.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/Timestamp.o -c acdk/sql/Timestamp.cpp
+
+../tobj/acdk_sql/bsd/Types.o: acdk/sql/Types.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql/bsd/Types.o -c acdk/sql/Types.cpp
+
+
+
+metainfo:
+	cd ${.CURDIR}; $(ACDKMC) acdk/sql;\
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_sql.so $(OBJECTS)
+
+  

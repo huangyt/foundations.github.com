@@ -1,0 +1,148 @@
+<package>
+
+<name>acdk_perl</name>
+
+<title>
+ACDK Perl (acdk_perl)
+</title>
+
+
+<shortdescription>
+With acdk_perl, you can instrument a perl interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your perl environment.
+</shortdescription>
+
+<description>
+<m>acdk_perl</m> provides an integration of ACDK and Perl with
+embedding Perl Code in ACDK and %ref[accessing ACDK object from Perl, acdk_perl_dll_man].
+
+In contrast to tradional glue code (XS)  with <m>acdk_perl</m> no further
+code has to be written or generated to access C++ Objects from perl code.
+
+<source>
+sub foo($$)
+{
+  my ($string1, $string2) = @_;
+  my $sb = pacdk::new("acdk/lang/StringBuffer", $string1);
+  $sb->append($string2);
+  return $sb->toString();
+}
+pacdk::peek_static("acdk/lang/System", "out")->println(foo("Hello Perl ", "from ACDK"));
+</source>
+
+
+With a few lines of code:
+<source>
+  RAPerlInterpreter pi = new APerlInterpreter();
+  pi->parse("print(\"Hello Perl\");\n");
+  pi->run();
+</source>
+an full featured Perl interpreter can be embedded into C++ code.
+
+The %ref[<m>acdkperl</m>, acdkperl_man] command line perl interpreter is already 
+prepared to have access to ACDK world. 
+
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+%ref[ACDK Free Edition Licens, acdk_license].
+</license>
+<dependencies>
+%ref[acdk_core]
+%ref[acdk_text]
+</dependencies>
+
+<namespaces>
+%nsref[acdk::perl]
+</namespaces>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- nothing important
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Problems with XS implementation of acdk_AUTOLOAD
+  on unix perl versions 5.6 - 5.8. 
+  Introduced a perl module pacdk.pm as work-around.
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+3.01.0
+- Varios little fixes.
+- Still problems with perl 5.6.1 on linux machines
+  because AUTOLOAD doesn't work, $sb->append("sdf"); doesn't
+  work. But sb->invoke('append', "sdf"); does.
+===========================================================
+2.00.1
+- Ajuments to the new DMI.
+- Bugfixing.
+
+===========================================================
+1.01.0
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved configurations.
+
+===========================================================
+1.00.2
+Changed configuration managment.
+
+===========================================================
+1.00 Initial version
+</changes>
+<notes>
+This version uses the ActiveState Perl 5.6 Libraries for the Windows
+platform and 5.00503 for Linux.
+
+You have to adjust the path to header and libraries in the 
+project settings and makefiles.
+
+In the ./acdk_perl/lib/perl directory is a tiny perl script 
+acdk_perl_test.pl, which demonstrates some features
+To run this, script type
+./bin/acdkperl ./acdk_perl/lib/perl/acdk_perl_test.pl 
+in the root acdk directory.
+</notes>
+
+<sf-notes>
+With acdk_perl, you can instrument a perl interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your perl environment.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/perl">http://acdk.sourceforge.net/acdk/perl</a>
+
+</sf-notes>
+<sf-changes>
+- Ajuments to the new DMI.
+- Bugfixing.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_perl/docs/readme-en.html#Changes">Changes</a>
+</sf-changes>
+
+</package>

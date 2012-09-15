@@ -1,0 +1,50 @@
+
+
+int globalCounter = 0;
+//__script.traceOn();
+class AClass
+{
+  String _svar;
+  int _ivar;
+  AClass(String svar, int ivar)
+  {
+    _svar = svar;
+    _ivar = ivar;
+  }
+  void appendStringsNTime()
+  {
+    StringBuffer sb = new StringBuffer("");
+    for (int i = 0; i < _ivar; ++i)
+    {
+      sb << " " << _svar;
+      ++globalCounter;
+    }
+  }
+  String callFunction(int ivar, String s)
+  {
+    ++globalCounter;
+    String ret;
+    if (ivar > 0)
+      ret = callFunction(ivar - 1, s);
+    else
+      ret = s;
+    return ret;
+  }
+  void callFunctionNTime(int recLevel)
+  {
+    String erg;
+    for (int i = 0; i < _ivar; ++i)
+      erg = callFunction(recLevel, _svar);
+  }
+  
+  void runTests()
+  {
+    appendStringsNTime();
+    callFunctionNTime(10);
+  }
+}
+
+AClass cls = new AClass("Just A Test", 200);
+cls.runTests();
+out.println("Counted tests: " + globalCounter);
+

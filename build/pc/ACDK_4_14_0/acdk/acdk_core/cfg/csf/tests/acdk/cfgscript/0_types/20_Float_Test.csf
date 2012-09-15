@@ -1,0 +1,22 @@
+3.423;
+{
+	float f = 3.423;
+	f = 5234.234;
+}
+
+String ts = "";
+if (ts.indexOf("asdf") != -1)
+  out.println("TEST FAILED");
+  
+double d=1/2;
+out.println("Erg Double: " + d + " == " + 0.5);
+int i = 7 / 2;
+out.println("Erg Int: " + i);
+
+double d2 = 12.2e3;
+out.println("12e3 class: " + 12e3.getClass().getName());
+out.println("12e3d class: " + 12e3d.getClass().getName());
+out.println("-12s class: " + (-12s).getClass().getName());
+
+
+ 

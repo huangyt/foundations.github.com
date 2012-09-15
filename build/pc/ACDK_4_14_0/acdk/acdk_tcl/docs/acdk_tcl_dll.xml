@@ -1,0 +1,48 @@
+<package>
+<name>acdk_tcl</name>
+
+<title>
+  ACDK Tcl Library
+</title>
+
+<shortdescription>
+acdk_tcl_dll enables to embed Tcl scripting 
+code into your ACDK application.
+</shortdescription>
+
+<description>
+With the library acdk_tcl_dll you can use Tcl as
+scripting language in your ACDK project. You 
+also can instrument ACDK classes with the %ref[DMI, glos_dmi]
+interface.
+</description>
+
+<license>
+  ACDK Free Edition License.
+</license>
+<dependencies>
+  acdk_core
+  acdk_text
+</dependencies>
+
+<namespaces>
+  acdk::tcl
+</namespaces>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment. 
+  Better Doc.
+</todo>
+
+<changes>
+  Initial releases.
+</changes>
+
+<notes>
+
+</notes>
+</package>

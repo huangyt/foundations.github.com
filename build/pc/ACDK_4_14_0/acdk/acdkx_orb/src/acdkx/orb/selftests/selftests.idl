@@ -1,0 +1,46 @@
+
+
+
+
+interface Hello
+{
+  void hello();
+};
+
+
+
+
+
+
+interface tty
+{
+  void print(in string msg);
+};
+
+
+
+module acdkx { 
+module orb { 
+module selftests { 
+
+
+
+interface TestInterface
+{
+  void activate();
+  void deactivate(out bool etherealize_objects, out bool wait_for_completion);
+  void discard_requests(out bool wait_for_completion);
+  oneway void doSomething();
+  Object getManager();
+  void hold_requests(out bool wait_for_completion);
+  void inoutvalue(inout long inoutval);
+  void invalue(in long inval);
+  void outvalue(out long outval);
+  long retvalfoo();
+  string stringTest(in string istr, out string ostr);
+};
+
+}; // module acdkx
+}; // module orb
+}; // module selftests
+

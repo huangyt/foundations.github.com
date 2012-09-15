@@ -1,0 +1,26 @@
+%id: acdk_sql_man_types
+%title: ACDK SQL Types
+%shorttitle: Types
+%keywords: SQL, ODBC, Types
+%body:
+<chapterline/>
+<pageintro>
+Types support by ACDK SQL.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+<jump1>Supported ODBC</jump1>
+ODBC driver of version 2.x and 3.x are supported.
+
+<jump1>Supported operations and types</jump1>
+Currently following types are supported by acdk_sql_odbc'
+<fl>
+<f> String types (fixed, varchar)
+<f> integer types
+<f> float types
+<f> Date and Time types
+</fl>
+
+.

@@ -1,0 +1,220 @@
+%id: acdk_util_logging
+%title: ACDK Logging framework
+%keywords: acdk_util_logging, logging, acdk::util::logging
+%seealso: acdk::util::logging=namespace_acdk__util__logging, \
+          Classes and macros=group_acdklogging
+%body:
+<pageintro>
+  The ACDK packages follows in may aspects the 
+  Java 1.4 java.util.logging package.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Overview</jump1>
+The classes for the ACDK Logging are organized in the namespace
+%nsref[acdk::util::logging]. 
+
+<fl>
+<f> Every logging generates a <b>%cref[acdk::util::logging::LogRecord]</b> which holds
+    the information, like Level, String message, file, line, etc.
+<f> <b>%cref[acdk::util::logging::LogConsumer]</b> accepts and processes LogRecords. It can write
+    LogRecords to Files, to a Socket Server, etc.
+    Available LogConsumer:
+    <sfl>
+      <sf> <b>%cref[acdk::util::logging::FileConsumer]</b> writes the LogEntries to a file.
+      <sf> <b>%cref[acdk::util::logging::ConsoleConsumer]</b> writes the LogEntries to System::out.
+    </sfl>
+<f> <b>%cref[acdk::util::logging::Formatter]</b> formats a LogRecord to stream.
+    LogConsumer will be parameterized with a Formatter.
+    Available Formatter:
+    <sfl>
+      <sf> <b>%cref[acdk::util::logging::StdFormatter]</b> standard format for 1 line per LogRecord.
+      <sf> <b>%cref[acdk::util::logging::SimpleFormatter]</b> less verbouse format for 1 line per LogRecord.
+    </sfl>
+<f> A log level is a integer which categorieses a LogRecord into a verbosity level.
+    Please refer to %cref[acdk::util::logging::Level] for some standard values.
+<f> A <b>%cref[acdk::util::logging::Logger]</b> is a named assemble of specified 
+    LogLevel, one or more LogConsumer and corresponding Formatter. 
+<f> <b>%cref[acdk::util::logging::LogManager]</b> is a static class, which manages 
+    the named Logger.
+</fl>
+
+
+
+<jump1>Using Logging in Code</jump1>
+
+For minimal overhead and ease to use a few macros are provided
+to insert logging in our code:
+
+<c>#define ACDK_LOG(level, a1)</c>: Use the standard root logger to trace the 
+<source>
+void foo()
+{
+  ACDK_LOG(Info, "Information about foo");
+}
+</source>
+
+<jump2>Named Logger</jump2>
+By default the ACDK_LOG(...) uses the Root Logger.
+Named Logger can be configured in the configuration file
+(see above in the configuration sample the logger named 'acdk.logger.test').
+
+In the source code you can use the ACDK_NLOG macros:
+
+<source>
+// retrieve the logger
+RLogger log = ::acdk::util::logging::LogManager::getLogger("acdk.logger.test");
+
+// Log 'Bla'
+log->log(::acdk::util::logging::Fatal, "Bla", __FILE__, __LINE__);
+
+
+// Same as above using the LOGNx macro
+ACDK_NLOG("acdk.logger.test", Fatal, "Blub");
+</source>
+
+<jump2>Named Parameter</jump2>
+
+Log message can have named parameters:
+
+<source>
+// Root log with 2 parameters
+ACDK_LOGP(Error, "A Message with 2 parameters", 
+                  NamedArg("The Name", (const char*)"Kommer") << 
+                  NamedArg("Year", 1966));
+
+RInteger count = new Integer(42);      
+// named log with 1 parameter
+// RObject's has to be casted to Object* via '&'
+ACDK_NLOGP("acdk.logger.test", Error, "A Message with 1 parameters", 
+                                      NamedArg("Count", &count));
+                  
+</source>
+
+<jump1>Configuration</jump1>
+<jump2>Quick and dirty via command line</jump2>
+All acdk programs understand some basic command line options
+regarding logging configurations.
+
+Optionally a a logging category with <c>-logcat</c> can be passed.
+The following <c>-loglevel</c>  and <c>-logto</c> options will be
+used for this category.
+
+The option <c>-loglevel</c> with a following number or 
+log level identifier ajust the lower filter log level.
+For example <c>-loglevel Info</c> filters all log entries
+lower Info (like Trace or Debug) away and only log entries
+with equal or higher level (like Info, Warn, Error) will be
+written to a consumer.
+
+
+
+Also you need a consumer, which configure where to log the
+log entries.
+
+At the command line this can be configured with the <c>-logto</c>
+option. 
+<fl>
+<f> <c>-logto out</c>: Write log entries on System::out in a simple format.
+<f> <c>-logto err</c>: Write log entries on System::err in a simple format.
+<f> <c>-logto dbg</c>: Write log entries to the debug out (which is a call to OutputDebugStringA() 
+    on Win32 platforms and printf() on others) and in a format, which enables double click
+    in the debuggers windows to jump to corresponding line in the editor.
+<f> <c>-logto other</c>: all other identifier will be interpreted as file name, and
+    the log entries will be written into this file with the standard log format.
+</fl>
+
+Here some samples:
+<pre>
+-loglevel Info -logto out
+</pre>
+will set the root logger (all categories) to the log level Info and add a consumer
+to out.
+
+<pre>
+-logcat acdk.net -loglevel Debug -logto network.log
+</pre>
+creates a logger for the category <c>acdk.net</c> set log level to Debug and write
+the logs into a a file network.
+
+<pre>
+-logcat acdk.net -loglevel Info -logto network.log -logcat acdk.net \
+	-loglevel Warn -logto out -logcat acdk.lang.sys -loglevel Debug -logto out
+</pre>
+writes Info (and above) for the category <c>acdk.net</c> to the log file network.log,
+writes Warn (and above) for the category <c>acdk.net</c> to System::out and
+writes Debug (and above) for the category <c>acdk.lang.sys</c> to System::out.
+
+<jump2>Configuration via properties file</jump2>
+More detailed configuration, using different logging formats and consumers
+can be configured in a configuration file or directly in the source code.
+
+In the the normal ACDK Configuration Properties the Logger
+of a process can be configured.
+
+<source lang="perl">
+# Which message should pass through?
+# 'All' All message will be passed
+acdk.util.logging.threshold = All
+
+# define a consumer named coutlog of the type acdk.util.logging.ConsoleConsumer
+acdk.util.logging.consumer.coutlog = acdk.util.logging.ConsoleConsumer
+
+# define a consumer named stdlogfile of the type acdk.util.logging.FileConsumer
+acdk.util.logging.consumer.stdlogfile = acdk.util.logging.FileConsumer
+
+# configure the Formatter of the coutlog consumer
+acdk.util.logging.consumer_cfg.coutlog.formatter = acdk.util.logging.SimpleFormatter
+
+# configure the filename stdlogfile Consumer
+acdk.util.logging.consumer_cfg.stdlogfile.filename = acdk_util_logging_Test.log
+
+# Configure the Root Logger
+# pass all LogRecords Level >= 10
+acdk.util.logging.logger.root = 10
+
+# Set consumer 1 to coutlog
+acdk.util.logging.logger_cfg.root.consumer1 = coutlog
+
+# Set consumer 2 to stdlogfile
+acdk.util.logging.logger_cfg.root.consumer2 = stdlogfile
+
+# Set up a logger named 'acdk.logger.test'
+# pass all LogRecords Level >= 10
+acdk.util.logging.logger.acdk.logger.test = 10
+
+# Set coutlog as consumer to this logger
+acdk.util.logging.logger_cfg.acdk.logger.test.consumer1 = coutlog
+
+</source>
+
+<jump2>Configuration in Source file</jump2>
+At the startup of the program you can configure the logging
+also directly in the source file:
+<source>
+  // create  a logger listening all named logging entries starting with "acdkx.rdmi"
+ ::acdk::util::logging::RLogger log = ::acdk::util::logging::LogManager::getCreateLogger("acdkx.rdmi");
+ // this logs should be written to console with a simplified format
+  log->addConsumer(new ::acdk::util::logging::ConsoleConsumer(new ::acdk::util::logging::SimpleFormatter()));
+ // set global treshold to debugging
+  ::acdk::util::logging::LogManager::MinLevel = ::acdk::util::logging::LogManager::Threshold 
+    = ::acdk::util::logging::Debug;
+</source>
+
+Alternativelly in CfgScript:
+<source>
+using acdk.util.logging;
+RLogger log = LogManager::getCreateLogger("acdkx.rdmi");
+log->addConsumer(new ConsoleConsumer(new SimpleFormatter()));
+LogManager::MinLevel = Debug;
+LogManager::Threshold  = Debug;
+</source>
+
+<jump2>API documentation</jump2>
+
+Please refer to %ref[Logging classes and macros, group_acdklogging] for an
+overview.
+
+.

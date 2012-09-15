@@ -1,0 +1,1118 @@
+
+using acdk.wx;
+
+
+enum MyIds
+{
+  ID_LISTBOX           = 130,
+  ID_LISTBOX_SEL_NUM   = 131,
+  ID_LISTBOX_SEL_STR   = 132,
+  ID_LISTBOX_CLEAR     = 133,
+  ID_LISTBOX_APPEND    = 134,
+  ID_LISTBOX_DELETE    = 135,
+  ID_LISTBOX_FONT      = 136,
+  ID_LISTBOX_ENABLE    = 137,
+  ID_LISTBOX_SORTED    = 138,
+
+  ID_CHOICE            = 120,
+  ID_CHOICE_SEL_NUM    = 121,
+  ID_CHOICE_SEL_STR    = 122,
+  ID_CHOICE_CLEAR      = 123,
+  ID_CHOICE_APPEND     = 124,
+  ID_CHOICE_DELETE     = 125,
+  ID_CHOICE_FONT       = 126,
+  ID_CHOICE_ENABLE     = 127,
+  ID_CHOICE_SORTED     = 128,
+
+  ID_COMBO             = 140,
+  ID_COMBO_SEL_NUM     = 141,
+  ID_COMBO_SEL_STR     = 142,
+  ID_COMBO_CLEAR       = 143,
+  ID_COMBO_APPEND      = 144,
+  ID_COMBO_DELETE      = 145,
+  ID_COMBO_FONT        = 146,
+  ID_COMBO_ENABLE      = 147,
+
+  ID_RADIOBOX          = 160,
+  ID_RADIOBOX_SEL_NUM  = 161,
+  ID_RADIOBOX_SEL_STR  = 162,
+  ID_RADIOBOX_FONT     = 163,
+  ID_RADIOBOX_ENABLE   = 164,
+
+  ID_RADIOBUTTON_1     = 166,
+  ID_RADIOBUTTON_2     = 167,
+
+  ID_SET_FONT          = 170,
+
+  ID_GAUGE             = 180,
+  ID_SLIDER            = 181,
+
+  ID_SPIN              = 182,
+  ID_BTNPROGRESS       = 183,
+  ID_BUTTON_LABEL      = 184,
+  ID_SPINCTRL          = 185,
+
+  ID_BUTTON_TEST1      = 190,
+  ID_BUTTON_TEST2      = 191,
+  ID_BITMAP_BTN        = 192,
+
+  ID_CHANGE_COLOUR     = 200,
+
+  ID_SIZER_CHECK1      = 201,
+  ID_SIZER_CHECK2      = 202,
+  ID_SIZER_CHECK3      = 203,
+  ID_SIZER_CHECK4      = 204,
+  ID_SIZER_CHECK14     = 205,
+  ID_SIZER_CHECKBIG    = 206,
+  ID_MENU_TEST, 
+  ID_NOTEBOOK          = 1000,
+  
+  CONTROLS_CLEAR_LOG,
+  CONTROLS_ABOUT,
+  CONTROLS_QUIT,
+  CONTROLS_ENABLE_ALL
+}
+
+// a button which intercepts double clicks (for testing...)
+class MyButton 
+extends Button
+{
+  MyButton(Window parent, int id,
+             String label = "",
+             Point pos = Point.defaultPosition(),
+             Size size = Size.defaultSize())
+  {
+    super(parent, id, label, pos, size);
+    connect(MouseEvent.EvtLeftDclick, -1, 
+      lambda[this] void (MouseEvent event)
+      {
+        event.skip();
+      }
+    );
+  }
+}
+
+class StatusTextWriter
+implements CharWriter
+{
+  TextCtrl _text;
+  StatusTextWriter(TextCtrl text)
+  {
+    _text = text;
+  }
+  void writeChar(char c) 
+  {
+    _text.appendText(String.valueOf(c));
+  }
+  void writeChar(ucchar c)
+  {
+    _text.appendText(String.valueOf(c));
+  }
+  void writeString(String text)
+  {
+    _text.appendText(text);
+  }
+}
+
+class MyComboBox
+extends ComboBox
+{
+  MyComboBox(Window parent, int id, String label, Point pos, Size size, int flags, StringArray choices)
+  {
+    super(parent, id, label, pos, size, flags, choices);
+  }
+}
+
+class MyRadioBox
+extends RadioBox
+{
+  MyRadioBox(Window parent, int id, String title, Point pos, Size size, int majorDim, int style, StringArray choices)
+  {
+    super(parent, id, title, pos, size, majorDim, style, choices);
+  }
+}
+
+enum NotebookImages
+{
+        Image_List, Image_Choice, Image_Combo, Image_Text, Image_Radio, Image_Gauge, Image_Max
+}
+
+class MyPanel
+extends Panel
+{
+  ListBox m_listbox;
+  ListBox m_listboxSorted;
+    Choice m_choice;
+    Choice m_choiceSorted;
+    ComboBox m_combo;
+    RadioBox m_radio;
+    Gauge m_gauge;
+    Gauge  m_gaugeVert;
+    Slider m_slider;
+    Button m_fontButton;
+    Button m_lbSelectNum;
+    Button m_lbSelectThis;
+    SpinButton m_spinbutton;
+    Button m_btnProgress;
+    SpinCtrl m_spinctrl;
+    TextCtrl m_spintext;
+    CheckBox m_checkbox;
+    TextCtrl m_text;
+    Notebook m_notebook;
+    StaticText m_label;
+
+  BoxSizer m_buttonSizer;
+  Button m_sizerBtn1;
+  Button m_sizerBtn2;
+  Button m_sizerBtn3;
+  Button m_sizerBtn4;
+  BoxSizer m_hsizer;
+  Button m_bigBtn;
+  PrintWriter logOut;
+  static Colour s_colOld;
+  MyPanel(Window parent)
+  {
+    super(parent, -1);
+    setSize(parent.getClientSize());
+    //setSize(new Size(-1, -1));
+    //new Button(this, -1, "asdfasdf");
+    m_notebook = new Notebook(this, ID_NOTEBOOK); //, new Point(0, 0), new Size(dx, dy));
+    connect(NotebookEvent.EvtCommandNotebookPageChanging, ID_NOTEBOOK, 
+      lambda[this] void (NotebookEvent event)
+      {
+        int selOld = event.getOldSelection();
+        if (selOld == 2)
+        {
+          if (messageBox("This demonstrates how a program may prevent the\n" +
+                         "page change from taking place - if you select\n" +
+                         "[No] the current page will stay the third one\n", "Control sample",
+                         MbIconQuestion | MbYesNo, this) != MbYes)
+          {
+            event.veto();
+            return;
+          }
+        }
+        logOut << "Notebook selection is being changed from " << selOld << " to " << event.getSelection() << "\n";
+      }
+    );
+    connect(NotebookEvent.EvtCommandNotebookPageChanged, ID_NOTEBOOK, 
+      lambda[this] void (NotebookEvent event)
+      {
+        logOut << "Notebook selection is now " << event.getSelection() << " from notebook " << m_notebook.getSelection() << "\n";
+      }
+    );
+    Size cs = getClientSize();
+    m_notebook.setSize(new Size(cs.x(), cs.y() - 250));
+    //out.println("PC Size: " + getClientSize().x() + ", " + getClientSize().y());
+    //out.println("NB Size: " + m_notebook.getSize().x() + ", " + m_notebook.getSize().y());
+    m_text = new TextCtrl(this, -1, "This is the log window.\n", 
+                            new Point(0, cs.y() - 250), new Size(cs.x(), 250), TeMultiline);
+    logOut = new PrintWriter(new StatusTextWriter(m_text));
+    
+    m_text.setBackgroundColour(new Colour("wheat"));
+    ImageList imageList = new ImageList(16, 16);
+    String imagePath = __script.getScriptPath() + File.separator() + "images" + File.separator();
+    imageList.add(new Bitmap(imagePath + "list.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(imagePath + "choice.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(imagePath + "combo.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(imagePath + "text.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(imagePath + "radio.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(imagePath + "gauge.bmp", BitmapTypeBmp));
+    
+    m_notebook.setImageList(imageList);
+    
+    StringArray choices = [ "This", "is one my", "really", "wonderful", "examples" ];
+    /*
+ #ifdef USE_XPM
+    // image ids
+    enum
+    {
+        Image_List, Image_Choice, Image_Combo, Image_Text, Image_Radio, Image_Gauge, Image_Max
+    };
+
+    // fill the image list
+    wxImageList *imagelist = new wxImageList(32, 32);
+
+    imagelist-> Add( wxBitmap( list_xpm ));
+    
+    imagelist-> Add( wxBitmap( choice_xpm ));
+    imagelist-> Add( wxBitmap( combo_xpm ));
+    imagelist-> Add( wxBitmap( text_xpm ));
+    imagelist-> Add( wxBitmap( radio_xpm ));
+    imagelist-> Add( wxBitmap( gauge_xpm ));
+    
+    m_notebook->SetImageList(imagelist);
+#elif defined(__WXMSW__)
+    // load images from resources
+    
+    wxImageList *imagelist = new wxImageList(16, 16, FALSE, Image_Max);
+
+    static const wxChar *s_iconNames[Image_Max] =
+    {
+        _T("list"), _T("choice"), _T("combo"), _T("text"), _T("radio"),
+        _T("gauge")
+    };
+
+    for ( size_t n = 0; n < Image_Max; n++ )
+    {
+        wxBitmap bmp(s_iconNames[n]);
+        if ( !bmp.Ok() || (imagelist->Add(bmp) == -1) )
+        {
+            wxLogWarning(wxT("Couldn't load the image '%s' for the notebook page %d."),
+                    s_iconNames[n], n);
+        }
+    }
+
+    m_notebook->SetImageList(imagelist);
+#else
+
+    // No images for now
+#define    Image_List -1
+#define    Image_Choice -1
+#define    Image_Combo -1
+#define    Image_Text -1
+#define    Image_Radio -1
+#define    Image_Gauge -1
+#define    Image_Max -1
+
+#endif
+  */
+  
+    Panel panel = new Panel(m_notebook);
+    m_listbox = new ListBox( panel, ID_LISTBOX,
+                               new Point(10,10), new Size(120,70),
+                               choices, LbAlwaysSb );
+                               
+    Delegate onListBoxSelected = lambda[this]  void (CommandEvent event)
+    {
+      if (event.getInt() == -1)
+      {
+        outLog << "ListBox has no selections anymore\n";
+        return;
+      }
+      ListBox listbox;
+      if (event.getId() == ID_LISTBOX)
+        listbox = m_listbox;
+      else
+        listbox = m_listboxSorted;
+      logOut << "ListBox event selection string is: '" << event.getString() << "'\n"
+             << "ListBox control selection string is: '" << listbox.getStringSelection() << "'\n"
+             ;
+    /*
+      wxStringClientData *obj = ((wxStringClientData *)event.GetClientObject());
+     m_text->AppendText( _T("ListBox event client data string is: '") );
+      if (obj) // BC++ doesn't like use of '? .. : .. ' in this context
+          m_text->AppendText( obj->GetData() );
+      else
+        m_text->AppendText( wxString(_T("none")) );
+        m_text->AppendText( _T("'\n") );
+        */
+    };
+    connect(CommandEvent.EvtCommandListboxSelected, ID_LISTBOX, onListBoxSelected);
+    m_listboxSorted = new ListBox( panel, ID_LISTBOX_SORTED,
+                                     new Point(10,90), new Size(120,70),
+                                     choices, LbSort );
+    connect(CommandEvent.EvtCommandListboxSelected, ID_LISTBOX_SORTED, onListBoxSelected);
+    
+    // ??? SetListboxClientData(wxT("listbox"), m_listbox);
+    // ??? SetListboxClientData(wxT("listbox"), m_listboxSorted);
+
+    m_listbox.setCursor(Cursor.getCrossCursor());
+    m_listbox.setToolTip("This is a list box");
+    
+    m_lbSelectNum = new Button( panel, ID_LISTBOX_SEL_NUM, "Select #&2", new Point(180,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_LISTBOX_SEL_NUM, 
+      lambda[this] void (CommandEvent event)
+      {
+        if (m_listbox.getCount() > 2)
+          m_listbox.setSelection(2);
+        if (m_listboxSorted.getCount() > 2)
+          m_listboxSorted.setSelection(2);
+        m_lbSelectThis.warpPointer(40, 14);
+        //ImageList imageList = new ImageList(32, 32);
+        //String imagePath = __script.getScriptPath() + File.separator() + "images" + File.separator();
+        //imageList.add(new Bitmap(imagePath + "list.bmp", BitmapTypeBmp));
+        //imageList.add(new Bitmap("IDB_CHOICE", BitmapTypeBmpResource));
+      }
+    );
+    
+    m_lbSelectThis = new Button( panel, ID_LISTBOX_SEL_STR, "&Select 'This'", new Point(340,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_LISTBOX_SEL_STR, 
+      lambda[this] void (CommandEvent event)
+      {
+        if (m_listbox->findString("This") > -1)
+          m_listbox.setStringSelection("This");
+        if (m_listboxSorted.findString("This") > -1)
+          m_listboxSorted.setStringSelection("This");
+        m_lbSelectNum.warpPointer(40, 14);
+      }
+    );
+
+    new Button( panel, ID_LISTBOX_CLEAR, "&Clear", new Point(180,80), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_LISTBOX_CLEAR, 
+      lambda[this] void (CommandEvent event)
+      {
+        m_listbox.clear();
+        m_listboxSorted.clear();
+      }
+    );
+    
+    new MyButton( panel, ID_LISTBOX_APPEND, "&Append 'Hi!'", new Point(340,80), new Size(140,30));
+    connect(CommandEvent.EvtCommandButtonClicked, ID_LISTBOX_APPEND, 
+      lambda[this] void (CommandEvent event)
+      {
+        m_listbox.append("Hi!");
+        m_listboxSorted.append("Hi!");
+      }
+    );
+    
+    new Button( panel, ID_LISTBOX_DELETE, "D&elete selected item", new Point(180,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_LISTBOX_DELETE, 
+      lambda[this] void (CommandEvent event)
+      {
+        int idx = m_listbox.getSelection();
+        if (idx != -1)
+          m_listbox.deleteItem(idx);
+        idx = m_listboxSorted.getSelection();
+        if (idx != -1)
+          m_listboxSorted.deleteItem(idx);
+      }
+    );
+    
+    Button button = new MyButton( panel, ID_LISTBOX_FONT, "Set &Italic font", new Point(340, 130), new Size(140, 30));
+    button.setDefault();
+    button.setForegroundColour(Colour.getBlue());
+    connect(CommandEvent.EvtCommandButtonClicked, ID_LISTBOX_FONT, 
+      lambda[this] void (CommandEvent event)
+      {
+        Font italic = Font.getItalicFont();
+        m_listbox.setFont(italic);
+        m_listboxSorted.setFont(italic);
+        m_checkbox.setFont(italic);
+      }
+    );
+    
+    
+    m_checkbox = new CheckBox(panel, ID_LISTBOX_ENABLE, "&Disable", new Point(20,170));
+    m_checkbox.setValue(false);
+    connect(CommandEvent.EvtCommandCheckboxClicked, ID_LISTBOX_ENABLE,
+      lambda[this] void (CommandEvent event)
+      {
+        logOut << "Checkbox clicked.\n";
+        Object o = event.getEventObject();
+        if ((o instanceof CheckBox) == true)
+        {
+          CheckBox cb = o;
+        
+          if (event.getInt() != 0)
+            cb.setToolTip("Click to enable listbox");
+          else
+            cb.setToolTip("Click to disable listbox");
+        }
+        
+        bool doenable = event.getInt() == 0;
+        m_listbox.enable(doenable);
+        m_lbSelectThis.enable(doenable);
+        m_lbSelectNum.enable(doenable);
+        m_listboxSorted.enable(doenable);
+        findWindow(ID_CHANGE_COLOUR).enable(doenable);
+      }
+    );
+    
+    panel.setCursor(new Cursor(CursorHand));
+    m_notebook.addPage(panel, "wxListBox", true, Image_List);
+
+    panel = new Panel(m_notebook);
+    
+    m_choice = new Choice( panel, ID_CHOICE, new Point(10,10), new Size(120,-1), 0, choices );
+    
+    m_choiceSorted = new Choice( panel, ID_CHOICE_SORTED, new Point(10,70), new Size(120,-1),
+                                   CbSort, choices); //wxCB_SORT 
+
+    Delegate onChoise = lambda[this] void (CommandEvent event)
+    {
+      Choice choice;
+      if (event.getId() == ID_CHOICE)
+        choice = m_choice;
+      else
+        choice = m_choiceSorted;
+       
+      logOut << "Choice event selection string is: '" << event.getString() << "'\n"
+             << "Choice control selection string is: '" << choice.getStringSelection() << "'\n"
+             ;
+     /*
+     wxStringClientData *obj = ((wxStringClientData *)event.GetClientObject());
+      m_text->AppendText( _T("Choice event client data string is: '") );
+       if (obj)
+        m_text->AppendText( obj->GetData() );
+       else
+        m_text->AppendText( wxString(_T("none")) );
+      m_text->AppendText( _T("'\n") );
+      m_text->AppendText( _T("Choice control client data string is: '") );
+      obj = (wxStringClientData *)choice->GetClientObject(choice->GetSelection());
+      if (obj)
+         m_text->AppendText( obj->GetData() );
+      else
+       m_text->AppendText( wxString(_T("none")) );
+      m_text->AppendText( _T("'\n") );
+      */
+    };
+    //SetChoiceClientData(wxT("choice"), m_choice);
+    //SetChoiceClientData(wxT("choice"), m_choiceSorted);
+    
+    m_choice.setSelection(2);
+    m_choice.setBackgroundColour(new Colour("red"));
+    connect(CommandEvent.EvtCommandChoiceSelected, ID_CHOICE, onChoise);
+    connect(CommandEvent.EvtCommandChoiceSelected, ID_CHOICE_SORTED, onChoise);
+    
+    new Button( panel, ID_CHOICE_SEL_NUM, "Select #&2", new Point(180,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_CHOICE_SEL_NUM, 
+      lambda[this] void (CommandEvent event)
+      {
+        m_choice.setSelection(2);
+        m_choiceSorted.setSelection(2);
+      }
+    );
+    
+    new Button(panel, ID_CHOICE_SEL_STR, "&Select 'This'", new Point(340,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_CHOICE_SEL_STR, 
+      lambda[this] void (CommandEvent event)
+      {
+        m_choice.setStringSelection("This");
+        m_choiceSorted.setStringSelection("This");
+      }
+    );
+    
+    new Button(panel, ID_CHOICE_CLEAR, "&Clear", new Point(180,80), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_CHOICE_CLEAR,
+      lambda[this] void (CommandEvent event)
+      {
+        m_choice.clear();
+        m_choiceSorted.clear();
+      }
+    );
+    
+    new Button(panel, ID_CHOICE_APPEND, "&Append 'Hi!'", new Point(340,80), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_CHOICE_APPEND,
+      lambda[this] void (CommandEvent event)
+      {
+        m_choice.append("Hi!");
+        m_choiceSorted.append("Hi!");
+      }
+    );
+    
+    new Button(panel, ID_CHOICE_DELETE, "D&elete selected item", new Point(180,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_CHOICE_DELETE,
+      lambda[this] void (CommandEvent event)
+      {
+        int idx = m_choice.getSelection();
+        if (idx != -1)
+          m_choice.deleteItem(idx);
+        idx = m_choiceSorted.getSelection();
+        if (idx != -1)
+          m_choiceSorted.deleteItem(idx);
+      }
+    );
+    
+    new Button(panel, ID_CHOICE_FONT, "Set &Italic font", new Point(340,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_CHOICE_FONT,
+      lambda[this] void (CommandEvent event)
+      {
+        Font italic = Font.getItalicFont();
+        m_choice.setFont(italic);
+        m_choiceSorted.setFont(italic);
+      }
+    );
+    
+    new CheckBox( panel, ID_CHOICE_ENABLE, "&Disable", new Point(20,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandCheckboxClicked, ID_CHOICE_ENABLE,
+      lambda[this] void (CommandEvent event)
+      {
+         m_choice.enable(event.getInt() == 0);
+         m_choiceSorted.enable(event.getInt() == 0);
+      }
+    );
+    
+    m_notebook.addPage(panel, "wxChoice", false, Image_Choice);
+    
+   new CheckBox( panel, ID_CHANGE_COLOUR, "&Toggle colour", new Point(110,170) );
+   connect(CommandEvent.EvtCommandCheckboxClicked, ID_CHANGE_COLOUR, 
+    lambda[this] void (CommandEvent event)
+    {
+      // test panel colour changing and propagation to the subcontrols
+      bool isOld = false;
+      if (s_colOld != Nil)
+        if (s_colOld.ok())
+          isOld = true;
+      if (isOld)
+      {
+        setBackgroundColour(s_colOld);
+        s_colOld = Colour.getNullColour();
+        m_lbSelectThis.setForegroundColour("red");
+        m_lbSelectThis.setBackgroundColour("white");
+      }
+      else
+      {
+        s_colOld = new Colour("red");
+        setBackgroundColour("white");
+        m_lbSelectThis.setForegroundColour("white");
+        m_lbSelectThis.setBackgroundColour("red");
+      }
+      m_lbSelectThis.refresh();
+      refresh();
+    }
+    );
+
+    panel = new Panel(m_notebook);
+    new StaticBox(panel, -1, "&Box around combobox", new Point(5, 5), new Size(150, 100));
+    m_combo = new MyComboBox( panel, ID_COMBO, "This",
+                              new Point(20,25), new Size(120, -1),
+                              TeProcessEnter, choices
+                              );
+
+    new Button( panel, ID_COMBO_SEL_NUM, "Select #&2", new Point(180,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_COMBO_SEL_NUM,
+      lambda[this] void (CommandEvent event)
+      {
+         m_combo.setSelection(2);
+      }
+    );
+    
+    new Button( panel, ID_COMBO_SEL_STR, "&Select 'This'", new Point(340,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_COMBO_SEL_STR,
+      lambda[this] void (CommandEvent event)
+      {
+         m_combo.setStringSelection("This");
+      }
+    );
+    
+    new Button( panel, ID_COMBO_CLEAR, "&Clear", new Point(180,80), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_COMBO_CLEAR,
+      lambda[this] void (CommandEvent event)
+      {
+         m_combo.clear();
+      }
+    );
+    
+    new Button( panel, ID_COMBO_APPEND,"&Append 'Hi!'", new Point(340,80), new Size(140,30));
+    connect(CommandEvent.EvtCommandButtonClicked, ID_COMBO_APPEND,
+      lambda[this] void (CommandEvent event)
+      {
+         m_combo.append("Hi!");
+      }
+    );
+    
+    new Button( panel, ID_COMBO_DELETE, "D&elete selected item", new Point(180,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_COMBO_DELETE,
+      lambda[this] void (CommandEvent event)
+      {
+        m_combo.deleteItem( m_combo.getSelection() );
+      }
+    );
+    
+    new Button( panel, ID_COMBO_FONT, "Set &Italic font", new Point(340,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_COMBO_FONT,
+      lambda[this] void (CommandEvent event)
+      {
+        m_combo.setFont(Font.getItalicFont());
+      }
+    );
+    
+    new CheckBox( panel, ID_COMBO_ENABLE, "&Disable", new Point(20,130), new Size(140,30) );
+    connect(CommandEvent.EvtCommandCheckboxClicked, ID_COMBO_ENABLE,
+      lambda[this] void (CommandEvent event)
+      {
+        m_combo.enable(event.getInt() == 0);
+      }
+    );
+    
+    m_notebook.addPage(panel, "wxComboBox", false, Image_Combo);
+    
+    StringArray choices2 = [ "First", "Second" ];
+        // "Third",
+        //"Fourth", "Fifth", "Sixth",
+        //"Seventh", "Eighth", "Nineth", "Tenth" 
+    
+    panel = new Panel(m_notebook);
+    
+    new MyRadioBox( panel, ID_RADIOBOX, "&That", new Point(10,160), new Size(-1,-1), 1, RaSpecifyRows, choices2 );
+    connect(CommandEvent.EvtCommandRadioboxSelected, ID_RADIOBOX, 
+      lambda[this] void (CommandEvent event)
+      {
+        logOut << "RadioBox selection string is: " << event.getString() << "\n";
+      }
+    );
+    
+    m_radio = new RadioBox( panel, ID_RADIOBOX, "T&his", new Point(10,10), new Size(-1,-1), 1, RaSpecifyCols, choices );
+    m_radio.setForegroundColour(Colour.getRed());
+    
+    new Button( panel, ID_RADIOBOX_SEL_NUM, "Select #&2", new Point(180,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_RADIOBOX_SEL_NUM, 
+      lambda[this] void (CommandEvent event)
+      {
+        m_radio.setSelection(2);
+      }
+    );
+        
+    new Button( panel, ID_RADIOBOX_SEL_STR, "&Select 'This'", new Point(180,80), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_RADIOBOX_SEL_STR,
+      lambda[this] void (CommandEvent event)
+      {
+         m_combo.setStringSelection("This");
+      }
+    );
+        
+    m_fontButton = new Button( panel, ID_SET_FONT, "Set &more Italic font", new Point(340,30), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_SET_FONT,
+      lambda[this] void (CommandEvent event)
+      {
+        m_fontButton.setFont(Font.getItalicFont());
+        m_text.setFont(Font.getItalicFont());
+        
+      }
+    );
+    
+    new Button( panel, ID_RADIOBOX_FONT, "Set &Italic font", new Point(340,80), new Size(140,30) );
+    connect(CommandEvent.EvtCommandButtonClicked, ID_RADIOBOX_FONT,
+      lambda[this] void (CommandEvent event)
+      {
+        m_radio.setForegroundColour(Colour.getGreen());
+        m_radio.setFont(Font.getItalicFont());
+      }
+    );
+        
+    new CheckBox( panel, ID_RADIOBOX_ENABLE, "&Disable", new Point(340,130));
+    connect(CommandEvent.EvtCommandCheckboxClicked, ID_RADIOBOX_ENABLE,
+      lambda[this] void (CommandEvent event)
+      {
+        m_radio.enable(event.getInt() == 0);
+      }
+    );
+    
+    RadioButton rb = new RadioButton( panel, ID_RADIOBUTTON_1, "Radiobutton1", new Point(210,170), Size.defaultSize(), RbGroup);
+    rb.setValue( false );
+    
+    new RadioButton( panel, ID_RADIOBUTTON_2, "&Radiobutton2", new Point(340,170));
+    m_notebook.addPage(panel, "wxRadioBox", false, Image_Radio);
+    panel = new Panel(m_notebook);
+    
+    new StaticBox( panel, -1, "&wxGauge and wxSlider", new Point(10,10), new Size(222,130) );
+    m_gauge = new Gauge( panel, -1, 200, new Point(18,50), new Size(155, 30), GaHorizontal | BorderNone );
+    m_gauge.setBackgroundColour(Colour.getGreen());
+    m_gauge.setForegroundColour(Colour.getRed());
+    m_gaugeVert = new Gauge( panel, -1, 100, new Point(195,35), new Size(30, 90),
+                               GaVertical | GaSmooth | BorderNone );
+    m_slider = new Slider( panel, ID_SLIDER, 0, 0, 200, new Point(18,90), new Size(155,-1), SlAutoticks | SlLabels );
+    m_slider.setTickFreq(40, 0);
+    connect(CommandEvent.EvtCommandSliderUpdated, ID_SLIDER,
+      lambda[this] void (CommandEvent event)
+      {
+        m_gauge.setValue(m_slider.getValue());
+        m_gaugeVert.setValue(m_slider.getValue() / 2);
+      }
+    );
+    
+
+    new StaticBox( panel, -1, "&Explanation", new Point(230,10), new Size(270,130), TeCenter);
+
+    new StaticText( panel, -1,
+                            "In order see the gauge (aka progress bar)\n" +
+                            "control do something you have to drag the\n" +
+                            "handle of the slider to the right.\n" + 
+                            "\n" +
+                            "This is also supposed to demonstrate how\n" +
+                            "to use static controls.\n",
+                            new Point(250,25),
+                            new Size(240, 110)
+                          );
+    int initialSpinValue = -5;
+    StringBuffer sb = new StringBuffer("");
+    sb << initialSpinValue;
+    m_spintext = new TextCtrl( panel, -1, sb.toString(), new Point(20,160), new Size(80,-1) );
+
+    m_spinbutton = new SpinButton( panel, ID_SPIN, new Point(103,160), new Size(80, -1) );
+    m_spinbutton.setRange(-40,30);
+    m_spinbutton.setValue(initialSpinValue);
+    connect(ScrollEvent.EvtScrollThumbtrack, ID_SPIN,
+      lambda[this]
+      {
+        m_spintext.setValue(String.valueOf(rest.get(0).getPosition()));
+        logOut << "Spin control range: (" << m_spinbutton.getMin() << ", " << m_spinbutton.getMax() 
+               << "), current = " << m_spinbutton.getValue() << "\n";
+      }
+    );
+    /* not working
+    connect(ScrollEvent.EvtScrollLineup, ID_SPIN,
+      lambda[this]
+      {
+        m_spintext.setValue(String.valueOf(event.GetPosition()));
+        logOut << "Spin control range: (" << m_spinbutton.getMin() << ", " << m_spinbutton.getMax() 
+               << "), current = " << _spinbutton.getValue() << "\n";
+      }
+    );
+    */
+    m_btnProgress = new Button( panel, ID_BTNPROGRESS, "&Show progress dialog", new Point(300, 160));
+    connect(CommandEvent.EvtCommandButtonClicked, ID_BTNPROGRESS, delegate onShowProgress);
+    
+    m_spinctrl = new SpinCtrl( panel, ID_SPINCTRL, "", new Point(200, 160), new Size(80, -1) );
+    m_spinctrl.setRange(10,30);
+    m_spinctrl.setValue(15);
+
+    m_notebook.addPage(panel, "Gauge", false, Image_Gauge);
+  
+    panel = new Panel(m_notebook);
+    Icon icon = ArtProvider.getIcon("wxART_INFORMATION");
+    new StaticBitmap( panel, -1, new Bitmap(icon), new Point(10, 10), new Size(32, 32));
+    Bitmap bitmap = new Bitmap(100, 100);
+    MemoryDC dc = new MemoryDC();
+    dc.selectObject( bitmap );
+    dc.setPen(Pen.getGreenPen());
+    dc.clear();
+    dc.drawEllipse(5, 5, 90, 90);
+    dc.drawText("Bitmap", 30, 40);
+    dc.selectObject(Bitmap.getNullBitmap());
+    
+    new BitmapButton(panel, ID_BITMAP_BTN, bitmap, new Point(100, 20));
+    connect(CommandEvent.EvtCommandButtonClicked, ID_BITMAP_BTN, lambda[this] { logOut << "Bitmap button clicked.\n"; });
+    Bitmap bmp1 = ArtProvider.getBitmap("wxART_INFORMATION");
+    Bitmap bmp2 = ArtProvider.getBitmap("wxART_WARNING");
+    Bitmap bmp3 = ArtProvider.getBitmap("wxART_QUESTION");
+    BitmapButton bmpBtn = new BitmapButton(panel, -1, bmp1, new Point(30, 70));
+    bmpBtn.setBitmapSelected(bmp2);
+    bmpBtn.setBitmapFocus(bmp3);
+    
+    new ToggleButton(panel, ID_BUTTON_LABEL, "&Toggle label", new Point(250, 20));
+    connect(CommandEvent.EvtCommandToggleButtonClicked, ID_BUTTON_LABEL,
+      lambda[this] void (CommandEvent event)
+      {       
+        if (event.getInt() != 0)
+          m_label.setLabel("Very very very very very long text.");
+        else
+            m_label.setLabel("Shorter text.");
+      }
+    );
+    m_label = new StaticText(panel, -1, "Label with some long text", new Point(250, 60), Size.defaultSize(), TeRight);
+    m_label.setForegroundColour(Colour.getBlue());
+
+    m_notebook.addPage(panel, "Bitmap");
+
+/*
+    // layout constraints
+#if wxUSE_CONSTRAINTS
+    wxLayoutConstraints *c;
+
+    panel = new wxPanel(m_notebook);
+    panel.SetAutoLayout( TRUE );
+
+    c = new wxLayoutConstraints;
+    c.top.SameAs( panel, wxTop, 10 );
+    c.height.AsIs( );
+    c.left.SameAs( panel, wxLeft, 10 );
+    c.width.PercentOf( panel, wxWidth, 40 );
+
+    Button *pMyButton = new Button(panel, ID_BUTTON_TEST1, _T("Test Button &1") );
+    pMyButton.SetConstraints( c );
+
+    c = new wxLayoutConstraints;
+    c.top.SameAs( panel, wxTop, 10 );
+    c.bottom.SameAs( panel, wxBottom, 10 );
+    c.right.SameAs( panel, wxRight, 10 );
+    c.width.PercentOf( panel, wxWidth, 40 );
+
+    Button *pMyButton2 = new Button(panel, ID_BUTTON_TEST2, _T("Test Button &2") );
+    pMyButton2.SetConstraints( c );
+
+    m_notebook.AddPage(panel, _T("wxLayoutConstraint"));
+#endif
+    
+    // sizer
+
+    panel = new wxPanel(m_notebook);
+    panel.SetAutoLayout( TRUE );
+
+    wxBoxSizer *sizer = new wxBoxSizer( wxVERTICAL );
+
+    wxStaticBoxSizer *csizer =
+      new wxStaticBoxSizer (new wxStaticBox (panel, -1, _T("Show Buttons")),
+			    wxHORIZONTAL );
+    
+    wxCheckBox *check1, *check2, *check3, *check4, *check14, *checkBig;
+    check1 = new wxCheckBox (panel, ID_SIZER_CHECK1, _T("1"));
+    check1.SetValue (TRUE);
+    csizer.Add (check1);
+    check2 = new wxCheckBox (panel, ID_SIZER_CHECK2, _T("2"));
+    check2.SetValue (TRUE);
+    csizer.Add (check2);
+    check3 = new wxCheckBox (panel, ID_SIZER_CHECK3, _T("3"));
+    check3.SetValue (TRUE);
+    csizer.Add (check3);
+    check4 = new wxCheckBox (panel, ID_SIZER_CHECK4, _T("4"));
+    check4.SetValue (TRUE);
+    csizer.Add (check4);
+    check14 = new wxCheckBox (panel, ID_SIZER_CHECK14, _T("1-4"));
+    check14.SetValue (TRUE);
+    csizer.Add (check14);
+    checkBig = new wxCheckBox (panel, ID_SIZER_CHECKBIG, _T("Big"));
+    checkBig.SetValue (TRUE);
+    csizer.Add (checkBig);
+    
+    sizer.Add (csizer);
+
+    m_hsizer = new wxBoxSizer( wxHORIZONTAL );
+
+    m_buttonSizer = new wxBoxSizer (wxVERTICAL);
+    
+    m_sizerBtn1 = new Button(panel, -1, _T("Test Button &1") );
+    m_buttonSizer.Add( m_sizerBtn1, 0, wxALL, 10 );
+    m_sizerBtn2 = new Button(panel, -1, _T("Test Button &2") );
+    m_buttonSizer.Add( m_sizerBtn2, 0, wxALL, 10 );
+    m_sizerBtn3 = new Button(panel, -1, _T("Test Button &3") );
+    m_buttonSizer.Add( m_sizerBtn3, 0, wxALL, 10 );
+    m_sizerBtn4 = new Button(panel, -1, _T("Test Button &4") );
+    m_buttonSizer.Add( m_sizerBtn4, 0, wxALL, 10 );
+
+    m_hsizer.Add (m_buttonSizer);
+    m_hsizer.Add( 20,20, 1 );
+    m_bigBtn = new Button(panel, -1, _T("Multiline\nbutton") );
+    m_hsizer.Add( m_bigBtn , 3, wxGROW|wxALL, 10 );
+
+    sizer.Add (m_hsizer, 1, wxGROW);
+
+    panel.SetSizer( sizer );
+
+    m_notebook.AddPage(panel, _T("new Size(r"));
+    */
+    /*
+    EVT_SIZE      (                         MyPanel::OnSize)
+EVT_NOTEBOOK_PAGE_CHANGING(ID_NOTEBOOK, MyPanel::OnPageChanging)
+EVT_NOTEBOOK_PAGE_CHANGED(ID_NOTEBOOK,  MyPanel::OnPageChanged)
+EVT_LISTBOX   (ID_LISTBOX,              MyPanel::OnListBox)
+EVT_LISTBOX   (ID_LISTBOX_SORTED,       MyPanel::OnListBox)
+EVT_LISTBOX_DCLICK(ID_LISTBOX,          MyPanel::OnListBoxDoubleClick)
+EVT_BUTTON    (ID_LISTBOX_SEL_NUM,      MyPanel::OnListBoxButtons)
+EVT_BUTTON    (ID_LISTBOX_SEL_STR,      MyPanel::OnListBoxButtons)
+EVT_BUTTON    (ID_LISTBOX_CLEAR,        MyPanel::OnListBoxButtons)
+EVT_BUTTON    (ID_LISTBOX_APPEND,       MyPanel::OnListBoxButtons)
+EVT_BUTTON    (ID_LISTBOX_DELETE,       MyPanel::OnListBoxButtons)
+EVT_BUTTON    (ID_LISTBOX_FONT,         MyPanel::OnListBoxButtons)
+EVT_CHECKBOX  (ID_LISTBOX_ENABLE,       MyPanel::OnListBoxButtons)
+#if wxUSE_CHOICE
+EVT_CHOICE    (ID_CHOICE,               MyPanel::OnChoice)
+EVT_CHOICE    (ID_CHOICE_SORTED,        MyPanel::OnChoice)
+EVT_BUTTON    (ID_CHOICE_SEL_NUM,       MyPanel::OnChoiceButtons)
+EVT_BUTTON    (ID_CHOICE_SEL_STR,       MyPanel::OnChoiceButtons)
+EVT_BUTTON    (ID_CHOICE_CLEAR,         MyPanel::OnChoiceButtons)
+EVT_BUTTON    (ID_CHOICE_APPEND,        MyPanel::OnChoiceButtons)
+EVT_BUTTON    (ID_CHOICE_DELETE,        MyPanel::OnChoiceButtons)
+EVT_BUTTON    (ID_CHOICE_FONT,          MyPanel::OnChoiceButtons)
+EVT_CHECKBOX  (ID_CHOICE_ENABLE,        MyPanel::OnChoiceButtons)
+#endif
+EVT_COMBOBOX  (ID_COMBO,                MyPanel::OnCombo)
+EVT_TEXT      (ID_COMBO,                MyPanel::OnComboTextChanged)
+EVT_TEXT_ENTER(ID_COMBO,                MyPanel::OnComboTextEnter)
+EVT_BUTTON    (ID_COMBO_SEL_NUM,        MyPanel::OnComboButtons)
+EVT_BUTTON    (ID_COMBO_SEL_STR,        MyPanel::OnComboButtons)
+EVT_BUTTON    (ID_COMBO_CLEAR,          MyPanel::OnComboButtons)
+EVT_BUTTON    (ID_COMBO_APPEND,         MyPanel::OnComboButtons)
+EVT_BUTTON    (ID_COMBO_DELETE,         MyPanel::OnComboButtons)
+EVT_BUTTON    (ID_COMBO_FONT,           MyPanel::OnComboButtons)
+EVT_CHECKBOX  (ID_COMBO_ENABLE,         MyPanel::OnComboButtons)
+EVT_RADIOBOX  (ID_RADIOBOX,             MyPanel::OnRadio)
+EVT_BUTTON    (ID_RADIOBOX_SEL_NUM,     MyPanel::OnRadioButtons)
+EVT_BUTTON    (ID_RADIOBOX_SEL_STR,     MyPanel::OnRadioButtons)
+EVT_BUTTON    (ID_RADIOBOX_FONT,        MyPanel::OnRadioButtons)
+EVT_CHECKBOX  (ID_RADIOBOX_ENABLE,      MyPanel::OnRadioButtons)
+EVT_BUTTON    (ID_SET_FONT,             MyPanel::OnSetFont)
+EVT_SLIDER    (ID_SLIDER,               MyPanel::OnSliderUpdate)
+#if wxUSE_SPINBTN
+EVT_SPIN      (ID_SPIN,                 MyPanel::OnSpinUpdate)
+EVT_SPIN_UP   (ID_SPIN,                 MyPanel::OnSpinUp)
+EVT_SPIN_DOWN (ID_SPIN,                 MyPanel::OnSpinDown)
+EVT_UPDATE_UI (ID_BTNPROGRESS,          MyPanel::OnUpdateShowProgress)
+EVT_BUTTON    (ID_BTNPROGRESS,          MyPanel::OnShowProgress)
+#endif // wxUSE_SPINBTN
+#if wxUSE_SPINCTRL
+EVT_SPINCTRL  (ID_SPINCTRL,             MyPanel::OnSpinCtrl)
+EVT_SPIN_UP   (ID_SPINCTRL,             MyPanel::OnSpinCtrlUp)
+EVT_SPIN_DOWN (ID_SPINCTRL,             MyPanel::OnSpinCtrlDown)
+EVT_TEXT      (ID_SPINCTRL,             MyPanel::OnSpinCtrlText)
+#endif // wxUSE_SPINCTRL
+#if wxUSE_TOGGLEBTN
+EVT_TOGGLEBUTTON(ID_BUTTON_LABEL,       MyPanel::OnUpdateLabel)
+#endif // wxUSE_TOGGLEBTN
+EVT_CHECKBOX  (ID_CHANGE_COLOUR,        MyPanel::OnChangeColour)
+EVT_BUTTON    (ID_BUTTON_TEST1,         MyPanel::OnTestButton)
+EVT_BUTTON    (ID_BUTTON_TEST2,         MyPanel::OnTestButton)
+EVT_BUTTON    (ID_BITMAP_BTN,           MyPanel::OnBmpButton)
+
+EVT_CHECKBOX  (ID_SIZER_CHECK1,         MyPanel::OnSizerCheck)
+EVT_CHECKBOX  (ID_SIZER_CHECK2,         MyPanel::OnSizerCheck)
+EVT_CHECKBOX  (ID_SIZER_CHECK3,         MyPanel::OnSizerCheck)
+EVT_CHECKBOX  (ID_SIZER_CHECK4,         MyPanel::OnSizerCheck)
+EVT_CHECKBOX  (ID_SIZER_CHECK14,        MyPanel::OnSizerCheck)
+EVT_CHECKBOX  (ID_SIZER_CHECKBIG,       MyPanel::OnSizerCheck)
+*/
+  }
+  void onShowProgress(CommandEvent event)
+  {
+    int max = m_spinbutton.getValue();
+    if ( max <= 0 )
+    {
+      logOut << "You must set spinbutton to positive range!\n";
+      return;
+    }
+    ProgressDialog dialog = new ProgressDialog("Progress dialog example", "An informative message",
+                            max,    // range
+                            this,   // parent
+                            PdCanAbort | PdAutoHide | PdAppModal | PdElapsedTime | PdEstimatedTime | PdRemainingTime);
+
+
+    bool cont = true;
+    for ( int i = 0; i <= max && cont; i++ )
+    {
+      Thread.sleep(1000);
+      if ( i == max )
+      {
+        cont = dialog.update(i, "That's all, folks!");
+      }
+      else if (i == max / 2 )
+      {
+        cont = dialog.update(i, "Only a half left (very long message)!");
+      }
+      else
+      {
+        cont = dialog.update(i);
+      }
+    }
+    if (cont == false)
+    {
+      logOut << "Progress dialog aborted!\n";
+      dialog.destroy();
+    }
+    else
+    {
+      logOut << "Countdown from " << max << " finished.\n";
+    }
+  }
+};
+
+class MyFrame
+extends Frame
+{
+  MyPanel m_panel;
+  static bool s_enable = true;
+  MyFrame()
+  {
+    super(Nil, -1, "Controls Demo", Point.defaultPosition(), new Size(600, 600));
+    //setTitle("Controls Demo");
+    Menu file_menu = new Menu();
+    file_menu.append(CONTROLS_CLEAR_LOG, "&Clear log\tCtrl-L");
+    file_menu.appendSeparator();
+    file_menu.append(CONTROLS_ABOUT, "&About\tF1");
+    file_menu.appendSeparator();
+    file_menu.append(CONTROLS_QUIT, "E&xit\tAlt-X", "Quit controls sample");
+    
+
+    MenuBar menu_bar = new MenuBar();
+    menu_bar.append(file_menu, "&File");
+
+/*
+    wxMenu *tooltip_menu = new wxMenu;
+    tooltip_menu.append(CONTROLS_SET_TOOLTIP_DELAY, _T("Set &delay\tCtrl-D"));
+    tooltip_menu.appendSeparator();
+    tooltip_menu.append(CONTROLS_ENABLE_TOOLTIPS, _T("&Toggle tooltips\tCtrl-T"),
+            _T("enable/disable tooltips"), TRUE);
+    tooltip_menu.Check(CONTROLS_ENABLE_TOOLTIPS, TRUE);
+    menu_bar.append(tooltip_menu, _T("&Tooltips"));
+#endif // wxUSE_TOOLTIPS
+*/
+    Menu panel_menu = new Menu();
+    panel_menu.append(CONTROLS_ENABLE_ALL, "&Disable all\tCtrl-E",
+                                           "Enable/disable all panel controls");
+    panel_menu.append(ID_MENU_TEST, "Internal Test");
+    menu_bar.append(panel_menu, "&Panel");
+    setMenuBar(menu_bar);
+    createStatusBar(2);
+    // doesn't have setSizeHints( 500, 425 );
+    
+    //m_panel = new MyPanel( this, -1, -1, -1, -1 );
+    m_panel = new MyPanel( this); //, 10, 10, 300, 100 );
+    //SetSizeHints( 500, 425 );
+    
+    connect(CommandEvent.EvtCommandMenuSelected, CONTROLS_QUIT, 
+            lambda[this]  { close(true);  } 
+            );
+    connect(CommandEvent.EvtCommandMenuSelected, CONTROLS_ABOUT, 
+            lambda[this]  { messageBox("ACDK WX/CfgScript Controls sample", "Controls sample", MbOk);  } 
+            );
+    connect(CommandEvent.EvtCommandMenuSelected, CONTROLS_CLEAR_LOG, 
+            lambda[this]  { m_panel.m_text.clear();  } 
+            );
+    connect(CommandEvent.EvtCommandMenuSelected, ID_MENU_TEST, 
+      lambda[this]  
+      { 
+        Icon icon = ArtProvider.getIcon("wxART_INFORMATION");//ArtProvider.getIcon("wxART_INFORMATION");
+             
+      } 
+    );
+    
+    connect(SizeEvent.EvtSize, -1,
+      lambda [this] void (SizeEvent event) 
+      {
+        updateStatusBar(getPosition(), event.getSize());
+        event.skip();
+      }
+    );
+    connect(CommandEvent.EvtCommandMenuSelected, CONTROLS_ENABLE_ALL,
+      lambda[this] 
+      { 
+        s_enable = !s_enable;
+        m_panel.enable(s_enable);
+      }
+    );
+    connect(MoveEvent.EvtMove, -1, 
+      lambda [this] void (MoveEvent event)
+      {
+        updateStatusBar(event.getPosition(), getSize());
+        event.skip();
+      }
+    );
+  }
+  void updateStatusBar(Point pos, Size size)
+  {
+      StringBuffer sb = new StringBuffer();
+      sb << "pos=(" << pos.x() << ", " << pos.y() << "), "
+         << "size=(" << size.x() << ", " << size.y() << ")";
+        
+      setStatusText(sb.toString(), 1);
+      /*
+            wxString msg;
+            new Size( sizeAll = GetSize(),
+                   sizeCl = GetClientSize();
+            msg.Printf(_("pos=(%d, %d), size=%dx%d or %dx%d (client=%dx%d)"),
+                       pos.x, pos.y,
+                       size.x, size.y,
+                       sizeAll.x, sizeAll.y,
+                       sizeCl.x, sizeCl.y);
+            SetStatusText(msg, 1);
+        }
+      */
+    
+  }
+  
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame()).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(1);
+args.set(0, "cfgscript");
+acdk.wx.App.createGui("MyApp", args);

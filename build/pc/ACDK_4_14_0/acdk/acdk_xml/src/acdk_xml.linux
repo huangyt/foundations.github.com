@@ -1,0 +1,564 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_xml
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ACDK_XML_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_net -lorg_xml 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/xml/XMLObjectReader.cpp \
+	acdk/xml/XMLObjectWriter.cpp \
+	acdk/xml/XMLTokenizer.cpp \
+	acdk/xml/xml_metainf_base.cpp \
+	acdk/xml/sax/sax_metainf_base.cpp \
+	acdk/xml/sax/XMLParser.cpp \
+	acdk/xml/sax/XMLReaderImpl.cpp \
+	acdk/xml/dom/DOMParser.cpp \
+	acdk/xml/dom/dom_metainf_base.cpp \
+	acdk/xml/dom/NodeIteratorWalker.cpp \
+	acdk/xml/dom/NodeUtil.cpp \
+	acdk/xml/dom/XMLDocument.cpp \
+	acdk/xml/dom/XMLElement.cpp \
+	acdk/xml/dom/XMLNode.cpp \
+	acdk/xml/libxmldom/LibXMLDocument.cpp \
+	acdk/xml/libxmldom/LibXMLDocumentBuilder.cpp \
+	acdk/xml/libxmldom/libxmldom_metainf_base.cpp \
+	acdk/xml/libxmldom/LibXMLElement.cpp \
+	acdk/xml/libxmldom/LibXMLNode.cpp \
+	acdk/xml/libxmldom/LibXMLText.cpp \
+	acdk/xml/libxmldom/LibXMLXPathExpression.cpp \
+	acdk/xml/libxmldom/LibXMLXPathResult.cpp \
+	acdk/xml/parsers/DocumentBuilder.cpp \
+	acdk/xml/parsers/parsers_metainf_base.cpp \
+	expat/xmlparse.c \
+	expat/xmlrole.c \
+	expat/xmltok.c \
+	libxml2/c14n.c \
+	libxml2/catalog.c \
+	libxml2/chvalid.c \
+	libxml2/debugXML.c \
+	libxml2/dict.c \
+	libxml2/DOCBparser.c \
+	libxml2/encoding.c \
+	libxml2/entities.c \
+	libxml2/error.c \
+	libxml2/globals.c \
+	libxml2/hash.c \
+	libxml2/HTMLparser.c \
+	libxml2/HTMLtree.c \
+	libxml2/legacy.c \
+	libxml2/list.c \
+	libxml2/nanoftp.c \
+	libxml2/nanohttp.c \
+	libxml2/parser.c \
+	libxml2/parserInternals.c \
+	libxml2/pattern.c \
+	libxml2/relaxng.c \
+	libxml2/SAX.c \
+	libxml2/SAX2.c \
+	libxml2/threads.c \
+	libxml2/tree.c \
+	libxml2/triostr.c \
+	libxml2/uri.c \
+	libxml2/valid.c \
+	libxml2/xinclude.c \
+	libxml2/xlink.c \
+	libxml2/xmlIO.c \
+	libxml2/xmlmemory.c \
+	libxml2/xmlreader.c \
+	libxml2/xmlregexp.c \
+	libxml2/xmlsave.c \
+	libxml2/xmlschemas.c \
+	libxml2/xmlschemastypes.c \
+	libxml2/xmlstring.c \
+	libxml2/xmlunicode.c \
+	libxml2/xmlwriter.c \
+	libxml2/xpath.c \
+	libxml2/xpointer.c \
+
+HEADER= 	acdk/xml/Config.h \
+	acdk/xml/xml.h \
+	acdk/xml/XMLObjectReader.h \
+	acdk/xml/XMLObjectWriter.h \
+	acdk/xml/XMLTokenizer.h \
+	acdk/xml/sax/AttributeListImpl.h \
+	acdk/xml/sax/LibXMLInternals.h \
+	acdk/xml/sax/NamedBufferReader.h \
+	acdk/xml/sax/sax.h \
+	acdk/xml/sax/XmlLibLocator.h \
+	acdk/xml/sax/XMLParser.h \
+	acdk/xml/sax/XMLReader.h \
+	acdk/xml/dom/dom.h \
+	acdk/xml/dom/DOMParser.h \
+	acdk/xml/dom/NodeArrayList.h \
+	acdk/xml/dom/NodeIteratorWalker.h \
+	acdk/xml/dom/NodeUtil.h \
+	acdk/xml/dom/XMLAttr.h \
+	acdk/xml/dom/XMLCDATASection.h \
+	acdk/xml/dom/XMLCharacterData.h \
+	acdk/xml/dom/XMLComment.h \
+	acdk/xml/dom/XMLDocument.h \
+	acdk/xml/dom/XMLElement.h \
+	acdk/xml/dom/XMLNamedNodeMap.h \
+	acdk/xml/dom/XMLNode.h \
+	acdk/xml/dom/XMLNodeList.h \
+	acdk/xml/dom/XMLText.h \
+	acdk/xml/libxmldom/LibXMLAttr.h \
+	acdk/xml/libxmldom/LibXMLCDATASection.h \
+	acdk/xml/libxmldom/LibXMLCharacterData.h \
+	acdk/xml/libxmldom/LibXMLComment.h \
+	acdk/xml/libxmldom/LibXMLDocument.h \
+	acdk/xml/libxmldom/LibXMLDocumentBuilder.h \
+	acdk/xml/libxmldom/LibXMLDocumentFragment.h \
+	acdk/xml/libxmldom/LibXMLDocumentType.h \
+	acdk/xml/libxmldom/libxmldom.h \
+	acdk/xml/libxmldom/LibXMLDOMInternals.h \
+	acdk/xml/libxmldom/LibXMLElement.h \
+	acdk/xml/libxmldom/LibXMLEntity.h \
+	acdk/xml/libxmldom/LibXMLEntityReference.h \
+	acdk/xml/libxmldom/LibXMLNamedNodeMap.h \
+	acdk/xml/libxmldom/LibXMLNode.h \
+	acdk/xml/libxmldom/LibXMLNodeList.h \
+	acdk/xml/libxmldom/LibXMLNotation.h \
+	acdk/xml/libxmldom/LibXMLPathNodeList.h \
+	acdk/xml/libxmldom/LibXMLProcessingInstruction.h \
+	acdk/xml/libxmldom/LibXMLText.h \
+	acdk/xml/libxmldom/LibXMLXPathExpression.h \
+	acdk/xml/libxmldom/LibXMLXPathNSResolver.h \
+	acdk/xml/libxmldom/LibXMLXPathResult.h \
+	acdk/xml/parsers/DocumentBuilder.h \
+	acdk/xml/parsers/DocumentBuilderFactory.h \
+	acdk/xml/parsers/ParserConfigurationException.h \
+	acdk/xml/parsers/parsers.h \
+	libxml/c14n.h \
+	libxml/catalog.h \
+	libxml/chvalid.h \
+	libxml/debugXML.h \
+	libxml/dict.h \
+	libxml/DOCBparser.h \
+	libxml/encoding.h \
+	libxml/entities.h \
+	libxml/globals.h \
+	libxml/hash.h \
+	libxml/HTMLparser.h \
+	libxml/HTMLtree.h \
+	libxml/list.h \
+	libxml/nanoftp.h \
+	libxml/nanohttp.h \
+	libxml/parser.h \
+	libxml/parserInternals.h \
+	libxml/pattern.h \
+	libxml/relaxng.h \
+	libxml/SAX.h \
+	libxml/SAX2.h \
+	libxml/schemasInternals.h \
+	libxml/threads.h \
+	libxml/tree.h \
+	libxml/uri.h \
+	libxml/valid.h \
+	libxml/xinclude.h \
+	libxml/xlink.h \
+	libxml/xmlautomata.h \
+	libxml/xmlerror.h \
+	libxml/xmlexports.h \
+	libxml/xmlIO.h \
+	libxml/xmlmemory.h \
+	libxml/xmlmodule.h \
+	libxml/xmlreader.h \
+	libxml/xmlregexp.h \
+	libxml/xmlsave.h \
+	libxml/xmlschemas.h \
+	libxml/xmlschemastypes.h \
+	libxml/xmlstring.h \
+	libxml/xmlunicode.h \
+	libxml/xmlversion.h \
+	libxml/xmlwriter.h \
+	libxml/xpath.h \
+	libxml/xpathInternals.h \
+	libxml/xpointer.h \
+
+OBJECTS= 	../tobj/acdk_xml/XMLObjectReader.o \
+	../tobj/acdk_xml/XMLObjectWriter.o \
+	../tobj/acdk_xml/XMLTokenizer.o \
+	../tobj/acdk_xml/xml_metainf_base.o \
+	../tobj/acdk_xml/sax_metainf_base.o \
+	../tobj/acdk_xml/XMLParser.o \
+	../tobj/acdk_xml/XMLReaderImpl.o \
+	../tobj/acdk_xml/DOMParser.o \
+	../tobj/acdk_xml/dom_metainf_base.o \
+	../tobj/acdk_xml/NodeIteratorWalker.o \
+	../tobj/acdk_xml/NodeUtil.o \
+	../tobj/acdk_xml/XMLDocument.o \
+	../tobj/acdk_xml/XMLElement.o \
+	../tobj/acdk_xml/XMLNode.o \
+	../tobj/acdk_xml/LibXMLDocument.o \
+	../tobj/acdk_xml/LibXMLDocumentBuilder.o \
+	../tobj/acdk_xml/libxmldom_metainf_base.o \
+	../tobj/acdk_xml/LibXMLElement.o \
+	../tobj/acdk_xml/LibXMLNode.o \
+	../tobj/acdk_xml/LibXMLText.o \
+	../tobj/acdk_xml/LibXMLXPathExpression.o \
+	../tobj/acdk_xml/LibXMLXPathResult.o \
+	../tobj/acdk_xml/DocumentBuilder.o \
+	../tobj/acdk_xml/parsers_metainf_base.o \
+	../tobj/acdk_xml/xmlparse.o \
+	../tobj/acdk_xml/xmlrole.o \
+	../tobj/acdk_xml/xmltok.o \
+	../tobj/acdk_xml/c14n.o \
+	../tobj/acdk_xml/catalog.o \
+	../tobj/acdk_xml/chvalid.o \
+	../tobj/acdk_xml/debugXML.o \
+	../tobj/acdk_xml/dict.o \
+	../tobj/acdk_xml/DOCBparser.o \
+	../tobj/acdk_xml/encoding.o \
+	../tobj/acdk_xml/entities.o \
+	../tobj/acdk_xml/error.o \
+	../tobj/acdk_xml/globals.o \
+	../tobj/acdk_xml/hash.o \
+	../tobj/acdk_xml/HTMLparser.o \
+	../tobj/acdk_xml/HTMLtree.o \
+	../tobj/acdk_xml/legacy.o \
+	../tobj/acdk_xml/list.o \
+	../tobj/acdk_xml/nanoftp.o \
+	../tobj/acdk_xml/nanohttp.o \
+	../tobj/acdk_xml/parser.o \
+	../tobj/acdk_xml/parserInternals.o \
+	../tobj/acdk_xml/pattern.o \
+	../tobj/acdk_xml/relaxng.o \
+	../tobj/acdk_xml/SAX.o \
+	../tobj/acdk_xml/SAX2.o \
+	../tobj/acdk_xml/threads.o \
+	../tobj/acdk_xml/tree.o \
+	../tobj/acdk_xml/triostr.o \
+	../tobj/acdk_xml/uri.o \
+	../tobj/acdk_xml/valid.o \
+	../tobj/acdk_xml/xinclude.o \
+	../tobj/acdk_xml/xlink.o \
+	../tobj/acdk_xml/xmlIO.o \
+	../tobj/acdk_xml/xmlmemory.o \
+	../tobj/acdk_xml/xmlreader.o \
+	../tobj/acdk_xml/xmlregexp.o \
+	../tobj/acdk_xml/xmlsave.o \
+	../tobj/acdk_xml/xmlschemas.o \
+	../tobj/acdk_xml/xmlschemastypes.o \
+	../tobj/acdk_xml/xmlstring.o \
+	../tobj/acdk_xml/xmlunicode.o \
+	../tobj/acdk_xml/xmlwriter.o \
+	../tobj/acdk_xml/xpath.o \
+	../tobj/acdk_xml/xpointer.o \
+
+
+FINALTARGET=../../bin/libacdk_xml.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_xml.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_xml.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_xml.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_xml/XMLObjectReader.o: acdk/xml/XMLObjectReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLObjectReader.o -c acdk/xml/XMLObjectReader.cpp
+
+../tobj/acdk_xml/XMLObjectWriter.o: acdk/xml/XMLObjectWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLObjectWriter.o -c acdk/xml/XMLObjectWriter.cpp
+
+../tobj/acdk_xml/XMLTokenizer.o: acdk/xml/XMLTokenizer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLTokenizer.o -c acdk/xml/XMLTokenizer.cpp
+
+../tobj/acdk_xml/xml_metainf_base.o: acdk/xml/xml_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xml_metainf_base.o -c acdk/xml/xml_metainf_base.cpp
+
+../tobj/acdk_xml/sax_metainf_base.o: acdk/xml/sax/sax_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/sax_metainf_base.o -c acdk/xml/sax/sax_metainf_base.cpp
+
+../tobj/acdk_xml/XMLParser.o: acdk/xml/sax/XMLParser.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLParser.o -c acdk/xml/sax/XMLParser.cpp
+
+../tobj/acdk_xml/XMLReaderImpl.o: acdk/xml/sax/XMLReaderImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLReaderImpl.o -c acdk/xml/sax/XMLReaderImpl.cpp
+
+../tobj/acdk_xml/DOMParser.o: acdk/xml/dom/DOMParser.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/DOMParser.o -c acdk/xml/dom/DOMParser.cpp
+
+../tobj/acdk_xml/dom_metainf_base.o: acdk/xml/dom/dom_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/dom_metainf_base.o -c acdk/xml/dom/dom_metainf_base.cpp
+
+../tobj/acdk_xml/NodeIteratorWalker.o: acdk/xml/dom/NodeIteratorWalker.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/NodeIteratorWalker.o -c acdk/xml/dom/NodeIteratorWalker.cpp
+
+../tobj/acdk_xml/NodeUtil.o: acdk/xml/dom/NodeUtil.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/NodeUtil.o -c acdk/xml/dom/NodeUtil.cpp
+
+../tobj/acdk_xml/XMLDocument.o: acdk/xml/dom/XMLDocument.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLDocument.o -c acdk/xml/dom/XMLDocument.cpp
+
+../tobj/acdk_xml/XMLElement.o: acdk/xml/dom/XMLElement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLElement.o -c acdk/xml/dom/XMLElement.cpp
+
+../tobj/acdk_xml/XMLNode.o: acdk/xml/dom/XMLNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/XMLNode.o -c acdk/xml/dom/XMLNode.cpp
+
+../tobj/acdk_xml/LibXMLDocument.o: acdk/xml/libxmldom/LibXMLDocument.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLDocument.o -c acdk/xml/libxmldom/LibXMLDocument.cpp
+
+../tobj/acdk_xml/LibXMLDocumentBuilder.o: acdk/xml/libxmldom/LibXMLDocumentBuilder.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLDocumentBuilder.o -c acdk/xml/libxmldom/LibXMLDocumentBuilder.cpp
+
+../tobj/acdk_xml/libxmldom_metainf_base.o: acdk/xml/libxmldom/libxmldom_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/libxmldom_metainf_base.o -c acdk/xml/libxmldom/libxmldom_metainf_base.cpp
+
+../tobj/acdk_xml/LibXMLElement.o: acdk/xml/libxmldom/LibXMLElement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLElement.o -c acdk/xml/libxmldom/LibXMLElement.cpp
+
+../tobj/acdk_xml/LibXMLNode.o: acdk/xml/libxmldom/LibXMLNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLNode.o -c acdk/xml/libxmldom/LibXMLNode.cpp
+
+../tobj/acdk_xml/LibXMLText.o: acdk/xml/libxmldom/LibXMLText.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLText.o -c acdk/xml/libxmldom/LibXMLText.cpp
+
+../tobj/acdk_xml/LibXMLXPathExpression.o: acdk/xml/libxmldom/LibXMLXPathExpression.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLXPathExpression.o -c acdk/xml/libxmldom/LibXMLXPathExpression.cpp
+
+../tobj/acdk_xml/LibXMLXPathResult.o: acdk/xml/libxmldom/LibXMLXPathResult.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/LibXMLXPathResult.o -c acdk/xml/libxmldom/LibXMLXPathResult.cpp
+
+../tobj/acdk_xml/DocumentBuilder.o: acdk/xml/parsers/DocumentBuilder.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/DocumentBuilder.o -c acdk/xml/parsers/DocumentBuilder.cpp
+
+../tobj/acdk_xml/parsers_metainf_base.o: acdk/xml/parsers/parsers_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/parsers_metainf_base.o -c acdk/xml/parsers/parsers_metainf_base.cpp
+
+../tobj/acdk_xml/xmlparse.o: expat/xmlparse.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlparse.o -c expat/xmlparse.c
+
+../tobj/acdk_xml/xmlrole.o: expat/xmlrole.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlrole.o -c expat/xmlrole.c
+
+../tobj/acdk_xml/xmltok.o: expat/xmltok.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmltok.o -c expat/xmltok.c
+
+../tobj/acdk_xml/c14n.o: libxml2/c14n.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/c14n.o -c libxml2/c14n.c
+
+../tobj/acdk_xml/catalog.o: libxml2/catalog.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/catalog.o -c libxml2/catalog.c
+
+../tobj/acdk_xml/chvalid.o: libxml2/chvalid.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/chvalid.o -c libxml2/chvalid.c
+
+../tobj/acdk_xml/debugXML.o: libxml2/debugXML.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/debugXML.o -c libxml2/debugXML.c
+
+../tobj/acdk_xml/dict.o: libxml2/dict.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/dict.o -c libxml2/dict.c
+
+../tobj/acdk_xml/DOCBparser.o: libxml2/DOCBparser.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/DOCBparser.o -c libxml2/DOCBparser.c
+
+../tobj/acdk_xml/encoding.o: libxml2/encoding.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/encoding.o -c libxml2/encoding.c
+
+../tobj/acdk_xml/entities.o: libxml2/entities.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/entities.o -c libxml2/entities.c
+
+../tobj/acdk_xml/error.o: libxml2/error.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/error.o -c libxml2/error.c
+
+../tobj/acdk_xml/globals.o: libxml2/globals.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/globals.o -c libxml2/globals.c
+
+../tobj/acdk_xml/hash.o: libxml2/hash.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/hash.o -c libxml2/hash.c
+
+../tobj/acdk_xml/HTMLparser.o: libxml2/HTMLparser.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/HTMLparser.o -c libxml2/HTMLparser.c
+
+../tobj/acdk_xml/HTMLtree.o: libxml2/HTMLtree.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/HTMLtree.o -c libxml2/HTMLtree.c
+
+../tobj/acdk_xml/legacy.o: libxml2/legacy.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/legacy.o -c libxml2/legacy.c
+
+../tobj/acdk_xml/list.o: libxml2/list.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/list.o -c libxml2/list.c
+
+../tobj/acdk_xml/nanoftp.o: libxml2/nanoftp.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/nanoftp.o -c libxml2/nanoftp.c
+
+../tobj/acdk_xml/nanohttp.o: libxml2/nanohttp.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/nanohttp.o -c libxml2/nanohttp.c
+
+../tobj/acdk_xml/parser.o: libxml2/parser.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/parser.o -c libxml2/parser.c
+
+../tobj/acdk_xml/parserInternals.o: libxml2/parserInternals.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/parserInternals.o -c libxml2/parserInternals.c
+
+../tobj/acdk_xml/pattern.o: libxml2/pattern.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/pattern.o -c libxml2/pattern.c
+
+../tobj/acdk_xml/relaxng.o: libxml2/relaxng.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/relaxng.o -c libxml2/relaxng.c
+
+../tobj/acdk_xml/SAX.o: libxml2/SAX.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/SAX.o -c libxml2/SAX.c
+
+../tobj/acdk_xml/SAX2.o: libxml2/SAX2.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/SAX2.o -c libxml2/SAX2.c
+
+../tobj/acdk_xml/threads.o: libxml2/threads.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/threads.o -c libxml2/threads.c
+
+../tobj/acdk_xml/tree.o: libxml2/tree.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/tree.o -c libxml2/tree.c
+
+../tobj/acdk_xml/triostr.o: libxml2/triostr.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/triostr.o -c libxml2/triostr.c
+
+../tobj/acdk_xml/uri.o: libxml2/uri.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/uri.o -c libxml2/uri.c
+
+../tobj/acdk_xml/valid.o: libxml2/valid.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/valid.o -c libxml2/valid.c
+
+../tobj/acdk_xml/xinclude.o: libxml2/xinclude.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xinclude.o -c libxml2/xinclude.c
+
+../tobj/acdk_xml/xlink.o: libxml2/xlink.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xlink.o -c libxml2/xlink.c
+
+../tobj/acdk_xml/xmlIO.o: libxml2/xmlIO.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlIO.o -c libxml2/xmlIO.c
+
+../tobj/acdk_xml/xmlmemory.o: libxml2/xmlmemory.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlmemory.o -c libxml2/xmlmemory.c
+
+../tobj/acdk_xml/xmlreader.o: libxml2/xmlreader.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlreader.o -c libxml2/xmlreader.c
+
+../tobj/acdk_xml/xmlregexp.o: libxml2/xmlregexp.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlregexp.o -c libxml2/xmlregexp.c
+
+../tobj/acdk_xml/xmlsave.o: libxml2/xmlsave.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlsave.o -c libxml2/xmlsave.c
+
+../tobj/acdk_xml/xmlschemas.o: libxml2/xmlschemas.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlschemas.o -c libxml2/xmlschemas.c
+
+../tobj/acdk_xml/xmlschemastypes.o: libxml2/xmlschemastypes.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlschemastypes.o -c libxml2/xmlschemastypes.c
+
+../tobj/acdk_xml/xmlstring.o: libxml2/xmlstring.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlstring.o -c libxml2/xmlstring.c
+
+../tobj/acdk_xml/xmlunicode.o: libxml2/xmlunicode.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlunicode.o -c libxml2/xmlunicode.c
+
+../tobj/acdk_xml/xmlwriter.o: libxml2/xmlwriter.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xmlwriter.o -c libxml2/xmlwriter.c
+
+../tobj/acdk_xml/xpath.o: libxml2/xpath.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xpath.o -c libxml2/xpath.c
+
+../tobj/acdk_xml/xpointer.o: libxml2/xpointer.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_xml/xpointer.o -c libxml2/xpointer.c
+
+
+
+metainfo:
+	$(ACDKMC) acdk/xml;\
+	$(ACDKMC) acdk/xml/sax;\
+	$(ACDKMC) acdk/xml/dom;\
+	$(ACDKMC) acdk/xml/parsers;\
+	$(ACDKMC) acdk/xml/libxmldom;\
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_xml.so $(OBJECTS)
+
+  

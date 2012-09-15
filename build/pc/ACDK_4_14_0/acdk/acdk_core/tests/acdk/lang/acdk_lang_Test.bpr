@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="..\..\..\..\bin\acdk_lang_Test.exe"/>
+    <OBJFILES value="tobj\acdk_lang_Test\bcc\acdk_lang_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_Throwable_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_Float_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_Integer_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_ObjectBase_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_String_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_StringBuffer_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_StringExt_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test2.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_ThreadLocal_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_ClassLoader_Test.obj 
+      tobj\acdk_lang_Test\bcc\acdk_lang_Double_Test.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="..\..\..\..\bin\acdk_tools_aunit.lib ..\..\..\..\bin\acdk_core.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value="rtl.lib vcl.lib"/>
+    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi bcbsmp.bpi qrpt.bpi dbrtl.bpi vcldb.bpi 
+      bdertl.bpi ibsmp.bpi vcldbx.bpi teeui.bpi teedb.bpi tee.bpi teeqr.bpi 
+      ibxpress.bpi bcbie.bpi vclie.bpi inetdb.bpi inet.bpi nmfast.bpi dclocx.bpi 
+      bcb2kaxserver.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="ACDK_USE_ACDK_LIB;USE_ACDK_TOOLS_TESTUNIT_LIB"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;_RTLDLL;USEPACKAGES"/>
+    <MAINSOURCE value="acdk_lang_Test.bpf"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl;..\..\..\src;..\..\..\..\include"/>
+    <LIBPATH value="f:\programme\CBuilder5\Projects\acdk\util\;f:\programme\CBuilder5\Projects\acdk\locale\;f:\programme\CBuilder5\Projects\acdk\io\;f:\programme\CBuilder5\Projects\acdk\lang\sys\;f:\programme\CBuilder5\Projects\acdk\lang\reflect\;f:\programme\CBuilder5\Projects\acdk\lang\ref\;f:\programme\CBuilder5\Projects\acdk\lang\dmi\;f:\programme\CBuilder5\Projects\acdk\lang\;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-src_suffix cpp -DACDK_USE_ACDK_LIB -DUSE_ACDK_TOOLS_TESTUNIT_LIB 
+      -I$(BCB)\include -I$(BCB)\include\vcl -I..\..\..\src -I..\..\..\..\include 
+      -boa"/>
+    <CFLAG1 value="-vGc -vGt -vGd -Od -Vx -Ve -fp -X -r- -a8 -5 -b- -k -y -v -vi- -tWC -tWM -c"/>
+    <PFLAGS value="-N2tobj\acdk_lang_Test\bcc -N0tobj\acdk_lang_Test\bcc -$YD -$W -$O- -$A8 
+      -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-l&quot;D:\artefaktur\acdk\bin\&quot; -Itobj\acdk_lang_Test\bcc -D&quot;&quot; -ap -Tpe -x -Gn 
+      -Gi -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0x32.obj $(PACKAGES) $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="cg32.lib $(LIBFILES) $(LIBRARIES) import32.lib cw32mti.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="acdk_lang_Test.bpf" FORMNAME="" UNITNAME="acdk_lang_Test" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Throwable_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_Throwable_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Float_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_Float_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Integer_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_Integer_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_ObjectBase_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_ObjectBase_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_String_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_String_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_StringBuffer_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_StringBuffer_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_StringExt_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_StringExt_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Thread_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_Thread_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Thread_Test2.cpp" FORMNAME="" UNITNAME="acdk_lang_Thread_Test2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_ThreadLocal_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_ThreadLocal_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\..\..\bin\acdk_tools_aunit.lib" FORMNAME="" UNITNAME="acdk_tools_aunit" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\..\..\bin\acdk_core.lib" FORMNAME="" UNITNAME="acdk_core" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_ClassLoader_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_ClassLoader_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_lang_Double_Test.cpp" FORMNAME="" UNITNAME="acdk_lang_Double_Test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1031
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=8
+Item0=$(BCB)\include;$(BCB)\include\vcl;..\..\..\src;..\..\..\..\include
+Item1=$(BCB)\include;$(BCB)\include\vcl;..\..\..\include
+Item2=$(BCB)\include;$(BCB)\include\vcl;...\..\..\src,..\..\..\..\include
+Item3=$(BCB)\include;$(BCB)\include\vcl;.
+Item4=$(BCB)\include;$(BCB)\include\vcl;acdk\util;acdk\locale;acdk\io;acdk\lang;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;.
+Item5=acdk\util;acdk\locale;acdk\io;acdk\lang;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;$(BCB)\include;$(BCB)\include\vcl
+Item6=$(BCB)\include;$(BCB)\include\vcl
+Item7=acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=f:\programme\CBuilder5\Projects\acdk\util\;f:\programme\CBuilder5\Projects\acdk\locale\;f:\programme\CBuilder5\Projects\acdk\io\;f:\programme\CBuilder5\Projects\acdk\lang\sys\;f:\programme\CBuilder5\Projects\acdk\lang\reflect\;f:\programme\CBuilder5\Projects\acdk\lang\ref\;f:\programme\CBuilder5\Projects\acdk\lang\dmi\;f:\programme\CBuilder5\Projects\acdk\lang\;$(BCB)\lib\obj;$(BCB)\lib
+Item1=acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=3
+Item0=f:\programme\cbuilder5\source\vcl;G:\artefaktur\acdk\acdk_core\src\acdk\lang\;G:\artefaktur\acdk\acdk_core\src\acdk\lang\sys;G:\artefaktur\acdk\acdk_core\src\acdk\lang\dmi;G:\artefaktur\acdk\acdk_core\src\acdk\lang\ref;G:\artefaktur\acdk\acdk_core\src\acdk\lang\reflect;G:\artefaktur\acdk\acdk_core\src\acdk\util;G:\artefaktur\acdk\acdk_core\src\acdk\io
+Item1=f:\programme\cbuilder5\source\vcl;G:\artefaktur\acdk\acdk_core\src\acdk\lang\
+Item2=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=4
+Item0=ACDK_USE_ACDK_LIB;USE_ACDK_TOOLS_TESTUNIT_LIB
+Item1=_DEBUG,OS_WIN32,ACDK_IN_ACDK_LIB
+Item2=_DEBUG,OS_WIN32,ACDK_IN_ACDK_LIB,__BORLANDC__
+Item3=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=tobj\acdk_lang_Test\bcc
+Item1=G:\artefaktur\acdk\acdk_core\tests\acdk\lang\tobj\acdk_lang_Test\bcc
+
+[HistoryLists\hlFinalOutputDir]
+Count=4
+Item0=..\..\..\..\bin\
+Item1=..\..\..\..\bin\bcc\
+Item2=..\..\..\..\bin\bcc
+Item3=G:\artefaktur\acdk\bin
+
+[HistoryLists\hIBPIOutputDir]
+Count=6
+Item0=D:\artefaktur\acdk\bin\
+Item1=..\..\..\..\bin\
+Item2=G:\artefaktur\acdk\bin\bcc\
+Item3=..\..\..\..\bin\bcc
+Item4=G:\artefaktur\acdk\bin\
+Item5=G:\artefaktur\acdk\bin
+
+[Debugging]
+DebugSourceDirs=f:\programme\cbuilder5\source\vcl;G:\artefaktur\acdk\acdk_core\src\acdk\lang\;G:\artefaktur\acdk\acdk_core\src\acdk\lang\sys;G:\artefaktur\acdk\acdk_core\src\acdk\lang\dmi;G:\artefaktur\acdk\acdk_core\src\acdk\lang\ref;G:\artefaktur\acdk\acdk_core\src\acdk\lang\reflect;G:\artefaktur\acdk\acdk_core\src\acdk\util;G:\artefaktur\acdk\acdk_core\src\acdk\io;D:\artefaktur\acdk\acdk_core\src\acdk\lang\
+
+[Parameters]
+RunParams=Thread_Test
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=1
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

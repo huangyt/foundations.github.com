@@ -1,0 +1,32 @@
+// component.idl
+import "unknwn.idl";
+import "dispex.idl";
+
+
+[ object, uuid(9A8CA025-A6A0-4b8e-80C4-2F77266E8DDB), dual ]
+	interface IAcdkObject : IDispatch
+	{
+		[vararg] [id(1)] HRESULT New(BSTR classname, [in]SAFEARRAY(VARIANT), [out, retval] IDispatch** retvalue);
+		[vararg] [id(2)] HRESULT invoke(BSTR methodname, [in]SAFEARRAY(VARIANT) args, [out, retval] VARIANT* retvalue);
+		[id(3)] HRESULT peek(BSTR membername, [out, retval] VARIANT* retvalue);
+		[id(4)] HRESULT poke(BSTR membername, [in] VARIANT value);
+		[vararg] [id(5)] HRESULT invoke_static(BSTR classname, BSTR methodname, [in]SAFEARRAY(VARIANT) args, [out, retval] VARIANT* retvalue);
+		[id(6)] HRESULT peek_static(BSTR classname, BSTR membername, [out, retval] VARIANT* retvalue);
+		[id(7)] HRESULT poke_static(BSTR classname, BSTR membername, [in] VARIANT value);
+	};
+
+[ uuid(A580F025-33C4-4275-8AF9-236E7633BE02),
+  helpstring("ACDK COM+ Component Type Library"),
+  version(1.0) ]
+
+library AcdkxCom
+{
+	importlib("stdole32.tlb");
+    
+
+	[ uuid(E7C3A3CA-7198-4913-9405-ADA97F480DE7) ]
+	coclass AcObject
+	{
+		interface IAcdkObject;
+	};
+};

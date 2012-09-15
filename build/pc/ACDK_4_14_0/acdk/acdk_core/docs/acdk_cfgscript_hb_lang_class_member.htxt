@@ -1,0 +1,59 @@
+%id: acdk_cfgscript_hb_lang_class_member
+%title: CfgScript Class Members
+%shorttitle: Class Members
+%body:
+<chapterline/>
+<pageintro>
+Class members are static or non static data fields of a class
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+<jump1>ClassMembers</jump1>
+<pre>
+ClassMembers
+: ( ClassMemberAttribute )* TypeName Identifier [ '=' Expression ] ';'
+;
+
+
+ClassMemberAttribute
+: 'public'
+| 'protected'
+| 'private'
+| 'static'
+;
+</pre>
+
+static members can be accessed without an object instance.
+<source>
+class MyClass
+{
+  // non-static variable, uninitialized, may be initialized in Constructor
+  int ivar; 
+  
+  // non-static variable, initialized
+  bool isValid = true; 
+  
+  // static class Variable, initialized with an value
+  static acdk.lang.String staticString = "init-Value"; 
+  
+  // constructor
+  MyClass()
+  {
+    ivar = 42;
+    // isValid is already initialized
+  }
+}
+
+// can be accessed through class name
+acdk.lang.String s = MyClass.staticString;
+
+MyClass myclass = new MyClass();
+int i = myclass.ivar;
+
+</source>
+
+<c>public, protected, private</c> are currently not supported.
+
+.
+

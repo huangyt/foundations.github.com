@@ -1,0 +1,25 @@
+%id: acdk_cfgscript_hb_lang_types_any
+%title: CfgScript Any Type
+%shorttitle: Any Type
+%keywords: any, DmiObject, ScriptVar, acdk::lang::dmi::DmiObject
+%body:
+<chapterline/>
+<pageintro>
+AnyType is a representiv for any other type, like
+Basic Type, Object Type, Array Type.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>AnyType</jump1>
+
+<source>
+#pragma weak // allow undeclared any types 
+i = 1; // is Any type
+i = "asdf"; // Any types can change type
+Any j = 4.5; // Any types can also declared explicitelly
+</source>
+<c>Any</c> is an alias to the <c>acdk::lang::dmi::DmiObject</c> class.
+
+.

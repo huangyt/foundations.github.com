@@ -1,0 +1,350 @@
+
+
+function WxNextToken()
+	ActiveDocument.Selection.WordRight dsExtend
+	tk = trim(ActiveDocument.Selection)
+	ActiveDocument.Selection.CharRight
+
+	PrintToOutputWindow  "[" & tk & "]"
+	WxNextToken = tk
+	
+end function
+
+sub WxnextTokenDbg()
+	ActiveDocument.Selection.WordRight dsExtend
+	tk = trim(ActiveDocument.Selection)
+	ActiveDocument.Selection.WordRight
+	PrintToOutputWindow  "[" & tk & "]"
+end sub
+
+function WxCreateType()
+	set t = CreateObject("Scripting.Dictionary")
+	'paramT = WxNextToken()
+	t("isConst") = false
+	t("isRef") = false
+	t("isPtr") = false
+	t("isUnsigned") = false
+	set WxCreateType = t
+end function
+
+function wx2acdkval(s)
+	if s = "NULL" then
+		wx2acdkval = "Nil"
+	elseif s = "TRUE" then
+		wx2acdkval = "true"
+	elseif s = "FALSE" then
+		wx2acdkval = "false"
+	elseif s = "wxEmptyString" then
+		wx2acdkval = Chr(34) & Chr(34)
+	else
+		wx2acdkval = s
+	end if
+end function
+
+function wx2acdktype(s)
+	if s = "long" or s = "size_t" or s = "wxCoord" then
+		wx2acdktype = "int"
+	else
+		wx2acdktype = s
+	end if
+end function
+
+function isWxType(s)
+	if left(s, 2) = "wx" or left(s, 2) = "cb" then
+		isWxType = true
+    else
+		isWxType = false
+	end if
+end function
+
+Sub WxCall()
+'DESCRIPTION: Eine Beschreibung wurde nicht angegeben.
+
+
+	ActiveDocument.Selection.StartOfLine dsFirstText
+	ActiveDocument.Selection = "//"
+	set returnType = WxCreateType()
+	returnType("type") = WxNextToken()
+	'msgbox returnType("type")
+	isConst = false
+	if returnType("type") = "virtual" or returnType("type") = "inline" or returnType("type") = "static" then
+		if returnType("type") = "virtual" then
+			returnType("virtual") = true
+		elseif returnType("type") = "static" then
+			returnType("static") = true
+		end if
+		returnType("type") = WxNextToken()
+	end if
+
+	if returnType("type") = "const" then
+		returnType("const") = true
+		returnType("type") = WxNextToken()
+	elseif returnType("type") = "unsigned" then
+		returnType("unsigned") = true
+		returnType("type") = WxNextToken()
+	end if
+	PrintToOutputWindow "returnType: " & returnType("type")
+	funcName = WxNextToken()
+	if funcName = "*" then
+		returnType("isPtr")  = true
+		funcName = WxNextToken()
+	elseif funcName = "&" then
+		returnType("isConst")  = true
+		funcName = WxNextToken()
+	end if
+	PrintToOutputWindow "FuncName: " & funcName
+	paramT = WxNextToken()
+	dim params(20)
+	paramNum = 0
+	do while paramT <> ")" and paramT <> ");" and paramT <> "();"  and paramT <> "()"
+		paramNum = paramNum + 1
+		set params(paramNum) = WxCreateType()
+		paramT = WxNextToken()
+		if paramT = "unsigned" then
+			params(paramNum)("isUnsigned") = true
+			paramT = WxNextToken()
+		end if
+		if paramT = "const" then
+			params(paramNum)("isConst") = true
+			paramT = WxNextToken()
+		end if
+		paramN = WxNextToken()
+		if paramN = "&" then
+			params(paramNum)("isRef") = true
+			paramN = WxNextToken()
+		end if
+		if paramN = "*" then
+			params(paramNum)("isPtr") = true
+			paramN = WxNextToken()
+		end if
+		
+		PrintToOutputWindow	paramT & "] [" & paramN
+		'msgbox paramT
+		params(paramNum)("type") = paramT
+		params(paramNum)("name") = paramN
+		paramT = WxNextToken()
+		if paramT = "=" then
+			params(paramNum)("defarg") = WxNextToken()
+			if params(paramNum)("defarg") = "-" then
+				params(paramNum)("defarg") = params(paramNum)("defarg") + WxNextToken()
+			end if
+			loopParamValue = true
+			do while loopParamValue
+				paramT = WxNextToken()
+				if paramT = "|" or paramT = "| " then
+					params(paramNum)("defarg") = params(paramNum)("defarg") + " | " + WxNextToken()
+				else
+				  loopParamValue = false
+				end if
+			loop
+		end if
+	loop
+	if paramT <> ");" and paramT <> "();" then
+		paramT = WxNextToken()
+		if paramT = "const" or paramT = "const;" then
+			isConst = true
+		end if
+	end if
+	'msgbox "params: " & paramNum
+	ActiveDocument.Selection.EndOfLine
+	ActiveDocument.Selection.NewLine
+	erg = "inline "
+
+	if returnType("virtual") then
+		erg = erg & "virtual "
+	elseif returnType("static") then
+		erg = erg & "static "
+	end if
+	if returnType("isRef") and returnType("isConst") and isWxType(returnType("type")) then
+		erg = erg & "R" & mid(returnType("type"), 3)
+	elseif returnType("type") = "wxCoord" then
+		erg = erg & "int"
+	elseif returnType("type") = "wxString" then
+		erg = erg & "RString"
+	elseif returnType("type") = "wxObject" then
+		erg = erg & "RWxObject"
+	elseif returnType("isPtr") then
+		erg = erg & "R" & mid(returnType("type"), 3)
+	elseif isWxType(returnType("type")) then
+		erg = erg & "R" & mid(returnType("type"), 3)
+	Else
+		erg = erg & wx2acdktype(returnType("type"))
+	end if
+	erg = erg & " " & lcase(left(funcName, 1)) & mid(funcName, 2) & "("
+	i = 1
+	do while i <= paramNum
+		if i > 1 then
+			erg = erg & ", "
+		end if
+		set p = params(i)
+		if p("type") = "wxString" then
+			erg = erg & "IN(RString) "
+		elseif p("type") = "wxObject" then
+			erg = erg & "IN(RWxObject) "
+		elseif p("isRef") and p("isConst") and isWxType(p("type")) then
+			erg = erg & "IN(R" & mid(p("type"), 3) & ")"
+			p("a2wx") = "->toWx()"
+		elseif p("isPtr") and isWxType(p("type")) then
+			erg = erg & "IN(R" & mid(p("type"), 3) & ")"
+			'p("a2wx") = "->getWx()"
+		else
+			erg = erg & wx2acdktype(params(i)("type"))
+		end if
+		erg = erg & " " & params(i)("name")  
+		if p.exists("defarg") then
+			erg = erg & " = " & wx2acdkval(p("defarg"))
+		end if
+		i = i + 1
+	loop
+	erg = erg & ") "
+	if isConst then 
+		erg = erg & "const "
+	end if
+	erg = erg & "{ "
+	needCloseConverter = false
+	if returnType("type") <> "void" then
+		
+		if returnType("type") = "wxString" then
+			erg = erg & "return "
+			erg = erg & "WXS2S("
+			needCloseConverter = true
+		elseif returnType("isPtr") then
+			erg = erg & "RETURN_WXPTR2CLS(" & mid(returnType("type"), 3) & ", "
+			needCloseConverter = true
+		elseif isWxType(returnType("type")) then
+			if returnType("type") = "wxCoord" then
+				erg = erg & "return "
+			elseif returnType("isRef") then
+				erg = erg & "return WXREF2CLS("
+			else
+				erg = erg & "return WXVAL2CLS(" & mid(returnType("type"), 3) & ", "
+			end if	
+			needCloseConverter = true
+		else
+			erg = erg & "return "
+		end if
+	end if
+	erg = erg & "getWx()->" & funcName & "("
+	i = 1
+	do while i <= paramNum
+		if i > 1 then
+			erg = erg & ", "
+		end if
+		set p = params(i)
+		if p("type") = "wxString" then
+			erg = erg & "S2WXS(" & p("name") & ")"
+		elseif p("isPtr") and isWxType(p("type")) then
+			erg = erg & "CLS2WXPTR(" & p("name") & ")"
+		elseif p("isRef") and isWxType(p("type")) then
+			erg = erg & "CLS2WXREF(" & p("name") & ")"
+		
+		else
+			erg = erg & p("name") 
+		end if
+		i = i + 1
+	loop
+	if needCloseConverter then
+		erg = erg & ")"
+	end if
+	erg = erg & "); }"
+	ActiveDocument.Selection = erg
+	ActiveDocument.Selection.LineDown
+	' tmp = '('
+	exit sub
+	
+'End Recording
+End Sub
+
+
+function getIdentifier(txt)
+	if isWxType(txt) = false then
+		getIdentifier = ""
+		exit function
+	end if
+	i = 3
+	do while i <= len(txt)
+		target = target & mid(txt, i, 1)
+		i = i + 1
+		do while i <= len(txt)
+			if mid(txt, i, 1) = "_" then
+				i = i + 1
+				exit do
+			end if
+			target = target & lcase(mid(txt, i, 1))
+			i = i + 1
+		loop
+	loop
+	getIdentifier = target
+end function
+
+Sub WxConvertEnumVal()
+
+'Begin Recording
+	ActiveDocument.Selection.StartOfLine dsFirstText
+	'ActiveDocument.Selection.WordLeft
+	ActiveDocument.Selection.WordRight dsExtend
+	if right(ActiveDocument.Selection, 1) = "#" then
+		ActiveDocument.Selection.WordRight dsExtend, 1
+		ActiveDocument.Selection.Indent
+		ActiveDocument.Selection.WordRight dsExtend
+	end if
+	if right(ActiveDocument.Selection, 1) = " " then
+		ActiveDocument.Selection.CharLeft dsExtend
+	end if
+	txt = ActiveDocument.Selection
+	wasEventType = false
+	if txt = "DECLARE_EVENT_TYPE" then
+		ActiveDocument.Selection.CharRight dsExtend
+		ActiveDocument.Selection.Indent
+		wasEventType = true
+		ActiveDocument.Selection.WordRight dsExtend
+		txt = ActiveDocument.Selection
+	end if
+	target = getIdentifier(txt)
+	if target = "" then
+		if left(txt, 4) = "WXK_" then
+			ActiveDocument.Selection = "KC" & mid(txt, 4) & " = " & txt & ",  // " & txt
+			ActiveDocument.Selection.LineDown
+		end if
+		exit sub
+	end if
+	if wasEventType then
+		ActiveDocument.Selection.CharRight dsExtend
+		ActiveDocument.Selection.CharRight dsExtend
+		ActiveDocument.Selection = ""
+		ActiveDocument.Selection.WordRight dsExtend
+		txt = ActiveDocument.Selection
+	end if 
+	ActiveDocument.Selection = target & " = " & txt & ",  // " & txt
+	ActiveDocument.Selection.LineDown
+'End Recording
+End Sub
+
+
+sub WxDeclareEventMap()
+	ActiveDocument.Selection.StartOfLine dsFirstText
+	'ActiveDocument.Selection.WordLeft
+	ActiveDocument.Selection.WordRight dsExtend
+	'ActiveDocument.Selection.CharRight dsExtend
+	'ActiveDocument.Selection.Indent
+	'ActiveDocument.Selection.WordRight dsExtend
+	org = ActiveDocument.Selection
+	target = getIdentifier(org)
+	ActiveDocument.Selection = "static int " & target & "; // " & org
+	ActiveDocument.Selection.LineDown
+end sub
+
+sub WxDefineEventMap()
+	ActiveDocument.Selection.StartOfLine dsFirstText
+	'ActiveDocument.Selection.WordLeft
+	ActiveDocument.Selection.WordRight dsExtend
+	'ActiveDocument.Selection.CharRight dsExtend
+	'ActiveDocument.Selection.Indent
+	'ActiveDocument.Selection.WordRight dsExtend
+	org = ActiveDocument.Selection
+	target = getIdentifier(org)
+	'ACDK_DEFINE_WX_EVENT(CommandEvent, EvtCommandButtonClicked, wxEVT_COMMAND_BUTTON_CLICKED);
+
+	ActiveDocument.Selection = "ACDK_DEFINE_WX_EVENT(XYZEvent, " & target & ", " & org & ");"
+	ActiveDocument.Selection.LineDown
+end sub

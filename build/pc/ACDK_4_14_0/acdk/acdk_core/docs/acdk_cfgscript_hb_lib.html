@@ -1,0 +1,197 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>CfgScript Library</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Library<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../acdk_wx/index.html">ACDK WX</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | Library | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Library</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Library</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | Library | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p>
+<p class="PageIntro">
+CfgScript uses ACDK libraries.
+</p>
+
+<br>
+<br>
+<a name="jumptable44"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The CfgScript standard library"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The CfgScript standard library</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Available Classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Available Classes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Using ClassLoader to load the class"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using ClassLoader to load the class</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#System ClassLoader"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;System ClassLoader</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#CfgScript Classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CfgScript Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Included CfgScript Files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Included CfgScript Files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#CfgScript ClassLoader"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CfgScript ClassLoader</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Using CfgScript Classes in C++"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using CfgScript Classes in C++</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#DMI-able Classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;DMI-able Classes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The CfgScript standard library">The CfgScript standard library</a></h2>
+<br>
+CfgScript has no own standard library, but simply make use of 
+the ACDK class libraries.<br>
+<br>
+All ACDK Classes with provided meta information are available
+in CfgScript. 
+<br>
+<h3><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Available Classes">Available Classes</a></h3>
+By default all classes of the acdk_core package are available
+(including acdk.lang, acdk.lang.ref, acdk.lang.reflect, acdk.lang.dmi, 
+acdk.io, acdk.util, acdk.util.logging, acdk.locale).<br>
+Also the classes of the Script interpreter are available
+(acdk.cfgscript).<br>
+<br>
+Addionally all classes implemented in various <a  href="../../docs/packages.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Packages</a> are available
+in CfgScript.<br>
+For example <a  href="../../acdk_net/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;networking</a>, <a  href="../../acdk_xml/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;XML Processing</a>, 
+<a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;GUI</a> and so on.<br>
+<br>
+<h2><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using ClassLoader to load the class">Using ClassLoader to load the class</a></h2>
+If the type is not already loaded, CfgScript uses
+the available <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__lang__ClassLoader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::ClassLoader</a> to load the class.<br>
+<br>
+Two ClassLoader are available for CfgScript by default:<br>
+<br>
+<br>
+<h3><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="System ClassLoader">System ClassLoader</a></h3>
+The system class loader tries to load native code (.so/.dll)
+which contains the ACDK/C++ class definition.<br>
+<br>
+See also: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_nameservice"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ACDK Nameservice</a>.<br>
+<br>
+Hundrets of classes are avialable via System ClassLoader including
+<a  href="../../acdk_text/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk.text</a> (including RegExp), <a  href="../../acdk_net/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk.net</a>, 
+<a  href="../../acdk_vfile/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk.vfile</a>, <a  href="../../acdk_sql/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk.sql</a> and
+<a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk.wx</a> for GUI programming.<br>
+<br>
+<h2><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CfgScript Classes">CfgScript Classes</a></h2>
+<br>
+<h3><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Included CfgScript Files">Included CfgScript Files</a></h3>
+CfgScript classes may be included via 
+the <a  href="acdk_cfgscript_hb_lang_source.html#IncludeStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;include statement</a>.<br>
+<br>
+Alternativelly the interpreter uses the CfgScript ClassLoader:<br>
+<br>
+<h3><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CfgScript ClassLoader">CfgScript ClassLoader</a></h3>
+<br>
+The CfgScript ClassLoader try to locate a <code>.csf</code>
+file with the same name as the loaded class:<br>
+<br>
+For loading the class <code>mymodule.tools.MyClass</code>
+the CfgScript ClassLoader try to load the script
+<code>mymodule/tools/MyClass.csf</code> from 
+<ul class="FeatureList">
+<li class="Feature"> each directory defined in the <code>CSFPATH</code> enviroment variable.<br>
+<li class="Feature"> and in the <code>$ACDKHOME/cfg/csf/lib/</code> directory.<br>
+</ul>
+<br>
+See also: <a  href="acdk_cfgscript_interpreter.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdkcfgscript</a>.<br>
+<br>
+See also: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__cfgscript__ScriptClassLoader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript::ScriptClassLoader</a>.<br>
+<br>
+<h3><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using CfgScript Classes in C++">Using CfgScript Classes in C++</a></h3>
+The CfgScript ClassLoader does not only work for Classes loaded in
+the CfgScript script itself, but also in ACDK C++ and any DMI-enabled Scripting language
+(like list, perl, python, tcl, visual basic, java):<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// $ACDKHOME/cfg/csf/lib/mytest/MyCfgScriptTestClass.csf
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> MyCfgScriptTestClass
+implements Comparable
+{
+  String value;
+  MyCfgScriptTestClass(String value)
+  {
+    value = val;
+  }
+  String getValue() { <B><FONT COLOR="#A020F0">return</FONT></B> value; }
+  <B><FONT COLOR="#228B22">int</FONT></B> compareTo(MyCfgScriptTestClass other)
+  {
+    <B><FONT COLOR="#A020F0">return</FONT></B> getValue().compareTo(other.getValue());
+  }
+  
+}
+</PRE></td></tr></table>
+And now in ACDK C++
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// asumes the acdk_cfgscript library is linked to the executable
+</FONT></I>  RString arg = <B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>;
+  <I><FONT COLOR="#B22222">// uses the class loader to load a cfgscript class, which can be used in
+</FONT></I>  RComparable comp1 = (RComparable)Object::New(<B><FONT COLOR="#BC8F8F">&quot;mytest.MyCfgScriptTestClass&quot;</FONT></B>, arg);
+  RComparable comp2 = (RComparable)Object::New(<B><FONT COLOR="#BC8F8F">&quot;mytest.MyCfgScriptTestClass&quot;</FONT></B>, arg);
+  comp1-&gt;compareTo(comp2) == 0;
+</PRE></td></tr></table>
+<br>
+<br>
+<h2><a href="#jumptable44"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DMI-able Classes">DMI-able Classes</a></h2>
+DMI is the basis language integration mechanism of ACDK called
+Dynamic Method Invocation. 
+<br>
+With the DMI-Bridge CfgScript can make usage of <a  href="../../acdkx_com/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;COM</a>, 
+<a  href="../../acdkx_orb/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CORBA</a> or <a  href="../../acdk_java/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Java</a> classes
+<br>
+in a way that the code looks exactly the same like the server classes were 
+implemented in CfgScript.<br>
+<br>
+Please refer to <a  href="acdk_cfgscript_hb_intro.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Introduction</a> for the COM sample.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | Library | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,171 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+
+*/
+//out.println("\nswitch not implemented!\n");
+//return;
+
+with (acdk.lang.System.out)
+{
+  .println("Hello");
+}
+
+int ivar = 42;
+bool switchOk = false;
+
+switch(42)
+{
+  case .toString().equals("41"):
+    switchOk = false;
+    break;
+  case >= 41:
+    switchOk = false;
+    break;
+  default:
+    switchOk = false;
+    
+}
+
+// test executing default
+switch (ivar)
+{
+case 0: 
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+default:
+  switchOk = true;
+}
+
+
+iar = [ 42, 43 ];
+
+switch(iar.get(0))
+{
+case 0:
+  break;
+case 42:
+  switch(iar.get(1))
+  {
+    case 0:
+      break;
+    case 43:
+      switchOk = true;
+      break;
+    default:
+      break;
+   }
+   break;
+default:
+  
+}
+
+switch (ivar)
+{
+case 42, 0: 
+  switchOk = true;
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+}
+
+switch (ivar)
+{
+case 0, 42: // fall through
+  switchOk = true;
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+}
+
+
+switch (ivar)
+{
+default:
+  switchOk = false;
+case 0: // fall through
+  switchOk = true;
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+}
+
+switch (ivar)
+{
+default:
+  switchOk = true;
+  break;
+case 0: 
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+}
+
+switchOk = true;
+switch (ivar)
+{
+case 0: 
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+}
+
+if (switchOk)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+switchOk = false;
+switch (ivar)
+{
+case 0: 
+  break;
+case 41 + 1:
+  out.println("here we are");
+  switchOk = true;
+  break;
+}
+
+if (switchOk)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+  
+  
+switchOk = true;
+switch (ivar)
+{
+case 0: 
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+}
+
+if (switchOk)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+switchOk = false;
+
+// test executing default
+switch (ivar)
+{
+case 0: 
+  break;
+case 41 + 2:
+  switchOk = false;
+  break;
+default:
+  switchOk = true;
+}
+
+

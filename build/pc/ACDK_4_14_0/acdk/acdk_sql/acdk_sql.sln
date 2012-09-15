@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_sql", "src\acdk_sql.vcxproj", "{1320EA98-914A-E00D-D665-086238C533AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_sql_metainf", "src\acdk_sql_metainf.vcxproj", "{E01B5826-C9A6-D159-D513-67173A8C2B43}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1320EA98-914A-E00D-D665-086238C533AC} = {1320EA98-914A-E00D-D665-086238C533AC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1320EA98-914A-E00D-D665-086238C533AC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1320EA98-914A-E00D-D665-086238C533AC}.Debug|Win32.Build.0 = Debug|Win32
+		{1320EA98-914A-E00D-D665-086238C533AC}.Release|Win32.ActiveCfg = Release|Win32
+		{1320EA98-914A-E00D-D665-086238C533AC}.Release|Win32.Build.0 = Release|Win32
+		{1320EA98-914A-E00D-D665-086238C533AC}.Template|Win32.ActiveCfg = Release|Win32
+		{1320EA98-914A-E00D-D665-086238C533AC}.Template|Win32.Build.0 = Release|Win32
+		{E01B5826-C9A6-D159-D513-67173A8C2B43}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E01B5826-C9A6-D159-D513-67173A8C2B43}.Debug|Win32.Build.0 = Debug|Win32
+		{E01B5826-C9A6-D159-D513-67173A8C2B43}.Release|Win32.ActiveCfg = Release|Win32
+		{E01B5826-C9A6-D159-D513-67173A8C2B43}.Release|Win32.Build.0 = Release|Win32
+		{E01B5826-C9A6-D159-D513-67173A8C2B43}.Template|Win32.ActiveCfg = Template|Win32
+		{E01B5826-C9A6-D159-D513-67173A8C2B43}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

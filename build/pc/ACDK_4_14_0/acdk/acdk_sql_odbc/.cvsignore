@@ -1,0 +1,13 @@
+*.deps
+*.html
+*.txt
+
+bin
+obj
+*.opt
+*.ncb
+filelist.lst
+tobj
+*.suo
+ids.db
+ChangeLog

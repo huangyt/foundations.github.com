@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="sqlitesrc">
+      <UniqueIdentifier>{c0a89030-5ffb-4cbd-8a0d-017a47e5149a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sqlitesrc\alter.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\attach.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\auth.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\btree.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\build.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\date.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\delete.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\expr.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\func.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\hash.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\insert.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\legacy.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\main.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\opcodes.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\os_unix.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\os_win.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\pager.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\parse.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\pragma.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\printf.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\random.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\select.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\shell.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\table.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\tokenize.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\trigger.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\update.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\utf.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\util.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vacuum.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbe.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbeapi.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbeaux.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbemem.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\where.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

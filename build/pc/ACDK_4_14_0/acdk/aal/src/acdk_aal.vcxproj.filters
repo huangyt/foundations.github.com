@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{41bbb211-0aca-4413-83e7-075eb3e8bfd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aal">
+      <UniqueIdentifier>{2d90d37b-105b-43ae-b721-19828c7aac21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\aal\aal.h">
+      <Filter>acdk\aal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\aal\AalCompiler.cpp">
+      <Filter>acdk\aal</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

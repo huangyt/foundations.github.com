@@ -1,0 +1,162 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_SQL_ODBC_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_sql.lib" odbc32
+
+OUTFILE="..\..\bin\acdk_sql_odbc.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_sql_odbc\bcc"
+SOURCES= 	"acdk\sql\odbc\ODBCCallableStatement.cpp" \
+	"acdk\sql\odbc\ODBCColumn.cpp" \
+	"acdk\sql\odbc\ODBCConnection.cpp" \
+	"acdk\sql\odbc\ODBCDatabaseMetaData.cpp" \
+	"acdk\sql\odbc\ODBCDriver.cpp" \
+	"acdk\sql\odbc\ODBCHandle.cpp" \
+	"acdk\sql\odbc\ODBCPreparedStatement.cpp" \
+	"acdk\sql\odbc\ODBCResultSet.cpp" \
+	"acdk\sql\odbc\ODBCResultSetMetaData.cpp" \
+	"acdk\sql\odbc\ODBCStatement.cpp" \
+	"acdk\sql\odbc\odbc_metainf_base.cpp" \
+	"acdk\sql\odbc\odbc_metainf\odbc_metainf_ext.cpp" \
+	"acdk\sql\odbc\odbc_metainf\odbc_metainf_ext1.cpp" \
+	"acdk\sql\odbc\odbc_metainf\odbc_metainf_ext2.cpp" \
+	"acdk\sql\odbc\odbc_metainf\odbc_metainf_ext3.cpp" \
+
+HEADER= 	"acdk\sql\odbc\Config.h" \
+	"acdk\sql\odbc\odbc.h" \
+	"acdk\sql\odbc\ODBCArray.h" \
+	"acdk\sql\odbc\ODBCCallableStatement.h" \
+	"acdk\sql\odbc\ODBCColumn.h" \
+	"acdk\sql\odbc\ODBCConnection.h" \
+	"acdk\sql\odbc\ODBCDatabaseMetaData.h" \
+	"acdk\sql\odbc\ODBCDriver.h" \
+	"acdk\sql\odbc\ODBCHandle.h" \
+	"acdk\sql\odbc\ODBCPreparedStatement.h" \
+	"acdk\sql\odbc\ODBCResultSet.h" \
+	"acdk\sql\odbc\ODBCResultSetMetaData.h" \
+	"acdk\sql\odbc\ODBCStatement.h" \
+
+OBJECTS= 	"..\tobj\acdk_sql_odbc\bcc\ODBCCallableStatement.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCColumn.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCConnection.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCDatabaseMetaData.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCDriver.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCHandle.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCPreparedStatement.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCResultSet.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCResultSetMetaData.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\ODBCStatement.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_base.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext1.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext2.obj" \
+	"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext3.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCCallableStatement.obj": "acdk\sql\odbc\ODBCCallableStatement.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCCallableStatement.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCColumn.obj": "acdk\sql\odbc\ODBCColumn.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCColumn.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCConnection.obj": "acdk\sql\odbc\ODBCConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCConnection.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCDatabaseMetaData.obj": "acdk\sql\odbc\ODBCDatabaseMetaData.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCDatabaseMetaData.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCDriver.obj": "acdk\sql\odbc\ODBCDriver.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCDriver.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCHandle.obj": "acdk\sql\odbc\ODBCHandle.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCHandle.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCPreparedStatement.obj": "acdk\sql\odbc\ODBCPreparedStatement.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCPreparedStatement.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCResultSet.obj": "acdk\sql\odbc\ODBCResultSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCResultSet.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCResultSetMetaData.obj": "acdk\sql\odbc\ODBCResultSetMetaData.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCResultSetMetaData.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\ODBCStatement.obj": "acdk\sql\odbc\ODBCStatement.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\ODBCStatement.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_base.obj": "acdk\sql\odbc\odbc_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\odbc_metainf_base.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext.obj": "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext1.obj": "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext1.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext2.obj": "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext2.cpp"
+
+"..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext3.obj": "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext3.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_odbc\bcc" "acdk\sql\odbc\odbc_metainf\odbc_metainf_ext3.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_sql_odbc.dll"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCCallableStatement.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCColumn.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCConnection.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCDatabaseMetaData.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCDriver.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCHandle.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCPreparedStatement.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCResultSet.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCResultSetMetaData.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\ODBCStatement.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\odbc_metainf_base.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext1.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext2.obj"
+	del "..\tobj\acdk_sql_odbc\bcc\odbc_metainf_ext3.obj"
+
+

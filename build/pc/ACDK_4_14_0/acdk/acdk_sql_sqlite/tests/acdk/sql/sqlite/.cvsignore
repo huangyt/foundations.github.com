@@ -1,0 +1,8 @@
+*.deps
+*.ncb
+*.opt
+bin
+obj
+filelist.lst
+*.plg
+tobj

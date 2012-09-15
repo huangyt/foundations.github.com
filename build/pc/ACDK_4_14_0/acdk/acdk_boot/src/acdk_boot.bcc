@@ -1,0 +1,82 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_BOOT_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib"
+
+OUTFILE="..\..\bin\acdk_boot.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_boot\bcc"
+SOURCES= 	"acdk\boot\boot_metainf_base.cpp" \
+	"acdk\boot\HelloWorldClass.cpp" \
+	"acdk\boot\boot_metainf\boot_metainf_ext.cpp" \
+
+HEADER= 	"acdk\boot\boot.h" \
+	"acdk\boot\boot_all.h" \
+	"acdk\boot\Config.h" \
+	"acdk\boot\HelloWorldClass.h" \
+	"acdk\boot\HelloWorldInterface.h" \
+
+OBJECTS= 	"..\tobj\acdk_boot\bcc\boot_metainf_base.obj" \
+	"..\tobj\acdk_boot\bcc\HelloWorldClass.obj" \
+	"..\tobj\acdk_boot\bcc\boot_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_boot\bcc\boot_metainf_base.obj": "acdk\boot\boot_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_boot\bcc" "acdk\boot\boot_metainf_base.cpp"
+
+"..\tobj\acdk_boot\bcc\HelloWorldClass.obj": "acdk\boot\HelloWorldClass.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_boot\bcc" "acdk\boot\HelloWorldClass.cpp"
+
+"..\tobj\acdk_boot\bcc\boot_metainf_ext.obj": "acdk\boot\boot_metainf\boot_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_boot\bcc" "acdk\boot\boot_metainf\boot_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_boot.dll"
+	del "..\tobj\acdk_boot\bcc\boot_metainf_base.obj"
+	del "..\tobj\acdk_boot\bcc\HelloWorldClass.obj"
+	del "..\tobj\acdk_boot\bcc\boot_metainf_ext.obj"
+
+

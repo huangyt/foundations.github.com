@@ -1,0 +1,29 @@
+
+
+acdk_sql_odbc = new acdk.make.AcdkLibTask("acdk_sql_odbc");
+acdk_sql_odbc.addModule("src/acdk/sql/odbc");
+acdk_sql_odbc.addAcdkLib("acdk_core");
+acdk_sql_odbc.addAcdkLib("acdk_text");
+acdk_sql_odbc.addAcdkLib("acdk_sql");
+acdk_sql_odbc.addExtLib("odbc32");
+
+// create metainfo library for acdk_sql_odbc
+acdk_sql_odbc_metainf = new acdk.make.AcdkMetainfLibTask("acdk_sql_odbc_metainf", acdk_sql_odbc);
+
+
+acdk_sql_Test = new acdk.make.AcdkTestExeTask("acdk_sql_Test");
+acdk_sql_Test.setBaseDir("tests/acdk/sql");
+acdk_sql_Test.addSource("tests/acdk/sql");
+acdk_sql_Test.addAcdkLib("acdk_core");
+acdk_sql_Test.addAcdkLib("acdk_text");
+acdk_sql_Test.addAcdkLib("acdk_sql");
+acdk_sql_Test.addAcdkLib("acdk_sql_odbc");
+acdk_sql_Test.addAcdkLib("acdk_tools_aunit");
+acdk_sql_Test.addExtLib("odbc32");
+
+
+default = new acdk.make.AcdkProjectTask("default");
+default.registerTask("acdk_sql_odbc_prj");
+default.addSubTask("acdk_sql_odbc");
+default.addSubTask("acdk_sql_odbc_metainf");
+default.addSubTask("acdk_sql_Test");

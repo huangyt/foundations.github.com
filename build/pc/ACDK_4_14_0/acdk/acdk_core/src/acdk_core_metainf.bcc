@@ -1,0 +1,191 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_core_metainf.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_core_metainf\bcc"
+SOURCES= 	"acdk\lang\lang_metainf\lang_metainf_ext.cpp" \
+	"acdk\lang\lang_metainf\lang_metainf_ext1.cpp" \
+	"acdk\lang\lang_metainf\lang_metainf_ext2.cpp" \
+	"acdk\lang\lang_metainf\lang_metainf_ext3.cpp" \
+	"acdk\lang\lang_metainf\lang_metainf_ext4.cpp" \
+	"acdk\lang\lang_metainf\lang_metainf_ext5.cpp" \
+	"acdk\lang\dmi\dmi_metainf\dmi_metainf_ext.cpp" \
+	"acdk\lang\dmi\dmi_metainf\dmi_metainf_ext1.cpp" \
+	"acdk\lang\ref\ref_metainf\ref_metainf_ext.cpp" \
+	"acdk\lang\reflect\reflect_metainf\reflect_metainf_ext.cpp" \
+	"acdk\io\io_metainf\io_metainf_ext.cpp" \
+	"acdk\io\io_metainf\io_metainf_ext1.cpp" \
+	"acdk\io\io_metainf\io_metainf_ext2.cpp" \
+	"acdk\io\io_metainf\io_metainf_ext3.cpp" \
+	"acdk\io\io_metainf\io_metainf_ext4.cpp" \
+	"acdk\util\util_metainf\util_metainf_ext.cpp" \
+	"acdk\util\util_metainf\util_metainf_ext1.cpp" \
+	"acdk\util\util_metainf\util_metainf_ext2.cpp" \
+	"acdk\util\util_metainf\util_metainf_ext3.cpp" \
+	"acdk\util\util_metainf\util_metainf_ext4.cpp" \
+	"acdk\util\logging\logging_metainf\logging_metainf_ext.cpp" \
+	"acdk\locale\locale_metainf\locale_metainf_ext.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext1.obj" \
+	"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext2.obj" \
+	"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext3.obj" \
+	"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext4.obj" \
+	"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext5.obj" \
+	"..\tobj\acdk_core_metainf\bcc\dmi_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\dmi_metainf_ext1.obj" \
+	"..\tobj\acdk_core_metainf\bcc\ref_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\reflect_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\io_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\io_metainf_ext1.obj" \
+	"..\tobj\acdk_core_metainf\bcc\io_metainf_ext2.obj" \
+	"..\tobj\acdk_core_metainf\bcc\io_metainf_ext3.obj" \
+	"..\tobj\acdk_core_metainf\bcc\io_metainf_ext4.obj" \
+	"..\tobj\acdk_core_metainf\bcc\util_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\util_metainf_ext1.obj" \
+	"..\tobj\acdk_core_metainf\bcc\util_metainf_ext2.obj" \
+	"..\tobj\acdk_core_metainf\bcc\util_metainf_ext3.obj" \
+	"..\tobj\acdk_core_metainf\bcc\util_metainf_ext4.obj" \
+	"..\tobj\acdk_core_metainf\bcc\logging_metainf_ext.obj" \
+	"..\tobj\acdk_core_metainf\bcc\locale_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext.obj": "acdk\lang\lang_metainf\lang_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\lang_metainf\lang_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext1.obj": "acdk\lang\lang_metainf\lang_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\lang_metainf\lang_metainf_ext1.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext2.obj": "acdk\lang\lang_metainf\lang_metainf_ext2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\lang_metainf\lang_metainf_ext2.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext3.obj": "acdk\lang\lang_metainf\lang_metainf_ext3.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\lang_metainf\lang_metainf_ext3.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext4.obj": "acdk\lang\lang_metainf\lang_metainf_ext4.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\lang_metainf\lang_metainf_ext4.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\lang_metainf_ext5.obj": "acdk\lang\lang_metainf\lang_metainf_ext5.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\lang_metainf\lang_metainf_ext5.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\dmi_metainf_ext.obj": "acdk\lang\dmi\dmi_metainf\dmi_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\dmi\dmi_metainf\dmi_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\dmi_metainf_ext1.obj": "acdk\lang\dmi\dmi_metainf\dmi_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\dmi\dmi_metainf\dmi_metainf_ext1.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\ref_metainf_ext.obj": "acdk\lang\ref\ref_metainf\ref_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\ref\ref_metainf\ref_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\reflect_metainf_ext.obj": "acdk\lang\reflect\reflect_metainf\reflect_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\lang\reflect\reflect_metainf\reflect_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\io_metainf_ext.obj": "acdk\io\io_metainf\io_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\io\io_metainf\io_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\io_metainf_ext1.obj": "acdk\io\io_metainf\io_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\io\io_metainf\io_metainf_ext1.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\io_metainf_ext2.obj": "acdk\io\io_metainf\io_metainf_ext2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\io\io_metainf\io_metainf_ext2.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\io_metainf_ext3.obj": "acdk\io\io_metainf\io_metainf_ext3.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\io\io_metainf\io_metainf_ext3.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\io_metainf_ext4.obj": "acdk\io\io_metainf\io_metainf_ext4.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\io\io_metainf\io_metainf_ext4.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\util_metainf_ext.obj": "acdk\util\util_metainf\util_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\util\util_metainf\util_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\util_metainf_ext1.obj": "acdk\util\util_metainf\util_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\util\util_metainf\util_metainf_ext1.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\util_metainf_ext2.obj": "acdk\util\util_metainf\util_metainf_ext2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\util\util_metainf\util_metainf_ext2.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\util_metainf_ext3.obj": "acdk\util\util_metainf\util_metainf_ext3.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\util\util_metainf\util_metainf_ext3.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\util_metainf_ext4.obj": "acdk\util\util_metainf\util_metainf_ext4.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\util\util_metainf\util_metainf_ext4.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\logging_metainf_ext.obj": "acdk\util\logging\logging_metainf\logging_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\util\logging\logging_metainf\logging_metainf_ext.cpp"
+
+"..\tobj\acdk_core_metainf\bcc\locale_metainf_ext.obj": "acdk\locale\locale_metainf\locale_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_metainf\bcc" "acdk\locale\locale_metainf\locale_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_core_metainf.dll"
+	del "..\tobj\acdk_core_metainf\bcc\lang_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\lang_metainf_ext1.obj"
+	del "..\tobj\acdk_core_metainf\bcc\lang_metainf_ext2.obj"
+	del "..\tobj\acdk_core_metainf\bcc\lang_metainf_ext3.obj"
+	del "..\tobj\acdk_core_metainf\bcc\lang_metainf_ext4.obj"
+	del "..\tobj\acdk_core_metainf\bcc\lang_metainf_ext5.obj"
+	del "..\tobj\acdk_core_metainf\bcc\dmi_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\dmi_metainf_ext1.obj"
+	del "..\tobj\acdk_core_metainf\bcc\ref_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\reflect_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\io_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\io_metainf_ext1.obj"
+	del "..\tobj\acdk_core_metainf\bcc\io_metainf_ext2.obj"
+	del "..\tobj\acdk_core_metainf\bcc\io_metainf_ext3.obj"
+	del "..\tobj\acdk_core_metainf\bcc\io_metainf_ext4.obj"
+	del "..\tobj\acdk_core_metainf\bcc\util_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\util_metainf_ext1.obj"
+	del "..\tobj\acdk_core_metainf\bcc\util_metainf_ext2.obj"
+	del "..\tobj\acdk_core_metainf\bcc\util_metainf_ext3.obj"
+	del "..\tobj\acdk_core_metainf\bcc\util_metainf_ext4.obj"
+	del "..\tobj\acdk_core_metainf\bcc\logging_metainf_ext.obj"
+	del "..\tobj\acdk_core_metainf\bcc\locale_metainf_ext.obj"
+
+

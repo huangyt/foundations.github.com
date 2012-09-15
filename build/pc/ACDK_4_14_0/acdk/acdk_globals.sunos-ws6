@@ -1,0 +1,29 @@
+# acdk_globals.sunos-gcc
+
+PERL=perl
+SRC2HTML=src2html
+WEBHOME=/home/roger/artefaktur/wweb/products/acdk/modules
+GENWEBHOME=../../genweb
+
+INSTALL=/usr/bin/install -c
+INSTALL_PROGRAM=${INSTALL}
+INSTALL_SCRIPT=${INSTALL_PROGRAM}
+INSTALL_DATA=${INSTALL} -m 644
+MAN_PATH=/usr/local/man
+
+#CCINCLUDEX=-I/opt/DevTools/RogueWave/workspaces/SOLARIS26/SUNPRO50/15
+
+#CCOMPILER=/opt/DevTools/Compiler/GNU/gcc-v2.95.2/bin/g++
+CCOMPILER=/opt/DevTools/Compiler/Sun/cc-52-001/SUNWspro/bin/CC
+
+
+LINK=/opt/DevTools/Compiler/Sun/cc-52-001/SUNWspro/bin/CC
+
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl -ldemangle
+# -liberty
+
+# with RefHolder4.h
+# RefHolder<acdk::lang::String>::RefHolder<acdk::lang::Object>#Nvariant 1(const RefHolder<__type_1>&) obj/acdk_lang_Object_Test/sunos-ws6/acdk_lang_Object_Test.o
+#ld: fatal: Symbol referencing errors. No output written to ../../../../bin/acdk_lang_Object_Test
+
+

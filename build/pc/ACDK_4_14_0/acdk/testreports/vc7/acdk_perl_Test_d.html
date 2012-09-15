@@ -1,0 +1,66 @@
+<html><body>
+<h1>Unit Test 2004-11-28T19:19:00</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 5; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.helloPerl">Basics_Test.helloPerl</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.helloACDK">Basics_Test.helloACDK</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.helloACDK2">Basics_Test.helloACDK2</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.helloACDK3">Basics_Test.helloACDK3</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ComObject_Test.helloWord">ComObject_Test.helloWord</a> <br>
+</td></tr></table>
+<h2><a id="Basics_Test.helloPerl">Basics_Test.helloPerl</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Basics_Test.helloPerl] Start Test
+</pre>
+<h2><a id="Basics_Test.helloACDK">Basics_Test.helloACDK</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.helloPerl] End Test
+[AUNIT:STRT][Basics_Test.helloACDK] Start Test
+Hello via ACDK: Hi ACDK World
+</pre>
+<h2><a id="Basics_Test.helloACDK2">Basics_Test.helloACDK2</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.helloACDK] End Test
+[AUNIT:STRT][Basics_Test.helloACDK2] Start Test
+On some perl installation $sb->append() will not work.
+Reason: AUTOLOAD doesn't with XS on this versions.
+Hello via ACDK: Hi ACDK World
+</pre>
+<h2><a id="Basics_Test.helloACDK3">Basics_Test.helloACDK3</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.helloACDK2] End Test
+[AUNIT:STRT][Basics_Test.helloACDK3] Start Test
+</pre>
+<h2><a id="ComObject_Test.helloWord">ComObject_Test.helloWord</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.helloACDK3] End Test
+[AUNIT:STRT][ComObject_Test.helloWord] Start Test
+Executing code:
+sub require_class($)
+{
+  my ($cls) = @_;
+  my $cl = pacdk::new("acdk/lang/ClassLoader");
+  $cl->findClass($cls);
+}
+
+require_class('acdkx/com/ComObject');
+use pacdk;
+$word = pacdk::invoke_static('acdkx/com/ComObject', 'New', 'Word.Application');
+$word->poke('Visible', 1);
+$doc = $word->peek('Documents')->add();
+$sel = $word->peek('ActiveWindow')->peek('Selection');
+$sel->TypeText("This is ");
+$sel->peek('Font')->poke('Bold', 1);
+$sel->TypeText("ACDK");
+$sel->peek('Font')->poke('Bold', 0);
+$sel->TypeText(" instrumenting Word through acdk_perl");
+pacdk::invoke_static('acdk/lang/Thread', 'sleep', 3000);
+$word->Quit(0);
+
+</pre>
+</body></html>

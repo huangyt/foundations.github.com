@@ -1,0 +1,33 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = %[acdk-home]%
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = %[acdkmake-project-name]%
+
+default: all
+all:: install compile
+
+%[(acdk-pmake-generate-make)]%
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+%[(acdk-pmake-generate-tests)]%
+
+%[(acdk-pmake-generate-meta-make)]%

@@ -1,0 +1,258 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL Function Types</title>
+<link rel="stylesheet" type="text/css" href="./../../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../../index.html">ACDK</a><br>
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../../docs/packages.html">Packages</a><br>
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">AAL</a><br>
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="aal_reference.html">Reference</a><br>
+<img src="./../../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Function Types
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="aal_reference_sourcecode.html">Source Code</a> | <a  href="aal_reference_praeprocessor.html">Preprocessor</a> | <a  href="aal_reference_comments.html">Comments</a> | <a  href="aal_reference_literal.html">Literals</a> | <a  href="aal_reference_classes.html">Classes</a> | <a  href="aal_reference_closures.html">Closures</a> | <a  href="aal_reference_functions.html">Functions</a> | Function Types |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL Function Types</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL Function Types</h1> -->
+<p class="curchapterline"> | <a  href="aal_reference_sourcecode.html">Source Code</a> | <a  href="aal_reference_praeprocessor.html">Preprocessor</a> | <a  href="aal_reference_comments.html">Comments</a> | <a  href="aal_reference_literal.html">Literals</a> | <a  href="aal_reference_classes.html">Classes</a> | <a  href="aal_reference_closures.html">Closures</a> | <a  href="aal_reference_functions.html">Functions</a> | Function Types |</p>
+<p class="PageIntro">
+Function Types are equaly to Function pointer
+and/or class methods pointer in C/C++.
+</p>
+
+
+<a name="jumptable131"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Concept"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Concept</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Implemenation"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Implemenation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Defintion"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Defintion</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Sample"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Sample</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Initialize with Functions"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Initialize with Functions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Initialize with object instance Methods"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Initialize with object instance Methods</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Initialize with object"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Initialize with object</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Initialize with class"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Initialize with class</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Working with operators"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Working with operators</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+<h2><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Concept">Concept</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;case&nbsp;1&nbsp;static&nbsp;call<br>
+defun&nbsp;StaticCallable&nbsp;static&nbsp;void&nbsp;();<br>
+<br>
+class&nbsp;AClass&nbsp;<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;void&nbsp;operator()&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;staticmethod()&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;void&nbsp;method()&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;void&nbsp;method2()&nbsp;{}<br>
+&nbsp;&nbsp;String&nbsp;operator+(String&nbsp;other)&nbsp;{&nbsp;return&nbsp;other;&nbsp;}<br>
+}<br>
+class&nbsp;BClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;operator()()&nbsp;{}<br>
+}<br>
+AClass&nbsp;acls&nbsp;=&nbsp;new&nbsp;AClass();<br>
+StaticCallable&nbsp;staticcallable;<br>
+staticcallable&nbsp;=&nbsp;AClass.staticmethod;&nbsp;<br>
+staticcallable&nbsp;=&nbsp;acls.method;<br>
+staticcallable&nbsp;=&nbsp;AClass;<br>
+staticcallable&nbsp;=&nbsp;acls;<br>
+staticcallable&nbsp;=&nbsp;new&nbsp;()&nbsp;{&nbsp;public&nbsp;void&nbsp;operator()()&nbsp;{}&nbsp;};<br>
+staticcallable&nbsp;=&nbsp;new&nbsp;()&nbsp;{&nbsp;public&nbsp;void&nbsp;foo()&nbsp;{}&nbsp;}.foo<br>
+staticcallable();<br>
+<br>
+//&nbsp;case&nbsp;2&nbsp;object&nbsp;call<br>
+defun&nbsp;ObjectCall&nbsp;void&nbsp;();<br>
+ObjectCall&nbsp;objcall;<br>
+objcall&nbsp;=&nbsp;acls.method;<br>
+objcall&nbsp;=&nbsp;acls.method2;<br>
+objcall&nbsp;=&nbsp;acls;<br>
+acls.objcall();<br>
+<br>
+//&nbsp;case&nbsp;3&nbsp;statc&nbsp;operator&nbsp;calls<br>
+defun&nbsp;StaticStringAdder&nbsp;static&nbsp;String&nbsp;operator+(String&nbsp;s);<br>
+<br>
+StringAdder&nbsp;sadder;<br>
+sadder&nbsp;=&nbsp;acls;<br>
+sadder&nbsp;=&nbsp;new&nbsp;()&nbsp;{&nbsp;public&nbsp;String&nbsp;operator+(String&nbsp;s)&nbsp;{&nbsp;return&nbsp;s;&nbsp;}&nbsp;};<br>
+sadder&nbsp;+&nbsp;"asdf";<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implemenation">Implemenation</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;String&nbsp;adder(String&nbsp;s)&nbsp;{&nbsp;return&nbsp;s;&nbsp;}<br>
+}<br>
+<br>
+//&nbsp;case&nbsp;1&nbsp;static&nbsp;call<br>
+defun&nbsp;StaticStringAdder&nbsp;static&nbsp;String&nbsp;(String&nbsp;s);<br>
+//&nbsp;-&gt;<br>
+interface&nbsp;StaticStringAdder<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;String&nbsp;operator()(String&nbsp;s);<br>
+}<br>
+//&nbsp;&lt;-&nbsp;<br>
+<br>
+StaticCallable&nbsp;staticcallable;<br>
+//&nbsp;-&gt;&nbsp;just&nbsp;an&nbsp;Interface&nbsp;reference<br>
+<br>
+staticcallable&nbsp;=&nbsp;acls.method;<br>
+//&nbsp;-&gt;&nbsp;<br>
+class&nbsp;AClass_method_caller<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;implements&nbsp;StaticStringAdder<br>
+{<br>
+&nbsp;&nbsp;AClass&nbsp;target;<br>
+&nbsp;&nbsp;AClass_method_caller(AClass&nbsp;t)&nbsp;:&nbsp;target(t)&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;String&nbsp;operator(String&nbsp;s)&nbsp;{&nbsp;return&nbsp;target.adder(s);&nbsp;}<br>
+}<br>
+staticcallable&nbsp;=&nbsp;new&nbsp;AClass_method_caller(acls);<br>
+//&nbsp;&lt;-<br>
+<br></font>
+</td></tr></table>
+<h2><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Defintion">Defintion</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+&nbsp;&nbsp;defun&nbsp;TypeName&nbsp;FunctionSignature<br></font>
+</td></tr></table>
+<h2><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample">Sample</a></h2>
+<h3><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Initialize with Functions">Initialize with Functions</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+defun&nbsp;FooCallable&nbsp;String&nbsp;(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+<br>
+String&nbsp;fooFunction(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;return&nbsp;s.substr(i);&nbsp;}<br>
+FooCallable&nbsp;callable;<br>
+<br>
+callable&nbsp;=&nbsp;fooFunction;<br>
+callable("Hello",&nbsp;1);<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Initialize with object instance Methods">Initialize with object instance Methods</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+defun&nbsp;FooCallable&nbsp;String&nbsp;(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+<br>
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;AClass()&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;String&nbsp;bar(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;return&nbsp;s.substr(i);&nbsp;}<br>
+}<br>
+<br>
+FooCallable&nbsp;callable;<br>
+AClass&nbsp;acls&nbsp;=&nbsp;new&nbsp;AClass();<br>
+callable&nbsp;=&nbsp;acls.bar;<br>
+callable("Hello",&nbsp;1);<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Initialize with object">Initialize with object</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+defun&nbsp;FooCallable&nbsp;staticString&nbsp;(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+<br>
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;AClass()&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;String&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;return&nbsp;s.substr(i);&nbsp;}<br>
+}<br>
+<br>
+FooCallable&nbsp;callable;<br>
+AClass&nbsp;acls&nbsp;=&nbsp;new&nbsp;AClass();<br>
+callable&nbsp;=&nbsp;acls;<br>
+callable("Hello",&nbsp;1);<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Initialize with class">Initialize with class</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+defun&nbsp;String&nbsp;FooCallable(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+<br>
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;String&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;return&nbsp;s.substr(i);&nbsp;}<br>
+}<br>
+<br>
+FooCallable&nbsp;callable;<br>
+callable&nbsp;=&nbsp;AClass;<br>
+callable("Hello",&nbsp;1);<br></font>
+</td></tr></table>
+<h3><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Working with operators">Working with operators</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+defun&nbsp;StringShifter&nbsp;String&nbsp;operator&lt;&lt;(String&nbsp;str);<br>
+<br>
+String&nbsp;operator&lt;&lt;(String&nbsp;s)&nbsp;{&nbsp;return&nbsp;str.length()&nbsp;&lt;&lt;&nbsp;1;&nbsp;}<br>
+StringShifter&nbsp;shifter&nbsp;=&nbsp;<br></font>
+</td></tr></table>
+<h2><a href="#jumptable131"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h2>
+Freestanding function will translated into
+classes:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+using&nbsp;acdk.lang;<br>
+String&nbsp;foo(String&nbsp;s,&nbsp;int&nbsp;i)<br>
+{<br>
+&nbsp;&nbsp;return&nbsp;s.substr(i);<br>
+}&nbsp;<br>
+foo("Hallo",&nbsp;1);<br>
+<br>
+//&nbsp;will&nbsp;be&nbsp;translated&nbsp;into<br>
+class&nbsp;foo&nbsp;<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;String&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;s.substr(i);<br>
+&nbsp;&nbsp;}<br>
+}<br>
+foo.operator()("Hallo",&nbsp;1);<br></font>
+</td></tr></table>
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="aal_reference_sourcecode.html">Source Code</a> | <a  href="aal_reference_praeprocessor.html">Preprocessor</a> | <a  href="aal_reference_comments.html">Comments</a> | <a  href="aal_reference_literal.html">Literals</a> | <a  href="aal_reference_classes.html">Classes</a> | <a  href="aal_reference_closures.html">Closures</a> | <a  href="aal_reference_functions.html">Functions</a> | Function Types |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

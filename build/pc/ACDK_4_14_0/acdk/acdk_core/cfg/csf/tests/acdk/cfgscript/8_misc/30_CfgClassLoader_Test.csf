@@ -1,0 +1,6 @@
+
+
+tests.CfgScriptTest c = new tests.CfgScriptTest(42);
+
+out.println("TEST OK");
+

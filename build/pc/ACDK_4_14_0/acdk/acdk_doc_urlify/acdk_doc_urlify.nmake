@@ -1,0 +1,28 @@
+# this is a wrapper makefile
+# pnmake.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)/bin/acdklisp
+
+PACKAGE = acdk_doc_urlify
+
+all: compile install
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+metamake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src/acdk_doc_urlify.lsp -pdir src dsp; \
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src/acdk_doc_urlify.lsp -pdir src linux; \
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src/acdk_doc_urlify.lsp -pdir src sunos-gcc; \
+
+
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @xcopy /D /S src\*.h $(ACDKHOME)\include
+  @xcopy /D /S src\*.cpp $(ACDKHOME)\include

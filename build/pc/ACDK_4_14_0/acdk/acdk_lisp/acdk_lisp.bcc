@@ -1,0 +1,163 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_lisp
+
+default: all
+all:: install compile
+
+compile:: acdk_lisp acdklisp acdk_lisp_Test 
+clean:: acdk_lisp-clean acdklisp-clean acdk_lisp_Test-clean 
+metainfo:: acdk_lisp-metainfo acdklisp-metainfo acdk_lisp_Test-metainfo 
+acdk_lisp:  
+	cd src
+	$(MAKE) -f acdk_lisp.bcc
+	cd ..
+
+
+acdk_lisp-clean:
+	cd src
+	$(MAKE) -f acdk_lisp.bcc clean
+	cd ..
+
+
+acdk_lisp-metainfo:
+	cd src
+	$(MAKE) -f acdk_lisp.bcc metainfo
+	cd ..
+
+
+acdklisp:  acdk_lisp
+	cd src
+	$(MAKE) -f acdklisp.bcc
+	cd ..
+
+
+acdklisp-clean:
+	cd src
+	$(MAKE) -f acdklisp.bcc clean
+	cd ..
+
+
+acdklisp-metainfo:
+	cd src
+	$(MAKE) -f acdklisp.bcc metainfo
+	cd ..
+
+
+acdk_lisp_Test:  acdk_lisp
+	cd tests/acdk/lisp
+	$(MAKE) -f acdk_lisp_Test.bcc
+	cd ../../..
+
+
+acdk_lisp_Test-clean:
+	cd tests/acdk/lisp
+	$(MAKE) -f acdk_lisp_Test.bcc clean
+	cd ../../..
+
+
+acdk_lisp_Test-metainfo:
+	cd tests/acdk/lisp
+	$(MAKE) -f acdk_lisp_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_lisp_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_lisp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src cbx
+
+acdklisp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src cbx
+
+acdk_lisp_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp cbx
+
+
+makemake:: acdk_lisp-makemake acdklisp-makemake acdk_lisp_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_lisp.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdklisp.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/lisp\acdk_lisp_Test.lsp -pdir tests/acdk/lisp cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_lisp.lsp
+
+

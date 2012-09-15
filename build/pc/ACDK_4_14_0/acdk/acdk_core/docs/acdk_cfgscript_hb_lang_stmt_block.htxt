@@ -1,0 +1,31 @@
+%id: acdk_cfgscript_hb_lang_stmt_block
+%title: CfgScript block Statement
+%shorttitle: block {} Statement
+%keywords: block, scope
+%body:
+<chapterline/>
+<pageintro>
+The block statement groups multiple statements.
+</pageintro>
+
+<htmlauto/>
+<pre>
+BlockStatement
+: '{' Statmenent* '}'
+</pre>
+At every place, where the grammar expects one statement, with a block
+multiple statements can be bound to one statement.
+<source>
+if (a == b)
+  a = c; // one statement
+else
+{ // also one statement through block 
+  b = d;
+  a = 2;
+}
+</source>
+
+Another effect of a BlockStatement is a block establish a new local scope 
+for local variables. See for more information at %ref[Scoped Variables, acdk_cfgscript_hb_lang_stmt_vardecl#Scoped Variables].
+
+.

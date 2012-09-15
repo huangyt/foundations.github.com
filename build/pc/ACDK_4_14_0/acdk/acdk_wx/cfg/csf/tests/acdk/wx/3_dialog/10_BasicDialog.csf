@@ -1,0 +1,17 @@
+
+using acdk.wx;
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    Dialog win = new Dialog(Nil, -1, "Hello, empty Dialog", Point.defaultPosition(), new Size(200, 200));
+    win.showModal();
+    return false; // don't continue
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

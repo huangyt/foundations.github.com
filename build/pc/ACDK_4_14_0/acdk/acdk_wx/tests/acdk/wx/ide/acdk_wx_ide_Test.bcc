@@ -1,0 +1,71 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX= $(WX_CFLAGS)
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\..\bin\acdk_core.lib" "..\..\..\..\..\bin\acdk_cfgscript.lib" "..\..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\..\bin\acdk_wx.lib" "..\..\..\..\..\bin\acdk_wx_ide.lib" $(ACDK_WX_IDE_WXLIBS_DEBUG)
+
+OUTFILE="..\..\..\..\..\bin\acdk_wx_ide_Test.exe"
+OUTDIR = "..\..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_wx_ide_Test\bcc"
+SOURCES= 	"acdk_wx_ide_Test.cpp" \
+	"acdk_wx_ide_StyledTextCtrl_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_wx_ide_Test\bcc\acdk_wx_ide_Test.obj" \
+	".\tobj\acdk_wx_ide_Test\bcc\acdk_wx_ide_StyledTextCtrl_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_wx_ide_Test\bcc\acdk_wx_ide_Test.obj": "acdk_wx_ide_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_wx_ide_Test\bcc" "acdk_wx_ide_Test.cpp"
+
+".\tobj\acdk_wx_ide_Test\bcc\acdk_wx_ide_StyledTextCtrl_Test.obj": "acdk_wx_ide_StyledTextCtrl_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_wx_ide_Test\bcc" "acdk_wx_ide_StyledTextCtrl_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\..\bin\acdk_wx_ide_Test.exe"
+	del ".\tobj\acdk_wx_ide_Test\bcc\acdk_wx_ide_Test.obj"
+	del ".\tobj\acdk_wx_ide_Test\bcc\acdk_wx_ide_StyledTextCtrl_Test.obj"
+
+

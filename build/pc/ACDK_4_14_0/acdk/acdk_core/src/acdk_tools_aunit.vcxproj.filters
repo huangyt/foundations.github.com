@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{c30bd63e-d34c-435f-a1c0-602dc036ca43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{c4a943c9-bad0-4fe4-881b-399a9a040a33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\aunit">
+      <UniqueIdentifier>{d886aea9-8046-4699-89dc-ac32aaafd74a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\aunit\aunit.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\CfgScriptTestSuite.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\Config.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\core_test.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\DmiTestClass.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\DmiTestException.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\DmiTestInterface.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\McConfigTest.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\ProcessTestSuite.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\SayHelloInterface.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\Test.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestCollectorListener.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestConsoleListener.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestDebuggerListener.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestException.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestFailure.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestHtmlReport.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestListener.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestReport.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestResult.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestRunner.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestTextReport.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\TestUnit.h">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\aunit\aunit_metainf_base.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\CfgScriptTestSuite.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\DmiTestClass.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\ProcessTestSuite.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestConsoleListener.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestDebuggerListener.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestHtmlReport.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestResult.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestRunner.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestTextReport.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\TestUnit.cpp">
+      <Filter>acdk\tools\aunit</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{97367edb-f4e3-4e6f-bac5-0d6796f851f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net">
+      <UniqueIdentifier>{e9a03106-51aa-4fb7-8455-ea3a5bd209e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net\net_metainf">
+      <UniqueIdentifier>{6a6c1152-e67b-4244-b0f6-e6bffeb9261f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\net\net_metainf\net_metainf_ext.cpp">
+      <Filter>acdk\net\net_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\net_metainf\net_metainf_ext1.cpp">
+      <Filter>acdk\net\net_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\net_metainf\net_metainf_ext2.cpp">
+      <Filter>acdk\net\net_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

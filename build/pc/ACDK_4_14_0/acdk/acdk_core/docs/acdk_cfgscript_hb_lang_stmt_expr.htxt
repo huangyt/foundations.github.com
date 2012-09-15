@@ -1,0 +1,28 @@
+%id: acdk_cfgscript_hb_lang_stmt_expr
+%title: CfgScript Expression Statement
+%shorttitle: Expression statement
+%body:
+<chapterline/>
+<pageintro>
+The ExpressionStatment just terminate an Expression with a ';'
+</pageintro>
+
+<htmlauto/>
+<pre>
+ExpressionStatement
+: Expression ';'
+| ';'
+;
+</pre>
+The Expression statement is a normal Expression terminated with a <c>;</c>.
+
+As a special case also an empty expression, where no expression is given.
+
+<source>
+  if (a == b) // IfStatement
+    ; // empy statement
+  else
+    i = 3; // ExpressionStatement with AssignmentExpression as expression.
+</source>
+
+.

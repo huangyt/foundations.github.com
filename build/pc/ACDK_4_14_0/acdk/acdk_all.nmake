@@ -1,0 +1,166 @@
+ACDKHOME=.
+
+PACKAGE=acdk_all
+
+CORE_PACKAGE=acdk_core 
+STD_PACKAGES=  acdk_text acdk_make acdk_net acdk_boot acdk_xml acdk_vfile \
+         acdk_lisp acdkx_com acdkx_orb  \
+         acdk_perl acdk_python acdk_tcl acdk_java \
+         acdk_sql acdk_sql_sqlite acdk_sql_odbc \
+         acdk_wx \
+         acdkx_rdmi \
+         acdk_tools_java2acdk
+ALPHA_PACKAGES = aal acdkx_servlet
+
+ALL_PACKAGES = $(CORE_PACKAGE) $(STD_PACKAGES) $(ALPHA_PACKAGES)
+
+OLD_PACKAGES=acdkx_sol
+
+ACDK_PACKAGES = $(CORE_PACKAGE) $(STD_PACKAGES)
+
+all: 
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p all
+
+!include "$(ACDKHOME)\acdk_globals.nmake"
+
+
+
+
+
+install: 
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p install
+	if exist $(WEBHOME) xcopy /D /S /Y docs\*.htxt $(WEBHOME)\..\docs
+	
+
+
+compile::
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p compile 
+
+
+clean::
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p clean
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+
+test::
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p test
+	
+
+PERL=perl
+TARBALL=acdk_all-vs6-$(PACKAGEVERSION).tgz
+
+makemake:
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p makemake
+
+metamakemake:
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p metamakemake
+
+cbx-makemake:
+	for %p in ($(ACDK_PACKAGES)) do make_mod.cmd %%p cbx-makemake
+
+#makes all
+dist:
+	$(PERL) ./bin/makedistr.pl -archiv distribution/$(TARBALL) -src '.';
+
+
+WEBHOME=C:\d\artefaktur\wweb\acdk\modules
+GENWEB_FWDID=-fwdid http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=
+WINPERL=c:\programr\lang\perl\interpreter\perl-5.6.0\bin\perl
+GENWEBHOME=../genweb
+SRC2HTML=src2html 
+DOCIGN=-igndir bin -igndir include -igndir bin -igndir acdk_doc \
+       -igndir acdk_tools -igndir acdkx_sol -igndir acdk_tools_java2acdk 
+       
+
+
+webdoc::
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin \
+	                                    -gw -imagesource docs\images -ignoreorg \
+	                                    -src2html $(SRC2HTML) \
+	                                    -trace 1 \
+	                                    $(DOCIGN) \
+	                                    $(GENWEB_FWDID) \
+	                                    -template $(GENWEBHOME)\images\acdk_readme_html_template.htmt
+
+cfgscriptman::
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin \
+	                                    -root acdk_cfgscript_hb \
+	                                    -gp -imagesource docs\images -ignoreorg \
+	                                    -src2html $(SRC2HTML) \
+	                                    -trace 0 \
+	                                    $(DOCIGN) \
+	                                    $(GENWEB_FWDID) \
+	                                    -dt $(GENWEBHOME)\images\print_detail.htmt \
+	                                    -mt $(GENWEBHOME)\images\print_master.htmt
+
+alldoc::
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin \
+	                                    -gw -imagesource docs\images -ignoreorg \
+	                                    -src2html $(SRC2HTML) \
+	                                    -trace 1 \
+	                                    $(DOCIGN) \
+	                                    $(GENWEB_FWDID) \
+	                                    -template $(GENWEBHOME)\images\acdk_readme_html_template.htmt
+	echo "make text"
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin -gw -noimages \
+	                                    -src2html $(SRC2HTML) \
+	                                    -html2text '$(GENWEBHOME)\html2text-1.3.1\html2text.exe -nobs -style pretty' \
+	                                    $(DOCIGN) \
+	                                    -ignoreorg  -fileext .txt -format txt \
+	                                    -template $(GENWEBHOME)\images\acdk_readme_txt_template.htmt
+	echo "make text finished"
+
+textdoc::
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin -gw -noimages \
+	                                    -src2html $(SRC2HTML) \
+	                                    -html2text "$(GENWEBHOME)/html2text-1.3.1/html2text.exe -nobs -style pretty" \
+	                                    $(DOCIGN) \
+	                                    -ignoreorg  -fileext .txt -format txt \
+	                                    -template $(GENWEBHOME)\images\acdk_readme_txt_template.htmt
+
+
+CORE_METAMAKEDIRS = acdk_core/src/acdk/lang acdk_core/src/acdk/lang/dmi acdk_core/src/acdk/lang/ref acdk_core/src/acdk/lang/reflect \
+                acdk_core/src/acdk/io acdk_core/src/acdk/util acdk_core/src/acdk/util/logging acdk_core/src/acdk/locale \
+                acdk_core/src/acdk/security acdk_core/src/acdk/tools/aunit acdk_core/src/acdk/cfgscript acdk_core/src/acdk/tools/mc
+
+AAL_METAMAKEDIRS = aal/src/acdk/aci aal/src/acdk/aci/ast aal/src/acdk/aci/parser aal/src/acdk/aci/util aal/src/acdk/aci/vm
+ACDKX_ORB_METAMAKEDIRS = acdkx_orb/src/acdkx/arb acdkx_orb/src/acdkx/orb acdkx_orb/src/acdkx/orb/mc acdkx_orb/src/acdkx/orb/selftests \
+                acdkx_orb/src/org/omg/CORBA acdkx_orb/src/org/omg/CORBA/portable acdkx_orb/src/org/omg/CosNaming acdkx_orb/src/org/omg/PortableServer \
+                acdkx_orb/tests/acdkx/orb/acdk 
+ACDK_XML_METAMAKEDIRS = acdk_xml/src/acdk/xml acdk_xml/src/acdk/xml/dom acdk_xml/src/acdk/xml/libxmldom \
+                acdk_xml/src/acdk/xml/sax acdk_xml/src/acdk/xml/parsers \
+                acdk_xml/src/org/w3c/dom acdk_xml/src/org/xml/sax acdk_xml/src/org/xml/sax/helpers \
+                acdk_xml/src/org/w3c/dom/traversal acdk_xml/src/org/w3c/dom/xpath 
+                
+MISC_METAMAKEDIRS =  acdk_boot/src/acdk/boot \
+                acdk_java/src/acdk/java/rmi acdk_java/tests/acdk/java/serialization/sample \
+                acdk_lisp/src/acdk/lisp \
+                acdk_make/src/acdk/make \
+                acdk_net/src/acdk/net acdk_net/src/acdk/net/ftp acdk_net/src/acdk/net/srfsys \
+                acdk_net/src/acdkx/net/ssl \
+                acdk_sql/src/acdk/sql acdk_sql_odbc/src/acdk/sql/odbc acdk_sql_odbc/src/acdk/tools/odbctests \
+                acdk_sql_sqlite/src/acdk/sql/sqlite \
+                acdkx_rdmi/src/acdkx/rdmi \
+                acdk_tcl/src/acdk/tcl \
+                acdk_text/src/acdk/text \
+                acdk_wx/src/acdk/wx acdk_wx/src/acdk/wx/ide  acdk_wx/src/acdk/wx/ide/inspector \
+                
+#$(CORE_METAMAKEDIRS) 
+ALL_METAMAKEDIR = $(MISC_METAMAKEDIRS) $(ACDK_XML_METAMAKEDIRS) $(ACDKX_ORB_METAMAKEDIRS) $(AAL_METAMAKEDIRS)
+ACDK_METAMAKEDIR = $(ALL_METAMAKEDIR) # $(MISC_METAMAKEDIRS) $(ACDK_XML_METAMAKEDIRS) $(ACDKX_ORB_METAMAKEDIRS) $(AAL_METAMAKEDIRS)
+#$(MISC_METAMAKEDIRS) $(AAL_METAMAKEDIRS) 
+   
+metainf::
+	for %p in ($(ACDK_METAMAKEDIR)) do bin\acdkmc_d.exe %%p 
+
+CORE_DMIPROXIEDIRS = acdk_core/src/acdk/lang acdk_core/src/acdk/lang/dmi acdk_core/src/acdk/lang/ref acdk_core/src/acdk/lang/reflect \
+                acdk_core/src/acdk/io acdk_core/src/acdk/util acdk_core/src/acdk/util/logging acdk_core/src/acdk/locale \
+                acdk_core/src/acdk/security acdk_core/src/acdk/tools/aunit acdk_core/src/acdk/cfgscript 
+DMIPROXIEDIRS = $(CORE_DMIPROXIEDIRS) acdk_make/src/acdk/make \
+                acdk_wx/src/acdk/wx \
+                aal/src/acdk/aci/ast aal/src/acdk/aci/parser
+
+dmiproxies::
+	for %p in ($(DMIPROXIEDIRS)) do bin\acdkmc_d.exe -dmiproxy %%p 

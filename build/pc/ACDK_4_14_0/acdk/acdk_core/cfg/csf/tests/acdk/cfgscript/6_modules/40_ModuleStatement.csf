@@ -1,0 +1,18 @@
+
+class test.AClass
+{
+  static void foo(String s)
+  {
+    using acdk.lang.System.out;
+    println("AClass.foo: " + s);
+  }
+}
+{
+  using test.AClass;
+  foo("asdf"); 
+}
+{
+  using acdk.lang.System.out;
+
+  println("asdf");
+}

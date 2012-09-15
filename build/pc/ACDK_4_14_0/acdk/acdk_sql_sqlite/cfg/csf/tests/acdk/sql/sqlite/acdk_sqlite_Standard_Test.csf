@@ -1,0 +1,37 @@
+
+
+// acdk_sqlite_Standard_Test.csf
+using acdk.sql.sqlite;
+using acdk.sql;
+using acdk.io;
+/**
+  this tests does not use the acdk.sql.* classes, but goes directly to the LiteDb classes
+*/
+
+
+File f = new File("acdk_sql_sqlite_test1.sqlite3");
+if (f.exists() == true)
+  f.deleteFile();
+
+RString dbUrl = "jdbc:sqlite:/acdk_sql_sqlite_test1.sqlite3";
+RDriver driver = DriverManager::getDriver(dbUrl);
+RConnection connection = driver->connect(dbUrl, Nil);
+{
+  RStatement statement = connection->createStatement();
+  statement->executeUpdate("CREATE TABLE ttable (intcol int, stringcol VARCHAR)");
+  connection->createStatement()->executeUpdate("INSERT INTO ttable (intcol, stringcol) VALUES (1, 'first')");
+  connection->createStatement()->executeUpdate("INSERT INTO ttable (intcol, stringcol) VALUES (2, 'second')");
+  connection->createStatement()->executeUpdate("INSERT INTO ttable (intcol, stringcol) VALUES (3, 'third')");
+}
+
+{
+  RStatement statement = connection->createStatement();
+  RResultSet rset = statement->executeQuery("SELECT * from ttable"); 
+  while (rset->next() == true) 
+  {
+    int intcol = rset->getInt(1);
+    RString sval = rset->getString("stringcol");
+    out.println("" + intcol + ": " + sval);
+  }
+}
+

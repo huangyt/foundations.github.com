@@ -1,0 +1,134 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk::vfile, acdk::vfile::zip, acdk::vfile::tar, zip, tar, gzip, virtual file system, acdk::io::File">
+<title>ACDK Virtual Files</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../docs/packages.html">Packages</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Virtual Files<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/readme.html">acdk_vfile_readme</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_vfile_man.html">acdk_vfile man</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_vfile_convert_man.html">acdk_vfile_convert</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_vfile_fil2rc_man.html">acdk_vfile_file2rc</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/acdk_general_install.html">Installation</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/ACDK-FreeLicense.html">License</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_vfile_zlib_license.html">ZLIB license</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | ACDK Virtual Files | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Virtual Files</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Virtual Files</h1> -->
+<br>
+<p class="PageIntro">
+acdk_vfile implements virtual file systems for
+zip and tar files, which can used as plugin
+for the ACDK File framework.</p>
+<br>
+<p></p>
+<m>acdk_vfile</m> provides implements <a  href="../acdk_core/docs/acdk_io_FileSystem.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;virtual file systems</a> for 
+the <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__File"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::io::File</a> fassade for transparent access to
+<b>zip</b> and <b>tar</b> files.<br>
+<br>
+Please refer to <a  href="docs/acdk_vfile_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;acdk_vfile man</a> for examples.<br>
+<br>
+The utility <a  href="docs/acdk_vfile_fil2rc_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_vfile_file2rc</m></a>
+transfer any binary data to a C-Struktur to link it to an application
+accessible via the  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__RessourceFileSystem"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::io::RessourceFileSystem</a>.<br>
+<br>
+The little utility <a  href="docs/acdk_vfile_convert_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_vfile_convert</m></a> is 
+a ZIP and TAR unpacker, uses just as a little demo for the zip and tar
+file system plugin features.<br>
+<br>
+Another File plugin is available for FTP servers in the <a  href="../acdk_net/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_net</m></a> package.<p></p>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="docs/readme.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Virtual Files Readme</a></p><p class="pagesummary">
+ACDK Virtual Files (acdk_vfile)<br>
+acdk_vfile implements virtual file systems for
+zip and tar files, which can used as plugin
+for the ACDK File framework.</p><p class="subchapterlink"><a  href="docs/acdk_vfile_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_vfile Manual</a></p><p class="pagesummary">
+acdk_vfile provides acdk::io::File plugins for reading
+tar and zip files.
+</p><p class="subchapterlink"><a  href="docs/acdk_vfile_convert_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_vfile_convert</a></p><p class="pagesummary">
+acdk_vfile_convert is just a little demo for 
+reading archives supported by acdk_vfile.
+</p><p class="subchapterlink"><a  href="docs/acdk_vfile_fil2rc_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_vfile_file2rc</a></p><p class="pagesummary">
+acdk_vfile_file2rc converts a binary file to a
+byte array in a C file.
+</p><p class="subchapterlink"><a  href="../docs/acdk_general_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK General installation notice</a></p><p class="pagesummary">
+How to install and compile ACDK.
+And how to create your own executable/library to make use of ACDK.
+</p><p class="subchapterlink"><a  href="../docs/ACDK-FreeLicense.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;The ACDK License Terms, LGPL</a></p><p class="pagesummary">
+ACDK is available under the LGPL license.
+</p><p class="subchapterlink"><a  href="docs/acdk_vfile_zlib_license.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ZLIB license</a></p><p class="pagesummary">
+  ZLIB is third party library and has its own license.
+</p></td></tr></table><!-- subchaptersframe -->
+
+<br>
+<br>
+Please refer also to:<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/</a> (Web at Sourceforge).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.com/</a> (Home of Artefaktur).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.ch/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.ch/</a> (Mirror)
+<li class="Feature"> <a  href="http://sourceforge.net/projects/acdk/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/projects/acdk/</a> (Support at Sourceforge).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/vfile/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/vfile/</a> (Home of this project).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__vfile.html"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__vfile.html</a> (Online reference).<br>
+<li class="Feature"> <a  href="mailto:kommer@artefaktur.com"><img border="0" src="./../docs\images/url_mailto.gif" alt="mailto">&nbsp;Roger Rene Kommer</a> (Mail Author).<br>
+</ul>
+</htmlauto>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | ACDK Virtual Files | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

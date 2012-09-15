@@ -1,0 +1,82 @@
+# this include defines DISTRIBVERSION:
+-include ../DistribInfo
+
+ACDKHOME=..
+
+PACKAGENAME=acdk_core
+PACKAGEVERSION=1.00
+
+
+default:
+	cd src; \
+	$(MAKE) -f acdk_core_dll.cygwin; \
+	$(MAKE) -f acdk_security_dll.cygwin; \
+	$(MAKE) -f acdkmc.cygwin
+
+all:
+	cd src; \
+	$(MAKE) -f acdk_core_dll.cygwin all; \
+	$(MAKE) -f acdk_security_dll.cygwin all; \
+	$(MAKE) -f acdkmc.cygwin all
+
+clean:
+	cd src; \
+	$(MAKE) -f acdk_core_dll.cygwin clean; \
+	$(MAKE) -f acdk_security_dll.cygwin clean; \
+	$(MAKE) -f acdkmc.cygwin clean
+
+install::
+	ACDKHOME=$$PWD/$(ACDKHOME); \
+	if test -d src; then \
+	  cd src; \
+    if test ! -d $$ACDKHOME/include; then \
+      mkdir $$ACDKHOME/include; \
+    fi; \
+	  for f in `find . -name '*.h'`; do \
+		  cp -P $$f $$ACDKHOME/include/; \
+	  done; \
+    cd ..; \
+	fi; \
+	if test -d bin; then \
+	  cd bin; \
+    if test ! -d $$ACDKHOME/bin; then \
+      mkdir $$ACDKHOME/bin; \
+    fi; \
+    for f in `find . \! -name 'CVS'`; do \
+      cp -P $$f $$ACDKHOME/bin; \
+    done; \
+    cd ..; \
+  fi; \
+  if test -d cfg; then \
+  	cd cfg; \
+    if test ! -d $$ACDKHOME/cfg; then \
+      mkdir $$ACDKHOME/cfg; \
+    fi; \
+    for f in `find . -type f \! -path '*/CVS/*'`; do \
+      cp -P $$f $$ACDKHOME/cfg; \
+    done; \
+  fi
+
+
+PERL=perl
+TARBALL=$(PACKAGENAME)-src-$(DISTRIBVERSION).tar.gz
+ZIPFILE=$(PACKAGENAME)-src-$(DISTRIBVERSION).zip
+
+
+distrib:
+	TPWD="`pwd`"; \
+	set -x; \
+	ACDKHOME=$$TPWD/$(ACDKHOME); \
+	sh $$ACDKHOME/bin/dos2unix.sh; \
+  ln -s $$ACDKHOME/../acdk $$ACDKHOME/../acdk-$(DISTRIBVERSION); \
+	$(PERL) $$ACDKHOME/bin/makedistr.pl -archiv $$ACDKHOME/../distribution/$(TARBALL) -src '..' -suffix 'acdk-$(DISTRIBVERSION)'; \
+  rm $$ACDKHOME/../acdk-$(DISTRIBVERSION);
+
+ddistrib:
+	TPWD="`pwd`"; \
+  ACDKHOME=$$TPWD/$(ACDKHOME); \
+	sh $$ACDKHOME/bin/unix2dos.sh; \
+	ln -s $$ACDKHOME/../acdk $$ACDKHOME/../acdk-$(DISTRIBVERSION); \
+	$(PERL) $$ACDKHOME/bin/makedistr.pl -zip -archiv $$ACDKHOME/../distribution/$(ZIPFILE) -src '..' -suffix 'acdk-$(DISTRIBVERSION)'; \
+	sh $$ACDKHOME/bin/dos2unix.sh; \
+	rm $$ACDKHOME/../acdk-$(DISTRIBVERSION);

@@ -1,0 +1,33 @@
+
+
+class MyClass
+{
+  static void variableArgsFunc(int flags, NamedRest rest)
+  {
+    out.println("Function called with " + String.valueOf(rest.length()) + " rest parameters");
+    foreach (v in rest)
+    {
+      out.println("  " + v.name + ": " + v.value);
+    }
+    // convert rest into props to easy access
+    Props restp = new Props(rest);
+    if (restp.hasValue("intParam") == true)
+    {
+      int i = restp.intParam; // can directly accessed as 'pseudo' member variable
+      out.println("  Has intParam: " + i);
+    }
+    else
+      out.println("  Has No intParam");
+  }
+}
+
+
+//MyClass.variableArgsFunc(41, intParam: 1, stringParam: "asdf", fileParam: new File("testFile"));
+//MyClass.variableArgsFunc(42);
+NamedRest tr = new NamedRest(2);
+tr.set(0, new DmiNamedArg("intParam", 32));
+tr.set(1, new DmiNamedArg("stringParam", "asdf"));
+
+MyClass.variableArgsFunc(43, tr);
+
+

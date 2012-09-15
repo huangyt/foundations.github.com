@@ -1,0 +1,120 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Upgrade ACDK Libraries</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_general_install.html">Installation</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Upgrade ACDK
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_general_compile_acdk.html">Compile ACDK</a> | Upgrade ACDK | <a  href="acdk_general_compile_own_executable.html">Create own Executable</a> | <a  href="acdk_general_compile_own_lib.html">Create own Library</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Upgrade ACDK Libraries</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Upgrade ACDK Libraries</h1> -->
+
+<htmlauto>
+<p class="PageIntro">
+Describes what to do to upgrade ACDK from a previous version.
+</p>
+
+
+<a name="jumptable3"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General Notes"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;General Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Upgrade from 4.13 to 4.14"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Upgrade from 4.13 to 4.14</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Overall Changes"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Overall Changes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Necessary changes in your code"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Necessary changes in your code</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable3"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General Notes">General Notes</a></h2>
+Please refer in the package 'readmes' for functional changes (for example: <a  href="../acdk_core/docs/readme.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Core Readme</a>).
+A summary is also available at <a  href="http://sourceforge.net/docman/display_doc.php?docid=5800&group_id=15364"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/docman/display_doc.php?docid=5800&group_id=15364</a>.
+
+<h2><a href="#jumptable3"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Upgrade from 4.13 to 4.14">Upgrade from 4.13 to 4.14</a></h2>
+<h3><a href="#jumptable3"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overall Changes">Overall Changes</a></h3>
+Build System:
+<ul class="FeatureList">
+  <li class="Feature"> For a more flexible support of external libraries (see also <a  href="../acdk_core/docs/packages_deps.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;Dependencies</a>)
+      some batch files are introduced. 
+      Most settings are configured in <code>acdkenv.cmd</code> for Windows platform
+      For the Visual Studio IDEs there is also an startscript <code>startvstudio6.cmd</code>
+      which automatically load the <code>acdkenv.cmd</code>.
+      For the unix platforms you may have to ajust the external libraries in the 
+      file <code>acdk_global.*</code> (for example <code>acdk_gloabls.linux </code>). 
+      The <code>acdkenv.*</code> are shell script, which defines additionally path names
+      which may be ajusted and 'sourced' before launching an ACDK executable.
+      
+  <li class="Feature"> The <code>acdkmake</code> is not tested/supported in this release .
+    
+Compiler / Platforms:
+</ul>
+<ul class="FeatureList">
+  <li class="Feature"> Most packages has mayor changes and enhancements.
+  <li class="Feature"> Support for Solaris 10 intel added.
+  <li class="Feature"> Support for Suse 9.1, 9.2, 9.3 added
+  <li class="Feature"> Support for Fedora Core 3 and 4 beta added
+  <li class="Feature"> Support for FreeBSD 5.3 added.
+  <li class="Feature"> Support Visual Studio 2005 Beta 1 and Beta 2 added.
+      Removed the Visual Studio 2003 project files. 
+      Please use the <code>.dsw</code> files for Visual Studio versions.
+  <li class="Feature"> Support for GCC 4 
+  <li class="Feature"> Support of Borland compiler is not complete or stable. 
+      I probably will drop the support Borland compiler, because
+      I was not able to receive stables results with this compiler.
+</ul>
+
+<h3><a href="#jumptable3"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Necessary changes in your code">Necessary changes in your code</a></h3>
+<ul class="FeatureList">
+  <li class="Feature"> You have to regenerated the meta info (using <code>acdkmc</code>) of your
+      project, because the format has been changed.
+  <li class="Feature"> You have to re-compile your sources.
+  <li class="Feature"> Add/create/modify an <code>acdk.cfg</code> in the <code>$ACDKHOME/cfg</code> path.
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_general_compile_acdk.html">Compile ACDK</a> | Upgrade ACDK | <a  href="acdk_general_compile_own_executable.html">Create own Executable</a> | <a  href="acdk_general_compile_own_lib.html">Create own Library</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,206 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_vfile, file system, ZIP, TAR, GZIP">
+<title>acdk_vfile Manual</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Virtual Files</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk_vfile man
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">acdk_vfile_readme</a> | acdk_vfile man | <a  href="acdk_vfile_convert_man.html">acdk_vfile_convert</a> | <a  href="acdk_vfile_fil2rc_man.html">acdk_vfile_file2rc</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="acdk_vfile_zlib_license.html">ZLIB license</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_vfile Manual</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_vfile Manual</h1> -->
+<br>
+<p class="PageIntro">
+acdk_vfile provides acdk::io::File plugins for reading
+tar and zip files.<br>
+</p>
+<br>
+<a name="jumptable62"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Introduction"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Introduction</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Usage"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Usage</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Reading archive files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Reading archive files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Writing archive files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Writing archive files</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Embedding archive files into ressources"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Embedding archive files into ressources</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Tar files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Tar files</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ZIP files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ZIP files</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Introduction">Introduction</a></h2>
+acdk_vfile contains plugin for ACDK virtual file system
+framework. With acdk_vfile such virtual file system for
+tar and zip files are provided.<br>
+<br>
+<h2><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Usage">Usage</a></h2>
+<h3><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Reading archive files">Reading archive files</a></h3>
+<br>
+To address the root directory of an archive, you have to 
+add the character '@' at the end of the filename.<br>
+<br>
+On a given Filename:<br>
+<pre>
+/home/roger/myarchive.tar
+or
+d:\home\roger\myarchive.zip
+</pre>
+the filename 
+<pre>
+/home/roger/myarchive.tar@
+or
+d:\home\roger\myarchive.zip@
+</pre>
+represents the root directory of archive.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/MemWriter.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/File.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/vfile/tar/TarFileSystem.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/vfile/zip/ZipFileSystem.h&gt;</FONT></B>
+
+RbytArray <B><FONT COLOR="#0000FF">readFile</FONT></B>()
+{
+  <I><FONT COLOR="#B22222">// just to make sure that library will be loaded
+</FONT></I>  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::vfile::zip::ZipFileSystem::loadFileSystem();
+  
+  RString fname = <B><FONT COLOR="#BC8F8F">&quot;/home/roger/myarchive.tar@mydir/myfile.c&quot;</FONT></B>
+  File archivefile(fname);
+  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::io::RReader reader = archivefile.getReader();
+  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::io::MemWriter memwriter;
+  reader-&gt;trans(&amp;memwriter);
+  <B><FONT COLOR="#A020F0">return</FONT></B> memwriter.getBuffer()
+}
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Writing archive files">Writing archive files</a></h3>
+Writing archive files is not yet supported.<br>
+<br>
+<h2><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Embedding archive files into ressources">Embedding archive files into ressources</a></h2>
+You can integrate a collection of files as archive
+file into your application using the virtual file
+system '.ressource@'.<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> create an archive containing the files with an external 
+    tool (tar, infozip, WinZip, etc.).<br>
+<br>
+<li class="Feature"> use acdk_vfile_file2rc to convert the archive file into 
+    an c file. 
+    acdk_vfile_file2rc myarchive.zip myarchiv.c
+<li class="Feature"> create the node in the ressource file system.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/RessourceFileSystem.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/vfile/zip/ZipFileSystem.h&gt;</FONT></B>
+
+<I><FONT COLOR="#B22222">// include the ressource file
+</FONT></I>#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;myarchive.c&quot;</FONT></B>
+
+<I><FONT COLOR="#B22222">// call this before using ressource
+</FONT></I><B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">initMyRessource</FONT></B>()
+{
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> inited = false;
+  <B><FONT COLOR="#A020F0">if</FONT></B> (inited  == true) <I><FONT COLOR="#B22222">// don't intilize twice
+</FONT></I>    <B><FONT COLOR="#A020F0">return</FONT></B>;
+  
+  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::io::RessourceFileSystem::ressourceFileSystem() <I><FONT COLOR="#B22222">// get the RessourceFileSystem
+</FONT></I>      -&gt;root()                               <I><FONT COLOR="#B22222">// Root directory of RessourceFileSystem
+</FONT></I>         -&gt;createFile(<B><FONT COLOR="#BC8F8F">&quot;com/myfirm/my/project/myarchive.zip&quot;</FONT></B>, 
+                      ressource_array, <I><FONT COLOR="#B22222">// use byte array as content of file
+</FONT></I>                      ressource_size, 
+                      );
+                         
+  <I><FONT COLOR="#B22222">// make sure, that zip file system plugin is loaded
+</FONT></I>  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::vfile::zip::ZipFileSystem::loadFileSystem();
+}
+</PRE></td></tr></table>
+<br>
+<li class="Feature"> In our code, after initMyRessource called you can the files inside archive:<br>
+    
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">foo</FONT></B>()
+{
+  initMyRessource();
+  RString myfile = <B><FONT COLOR="#BC8F8F">&quot;.ressource@com/myfirm/my/project/myarchive.zip@/mysub/myfile.txt&quot;</FONT></B>;
+  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::io::File zf(myfile);
+  <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::io::RReader in = zf.getReader();
+  <I><FONT COLOR="#B22222">// read content from the file.
+</FONT></I>}
+</PRE></td></tr></table>      
+</ul>
+<br>
+<br>
+<h2><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Tar files">Tar files</a></h2>
+Tar files can be readed. 
+Not very good test yet.<br>
+File time, attributes, etc. are not yet implemented.<br>
+<br>
+<h2><a href="#jumptable62"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ZIP files">ZIP files</a></h2>
+ZIP files can be readed, although some files contains
+unsupported compression algorithms. 
+<br>
+ACDK uses for compression/decompression the zlib library,
+which can be found in the acdk_vfile/src/acdk/vfile/zlib
+directory.<br>
+<br>
+My implementation only reads the local file headers (not the
+central directory located at the end of the zip file). 
+This may also cause problems with some ZIP files.<br>
+<br>
+File time, attributes, etc. are not yet implemented.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">acdk_vfile_readme</a> | acdk_vfile man | <a  href="acdk_vfile_convert_man.html">acdk_vfile_convert</a> | <a  href="acdk_vfile_fil2rc_man.html">acdk_vfile_file2rc</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="acdk_vfile_zlib_license.html">ZLIB license</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

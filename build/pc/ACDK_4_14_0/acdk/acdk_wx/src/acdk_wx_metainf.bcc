@@ -1,0 +1,119 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX= $(WX_CFLAGS)
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_wx.lib" $(ACDK_WX_WXLIBS_DEBUG)
+
+OUTFILE="..\..\bin\acdk_wx_metainf.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_wx_metainf\bcc"
+SOURCES= 	"acdk\wx\wx_metainf\wx_metainf_ext.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext1.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext2.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext3.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext4.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext5.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext6.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext7.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext8.cpp" \
+	"acdk\wx\wx_metainf\wx_metainf_ext9.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext1.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext2.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext3.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext4.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext5.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext6.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext7.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext8.obj" \
+	"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext9.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext.obj": "acdk\wx\wx_metainf\wx_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext1.obj": "acdk\wx\wx_metainf\wx_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext1.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext2.obj": "acdk\wx\wx_metainf\wx_metainf_ext2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext2.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext3.obj": "acdk\wx\wx_metainf\wx_metainf_ext3.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext3.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext4.obj": "acdk\wx\wx_metainf\wx_metainf_ext4.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext4.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext5.obj": "acdk\wx\wx_metainf\wx_metainf_ext5.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext5.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext6.obj": "acdk\wx\wx_metainf\wx_metainf_ext6.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext6.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext7.obj": "acdk\wx\wx_metainf\wx_metainf_ext7.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext7.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext8.obj": "acdk\wx\wx_metainf\wx_metainf_ext8.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext8.cpp"
+
+"..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext9.obj": "acdk\wx\wx_metainf\wx_metainf_ext9.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_metainf\bcc" "acdk\wx\wx_metainf\wx_metainf_ext9.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_wx_metainf.dll"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext1.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext2.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext3.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext4.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext5.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext6.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext7.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext8.obj"
+	del "..\tobj\acdk_wx_metainf\bcc\wx_metainf_ext9.obj"
+
+

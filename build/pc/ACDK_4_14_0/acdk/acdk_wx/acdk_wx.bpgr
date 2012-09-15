@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_wx.cbx"/>
+  <project path="src/acdk_wx_metainf.cbx"/>
+  <project path="src/acdk_wx_dmiproxy.cbx"/>
+  <project path="tests/acdk/wx/acdk_wx_Test.cbx"/>
+  <project path="src/guitestrunner.cbx"/>
+  <project path="tests/acdk/wx/HelloWxWorld/HelloWxWorld.cbx"/>
+  <project path="tests/acdk/wx/HelloWorld/HelloWorld.cbx"/>
+  <project path="src/acdk_wx_ide.cbx"/>
+  <project path="src/acdkcsfide.cbx"/>
+  <project path="tests/acdk/wx/ide/acdk_wx_ide_Test.cbx"/>
+
+</projectgroup>

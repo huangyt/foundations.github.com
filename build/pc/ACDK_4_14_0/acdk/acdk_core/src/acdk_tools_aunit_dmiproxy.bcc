@@ -1,0 +1,65 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_tools_aunit.lib"
+
+OUTFILE="..\..\bin\acdk_tools_aunit_dmiproxy.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_tools_aunit_dmiproxy\bcc"
+SOURCES= 	"acdk\tools\aunit\aunit_dmiproxy\aunit_dmiproxy.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_tools_aunit_dmiproxy\bcc\aunit_dmiproxy.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_tools_aunit_dmiproxy\bcc\aunit_dmiproxy.obj": "acdk\tools\aunit\aunit_dmiproxy\aunit_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit_dmiproxy\bcc" "acdk\tools\aunit\aunit_dmiproxy\aunit_dmiproxy.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_tools_aunit_dmiproxy.dll"
+	del "..\tobj\acdk_tools_aunit_dmiproxy\bcc\aunit_dmiproxy.obj"
+
+

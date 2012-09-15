@@ -1,0 +1,47 @@
+
+JAVAC=javac
+#JAVAC=//d/programr/lang/java/jdk/jdk1.3.1/bin/javac
+#JAVAC=/c/programr/lang/java/jdk/jdk1.3.1/bin/javac
+JAVA=java
+JAVAH=javah
+ACDKHOME=..
+
+all: acdk_java_AcdkObject tests_acdk_java_AcdkObject_Test JavaDmiServer_Test \
+    acdk_java_awt_event_AwtListener JavaClassDeclToAcdkSer \
+    JavaSerSample ReadWriteJavaSerSample
+
+
+acdk_java_AcdkObject::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin src/acdk/java/AcdkObject.java
+  
+acdk_java_ActionListenerProxy::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin src/acdk/java/ActionListenerProxy.java
+  
+acdk_java_awt_event_AwtListener::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin src/acdk/java/awt/event/AwtListener.java
+
+tests_acdk_java_AcdkObject_Test::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin tests/acdk/java/AcdkObject_Test.java
+
+
+
+JavaDmiServer_Test::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin tests/acdk/java/JavaDmiServer_Test.java
+
+header::
+	$(JAVAH) -classpath $(ACDKHOME)/bin -o src/acdk/java/awt/event/acdk_java_awt_event_AwtListener.h acdk.java.awt.event.AwtListener
+
+
+JavaClassDeclToAcdkSer::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin src/java/JavaClassDeclToAcdkSer.java
+
+JavaSerSample::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -d $(ACDKHOME)/bin tests/acdk/java/serialization/sample/JavaSerSample.java
+
+ReadWriteJavaSerSample::
+	$(JAVAC) -classpath $(ACDKHOME)/bin -classpath tests/acdk/java/serialization/sample tests/acdk/java/serialization/sample/ReadWriteJavaSerSample.java
+
+
+test::
+	cd $(ACDKHOME)/bin; \
+	$(JAVA) tests.acdk.java.AcdkObject_Test

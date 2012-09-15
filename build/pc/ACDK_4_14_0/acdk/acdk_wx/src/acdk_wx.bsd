@@ -1,0 +1,231 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_wx
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDK_WX_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX= $(WX_CFLAGS)
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -l$(WX_LIBS) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core 
+
+
+SOURCES= 	acdk/wx/App.cpp \
+	acdk/wx/Event.cpp \
+	acdk/wx/Frame.cpp \
+	acdk/wx/Notebook.cpp \
+	acdk/wx/TreeCtrl.cpp \
+	acdk/wx/Window.cpp \
+	acdk/wx/WxObject.cpp \
+	acdk/wx/wx_metainf_base.cpp \
+
+HEADER= 	acdk/wx/App.h \
+	acdk/wx/ArtProvider.h \
+	acdk/wx/Bitmap.h \
+	acdk/wx/BitmapButton.h \
+	acdk/wx/BitmapDataObject.h \
+	acdk/wx/BoxSizer.h \
+	acdk/wx/Button.h \
+	acdk/wx/Caret.h \
+	acdk/wx/CheckBox.h \
+	acdk/wx/Choice.h \
+	acdk/wx/ClientData.h \
+	acdk/wx/ClientDC.h \
+	acdk/wx/Clipboard.h \
+	acdk/wx/Colour.h \
+	acdk/wx/ColourData.h \
+	acdk/wx/ColourDialog.h \
+	acdk/wx/ComboBox.h \
+	acdk/wx/Config.h \
+	acdk/wx/Control.h \
+	acdk/wx/ControlWithItems.h \
+	acdk/wx/Cursor.h \
+	acdk/wx/DataFormat.h \
+	acdk/wx/DataObject.h \
+	acdk/wx/DataObjectComposite.h \
+	acdk/wx/DataObjectSimple.h \
+	acdk/wx/DC.h \
+	acdk/wx/Dialog.h \
+	acdk/wx/DirDialog.h \
+	acdk/wx/DropSource.h \
+	acdk/wx/DropTarget.h \
+	acdk/wx/Event.h \
+	acdk/wx/FileDataObject.h \
+	acdk/wx/FileDialog.h \
+	acdk/wx/FileDropTarget.h \
+	acdk/wx/Font.h \
+	acdk/wx/FontData.h \
+	acdk/wx/FontDialog.h \
+	acdk/wx/Frame.h \
+	acdk/wx/Gauge.h \
+	acdk/wx/GDIImage.h \
+	acdk/wx/GDIObject.h \
+	acdk/wx/HtmlWindow.h \
+	acdk/wx/Icon.h \
+	acdk/wx/LayoutConstraints.h \
+	acdk/wx/ListBox.h \
+	acdk/wx/MDIChildFrame.h \
+	acdk/wx/MDIClientWindow.h \
+	acdk/wx/MDIParentFrame.h \
+	acdk/wx/MemoryDC.h \
+	acdk/wx/Menu.h \
+	acdk/wx/MenuBar.h \
+	acdk/wx/MenuItem.h \
+	acdk/wx/Notebook.h \
+	acdk/wx/PaintDC.h \
+	acdk/wx/Panel.h \
+	acdk/wx/Pen.h \
+	acdk/wx/PostScriptDC.h \
+	acdk/wx/ProgressDialog.h \
+	acdk/wx/RadioBox.h \
+	acdk/wx/RadioButton.h \
+	acdk/wx/Region.h \
+	acdk/wx/ScreenDC.h \
+	acdk/wx/ScrolledWindow.h \
+	acdk/wx/SingleChoiceDialog.h \
+	acdk/wx/Sizer.h \
+	acdk/wx/Slider.h \
+	acdk/wx/SpinButton.h \
+	acdk/wx/SpinCtrl.h \
+	acdk/wx/SplitterWindow.h \
+	acdk/wx/StaticBitmap.h \
+	acdk/wx/StaticBox.h \
+	acdk/wx/StaticText.h \
+	acdk/wx/StatusBar.h \
+	acdk/wx/Structs.h \
+	acdk/wx/TextCtrl.h \
+	acdk/wx/TextCtrlCharWriter.h \
+	acdk/wx/TextDataObject.h \
+	acdk/wx/TextDropTarget.h \
+	acdk/wx/TextEntryDialog.h \
+	acdk/wx/Timer.h \
+	acdk/wx/ToggleButton.h \
+	acdk/wx/ToolBar.h \
+	acdk/wx/ToolTip.h \
+	acdk/wx/TreeCtrl.h \
+	acdk/wx/Validator.h \
+	acdk/wx/Window.h \
+	acdk/wx/WindowDC.h \
+	acdk/wx/WindowStyle.h \
+	acdk/wx/Wizard.h \
+	acdk/wx/WizardPage.h \
+	acdk/wx/wx.h \
+	acdk/wx/WxObject.h \
+	acdk/wx/XmlResource.h \
+
+OBJECTS= 	../tobj/acdk_wx/App.o \
+	../tobj/acdk_wx/Event.o \
+	../tobj/acdk_wx/Frame.o \
+	../tobj/acdk_wx/Notebook.o \
+	../tobj/acdk_wx/TreeCtrl.o \
+	../tobj/acdk_wx/Window.o \
+	../tobj/acdk_wx/WxObject.o \
+	../tobj/acdk_wx/wx_metainf_base.o \
+
+
+FINALTARGET=../../bin/libacdk_wx.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_wx.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_wx.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_wx.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdk_wx/App.o: acdk/wx/App.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/App.o -c acdk/wx/App.cpp
+
+../tobj/acdk_wx/Event.o: acdk/wx/Event.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/Event.o -c acdk/wx/Event.cpp
+
+../tobj/acdk_wx/Frame.o: acdk/wx/Frame.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/Frame.o -c acdk/wx/Frame.cpp
+
+../tobj/acdk_wx/Notebook.o: acdk/wx/Notebook.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/Notebook.o -c acdk/wx/Notebook.cpp
+
+../tobj/acdk_wx/TreeCtrl.o: acdk/wx/TreeCtrl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/TreeCtrl.o -c acdk/wx/TreeCtrl.cpp
+
+../tobj/acdk_wx/Window.o: acdk/wx/Window.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/Window.o -c acdk/wx/Window.cpp
+
+../tobj/acdk_wx/WxObject.o: acdk/wx/WxObject.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/WxObject.o -c acdk/wx/WxObject.cpp
+
+../tobj/acdk_wx/wx_metainf_base.o: acdk/wx/wx_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_wx/wx_metainf_base.o -c acdk/wx/wx_metainf_base.cpp
+
+
+
+metainfo:
+	cd ${.CURDIR}; $(ACDKMC) acdk/wx;\
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_wx.so $(OBJECTS)
+
+  

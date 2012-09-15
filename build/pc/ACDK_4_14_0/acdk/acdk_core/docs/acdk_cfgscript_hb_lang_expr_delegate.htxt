@@ -1,0 +1,158 @@
+%id: acdk_cfgscript_hb_lang_expr_delegate
+%title: CfgScript delegate Expressions
+%shorttitle: Delegates
+%seealso: acdk_cfgscript_hb_lang_expr_lambda, acdk_cfgscript_hb_lang_class_call, acdk_wx
+%keywords: delegate, lambda
+%body:
+<chapterline/>
+<pageintro>
+Delegates are a powerfull mechanism to implement
+function level dispatching, callbacks and signal/slot mechanism.
+</pageintro>
+
+<htmlauto/>
+
+<pre>
+DelegateExpression
+: 'delegate' TypeOrVarName '.' MethodName
+| 'delegate' '(' Expression ')' '.' MethodName
+| MethodName
+;
+</pre>
+
+The <c>delegate</c> converts a class or object method in a Delegate instance.
+Delegate is a shortcut to %cref[acdk::lang::dmi::DmiDelegate].
+
+There are three forms of delegate usage:
+
+<b>1</b>.
+<pre>
+'delegate' TypeOrVarName '.' MethodName
+</pre>
+
+<c>TypeOrVarName</c> can be
+<fl>
+<f> a variable
+<f> a member variable (like <c>acdk.lang.System.out</c>)
+<f> a Class name
+</fl>
+
+<c>MethodName</c> is the name of a method.
+
+<b>2</b>.
+<pre>
+'delegate' '(' Expression ')' '.' MethodName
+</pre>
+
+The Expression has to be evaluated to an Object instance.
+
+<b>3</b>.
+<pre>
+'delegate' MethodName
+</pre>
+
+This form of <c>delegate</c> is only valid if used inside
+a - static or non static - method. 
+<p>
+See Sample:
+<source>
+
+class AClass 
+{
+  String prefix;
+  AClass(String pref)
+  {
+      prefix = pref;
+  }
+  // callback function
+  static RString GetGerText(String name) 
+  { 
+    return "Hallo " + name; 
+  }
+  // other callback function
+  static RString GetEngText(String name) 
+  { 
+    return "Hello " + name; 
+  }
+  // non static method callback function
+  String getEngText(String name)
+  {
+    return "Hello " + prefix + " " + name;
+  }
+  // this method uses a delegate:
+  static void useDelegate(Delegate del) 
+  {
+    out.println(del.call("ACDK"));
+  }
+  static void DelegateInsideClass()
+  {
+    // inside a class method with 'delegate' methods can be used directly
+    useDelegate(delegate GetEngText);
+  }
+  void delegateInsideClass()
+  {
+    // inside a class method with 'delegate' methods can be used directly
+    useDelegate(delegate getEngText);
+  }
+}
+
+AClass.useDelegate(delegate (new AClass("superb")).getEngText);
+
+// use a static method (english)
+AClass.useDelegate(delegate AClass.GetGerText);
+// now use english text
+AClass.useDelegate(delegate AClass.GetEngText);
+
+AClass cls = new AClass("finest");
+
+// Delegates works also with non-static methods
+AClass.useDelegate(delegate cls.getEngText);
+
+// using expression
+AClass.useDelegate(delegate (new AClass("superb")).getEngText);
+
+// see AClass.DelegateInsideClass
+AClass.DelegateInsideClass();
+
+// see AClass.delegateInsideClass
+cls.delegateInsideClass();
+
+
+// what the implementation of the delegate does:
+AClass.useDelegate(new DmiDelegate(AClass.GetClass(), "GetGerText"));
+
+</source>
+
+Delegates works also with native ACDK C++ implemented methods:
+<source>
+class AClass 
+{
+  // callback function
+  static void println(String name) 
+  { 
+    out.println("AClass: " + name); 
+  }
+}
+DelegateArray delegates = new DelegateArray(0);
+// script implementation
+delegates.append(delegate AClass.println);
+// native ACDK C++ implemenation of println
+delegates.append(delegate acdk.lang.System.out.println);
+
+foreach (Delegate dlg in delegates)
+{
+  dlg.call("A Text");
+}
+</source>
+
+<p>
+See also: %ref[acdk_cfgscript_hb_lang_expr_lambda].
+See also: %ref[acdk_cfgscript_hb_lang_class_call].
+
+<jump1>Samples</jump1>
+<fl>
+<f> %srcref[csf_tests_acdk_cfgscript_4_classes_80_Delegate_Test_csf]
+<f> %srcref[csf_tests_acdk_cfgscript_4_classes_85_DelegateNative_Test_csf]
+</fl>
+
+.

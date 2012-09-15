@@ -1,0 +1,114 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="install, compile, acdk_tcl, Tcl">
+<title>Compile acdk_tcl</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Tcl</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Compile acdk_tcl<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../docs/acdk_general_install.html">Installation</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Tcl Readme</a> | Compile acdk_tcl | <a  href="acdktcl.html">acdktcl - manual</a> | <a  href="acdk_tcl_dll.html">acdk_tcl_dll - manual</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Compile acdk_tcl</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Compile acdk_tcl</h1> -->
+<br>
+<p class="PageIntro">
+  How to compile and use acdk_tcl.<br>
+</p>
+<br>
+<a name="jumptable93"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Download Tcl"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Download Tcl</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Configure ACDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configure ACDK</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compile acdk_tcl"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Compile acdk_tcl</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Running executables using acdk_pthyton"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Running executables using acdk_pthyton</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable93"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Download Tcl">Download Tcl</a></h2>
+In most Unix environmet the Tcl interpreter is part of the distribution.<br>
+<br>
+You can download the Tcl distribution from: 
+<a  href="http://tcl.sourceforge.net/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://tcl.sourceforge.net/</a>.<br>
+<br>
+Follow the instruction to compile and install the Tcl interpreter.<br>
+<br>
+<h2><a href="#jumptable93"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configure ACDK">Configure ACDK</a></h2>
+After installing Tcl you probably have to ajust some
+configuration in acdk:<br>
+<ul class="FeatureList">
+  <li class="Feature"> Unix: open <code>acdk_globals.[your platform]</code> in the ACDK root directory and 
+      ajust the <code>ACDK_TCL_*</code> values to point
+      to the correct directories and library names.<br>
+      
+  <li class="Feature"> Windows: open the <code>acdkenv.cmd</code> ACDK root directory and ajust the 
+      <code>ACDK_TCL_*</code> values.<br>
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <code>startvstudio6.cmd</code>).<br>
+      Alternately you can also add these environment variables into your global
+      environment.      
+</ul>
+<br>
+<h2><a href="#jumptable93"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compile acdk_tcl">Compile acdk_tcl</a></h2>
+If the environment variables are set correctly acdk_tcl can be compiled.<br>
+<br>
+<h2><a href="#jumptable93"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Running executables using acdk_pthyton">Running executables using acdk_pthyton</a></h2>
+To run an executble using <m>acdk_pthon</m> you may have set
+environment variables (<code>PATH</code> on Windows and <code>LD_LIBRARY_PATH</code>)
+to point to ACDK <code>bin</code> directory and the directory of the shared libraries
+of Tcl.<br>
+<br>
+On windows you can use the <code>acdkenv.cmd</code> for this purpose.<br>
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <code>acdkenv.[platform]</code> before executing the application.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Tcl Readme</a> | Compile acdk_tcl | <a  href="acdktcl.html">acdktcl - manual</a> | <a  href="acdk_tcl_dll.html">acdk_tcl_dll - manual</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

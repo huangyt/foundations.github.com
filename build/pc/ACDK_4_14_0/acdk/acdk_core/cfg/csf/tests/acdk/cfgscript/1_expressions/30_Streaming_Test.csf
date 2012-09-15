@@ -1,0 +1,11 @@
+StringBuffer sb = new StringBuffer("");
+intArray ia = new intArray(42);
+//sb << "Runned Test: " << ia.length() << "\n";
+sb << "Runned Test: " << ia.toString().length() << "\n";
+out.println(sb.toString());
+String msg = " with ";
+out << "This is Text" << msg << "text and " << 1 << " number\n";
+out.println("endoftext");
+
+
+sb << "Hello: " << 42;

@@ -1,0 +1,32 @@
+class Helper
+{
+  static String parseNodeTempl = 
+"
+class XXX
+{
+  XXX()
+  {
+  }
+  String getName() { return  \"XXX\"; }
+}
+";
+  static void defineParseNode(String name)
+  {
+    String code = Helper.parseNodeTempl.replace("XXX", name);
+    acdk.lang.System.out.println("Eval code: " + code);
+    __props.execScript(code);
+  }
+}
+
+Helper.defineParseNode("AClass");
+Helper.defineParseNode("BClass");
+
+AClass acls = new AClass();
+if (acls.getName().equals("AClass") == false)
+  out.println("Test Failed");
+BClass bcls = new BClass();
+if (bcls.getName().equals("BClass") == false)
+  out.println("Test Failed");
+
+  
+

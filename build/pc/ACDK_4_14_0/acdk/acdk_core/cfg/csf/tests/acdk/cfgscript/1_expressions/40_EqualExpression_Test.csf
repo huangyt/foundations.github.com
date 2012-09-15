@@ -1,0 +1,38 @@
+
+int a = 1;
+int b = 1;
+// compare with == and != on basic types is equal to 
+// equals() call and compare the values.
+if (a == b)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+// different to Java basic types
+// also support equals() method
+if (a.equals(b) == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+
+Integer i1 = new Integer(1);
+Integer i2 = new Integer(1);
+
+// compare with == and != on object types
+// compares not for equality, but for identy
+if (i1 != i2)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+  
+if (i1 == i2)
+  out.println("TEST FAILED");
+else
+  out.println("TEST OK");
+
+// to test two object for equality, use the equals() method
+if (i1.equals(i2) == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

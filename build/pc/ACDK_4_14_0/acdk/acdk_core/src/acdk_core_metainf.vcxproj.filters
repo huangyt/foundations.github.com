@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{a72f73b0-e4ef-4745-8780-6653d7e4b3a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang">
+      <UniqueIdentifier>{1852b50a-9581-4ae6-b4c9-e7dbc7ea1e63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\lang_metainf">
+      <UniqueIdentifier>{10e59f0e-142f-4a2f-877b-5c9332cdbc4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\dmi">
+      <UniqueIdentifier>{8ae23cc1-792a-4e0d-9ff7-b9118cc93626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\dmi\dmi_metainf">
+      <UniqueIdentifier>{bc9293d6-e4f9-4532-af5c-68304ad87c46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\ref">
+      <UniqueIdentifier>{aca70bcf-e9f6-407f-a133-f5da741ceac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\ref\ref_metainf">
+      <UniqueIdentifier>{024c36f8-ffe0-4891-b6ad-a56e6857be29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\reflect">
+      <UniqueIdentifier>{cfb5d3a4-aad2-456b-9beb-470053cfab4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\reflect\reflect_metainf">
+      <UniqueIdentifier>{3c99ecf3-eb16-49b1-a132-061bae8bbea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\io">
+      <UniqueIdentifier>{60572a89-906f-4bc2-ae04-0e88d468b8b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\io\io_metainf">
+      <UniqueIdentifier>{64371594-77d5-4242-981d-0b91c495dc36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util">
+      <UniqueIdentifier>{61169e1e-329e-44a5-bd9f-c328fb77568e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\util_metainf">
+      <UniqueIdentifier>{b73f425f-7e0f-44dc-b5e4-fca6cbb88e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\logging">
+      <UniqueIdentifier>{12f74b72-8e47-4ab1-aded-3afe214c22b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\logging\logging_metainf">
+      <UniqueIdentifier>{9df3f7cd-2913-479c-a63b-a0a976bc5159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\locale">
+      <UniqueIdentifier>{045ae3f1-4aa5-4ba0-bae4-41409073f7d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\locale\locale_metainf">
+      <UniqueIdentifier>{e1813e0c-bc63-4334-aa6a-5b24df23f267}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\lang\lang_metainf\lang_metainf_ext.cpp">
+      <Filter>acdk\lang\lang_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf\lang_metainf_ext1.cpp">
+      <Filter>acdk\lang\lang_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf\lang_metainf_ext2.cpp">
+      <Filter>acdk\lang\lang_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf\lang_metainf_ext3.cpp">
+      <Filter>acdk\lang\lang_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf\lang_metainf_ext4.cpp">
+      <Filter>acdk\lang\lang_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf\lang_metainf_ext5.cpp">
+      <Filter>acdk\lang\lang_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\dmi_metainf\dmi_metainf_ext.cpp">
+      <Filter>acdk\lang\dmi\dmi_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\dmi_metainf\dmi_metainf_ext1.cpp">
+      <Filter>acdk\lang\dmi\dmi_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\ref_metainf\ref_metainf_ext.cpp">
+      <Filter>acdk\lang\ref\ref_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\reflect_metainf\reflect_metainf_ext.cpp">
+      <Filter>acdk\lang\reflect\reflect_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf\io_metainf_ext.cpp">
+      <Filter>acdk\io\io_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf\io_metainf_ext1.cpp">
+      <Filter>acdk\io\io_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf\io_metainf_ext2.cpp">
+      <Filter>acdk\io\io_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf\io_metainf_ext3.cpp">
+      <Filter>acdk\io\io_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf\io_metainf_ext4.cpp">
+      <Filter>acdk\io\io_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf\util_metainf_ext.cpp">
+      <Filter>acdk\util\util_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf\util_metainf_ext1.cpp">
+      <Filter>acdk\util\util_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf\util_metainf_ext2.cpp">
+      <Filter>acdk\util\util_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf\util_metainf_ext3.cpp">
+      <Filter>acdk\util\util_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf\util_metainf_ext4.cpp">
+      <Filter>acdk\util\util_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\logging_metainf\logging_metainf_ext.cpp">
+      <Filter>acdk\util\logging\logging_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\locale_metainf\locale_metainf_ext.cpp">
+      <Filter>acdk\locale\locale_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

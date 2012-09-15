@@ -1,0 +1,190 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CCINCLUDE= -I../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=""
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\bin\acdk_text.lib" "..\..\..\..\bin\acdk_aal.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_aal_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_aal_Test\bcc"
+SOURCES= 	".\acdk_aal_AalObject_Test.cpp" \
+	".\acdk_aal_AritmExpr_Test.cpp" \
+	".\acdk_aal_Arrays_Test.cpp" \
+	".\acdk_aal_Basics_Test.cpp" \
+	".\acdk_aal_BinaryExpr_Test.cpp" \
+	".\acdk_aal_Closure_Test.cpp" \
+	".\acdk_aal_Compiler_Test.cpp" \
+	".\acdk_aal_DefunStatements_Test.cpp" \
+	".\acdk_aal_DeriveObject_Test.cpp" \
+	".\acdk_aal_Exceptions_Test.cpp" \
+	".\acdk_aal_ExtendClass_Test.cpp" \
+	".\acdk_aal_Functions_Test.cpp" \
+	".\acdk_aal_Interpret_Test.cpp" \
+	".\acdk_aal_LiteralWrapping_Test.cpp" \
+	".\acdk_aal_LogicalExpr_Test.cpp" \
+	".\acdk_aal_Operator_Test.cpp" \
+	".\acdk_aal_ParameterPassing_Test.cpp" \
+	".\acdk_aal_RelExpr_Test.cpp" \
+	".\acdk_aal_Scanner_Test.cpp" \
+	".\acdk_aal_Statements_Test.cpp" \
+	".\acdk_aal_Test.cpp" \
+	".\acdk_aal_WeakInvoke_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_aal_Test\bcc\acdk_aal_AalObject_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_AritmExpr_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Arrays_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Basics_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_BinaryExpr_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Closure_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Compiler_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_DefunStatements_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_DeriveObject_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Exceptions_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_ExtendClass_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Functions_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Interpret_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_LiteralWrapping_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_LogicalExpr_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Operator_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_ParameterPassing_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_RelExpr_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Scanner_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Statements_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_Test.obj" \
+	".\tobj\acdk_aal_Test\bcc\acdk_aal_WeakInvoke_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_AalObject_Test.obj": ".\acdk_aal_AalObject_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_AalObject_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_AritmExpr_Test.obj": ".\acdk_aal_AritmExpr_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_AritmExpr_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Arrays_Test.obj": ".\acdk_aal_Arrays_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Arrays_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Basics_Test.obj": ".\acdk_aal_Basics_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Basics_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_BinaryExpr_Test.obj": ".\acdk_aal_BinaryExpr_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_BinaryExpr_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Closure_Test.obj": ".\acdk_aal_Closure_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Closure_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Compiler_Test.obj": ".\acdk_aal_Compiler_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Compiler_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_DefunStatements_Test.obj": ".\acdk_aal_DefunStatements_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_DefunStatements_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_DeriveObject_Test.obj": ".\acdk_aal_DeriveObject_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_DeriveObject_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Exceptions_Test.obj": ".\acdk_aal_Exceptions_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Exceptions_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_ExtendClass_Test.obj": ".\acdk_aal_ExtendClass_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_ExtendClass_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Functions_Test.obj": ".\acdk_aal_Functions_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Functions_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Interpret_Test.obj": ".\acdk_aal_Interpret_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Interpret_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_LiteralWrapping_Test.obj": ".\acdk_aal_LiteralWrapping_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_LiteralWrapping_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_LogicalExpr_Test.obj": ".\acdk_aal_LogicalExpr_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_LogicalExpr_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Operator_Test.obj": ".\acdk_aal_Operator_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Operator_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_ParameterPassing_Test.obj": ".\acdk_aal_ParameterPassing_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_ParameterPassing_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_RelExpr_Test.obj": ".\acdk_aal_RelExpr_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_RelExpr_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Scanner_Test.obj": ".\acdk_aal_Scanner_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Scanner_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Statements_Test.obj": ".\acdk_aal_Statements_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Statements_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_Test.obj": ".\acdk_aal_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_Test.cpp"
+
+".\tobj\acdk_aal_Test\bcc\acdk_aal_WeakInvoke_Test.obj": ".\acdk_aal_WeakInvoke_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aal_Test\bcc" ".\acdk_aal_WeakInvoke_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_aal_Test.exe"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_AalObject_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_AritmExpr_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Arrays_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Basics_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_BinaryExpr_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Closure_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Compiler_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_DefunStatements_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_DeriveObject_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Exceptions_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_ExtendClass_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Functions_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Interpret_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_LiteralWrapping_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_LogicalExpr_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Operator_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_ParameterPassing_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_RelExpr_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Scanner_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Statements_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_Test.obj"
+	del ".\tobj\acdk_aal_Test\bcc\acdk_aal_WeakInvoke_Test.obj"
+
+

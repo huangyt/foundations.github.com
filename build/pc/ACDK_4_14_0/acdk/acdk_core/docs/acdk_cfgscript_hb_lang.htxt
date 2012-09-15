@@ -1,0 +1,20 @@
+%id: acdk_cfgscript_hb_lang
+%title: CfgScript Language
+%shorttitle: Language
+%chapter: acdk_cfgscript_hb_lang_syntax, acdk_cfgscript_hb_lang_source, acdk_cfgscript_hb_lang_pre, acdk_cfgscript_hb_lang_types, \
+          acdk_cfgscript_hb_lang_expr, acdk_cfgscript_hb_lang_expr_backtick, acdk_cfgscript_hb_lang_stmt, \
+          acdk_cfgscript_hb_lang_class, \
+          acdk_cfgscript_hb_lang_logging 
+%keywords: CfgScript Language
+%body:
+<chapterline/>
+<pageintro>
+The CfgScript language has similarities to Java, JScript and is based on and extends ACDK.
+</pageintro>
+
+<htmlauto/>
+
+<subschapterstable/>
+
+
+.

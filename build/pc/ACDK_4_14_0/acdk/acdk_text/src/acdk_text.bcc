@@ -1,0 +1,181 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_TEXT_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_text.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_text\bcc"
+SOURCES= 	"acdk\text\acdk_text_Package.cpp" \
+	"acdk\text\Base64.cpp" \
+	"acdk\text\DateFormat.cpp" \
+	"acdk\text\DateFormatSymbols.cpp" \
+	"acdk\text\DecimalFormat.cpp" \
+	"acdk\text\DecimalFormatSymbols.cpp" \
+	"acdk\text\FieldPosition.cpp" \
+	"acdk\text\Format.cpp" \
+	"acdk\text\NumberFormat.cpp" \
+	"acdk\text\ParsePosition.cpp" \
+	"acdk\text\RegExp.cpp" \
+	"acdk\text\SimpleDateFormat.cpp" \
+	"acdk\text\Template.cpp" \
+	"acdk\text\text_metainf_base.cpp" \
+	"acdk\text\regexp\pcre\maketables.c" \
+	"acdk\text\regexp\pcre\pcre.c" \
+	"acdk\text\regexp\pcre\pcreposix.c" \
+
+HEADER= 	"acdk\text\AbstractFormatedOutput.h" \
+	"acdk\text\Base64.h" \
+	"acdk\text\Config.h" \
+	"acdk\text\DateFormat.h" \
+	"acdk\text\DateFormatSymbols.h" \
+	"acdk\text\DecimalFormat.h" \
+	"acdk\text\DecimalFormatSymbols.h" \
+	"acdk\text\FieldPosition.h" \
+	"acdk\text\Format.h" \
+	"acdk\text\FormatedOutput.h" \
+	"acdk\text\HTMLFormatedOutput.h" \
+	"acdk\text\NumberFormat.h" \
+	"acdk\text\ParseException.h" \
+	"acdk\text\ParsePosition.h" \
+	"acdk\text\RegExp.h" \
+	"acdk\text\SimpleDateFormat.h" \
+	"acdk\text\Template.h" \
+	"acdk\text\text.h" \
+	"acdk\text\TextFormatedOutput.h" \
+	"acdk\text\text_all.h" \
+
+OBJECTS= 	"..\tobj\acdk_text\bcc\acdk_text_Package.obj" \
+	"..\tobj\acdk_text\bcc\Base64.obj" \
+	"..\tobj\acdk_text\bcc\DateFormat.obj" \
+	"..\tobj\acdk_text\bcc\DateFormatSymbols.obj" \
+	"..\tobj\acdk_text\bcc\DecimalFormat.obj" \
+	"..\tobj\acdk_text\bcc\DecimalFormatSymbols.obj" \
+	"..\tobj\acdk_text\bcc\FieldPosition.obj" \
+	"..\tobj\acdk_text\bcc\Format.obj" \
+	"..\tobj\acdk_text\bcc\NumberFormat.obj" \
+	"..\tobj\acdk_text\bcc\ParsePosition.obj" \
+	"..\tobj\acdk_text\bcc\RegExp.obj" \
+	"..\tobj\acdk_text\bcc\SimpleDateFormat.obj" \
+	"..\tobj\acdk_text\bcc\Template.obj" \
+	"..\tobj\acdk_text\bcc\text_metainf_base.obj" \
+	"..\tobj\acdk_text\bcc\maketables.obj" \
+	"..\tobj\acdk_text\bcc\pcre.obj" \
+	"..\tobj\acdk_text\bcc\pcreposix.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_text\bcc\acdk_text_Package.obj": "acdk\text\acdk_text_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\acdk_text_Package.cpp"
+
+"..\tobj\acdk_text\bcc\Base64.obj": "acdk\text\Base64.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\Base64.cpp"
+
+"..\tobj\acdk_text\bcc\DateFormat.obj": "acdk\text\DateFormat.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\DateFormat.cpp"
+
+"..\tobj\acdk_text\bcc\DateFormatSymbols.obj": "acdk\text\DateFormatSymbols.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\DateFormatSymbols.cpp"
+
+"..\tobj\acdk_text\bcc\DecimalFormat.obj": "acdk\text\DecimalFormat.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\DecimalFormat.cpp"
+
+"..\tobj\acdk_text\bcc\DecimalFormatSymbols.obj": "acdk\text\DecimalFormatSymbols.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\DecimalFormatSymbols.cpp"
+
+"..\tobj\acdk_text\bcc\FieldPosition.obj": "acdk\text\FieldPosition.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\FieldPosition.cpp"
+
+"..\tobj\acdk_text\bcc\Format.obj": "acdk\text\Format.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\Format.cpp"
+
+"..\tobj\acdk_text\bcc\NumberFormat.obj": "acdk\text\NumberFormat.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\NumberFormat.cpp"
+
+"..\tobj\acdk_text\bcc\ParsePosition.obj": "acdk\text\ParsePosition.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\ParsePosition.cpp"
+
+"..\tobj\acdk_text\bcc\RegExp.obj": "acdk\text\RegExp.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\RegExp.cpp"
+
+"..\tobj\acdk_text\bcc\SimpleDateFormat.obj": "acdk\text\SimpleDateFormat.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\SimpleDateFormat.cpp"
+
+"..\tobj\acdk_text\bcc\Template.obj": "acdk\text\Template.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\Template.cpp"
+
+"..\tobj\acdk_text\bcc\text_metainf_base.obj": "acdk\text\text_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\text_metainf_base.cpp"
+
+"..\tobj\acdk_text\bcc\maketables.obj": "acdk\text\regexp\pcre\maketables.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\regexp\pcre\maketables.c"
+
+"..\tobj\acdk_text\bcc\pcre.obj": "acdk\text\regexp\pcre\pcre.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\regexp\pcre\pcre.c"
+
+"..\tobj\acdk_text\bcc\pcreposix.obj": "acdk\text\regexp\pcre\pcreposix.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_text\bcc" "acdk\text\regexp\pcre\pcreposix.c"
+
+
+
+clean:
+	del "..\..\bin\acdk_text.dll"
+	del "..\tobj\acdk_text\bcc\acdk_text_Package.obj"
+	del "..\tobj\acdk_text\bcc\Base64.obj"
+	del "..\tobj\acdk_text\bcc\DateFormat.obj"
+	del "..\tobj\acdk_text\bcc\DateFormatSymbols.obj"
+	del "..\tobj\acdk_text\bcc\DecimalFormat.obj"
+	del "..\tobj\acdk_text\bcc\DecimalFormatSymbols.obj"
+	del "..\tobj\acdk_text\bcc\FieldPosition.obj"
+	del "..\tobj\acdk_text\bcc\Format.obj"
+	del "..\tobj\acdk_text\bcc\NumberFormat.obj"
+	del "..\tobj\acdk_text\bcc\ParsePosition.obj"
+	del "..\tobj\acdk_text\bcc\RegExp.obj"
+	del "..\tobj\acdk_text\bcc\SimpleDateFormat.obj"
+	del "..\tobj\acdk_text\bcc\Template.obj"
+	del "..\tobj\acdk_text\bcc\text_metainf_base.obj"
+	del "..\tobj\acdk_text\bcc\maketables.obj"
+	del "..\tobj\acdk_text\bcc\pcre.obj"
+	del "..\tobj\acdk_text\bcc\pcreposix.obj"
+
+

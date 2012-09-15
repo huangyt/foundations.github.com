@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdkx_rdmi", "src\acdkx_rdmi.vcxproj", "{B4D32031-C9AE-1574-89A3-55B5961C6785}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RDMIServer", "src\RDMIServer.vcxproj", "{EF648141-DD95-D1D9-6A7B-588729801725}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4D32031-C9AE-1574-89A3-55B5961C6785} = {B4D32031-C9AE-1574-89A3-55B5961C6785}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdkx_rdmi_metainf", "src\acdkx_rdmi_metainf.vcxproj", "{9022BFD0-55B0-4647-06CC-B7C4251D93B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4D32031-C9AE-1574-89A3-55B5961C6785} = {B4D32031-C9AE-1574-89A3-55B5961C6785}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdkx_rdmi_Test", "tests\acdkx\rdmi\acdkx_rdmi_Test.vcxproj", "{D96269E1-37CB-0523-D4E7-F071A46D1977}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4D32031-C9AE-1574-89A3-55B5961C6785} = {B4D32031-C9AE-1574-89A3-55B5961C6785}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4D32031-C9AE-1574-89A3-55B5961C6785}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B4D32031-C9AE-1574-89A3-55B5961C6785}.Debug|Win32.Build.0 = Debug|Win32
+		{B4D32031-C9AE-1574-89A3-55B5961C6785}.Release|Win32.ActiveCfg = Release|Win32
+		{B4D32031-C9AE-1574-89A3-55B5961C6785}.Release|Win32.Build.0 = Release|Win32
+		{B4D32031-C9AE-1574-89A3-55B5961C6785}.Template|Win32.ActiveCfg = Release|Win32
+		{B4D32031-C9AE-1574-89A3-55B5961C6785}.Template|Win32.Build.0 = Release|Win32
+		{EF648141-DD95-D1D9-6A7B-588729801725}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EF648141-DD95-D1D9-6A7B-588729801725}.Debug|Win32.Build.0 = Debug|Win32
+		{EF648141-DD95-D1D9-6A7B-588729801725}.Release|Win32.ActiveCfg = Release|Win32
+		{EF648141-DD95-D1D9-6A7B-588729801725}.Release|Win32.Build.0 = Release|Win32
+		{EF648141-DD95-D1D9-6A7B-588729801725}.Template|Win32.ActiveCfg = Template|Win32
+		{EF648141-DD95-D1D9-6A7B-588729801725}.Template|Win32.Build.0 = Template|Win32
+		{9022BFD0-55B0-4647-06CC-B7C4251D93B9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9022BFD0-55B0-4647-06CC-B7C4251D93B9}.Debug|Win32.Build.0 = Debug|Win32
+		{9022BFD0-55B0-4647-06CC-B7C4251D93B9}.Release|Win32.ActiveCfg = Release|Win32
+		{9022BFD0-55B0-4647-06CC-B7C4251D93B9}.Release|Win32.Build.0 = Release|Win32
+		{9022BFD0-55B0-4647-06CC-B7C4251D93B9}.Template|Win32.ActiveCfg = Template|Win32
+		{9022BFD0-55B0-4647-06CC-B7C4251D93B9}.Template|Win32.Build.0 = Template|Win32
+		{D96269E1-37CB-0523-D4E7-F071A46D1977}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D96269E1-37CB-0523-D4E7-F071A46D1977}.Debug|Win32.Build.0 = Debug|Win32
+		{D96269E1-37CB-0523-D4E7-F071A46D1977}.Release|Win32.ActiveCfg = Release|Win32
+		{D96269E1-37CB-0523-D4E7-F071A46D1977}.Release|Win32.Build.0 = Release|Win32
+		{D96269E1-37CB-0523-D4E7-F071A46D1977}.Template|Win32.ActiveCfg = Template|Win32
+		{D96269E1-37CB-0523-D4E7-F071A46D1977}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

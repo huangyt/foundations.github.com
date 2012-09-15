@@ -1,0 +1,84 @@
+%id: acdk_java_man_typemapping
+%title: Type mapping between ACDK and Java
+%shorttitle: Type mapping
+%seealso: acdk_java_man_acdkobject, acdk_java_man_javaobject
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+In the interfaces of acdk.java.AcdkObject and acdk::java::JavaObject
+the arguments, return values and Exception will be mapped from one
+language to the other.
+</pageintro>
+
+<jumptable/>
+
+
+<jump2>Basic Types</jump2>
+To enable a generic argument passing from Java to ACDK and vice versa, the 
+basic types will be boxed with the corresponding Object types:
+<fl>
+<f> boolean to Boolean
+<f> char to Character
+<f> byte to Byte
+<f> short to Short
+<f> int to Integer
+<f> float to Float
+<f> double to Double
+</fl>
+
+<jump2>Strings</jump2>
+Strings will be converted from Java to ACDK.
+
+<jump2>Object types</jump2>
+
+All other object will be converted:
+<fl>
+<f> From Java java.lang.Boolean, java.lang.Character, java.lang.Byte, java.lang.Short, 
+    java.lang.Integer, java.lang.Long, java.lang.Float and java.lang.Double to
+    the corresponding ACDK class.
+<f> From all other Java java.lang.Object to ACDK acdk::java::JavaObject and vice versa
+<f> From ACDK acdk::lang::Object to Java acdk.java.AcdkObject
+</fl>
+
+<jump2>Exceptions</jump2>
+Some basic Exceptions will be automatically converted in the the call interfaces
+of acdk.java.AcdkObject and acdk::java::JavaObject:
+<fl>
+<f> java.io.EOFException to and from acdk::io::EOFException
+<f> java.io.IOException to and from acdk::io::IOException
+<f> java.lang.Error to and from acdk::lang::Error
+<f> java.lang.NoSuchMethodException to and from acdk::lang::NoSuchMethodException
+<f> java.lang.ClassNotFoundException to and from acdk::lang::ClassNotFoundException
+<f> java.lang.IllegalAccessException to and from acdk::lang::IllegalAccessException
+<f> java.lang.NullPointerException to and from acdk::lang::NullPointerException
+<f> java.lang.IndexOutOfBoundsException to and from acdk::lang::IndexOutOfBoundsException
+<f> java.lang.RuntimeException to and from acdk::lang::RuntimeException
+<f> java.lang.Exception to and from acdk::lang::Exception
+<f> java.lang.Throwable to and from acdk::lang::Throwable
+</fl>
+Not only the exact types of the exceptions will mapped, but also derived classes to the
+the best fitting known exception type.
+
+<jump1>Enhanced DMI functions</jump1>
+
+<jump2>Overloading</jump2>
+ACDK and Java supports overloading in the DMI interface.
+
+<jump2>Default values for parameters<jump2>
+AcdkObject supports default values for parameters.
+JavaObject not tested yet.
+
+<jump2>Named Parameters</jump2>
+Not supported in acdk.java.AcdkObject and acdk::java::JavaObject.
+
+<jump2>OUT/BYVAL</jump2>
+There is no type mapping for enhanced Parameter attributes.
+The package acdk_java_serialization can be used to serialize ACDK object
+to Java compatible binary stream.
+See: %ref[acdk_java_serialization_man].
+
+.
+
+
+

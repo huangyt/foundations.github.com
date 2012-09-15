@@ -1,0 +1,106 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDKX_RDMI_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_net.lib"
+
+OUTFILE="..\..\bin\acdkx_rdmi.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdkx_rdmi"
+SOURCES= 	"acdkx\rdmi\BinaryProtocol.cpp" \
+	"acdkx\rdmi\LocalObjectRepository.cpp" \
+	"acdkx\rdmi\rdmi_metainf_base.cpp" \
+	"acdkx\rdmi\RemoteDmiProxy.cpp" \
+	"acdkx\rdmi\RemoteDmiServer.cpp" \
+	"acdkx\rdmi\TcpServer.cpp" \
+
+HEADER= 	"acdkx\rdmi\BinaryProtocol.h" \
+	"acdkx\rdmi\Config.h" \
+	"acdkx\rdmi\Connection.h" \
+	"acdkx\rdmi\LocalObjectRepository.h" \
+	"acdkx\rdmi\Protocol.h" \
+	"acdkx\rdmi\ProtocolImpl.h" \
+	"acdkx\rdmi\rdmi.h" \
+	"acdkx\rdmi\RemoteDmiProxy.h" \
+	"acdkx\rdmi\RemoteDmiServer.h" \
+	"acdkx\rdmi\ServerImpl.h" \
+	"acdkx\rdmi\TcpServer.h" \
+
+OBJECTS= 	"..\tobj\acdkx_rdmi\BinaryProtocol.obj" \
+	"..\tobj\acdkx_rdmi\LocalObjectRepository.obj" \
+	"..\tobj\acdkx_rdmi\rdmi_metainf_base.obj" \
+	"..\tobj\acdkx_rdmi\RemoteDmiProxy.obj" \
+	"..\tobj\acdkx_rdmi\RemoteDmiServer.obj" \
+	"..\tobj\acdkx_rdmi\TcpServer.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdkx_rdmi\BinaryProtocol.obj": "acdkx\rdmi\BinaryProtocol.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_rdmi" "acdkx\rdmi\BinaryProtocol.cpp"
+
+"..\tobj\acdkx_rdmi\LocalObjectRepository.obj": "acdkx\rdmi\LocalObjectRepository.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_rdmi" "acdkx\rdmi\LocalObjectRepository.cpp"
+
+"..\tobj\acdkx_rdmi\rdmi_metainf_base.obj": "acdkx\rdmi\rdmi_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_rdmi" "acdkx\rdmi\rdmi_metainf_base.cpp"
+
+"..\tobj\acdkx_rdmi\RemoteDmiProxy.obj": "acdkx\rdmi\RemoteDmiProxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_rdmi" "acdkx\rdmi\RemoteDmiProxy.cpp"
+
+"..\tobj\acdkx_rdmi\RemoteDmiServer.obj": "acdkx\rdmi\RemoteDmiServer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_rdmi" "acdkx\rdmi\RemoteDmiServer.cpp"
+
+"..\tobj\acdkx_rdmi\TcpServer.obj": "acdkx\rdmi\TcpServer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_rdmi" "acdkx\rdmi\TcpServer.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdkx_rdmi.dll"
+	del "..\tobj\acdkx_rdmi\BinaryProtocol.obj"
+	del "..\tobj\acdkx_rdmi\LocalObjectRepository.obj"
+	del "..\tobj\acdkx_rdmi\rdmi_metainf_base.obj"
+	del "..\tobj\acdkx_rdmi\RemoteDmiProxy.obj"
+	del "..\tobj\acdkx_rdmi\RemoteDmiServer.obj"
+	del "..\tobj\acdkx_rdmi\TcpServer.obj"
+
+

@@ -1,0 +1,10 @@
+*.deps
+*.ncb
+*.opt
+include
+distribution
+lib
+acdk_doc
+*.html
+*.txt
+*.log

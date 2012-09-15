@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include=".">
+      <UniqueIdentifier>{23422124-7b0c-4882-84d4-ed36766a8d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sample_metainf">
+      <UniqueIdentifier>{6843f63c-eee3-4525-8907-27ec23791569}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="JavaSerSample.h">
+      <Filter>.</Filter>
+    </ClInclude>
+    <ClInclude Include="sample.h">
+      <Filter>.</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="a2jser_JavaSerSample.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="sample_metainf_base.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="sample_metainf\sample_metainf_ext.cpp">
+      <Filter>sample_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

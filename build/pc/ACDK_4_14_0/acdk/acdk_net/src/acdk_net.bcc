@@ -1,0 +1,281 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_NET_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_net.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_net\bcc"
+SOURCES= 	"acdk\net\acdk_net_Package.cpp" \
+	"acdk\net\Authenticator.cpp" \
+	"acdk\net\DatagramSocket.cpp" \
+	"acdk\net\FileURLConnection.cpp" \
+	"acdk\net\HeaderFieldHelper.cpp" \
+	"acdk\net\HttpURLConnection.cpp" \
+	"acdk\net\HttpURLConnectionImpl.cpp" \
+	"acdk\net\InetAddress.cpp" \
+	"acdk\net\InetURLConnection.cpp" \
+	"acdk\net\MimeTypeMapper.cpp" \
+	"acdk\net\net_metainf_base.cpp" \
+	"acdk\net\ServerSocket.cpp" \
+	"acdk\net\Socket.cpp" \
+	"acdk\net\SocketException.cpp" \
+	"acdk\net\SocketImpl.cpp" \
+	"acdk\net\SocketImplFactory.cpp" \
+	"acdk\net\SocketLogConsumer.cpp" \
+	"acdk\net\SocketOptions.cpp" \
+	"acdk\net\TCPSocket.cpp" \
+	"acdk\net\TCPSocketFactory.cpp" \
+	"acdk\net\TransRateReader.cpp" \
+	"acdk\net\TransRateWriter.cpp" \
+	"acdk\net\URL.cpp" \
+	"acdk\net\URLConnection.cpp" \
+	"acdk\net\URLDecoder.cpp" \
+	"acdk\net\URLEncoder.cpp" \
+	"acdk\net\URLEncoding.cpp" \
+	"acdk\net\UrlFileSystem.cpp" \
+	"acdk\net\URLStreamHandler.cpp" \
+	"acdk\net\URLStreamHandlerFactory.cpp" \
+
+HEADER= 	"acdk\net\Authenticator.h" \
+	"acdk\net\Config.h" \
+	"acdk\net\ContentHandler.h" \
+	"acdk\net\ContentHandlerFactory.h" \
+	"acdk\net\DatagramPacket.h" \
+	"acdk\net\DatagramSocket.h" \
+	"acdk\net\FileNameMap.h" \
+	"acdk\net\FileURLConnection.h" \
+	"acdk\net\HeaderFieldHelper.h" \
+	"acdk\net\HttpURLConnection.h" \
+	"acdk\net\HttpURLConnectionImpl.h" \
+	"acdk\net\InetAddress.h" \
+	"acdk\net\InetSocketAddress.h" \
+	"acdk\net\InetURLConnection.h" \
+	"acdk\net\MalformedURLException.h" \
+	"acdk\net\MimeTypeMapper.h" \
+	"acdk\net\net.h" \
+	"acdk\net\netsysincl.h" \
+	"acdk\net\PasswordAuthentication.h" \
+	"acdk\net\ProtocolException.h" \
+	"acdk\net\ServerSocket.h" \
+	"acdk\net\Socket.h" \
+	"acdk\net\SocketAddress.h" \
+	"acdk\net\SocketException.h" \
+	"acdk\net\SocketImpl.h" \
+	"acdk\net\SocketImplFactory.h" \
+	"acdk\net\SocketLogConsumer.h" \
+	"acdk\net\SocketOptions.h" \
+	"acdk\net\TCPSocket.h" \
+	"acdk\net\TCPSocketFactory.h" \
+	"acdk\net\TransRateReader.h" \
+	"acdk\net\TransRateWriter.h" \
+	"acdk\net\UnknownServiceException.h" \
+	"acdk\net\URL.h" \
+	"acdk\net\URLConnection.h" \
+	"acdk\net\URLDecoder.h" \
+	"acdk\net\URLEncoder.h" \
+	"acdk\net\URLEncoding.h" \
+	"acdk\net\UrlFileSystem.h" \
+	"acdk\net\URLInterface.h" \
+	"acdk\net\URLStreamHandler.h" \
+	"acdk\net\URLStreamHandlerFactory.h" \
+
+OBJECTS= 	"..\tobj\acdk_net\bcc\acdk_net_Package.obj" \
+	"..\tobj\acdk_net\bcc\Authenticator.obj" \
+	"..\tobj\acdk_net\bcc\DatagramSocket.obj" \
+	"..\tobj\acdk_net\bcc\FileURLConnection.obj" \
+	"..\tobj\acdk_net\bcc\HeaderFieldHelper.obj" \
+	"..\tobj\acdk_net\bcc\HttpURLConnection.obj" \
+	"..\tobj\acdk_net\bcc\HttpURLConnectionImpl.obj" \
+	"..\tobj\acdk_net\bcc\InetAddress.obj" \
+	"..\tobj\acdk_net\bcc\InetURLConnection.obj" \
+	"..\tobj\acdk_net\bcc\MimeTypeMapper.obj" \
+	"..\tobj\acdk_net\bcc\net_metainf_base.obj" \
+	"..\tobj\acdk_net\bcc\ServerSocket.obj" \
+	"..\tobj\acdk_net\bcc\Socket.obj" \
+	"..\tobj\acdk_net\bcc\SocketException.obj" \
+	"..\tobj\acdk_net\bcc\SocketImpl.obj" \
+	"..\tobj\acdk_net\bcc\SocketImplFactory.obj" \
+	"..\tobj\acdk_net\bcc\SocketLogConsumer.obj" \
+	"..\tobj\acdk_net\bcc\SocketOptions.obj" \
+	"..\tobj\acdk_net\bcc\TCPSocket.obj" \
+	"..\tobj\acdk_net\bcc\TCPSocketFactory.obj" \
+	"..\tobj\acdk_net\bcc\TransRateReader.obj" \
+	"..\tobj\acdk_net\bcc\TransRateWriter.obj" \
+	"..\tobj\acdk_net\bcc\URL.obj" \
+	"..\tobj\acdk_net\bcc\URLConnection.obj" \
+	"..\tobj\acdk_net\bcc\URLDecoder.obj" \
+	"..\tobj\acdk_net\bcc\URLEncoder.obj" \
+	"..\tobj\acdk_net\bcc\URLEncoding.obj" \
+	"..\tobj\acdk_net\bcc\UrlFileSystem.obj" \
+	"..\tobj\acdk_net\bcc\URLStreamHandler.obj" \
+	"..\tobj\acdk_net\bcc\URLStreamHandlerFactory.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_net\bcc\acdk_net_Package.obj": "acdk\net\acdk_net_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\acdk_net_Package.cpp"
+
+"..\tobj\acdk_net\bcc\Authenticator.obj": "acdk\net\Authenticator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\Authenticator.cpp"
+
+"..\tobj\acdk_net\bcc\DatagramSocket.obj": "acdk\net\DatagramSocket.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\DatagramSocket.cpp"
+
+"..\tobj\acdk_net\bcc\FileURLConnection.obj": "acdk\net\FileURLConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\FileURLConnection.cpp"
+
+"..\tobj\acdk_net\bcc\HeaderFieldHelper.obj": "acdk\net\HeaderFieldHelper.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\HeaderFieldHelper.cpp"
+
+"..\tobj\acdk_net\bcc\HttpURLConnection.obj": "acdk\net\HttpURLConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\HttpURLConnection.cpp"
+
+"..\tobj\acdk_net\bcc\HttpURLConnectionImpl.obj": "acdk\net\HttpURLConnectionImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\HttpURLConnectionImpl.cpp"
+
+"..\tobj\acdk_net\bcc\InetAddress.obj": "acdk\net\InetAddress.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\InetAddress.cpp"
+
+"..\tobj\acdk_net\bcc\InetURLConnection.obj": "acdk\net\InetURLConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\InetURLConnection.cpp"
+
+"..\tobj\acdk_net\bcc\MimeTypeMapper.obj": "acdk\net\MimeTypeMapper.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\MimeTypeMapper.cpp"
+
+"..\tobj\acdk_net\bcc\net_metainf_base.obj": "acdk\net\net_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\net_metainf_base.cpp"
+
+"..\tobj\acdk_net\bcc\ServerSocket.obj": "acdk\net\ServerSocket.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\ServerSocket.cpp"
+
+"..\tobj\acdk_net\bcc\Socket.obj": "acdk\net\Socket.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\Socket.cpp"
+
+"..\tobj\acdk_net\bcc\SocketException.obj": "acdk\net\SocketException.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\SocketException.cpp"
+
+"..\tobj\acdk_net\bcc\SocketImpl.obj": "acdk\net\SocketImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\SocketImpl.cpp"
+
+"..\tobj\acdk_net\bcc\SocketImplFactory.obj": "acdk\net\SocketImplFactory.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\SocketImplFactory.cpp"
+
+"..\tobj\acdk_net\bcc\SocketLogConsumer.obj": "acdk\net\SocketLogConsumer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\SocketLogConsumer.cpp"
+
+"..\tobj\acdk_net\bcc\SocketOptions.obj": "acdk\net\SocketOptions.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\SocketOptions.cpp"
+
+"..\tobj\acdk_net\bcc\TCPSocket.obj": "acdk\net\TCPSocket.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\TCPSocket.cpp"
+
+"..\tobj\acdk_net\bcc\TCPSocketFactory.obj": "acdk\net\TCPSocketFactory.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\TCPSocketFactory.cpp"
+
+"..\tobj\acdk_net\bcc\TransRateReader.obj": "acdk\net\TransRateReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\TransRateReader.cpp"
+
+"..\tobj\acdk_net\bcc\TransRateWriter.obj": "acdk\net\TransRateWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\TransRateWriter.cpp"
+
+"..\tobj\acdk_net\bcc\URL.obj": "acdk\net\URL.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URL.cpp"
+
+"..\tobj\acdk_net\bcc\URLConnection.obj": "acdk\net\URLConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URLConnection.cpp"
+
+"..\tobj\acdk_net\bcc\URLDecoder.obj": "acdk\net\URLDecoder.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URLDecoder.cpp"
+
+"..\tobj\acdk_net\bcc\URLEncoder.obj": "acdk\net\URLEncoder.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URLEncoder.cpp"
+
+"..\tobj\acdk_net\bcc\URLEncoding.obj": "acdk\net\URLEncoding.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URLEncoding.cpp"
+
+"..\tobj\acdk_net\bcc\UrlFileSystem.obj": "acdk\net\UrlFileSystem.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\UrlFileSystem.cpp"
+
+"..\tobj\acdk_net\bcc\URLStreamHandler.obj": "acdk\net\URLStreamHandler.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URLStreamHandler.cpp"
+
+"..\tobj\acdk_net\bcc\URLStreamHandlerFactory.obj": "acdk\net\URLStreamHandlerFactory.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net\bcc" "acdk\net\URLStreamHandlerFactory.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_net.dll"
+	del "..\tobj\acdk_net\bcc\acdk_net_Package.obj"
+	del "..\tobj\acdk_net\bcc\Authenticator.obj"
+	del "..\tobj\acdk_net\bcc\DatagramSocket.obj"
+	del "..\tobj\acdk_net\bcc\FileURLConnection.obj"
+	del "..\tobj\acdk_net\bcc\HeaderFieldHelper.obj"
+	del "..\tobj\acdk_net\bcc\HttpURLConnection.obj"
+	del "..\tobj\acdk_net\bcc\HttpURLConnectionImpl.obj"
+	del "..\tobj\acdk_net\bcc\InetAddress.obj"
+	del "..\tobj\acdk_net\bcc\InetURLConnection.obj"
+	del "..\tobj\acdk_net\bcc\MimeTypeMapper.obj"
+	del "..\tobj\acdk_net\bcc\net_metainf_base.obj"
+	del "..\tobj\acdk_net\bcc\ServerSocket.obj"
+	del "..\tobj\acdk_net\bcc\Socket.obj"
+	del "..\tobj\acdk_net\bcc\SocketException.obj"
+	del "..\tobj\acdk_net\bcc\SocketImpl.obj"
+	del "..\tobj\acdk_net\bcc\SocketImplFactory.obj"
+	del "..\tobj\acdk_net\bcc\SocketLogConsumer.obj"
+	del "..\tobj\acdk_net\bcc\SocketOptions.obj"
+	del "..\tobj\acdk_net\bcc\TCPSocket.obj"
+	del "..\tobj\acdk_net\bcc\TCPSocketFactory.obj"
+	del "..\tobj\acdk_net\bcc\TransRateReader.obj"
+	del "..\tobj\acdk_net\bcc\TransRateWriter.obj"
+	del "..\tobj\acdk_net\bcc\URL.obj"
+	del "..\tobj\acdk_net\bcc\URLConnection.obj"
+	del "..\tobj\acdk_net\bcc\URLDecoder.obj"
+	del "..\tobj\acdk_net\bcc\URLEncoder.obj"
+	del "..\tobj\acdk_net\bcc\URLEncoding.obj"
+	del "..\tobj\acdk_net\bcc\UrlFileSystem.obj"
+	del "..\tobj\acdk_net\bcc\URLStreamHandler.obj"
+	del "..\tobj\acdk_net\bcc\URLStreamHandlerFactory.obj"
+
+

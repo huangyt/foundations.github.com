@@ -1,0 +1,29 @@
+
+bool finalizedCalled = false;
+
+class AClass
+//extends acdk.lang.Object
+{
+  AClass() 
+  { 
+    super();
+  }
+  void finalize()
+  {
+    out.println("AClass.finalize called");
+    finalizedCalled = true;
+  }
+}
+
+{
+  AClass cls = new AClass();
+  //cls = Nil;
+}
+out.println("Finalizer should be called");
+if (finalizedCalled == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+
+  

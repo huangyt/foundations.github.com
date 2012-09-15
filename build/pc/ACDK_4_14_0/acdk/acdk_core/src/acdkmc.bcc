@@ -1,0 +1,104 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_tools_mc.lib" "..\..\bin\acdk_security.lib"
+
+OUTFILE="..\..\bin\acdkmc.exe"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdkmc\bcc"
+SOURCES= 	"acdk\tools\acdkmc\acdkmc.cpp" \
+	"acdk\tools\acdkmc\GenARB.cpp" \
+	"acdk\tools\acdkmc\GenORB.cpp" \
+	"acdk\tools\acdkmc\GenORBIDL.cpp" \
+	"acdk\tools\acdkmc\MetaInfoGenDispatch.cpp" \
+	"acdk\tools\acdkmc\MetaInfoGenDispatchEx.cpp" \
+	"acdk\tools\acdkmc\MetaInfoParse.cpp" \
+
+HEADER= 	"acdk\tools\acdkmc\ClassInfo.h" \
+	"acdk\tools\acdkmc\MetaInfoGenDispatch.h" \
+	"acdk\tools\acdkmc\stringstream.h" \
+
+OBJECTS= 	"..\tobj\acdkmc\bcc\acdkmc.obj" \
+	"..\tobj\acdkmc\bcc\GenARB.obj" \
+	"..\tobj\acdkmc\bcc\GenORB.obj" \
+	"..\tobj\acdkmc\bcc\GenORBIDL.obj" \
+	"..\tobj\acdkmc\bcc\MetaInfoGenDispatch.obj" \
+	"..\tobj\acdkmc\bcc\MetaInfoGenDispatchEx.obj" \
+	"..\tobj\acdkmc\bcc\MetaInfoParse.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdkmc\bcc\acdkmc.obj": "acdk\tools\acdkmc\acdkmc.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\acdkmc.cpp"
+
+"..\tobj\acdkmc\bcc\GenARB.obj": "acdk\tools\acdkmc\GenARB.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\GenARB.cpp"
+
+"..\tobj\acdkmc\bcc\GenORB.obj": "acdk\tools\acdkmc\GenORB.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\GenORB.cpp"
+
+"..\tobj\acdkmc\bcc\GenORBIDL.obj": "acdk\tools\acdkmc\GenORBIDL.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\GenORBIDL.cpp"
+
+"..\tobj\acdkmc\bcc\MetaInfoGenDispatch.obj": "acdk\tools\acdkmc\MetaInfoGenDispatch.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\MetaInfoGenDispatch.cpp"
+
+"..\tobj\acdkmc\bcc\MetaInfoGenDispatchEx.obj": "acdk\tools\acdkmc\MetaInfoGenDispatchEx.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\MetaInfoGenDispatchEx.cpp"
+
+"..\tobj\acdkmc\bcc\MetaInfoParse.obj": "acdk\tools\acdkmc\MetaInfoParse.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkmc\bcc" "acdk\tools\acdkmc\MetaInfoParse.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdkmc.exe"
+	del "..\tobj\acdkmc\bcc\acdkmc.obj"
+	del "..\tobj\acdkmc\bcc\GenARB.obj"
+	del "..\tobj\acdkmc\bcc\GenORB.obj"
+	del "..\tobj\acdkmc\bcc\GenORBIDL.obj"
+	del "..\tobj\acdkmc\bcc\MetaInfoGenDispatch.obj"
+	del "..\tobj\acdkmc\bcc\MetaInfoGenDispatchEx.obj"
+	del "..\tobj\acdkmc\bcc\MetaInfoParse.obj"
+
+

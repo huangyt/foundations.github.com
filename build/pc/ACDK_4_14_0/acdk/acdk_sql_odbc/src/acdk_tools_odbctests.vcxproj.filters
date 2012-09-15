@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{4458cd14-dac3-453f-b2b9-3060c15d2825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{fd01aebc-9ecd-4c5d-963e-53a79e1b37c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\odbctests">
+      <UniqueIdentifier>{eb27de10-4007-4f98-ac6e-a508e7858a76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\odbctests\odbctests_metainf">
+      <UniqueIdentifier>{faaf0077-3572-49f7-a1e2-000d727aeb60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\odbctests\dbconnect.h">
+      <Filter>acdk\tools\odbctests</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\odbctests\odbctests.h">
+      <Filter>acdk\tools\odbctests</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\odbctests\dbconnect.cpp">
+      <Filter>acdk\tools\odbctests</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\odbctests\odbctests.cpp">
+      <Filter>acdk\tools\odbctests</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\odbctests\odbctests_metainf_base.cpp">
+      <Filter>acdk\tools\odbctests</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\odbctests\odbctests_metainf\odbctests_metainf_ext.cpp">
+      <Filter>acdk\tools\odbctests\odbctests_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,89 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\org_xml.lib"
+
+OUTFILE="..\..\bin\org_xml_metainf.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\org_xml_metainf\bcc"
+SOURCES= 	"org\w3c\dom\dom_metainf\dom_metainf_ext.cpp" \
+	"org\w3c\dom\xpath\xpath_metainf\xpath_metainf_ext.cpp" \
+	"org\w3c\dom\traversal\traversal_metainf\traversal_metainf_ext.cpp" \
+	"org\xml\sax\sax_metainf\sax_metainf_ext.cpp" \
+	"org\xml\sax\helpers\helpers_metainf\helpers_metainf_ext.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\org_xml_metainf\bcc\dom_metainf_ext.obj" \
+	"..\tobj\org_xml_metainf\bcc\xpath_metainf_ext.obj" \
+	"..\tobj\org_xml_metainf\bcc\traversal_metainf_ext.obj" \
+	"..\tobj\org_xml_metainf\bcc\sax_metainf_ext.obj" \
+	"..\tobj\org_xml_metainf\bcc\helpers_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\org_xml_metainf\bcc\dom_metainf_ext.obj": "org\w3c\dom\dom_metainf\dom_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml_metainf\bcc" "org\w3c\dom\dom_metainf\dom_metainf_ext.cpp"
+
+"..\tobj\org_xml_metainf\bcc\xpath_metainf_ext.obj": "org\w3c\dom\xpath\xpath_metainf\xpath_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml_metainf\bcc" "org\w3c\dom\xpath\xpath_metainf\xpath_metainf_ext.cpp"
+
+"..\tobj\org_xml_metainf\bcc\traversal_metainf_ext.obj": "org\w3c\dom\traversal\traversal_metainf\traversal_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml_metainf\bcc" "org\w3c\dom\traversal\traversal_metainf\traversal_metainf_ext.cpp"
+
+"..\tobj\org_xml_metainf\bcc\sax_metainf_ext.obj": "org\xml\sax\sax_metainf\sax_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml_metainf\bcc" "org\xml\sax\sax_metainf\sax_metainf_ext.cpp"
+
+"..\tobj\org_xml_metainf\bcc\helpers_metainf_ext.obj": "org\xml\sax\helpers\helpers_metainf\helpers_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml_metainf\bcc" "org\xml\sax\helpers\helpers_metainf\helpers_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\org_xml_metainf.dll"
+	del "..\tobj\org_xml_metainf\bcc\dom_metainf_ext.obj"
+	del "..\tobj\org_xml_metainf\bcc\xpath_metainf_ext.obj"
+	del "..\tobj\org_xml_metainf\bcc\traversal_metainf_ext.obj"
+	del "..\tobj\org_xml_metainf\bcc\sax_metainf_ext.obj"
+	del "..\tobj\org_xml_metainf\bcc\helpers_metainf_ext.obj"
+
+

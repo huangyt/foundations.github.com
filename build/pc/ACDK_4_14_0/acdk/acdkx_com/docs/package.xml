@@ -1,0 +1,152 @@
+<package>
+<name>acdkx_com</name>
+
+<title>
+ACDKX COM+
+</title>
+
+<shortdescription>
+ACDKX COM+ is a middleware between ACDK Objects and 
+COM+ objects. You can use all ACDK Objects in Windows
+Languages, like Visual Basic, C#, VBScript, etc. You
+can also use all COM+ Objects in ACDK and all scripting
+languages like lisp, perl, tcl, python.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+
+<description>
+<m>acdkx_com</m> is a dynamic bridge between Windows COM and 
+any ACDK objects.
+
+With this bridge not only any COM objects can be accessed by
+%ref[any ACDK DMI client language, acdkx_com_ComObject_man] (like C++, CfgScript, Perl, Python,
+CORBA, Tcl, Lisp), but also make all ACDK Objects (implemented in 
+C++, CfgScript, CORBA) %ref[available as COM objects, acdkx_com_AcdkObject_man].
+
+
+Here a sample to instrument word through ACDK Perl:
+<source lang="perl">
+sub require_class($)
+{
+  my ($cls) = @_;
+  my $cl = acdk::new("acdk/lang/ClassLoader");
+  $cl->findClass($cls);
+}
+
+require_class('acdkx/com/CoObject');
+$word = acdk::invoke_static('acdkx/com/CoObject', 'New', 'Word.Application');
+$word->poke('Visible', 1);
+$doc = $word->peek('Documents')->Add();
+$sel = $word->peek('ActiveWindow')->peek('Selection');
+$sel->TypeText("This is ");
+$sel->peek('Font')->poke('Bold', 1);
+$sel->TypeText("ACDK");
+$sel->peek('Font')->poke('Bold', 0);
+$sel->TypeText(" instrumenting Word through acdk_perl");
+acdk::invoke_static('acdk/lang/Thread', 'sleep', 3000);
+$word->Quit(0);
+</source>
+See also %lref[acdkx_com_AcdkObject_man].
+
+On the other side the class AcObject implements a generic 
+COM+ component Acdk.Object, which can be used to control all 
+ACDK Objects.
+
+
+Here a simple sample how to access ACDK Object via Visual Basic:
+<source>
+Private Sub Form_Load()
+  Dim acdk As Object
+  Set acdk = CreateObject("Acdk.Object")
+  Dim sb As Object
+  Set sb = acdk.New("acdk/lang/StringBuffer", "Hello ")
+  sb.append "from VB"
+  MsgBox sb.toString()
+End Sub
+</source>
+See also %lref[acdkx_com_ComObject_man].
+</description>
+
+<license>
+ACDK Free Edition License (%ref[acdk_license]).
+</license>
+
+<dependencies>
+acdk_core
+acdk_net
+</dependencies>
+
+<namespaces>
+acdkx::com
+</namespaces>
+
+<plattforms>
+Win32.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+Cannot compile with BCC 5.5.1, probably
+due namespace problems:
+<pre>
+acdkx\com\IUnknown.cpp:
+Error E2356 acdkx\com\IUnknown.cpp 45: 
+  Type mismatch in redeclaration of '__stdcall IUnknown::QueryInterface(const _GUID  &,void * *)'
+Error E2344 acdkx\com\IUnknown.h 99: 
+  Earlier declaration of '__stdcall IUnknown::QueryInterface(const _GUID &,void * *)'
+</pre>
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+  Nothing
+  
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+See also %ref[../ChangeLog].
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+- Initial release.
+
+</changes>
+
+<notes>
+Please refer for special installation teasks to %ref[acdkx_com_install]
+</notes>
+
+<sf-notes>
+ACDKX COM is a middleware between ACDK Objects and 
+COM objects. You can use all ACDK Objects in Windows
+Languages, like Visual Basic, C#, VBScript, etc. You
+can also use all COM Objects in ACDK and all scripting
+languages like lisp, perl, tcl, python.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdkx_com/acdkx_com-en.html">http://acdk.sourceforge.net/acdkx/com</a>
+
+</sf-notes>
+<sf-changes>
+Initial release.
+
+Please refer also to:
+<h href="http://acdk.sourceforge.net/acdk/modules/acdkx_com/docs/readme-en.html#Changes">Changes</a>
+</sf-changes>
+</package>

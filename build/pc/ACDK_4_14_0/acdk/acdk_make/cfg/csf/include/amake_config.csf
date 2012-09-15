@@ -1,0 +1,75 @@
+
+acdktoolshome = acdk.lang.System.getAcdkHome();
+
+if (__props.hasValue("ACDK_TOOLS_HOME"))
+{
+  __props.setStringVal("ACDK_MAKE_CFGINCLUDE", __props.eval("${ACDK_TOOLS_HOME}${DIRSEP}cfg${DIRSEP}csf${DIRSEP}include"));
+}
+else
+{
+  __props.setStringVal("ACDK_MAKE_CFGINCLUDE", __props.eval("${ACDKHOME}${DIRSEP}cfg${DIRSEP}csf${DIRSEP}include"));
+}
+
+/*
+  standard test. 
+  acdk.make.AcdkTestExeTask will automatically add 
+  itself as sub-test to this task
+*/
+test = new acdk.make.TestTask("test");
+test.registerTask();
+
+
+amake_doc_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_doc.csf", 0);
+doc = new acdk.make.ScriptExecuteTask(amake_doc_file, 2);
+doc.setName("doc");
+doc.registerTask();
+
+/*
+  Configuration for using BOEHM Garbage Collector
+*/
+amake_boehmgc_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_boehmgc.csf", 0);
+amake_boehmgc = new acdk.make.ScriptExecuteTask(amake_boehmgc_file, 3);
+amake_boehmgc.setName("amake_boehmgc_cfg");
+amake_boehmgc.registerTask();
+
+/*
+  Configuration for using Perl Libraries
+*/
+amake_perl_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_perl_config.csf", 0);
+amake_perl = new acdk.make.ScriptExecuteTask(amake_perl_file, 3);
+amake_perl.setName("amake_perl_config");
+amake_perl.registerTask();
+
+/*
+  Configuration for using Tcl Libraries
+*/
+amake_tcl_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_tcl_config.csf", 0);
+amake_tcl = new acdk.make.ScriptExecuteTask(amake_tcl_file, 3);
+amake_tcl.setName("amake_tcl_config");
+amake_tcl.registerTask();
+
+/*
+  Configuration for using Python Libraries
+*/
+amake_python_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_python_config.csf", 0);
+amake_python = new acdk.make.ScriptExecuteTask(amake_python_file, 3);
+amake_python.setName("amake_python_config");
+amake_python.registerTask();
+
+/*
+  Configuration for using Windows COM
+*/
+amake_com_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_com_config.csf", 0);
+amake_com = new acdk.make.ScriptExecuteTask(amake_com_file, 3);
+amake_com.setName("amake_com_config");
+amake_com.registerTask();
+
+/*
+  Configuration for Java Libraries
+  has to be included directly by make file.
+amake_java_file = __props.eval("${ACDK_MAKE_CFGINCLUDE}/amake_java_config.csf", 0);
+amake_java = new acdk.make.ScriptExecuteTask(amake_java_file, 3);
+amake_java.setName("amake_java_config");
+amake_java.registerTask();
+*/
+

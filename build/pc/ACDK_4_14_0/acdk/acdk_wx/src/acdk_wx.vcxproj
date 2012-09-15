@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_wx_r\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_wx_d\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;$(ACDK_WX_INCLUDE);$(ACDK_WX_INCLUDE_PLATTFORM);$(ACDK_WX_INCLUDE_CONTRIB);../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_WX_LIB;WIN32;NDEBUG;_WINDOWS;_MT;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_wx_r\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_wx_r\acdk_wx.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_wx_r\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_wx_r\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_wx.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_wx.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_wx_r.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_wx_r.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(ACDK_WX_LIB_PATH);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_r.lib;$(ACDK_WX_WXLIBS_RELEASE);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;$(ACDK_WX_INCLUDE);$(ACDK_WX_INCLUDE_PLATTFORM);$(ACDK_WX_INCLUDE_CONTRIB);../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_WX_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_wx_d\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_wx_d\acdk_wx.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_wx_d\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_wx_d\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_wx.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_wx.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_wx_d.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_wx_d.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(ACDK_WX_LIB_PATH);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_d.lib;$(ACDK_WX_WXLIBS_DEBUG);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\wx\App.h" />
+    <ClInclude Include="acdk\wx\ArtProvider.h" />
+    <ClInclude Include="acdk\wx\Bitmap.h" />
+    <ClInclude Include="acdk\wx\BitmapButton.h" />
+    <ClInclude Include="acdk\wx\BitmapDataObject.h" />
+    <ClInclude Include="acdk\wx\BoxSizer.h" />
+    <ClInclude Include="acdk\wx\Button.h" />
+    <ClInclude Include="acdk\wx\Caret.h" />
+    <ClInclude Include="acdk\wx\CheckBox.h" />
+    <ClInclude Include="acdk\wx\Choice.h" />
+    <ClInclude Include="acdk\wx\ClientData.h" />
+    <ClInclude Include="acdk\wx\ClientDC.h" />
+    <ClInclude Include="acdk\wx\Clipboard.h" />
+    <ClInclude Include="acdk\wx\Colour.h" />
+    <ClInclude Include="acdk\wx\ColourData.h" />
+    <ClInclude Include="acdk\wx\ColourDialog.h" />
+    <ClInclude Include="acdk\wx\ComboBox.h" />
+    <ClInclude Include="acdk\wx\Config.h" />
+    <ClInclude Include="acdk\wx\Control.h" />
+    <ClInclude Include="acdk\wx\ControlWithItems.h" />
+    <ClInclude Include="acdk\wx\Cursor.h" />
+    <ClInclude Include="acdk\wx\DataFormat.h" />
+    <ClInclude Include="acdk\wx\DataObject.h" />
+    <ClInclude Include="acdk\wx\DataObjectComposite.h" />
+    <ClInclude Include="acdk\wx\DataObjectSimple.h" />
+    <ClInclude Include="acdk\wx\DC.h" />
+    <ClInclude Include="acdk\wx\Dialog.h" />
+    <ClInclude Include="acdk\wx\DirDialog.h" />
+    <ClInclude Include="acdk\wx\DropSource.h" />
+    <ClInclude Include="acdk\wx\DropTarget.h" />
+    <ClInclude Include="acdk\wx\Event.h" />
+    <ClInclude Include="acdk\wx\FileDataObject.h" />
+    <ClInclude Include="acdk\wx\FileDialog.h" />
+    <ClInclude Include="acdk\wx\FileDropTarget.h" />
+    <ClInclude Include="acdk\wx\Font.h" />
+    <ClInclude Include="acdk\wx\FontData.h" />
+    <ClInclude Include="acdk\wx\FontDialog.h" />
+    <ClInclude Include="acdk\wx\Frame.h" />
+    <ClInclude Include="acdk\wx\Gauge.h" />
+    <ClInclude Include="acdk\wx\GDIImage.h" />
+    <ClInclude Include="acdk\wx\GDIObject.h" />
+    <ClInclude Include="acdk\wx\HtmlWindow.h" />
+    <ClInclude Include="acdk\wx\Icon.h" />
+    <ClInclude Include="acdk\wx\LayoutConstraints.h" />
+    <ClInclude Include="acdk\wx\ListBox.h" />
+    <ClInclude Include="acdk\wx\MDIChildFrame.h" />
+    <ClInclude Include="acdk\wx\MDIClientWindow.h" />
+    <ClInclude Include="acdk\wx\MDIParentFrame.h" />
+    <ClInclude Include="acdk\wx\MemoryDC.h" />
+    <ClInclude Include="acdk\wx\Menu.h" />
+    <ClInclude Include="acdk\wx\MenuBar.h" />
+    <ClInclude Include="acdk\wx\MenuItem.h" />
+    <ClInclude Include="acdk\wx\Notebook.h" />
+    <ClInclude Include="acdk\wx\PaintDC.h" />
+    <ClInclude Include="acdk\wx\Panel.h" />
+    <ClInclude Include="acdk\wx\Pen.h" />
+    <ClInclude Include="acdk\wx\PostScriptDC.h" />
+    <ClInclude Include="acdk\wx\ProgressDialog.h" />
+    <ClInclude Include="acdk\wx\RadioBox.h" />
+    <ClInclude Include="acdk\wx\RadioButton.h" />
+    <ClInclude Include="acdk\wx\Region.h" />
+    <ClInclude Include="acdk\wx\ScreenDC.h" />
+    <ClInclude Include="acdk\wx\ScrolledWindow.h" />
+    <ClInclude Include="acdk\wx\SingleChoiceDialog.h" />
+    <ClInclude Include="acdk\wx\Sizer.h" />
+    <ClInclude Include="acdk\wx\Slider.h" />
+    <ClInclude Include="acdk\wx\SpinButton.h" />
+    <ClInclude Include="acdk\wx\SpinCtrl.h" />
+    <ClInclude Include="acdk\wx\SplitterWindow.h" />
+    <ClInclude Include="acdk\wx\StaticBitmap.h" />
+    <ClInclude Include="acdk\wx\StaticBox.h" />
+    <ClInclude Include="acdk\wx\StaticText.h" />
+    <ClInclude Include="acdk\wx\StatusBar.h" />
+    <ClInclude Include="acdk\wx\Structs.h" />
+    <ClInclude Include="acdk\wx\TextCtrl.h" />
+    <ClInclude Include="acdk\wx\TextCtrlCharWriter.h" />
+    <ClInclude Include="acdk\wx\TextDataObject.h" />
+    <ClInclude Include="acdk\wx\TextDropTarget.h" />
+    <ClInclude Include="acdk\wx\TextEntryDialog.h" />
+    <ClInclude Include="acdk\wx\Timer.h" />
+    <ClInclude Include="acdk\wx\ToggleButton.h" />
+    <ClInclude Include="acdk\wx\ToolBar.h" />
+    <ClInclude Include="acdk\wx\ToolTip.h" />
+    <ClInclude Include="acdk\wx\TreeCtrl.h" />
+    <ClInclude Include="acdk\wx\Validator.h" />
+    <ClInclude Include="acdk\wx\Window.h" />
+    <ClInclude Include="acdk\wx\WindowDC.h" />
+    <ClInclude Include="acdk\wx\WindowStyle.h" />
+    <ClInclude Include="acdk\wx\Wizard.h" />
+    <ClInclude Include="acdk\wx\WizardPage.h" />
+    <ClInclude Include="acdk\wx\wx.h" />
+    <ClInclude Include="acdk\wx\WxObject.h" />
+    <ClInclude Include="acdk\wx\XmlResource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\wx\App.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\Event.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\Frame.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\Notebook.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\TreeCtrl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\Window.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\WxObject.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

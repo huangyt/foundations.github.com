@@ -1,0 +1,62 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+
+class AClass 
+implements acdk.lang.Comparable
+{
+  int _foo;
+  AClass(int number) { _foo = number; }
+  int foo() { return _foo; }
+  void foo(int number) { _foo = number; }
+  int protfoo() { return _foo; }
+  static int sFoo() { out.println("sFoo Called"); return 42; }
+}
+
+class BClass
+extends AClass
+{
+  BClass() { super(42); }
+  int fooBar() { return _foo; }
+  int fooBar2() { return foo(); }
+  static int sFooBar() { return sFoo(); }
+}
+{
+  BClass cls = new BClass();
+int i = 0;
+//i = cls.fooBar();
+i = cls.foo();
+i = cls.fooBar2();
+i = BClass.sFoo();
+}
+
+
+out.println("TEST OK");
+
+/* currently not working
+class BClass 
+extends AClass
+{
+  public BClass(int number) : AClass(number) {}
+  public int pubfoo() { return protfoo(); }
+}
+*/
+
+/* currently does not work!
+AClass cls = new AClass(42);
+acdk.lang.Comparable comp1 = new AClass(42);
+acdk.lang.Comparable comp2 = new String("bla");
+if ((comp1 instanceof AClass) == false)
+  throw new acdk.tools.aunit.TestException("instanceof seems not to work 1");
+if ((cls instanceof acdk.lang.Comparable) == false)
+  throw new acdk.tools.aunit.TestException("instanceof seems not to work 2");
+
+try {
+  cls._foo = 43; // should throw ex
+  throw new acdk.tools.aunit.TestException("Accessing private class elements should throw ex");
+} catch (acdk.lang.NoSuchElementException ex) {
+  System.out.println("Expected Ex: Cannot read/write private element: " + ex.getMessage());  
+}
+*/

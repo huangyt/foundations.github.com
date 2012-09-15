@@ -1,0 +1,126 @@
+
+using acdk.wx;
+using acdk.wx.ide;
+
+enum MyCtrlIds
+{
+  ID_StyledTextCtrl  = 130
+}
+
+enum MyMenuIds
+{
+  ID_MENUBase = 1000,
+  ID_MENU_CLOSE,
+  ID_MENU_LOADPREFS,
+  ID_MENU_DEBUG_INSERT_BREAK,
+  ID_MENU_DEBUG_REMOVE_BREAK
+}
+
+
+class MyFrame
+extends Frame
+{
+  TreeCtrl _treectrl;
+  //TextCtrl text1;
+  //TextCtrl text2;
+  Notebook notebook;
+  acdk.wx.ide.StyledTextCtrl edit;
+  MyFrame(String title) 
+  {
+    super(title);
+    edit = new acdk.wx.ide.StyledTextCtrl(this, ID_StyledTextCtrl);
+    
+    MenuBar menu_bar = new MenuBar();
+    Menu file_menu = new Menu();
+    initPrefs(file_menu);
+    file_menu.appendSeparator();
+    file_menu.append(ID_MENU_CLOSE, "E&xit\tAlt-X", "Quit controls sample");
+    connect(CommandEvent.EvtCommandMenuSelected, ID_MENU_CLOSE, 
+            lambda[this]  { close(true);  } 
+            );
+    edit.styleSetFont(SciStyleDefault, Font.getNormalFont());
+
+    edit.styleClearAll();
+    int setLexer = SciLexCpp;
+    //messageBox("before set lexter", "sdf", MbOk);
+    //edit.setKeyWords(SciLexCpp, "class int void");
+    edit.styleSetForeground(SciCNumber, new Colour(0, 0, 0xFF));
+    edit.styleSetForeground(SciCString, new Colour(0, 0, 0xFF));
+    edit.styleSetForeground(SciCCharacter, new Colour(0, 0, 0xFF));
+    
+    edit.styleSetForeground(SciCWord, new Colour(222, 0, 0));
+    edit.styleSetForeground(SciCWord2, new Colour(222, 0, 0));
+    
+    edit.styleSetForeground(SciCCommentline, new Colour(0, 222, 0));
+    edit.setUseTabs(false);
+    edit.setTabWidth(2);
+    edit.setIndent(2);
+
+
+    edit.setLexer(setLexer);
+    int isLexer = edit.getLexer();
+    //messageBox("Lexer is: " + isLexer + "; set: " + setLexer, "Controls sample", MbOk); 
+    edit.setText("class A {\n  void foo();\n};");
+    
+    //edit.colourise(0, -1);
+    
+    menu_bar.append(file_menu, "&File");
+    initDebug(menu_bar);
+    setMenuBar(menu_bar);
+  }
+  void initPrefs(Menu fileMenu)
+  {
+    
+    fileMenu.append(ID_MENU_LOADPREFS, "Load preference ...");
+    connect(CommandEvent.EvtCommandMenuSelected, ID_MENU_LOADPREFS, 
+      lambda[this]  
+      { 
+        FileDialog dlg = new FileDialog(this, "select property to load", "", "", "*.properties");
+        if (dlg->showModal() != IdOk)
+          return;
+        String fn = dlg.getPath();
+        acdk.util.Properties props = new acdk.util.Properties();
+        props.load((new File(fn)).getReader());
+        foreach (String key in props.propertyNames())
+        {
+          edit.setProperty(key, props.getProperty(key));
+        }
+        edit.setKeyWords(0, props.getProperty("keywordclass.cpp"));
+      } 
+    );
+  }
+  void initDebug(MenuBar menubar)
+  {
+    Menu menu = new Menu();
+    menu.append(ID_MENU_DEBUG_INSERT_BREAK, "Insert breakPoint", "Insert a breakpoint");
+    connect(CommandEvent.EvtCommandMenuSelected, ID_MENU_DEBUG_INSERT_BREAK, 
+      lambda[this]  
+      { 
+        edit.markerAdd(edit.getCurrentLine(), 0);
+      }
+    );
+    menu.append(ID_MENU_DEBUG_REMOVE_BREAK, "Remove breakPoint", "Insert a breakpoint");
+    connect(CommandEvent.EvtCommandMenuSelected, ID_MENU_DEBUG_REMOVE_BREAK, 
+      lambda[this]  
+      { 
+        edit.markerDelete(edit.getCurrentLine(), 0);
+      }
+    );
+    menubar.append(menu, "&Run");
+  }
+  
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame("StyledTextCtrl test")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

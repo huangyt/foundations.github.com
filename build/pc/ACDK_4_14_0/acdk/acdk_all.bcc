@@ -1,0 +1,47 @@
+
+
+PACKAGE=acdk_all
+PACKAGES=acdk_core acdk_text acdk_make acdk_net acdk_boot acdk_xml acdk_vfile \
+         acdk_lisp acdkx_com acdkx_orb  acdkx_rdmi \
+         acdk_sql acdk_sql_sqlite \
+         acdk_wx acdk_perl acdk_python acdk_tcl acdk_java \
+         acdk_sql_odbc \
+         acdk_tools_java2acdk
+
+OLDPACKAGE=acdkx_sol 
+
+all: 
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p install
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p all
+
+install: 
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p install
+
+
+compile::
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p compile 
+
+
+clean::
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p clean
+
+test::
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p test
+
+
+PERL=perl
+TARBALL=acdk_all-vs6-$(PACKAGEVERSION).tgz
+
+makemake:
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p makemake
+
+metamakemake:
+  for %p in ($(PACKAGES)) do make_bcc.cmd %p metamakemake
+
+#makes all
+distrib:
+	$(PERL) ./bin/makedistr.pl -archiv distribution/$(TARBALL) -src '.';
+  
+
+ 
+ 

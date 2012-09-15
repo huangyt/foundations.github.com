@@ -1,0 +1,94 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDKX_ORB_MC_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_tools_mc.lib"
+
+OUTFILE="..\..\bin\acdkx_orb_mc.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdkx_orb_mc\bcc"
+SOURCES= 	"acdkx\orb\mc\GenOrbIdlAttribute.cpp" \
+	"acdkx\orb\mc\mc_metainf_base.cpp" \
+	"acdkx\orb\mc\OrbDispatchAttribute.cpp" \
+	"acdkx\orb\mc\OrbSetRepId.cpp" \
+	"acdkx\orb\mc\mc_metainf\mc_metainf_ext.cpp" \
+
+HEADER= 	"acdkx\orb\mc\Config.h" \
+	"acdkx\orb\mc\GenOrbIdlAttribute.h" \
+	"acdkx\orb\mc\mc.h" \
+	"acdkx\orb\mc\OrbDispatchAttribute.h" \
+	"acdkx\orb\mc\OrbSetRepId.h" \
+
+OBJECTS= 	"..\tobj\acdkx_orb_mc\bcc\GenOrbIdlAttribute.obj" \
+	"..\tobj\acdkx_orb_mc\bcc\mc_metainf_base.obj" \
+	"..\tobj\acdkx_orb_mc\bcc\OrbDispatchAttribute.obj" \
+	"..\tobj\acdkx_orb_mc\bcc\OrbSetRepId.obj" \
+	"..\tobj\acdkx_orb_mc\bcc\mc_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdkx_orb_mc\bcc\GenOrbIdlAttribute.obj": "acdkx\orb\mc\GenOrbIdlAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb_mc\bcc" "acdkx\orb\mc\GenOrbIdlAttribute.cpp"
+
+"..\tobj\acdkx_orb_mc\bcc\mc_metainf_base.obj": "acdkx\orb\mc\mc_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb_mc\bcc" "acdkx\orb\mc\mc_metainf_base.cpp"
+
+"..\tobj\acdkx_orb_mc\bcc\OrbDispatchAttribute.obj": "acdkx\orb\mc\OrbDispatchAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb_mc\bcc" "acdkx\orb\mc\OrbDispatchAttribute.cpp"
+
+"..\tobj\acdkx_orb_mc\bcc\OrbSetRepId.obj": "acdkx\orb\mc\OrbSetRepId.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb_mc\bcc" "acdkx\orb\mc\OrbSetRepId.cpp"
+
+"..\tobj\acdkx_orb_mc\bcc\mc_metainf_ext.obj": "acdkx\orb\mc\mc_metainf\mc_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb_mc\bcc" "acdkx\orb\mc\mc_metainf\mc_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdkx_orb_mc.dll"
+	del "..\tobj\acdkx_orb_mc\bcc\GenOrbIdlAttribute.obj"
+	del "..\tobj\acdkx_orb_mc\bcc\mc_metainf_base.obj"
+	del "..\tobj\acdkx_orb_mc\bcc\OrbDispatchAttribute.obj"
+	del "..\tobj\acdkx_orb_mc\bcc\OrbSetRepId.obj"
+	del "..\tobj\acdkx_orb_mc\bcc\mc_metainf_ext.obj"
+
+

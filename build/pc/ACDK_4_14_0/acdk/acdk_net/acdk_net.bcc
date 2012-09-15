@@ -1,0 +1,509 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_net
+
+default: all
+all:: install compile
+
+compile:: acdk_net acdk_net_metainf acdk_net_ftp acdk_net_srfsys acdk_net_srsync acdk_net_Test acdk_net_ftp_Test acdk_net_EchoClient_Test acdk_net_EchoServer_Test acdk_net_srfsys_Test acdkx_net_ssl acdkx_net_ssl_metainf acdkx_net_ssl_Test 
+clean:: acdk_net-clean acdk_net_metainf-clean acdk_net_ftp-clean acdk_net_srfsys-clean acdk_net_srsync-clean acdk_net_Test-clean acdk_net_ftp_Test-clean acdk_net_EchoClient_Test-clean acdk_net_EchoServer_Test-clean acdk_net_srfsys_Test-clean acdkx_net_ssl-clean acdkx_net_ssl_metainf-clean acdkx_net_ssl_Test-clean 
+metainfo:: acdk_net-metainfo acdk_net_metainf-metainfo acdk_net_ftp-metainfo acdk_net_srfsys-metainfo acdk_net_srsync-metainfo acdk_net_Test-metainfo acdk_net_ftp_Test-metainfo acdk_net_EchoClient_Test-metainfo acdk_net_EchoServer_Test-metainfo acdk_net_srfsys_Test-metainfo acdkx_net_ssl-metainfo acdkx_net_ssl_metainf-metainfo acdkx_net_ssl_Test-metainfo 
+acdk_net:  
+	cd src
+	$(MAKE) -f acdk_net.bcc
+	cd ..
+
+
+acdk_net-clean:
+	cd src
+	$(MAKE) -f acdk_net.bcc clean
+	cd ..
+
+
+acdk_net-metainfo:
+	cd src
+	$(MAKE) -f acdk_net.bcc metainfo
+	cd ..
+
+
+acdk_net_metainf:  acdk_net
+	cd src
+	$(MAKE) -f acdk_net_metainf.bcc
+	cd ..
+
+
+acdk_net_metainf-clean:
+	cd src
+	$(MAKE) -f acdk_net_metainf.bcc clean
+	cd ..
+
+
+acdk_net_metainf-metainfo:
+	cd src
+	$(MAKE) -f acdk_net_metainf.bcc metainfo
+	cd ..
+
+
+acdk_net_ftp:  acdk_net
+	cd src
+	$(MAKE) -f acdk_net_ftp.bcc
+	cd ..
+
+
+acdk_net_ftp-clean:
+	cd src
+	$(MAKE) -f acdk_net_ftp.bcc clean
+	cd ..
+
+
+acdk_net_ftp-metainfo:
+	cd src
+	$(MAKE) -f acdk_net_ftp.bcc metainfo
+	cd ..
+
+
+acdk_net_srfsys:  acdk_net
+	cd src
+	$(MAKE) -f acdk_net_srfsys.bcc
+	cd ..
+
+
+acdk_net_srfsys-clean:
+	cd src
+	$(MAKE) -f acdk_net_srfsys.bcc clean
+	cd ..
+
+
+acdk_net_srfsys-metainfo:
+	cd src
+	$(MAKE) -f acdk_net_srfsys.bcc metainfo
+	cd ..
+
+
+acdk_net_srsync:  acdk_net acdk_net_srfsys
+	cd src
+	$(MAKE) -f acdk_net_srsync.bcc
+	cd ..
+
+
+acdk_net_srsync-clean:
+	cd src
+	$(MAKE) -f acdk_net_srsync.bcc clean
+	cd ..
+
+
+acdk_net_srsync-metainfo:
+	cd src
+	$(MAKE) -f acdk_net_srsync.bcc metainfo
+	cd ..
+
+
+acdk_net_Test:  acdk_net
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_Test.bcc
+	cd ../../..
+
+
+acdk_net_Test-clean:
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_Test.bcc clean
+	cd ../../..
+
+
+acdk_net_Test-metainfo:
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_Test.bcc metainfo
+	cd ../../..
+
+
+acdk_net_ftp_Test:  acdk_net acdk_net_ftp
+	cd tests/acdk/net/ftp
+	$(MAKE) -f acdk_net_ftp_Test.bcc
+	cd ../../../..
+
+
+acdk_net_ftp_Test-clean:
+	cd tests/acdk/net/ftp
+	$(MAKE) -f acdk_net_ftp_Test.bcc clean
+	cd ../../../..
+
+
+acdk_net_ftp_Test-metainfo:
+	cd tests/acdk/net/ftp
+	$(MAKE) -f acdk_net_ftp_Test.bcc metainfo
+	cd ../../../..
+
+
+acdk_net_EchoClient_Test:  acdk_net
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_EchoClient_Test.bcc
+	cd ../../..
+
+
+acdk_net_EchoClient_Test-clean:
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_EchoClient_Test.bcc clean
+	cd ../../..
+
+
+acdk_net_EchoClient_Test-metainfo:
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_EchoClient_Test.bcc metainfo
+	cd ../../..
+
+
+acdk_net_EchoServer_Test:  acdk_net
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_EchoServer_Test.bcc
+	cd ../../..
+
+
+acdk_net_EchoServer_Test-clean:
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_EchoServer_Test.bcc clean
+	cd ../../..
+
+
+acdk_net_EchoServer_Test-metainfo:
+	cd tests/acdk/net
+	$(MAKE) -f acdk_net_EchoServer_Test.bcc metainfo
+	cd ../../..
+
+
+acdk_net_srfsys_Test:  acdk_net acdk_net_srfsys
+	cd tests/acdk/net/srfsys
+	$(MAKE) -f acdk_net_srfsys_Test.bcc
+	cd ../../../..
+
+
+acdk_net_srfsys_Test-clean:
+	cd tests/acdk/net/srfsys
+	$(MAKE) -f acdk_net_srfsys_Test.bcc clean
+	cd ../../../..
+
+
+acdk_net_srfsys_Test-metainfo:
+	cd tests/acdk/net/srfsys
+	$(MAKE) -f acdk_net_srfsys_Test.bcc metainfo
+	cd ../../../..
+
+
+acdkx_net_ssl:  acdk_net
+	cd src
+	$(MAKE)-i  -f acdkx_net_ssl.bcc
+	cd ..
+
+
+acdkx_net_ssl-clean:
+	cd src
+	$(MAKE) -f acdkx_net_ssl.bcc clean
+	cd ..
+
+
+acdkx_net_ssl-metainfo:
+	cd src
+	$(MAKE) -f acdkx_net_ssl.bcc metainfo
+	cd ..
+
+
+acdkx_net_ssl_metainf:  acdk_net acdk_net
+	cd src
+	$(MAKE)-i  -f acdkx_net_ssl_metainf.bcc
+	cd ..
+
+
+acdkx_net_ssl_metainf-clean:
+	cd src
+	$(MAKE) -f acdkx_net_ssl_metainf.bcc clean
+	cd ..
+
+
+acdkx_net_ssl_metainf-metainfo:
+	cd src
+	$(MAKE) -f acdkx_net_ssl_metainf.bcc metainfo
+	cd ..
+
+
+acdkx_net_ssl_Test:  acdk_net acdkx_net_ssl
+	cd tests/acdkx/net/ssl
+	$(MAKE)-i  -f acdkx_net_ssl_Test.bcc
+	cd ../../../..
+
+
+acdkx_net_ssl_Test-clean:
+	cd tests/acdkx/net/ssl
+	$(MAKE) -f acdkx_net_ssl_Test.bcc clean
+	cd ../../../..
+
+
+acdkx_net_ssl_Test-metainfo:
+	cd tests/acdkx/net/ssl
+	$(MAKE) -f acdkx_net_ssl_Test.bcc metainfo
+	cd ../../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_net_Test $(AUNIT_TESTOPTS)
+
+	$(ACDKHOME)\bin\acdk_net_ftp_Test $(AUNIT_TESTOPTS)
+
+	$(ACDKHOME)\bin\acdk_net_srfsys_Test $(AUNIT_TESTOPTS)
+
+	$(ACDKHOME)\bin\acdkx_net_ssl_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_net-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src cbx
+
+acdk_net_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src cbx
+
+acdk_net_ftp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src cbx
+
+acdk_net_srfsys-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src cbx
+
+acdk_net_srsync-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src cbx
+
+acdk_net_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net cbx
+
+acdk_net_ftp_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp cbx
+
+acdk_net_EchoClient_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net cbx
+
+acdk_net_EchoServer_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net cbx
+
+acdk_net_srfsys_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys cbx
+
+acdkx_net_ssl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src cbx
+
+acdkx_net_ssl_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src cbx
+
+acdkx_net_ssl_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl cbx
+
+
+makemake:: acdk_net-makemake acdk_net_metainf-makemake acdk_net_ftp-makemake acdk_net_srfsys-makemake acdk_net_srsync-makemake acdk_net_Test-makemake acdk_net_ftp_Test-makemake acdk_net_EchoClient_Test-makemake acdk_net_EchoServer_Test-makemake acdk_net_srfsys_Test-makemake acdkx_net_ssl-makemake acdkx_net_ssl_metainf-makemake acdkx_net_ssl_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_ftp.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/ftp\acdk_net_ftp_Test.lsp -pdir tests/acdk/net/ftp cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_net_ssl_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/net/ssl\acdkx_net_ssl_Test.lsp -pdir tests/acdkx/net/ssl cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_net.lsp
+
+

@@ -1,0 +1,314 @@
+%id: acdk_general_compile_acdk
+%title: How to compile ACDK
+%shorttitle: Compile ACDK
+%keywords: installation, setup
+%seealso: acdk_packages_deps, acdk_wx_hb_installation, acdk_python_install, \
+          acdk_perl_install, acdk_tcl_install, acdk_java_man_installation, acdkx_net_ssl
+%body:
+
+<htmlauto>
+<pageintro>
+This is a generic installation for ACDK packages.
+</pageintro>
+
+<jumptable/>
+
+<jump1>General notes</jump1>
+ACDK is split in several packages. Each package 
+can be installed/compiled separately.
+Most packages %ref[depends on other ACDK packages, acdk_packages_deps]. 
+For instance the package acdk_lisp depends 
+on acdk_core and acdk_text. These packages
+must be installed before you try to install and 
+compile the acdk_lisp package. Please refer to the 
+package documentation regarding the detailed requirements.
+
+
+This installation note describes the installation of one ACDK 
+package named "acdk_package".
+
+<jump1>Supported Plattforms</jump1>
+<table2x>  
+ <ttl>Windows NT 4/2000/XP<ttm>MS Visual C++ 6 (released)<ttr>
+ <ttl>Windows NT 4/2000/XP<ttm>MS Visual C++ 7/2003 (AKA .NET), MS Visual Studio 2005 Express Beta<ttr>
+ <ttl>Windows NT 4/2000/XP<ttm>Borland BCC 5.5 (experimental)<ttr>
+ <ttl>Windows NT 4/2000/XP<ttm>Boland C++-Builder 6 (experimental)<ttr>
+ <ttl>Windows NT 4/2000/XP<ttm>Boland C++-Builder X (experimental)<ttr>
+ <ttl>Windows NT 4/2000/XP<ttm>gcc 2.92 (static linked)(experimental)<ttr>
+ <ttl>Linux<ttm>gcc 2.95.2 - 4.x (released)<ttr>
+ <ttl>Linux<ttm>Borland C++-BuilderX and gcc<ttr>
+ <ttl>Linux on 64bit Opteron<ttm>gcc 3.x (released)<ttr>
+ <ttl>Sun Solaris 9/10 Intel<ttm>gcc 2.95.2 - 3.x(released)<ttr>
+ <ttl>Sun Solaris 9 Sparc<ttm>gcc 2.95.2 - 3.x(released)<ttr>
+ <ttl>Sun Solaris<ttm>Sun Workshop 5.2/3 (experimental)<ttr>
+ <ttl>FreeBSD 4.0 - 5.x<ttm>gcc 2.95.2 - 3.4(released)<ttr>
+</table2x>
+
+<jump1>Unpacking</jump1>
+The ACDK packages are provided 2 formats: Unix .tar.gz and 
+Windows .zip format. The packages contains the same files, but 
+in the windows .zip packages the sources are encoded in the 
+windows file format ("\r\n").
+
+<jump2>Unix</jump2>
+You can unpack ACDK in home directory or in any other
+location.
+<pre><code>
+cd /usr/local # the parent directory of ACDK
+tar zxf acdk-*.tar.gz # and untar the package
+</code></pre>
+
+This extract the files into a directory:
+/usr/local/acdk/<br>
+where:
+<c>/usr/local/acdk</c><br>
+is the <c><b>ACDKHOME</b></c>.
+
+
+
+<jump2>Windows</jump2>
+On Windows platform unzip the ACDK package 
+in one directory:
+for example <c>c:\artefaktur</c>
+<pre><code>
+d:\artefaktur
+</code></pre>
+This will create 
+the directory:
+<pre><code>
+d:\artefaktur\acdk
+</code></pre>
+
+
+<jump1>Setting up the environment</jump1>
+<jump2>ACDK enviromnent variables</jump2>
+
+Whenever you want to configure, compile, install 
+or run ACDK, following environment variable
+are needed:
+<ul>
+<li> <b>ACDKHOME</b>: The home of ACDK, target of
+installed header, and other files.
+
+<li> <b>PATH</b>: Path to search executable. You may
+extend this with the ACDK binary path:
+<code>
+export PATH=%PATH%:$ACDKHOME/bin # bash or ksh<br>
+</code>
+<li> <b>LD_LIBRARY_PATH</b>: Path to search shared libraries. 
+  You have to extend this to the ACDK library path:
+<code>
+export PATH=%PATH%:$ACDKHOME/bin<br>
+</code>
+</ul>
+
+<jump2>External Libraries</jump2>
+Some optional packages (like acdk_net, acdk_wx, acdk_perl, acdk_python, acdk_tcl, acdk_sql_odbc)
+external libraries need to be installed. The name, locatation and other
+settings can be (and probably must) be corrected in following configuration
+files.
+<fl>
+<f> acdkenv.cmd for Visual Studio Windows
+<f> acdkbccenv.cmd for Borland
+<f> acdk_globals.linux for linux
+<f> acdk_globals.bsd for FreeBSD
+<f> acdk_globals.sunos-gcc for Solaris with GCC.
+</fl>
+
+
+<jump1>Compiling using make files</jump1>
+For the distributed ACDK packages the project files and 
+makefiles are already generated.
+
+The platform makes does understand normally following commands:
+<fl>
+<f> all: install and compile
+<f> install: copy the header and configuration in ACDKHOME/include
+<f> compile: compile the sources
+<f> clean: removes the executables, libraries, .o/.obj files
+<f> clean-temps: removes only .o/.obj files
+<f> test: run test units
+</fl>
+
+
+<jump2>Unix</jump2>
+global settings for the make process (for external libraries, like perl, python, wxWidgets, etc.)
+can ajusted in the file <c>$ACDKHOME/acdk_globals.${target}</c>
+(target = linux, etc.)
+If this file exists, it will be included from the 
+project make files.
+
+<jump2>Linux</jump2>
+To compile ACDK you must have installed GCC 2.95.2 or grater 
+compiler on your system.
+
+<pre><code>
+cd /usr/local/acdk/acdk
+make -f acdk_all.linux all
+</code></pre>
+
+<jump3>Notes for Linux</jump3>
+On computer with more CPU, add __SMP__ define
+in the $ACDKHOME/acdk_globals.linux
+
+<jump2>Solaris</jump2>
+To compile ACDK you must have installed GCC 2.95.2 or grater 
+compiler on your system.
+<pre><code>
+cd /usr/local/acdk
+make -f acdk_all.sunos-gcc all
+</code></pre>
+
+
+<jump2>Windows Visual Studio</jump2>
+<jump3>Visual Studio 6</jump3>
+You need Visual Studio 6 SP3 or later
+to compile the packages on Windows (NT/2000).
+<pre><code>
+cd d:\artefaktur\acdk
+nmake -f acdk_all.nmake all
+</code></pre>
+
+You can also use Visual Studio to open the provided
+.dsw, first you have to execute <c>nmake -f acdk_all.nmake install</c>
+to install the headers and configuration.
+
+<jump3>Visual Studio .NET / 7</jump3>
+You can use the provided .dsw and .dsp also 
+with Visual Studio .NET respectivally Visual C++ 7.
+Before compiling with IDE, you have to execute <c>nmake -f acdk_all.nmake install</c>
+to install the headers and configuration.
+
+<jump3>Visual Studio 2005 Express Beta</jump3>
+A good alternative to the free Borland compiler (see below) for MS Windows is the 
+free (for personal use) %ref[Visual Studio 2005 Express from Microsoft, http://lab.msdn.microsoft.com/express/visualc/default.aspx]. 
+Currently the support of ACDK for Visual Studio 2005 Express is much better than
+for the Borland compilers.
+
+You can download Visual Studio 2005 Express (Beta) from Microsoft.
+Additionally you need also the Platfrom SDK for your Operation system (for example XP).
+The Platform SDK is also available from Microsoft for %ref[download, http://www.microsoft.com/msdownload/platformsdk/sdkupdate/].
+See also the instruction, how to %ref[use the SDK with the Express Edition, http://lab.msdn.microsoft.com/express/visualc/usingpsdk/default.aspx].
+
+Open the ACDK .dsw/.dsp project files with Visual Studio C++ 2005. Visual Studio ask you to
+convert these project files into the new project format: Confirm with Yes to All.
+
+
+Before compiling with IDE, you have to execute <c>nmake -f acdk_all.nmake install</c>
+to install the headers and configuration.
+
+Due a bug in the IDE in the acdk_core com workspaces you may have to modify the linker settings for the acdk_core project:
+add 
+user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib  advapi32.lib shell32.lib  ole32.lib oleaut32.lib uuid.lib wsock32.lib
+to the input for the linker.
+Also add this libraries to the input in all projects of the acdkx_com workspaces.
+<jump3>Lancher scripts for the Visual Studio IDEs</jump3>
+Some ACDK projects (like %ref[acdk_wx], %ref[acdk_perl], %ref[acdk_python], %ref[acdk_tcl])
+needs external libraries. These libraries are configured in batch files (see %ref[External Libraries, #External Libraries]).
+In the root path of ACDK there are also batch files to load these batch files start the Visual IDEs.
+<fl>
+<f> startvstudio6.cmd: to Start Visual Studio 6
+<f> startvstudio7.cmd: to Start Visual Studio 7/2003
+<f> startvstudio2005expr: to Start Visual Studio 2005 Express
+</fl>
+You may have to edit these starter scripts to ajust the path to the IDEs.
+
+
+<jump2>Borland C++-Builder X</jump2>
+The <c>.bpgr</c> and <c>.cbx</c> are for C++-Builder X for
+the Windows and Linux platforms. On both platforms only the
+debug compile mode is configured. 
+C++-Builder can be download for free for personal use.
+
+Before compiling ACDK with C++-Builder the header has to be installed
+(using Borland make (<c>.bcc</c>) on Windows or gnu make on linux).
+
+
+<jump2>Borland BCC 5.5x</jump2>
+On the Windows platform the <c>.bcc</c> make files
+can be used in connection the free Borland command line
+compiler.
+
+<jump1>Missing Header/Libraries</jump1>
+Some packages (f.e. acdk_perl, acdk_tcl, acdk_java, acdk_python, acdk_java, etc.) 
+you need header to include and libraries to link. 
+For these package you may have to correct the include
+and library settings in the make/project files.
+Please refer also to the readmes of these packages.
+
+<jump1>Compiling using acdkmake</jump1>
+Instead of using the platform 'make' you can
+also use acdkmake to build ACDK projects.
+
+You need to download the acdk_tools package compiled
+for your platform.
+<note>
+The acdk_tools package is not always available as binary distribution.
+In this case you have to compile acdk_core, acdk_text, acdk_make with
+the given native make files.
+</note>
+
+Extract the acdk_tools package in different
+directory than acdk packages.
+
+<pre>
+ACDK packages:
+d:\projects\acdk\acdk_core\*.*
+/d/projects/acdk/acdk_core/*.*
+                 etc.
+
+ACDK tools:
+d:\projects\acdk_tools\*.*
+/d/projects/acdk_tools/*.*
+</pre>
+
+Set in shell (cmd, bash) the environment
+variables <b><c>ACDK_TOOLS_HOME=/d/projects/acdk_tools</c></b>
+and <b><c>ACDKHOME=/d/projects/acdk</c></b>.
+
+extend the PATH with /d/projects/acdk_tools/bin
+On unices you may also have to extend the LD_LIBRARY_PATH
+with this directory.
+
+In the package directory should be a build.csf file, which
+is the make file for acdkmake.
+/d/projects/acdk/acdk_core/build.csf.
+
+In this directory just execute acdkmake to compile the project.
+
+<jump2>Usual targets</jump2>
+ACDK build.csf files normally understands following make commands:
+<fl>
+<f> build
+<f> clean
+<f> install
+<f> compile
+<f> test
+</fl>
+Please refer to the %ref[ACDK Make documentation, acdk_make_man] for
+more information.
+
+<jump1>Required Libraries</jump1>
+For some packages additionally libraries are required:
+<fl>
+<f> acdk_wx: %ref[wxWidgets at www.wxwidgets.org, http://www.wxwidgets.org].
+<f> acdk_java: %ref[Java SDK (1.3) at java.sun.com, http://java.sun.com].
+<f> acdk_tcl: %ref[Tcl at tcl.sourceforge.net, http://tcl.sourceforge.net/].
+<f> acdk_perl: %ref[Perl 5.x at www.perl.com, http://www.perl.com/] or
+    %ref[www.activestate.com, http://www.activestate.com].
+<f> acdk_python: %ref[Python at www.python.org, http://www.python.org].
+</fl>
+
+<jump1>More information</jump1>
+
+<fl>
+<f> %ref[ACDK home, http://acdk.sourceforge.net].
+<f> %ref[ACDK support, acdk_support].
+<f> %ref[ACDK packages, acdk_packages].
+<f> %ref[ACDK installation concepts, acdk_install].
+<f> %ref[ACDK Make documentation, acdk_make_man].
+</fl>
+
+</htmlauto>
+
+.

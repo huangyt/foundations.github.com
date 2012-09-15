@@ -1,0 +1,104 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_NET_SRFSYS_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_net.lib" "..\..\bin\acdk_security.lib"
+
+OUTFILE="..\..\bin\acdk_net_srfsys.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_net_srfsys\bcc"
+SOURCES= 	"acdk\net\srfsys\Message.cpp" \
+	"acdk\net\srfsys\SRFileImpl.cpp" \
+	"acdk\net\srfsys\SRFileSystemClient.cpp" \
+	"acdk\net\srfsys\SRFileSystemServer.cpp" \
+	"acdk\net\srfsys\srfsys_metainf_base.cpp" \
+	"acdk\net\srfsys\srfsys_metainf\srfsys_metainf_ext.cpp" \
+
+HEADER= 	"acdk\net\srfsys\Config.h" \
+	"acdk\net\srfsys\FileInfo.h" \
+	"acdk\net\srfsys\Message.h" \
+	"acdk\net\srfsys\ObjectLogReader.h" \
+	"acdk\net\srfsys\ObjectLogWriter.h" \
+	"acdk\net\srfsys\SRFileImpl.h" \
+	"acdk\net\srfsys\SRFileSystemClient.h" \
+	"acdk\net\srfsys\SRFileSystemServer.h" \
+	"acdk\net\srfsys\srfsys.h" \
+
+OBJECTS= 	"..\tobj\acdk_net_srfsys\bcc\Message.obj" \
+	"..\tobj\acdk_net_srfsys\bcc\SRFileImpl.obj" \
+	"..\tobj\acdk_net_srfsys\bcc\SRFileSystemClient.obj" \
+	"..\tobj\acdk_net_srfsys\bcc\SRFileSystemServer.obj" \
+	"..\tobj\acdk_net_srfsys\bcc\srfsys_metainf_base.obj" \
+	"..\tobj\acdk_net_srfsys\bcc\srfsys_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_net_srfsys\bcc\Message.obj": "acdk\net\srfsys\Message.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_srfsys\bcc" "acdk\net\srfsys\Message.cpp"
+
+"..\tobj\acdk_net_srfsys\bcc\SRFileImpl.obj": "acdk\net\srfsys\SRFileImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_srfsys\bcc" "acdk\net\srfsys\SRFileImpl.cpp"
+
+"..\tobj\acdk_net_srfsys\bcc\SRFileSystemClient.obj": "acdk\net\srfsys\SRFileSystemClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_srfsys\bcc" "acdk\net\srfsys\SRFileSystemClient.cpp"
+
+"..\tobj\acdk_net_srfsys\bcc\SRFileSystemServer.obj": "acdk\net\srfsys\SRFileSystemServer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_srfsys\bcc" "acdk\net\srfsys\SRFileSystemServer.cpp"
+
+"..\tobj\acdk_net_srfsys\bcc\srfsys_metainf_base.obj": "acdk\net\srfsys\srfsys_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_srfsys\bcc" "acdk\net\srfsys\srfsys_metainf_base.cpp"
+
+"..\tobj\acdk_net_srfsys\bcc\srfsys_metainf_ext.obj": "acdk\net\srfsys\srfsys_metainf\srfsys_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_srfsys\bcc" "acdk\net\srfsys\srfsys_metainf\srfsys_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_net_srfsys.dll"
+	del "..\tobj\acdk_net_srfsys\bcc\Message.obj"
+	del "..\tobj\acdk_net_srfsys\bcc\SRFileImpl.obj"
+	del "..\tobj\acdk_net_srfsys\bcc\SRFileSystemClient.obj"
+	del "..\tobj\acdk_net_srfsys\bcc\SRFileSystemServer.obj"
+	del "..\tobj\acdk_net_srfsys\bcc\srfsys_metainf_base.obj"
+	del "..\tobj\acdk_net_srfsys\bcc\srfsys_metainf_ext.obj"
+
+

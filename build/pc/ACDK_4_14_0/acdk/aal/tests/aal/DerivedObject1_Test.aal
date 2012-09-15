@@ -1,0 +1,7 @@
+using acdk.lang;
+class ExtInteger extends Integer 
+{
+	public ExtInteger(int i) : acdk.lang.Integer(i) {}
+  public ExtInteger() : Integer(42) {}
+  public String toString() { return Integer.toString(); } 
+}

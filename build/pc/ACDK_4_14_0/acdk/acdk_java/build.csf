@@ -1,0 +1,83 @@
+#include "amake_config.csf"
+#include "amake_java_config.csf"
+
+acdk_java = new acdk.make.AcdkLibTask("acdk_java");
+acdk_java.addSource("src/acdk/java");
+acdk_java.addSource("src/acdk/java/awt");
+acdk_java.addSource("src/acdk/java/awt/event");
+acdk_java.addAcdkLib("acdk_core");
+acdk_java.addExtLibs(__props.getStringArrayVal("JAVA_JNI_LIBRARY_LIST"));
+acdk_java.addExtIncludeDirs(__props.getStringArrayVal("CCC_JAVA_INCLUDE_LIST"));
+acdk_java.addLibraryPaths(__props.getStringArrayVal("CCC_JAVA_LIBPATH_LIST"));
+
+
+acdkjava = new acdk.make.AcdkExeTask("acdkjava");
+acdkjava.addSource("src/acdk/java/interpreter");
+acdkjava.addAcdkLib("acdk_core");
+acdkjava.addAcdkLib("acdk_java");
+acdkjava.addSubTask("acdk_java");
+acdkjava.addExtLibs(__props.getStringArrayVal("JAVA_JNI_LIBRARY_LIST"));
+acdkjava.addExtIncludeDirs(__props.getStringArrayVal("CCC_JAVA_INCLUDE_LIST"));
+acdkjava.addLibraryPaths(__props.getStringArrayVal("CCC_JAVA_LIBPATH_LIST"));
+
+//acdkjava.addModuleConfigTask("amake_java_config");
+
+acdk_java_serialization = new acdk.make.AcdkLibTask("acdk_java_serialization");
+acdk_java_serialization.addSource("src/acdk/java/serialization");
+acdk_java_serialization.addAcdkLib("acdk_core");
+
+
+
+acdk_java_serialization_Test = new acdk.make.AcdkExeTask("acdk_java_serialization_Test");
+acdk_java_serialization_Test.addSource("tests/acdk/java/serialization");
+acdk_java_serialization_Test.addAcdkLib("acdk_core");
+acdk_java_serialization_Test.addAcdkLib("acdk_java_serialization");
+acdk_java_serialization_Test.addAcdkLib("acdk_tools_aunit");
+acdk_java_serialization_Test.addSubTask("acdk_java_serialization");
+
+acdk_java_AcdkObject = new acdk.make.JavaCompileTask("src/acdk/java/AcdkObject.java");
+// acdk_java_ActionListenerProxy = new acdk.make.JavaCompileTask("src/acdk/java/ActionListenerProxy.java");
+acdk_java_awt_event_AwtListener = new acdk.make.JavaCompileTask("src/acdk/java/awt/event/AwtListener.java");
+tests_acdk_java_AcdkObject_Test = new acdk.make.JavaCompileTask("tests/acdk/java/AcdkObject_Test.java");
+JavaDmiServer_Test = new acdk.make.JavaCompileTask("tests/acdk/java/JavaDmiServer_Test.java");
+
+javaSources = new acdk.make.ProjectTask("javaSources");
+javaSources.addDependingTask(acdk_java_AcdkObject);
+// javaSources.addDependingTask(acdk_java_ActionListenerProxy);
+javaSources.addDependingTask(acdk_java_awt_event_AwtListener);
+javaSources.addDependingTask(tests_acdk_java_AcdkObject_Test);
+javaSources.addDependingTask(JavaDmiServer_Test);
+
+acdk_java_Test = new acdk.make.AcdkExeTask("acdk_java_Test");
+acdk_java_Test.addSource("tests/acdk/java");
+acdk_java_Test.addAcdkLib("acdk_core");
+acdk_java_Test.addAcdkLib("acdk_java");
+acdk_java_Test.addAcdkLib("acdk_tools_aunit");
+acdk_java_Test.addSubTask("acdk_java");
+acdk_java_Test.addSubTask("javaSources");
+acdk_java_Test.addExtLibs(__props.getStringArrayVal("JAVA_JNI_LIBRARY_LIST"));
+acdk_java_Test.addExtIncludeDirs(__props.getStringArrayVal("CCC_JAVA_INCLUDE_LIST"));
+acdk_java_Test.addLibraryPaths(__props.getStringArrayVal("CCC_JAVA_LIBPATH_LIST"));
+
+
+default = new acdk.make.AcdkProjectTask("default");
+default.registerTask("acdk_java_prj");
+default.addSubTask("acdk_java_serialization");
+default.addSubTask("acdk_java_serialization_Test");
+default.addSubTask("acdk_java");
+default.addSubTask("acdkjava");
+default.addSubTask("acdk_java_Test");
+default.addSubTask("javaSources");
+
+cmdline = "${JAVA} tests.acdk.java.AcdkObject_Test";
+AcdkObject_Test = new acdk.make.ShellExecuteTask("AcdkObject_Test", "Test Task", cmdline, 16);
+AcdkObject_Test.registerTask();
+
+AcdkObject_Test.setWorkingDir(__props.getStringVal("ACDKHOME") + File_separator + "bin");
+
+
+// what to test will be a task named "test"
+test = new acdk.make.TestTask("test");
+test.addTest("acdk_java_serialization_Test");
+test.addTest("acdk_java_Test");
+test.addTest("acdk_java_Test");

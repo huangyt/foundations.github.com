@@ -1,0 +1,35 @@
+%id: acdk_cfgscript_hb_lang_stmt
+%title: CfgScript Statements
+%shorttitle: Statements
+%chapter: acdk_cfgscript_hb_lang_stmt_expr, acdk_cfgscript_hb_lang_stmt_block, \
+          acdk_cfgscript_hb_lang_stmt_branch, acdk_cfgscript_hb_lang_stmt_loop, \
+          acdk_cfgscript_hb_lang_stmt_typedecl, acdk_cfgscript_hb_lang_stmt_vardecl, \
+          acdk_cfgscript_hb_lang_stmt_sync, acdk_cfgscript_hb_lang_stmt_with, \
+          acdk_cfgscript_hb_lang_stmt_using, \
+          acdk_cfgscript_hb_lang_stmt_typealias
+%body:
+<chapterline/>
+<pageintro>
+Statments represends the basic operations to control execution flow
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Statement</jump1>
+<pre>
+Statement
+: %ref[Expression, acdk_cfgscript_hb_lang_expr] 
+| %ref[BlockStatment, acdk_cfgscript_hb_lang_stmt_block]
+| %ref[BranchStatement, acdk_cfgscript_hb_lang_stmt_branch]
+| %ref[LoopStatement, acdk_cfgscript_hb_lang_stmt_loop]
+| %ref[SynchronizeStatement, acdk_cfgscript_hb_lang_stmt_sync]
+| %ref[TypeDecl, acdk_cfgscript_hb_lang_stmt_typedecl]
+| %ref[VarDecl, acdk_cfgscript_hb_lang_stmt_vardecl]
+| %ref[UsingStatement, acdk_cfgscript_hb_lang_stmt_using]
+| %ref[TypeAliasStatement, acdk_cfgscript_hb_lang_stmt_typealias]
+;
+</pre>
+
+<subschapterstable/>
+.

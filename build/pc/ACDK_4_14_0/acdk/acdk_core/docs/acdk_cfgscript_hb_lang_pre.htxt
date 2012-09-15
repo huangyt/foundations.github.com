@@ -1,0 +1,31 @@
+%id: acdk_cfgscript_hb_lang_pre
+%title: CfgScript Preprocessor statements
+%shorttitle: Preprocessor
+%keywords: preprocessor
+%chapter: acdk_cfgscript_hb_lang_pre_include, acdk_cfgscript_hb_lang_pre_pragma_weakstrong, acdk_cfgscript_hb_lang_pre_pragma_cast
+%body:
+<chapterline/>
+<pageintro>
+With the include preprocessor statement other <c>.csf</c> files can 
+be included into another script file.
+</pageintro>
+
+<htmlauto/>
+
+<pre>
+PreprocessorStatement
+: %ref[IncludeStatement, acdk_cfgscript_hb_lang_pre_include]
+| %ref[PragmaStrictWeakStatement, acdk_cfgscript_hb_lang_pre_pragma_weakstrong]
+| %ref[PragmaCastStatement, acdk_cfgscript_hb_lang_pre_pragma_cast]
+;
+</pre>
+
+
+Note: This are no real preprocessor statements (which are pre processed by a pre-processor) 
+in the scripting language. These statements are only named as preprocessor statement, because
+they have similar syntax as preprocessor statements in C/C++ and controls the behavior of the
+interpreter.
+
+<subschapterstable/>
+
+.

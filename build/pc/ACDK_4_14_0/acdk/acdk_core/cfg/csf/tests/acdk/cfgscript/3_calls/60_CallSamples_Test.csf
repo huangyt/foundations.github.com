@@ -1,0 +1,87 @@
+
+
+class MyClass
+{
+  /*
+  static void callRest(Rest rest)
+  {
+    out.println("Function called with " + String.valueOf(rest.length()) + " rest parameters");
+    foreach (v in rest)
+    {
+      out.println("  " + v.getClass().toString() + ": " + v.toString());
+    }
+  }
+  */
+  static void callRest(float r, Rest rest)
+  {
+    out.println("Function called with r=" + r + ", rest: " + String.valueOf(rest.length()) + " rest parameters");
+    foreach (v in rest)
+    {
+      out.println("  " + v.getClass().toString() + ": " + v.toString());
+    }
+  }
+  static void callNamed(float r, String s, int i)
+  {
+    out.println("calledNamed(" + r + ", " + s + ", " + i + ")");
+  }
+  static void callNamedRest(float r, String s, int i, NamedRest rest)
+  {
+    out.println("calledNamed(" + r + ", " + s + ", " + i + ")");
+    out.println("with rest: ");
+    foreach (DmiNamedArg a in rest)
+    {
+      out.println(a.name + ": " + a.value);
+    }
+  }
+  static String another(Object obj, String message, 
+                                  String defaultDir = "",
+                                  String defaultFile = "",
+                                  String wildCard = "*.*",
+                                  int style = 0,
+                                  StringBuffer pos = new StringBuffer(""))
+  {
+    StringBuffer sb = new StringBuffer();
+    sb << "another called with defaultDir: " << defaultDir 
+       << "; defaultFile: " << defaultFile 
+       << "; widlCard: " << wildCard 
+       << "; style: " << style;
+    out.println(sb.toString());
+    return sb.toString();
+  }
+  static void callAny(Any any)
+  {
+    if (any instanceof float)
+      out.println("Called any with floating: " + any.toString());
+    else
+      out.println("Called any with " + any.getClass().getName() + ": " + any.toString());
+  }
+}
+
+
+MyClass.callRest(42, "asdf", 43.3);
+try {
+  MyClass.callRest("asdf", "asdf", 43.3);
+} catch (DmiException ex) {
+}
+
+#pragma cast f2i2f false
+try {
+  MyClass.callRest(42, "asdf", 43.3); 
+} catch (DmiException ex) {
+}
+#pragma cast f2i2f true
+
+/* currently not working
+MyClass.callRest(r: 3, "asdf", 43.3); 
+*/
+MyClass.callNamed(s: "asdf", i: 42, r: 43.4);
+MyClass.callNamedRest(s: "asdf", i: 42, r: 43.4);
+MyClass.callNamedRest(13.3, "dsd", 32, s: "asdf", i: 42, r: 43.4);
+
+MyClass.callAny("asdf");
+MyClass.callAny(42.4);
+
+//MyClass.callNamedRest(s: "asdf", i: 42, r: 43.4, x: 234, y: "asdf");
+/* does not work
+MyClass.another(Nil, "Hello", wildCard: "*.txt", style: 10);
+*/

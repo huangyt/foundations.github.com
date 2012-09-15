@@ -1,0 +1,119 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>CfgScript Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Expressions<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_operator.html">Operator</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | Expressions | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Expressions</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | Expressions | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p>
+<p class="PageIntro">
+Expression results into a value 
+</p>
+
+<br>
+<a name="jumptable28"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Expression"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Expression</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable28"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Expression">Expression</a></h2>
+<pre>
+Expression
+: <a  href="acdk_cfgscript_hb_lang_expr_literal.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;LiteralExpression</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_assign.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;AssignmentExpression</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_operator.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;OperatorExpression</a>
+| <a  href="acdk_cfgscript_interpreter.html#Script Environment"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;IdentifierExpression</a>
+| NewExpression
+| <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;InstanceOfExpression</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_delegate.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;DelegateExpression</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_lambda.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;LambdaExpression</a>
+;
+</pre>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_expr_literal.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Literal Expressions</a></p><p class="pagesummary">
+Literals are hard coded values of basic or component types.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_expr_assign.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Assignment Expressions</a></p><p class="pagesummary">
+Assignment bind values to a variable
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_expr_operator.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Operator Expressions</a></p><p class="pagesummary">
+An Operator is a special function connected to a Object
+or class.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_expr_instanceof.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Instanceof Expressions</a></p><p class="pagesummary">
+instanceof check if an object is type of a class
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_expr_delegate.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript delegate Expressions</a></p><p class="pagesummary">
+Delegates are a powerfull mechanism to implement
+function level dispatching, callbacks and signal/slot mechanism.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_expr_lambda.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Lambda Expressions</a></p><p class="pagesummary">
+The lambda expression is a easy way to define methods in place. The result
+of a lambda expression is a Delegate object.
+</p></td></tr></table><!-- subchaptersframe -->
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | Expressions | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

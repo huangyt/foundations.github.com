@@ -1,0 +1,103 @@
+
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+OUTDIR=D:\achim\mo\acdk\bin
+INTDIR=..\obj\acdk_tools_odbctests\nmake
+
+TARGET = D:\achim\mo\acdk\bin\acdk_tools_odbctestsacdkmake-target-binext
+ALL : $(TARGET)
+
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+CPP_SYSDEFINES = /nologo /MDd /w /W0 /Gm /GR /GX /Zi /Od 
+CPP_USERDEFINES =  
+CPP_INCLUDES =  /I "."  /I "D:\achim\mo\acdk/include"  
+CPP_DEFINES =  /D "OS_WIN32" /D "ACDK_USE_ACDK_LIB" /D "USE_ACDK_TEXT_LIB" /D "USE_ACDK_SQL_LIB" /D "USE_ACDK_SQL_ODBC_LIB" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MT" /D "ACDK_USE_GC" /D "ACDK_DEBUG"
+CPP_PROJ= $(CPP_SYSDEFINES) $(CPP_INCLUDES) $(CPP_DEFINES) $(CPP_USERDEFINES)  /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MT" /D "_USRDLL" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /GZ /c 
+
+
+LINK32=link.exe
+LINK32_SYSLIBS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib 
+LINK32_ACDK_LIBS= D:\achim\mo\acdk\bin\nmake\acdk_core_dll.lib D:\achim\mo\acdk\bin\nmake\acdk_text_dll.lib D:\achim\mo\acdk\bin\nmake\acdk_sql_dll.lib D:\achim\mo\acdk\bin\nmake\acdk_sql_odbc_dll.lib
+LINK32_FLAGS=$(LINK32_ACDK_LIBS) $(LINK32_SYSLIBS)    /SUBSYSTEM:CONSOLE /INCREMENTAL:NO /incremental:no /pdb:"$(OUTDIR)\acdk_tools_odbctests.pdb" /debug /machine:I386 /out:"$(OUTDIR)\acdk_tools_odbctests.exe"  /pdbtype:sept
+LINK32_OBJS= \
+		..\obj\acdk_tools_odbctests\nmake\odbctests.obj \
+	..\obj\acdk_tools_odbctests\nmake\dbconnect.obj \
+	..\obj\acdk_tools_odbctests\nmake\odbctests_clazzinfo.obj \
+
+
+$(TARGET) : $(INTDIR) $(OUTDIR) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+
+
+
+..\obj\acdk_tools_odbctests\nmake\odbctests.obj: acdk\tools\odbctests\odbctests.cpp
+	$(CPP) -c $(CPP_PROJ) acdk\tools\odbctests\odbctests.cpp
+
+..\obj\acdk_tools_odbctests\nmake\dbconnect.obj: acdk\tools\odbctests\dbconnect.cpp
+	$(CPP) -c $(CPP_PROJ) acdk\tools\odbctests\dbconnect.cpp
+
+..\obj\acdk_tools_odbctests\nmake\odbctests_clazzinfo.obj: acdk\tools\odbctests\odbctests_clazzinfo.cpp
+	$(CPP) -c $(CPP_PROJ) acdk\tools\odbctests\odbctests_clazzinfo.cpp
+
+
+
+clean:
+	del D:\achim\mo\acdk\bin\acdk_tools_odbctestsacdkmake-target-binext
+	del ..\obj\acdk_tools_odbctests\nmake\odbctests.obj
+	del ..\obj\acdk_tools_odbctests\nmake\dbconnect.obj
+	del ..\obj\acdk_tools_odbctests\nmake\odbctests_clazzinfo.obj
+
+
+
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+
+
+

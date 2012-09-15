@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{e1319cd7-52b3-4c08-b380-0a693ac7d647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql">
+      <UniqueIdentifier>{180a6c43-e0de-4b93-89a0-b9a01598acfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql\sql_metainf">
+      <UniqueIdentifier>{71e81e5b-8bf8-48ae-8b05-e94abae74f07}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\sql\sql_metainf\sql_metainf_ext.cpp">
+      <Filter>acdk\sql\sql_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sql_metainf\sql_metainf_ext1.cpp">
+      <Filter>acdk\sql\sql_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sql_metainf\sql_metainf_ext2.cpp">
+      <Filter>acdk\sql\sql_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

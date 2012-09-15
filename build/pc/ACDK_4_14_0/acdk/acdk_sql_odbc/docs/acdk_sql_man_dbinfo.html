@@ -1,0 +1,255 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="SQL, ODBC, Types">
+<title>ACDK SQL Database information</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK SQL ODBC</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_sql_man.html">ACDK SQL Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Database information
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | Database information |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK SQL Database information</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK SQL Database information</h1> -->
+<p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | Database information |</p>
+<p class="PageIntro">
+Receiving meta data from database objects.
+</p>
+
+
+<br>
+<a name="jumptable121"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Query Metadata for ResultSet"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Query Metadata for ResultSet</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Receive available Database objects"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Receive available Database objects</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Receive Database MetaData"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Receive Database MetaData</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<br>
+<h2><a href="#jumptable121"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Query Metadata for ResultSet">Query Metadata for ResultSet</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    <I><FONT COLOR="#B22222">// create a statement
+</FONT></I>    RStatement statement = connection-&gt;createStatement();
+    RString sql = <B><FONT COLOR="#BC8F8F">&quot;SELECT intcol, realcol, stringcol FROM acdk_select_test&quot;</FONT></B>; 
+    RResultSet rset = statement-&gt;executeQuery(sql);
+    <I><FONT COLOR="#B22222">// retrieving meta information from the result set
+</FONT></I>    RResultSetMetaData mdata = rset-&gt;getMetaData();
+    <B><FONT COLOR="#228B22">int</FONT></B> colcount = mdata-&gt;getColumnCount(); 
+    <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i = 1; i &lt;= colcount; ++i)
+    {
+      <I><FONT COLOR="#B22222">// the meta data from each column
+</FONT></I>      RString label = mdata-&gt;getColumnLabel(i); 
+      RString name = mdata-&gt;getColumnName(i);
+      RString schema = mdata-&gt;getSchemaName(i);
+      <B><FONT COLOR="#228B22">int</FONT></B> type = mdata-&gt;getColumnType(i);
+      RString typname = mdata-&gt;getColumnTypeName(i);
+    }
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable121"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Receive available Database objects">Receive available Database objects</a></h2>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  RDatabaseMetaData dmd = connection-&gt;getMetaData();
+  RResultSet rset = dmd-&gt;getTables(<B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>); <I><FONT COLOR="#B22222">// works for oracle, but not for  Microsoft SQL Server
+</FONT></I>  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Tables:\n&quot;</FONT></B>;
+  <B><FONT COLOR="#A020F0">while</FONT></B> (rset-&gt;next() == true) 
+  {
+    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\t&quot;</FONT></B>;
+    RString catalog = rset-&gt;getString(1);
+    RString schema = rset-&gt;getString(2);
+    RString tableName = rset-&gt;getString(3);
+    RString tableType = rset-&gt;getString(4);
+    RString remarks = rset-&gt;getString(5);
+    <B><FONT COLOR="#A020F0">if</FONT></B> (catalog != Nil)
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; Catalog: &quot;</FONT></B> &lt;&lt; catalog;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (schema != Nil)
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; Schema: &quot;</FONT></B> &lt;&lt; schema;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (tableName != Nil)
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; TableName: &quot;</FONT></B> &lt;&lt; tableName;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (tableType != Nil)
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; tableType: &quot;</FONT></B> &lt;&lt; tableType;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (remarks != Nil)
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; remarks: &quot;</FONT></B> &lt;&lt; tableType;
+    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>;
+  }
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>;
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;flush();
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable121"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Receive Database MetaData">Receive Database MetaData</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  
+  RDatabaseMetaData dmd = connection-&gt;getMetaData();
+  <I><FONT COLOR="#B22222">// 
+</FONT></I>  RString dbname = dmd-&gt;getDatabaseProductName();
+  RString dbversion = dmd-&gt;getDatabaseProductVersion();
+  
+  <I><FONT COLOR="#B22222">// print out the available information of the database
+</FONT></I>  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out 
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Database: &quot;</FONT></B> &lt;&lt; dbname &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; Version: &quot;</FONT></B> &lt;&lt; dbversion &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;User: &quot;</FONT></B> &lt;&lt; dmd-&gt;getUserName() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;IsReadOnly: &quot;</FONT></B> &lt;&lt; dmd-&gt;isReadOnly() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;nullsAreSortedHigh: &quot;</FONT></B> &lt;&lt; dmd-&gt;nullsAreSortedHigh() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;nullsAreSortedLow: &quot;</FONT></B> &lt;&lt; dmd-&gt;nullsAreSortedHigh() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;nullsAreSortedAtStart: &quot;</FONT></B> &lt;&lt; dmd-&gt;nullsAreSortedHigh() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;nullsAreSortedAtEnd: &quot;</FONT></B> &lt;&lt; dmd-&gt;nullsAreSortedHigh() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getDriverName: &quot;</FONT></B> &lt;&lt; dmd-&gt;getDriverName() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getDriverVersion: &quot;</FONT></B> &lt;&lt; dmd-&gt;getDriverVersion() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;usesLocalFiles: &quot;</FONT></B> &lt;&lt; dmd-&gt;usesLocalFiles() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;usesLocalFilePerTable: &quot;</FONT></B> &lt;&lt; dmd-&gt;usesLocalFilePerTable() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsMixedCaseIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsMixedCaseIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;storesUpperCaseIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;storesUpperCaseIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;storesLowerCaseIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;storesLowerCaseIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;storesMixedCaseIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;storesMixedCaseIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsMixedCaseQuotedIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsMixedCaseQuotedIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;storesUpperCaseQuotedIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;storesUpperCaseQuotedIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;storesLowerCaseQuotedIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;storesLowerCaseQuotedIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;storesMixedCaseQuotedIdentifiers: &quot;</FONT></B> &lt;&lt; dmd-&gt;storesMixedCaseQuotedIdentifiers() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getSQLKeywords: &quot;</FONT></B> &lt;&lt; dmd-&gt;getSQLKeywords() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getNumericFunctions: &quot;</FONT></B> &lt;&lt; dmd-&gt;getNumericFunctions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getStringFunctions: &quot;</FONT></B> &lt;&lt; dmd-&gt;getStringFunctions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getSystemFunctions: &quot;</FONT></B> &lt;&lt; dmd-&gt;getSystemFunctions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getDateTimeFunctions: &quot;</FONT></B> &lt;&lt; dmd-&gt;getDateTimeFunctions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getSearchStringEscape: &quot;</FONT></B> &lt;&lt; dmd-&gt;getSearchStringEscape() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getExtraNameCharacters: &quot;</FONT></B> &lt;&lt; dmd-&gt;getExtraNameCharacters() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsAlterTableWithAddColumn: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsAlterTableWithAddColumn() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsAlterTableWithDropColumn: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsAlterTableWithDropColumn() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsColumnAliasing: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsColumnAliasing() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;nullPlusNonNullIsNull: &quot;</FONT></B> &lt;&lt; dmd-&gt;nullPlusNonNullIsNull() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsConvert: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsConvert() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsTableCorrelationNames: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsTableCorrelationNames() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsDifferentTableCorrelationNames: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsDifferentTableCorrelationNames() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsExpressionsInOrderBy: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsExpressionsInOrderBy() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsOrderByUnrelated: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsOrderByUnrelated() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsGroupBy: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsGroupBy() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsGroupByUnrelated: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsGroupByUnrelated() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsGroupByBeyondSelect: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsGroupByBeyondSelect() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsLikeEscapeClause: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsLikeEscapeClause() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsMultipleResultSets: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsMultipleResultSets() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsMultipleTransactions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsMultipleTransactions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsNonNullableColumns: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsNonNullableColumns() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsMinimumSQLGrammar: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsMinimumSQLGrammar() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsCoreSQLGrammar: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsCoreSQLGrammar() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsExtendedSQLGrammar: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsExtendedSQLGrammar() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsANSI92EntryLevelSQL: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsANSI92EntryLevelSQL() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsANSI92IntermediateSQL: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsANSI92IntermediateSQL() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsANSI92FullSQL: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsANSI92FullSQL() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsIntegrityEnhancementFacility: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsIntegrityEnhancementFacility() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsFullOuterJoins: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsFullOuterJoins() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsLimitedOuterJoins: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsLimitedOuterJoins() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getSchemaTerm: &quot;</FONT></B> &lt;&lt; dmd-&gt;getSchemaTerm() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getProcedureTerm: &quot;</FONT></B> &lt;&lt; dmd-&gt;getProcedureTerm() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getCatalogTerm: &quot;</FONT></B> &lt;&lt; dmd-&gt;getCatalogTerm() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;isCatalogAtStart: &quot;</FONT></B> &lt;&lt; dmd-&gt;isCatalogAtStart() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getCatalogSeparator: &quot;</FONT></B> &lt;&lt; dmd-&gt;getCatalogSeparator() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getCatalogSeparator: &quot;</FONT></B> &lt;&lt; dmd-&gt;getCatalogSeparator() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSchemasInProcedureCalls: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSchemasInProcedureCalls() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSchemasInTableDefinitions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSchemasInTableDefinitions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSchemasInIndexDefinitions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSchemasInIndexDefinitions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSchemasInPrivilegeDefinitions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSchemasInPrivilegeDefinitions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsCatalogsInDataManipulation: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsCatalogsInDataManipulation() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsCatalogsInProcedureCalls: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsCatalogsInProcedureCalls() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsCatalogsInTableDefinitions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsCatalogsInTableDefinitions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsCatalogsInIndexDefinitions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsCatalogsInIndexDefinitions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    <I><FONT COLOR="#B22222">// not supported &lt;&lt; &quot;supportsCatalogInPrivilegeDefinitions: &quot; &lt;&lt; dmd-&gt;supportsCatalogInPrivilegeDefinitions() &lt;&lt; &quot;\n&quot;
+</FONT></I>    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsPositionedDelete: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsPositionedDelete() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsPositionedUpdate: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsPositionedUpdate() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSelectForUpdate: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSelectForUpdate() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsStoredProcedures: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsStoredProcedures() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSubqueriesInComparisons: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSubqueriesInComparisons() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSubqueriesInExists: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSubqueriesInExists() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSubqueriesInIns: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSubqueriesInIns() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsSubqueriesInQuantifieds: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsSubqueriesInQuantifieds() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsCorrelatedSubqueries: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsCorrelatedSubqueries() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsUnion: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsUnion() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsUnionAll: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsUnionAll() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsOpenCursorsAcrossCommit: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsOpenCursorsAcrossCommit() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsOpenCursorsAcrossRollback: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsOpenCursorsAcrossRollback() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsOpenStatementsAcrossCommit: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsOpenStatementsAcrossCommit() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsOpenStatementsAcrossRollback: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsOpenStatementsAcrossRollback() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxBinaryLiteralLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxBinaryLiteralLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxCharLiteralLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxCharLiteralLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxColumnNameLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxColumnNameLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxColumnsInGroupBy: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxColumnsInGroupBy() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxColumnsInIndex: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxColumnsInIndex() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxColumnsInOrderBy: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxColumnsInOrderBy() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxColumnsInSelect: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxColumnsInSelect() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxColumnsInTable: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxColumnsInTable() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxConnections: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxConnections() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxCursorNameLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxCursorNameLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxIndexLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxIndexLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxSchemaNameLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxSchemaNameLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxProcedureNameLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxProcedureNameLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxCatalogNameLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxCatalogNameLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxRowSize: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxRowSize() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;doesMaxRowSizeIncludeBlobs: &quot;</FONT></B> &lt;&lt; dmd-&gt;doesMaxRowSizeIncludeBlobs() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxStatementLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxStatementLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxStatements: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxStatements() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxTableNameLength: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxTableNameLength() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getMaxTablesInSelect: &quot;</FONT></B> &lt;&lt; dmd-&gt;getMaxTablesInSelect() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;getDefaultTransactionIsolation: &quot;</FONT></B> &lt;&lt; dmd-&gt;getDefaultTransactionIsolation() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsTransactions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsTransactions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsDataDefinitionAndDataManipulationTransactions: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsDataDefinitionAndDataManipulationTransactions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;supportsDataManipulationTransactionsOnly: &quot;</FONT></B> &lt;&lt; dmd-&gt;supportsDataManipulationTransactionsOnly() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;dataDefinitionCausesTransactionCommit: &quot;</FONT></B> &lt;&lt; dmd-&gt;dataDefinitionCausesTransactionCommit() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+    &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;dataDefinitionIgnoredInTransactions: &quot;</FONT></B> &lt;&lt; dmd-&gt;dataDefinitionIgnoredInTransactions() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+  ;
+
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | Database information |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

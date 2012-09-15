@@ -1,0 +1,56 @@
+// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- 
+//
+// Copyright (C) 2000-2005 by Roger Rene Kommer / artefaktur, Kassel, Germany.
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Library General Public License (LGPL).
+// 
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the 
+// License ACDK-FreeLicense document enclosed in the distribution
+// for more for more details.
+
+// This file is part of the Artefaktur Component Development Kit:
+//                         ACDK
+// 
+// Please refer to
+// - http://www.acdk.de
+// - http://www.artefaktur.com
+// - http://acdk.sourceforge.net
+// for more information.
+// 
+
+
+#include "JobExecuterTask.h"
+
+namespace acdk {
+namespace make {
+
+
+JobExecuterTask::JobExecuterTask(int threadNum, bool breakOnFail)
+: AbstractTask()
+, _pool(new ThreadPool(1, threadNum))
+, _threadNum(threadNum)
+, _breakOnFail(breakOnFail)
+{
+}
+
+//virtual 
+bool 
+JobExecuterTask::execute(IN(RString) exec, IN(RProps) props)
+{
+  _pool->start();
+  Thread::sleep(200);
+  _pool->join();
+  return _pool->failedCount() == 0;
+}
+
+
+
+} // namespace make
+} // namespace acdk
+
+
+

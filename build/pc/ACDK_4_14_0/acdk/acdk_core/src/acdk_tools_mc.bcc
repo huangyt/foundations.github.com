@@ -1,0 +1,245 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_TOOLS_MC_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib"
+
+OUTFILE="..\..\bin\acdk_tools_mc.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_tools_mc\bcc"
+SOURCES= 	"acdk\tools\mc\ArgumentInfo.cpp" \
+	"acdk\tools\mc\ClassInfo.cpp" \
+	"acdk\tools\mc\ClassInitAttribute.cpp" \
+	"acdk\tools\mc\ClazzFlagAttribute.cpp" \
+	"acdk\tools\mc\ClazzNameAttribute.cpp" \
+	"acdk\tools\mc\CodeAttribute.cpp" \
+	"acdk\tools\mc\CodeInfo.cpp" \
+	"acdk\tools\mc\DmiProxyAttribute.cpp" \
+	"acdk\tools\mc\DmiProxyGenerator.cpp" \
+	"acdk\tools\mc\DmiProxyGeneratorExt.cpp" \
+	"acdk\tools\mc\EnumArgAttribute.cpp" \
+	"acdk\tools\mc\EnumInfo.cpp" \
+	"acdk\tools\mc\FieldInfo.cpp" \
+	"acdk\tools\mc\InvokeForwardAttribute.cpp" \
+	"acdk\tools\mc\McConfigAttribute.cpp" \
+	"acdk\tools\mc\mc_metainf_base.cpp" \
+	"acdk\tools\mc\MetaCompiler.cpp" \
+	"acdk\tools\mc\MethodAltNameAttribute.cpp" \
+	"acdk\tools\mc\MethodInfo.cpp" \
+	"acdk\tools\mc\ModuleInfo.cpp" \
+	"acdk\tools\mc\SetDispatchAttribute.cpp" \
+	"acdk\tools\mc\StringTagAttribute.cpp" \
+	"acdk\tools\mc\SuperInfo.cpp" \
+	"acdk\tools\mc\ThrowableAttribute.cpp" \
+	"acdk\tools\mc\TypeScope.cpp" \
+	"acdk\tools\mc\mc_metainf\mc_metainf_ext.cpp" \
+
+HEADER= 	"acdk\tools\mc\ArgumentInfo.h" \
+	"acdk\tools\mc\ClassInfo.h" \
+	"acdk\tools\mc\ClassInitAttribute.h" \
+	"acdk\tools\mc\ClazzFlagAttribute.h" \
+	"acdk\tools\mc\ClazzNameAttribute.h" \
+	"acdk\tools\mc\CMCException.h" \
+	"acdk\tools\mc\CodeAttribute.h" \
+	"acdk\tools\mc\CodeInfo.h" \
+	"acdk\tools\mc\Config.h" \
+	"acdk\tools\mc\DispatchForwardAttributeTest.h" \
+	"acdk\tools\mc\DmiProxyAttribute.h" \
+	"acdk\tools\mc\DmiProxyGenerator.h" \
+	"acdk\tools\mc\DmiProxyGeneratorExt.h" \
+	"acdk\tools\mc\EnumArgAttribute.h" \
+	"acdk\tools\mc\EnumInfo.h" \
+	"acdk\tools\mc\FieldInfo.h" \
+	"acdk\tools\mc\InvokeForwardAttribute.h" \
+	"acdk\tools\mc\mc.h" \
+	"acdk\tools\mc\McConfigAttribute.h" \
+	"acdk\tools\mc\MetaCompiler.h" \
+	"acdk\tools\mc\MethodAltNameAttribute.h" \
+	"acdk\tools\mc\MethodInfo.h" \
+	"acdk\tools\mc\ModuleInfo.h" \
+	"acdk\tools\mc\SetDispatchAttribute.h" \
+	"acdk\tools\mc\StringTagAttribute.h" \
+	"acdk\tools\mc\SuperInfo.h" \
+	"acdk\tools\mc\ThrowableAttribute.h" \
+	"acdk\tools\mc\TokenStack.h" \
+	"acdk\tools\mc\TypeScope.h" \
+	"acdk\tools\mc\UnitInfo.h" \
+
+OBJECTS= 	"..\tobj\acdk_tools_mc\bcc\ArgumentInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\ClassInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\ClassInitAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\ClazzFlagAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\ClazzNameAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\CodeAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\CodeInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\DmiProxyAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\DmiProxyGenerator.obj" \
+	"..\tobj\acdk_tools_mc\bcc\DmiProxyGeneratorExt.obj" \
+	"..\tobj\acdk_tools_mc\bcc\EnumArgAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\EnumInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\FieldInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\InvokeForwardAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\McConfigAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\mc_metainf_base.obj" \
+	"..\tobj\acdk_tools_mc\bcc\MetaCompiler.obj" \
+	"..\tobj\acdk_tools_mc\bcc\MethodAltNameAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\MethodInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\ModuleInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\SetDispatchAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\StringTagAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\SuperInfo.obj" \
+	"..\tobj\acdk_tools_mc\bcc\ThrowableAttribute.obj" \
+	"..\tobj\acdk_tools_mc\bcc\TypeScope.obj" \
+	"..\tobj\acdk_tools_mc\bcc\mc_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_tools_mc\bcc\ArgumentInfo.obj": "acdk\tools\mc\ArgumentInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ArgumentInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\ClassInfo.obj": "acdk\tools\mc\ClassInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ClassInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\ClassInitAttribute.obj": "acdk\tools\mc\ClassInitAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ClassInitAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\ClazzFlagAttribute.obj": "acdk\tools\mc\ClazzFlagAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ClazzFlagAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\ClazzNameAttribute.obj": "acdk\tools\mc\ClazzNameAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ClazzNameAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\CodeAttribute.obj": "acdk\tools\mc\CodeAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\CodeAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\CodeInfo.obj": "acdk\tools\mc\CodeInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\CodeInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\DmiProxyAttribute.obj": "acdk\tools\mc\DmiProxyAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\DmiProxyAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\DmiProxyGenerator.obj": "acdk\tools\mc\DmiProxyGenerator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\DmiProxyGenerator.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\DmiProxyGeneratorExt.obj": "acdk\tools\mc\DmiProxyGeneratorExt.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\DmiProxyGeneratorExt.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\EnumArgAttribute.obj": "acdk\tools\mc\EnumArgAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\EnumArgAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\EnumInfo.obj": "acdk\tools\mc\EnumInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\EnumInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\FieldInfo.obj": "acdk\tools\mc\FieldInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\FieldInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\InvokeForwardAttribute.obj": "acdk\tools\mc\InvokeForwardAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\InvokeForwardAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\McConfigAttribute.obj": "acdk\tools\mc\McConfigAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\McConfigAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\mc_metainf_base.obj": "acdk\tools\mc\mc_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\mc_metainf_base.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\MetaCompiler.obj": "acdk\tools\mc\MetaCompiler.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\MetaCompiler.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\MethodAltNameAttribute.obj": "acdk\tools\mc\MethodAltNameAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\MethodAltNameAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\MethodInfo.obj": "acdk\tools\mc\MethodInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\MethodInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\ModuleInfo.obj": "acdk\tools\mc\ModuleInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ModuleInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\SetDispatchAttribute.obj": "acdk\tools\mc\SetDispatchAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\SetDispatchAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\StringTagAttribute.obj": "acdk\tools\mc\StringTagAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\StringTagAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\SuperInfo.obj": "acdk\tools\mc\SuperInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\SuperInfo.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\ThrowableAttribute.obj": "acdk\tools\mc\ThrowableAttribute.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\ThrowableAttribute.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\TypeScope.obj": "acdk\tools\mc\TypeScope.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\TypeScope.cpp"
+
+"..\tobj\acdk_tools_mc\bcc\mc_metainf_ext.obj": "acdk\tools\mc\mc_metainf\mc_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_mc\bcc" "acdk\tools\mc\mc_metainf\mc_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_tools_mc.dll"
+	del "..\tobj\acdk_tools_mc\bcc\ArgumentInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\ClassInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\ClassInitAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\ClazzFlagAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\ClazzNameAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\CodeAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\CodeInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\DmiProxyAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\DmiProxyGenerator.obj"
+	del "..\tobj\acdk_tools_mc\bcc\DmiProxyGeneratorExt.obj"
+	del "..\tobj\acdk_tools_mc\bcc\EnumArgAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\EnumInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\FieldInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\InvokeForwardAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\McConfigAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\mc_metainf_base.obj"
+	del "..\tobj\acdk_tools_mc\bcc\MetaCompiler.obj"
+	del "..\tobj\acdk_tools_mc\bcc\MethodAltNameAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\MethodInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\ModuleInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\SetDispatchAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\StringTagAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\SuperInfo.obj"
+	del "..\tobj\acdk_tools_mc\bcc\ThrowableAttribute.obj"
+	del "..\tobj\acdk_tools_mc\bcc\TypeScope.obj"
+	del "..\tobj\acdk_tools_mc\bcc\mc_metainf_ext.obj"
+
+

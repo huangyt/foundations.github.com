@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{07429c1a-7354-4082-bf21-a40388804f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\perl">
+      <UniqueIdentifier>{aebad528-f58e-4891-a0c2-a956a61cd2e8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\perl\Config.h">
+      <Filter>acdk\perl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\perl\PerlInterpreter.h">
+      <Filter>acdk\perl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\perl\PerlObject.h">
+      <Filter>acdk\perl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\perl\Perl.cpp">
+      <Filter>acdk\perl</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\perl\PerlInterpreter.cpp">
+      <Filter>acdk\perl</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\perl\PerlObject.cpp">
+      <Filter>acdk\perl</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

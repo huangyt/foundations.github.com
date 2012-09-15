@@ -1,0 +1,125 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+
+
+###############################################################################
+Project: "acdkx_orb"=src\acdkx_orb.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkx_orb_namesrv"=src\acdkx_orb_namesrv.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdkx_orb
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkx_orb_mc"=src\acdkx_orb_mc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkorbidl"=src\acdkorbidl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkx_orb_Test"=tests/acdkx/orb\acdkx_orb_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdkx_orb
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "AdressServer"=tests/acdkx/orb/acdk\AdressServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdkx_orb
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "AdressClient"=tests/acdkx/orb/acdk\AdressClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdkx_orb
+    End Project Dependency
+}}}
+
+
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

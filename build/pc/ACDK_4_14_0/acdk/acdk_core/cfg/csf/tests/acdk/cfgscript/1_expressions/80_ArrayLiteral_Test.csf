@@ -1,0 +1,50 @@
+
+class AClass
+{
+  static void foo(String s)
+  {
+  }
+}
+
+StringArray tsa = [ "a", "b", "c" ];
+AClass.foo(tsa[0 + 1]);
+String s = tsa[0 + 1];
+
+if (s.equals("b") == false)
+  out << "TEST FAILED\n";
+s = s + tsa[2].toString();  
+if (s.equals("bc") == false)
+  out << "TEST FAILED\n";
+if (tsa instanceof StringArray)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+foreach (String s in [ "a", "b", "c" ])
+{
+  out.println(s);
+}
+
+tp = {};
+tp.sa = [ "a", "b", "c" ];
+//out.println(tp.sa.getClass().getName());
+foreach (String s in tp.sa)
+{
+  out.println(s);
+}
+
+
+StringArray sa = [ "a", "b" ];
+intArray a  = [1, 2];
+out.println(a);
+
+b = [1, [ 2, 3 ] ];
+out.println(b);
+
+c = ["ACDK", new StringBuffer(" Script") ];
+
+out.println(c);
+
+foreach(x in a) out.println(" | " + x.toString());
+
+// Also allow nested type safe arrays
+StringArrayArray tsaa = [ [ "a", "A" ], [ "b", "B" ] ];

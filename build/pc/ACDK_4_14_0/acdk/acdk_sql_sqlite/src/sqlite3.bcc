@@ -1,0 +1,269 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES) 
+
+OUTFILE="..\..\bin\sqlite3.exe"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\sqlite3\bcc"
+SOURCES= 	"sqlitesrc\alter.c" \
+	"sqlitesrc\attach.c" \
+	"sqlitesrc\auth.c" \
+	"sqlitesrc\btree.c" \
+	"sqlitesrc\build.c" \
+	"sqlitesrc\date.c" \
+	"sqlitesrc\delete.c" \
+	"sqlitesrc\expr.c" \
+	"sqlitesrc\func.c" \
+	"sqlitesrc\hash.c" \
+	"sqlitesrc\insert.c" \
+	"sqlitesrc\legacy.c" \
+	"sqlitesrc\main.c" \
+	"sqlitesrc\opcodes.c" \
+	"sqlitesrc\os_unix.c" \
+	"sqlitesrc\os_win.c" \
+	"sqlitesrc\pager.c" \
+	"sqlitesrc\parse.c" \
+	"sqlitesrc\pragma.c" \
+	"sqlitesrc\printf.c" \
+	"sqlitesrc\random.c" \
+	"sqlitesrc\select.c" \
+	"sqlitesrc\shell.c" \
+	"sqlitesrc\table.c" \
+	"sqlitesrc\tokenize.c" \
+	"sqlitesrc\trigger.c" \
+	"sqlitesrc\update.c" \
+	"sqlitesrc\utf.c" \
+	"sqlitesrc\util.c" \
+	"sqlitesrc\vacuum.c" \
+	"sqlitesrc\vdbe.c" \
+	"sqlitesrc\vdbeapi.c" \
+	"sqlitesrc\vdbeaux.c" \
+	"sqlitesrc\vdbemem.c" \
+	"sqlitesrc\where.c" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\sqlite3\bcc\alter.obj" \
+	"..\tobj\sqlite3\bcc\attach.obj" \
+	"..\tobj\sqlite3\bcc\auth.obj" \
+	"..\tobj\sqlite3\bcc\btree.obj" \
+	"..\tobj\sqlite3\bcc\build.obj" \
+	"..\tobj\sqlite3\bcc\date.obj" \
+	"..\tobj\sqlite3\bcc\delete.obj" \
+	"..\tobj\sqlite3\bcc\expr.obj" \
+	"..\tobj\sqlite3\bcc\func.obj" \
+	"..\tobj\sqlite3\bcc\hash.obj" \
+	"..\tobj\sqlite3\bcc\insert.obj" \
+	"..\tobj\sqlite3\bcc\legacy.obj" \
+	"..\tobj\sqlite3\bcc\main.obj" \
+	"..\tobj\sqlite3\bcc\opcodes.obj" \
+	"..\tobj\sqlite3\bcc\os_unix.obj" \
+	"..\tobj\sqlite3\bcc\os_win.obj" \
+	"..\tobj\sqlite3\bcc\pager.obj" \
+	"..\tobj\sqlite3\bcc\parse.obj" \
+	"..\tobj\sqlite3\bcc\pragma.obj" \
+	"..\tobj\sqlite3\bcc\printf.obj" \
+	"..\tobj\sqlite3\bcc\random.obj" \
+	"..\tobj\sqlite3\bcc\select.obj" \
+	"..\tobj\sqlite3\bcc\shell.obj" \
+	"..\tobj\sqlite3\bcc\table.obj" \
+	"..\tobj\sqlite3\bcc\tokenize.obj" \
+	"..\tobj\sqlite3\bcc\trigger.obj" \
+	"..\tobj\sqlite3\bcc\update.obj" \
+	"..\tobj\sqlite3\bcc\utf.obj" \
+	"..\tobj\sqlite3\bcc\util.obj" \
+	"..\tobj\sqlite3\bcc\vacuum.obj" \
+	"..\tobj\sqlite3\bcc\vdbe.obj" \
+	"..\tobj\sqlite3\bcc\vdbeapi.obj" \
+	"..\tobj\sqlite3\bcc\vdbeaux.obj" \
+	"..\tobj\sqlite3\bcc\vdbemem.obj" \
+	"..\tobj\sqlite3\bcc\where.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\sqlite3\bcc\alter.obj": "sqlitesrc\alter.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\alter.c"
+
+"..\tobj\sqlite3\bcc\attach.obj": "sqlitesrc\attach.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\attach.c"
+
+"..\tobj\sqlite3\bcc\auth.obj": "sqlitesrc\auth.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\auth.c"
+
+"..\tobj\sqlite3\bcc\btree.obj": "sqlitesrc\btree.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\btree.c"
+
+"..\tobj\sqlite3\bcc\build.obj": "sqlitesrc\build.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\build.c"
+
+"..\tobj\sqlite3\bcc\date.obj": "sqlitesrc\date.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\date.c"
+
+"..\tobj\sqlite3\bcc\delete.obj": "sqlitesrc\delete.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\delete.c"
+
+"..\tobj\sqlite3\bcc\expr.obj": "sqlitesrc\expr.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\expr.c"
+
+"..\tobj\sqlite3\bcc\func.obj": "sqlitesrc\func.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\func.c"
+
+"..\tobj\sqlite3\bcc\hash.obj": "sqlitesrc\hash.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\hash.c"
+
+"..\tobj\sqlite3\bcc\insert.obj": "sqlitesrc\insert.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\insert.c"
+
+"..\tobj\sqlite3\bcc\legacy.obj": "sqlitesrc\legacy.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\legacy.c"
+
+"..\tobj\sqlite3\bcc\main.obj": "sqlitesrc\main.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\main.c"
+
+"..\tobj\sqlite3\bcc\opcodes.obj": "sqlitesrc\opcodes.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\opcodes.c"
+
+"..\tobj\sqlite3\bcc\os_unix.obj": "sqlitesrc\os_unix.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\os_unix.c"
+
+"..\tobj\sqlite3\bcc\os_win.obj": "sqlitesrc\os_win.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\os_win.c"
+
+"..\tobj\sqlite3\bcc\pager.obj": "sqlitesrc\pager.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\pager.c"
+
+"..\tobj\sqlite3\bcc\parse.obj": "sqlitesrc\parse.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\parse.c"
+
+"..\tobj\sqlite3\bcc\pragma.obj": "sqlitesrc\pragma.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\pragma.c"
+
+"..\tobj\sqlite3\bcc\printf.obj": "sqlitesrc\printf.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\printf.c"
+
+"..\tobj\sqlite3\bcc\random.obj": "sqlitesrc\random.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\random.c"
+
+"..\tobj\sqlite3\bcc\select.obj": "sqlitesrc\select.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\select.c"
+
+"..\tobj\sqlite3\bcc\shell.obj": "sqlitesrc\shell.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\shell.c"
+
+"..\tobj\sqlite3\bcc\table.obj": "sqlitesrc\table.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\table.c"
+
+"..\tobj\sqlite3\bcc\tokenize.obj": "sqlitesrc\tokenize.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\tokenize.c"
+
+"..\tobj\sqlite3\bcc\trigger.obj": "sqlitesrc\trigger.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\trigger.c"
+
+"..\tobj\sqlite3\bcc\update.obj": "sqlitesrc\update.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\update.c"
+
+"..\tobj\sqlite3\bcc\utf.obj": "sqlitesrc\utf.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\utf.c"
+
+"..\tobj\sqlite3\bcc\util.obj": "sqlitesrc\util.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\util.c"
+
+"..\tobj\sqlite3\bcc\vacuum.obj": "sqlitesrc\vacuum.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\vacuum.c"
+
+"..\tobj\sqlite3\bcc\vdbe.obj": "sqlitesrc\vdbe.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\vdbe.c"
+
+"..\tobj\sqlite3\bcc\vdbeapi.obj": "sqlitesrc\vdbeapi.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\vdbeapi.c"
+
+"..\tobj\sqlite3\bcc\vdbeaux.obj": "sqlitesrc\vdbeaux.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\vdbeaux.c"
+
+"..\tobj\sqlite3\bcc\vdbemem.obj": "sqlitesrc\vdbemem.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\vdbemem.c"
+
+"..\tobj\sqlite3\bcc\where.obj": "sqlitesrc\where.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\sqlite3\bcc" "sqlitesrc\where.c"
+
+
+
+clean:
+	del "..\..\bin\sqlite3.exe"
+	del "..\tobj\sqlite3\bcc\alter.obj"
+	del "..\tobj\sqlite3\bcc\attach.obj"
+	del "..\tobj\sqlite3\bcc\auth.obj"
+	del "..\tobj\sqlite3\bcc\btree.obj"
+	del "..\tobj\sqlite3\bcc\build.obj"
+	del "..\tobj\sqlite3\bcc\date.obj"
+	del "..\tobj\sqlite3\bcc\delete.obj"
+	del "..\tobj\sqlite3\bcc\expr.obj"
+	del "..\tobj\sqlite3\bcc\func.obj"
+	del "..\tobj\sqlite3\bcc\hash.obj"
+	del "..\tobj\sqlite3\bcc\insert.obj"
+	del "..\tobj\sqlite3\bcc\legacy.obj"
+	del "..\tobj\sqlite3\bcc\main.obj"
+	del "..\tobj\sqlite3\bcc\opcodes.obj"
+	del "..\tobj\sqlite3\bcc\os_unix.obj"
+	del "..\tobj\sqlite3\bcc\os_win.obj"
+	del "..\tobj\sqlite3\bcc\pager.obj"
+	del "..\tobj\sqlite3\bcc\parse.obj"
+	del "..\tobj\sqlite3\bcc\pragma.obj"
+	del "..\tobj\sqlite3\bcc\printf.obj"
+	del "..\tobj\sqlite3\bcc\random.obj"
+	del "..\tobj\sqlite3\bcc\select.obj"
+	del "..\tobj\sqlite3\bcc\shell.obj"
+	del "..\tobj\sqlite3\bcc\table.obj"
+	del "..\tobj\sqlite3\bcc\tokenize.obj"
+	del "..\tobj\sqlite3\bcc\trigger.obj"
+	del "..\tobj\sqlite3\bcc\update.obj"
+	del "..\tobj\sqlite3\bcc\utf.obj"
+	del "..\tobj\sqlite3\bcc\util.obj"
+	del "..\tobj\sqlite3\bcc\vacuum.obj"
+	del "..\tobj\sqlite3\bcc\vdbe.obj"
+	del "..\tobj\sqlite3\bcc\vdbeapi.obj"
+	del "..\tobj\sqlite3\bcc\vdbeaux.obj"
+	del "..\tobj\sqlite3\bcc\vdbemem.obj"
+	del "..\tobj\sqlite3\bcc\where.obj"
+
+

@@ -1,0 +1,124 @@
+
+
+#include "amake_config.csf"
+
+
+with (org_xml = new acdk.make.AcdkLibTask("org_xml"))
+{
+  .addModule("src/org/xml/sax");
+  .addModule("src/org/xml/sax/helpers");
+  .addModule("src/org/w3c/dom");
+  .addModule("src/org/w3c/dom/xpath");
+  .addModule("src/org/w3c/dom/traversal");
+  .addAcdkLib("acdk_core");
+}
+
+// ----------        org_xml_metainf  ---------------------------
+org_xml_metainf = new acdk.make.AcdkMetainfLibTask("org_xml_metainf", org_xml);
+
+
+with (acdk_xml = new acdk.make.AcdkLibTask("acdk_xml"))
+{
+  .addModule("src/acdk/xml");
+  .addModule("src/acdk/xml/dom");
+  .addModule("src/acdk/xml/sax");
+  .addModule("src/acdk/xml/libxmldom");
+  .addModule("src/acdk/xml/parsers");
+  
+  .addSource("src/expat/xmlparse.c");
+  .addSource("src/expat/xmlrole.c");
+  .addSource("src/expat/xmltok.c");
+  .addSource("src/expat/expat.h");
+  .addSource("src/libxml2/c14n.c");
+  .addSource("src/libxml2/catalog.c");
+  .addSource("src/libxml2/chvalid.c");
+  .addSource("src/libxml2/debugXML.c");
+  .addSource("src/libxml2/dict.c");
+  .addSource("src/libxml2/DOCBparser.c");
+  .addSource("src/libxml2/encoding.c");
+  .addSource("src/libxml2/entities.c");
+  .addSource("src/libxml2/error.c");
+  .addSource("src/libxml2/globals.c");
+  .addSource("src/libxml2/hash.c");
+  .addSource("src/libxml2/HTMLparser.c");
+  .addSource("src/libxml2/HTMLtree.c");
+  .addSource("src/libxml2/legacy.c");
+  .addSource("src/libxml2/list.c");
+  .addSource("src/libxml2/nanoftp.c");
+  .addSource("src/libxml2/nanohttp.c");
+  .addSource("src/libxml2/parser.c");
+  .addSource("src/libxml2/parserInternals.c");
+  .addSource("src/libxml2/pattern.c");
+  .addSource("src/libxml2/relaxng.c");
+  .addSource("src/libxml2/SAX.c");
+  .addSource("src/libxml2/SAX2.c");
+  .addSource("src/libxml2/threads.c");
+  .addSource("src/libxml2/tree.c");
+  .addSource("src/libxml2/triostr.c");
+  .addSource("src/libxml2/uri.c");
+  .addSource("src/libxml2/valid.c");
+  .addSource("src/libxml2/xinclude.c");
+  .addSource("src/libxml2/xlink.c");
+  .addSource("src/libxml2/xmlIO.c");
+  .addSource("src/libxml2/xmlmemory.c");
+  .addSource("src/libxml2/xmlreader.c");
+  .addSource("src/libxml2/xmlregexp.c");
+  .addSource("src/libxml2/xmlsave.c");
+  .addSource("src/libxml2/xmlschemas.c");
+  .addSource("src/libxml2/xmlschemastypes.c");
+  .addSource("src/libxml2/xmlstring.c");
+  .addSource("src/libxml2/xmlunicode.c");
+  .addSource("src/libxml2/xmlwriter.c");
+  .addSource("src/libxml2/xpath.c");
+  .addSource("src/libxml2/xpointer.c");
+  
+  .addAcdkLib("acdk_core");
+  .addAcdkLib("acdk_text");
+  .addAcdkLib("acdk_net");
+  .addAcdkLib("org_xml");
+  
+  .addSubTask("org_xml");
+}
+
+// ----------        acdk_xml_metainf  ---------------------------
+acdk_xml_metainf = new acdk.make.AcdkMetainfLibTask("acdk_xml_metainf", acdk_xml);
+
+
+with (acdk_xml_sax_Test = new acdk.make.AcdkTestExeTask("acdk_xml_sax_Test"))
+{
+  .setBaseDir("tests/acdk/xml/sax");
+  .addSource("tests/acdk/xml/sax");
+  .addAcdkLib("acdk_core");
+  .addAcdkLib("acdk_text");
+  .addAcdkLib("acdk_net");
+  .addAcdkLib("acdk_tools_aunit");
+  .addAcdkLib("org_xml");
+  .addAcdkLib("acdk_xml");
+  .addSubTask("acdk_xml");
+}
+
+with (acdk_xml_dom_Test = new acdk.make.AcdkTestExeTask("acdk_xml_dom_Test"))
+{
+  .setBaseDir("tests/acdk/xml/dom");
+  .addSource("tests/acdk/xml/dom");
+  .addAcdkLib("acdk_core");
+  .addAcdkLib("acdk_text");
+  .addAcdkLib("acdk_net");
+  .addAcdkLib("acdk_tools_aunit");
+  .addAcdkLib("org_xml");
+  .addAcdkLib("acdk_xml");
+  .addSubTask("acdk_xml");
+}
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("acdk_xml_prj");
+default.registerTask("default");
+default.addSubTask("org_xml");
+default.addSubTask("org_xml_metainf");
+default.addSubTask("acdk_xml");
+default.addSubTask("acdk_xml_metainf");
+default.addSubTask("acdk_xml_sax_Test");
+default.addSubTask("acdk_xml_dom_Test");
+

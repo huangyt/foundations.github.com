@@ -1,0 +1,183 @@
+%id: aal_reference_classes
+%title: AAL Classes
+%shorttitle: Classes
+%keywords: class, constructor, fields, methods
+%body:
+<chapterline/>
+<pageintro>
+The object modell of AAL is a mixture of the Java and the C++ modell
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Class definition</jump1>
+<jump2>Simple class definition</jump2>
+<rs>
+class ClassName [extends SuperClass] (implements InterfaceName)*
+{
+  Constructors
+  Fields
+  Methods
+  Operators
+}
+</rs>
+
+<jump2>Samples</jump2>
+<rs>
+class AClass
+{
+  private int _ival;
+  public AClass(int i) : _ival(i) {}
+  public int getIVal() { return _ival; }
+}
+</rs>
+
+<jump2>Derived Classes</jump2>
+A class can be derives from another class via
+the 'extends' keyword.
+If a class has no 'extends' keyword it is automatically
+derived from the class acdk.lang.Object.
+
+Only one super class derivation is allowed.
+
+<small>
+Note:
+Later a multi derivation feature via keyword 'using' is planned.
+</small> 
+
+<jump2>Fields member</jump2>
+<jump3>Instance Field Members</jump3>
+Instance field member (not static) are bound to the the instance
+of a class. 
+<rs>
+class AClass
+{
+  // [attributes] Type Name;
+  private int _ival;
+}
+</rs>
+By default the values of the fields are initialized with
+<fl>
+<f> integer numbers: 0
+<f> float numbers: 0.0
+<f> character: 0
+<f> boolean: false
+<f> Object references: Nil
+</fl>
+Instance field members cannot have initializer:
+<rs>
+class AClass 
+{
+  public int value = 42; // illegal
+}
+</rs>
+
+See below %ref[#Instance Constructor] how to initialize field members
+via constructors.
+<jump3>Static Field Members</jump3>
+Static field members are bound to a class. All instances of the class
+shares the same value of a static field member.
+
+The static field member can have an initializer.
+If no initializer for a static field member is declared
+the fields will be initialized to its default value (see %ref[#Instance Field Members]).
+
+<rs>
+class AClass
+{
+  public static int ival = 42; // static field with initializer
+}
+AClass cls1 = new AClass();
+AClass cls2 = new AClass();
+cls1.ival == 42; // -> true
+AClass.ival == 42; // -> true // access via class identifier
+cls2.ival = 41; 
+cls1.ival == 41; // -> true
+AClass.ival == 41; // -> true
+</rs>
+More sofisticated initialization can be done via a
+%ref[Static Class Constructor].
+
+<jump2>Constructor</jump2>
+<jump3>Instance Constructor</jump3>
+All support the C++ style constructor initialization:
+<rs>
+class AClass 
+{ 
+  public int _avar; 
+  protected AClass() 
+  : _avar(1) // initialize member with 1
+  {
+    _avar = 1; // alternative notation
+    this._avar = 1; // alternative notation
+  } 
+  protected AClass(int av) 
+  : _avar(av) 
+  {
+  }
+}
+
+class BClass extends AClass
+{
+  public _ivar;
+  public BClass(int iv, int av)
+  : AClass(av) // call super constructor
+  , _ivar(iv) // initialize own member
+  {
+  }
+}
+<jump3>Automatic Instance Constructor Generation</jump3>
+If an super class has no constructor, Aal provides an
+default constructor for this class.
+The default constructor has no arguements.
+<rs>
+class AClass 
+{
+  public int foo() { return 0; }
+}
+class BClass extends AClass
+{
+  public BClass() 
+  : AClass() // legal, because Aal generate an default constructor for the AClass
+  {
+  }
+}
+</rs>
+<jump3>Automatic Super Instance Constructor Invocation</jump3>
+In case the super class provides a default constructor (explicit
+declared or automatically generated) this constructor will be 
+called from the derived instance constructor if no other constructor
+of the derived class will be explictelly be called:
+<rs>
+class AClass
+{
+  protected AClass() { acdk.lang.System.out.println("AClass.AClass() called");
+}
+class BClass extends AClass
+{
+}
+// call the automatic generated Constructor BClass.BClass()
+// This BClass.BClass() constructor will call the default
+// constructor AClass.AClass()
+BClass bcls = new BClass();
+output> AClass.AClass() called
+</rs>
+
+<jump3>Static Class Constructor</jump3>
+In a class definition also an constructor can be declared
+which be called at load time. The constructor must
+have the static attribute and must not have any parameters:
+<rs>
+class AClass
+{
+  static acdk.lang.String stringVal;
+  // will be called once at load time
+  public static AClass()
+  {
+    stringVal = "asdf";
+  }
+}
+</rs>
+
+.

@@ -1,0 +1,43 @@
+%id: acdk_aal_concept_links
+%title: AAL concept Reference Links
+%shorttitle: Reference Links
+%body:
+<chapterline/>
+<pageintro>
+Links to Web ressources.
+</pageintro>
+
+
+
+<jumptable/>
+<jump1>CC</jump1>
+<fl>
+<f> %urlref[http://codeworker.free.fr/manual_The_scripting_language.html#autoexpand]
+</fl>
+
+<jump1>Languages</jump1>
+<fl>
+<f> Java:
+    %urlref[http://java.sun.com/]
+<f> Smalltalk:
+    %urlref[http://users.ipa.net/~dwighth/smalltalk/bluebook/bluebook_imp_toc.html]
+<f> D:
+    %urlref[http://www.digitalmars.com/d/index.html]
+<f> Python:
+    %urlref[http://www.python.org]
+<f> Perl:
+    %urlref[http://www.perl.org/]
+<f> Ruby:
+    %urlref[http://www.rubycentral.com/]
+<f> PHP:
+    %urlref[http://www.php.net]
+<f> Dylan:
+    %urlref[http://www.gwydiondylan.org/]
+<f> Kiev:
+    %urlref[http://forestro.com/kiev/]
+<f> Nice:
+    %urlref[http://nice.sourceforge.net/]
+<f> Tom:
+    %urlref[http://gerbil.org/tom/doc/]
+</fl>
+.

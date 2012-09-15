@@ -1,0 +1,244 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDKHOME)
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_tools_mc/cygwin-static
+
+# where to store the .a, .so and executables
+BINDIR=../../bin
+
+CCOMPILER=g++ -Wall -Wno-unused
+CCOPTS=-g
+CFLAGSX=
+CCINCLUDE= -I ../src  -I ../include  -I ../../include 
+DEFINES= -DOS_CYGWIN32 -D_REENTRANT -DIN_ACDK_TOOLS_MC_LIB
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+LINK=g++ -shared
+LDFLAGS=-g
+SYSLIBRARIES=
+LIBS = $(SYSLIBRARIES)   ../../bin/acdk_core.a ../../bin/acdk_cfgscript.a
+AR=ar rc
+RANLIB=ranlib
+
+SOURCES= 	acdk/tools/mc/ArgumentInfo.cpp \
+	acdk/tools/mc/ClassInfo.cpp \
+	acdk/tools/mc/ClassInitAttribute.cpp \
+	acdk/tools/mc/ClazzFlagAttribute.cpp \
+	acdk/tools/mc/ClazzNameAttribute.cpp \
+	acdk/tools/mc/CodeAttribute.cpp \
+	acdk/tools/mc/CodeInfo.cpp \
+	acdk/tools/mc/DmiProxyAttribute.cpp \
+	acdk/tools/mc/DmiProxyGenerator.cpp \
+	acdk/tools/mc/DmiProxyGeneratorExt.cpp \
+	acdk/tools/mc/EnumArgAttribute.cpp \
+	acdk/tools/mc/EnumInfo.cpp \
+	acdk/tools/mc/FieldInfo.cpp \
+	acdk/tools/mc/InvokeForwardAttribute.cpp \
+	acdk/tools/mc/McConfigAttribute.cpp \
+	acdk/tools/mc/mc_metainf_base.cpp \
+	acdk/tools/mc/MetaCompiler.cpp \
+	acdk/tools/mc/MethodAltNameAttribute.cpp \
+	acdk/tools/mc/MethodInfo.cpp \
+	acdk/tools/mc/ModuleInfo.cpp \
+	acdk/tools/mc/SetDispatchAttribute.cpp \
+	acdk/tools/mc/StringTagAttribute.cpp \
+	acdk/tools/mc/SuperInfo.cpp \
+	acdk/tools/mc/ThrowableAttribute.cpp \
+	acdk/tools/mc/TypeScope.cpp \
+	acdk/tools/mc/mc_metainf/mc_metainf_ext.cpp \
+
+HEADER= 	acdk/tools/mc/ArgumentInfo.h \
+	acdk/tools/mc/ClassInfo.h \
+	acdk/tools/mc/ClassInitAttribute.h \
+	acdk/tools/mc/ClazzFlagAttribute.h \
+	acdk/tools/mc/ClazzNameAttribute.h \
+	acdk/tools/mc/CMCException.h \
+	acdk/tools/mc/CodeAttribute.h \
+	acdk/tools/mc/CodeInfo.h \
+	acdk/tools/mc/Config.h \
+	acdk/tools/mc/DispatchForwardAttributeTest.h \
+	acdk/tools/mc/DmiProxyAttribute.h \
+	acdk/tools/mc/DmiProxyGenerator.h \
+	acdk/tools/mc/DmiProxyGeneratorExt.h \
+	acdk/tools/mc/EnumArgAttribute.h \
+	acdk/tools/mc/EnumInfo.h \
+	acdk/tools/mc/FieldInfo.h \
+	acdk/tools/mc/InvokeForwardAttribute.h \
+	acdk/tools/mc/mc.h \
+	acdk/tools/mc/McConfigAttribute.h \
+	acdk/tools/mc/MetaCompiler.h \
+	acdk/tools/mc/MethodAltNameAttribute.h \
+	acdk/tools/mc/MethodInfo.h \
+	acdk/tools/mc/ModuleInfo.h \
+	acdk/tools/mc/SetDispatchAttribute.h \
+	acdk/tools/mc/StringTagAttribute.h \
+	acdk/tools/mc/SuperInfo.h \
+	acdk/tools/mc/ThrowableAttribute.h \
+	acdk/tools/mc/TokenStack.h \
+	acdk/tools/mc/TypeScope.h \
+	acdk/tools/mc/UnitInfo.h \
+
+OBJECTS= 	../tobj/acdk_tools_mc/cygwin-static/ArgumentInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/ClassInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/ClassInitAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/ClazzFlagAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/ClazzNameAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/CodeAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/CodeInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/DmiProxyAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/DmiProxyGenerator.o \
+	../tobj/acdk_tools_mc/cygwin-static/DmiProxyGeneratorExt.o \
+	../tobj/acdk_tools_mc/cygwin-static/EnumArgAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/EnumInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/FieldInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/InvokeForwardAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/McConfigAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/mc_metainf_base.o \
+	../tobj/acdk_tools_mc/cygwin-static/MetaCompiler.o \
+	../tobj/acdk_tools_mc/cygwin-static/MethodAltNameAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/MethodInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/ModuleInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/SetDispatchAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/StringTagAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/SuperInfo.o \
+	../tobj/acdk_tools_mc/cygwin-static/ThrowableAttribute.o \
+	../tobj/acdk_tools_mc/cygwin-static/TypeScope.o \
+	../tobj/acdk_tools_mc/cygwin-static/mc_metainf_ext.o \
+
+
+FINALTARGET=../../bin/acdk_tools_mc.a
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/acdk_tools_mc.a: $(OBJECTS)
+	$(AR) $@ $(OBJECTS)
+	-@ ($(RANLIB) $@ || true) >/dev/null 2>&1
+
+DEPSFILE=acdk_tools_mc.cygwin-static.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CC) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_tools_mc/cygwin-static/ArgumentInfo.o: acdk/tools/mc/ArgumentInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ArgumentInfo.o -c acdk/tools/mc/ArgumentInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/ClassInfo.o: acdk/tools/mc/ClassInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ClassInfo.o -c acdk/tools/mc/ClassInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/ClassInitAttribute.o: acdk/tools/mc/ClassInitAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ClassInitAttribute.o -c acdk/tools/mc/ClassInitAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/ClazzFlagAttribute.o: acdk/tools/mc/ClazzFlagAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ClazzFlagAttribute.o -c acdk/tools/mc/ClazzFlagAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/ClazzNameAttribute.o: acdk/tools/mc/ClazzNameAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ClazzNameAttribute.o -c acdk/tools/mc/ClazzNameAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/CodeAttribute.o: acdk/tools/mc/CodeAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/CodeAttribute.o -c acdk/tools/mc/CodeAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/CodeInfo.o: acdk/tools/mc/CodeInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/CodeInfo.o -c acdk/tools/mc/CodeInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/DmiProxyAttribute.o: acdk/tools/mc/DmiProxyAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/DmiProxyAttribute.o -c acdk/tools/mc/DmiProxyAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/DmiProxyGenerator.o: acdk/tools/mc/DmiProxyGenerator.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/DmiProxyGenerator.o -c acdk/tools/mc/DmiProxyGenerator.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/DmiProxyGeneratorExt.o: acdk/tools/mc/DmiProxyGeneratorExt.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/DmiProxyGeneratorExt.o -c acdk/tools/mc/DmiProxyGeneratorExt.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/EnumArgAttribute.o: acdk/tools/mc/EnumArgAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/EnumArgAttribute.o -c acdk/tools/mc/EnumArgAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/EnumInfo.o: acdk/tools/mc/EnumInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/EnumInfo.o -c acdk/tools/mc/EnumInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/FieldInfo.o: acdk/tools/mc/FieldInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/FieldInfo.o -c acdk/tools/mc/FieldInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/InvokeForwardAttribute.o: acdk/tools/mc/InvokeForwardAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/InvokeForwardAttribute.o -c acdk/tools/mc/InvokeForwardAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/McConfigAttribute.o: acdk/tools/mc/McConfigAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/McConfigAttribute.o -c acdk/tools/mc/McConfigAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/mc_metainf_base.o: acdk/tools/mc/mc_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/mc_metainf_base.o -c acdk/tools/mc/mc_metainf_base.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/MetaCompiler.o: acdk/tools/mc/MetaCompiler.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/MetaCompiler.o -c acdk/tools/mc/MetaCompiler.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/MethodAltNameAttribute.o: acdk/tools/mc/MethodAltNameAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/MethodAltNameAttribute.o -c acdk/tools/mc/MethodAltNameAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/MethodInfo.o: acdk/tools/mc/MethodInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/MethodInfo.o -c acdk/tools/mc/MethodInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/ModuleInfo.o: acdk/tools/mc/ModuleInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ModuleInfo.o -c acdk/tools/mc/ModuleInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/SetDispatchAttribute.o: acdk/tools/mc/SetDispatchAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/SetDispatchAttribute.o -c acdk/tools/mc/SetDispatchAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/StringTagAttribute.o: acdk/tools/mc/StringTagAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/StringTagAttribute.o -c acdk/tools/mc/StringTagAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/SuperInfo.o: acdk/tools/mc/SuperInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/SuperInfo.o -c acdk/tools/mc/SuperInfo.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/ThrowableAttribute.o: acdk/tools/mc/ThrowableAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/ThrowableAttribute.o -c acdk/tools/mc/ThrowableAttribute.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/TypeScope.o: acdk/tools/mc/TypeScope.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/TypeScope.o -c acdk/tools/mc/TypeScope.cpp
+
+../tobj/acdk_tools_mc/cygwin-static/mc_metainf_ext.o: acdk/tools/mc/mc_metainf/mc_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/cygwin-static/mc_metainf_ext.o -c acdk/tools/mc/mc_metainf/mc_metainf_ext.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_tools_mc.a $(OBJECTS)
+
+  

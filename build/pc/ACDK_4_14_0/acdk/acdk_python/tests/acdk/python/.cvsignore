@@ -1,0 +1,7 @@
+*.o
+*.obj
+*.sbr
+*.tmp
+acdk_python_Test.plg
+obj
+tobj

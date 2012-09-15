@@ -1,0 +1,57 @@
+
+/*
+__script.assertTrue(__props.hasValue("GENWEBHOME"),
+                       "GENWEBHOME is not defined");
+
+lf = new acdk.make.LookupFileTask("perl", 1);
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  lf.addLookupPath("windows", "d:\\programr\\lang\\perl\\interpreter\\perl-5.6.0\\bin");
+} 
+
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate perl __script.");
+__props.setStringVal("PERL", _located);
+perl = _located;
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  __props.appendStringVal("Path", lf.foundParentDir(), File_pathSeparator, 4); // 4 = insert at front
+}
+
+
+// GENWEBHOME = ACDKHOME + File_separator + ".." + File_separator + "genweb";
+__props.appendStringVal("PERL5LIB", GENWEBHOME);
+__props.appendStringVal("PERL5LIB", GENWEBHOME  + File_separator + "bin");
+__props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "GENWEBHOME");
+__props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "PERL5LIB");
+__props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "PATH");
+__props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "Path");
+
+cmdline = perl + " " + GENWEBHOME + "/bin/genweb.pl" +
+             " -genweb-home " + GENWEBHOME + "/bin -gw -noimages -ignoreorg" +
+	           " -template " + GENWEBHOME + "/images/acdk_readme_html_template.htmt";
+
+make_doc1 = new acdk.make.ShellExecuteTask("doc", "make doc", cmdline, 0);
+
+cmdline = perl + " " + GENWEBHOME + "/bin/genweb.pl" +
+             " -genweb-home " + GENWEBHOME + "/bin -gw -noimages -ignoreorg" +
+             " -fileext '.txt' -format txt" +
+	           " -template " + GENWEBHOME + "/images/acdk_readme_txt_template.htmt";
+make_doc2 = new acdk.make.ShellExecuteTask("doc", "make doc", cmdline, 0);
+make_doc = new acdk.make.ProjectTask("doc");
+make_doc.addDependingTask(make_doc1);
+make_doc.addDependingTask(make_doc2);
+make_doc.execute("", buildprops);
+*/
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  doc_script = "amake_doc.cmd";
+}
+else
+{
+  doc_script = "amake_doc.sh";
+}
+cmdline = ACDKHOME + acdk.io.File.separator() + doc_script;
+doc = new acdk.make.ShellExecuteTask("amake_doc", "compile documentation", cmdline, 9);
+doc.execute("", buildprops);

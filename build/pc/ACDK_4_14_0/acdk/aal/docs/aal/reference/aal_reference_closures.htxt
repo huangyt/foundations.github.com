@@ -1,0 +1,59 @@
+%id: aal_reference_closures
+%title: AAL Closures
+%shorttitle: Closures
+%body:
+<chapterline/>
+<pageintro>
+With Closures an inplace class can be defined.
+</pageintro>
+
+
+<jumptable/>
+
+<jump2>Definition</jump2>
+<rs>
+new (ClosureParams) SuperDecls { Statements }
+</rs>
+
+<jump2>Samples</jump2>
+<rs>
+int i;
+new (i) { public int getI() { return i; } }
+new (membername: 42) { public int getI() { return membername; }
+</rs>
+
+
+Closure, which can be used as instance
+<rs>
+  interface IntAdder { public int operator+(int j); }
+  int i = 42;
+  IntAdder adder = new (i) implements IntAdder 
+                      { 
+                        public int operator+(int j) { return i + j; } 
+                      };
+  int j = adder + 4;
+  // j == 46
+  
+  // This Code will internally tranformed to:
+  class Closure1 extends IntAdder
+  {
+    public Closure1(int i_) : i(i_) {}
+    public int operator+(int j) { return i + j; } 
+  }
+  IntAdder adder = new Closure1(i);
+  
+</rs>
+
+Closure as simple code block
+<rs>
+  interface Dumper { public void operator()(String s); }
+  Dumper dumper = new () implements Dumper 
+                      { 
+                        public void operator()(String s) { System.out.println(s); }
+                      };
+  dumper("asdf");
+  
+</rs>
+
+
+.

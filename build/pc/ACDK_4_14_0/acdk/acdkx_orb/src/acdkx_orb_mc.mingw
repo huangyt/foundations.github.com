@@ -1,0 +1,139 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.mingw
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdkx_orb_mc/mingw
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -O2  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_WIN32 -D_REENTRANT -DWIN32_THREADS -DACDK_OS_WIN32 -DACDK_MINGW -DIN_ACDKX_ORB_MC_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lkernel32 -lwsock32
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR)  -lacdk_core -lacdk_tools_mc
+CFLAGSX=
+
+SOURCES= 	acdkx/orb/mc/GenOrbIdlAttribute.cpp \
+	acdkx/orb/mc/mc_metainf_base.cpp \
+	acdkx/orb/mc/OrbDispatchAttribute.cpp \
+	acdkx/orb/mc/OrbSetRepId.cpp \
+	acdkx/orb/mc/mc_metainf/mc_metainf_ext.cpp \
+
+HEADER= 	acdkx/orb/mc/Config.h \
+	acdkx/orb/mc/GenOrbIdlAttribute.h \
+	acdkx/orb/mc/mc.h \
+	acdkx/orb/mc/OrbDispatchAttribute.h \
+	acdkx/orb/mc/OrbSetRepId.h \
+
+OBJECTS= 	../tobj/acdkx_orb_mc/mingw/GenOrbIdlAttribute.o \
+	../tobj/acdkx_orb_mc/mingw/mc_metainf_base.o \
+	../tobj/acdkx_orb_mc/mingw/OrbDispatchAttribute.o \
+	../tobj/acdkx_orb_mc/mingw/OrbSetRepId.o \
+	../tobj/acdkx_orb_mc/mingw/mc_metainf_ext.o \
+
+
+FINALTARGET=../../bin/libacdkx_orb_mc.dll
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdkx_orb_mc.dll: $(OBJECTS)
+	$(LINK) -Wl,--enable-auto-image-base -Wl,--out-implib,../../bin/libacdkx_orb_mc.a $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdkx_orb_mc.dll $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+
+DEPSFILE=acdkx_orb_mc.mingw.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdkx_orb_mc/mingw/GenOrbIdlAttribute.o: acdkx/orb/mc/GenOrbIdlAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb_mc/mingw/GenOrbIdlAttribute.o -c acdkx/orb/mc/GenOrbIdlAttribute.cpp
+
+../tobj/acdkx_orb_mc/mingw/mc_metainf_base.o: acdkx/orb/mc/mc_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb_mc/mingw/mc_metainf_base.o -c acdkx/orb/mc/mc_metainf_base.cpp
+
+../tobj/acdkx_orb_mc/mingw/OrbDispatchAttribute.o: acdkx/orb/mc/OrbDispatchAttribute.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb_mc/mingw/OrbDispatchAttribute.o -c acdkx/orb/mc/OrbDispatchAttribute.cpp
+
+../tobj/acdkx_orb_mc/mingw/OrbSetRepId.o: acdkx/orb/mc/OrbSetRepId.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb_mc/mingw/OrbSetRepId.o -c acdkx/orb/mc/OrbSetRepId.cpp
+
+../tobj/acdkx_orb_mc/mingw/mc_metainf_ext.o: acdkx/orb/mc/mc_metainf/mc_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb_mc/mingw/mc_metainf_ext.o -c acdkx/orb/mc/mc_metainf/mc_metainf_ext.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdkx_orb_mc.dll $(OBJECTS)
+
+  

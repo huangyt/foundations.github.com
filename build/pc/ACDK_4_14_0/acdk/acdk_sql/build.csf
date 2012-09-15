@@ -1,0 +1,16 @@
+
+
+acdk_sql = new acdk.make.AcdkLibTask("acdk_sql");
+acdk_sql.addModule("src/acdk/sql");
+acdk_sql.addAcdkLib("acdk_core");
+acdk_sql.addAcdkLib("acdk_text");
+
+// create metainfo library for acdk_sql
+acdk_sql_metainf = new acdk.make.AcdkMetainfLibTask("acdk_sql_metainf", acdk_sql);
+
+
+
+default = new acdk.make.AcdkProjectTask("default");
+default.registerTask("acdk_sql_prj");
+default.addSubTask("acdk_sql");
+default.addSubTask("acdk_sql_metainf");

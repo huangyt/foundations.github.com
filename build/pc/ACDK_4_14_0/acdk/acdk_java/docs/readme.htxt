@@ -1,0 +1,59 @@
+%id: acdk_java_readme
+%title: ACDK Java Readme
+%seealso: acdk_java_man
+%keywords: Java, acdk::java
+%body:
+<pageintro>
+<greptag fname="./package.xml" tag="title"/>
+<greptag fname="./package.xml" tag="shortdescription"/>
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>General</jump1>
+  <jump2>Title</jump2>
+    <greptag fname="./package.xml" tag="title"/>
+  <jump2>Version</jump2>
+Distribution version: <perleval> return acdk::getversion("./package.xml", "distribution"); </perleval>.<br>
+Package version: <perleval> return acdk::getversion("./package.xml", "package"); </perleval>.
+   
+<jump2>Short Description</jump2>
+    
+<greptag fname="./package.xml" tag="shortdescription"/>
+    
+<jump2>Dependencies</jump2>
+    <quoted>
+<perleval> return acdk::getDependencies("./package.xml"); </perleval>
+    </quoted>
+<jump2>Namespaces</jump2>
+    <quoted>
+<perleval> return acdk::getnsrefs("./package.xml"); </perleval>
+    </quoted>
+  <jump2>Authors</jump2>
+    <quoted>
+<greptag fname="./package.xml" tag="authors"/>
+    </quoted>
+   <jump2>License</jump2>
+    <quoted>
+<greptag fname="./package.xml" tag="license"/>
+    </quoted>
+<jump1>Description</jump1>
+<greptag fname="./package.xml" tag="description"/>
+
+<jump1>Notes</jump1>
+  <quoted>
+<greptag fname="./package.xml" tag="notes"/>
+  </quoted>
+
+<jump1>Todo</jump1>
+  <quoted>
+<greptag fname="./package.xml" tag="todo"/>
+  </quoted>
+ 
+<jump1>Changes</jump1>
+  <quoted>
+<greptag fname="./package.xml" tag="changes"/>
+  </quoted>
+
+.

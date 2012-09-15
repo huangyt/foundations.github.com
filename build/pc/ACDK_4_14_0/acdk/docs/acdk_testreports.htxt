@@ -1,0 +1,27 @@
+%id: acdk_testreports
+%title: ACDK Test Reports
+%shorttitle: Test Reports
+%body:
+<pageintro>
+Report of the last running unit tests.
+</pageintro>
+
+Status:
+<fl>
+<f> The package aal is currently not working
+<f> BCC: Tested only the core packages
+<f> Solaris (sunos-gcc): Not tested with all scripting bindings
+</f>
+
+<fl>
+<f> %ref[Windows VC 6, testreports/vc6/index.html]
+<f> %ref[Linux (Suse 8.2-9.3; Fedora Core; Mandrake; Debian), testreports/linux/index.html]
+<f> %ref[Sunos 9 sparc, testreports/sunos-gcc/index.html]
+<f> %ref[Sunos 10 i386, testreports/i368_solaris10/index.html]
+<f> %ref[FreeBSD 5.x, testreports/bsd/index.html]
+<f> %ref[Visual Studio .NET 2003, testreports/vc7/index.html]
+<f> %ref[Windows Borland 5.5.1, testreports/bcc/index.html]
+<f> %ref[Linux on Opteron, testreports/linux-opteron/index.html]
+</fl>
+
+.

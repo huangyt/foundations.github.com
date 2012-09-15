@@ -1,0 +1,122 @@
+%id: acdkxorbidl_man
+%title: acdkorbidl
+%keywords: acdkorbidl, IDL, CORBA IDL
+%body:
+<pageintro>
+With acdkorbidl the CORBA IDL definitions of a compiled package
+can be extracted
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+<jump1>Usage</jump1>
+<pre>
+acdkorbidl [options]
+    with options:
+      -o|--output <filename>   where to write output
+      -u|--unit <unitname>     unit to include (multiple usage possible, example acdk::text)
+      --no-fields              no attributes
+      -k|--only-known          generate only known declared corba-interface
+      -x|--only-explict        generate only explicit declared corba-interface
+      -c|--classname <classname> generate IDL for a single class (example acdk/text/RegExp)
+</pre>
+The units has to be already been compiled and located in the $ACDKHOME directory,
+so the classloader can find them.
+
+<jump1>Mapping</jump1>
+<jump2>Namespaces</jump2>
+Namespaces are mapped to modules.
+<jump2>Classes</jump2>
+normal classes are mapped to interfaces.
+The ACKD class acdk::lang::Object will be renamed
+to IDL interface acdk::lang::AObject.
+
+<jump2>Exceptions</jump2>
+ACDK exceptions are mapped to corresponding
+exceptions in CORBA. ACDK exceptions are
+classes derived from acdk::lang::Throwable.
+Because CORBA doesn't supported derived exceptions,
+and methods, these are suppressed in the translated
+CORBA exceptions. All members (including private) 
+of the exception and its parents are included in the 
+CORBA exceptions.
+
+<jump2>Parameter / Member types</jump2>
+The parameters are mapped corresponding to
+the standard ACDK/CORBA type mapping.
+
+Exceptions cannot be used as Parameter or member.
+Methods and field members containing exception
+as parameter will be suppressed.
+
+<jump2>Methods</jump2>
+<jump3>Non-static methods</jump3>
+Public non-static methods are normal methods.
+Methods, which contains a non-confirming parameter
+are suppressed. 
+
+<jump3>Non-static Memberfields</jump3>
+Public ACDK non-static members are mapped
+to interface attributes.
+
+<jump2>Constructors, static methods and members</jump2>
+For each class containing public constrturs or static methods
+or members an additionally interface will be created:
+<source>
+
+// ACDK class
+class AClass
+{
+  ACDK_WITH_METAINFO(AClass)
+public:
+  static int pubStaticInt;
+  RString pubString;
+  AClass(IN(RString) str)
+  : pubString(str)
+  {
+  }
+  int baz();
+  virtual int foo();
+  static int bar();
+};
+</source>
+<source lang="idl">
+interface AClass
+{
+  attribute string pubString;
+  long foo();
+};
+
+interface AClassCorFactory
+{
+  AClass createAClass(in string str); // was constructor
+  attribute long pubStaticInt;
+  long bar();
+}
+</source>
+<jump1>CORBA IDL related ACDK MetaAttributes</jump1>
+<jump2>Unit include hints</jump>
+To include other IDL files an StringTagAttribute can be 
+attached to an Unit declaration. Use the tag name acdkx_orb_UnitInclude1, 
+acdkx_orb_UnitInclude2, etc to add include statemants.
+<source>
+// ACDK header
+ACDK_UNITATTRIBUTE(acdk.tools.mc.StringTagAttribute("acdkx_orb_UnitInclude1", "acdk_core.idl"))
+ACDK_UNITATTRIBUTE(acdk.tools.mc.StringTagAttribute("acdkx_orb_UnitInclude2", "acdk_text.idl"))
+ACDK_DECL_UNIT(acdk_tools_aunit)
+</source>
+will result in:
+<source lang="idl">
+// IDL
+#include <acdk_core.idl>
+#include <acdk_text.idl>
+</source>
+
+<jump2>Value Types</jump2>
+ACDK_UNITATTRIBUTE(acdk.tools.mc.StringTagAttribute("acdkx_orb_StructType"))
+
+Default constructor the public method or <c>static RObject create_instance()</c> must exists.
+
+
+.

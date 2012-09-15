@@ -1,0 +1,236 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/org_xml/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ORG_XML_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	org/xml/sax/sax_metainf_base.cpp \
+	org/xml/sax/helpers/AttributesImpl.cpp \
+	org/xml/sax/helpers/helpers_metainf_base.cpp \
+	org/xml/sax/helpers/MiscXmlUtils.cpp \
+	org/xml/sax/helpers/NamespaceSupport.cpp \
+	org/w3c/dom/DOMWriter.cpp \
+	org/w3c/dom/dom_metainf_base.cpp \
+	org/w3c/dom/Node.cpp \
+	org/w3c/dom/xpath/xpath_metainf_base.cpp \
+	org/w3c/dom/traversal/traversal_metainf_base.cpp \
+
+HEADER= 	org/xml/sax/AttributeList.h \
+	org/xml/sax/Attributes.h \
+	org/xml/sax/Config.h \
+	org/xml/sax/ContentHandler.h \
+	org/xml/sax/DeclHandler.h \
+	org/xml/sax/DocumentHandler.h \
+	org/xml/sax/DTDHandler.h \
+	org/xml/sax/EntityResolver.h \
+	org/xml/sax/ErrorHandler.h \
+	org/xml/sax/HandlerBase.h \
+	org/xml/sax/InputSource.h \
+	org/xml/sax/LexicalHandler.h \
+	org/xml/sax/Locator.h \
+	org/xml/sax/Parser.h \
+	org/xml/sax/sax.h \
+	org/xml/sax/SAXException.h \
+	org/xml/sax/SAXNotRecognizedException.h \
+	org/xml/sax/SAXNotSupportedException.h \
+	org/xml/sax/SAXParseException.h \
+	org/xml/sax/XMLFilter.h \
+	org/xml/sax/XMLReader.h \
+	org/xml/sax/helpers/AttributesImpl.h \
+	org/xml/sax/helpers/CollectiveErrorHandler.h \
+	org/xml/sax/helpers/DefaultHandler.h \
+	org/xml/sax/helpers/helpers.h \
+	org/xml/sax/helpers/LocatorImpl.h \
+	org/xml/sax/helpers/MiscXmlUtils.h \
+	org/xml/sax/helpers/NamespaceSupport.h \
+	org/xml/sax/helpers/StdErrorHandler.h \
+	org/xml/sax/helpers/XMLFilterImpl.h \
+	org/w3c/dom/Attr.h \
+	org/w3c/dom/Branch.h \
+	org/w3c/dom/CDATASection.h \
+	org/w3c/dom/CharacterData.h \
+	org/w3c/dom/Comment.h \
+	org/w3c/dom/Document.h \
+	org/w3c/dom/DocumentFragment.h \
+	org/w3c/dom/DocumentType.h \
+	org/w3c/dom/dom.h \
+	org/w3c/dom/DOMConfiguration.h \
+	org/w3c/dom/DOMError.h \
+	org/w3c/dom/DOMErrorHandler.h \
+	org/w3c/dom/DOMException.h \
+	org/w3c/dom/DOMImplementation.h \
+	org/w3c/dom/DOMLocator.h \
+	org/w3c/dom/DOMWriter.h \
+	org/w3c/dom/Element.h \
+	org/w3c/dom/Entity.h \
+	org/w3c/dom/EntityReference.h \
+	org/w3c/dom/NamedNodeMap.h \
+	org/w3c/dom/Node.h \
+	org/w3c/dom/NodeList.h \
+	org/w3c/dom/Notation.h \
+	org/w3c/dom/ProcessingInstruction.h \
+	org/w3c/dom/Text.h \
+	org/w3c/dom/xpath/xpath.h \
+	org/w3c/dom/xpath/XPathEvaluator.h \
+	org/w3c/dom/xpath/XPathException.h \
+	org/w3c/dom/xpath/XPathExpression.h \
+	org/w3c/dom/xpath/XPathNamespace.h \
+	org/w3c/dom/xpath/XPathNSResolver.h \
+	org/w3c/dom/xpath/XPathResult.h \
+	org/w3c/dom/traversal/DocumentTraversal.h \
+	org/w3c/dom/traversal/NodeFilter.h \
+	org/w3c/dom/traversal/NodeIterator.h \
+	org/w3c/dom/traversal/traversal.h \
+	org/w3c/dom/traversal/TreeWalker.h \
+
+OBJECTS= 	../tobj/org_xml/linux/sax_metainf_base.o \
+	../tobj/org_xml/linux/AttributesImpl.o \
+	../tobj/org_xml/linux/helpers_metainf_base.o \
+	../tobj/org_xml/linux/MiscXmlUtils.o \
+	../tobj/org_xml/linux/NamespaceSupport.o \
+	../tobj/org_xml/linux/DOMWriter.o \
+	../tobj/org_xml/linux/dom_metainf_base.o \
+	../tobj/org_xml/linux/Node.o \
+	../tobj/org_xml/linux/xpath_metainf_base.o \
+	../tobj/org_xml/linux/traversal_metainf_base.o \
+
+
+FINALTARGET=../../bin/liborg_xml.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/liborg_xml.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/liborg_xml.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=org_xml.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/org_xml/linux/sax_metainf_base.o: org/xml/sax/sax_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/sax_metainf_base.o -c org/xml/sax/sax_metainf_base.cpp
+
+../tobj/org_xml/linux/AttributesImpl.o: org/xml/sax/helpers/AttributesImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/AttributesImpl.o -c org/xml/sax/helpers/AttributesImpl.cpp
+
+../tobj/org_xml/linux/helpers_metainf_base.o: org/xml/sax/helpers/helpers_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/helpers_metainf_base.o -c org/xml/sax/helpers/helpers_metainf_base.cpp
+
+../tobj/org_xml/linux/MiscXmlUtils.o: org/xml/sax/helpers/MiscXmlUtils.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/MiscXmlUtils.o -c org/xml/sax/helpers/MiscXmlUtils.cpp
+
+../tobj/org_xml/linux/NamespaceSupport.o: org/xml/sax/helpers/NamespaceSupport.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/NamespaceSupport.o -c org/xml/sax/helpers/NamespaceSupport.cpp
+
+../tobj/org_xml/linux/DOMWriter.o: org/w3c/dom/DOMWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/DOMWriter.o -c org/w3c/dom/DOMWriter.cpp
+
+../tobj/org_xml/linux/dom_metainf_base.o: org/w3c/dom/dom_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/dom_metainf_base.o -c org/w3c/dom/dom_metainf_base.cpp
+
+../tobj/org_xml/linux/Node.o: org/w3c/dom/Node.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/Node.o -c org/w3c/dom/Node.cpp
+
+../tobj/org_xml/linux/xpath_metainf_base.o: org/w3c/dom/xpath/xpath_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/xpath_metainf_base.o -c org/w3c/dom/xpath/xpath_metainf_base.cpp
+
+../tobj/org_xml/linux/traversal_metainf_base.o: org/w3c/dom/traversal/traversal_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/org_xml/linux/traversal_metainf_base.o -c org/w3c/dom/traversal/traversal_metainf_base.cpp
+
+
+
+metainfo:
+	$(ACDKMC) org/xml/sax;\
+	$(ACDKMC) org/xml/sax/helpers;\
+	$(ACDKMC) org/w3c/dom;\
+	$(ACDKMC) org/w3c/dom/xpath;\
+	$(ACDKMC) org/w3c/dom/traversal;\
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/org_xml.so $(OBJECTS)
+
+  

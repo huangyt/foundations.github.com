@@ -1,0 +1,124 @@
+%id: acdk_tcl_dll_man
+%title: acdk_tcl_dll - manual
+%seealso: acdktcl_man
+%keywords: acdk_tcl, Tcl, DMI Client Tcl
+%body:
+<htmlauto/>
+<pageintro>
+  <greptag fname="./acdk_tcl_dll.xml" tag="shortdescription"/>
+</pageintro>
+
+<jumptable/>
+
+<jump1>Tcl as DMI Client</jump1>
+acdk_tcl provides the ACDK DMI client interface for
+Tcl scripts.
+
+<jump2>Hello World Sample</jump2>
+    <body>
+<source lang="tcl">
+proc foo{ string1 string2 }{
+  set sb [acdk_new "acdk/lang/StringBuffer" $string1 ] 
+  acdk_invoke $sb append $string2
+  return [acdk_invoke $sb toString]
+}
+acdk_invoke [ acdk_peek_static "acdk/lang/System" out ] println [ foo "Hello Tcl" " from ACDK"]
+</source>
+<jump2>Type mapping</jump2>
+The atomic types will be mapped between ACDK and Tcl.
+Strings are also be converted.
+All other object types will not mapped.
+
+<jump2>Synopis Tcl</jump2>
+
+<jump3>acdk_new</jump3>
+<source lang="tcl">
+proc acdk_new{classname args}
+</source>
+
+Create an new instance of an ACDK object.
+<fl>
+<f> ACDK classname should be in form of:
+    <code>"acdk/lang/StringBuffer"</code>.
+<f> args are the arguments of the constructor of 
+    the acdk-Class.
+<f> return value is the handle to the ACDK object.
+</fl>
+
+<jump3>acdk_invoke</jump3>
+<source lang="tcl">
+proc acdk_invoke{object methodename args}
+</source>
+acdk_invoke calls a dynamic method of an ACDK object.
+<fl>
+<f> object is a ACDK object.
+<f> methodname name of the method to invoke
+<f> args are the arguments of the constructor of 
+    the acdk-Class.
+<f> return value is the return value of the method.
+</fl>
+
+<jump3>acdk_invoke_static</jump3>
+<source lang="tcl">
+proc acdk_invoke_static{classname methodename args}
+</source>
+acdk_invoke_static calls a static method of an ACDK object.
+<fl>
+<f> ACDK classname 
+<f> methodname name of the method to invoke
+<f> args are the arguments of the constructor of 
+    the acdk-Class.
+<f> return value is the return value of the method.
+</fl>
+
+<jump3>acdk_peek</jump3>
+<source lang="tcl">
+proc acdk_peek{object membername args}
+</source>
+acdk_peek reads a public member of an ACDK object.
+<fl>
+<f> object is a ACDK object.
+<f> membername name of the member of the ACDK object.
+<f> return value is value of the member.
+</fl>
+
+<jump3>acdk_peek_static</jump3>
+<source lang="tcl">
+proc acdk_peek_static{classname membername}
+</source>
+acdk_peek_static reads a static member of an ACDK class.
+<fl>
+<f> ACDK classname 
+<f> membername name of the member of the ACDK object.
+<f> return value is value of the member.
+</fl>
+
+<jump3>acdk_poke</jump3>
+<source lang="tcl">
+proc acdk_poke{object membername newval}
+</source>
+acdk_peek writes a public member of an ACDK object.
+<fl>
+<f> object is a ACDK object.
+<f> membername name of the member of the ACDK object.
+<f> newval value to write into member.
+<f> return no value.
+</fl>
+
+<jump3>acdk_poke_static</jump3>
+<source lang="tcl">
+proc acdk_oke_static{classname membername newval}
+</source>
+acdk_peek_static reads a static member of an ACDK class.
+<fl>
+<f> ACDK classname 
+<f> membername name of the member of the ACDK object.
+<f> newval value to write into member.
+<f> return no value.
+</fl>
+
+<jump1>Embedded Tcl Interpreter</jump1>
+The class %cref[acdk::tcl::TclInterpreter] implements the interpreter.
+Please refer to %ref[acdktcl_man] how to use it.
+
+.

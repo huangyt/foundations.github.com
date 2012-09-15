@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{4f2b20f9-4539-4201-9a63-0fd394e32e66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci">
+      <UniqueIdentifier>{634d459c-8faa-4ec9-ac53-2e3875437954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\ast">
+      <UniqueIdentifier>{49780d2a-9bd7-4927-bcbc-20fd4561847f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\parser">
+      <UniqueIdentifier>{05061659-f00d-4909-8054-b57917d6cbbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\vm">
+      <UniqueIdentifier>{0d0691b3-e5ec-4fe0-87d9-5cc0a7b448bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\util">
+      <UniqueIdentifier>{fa44c7a5-e5d1-4d72-83ca-faa0e4e1460a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\sasm">
+      <UniqueIdentifier>{9e4e7e8c-94aa-4737-9a29-badce049889c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\aci\AccLoader.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\aci.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\aci_metainf.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ClazzSymbolTable.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\Compiler.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\Config.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\core_stack.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\DClazzInfo.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\StdAci.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\SymbolTable.h">
+      <Filter>acdk\aci</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\AciCodeAttributeData.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\ast.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\AstNode.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\AstNodeVisitor.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\ast_metainf.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\EofTerminal.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Expression.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Identifier.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Keyword.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Literal.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Statement.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Terminal.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\ast\Whitespace.h">
+      <Filter>acdk\aci\ast</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\BlockCommentParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\DecimalLiteralParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\FloatLiteralParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\IdentifierParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\KeywordParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\LineCommentParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\LiteralParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\ParseEnv.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\ParseException.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\ParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\parser.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\RegScanParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\Scanner.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\StringTerminalParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\SyntaxNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\SyntaxParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\TerminalParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\parser\WhiteSpaceParseNode.h">
+      <Filter>acdk\aci\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\vm\EvalEnv.h">
+      <Filter>acdk\aci\vm</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\vm\Executable.h">
+      <Filter>acdk\aci\vm</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\vm\OpCodeOp.h">
+      <Filter>acdk\aci\vm</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\vm\OpCodeStm.h">
+      <Filter>acdk\aci\vm</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\vm\vm.h">
+      <Filter>acdk\aci\vm</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\util\CodeLocation.h">
+      <Filter>acdk\aci\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\util\Source.h">
+      <Filter>acdk\aci\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\util\StringSource.h">
+      <Filter>acdk\aci\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\util\TStackedSet.h">
+      <Filter>acdk\aci\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\util\util.h">
+      <Filter>acdk\aci\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\sasm\AsmParseNode.h">
+      <Filter>acdk\aci\sasm</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\aci\sasm\sasm.h">
+      <Filter>acdk\aci\sasm</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\aci\aci_metainf_base.cpp">
+      <Filter>acdk\aci</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ClazzSymbolTable.cpp">
+      <Filter>acdk\aci</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\Compiler.cpp">
+      <Filter>acdk\aci</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\DClazzInfo.cpp">
+      <Filter>acdk\aci</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\DClazzInfoPersist.cpp">
+      <Filter>acdk\aci</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\SymbolTable.cpp">
+      <Filter>acdk\aci</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\AstNode.cpp">
+      <Filter>acdk\aci\ast</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\ast_metainf_base.cpp">
+      <Filter>acdk\aci\ast</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\Terminal.cpp">
+      <Filter>acdk\aci\ast</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\BlockCommentParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\DecimalLiteralParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\FloatLiteralParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\IdentifierParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\KeywordParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\ParseEnv.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\ParseException.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\parser_metainf_base.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\RegScanParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\Scanner.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\StringTerminalParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\SyntaxNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\SyntaxParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\TerminalParseNode.cpp">
+      <Filter>acdk\aci\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\EvalEnv.cpp">
+      <Filter>acdk\aci\vm</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\ExecutableCollector.cpp">
+      <Filter>acdk\aci\vm</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\OpCodeStm.cpp">
+      <Filter>acdk\aci\vm</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\vm_metainf_base.cpp">
+      <Filter>acdk\aci\vm</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\util\util_metainf_base.cpp">
+      <Filter>acdk\aci\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\sasm\AsmParseNode.cpp">
+      <Filter>acdk\aci\sasm</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

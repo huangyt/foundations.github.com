@@ -1,0 +1,328 @@
+2005-02-05 11:44  kommer
+
+	* src/acdk/HelloWorld.cpp, src/acdk/boot.h, src/acdk/boot/Config.h,
+	src/acdk/boot/HelloWorldClass.cpp, src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h, src/acdk/boot/boot.h,
+	src/acdk/boot/boot_all.h,
+	tests/acdk/boot/acdk_boot_HelloWorldClass_Test.cpp,
+	tests/acdk/boot/acdk_boot_Test.cpp: copyright statement ajusted
+
+2004-11-21 22:55  kommer
+
+	* src/acdk/HelloWorld.cpp, src/acdk/boot.h, src/acdk/boot/Config.h,
+	src/acdk/boot/HelloWorldClass.cpp, src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h, src/acdk/boot/boot.h,
+	src/acdk/boot/boot_all.h,
+	tests/acdk/boot/acdk_boot_HelloWorldClass_Test.cpp,
+	tests/acdk/boot/acdk_boot_Test.cpp: changed copyright date to 2005
+
+2004-06-17 18:00  kommer
+
+	* acdk_boot.bpgr, src/HelloWorld.cbx, src/acdk_boot.cbx,
+	tests/acdk/boot/acdk_boot_Test.cbx: initial revision
+
+2004-06-14 13:20  kommer
+
+	* acdk_boot.bcc, acdk_boot.bsd, acdk_boot.linux, acdk_boot.mingw,
+	acdk_boot.nmake, acdk_boot.sunos-gcc, src/HelloWorld.bcc,
+	src/HelloWorld.bsd, src/HelloWorld.linux, src/HelloWorld.mingw,
+	src/HelloWorld.sunos-gcc, src/acdk_boot.bcc, src/acdk_boot.bsd,
+	src/acdk_boot.linux, src/acdk_boot.mingw, src/acdk_boot.sunos-gcc,
+	tests/acdk/boot/acdk_boot_Test.linux,
+	tests/acdk/boot/acdk_boot_Test.sunos-gcc: introduced a new make
+	target "clean-temps" which only delete object files, but not
+	libraries or executables
+
+2004-06-13 00:30  kommer
+
+	* acdk_boot.nmake: make clean for nmake also cleans now release
+	target
+
+2004-04-26 11:16  kommer
+
+	* docs/ACDK-FreeLicense.htxt: [no log message]
+
+2004-04-26 11:11  kommer
+
+	* docs/acdk_general_install.htxt: [no log message]
+
+2004-03-07 02:29  kommer
+
+	* src/acdk/boot/: boot_metainf_base.cpp,
+	boot_metainf/boot_metainf_ext.cpp: reorganized MetaInfo for
+	performance and prepared for nested types
+
+2003-06-19 16:37  kommer
+
+	* src/acdk/HelloWorld.cpp, src/acdk/boot.h, src/acdk/boot/Config.h,
+	src/acdk/boot/HelloWorldClass.cpp, src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h, src/acdk/boot/boot.h,
+	src/acdk/boot/boot_all.h,
+	tests/acdk/boot/acdk_boot_HelloWorldClass_Test.cpp,
+	tests/acdk/boot/acdk_boot_Test.cpp: source comment header ajusted
+
+2003-06-19 15:16  kommer
+
+	* .cvsignore, ChangeLog, Makefile, acdk_boot.bcc, acdk_boot.bsd,
+	acdk_boot.dsw, acdk_boot.linux, acdk_boot.lsp, acdk_boot.mingw,
+	acdk_boot.nmake, acdk_boot.nmake7, acdk_boot.sln,
+	acdk_boot.sunos-gcc, build.cfg, build.csf, build.lsp,
+	docs/acdk_HelloWorld.htxt, docs/acdk_boot.htxt,
+	docs/acdk_general_install.htxt, docs/package.xml, docs/readme.htxt,
+	src/HelloWorld.bcc, src/HelloWorld.dsp, src/HelloWorld.mingw,
+	src/HelloWorld.sunos-gcc, src/acdk_boot.bcc, src/acdk_boot.bsd,
+	src/acdk_boot.dsp, src/acdk_boot.linux, src/acdk_boot.lsp,
+	src/acdk_boot.mingw, src/acdk_boot.sunos-gcc, src/acdk_boot.vcproj,
+	src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h,
+	src/acdk/boot/boot_clazzinfo.cpp,
+	src/acdk/boot/boot_metainf_base.cpp,
+	src/acdk/boot/boot_metainf/boot_metainf_ext.cpp,
+	tests/acdk/boot/acdk_boot_Test.bcc,
+	tests/acdk/boot/acdk_boot_Test.dsp,
+	tests/acdk/boot/acdk_boot_Test.mingw,
+	tests/acdk/boot/acdk_boot_Test.sunos-gcc: merged acdk-3-unicode
+	into MAIN
+
+2003-06-12 12:16  kommer
+
+	* build.lsp: 'not longer needed'
+
+2003-06-11 16:47  kommer
+
+	* build.cfg: 'not longer needed'
+
+2003-06-11 15:50  kommer
+
+	* build.csf: file build.csf was initially added on branch
+	acdk-3-unicode.
+
+2003-06-11 15:50  kommer
+
+	* build.csf: initial revision
+
+2003-05-02 12:25  kommer
+
+	* src/acdk/boot/boot_metainf/boot_metainf_ext.cpp: file
+	boot_metainf_ext.cpp was initially added on branch acdk-3-unicode.
+
+2003-05-02 12:24  kommer
+
+	* src/acdk/boot/boot_metainf_base.cpp: file boot_metainf_base.cpp
+	was initially added on branch acdk-3-unicode.
+
+2003-05-02 12:24  kommer
+
+	* src/acdk/boot/: boot_metainf_base.cpp,
+	boot_metainf/boot_metainf_ext.cpp: initial revision
+
+2003-05-02 12:23  kommer
+
+	* src/acdk/boot/boot_clazzinfo.cpp: [no log message]
+
+2003-04-26 15:33  kommer
+
+	* acdk_boot.lsp, docs/package.xml: shift to version 4.00.*
+
+2003-01-03 11:49  kommer
+
+	* src/acdk/boot/boot_clazzinfo.cpp: reflect changed parameters of
+	StandardDispatch methods
+
+2002-12-30 15:01  kommer
+
+	* src/HelloWorld.vcproj, src/acdk_boot.vcproj,
+	tests/acdk/boot/acdk_boot_Test.vcproj: initial revision
+
+2002-12-30 14:52  kommer
+
+	* acdk_boot.nmake7, acdk_boot.sln: initial revision
+
+2002-12-08 12:42  kommer
+
+	* ChangeLog, src/acdk/HelloWorld.cpp, src/acdk/boot.h,
+	src/acdk/boot/Config.h, src/acdk/boot/HelloWorldClass.cpp,
+	src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h, src/acdk/boot/boot.h,
+	src/acdk/boot/boot_all.h: new source file header
+
+2002-09-09 13:35  kommer
+
+	* src/acdk/boot/: boot.h, boot_clazzinfo.cpp: introduced Units
+
+2002-09-04 12:45  kommer
+
+	* src/acdk/boot/: HelloWorldClass.h, boot_clazzinfo.cpp: introduced
+	MetaAttributes
+
+2002-07-07 19:23  kommer
+
+	* build.cfg: initial revision
+
+2002-06-29 13:30  kommer
+
+	* build.lsp: initial revision
+
+2002-06-02 00:43  kommer
+
+	* tests/acdk/boot/.cvsignore: initial revision
+
+2002-05-26 17:27  kommer
+
+	* ChangeLog: initial revision
+
+2002-05-23 17:03  kommer
+
+	* src/HelloWorld.bcc, src/HelloWorld.bsd, src/HelloWorld.dsp,
+	src/HelloWorld.linux, src/HelloWorld.lsp, src/HelloWorld.mingw,
+	src/HelloWorld.sunos-gcc, src/acdk_boot.bcc, src/acdk_boot.bsd,
+	src/acdk_boot.dsp, src/acdk_boot.linux, src/acdk_boot.lsp,
+	src/acdk_boot.mingw, src/acdk_boot.sunos-gcc,
+	tests/acdk/boot/acdk_boot_Test.bcc,
+	tests/acdk/boot/acdk_boot_Test.bsd,
+	tests/acdk/boot/acdk_boot_Test.dsp,
+	tests/acdk/boot/acdk_boot_Test.linux,
+	tests/acdk/boot/acdk_boot_Test.lsp,
+	tests/acdk/boot/acdk_boot_Test.mingw,
+	tests/acdk/boot/acdk_boot_Test.sunos-gcc: changed ACDK_IN_ACDK_LIB
+	to IN_ACDK_CORE_LIB and ACDK_USE_ACDK_LIB to USE_ACDK_CORE_LIB
+
+2002-05-03 21:43  kommer
+
+	* tests/acdk/boot/: acdk_boot_HelloWorldClass_Test.cpp,
+	acdk_boot_Test.bcc, acdk_boot_Test.bsd, acdk_boot_Test.cpp,
+	acdk_boot_Test.dsp, acdk_boot_Test.linux, acdk_boot_Test.lsp,
+	acdk_boot_Test.mingw, acdk_boot_Test.sunos-gcc: initial revision
+
+2002-01-14 13:46  kommer
+
+	* acdk_boot.bcc, src/acdk_boot.bcc, src/HelloWorld.bcc: initial
+	revision
+
+2001-12-23 13:55  kommer
+
+	* src/acdk/boot/boot_clazzinfo.cpp: changed DMI standardDispatch a
+	little bit
+
+2001-12-16 04:07  kommer
+
+	* src/acdk/boot/boot.h: added docu for namespaces
+
+2001-12-09 03:40  kommer
+
+	* src/acdk/boot/: HelloWorldClass.cpp, HelloWorldClass.h,
+	HelloWorldInterface.h, boot_clazzinfo.cpp: introduced IN() for
+	method parameter
+
+2001-08-09 19:42  kommer
+
+	* acdk_boot.bsd, acdk_boot.dsw, acdk_boot.linux, acdk_boot.mingw,
+	acdk_boot.nmake, acdk_boot.sunos-gcc, src/HelloWorld.bsd,
+	src/HelloWorld.dsp, src/HelloWorld.linux, src/HelloWorld.mingw,
+	src/HelloWorld.sunos-gcc, src/acdk_boot.bsd, src/acdk_boot.dsp,
+	src/acdk_boot.linux, src/acdk_boot.mingw, src/acdk_boot.sunos-gcc:
+	ajustments to new String
+
+2001-07-16 21:32  kommer
+
+	* acdk_boot.bsd, acdk_boot.linux, acdk_boot.mingw, acdk_boot.nmake,
+	acdk_boot.sunos-gcc, src/HelloWorld.dsp, src/acdk_boot.dsp: new
+	makeversion
+
+2001-07-16 21:04  kommer
+
+	* src/HelloWorld.bsd: initial revision
+
+2001-07-16 17:38  kommer
+
+	* acdk_boot.bsd, src/acdk_boot.bsd: initial revision
+
+2001-06-16 16:28  kommer
+
+	* acdk_boot.linux, acdk_boot.mingw, acdk_boot.sunos-gcc: better
+	target install
+
+2001-05-27 17:18  kommer
+
+	* src/: HelloWorld.mingw, acdk_boot.mingw: initial revision
+
+2001-05-27 15:24  kommer
+
+	* acdk_boot.mingw: initial revision
+
+2001-04-07 15:26  kommer
+
+	* src/: HelloWorld.linux, HelloWorld.sunos-gcc, acdk_boot.linux,
+	acdk_boot.sunos-gcc: configuration management
+
+2001-04-06 16:24  kommer
+
+	* docs/acdk_general_install.htxt: initial revision
+
+2001-03-25 12:59  kommer
+
+	* src/: acdk_boot_dll.dsp, acdk_boot_dll.linux, acdk_boot_dll.lsp,
+	acdk_boot_dll.sunos-gcc: [no log message]
+
+2001-03-18 14:21  kommer
+
+	* ACDK-FreeLicense.txt: [no log message]
+
+2001-03-10 12:27  kommer
+
+	* src/acdk_boot.lsp: [no log message]
+
+2001-03-03 12:11  kommer
+
+	* INSTALL, README: [no log message]
+
+2001-03-03 12:05  kommer
+
+	* Makefile.doc, package.xml, changelog.txt, readme.htxt,
+	readme.txt, version.txt: [no log message]
+
+2001-01-05 05:17  kommer
+
+	* docs/.cvsignore: initial revision
+
+2001-01-05 05:12  kommer
+
+	* docs/ACDK-FreeLicense.htxt, docs/HelloWorld.xml,
+	docs/acdk_HelloWorld.htxt, docs/acdk_boot.htxt, docs/acdk_boot.xml,
+	docs/package.xml, docs/readme.htxt, .cvsignore, Makefile,
+	acdk_boot.linux, acdk_boot.nmake, acdk_boot.sunos-gcc,
+	src/acdk_boot.lsp, src/acdk_boot_dll.dsp, src/acdk_boot_dll.linux,
+	src/acdk/boot/boot.h: [no log message]
+
+2000-12-11 18:58  kommer
+
+	* .cvsignore, .distignore, ACDK-FreeLicense.txt, acdk_boot.dsw,
+	acdk_boot.linux, acdk_boot.lsp, acdk_boot.nmake,
+	acdk_boot.sunos-gcc, changelog.txt, index.htxt, INSTALL,
+	Makefile.doc, README, package.xml, readme.htxt, readme.txt,
+	version.txt, src/.cvsignore, src/acdk_boot.lsp,
+	src/acdk_boot_dll.dsp, src/acdk_boot_dll.linux,
+	src/acdk_boot_dll.sunos-gcc, src/HelloWorld.dsp,
+	src/HelloWorld.linux, src/HelloWorld.lsp, src/HelloWorld.sunos-gcc,
+	src/acdk/HelloWorld.cpp, src/acdk/boot.h, src/acdk/boot/boot.h,
+	src/acdk/boot/boot_all.h, src/acdk/boot/HelloWorldClass.cpp,
+	src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h,
+	src/acdk/boot/boot_clazzinfo.cpp: ACDK Free edition
+
+2000-12-11 18:58  kommer
+
+	* .cvsignore, .distignore, ACDK-FreeLicense.txt, acdk_boot.dsw,
+	acdk_boot.linux, acdk_boot.lsp, acdk_boot.nmake,
+	acdk_boot.sunos-gcc, changelog.txt, index.htxt, INSTALL,
+	Makefile.doc, README, package.xml, readme.htxt, readme.txt,
+	version.txt, src/.cvsignore, src/acdk_boot.lsp,
+	src/acdk_boot_dll.dsp, src/acdk_boot_dll.linux,
+	src/acdk_boot_dll.sunos-gcc, src/HelloWorld.dsp,
+	src/HelloWorld.linux, src/HelloWorld.lsp, src/HelloWorld.sunos-gcc,
+	src/acdk/HelloWorld.cpp, src/acdk/boot.h, src/acdk/boot/boot.h,
+	src/acdk/boot/boot_all.h, src/acdk/boot/HelloWorldClass.cpp,
+	src/acdk/boot/HelloWorldClass.h,
+	src/acdk/boot/HelloWorldInterface.h,
+	src/acdk/boot/boot_clazzinfo.cpp: Initial revision
+

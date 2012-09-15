@@ -1,0 +1,33 @@
+%layout: newpage
+%id: acdk_vfile
+%title: ACDK Virtual Files
+%chapter: ifnid[acdk_handbook: acdk_vfile_readme], acdk_vfile_man, acdk_vfile_convert_man, \
+          acdk_vfile_file2rc_man, ifnid[acdk_handbook: acdk_general_install], \
+          ifnid[acdk_handbook: acdk_license], ifnid[acdk_handbook: acdk_vfile_zlib_license]
+%keywords: acdk::vfile, acdk::vfile::zip, acdk::vfile::tar, zip, tar, gzip, virtual file system, acdk::io::File
+%body:
+<htmlauto/>
+<pageintro>
+<greptag fname="./docs/package.xml" tag="shortdescription"/>
+</pageintro>
+
+<p></p>
+<greptag fname="./docs/package.xml" tag="description"/>
+<p></p>
+
+<subschapterstable/>
+
+
+Please refer also to:
+<fl>
+<f> %ref[http://acdk.sourceforge.net/, http://acdk.sourceforge.net/] (Web at Sourceforge).
+<f> %ref[http://www.artefaktur.com/, http://www.artefaktur.com/] (Home of Artefaktur).
+<f> %ref[http://www.artefaktur.ch/, http://www.artefaktur.ch/] (Mirror)
+<f> %ref[http://sourceforge.net/projects/acdk/, http://sourceforge.net/projects/acdk/] (Support at Sourceforge).
+<f> %ref[http://acdk.sourceforge.net/acdk/vfile/, http://acdk.sourceforge.net/acdk/vfile/] (Home of this project).
+<f> %ref[http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__vfile.html, http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__vfile.html] (Online reference).
+<f> %ref[Roger Rene Kommer, mailto:kommer@artefaktur.com] (Mail Author).
+</fl>
+</htmlauto>
+
+.

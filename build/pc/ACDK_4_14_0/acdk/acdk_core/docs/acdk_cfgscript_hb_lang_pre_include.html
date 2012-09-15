@@ -1,0 +1,142 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="include">
+<title>CfgScript include other script files</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;IncludeStatement<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lib.html">Library</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | IncludeStatement | <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a> | <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript include other script files</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript include other script files</h1> -->
+<p class="curchapterline"> | IncludeStatement | <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a> | <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a> |</p>
+<p class="PageIntro">
+With the include preprocessor statement other <code>.csf</code> files can 
+be included into another script file.
+</p>
+
+<br>
+<a name="jumptable20"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#IncludeStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;IncludeStatement</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Usage"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Usage</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Using ClassLoader instead of include"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using ClassLoader instead of include</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Differences between ClassLoader and include"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Differences between ClassLoader and include</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable20"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="IncludeStatement">IncludeStatement</a></h2>
+<pre>
+IncludeStatement
+: '#' 'include' StringLiteral
+</pre>
+<br>
+<br>
+<h2><a href="#jumptable20"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Usage">Usage</a></h2>
+To include other files use the include can be used
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;MyOtherModule.csf&quot;</FONT></B>
+
+</PRE></td></tr></table>
+<code>MyOtherModule.csf</code> is a normal CfgScript file.<br>
+The include statment protects for multiple/recursive includes.<br>
+The <code>#ifdef</code> guards, you have to use in C/C++ are not needed.<br>
+<br>
+The include statements search in following file:<br>
+<ul class="FeatureList">
+<li class="Feature"> The directory of the current csf file
+<li class="Feature"> The Current working directory
+<li class="Feature"> The pathes in the <code>CSFINCLUDES</code> Environment variable
+<li class="Feature"> <code>$ACDKHOME/cfg/csf/include</code>
+</ul>
+Please refer also to the command line option <a  href="acdk_cfgscript_interpreter.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;-csfinclude / CSFINCLUDES</a>.<br>
+<br>
+<br>
+Alternativelly also can also be used:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">bool</FONT></B> noDups = true;
+<B><FONT COLOR="#228B22">bool</FONT></B> changeToDir = false;
+interpreter.include(<B><FONT COLOR="#BC8F8F">&quot;MyOtherModule.csf&quot;</FONT></B>, noDups, changeToDir);
+
+</PRE></td></tr></table>
+See also: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__cfgscript__Script"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript::Script</a>.<br>
+<br>
+<h2><a href="#jumptable20"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using ClassLoader instead of include">Using ClassLoader instead of include</a></h2>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+If you want to create CfgScript modules with classes, you can load the CfgScript
+automatically:<br>
+</td></tr></table>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// MyScript.csf</FONT></I>
+<I><FONT COLOR="#B22222">// will use the classloader to find and load the script
+</FONT></I>mytest.MyOtherScript o = <B><FONT COLOR="#A020F0">new</FONT></B> mytest.MyOtherScript();
+</PRE></td></tr></table>
+Please refer to <a  href="acdk_cfgscript_hb_lib.html#CfgScript ClassLoader"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript ClassLoader</a> for more information.<br>
+<br>
+<h2><a href="#jumptable20"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Differences between ClassLoader and include">Differences between ClassLoader and include</a></h2>
+The <code>include</code> statement works like a C/C++ include statement.<br>
+This has consequence, that global variables defined in the included
+script file is also visible in the script file, which includes the file.<br>
+Module variables in scripts, which are loaded via the ClassLoader are not
+visible outside the module.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | IncludeStatement | <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a> | <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

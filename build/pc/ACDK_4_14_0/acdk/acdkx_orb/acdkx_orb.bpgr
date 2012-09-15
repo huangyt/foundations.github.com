@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdkx_orb.cbx"/>
+  <project path="src/acdkx_orb_namesrv.cbx"/>
+  <project path="src/acdkx_orb_mc.cbx"/>
+  <project path="src/acdkorbidl.cbx"/>
+  <project path="tests/acdkx/orb/acdkx_orb_Test.cbx"/>
+  <project path="tests/acdkx/orb/acdk/AdressServer.cbx"/>
+  <project path="tests/acdkx/orb/acdk/AdressClient.cbx"/>
+
+</projectgroup>

@@ -1,0 +1,68 @@
+# acdk_globals.sunos-gcc
+
+
+#####################################################################
+# OpenSSL
+ACDK_OPENSSL_INCLUDE=.
+#ACDK_OPENSSL_LIBPATH=. 
+ACDK_OPENSSL_LIBS=ssl
+
+#####################################################################
+# Tcl
+ACDK_TCL_LDFLAGS=-ltcl8.4
+ACDK_TCL_CFLAGS=
+
+#####################################################################
+# Perl
+# No settings needed
+
+#####################################################################
+# Python
+ACDK_PYTHON_CFLAGS=-I /usr/include/python2.3
+ACDK_PYTHON_LDFLAGS=-lutil -lpython2.3
+			   
+#####################################################################
+# Java JDK
+ACDK_JAVA_INCLUDE=/usr/lib/SunJava2-1.4.2/include
+ACDK_JAVA_CFLAGS=-I $(ACDK_JAVA_INCLUDE) -I $(ACDK_JAVA_INCLUDE)/linux
+ACDK_JAVA_LDFLAGS=-L /usr/lib/SunJava2-1.4.2/jre/lib/i386   -ljava
+#-lhpi -ljvm -lverify
+
+
+SHELL=bash
+PERL=perl
+SRC2HTML=src2html
+WEBHOME=/home/roger/artefaktur/wweb/products/acdk/modules
+GENWEBHOME=../../genweb
+
+INSTALL=/usr/bin/install -c
+INSTALL_PROGRAM=${INSTALL}
+INSTALL_SCRIPT=${INSTALL_PROGRAM}
+INSTALL_DATA=${INSTALL} -m 644
+MAN_PATH=/usr/local/man
+
+#CCINCLUDEX=-I/opt/DevTools/RogueWave/workspaces/SOLARIS26/SUNPRO50/15
+
+AUNIT_TESTOPTS=-test-htmlreport
+
+CCOMPILER=g++
+LINK=g++
+ifeq ($(BUILD), release)
+CCOPTS=-fpic -O2
+SYSLDFLAGS= -fpic
+else
+CCOPTS=-fpic -ggdb
+SYSLDFLAGS=-g -fpic
+endif
+
+# if you have liberty.so/a on your system, add -liberty
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl 
+
+
+
+          
+PERL=perl
+
+TEMPFILES = '*.o' '*.tmp'
+
+          

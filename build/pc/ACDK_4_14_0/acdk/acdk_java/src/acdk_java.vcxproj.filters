@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{2c4dd5ef-a7f6-4771-98e6-596b1aa24f0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java">
+      <UniqueIdentifier>{b9f2a97b-c277-4873-9ae6-1dd451473ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java\awt">
+      <UniqueIdentifier>{da0bf86f-c57b-4c1f-bcd4-5369a973f570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java\awt\event">
+      <UniqueIdentifier>{48cb0251-5bfc-480c-98b2-e771eba39699}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\java\acdk2java.h">
+      <Filter>acdk\java</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\acdk_java_AcdkObject.h">
+      <Filter>acdk\java</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\Config.h">
+      <Filter>acdk\java</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\JavaInterpreter.h">
+      <Filter>acdk\java</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\JavaObject.h">
+      <Filter>acdk\java</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\jniext.h">
+      <Filter>acdk\java</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\AWTEvent.h">
+      <Filter>acdk\java\awt</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\acdk_java_awt_event_AwtListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\ActionEvent.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\ActionListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\AWTEventListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\AwtListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\KeyEvent.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\KeyListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\MouseEvent.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\MouseListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\WindowEvent.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\awt\event\WindowListener.h">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\java\acdk2java.cpp">
+      <Filter>acdk\java</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\acdk_java_AcdkObject.cpp">
+      <Filter>acdk\java</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\JavaInterpreter.cpp">
+      <Filter>acdk\java</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\JavaObject.cpp">
+      <Filter>acdk\java</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\JavaObject_clazzinfo.cpp">
+      <Filter>acdk\java</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\jniext.cpp">
+      <Filter>acdk\java</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\awt\AWTEvent.cpp">
+      <Filter>acdk\java\awt</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\awt\event\acdk_java_awt_event_AwtListener.cpp">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\awt\event\ActionEvent.cpp">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\awt\event\KeyEvent.cpp">
+      <Filter>acdk\java\awt\event</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

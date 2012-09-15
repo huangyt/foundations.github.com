@@ -1,0 +1,333 @@
+# this is a wrapper makefile
+# pnmake.template
+
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = aal
+
+default: all
+all:: install compile
+
+compile:: acdk_aci acdk_aci_metainf acdk_aci_dmiproxy acdk_aal acdk_aci_guidbg acidbg acdk_aci_Test acdk_aal_Test 
+clean:: acdk_aci-clean acdk_aci_metainf-clean acdk_aci_dmiproxy-clean acdk_aal-clean acdk_aci_guidbg-clean acidbg-clean acdk_aci_Test-clean acdk_aal_Test-clean 
+metainfo:: acdk_aci-metainfo acdk_aci_metainf-metainfo acdk_aci_dmiproxy-metainfo acdk_aal-metainfo acdk_aci_guidbg-metainfo acidbg-metainfo acdk_aci_Test-metainfo acdk_aal_Test-metainfo 
+acdk_aci:  
+	cd src
+	$(MAKE) -f acdk_aci.bcc
+	cd ..
+
+
+acdk_aci-clean:
+	cd src
+	$(MAKE) -f acdk_aci.bcc clean
+	cd ..
+
+
+acdk_aci-metainfo:
+	cd src
+	$(MAKE) -f acdk_aci.bcc metainfo
+	cd ..
+
+
+acdk_aci_metainf:  acdk_aci
+	cd src
+	$(MAKE) -f acdk_aci_metainf.bcc
+	cd ..
+
+
+acdk_aci_metainf-clean:
+	cd src
+	$(MAKE) -f acdk_aci_metainf.bcc clean
+	cd ..
+
+
+acdk_aci_metainf-metainfo:
+	cd src
+	$(MAKE) -f acdk_aci_metainf.bcc metainfo
+	cd ..
+
+
+acdk_aci_dmiproxy:  acdk_aci acdk_aci_dmiproxy
+	cd src
+	$(MAKE) -f acdk_aci_dmiproxy.bcc
+	cd ..
+
+
+acdk_aci_dmiproxy-clean:
+	cd src
+	$(MAKE) -f acdk_aci_dmiproxy.bcc clean
+	cd ..
+
+
+acdk_aci_dmiproxy-metainfo:
+	cd src
+	$(MAKE) -f acdk_aci_dmiproxy.bcc metainfo
+	cd ..
+
+
+acdk_aal:  acdk_aci
+	cd src
+	$(MAKE) -f acdk_aal.bcc
+	cd ..
+
+
+acdk_aal-clean:
+	cd src
+	$(MAKE) -f acdk_aal.bcc clean
+	cd ..
+
+
+acdk_aal-metainfo:
+	cd src
+	$(MAKE) -f acdk_aal.bcc metainfo
+	cd ..
+
+
+acdk_aci_guidbg:  acdk_aci
+	cd src
+	$(MAKE) -f acdk_aci_guidbg.bcc
+	cd ..
+
+
+acdk_aci_guidbg-clean:
+	cd src
+	$(MAKE) -f acdk_aci_guidbg.bcc clean
+	cd ..
+
+
+acdk_aci_guidbg-metainfo:
+	cd src
+	$(MAKE) -f acdk_aci_guidbg.bcc metainfo
+	cd ..
+
+
+acidbg:  acdk_aci acdk_aci_guidbg
+	cd src
+	$(MAKE) -f acidbg.bcc
+	cd ..
+
+
+acidbg-clean:
+	cd src
+	$(MAKE) -f acidbg.bcc clean
+	cd ..
+
+
+acidbg-metainfo:
+	cd src
+	$(MAKE) -f acidbg.bcc metainfo
+	cd ..
+
+
+acdk_aci_Test:  acdk_aci
+	cd tests/acdk/aci
+	$(MAKE) -f acdk_aci_Test.bcc
+	cd ../../..
+
+
+acdk_aci_Test-clean:
+	cd tests/acdk/aci
+	$(MAKE) -f acdk_aci_Test.bcc clean
+	cd ../../..
+
+
+acdk_aci_Test-metainfo:
+	cd tests/acdk/aci
+	$(MAKE) -f acdk_aci_Test.bcc metainfo
+	cd ../../..
+
+
+acdk_aal_Test:  acdk_aci acdk_aal
+	cd tests/acdk/aal
+	$(MAKE) -f acdk_aal_Test.bcc
+	cd ../../..
+
+
+acdk_aal_Test-clean:
+	cd tests/acdk/aal
+	$(MAKE) -f acdk_aal_Test.bcc clean
+	cd ../../..
+
+
+acdk_aal_Test-metainfo:
+	cd tests/acdk/aal
+	$(MAKE) -f acdk_aal_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_aci_Test $(AUNIT_TESTOPTS)
+
+	$(ACDKHOME)\bin\acdk_aal_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_aci-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src cbx
+
+acdk_aci_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src cbx
+
+acdk_aci_dmiproxy-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src cbx
+
+acdk_aal-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src cbx
+
+acdk_aci_guidbg-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src cbx
+
+acidbg-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src cbx
+
+acdk_aci_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci cbx
+
+acdk_aal_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal cbx
+
+
+makemake:: acdk_aci-makemake acdk_aci_metainf-makemake acdk_aci_dmiproxy-makemake acdk_aal-makemake acdk_aci_guidbg-makemake acidbg-makemake acdk_aci_Test-makemake acdk_aal_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_dmiproxy.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aal.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_aci_guidbg.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acidbg.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aci\acdk_aci_Test.lsp -pdir tests/acdk/aci cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/aal\acdk_aal_Test.lsp -pdir tests/acdk/aal cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) aal.lsp
+
+

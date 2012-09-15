@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{f0714054-552a-4866-b96d-929489e702ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\security">
+      <UniqueIdentifier>{4622ae94-9fe7-4e95-937c-1ea4b424661d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\security\security_metainf">
+      <UniqueIdentifier>{f14756d0-f0ff-4c85-af2c-7758ca7bcbf5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\security\security_metainf\security_metainf_ext.cpp">
+      <Filter>acdk\security\security_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

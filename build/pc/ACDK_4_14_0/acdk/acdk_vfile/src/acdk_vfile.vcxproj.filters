@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{f8403b89-a365-4026-af58-a1c59573aad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\vfile">
+      <UniqueIdentifier>{2c73c98c-d0bd-4f41-bce0-103746a785f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\vfile\tar">
+      <UniqueIdentifier>{3c6e1674-70dd-46dc-9706-5a11128c54a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\vfile\zip">
+      <UniqueIdentifier>{57b27e09-f347-4869-b5dd-8bd19476e4b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\vfile\zlib">
+      <UniqueIdentifier>{71593fe7-8d3f-4b41-b0a5-01d32a09049f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\vfile\Config.h">
+      <Filter>acdk\vfile</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\DeflateWriter.h">
+      <Filter>acdk\vfile</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\InflaterReader.h">
+      <Filter>acdk\vfile</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\tar\TarFileHeader.h">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\tar\TarFileImpl.h">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\tar\TarFileSystem.h">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\zip\LocalFileHeader.h">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\zip\ZipFileImpl.h">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\zip\ZipFileReader.h">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\vfile\zip\ZipFileSystem.h">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\vfile\DeflateWriter.cpp">
+      <Filter>acdk\vfile</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\InflaterReader.cpp">
+      <Filter>acdk\vfile</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\tar\TarFileHeader.cpp">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\tar\TarFileImpl.cpp">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\tar\TarFileSystem.cpp">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\tar\tar_metainf_base.cpp">
+      <Filter>acdk\vfile\tar</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zip\LocalFileHeader.cpp">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zip\ZipFileImpl.cpp">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zip\ZipFileReader.cpp">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zip\ZipFileSystem.cpp">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zip\zip_metainf_base.cpp">
+      <Filter>acdk\vfile\zip</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\adler32.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\crc32.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\deflate.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\infblock.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\infcodes.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\inffast.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\inftrees.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\inflate.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\infutil.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\trees.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\vfile\zlib\zutil.c">
+      <Filter>acdk\vfile\zlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

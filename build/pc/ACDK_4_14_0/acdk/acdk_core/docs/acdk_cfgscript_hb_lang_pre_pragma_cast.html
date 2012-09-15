@@ -1,0 +1,370 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="pragma, strict, cast">
+<title>CfgScript Pragma cast directions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Pragma cast
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a> | <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a> | Pragma cast |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Pragma cast directions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Pragma cast directions</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a> | <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a> | Pragma cast |</p>
+<p class="PageIntro">
+The pragma 'cast' directive controls how the interpreter
+does automatically casting types from one type to another.
+</p>
+
+<br>
+<a name="jumptable22"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Cast Pragmas"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast Pragmas</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Syntax"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Syntax</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Context of pragma cast"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Context of pragma cast</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast character types from and to integer types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast character types from and to integer types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast integer types from and to float types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast integer types from and to float types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast number types to boolean type"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast number types to boolean type</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast boolean type to number types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast boolean type to number types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast object types to boolean type"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast object types to boolean type</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast basic types to and from object types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast basic types to and from object types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Check range overflow in number assignments"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Check range overflow in number assignments</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast any type to string"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast any type to string</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Cast string to number types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cast string to number types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Combination of cast"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Combination of cast</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Forced casts"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Forced casts</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast Pragmas">Cast Pragmas</a></h2>
+Cast pragmas controls how the CfgScript interpreter should automatically 
+cast from one type to another.<br>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax">Syntax</a></h3>
+<pre>
+PragmaCastStatement
+: '#' 'pragma' 'cast' CastOption ( 'true' | 'false' )
+;
+
+CastOption
+: <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast character types from and to integer types"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'c2i2c'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast integer types from and to float types"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'f2i2f'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast number types to boolean type"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'n2b'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast boolean type to number types"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'b2n'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast object types to boolean type"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'o2b'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast basic types to and from object types"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'autobox'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Check range overflow in number assignments"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'checkoverflow'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast any type to string"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'a2s'</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html#Cast string to number types"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;'s2n'</a>
+;
+</pre>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Context of pragma cast">Context of pragma cast</a></h3>
+The declaration of a <code>pragma cast</code> is scoped and valid in the scope it is defined:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// default for pragma cast s2n is by default false
+</FONT></I>{ <I><FONT COLOR="#B22222">// enter a new scope
+</FONT></I>  #pragma cast s2n true
+  <I><FONT COLOR="#B22222">// from here auto casting from string to a number is on
+</FONT></I>} <I><FONT COLOR="#B22222">// leaving scope
+</FONT></I><I><FONT COLOR="#B22222">// the previous setting for s2n (false) is active again</FONT></I>
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast character types from and to integer types">Cast character types from and to integer types</a></h3>
+With the <code>c2i2c</code> cast pragma automatic cast from a character type
+(<code>char, ucchar</code>) to an integer will be allowed or not.<br>
+<br>
+The default setting for the <code>#pragma cast c2i2c</code> in CfgScript is 'false'.<br>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+ucchar c = <B><FONT COLOR="#BC8F8F">'A'</FONT></B>;
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+	<B><FONT COLOR="#228B22">int</FONT></B> i = c; <I><FONT COLOR="#B22222">// this will throw an exception, because casting a character from/to integer is not allowed
+</FONT></I>	__script.testAssertComment(false, <B><FONT COLOR="#BC8F8F">&quot;expected throwing DmiTypeConversionException&quot;</FONT></B>);
+} <B><FONT COLOR="#A020F0">catch</FONT></B> (DmiTypeConversionException ex) {
+	__script.testAssertComment(true, <B><FONT COLOR="#BC8F8F">&quot;expected exception: &quot;</FONT></B> + ex.getMessage());
+	
+}
+{
+	#pragma cast c2i2c true <I><FONT COLOR="#B22222">// allow casting
+</FONT></I>	<B><FONT COLOR="#228B22">int</FONT></B> i = c; <I><FONT COLOR="#B22222">// ok, no exception. i contains the unicode character number for the letter 'A'
+</FONT></I>}
+</PRE></td></tr></table>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast integer types from and to float types">Cast integer types from and to float types</a></h3>
+<br>
+With the <code>#pragma cast f2i2f false</code> automatic cast 
+an integer type (byte, short, int, long) from / to a float type (float, double) 
+can be disallowed.<br>
+<br>
+The default setting for the <code>#pragma cast f2i2f</code> in CfgScript is 'true'.<br>
+<br>
+<br>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast number types to boolean type">Cast number types to boolean type</a></h3>
+<br>
+The <code>#pragma cast n2b false</code> is by default true. 
+This enables for example
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+	<B><FONT COLOR="#228B22">int</FONT></B> i = 10;
+	<B><FONT COLOR="#A020F0">while</FONT></B> (i) <I><FONT COLOR="#B22222">// while expect expression which evaluates to bool
+</FONT></I>		--i; 
+</PRE></td></tr></table>
+Otherwise same has to be written:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+	<B><FONT COLOR="#228B22">int</FONT></B> i = 10;
+	<B><FONT COLOR="#A020F0">while</FONT></B> (i != 0) <I><FONT COLOR="#B22222">// while expect expression which evaluates to bool
+</FONT></I>		--i; 
+</PRE></td></tr></table>
+Any number expression, which evalutes to zero is false, all other are
+true.<br>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast boolean type to number types">Cast boolean type to number types</a></h3>
+The <code>#pragma cast n2b false</code> is by default false. 
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">cast</FONT> <FONT COLOR="#B8860B">n2b</FONT> <FONT COLOR="#B8860B">true</FONT>
+<B><FONT COLOR="#228B22">int</FONT></B> i = true; <I><FONT COLOR="#B22222">// 1
+</FONT></I><B><FONT COLOR="#228B22">float</FONT></B> f = false; <I><FONT COLOR="#B22222">// 0
+</FONT></I></PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast object types to boolean type">Cast object types to boolean type</a></h3>
+The <code>#pragma cast o2b</code> is by default true. 
+If a boolean expression is needed, but the expression
+will be evaluated to a object reference, the object
+reference will be translated to:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+Object o = giveSomeObjectOrNil();
+<B><FONT COLOR="#0000FF">if</FONT></B> (o) 
+{
+}
+<I><FONT COLOR="#B22222">// is equal to 
+</FONT></I>#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">cast</FONT> <FONT COLOR="#B8860B">o2b</FONT> <FONT COLOR="#B8860B">false</FONT>
+<B><FONT COLOR="#0000FF">if</FONT></B> (o != Nil)
+{
+}
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast basic types to and from object types">Cast basic types to and from object types</a></h3>
+The <code>#pragma cast autobox</code> is by default true. 
+Autoboxing is the ability of the interpreter to convert
+a basic type (for example <code>int</code>) to the corresponding object
+type (<code>acdk.lang.Integer</code>) and vice versa.<br>
+Example:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// default is autobox true
+</FONT></I><B><FONT COLOR="#228B22">int</FONT></B> i = 2;
+Number o = i; <I><FONT COLOR="#B22222">// thats ok, translates the int to acdk.lang.Integer
+</FONT></I><B><FONT COLOR="#228B22">short</FONT></B> s = o; <I><FONT COLOR="#B22222">// unboxing is also ok
+</FONT></I><I><FONT COLOR="#B22222">// now the same with autobox false
+</FONT></I>#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">cast</FONT> <FONT COLOR="#B8860B">autobox</FONT> <FONT COLOR="#B8860B">false</FONT>
+<B><FONT COLOR="#228B22">int</FONT></B> i = 2;
+Number o = <B><FONT COLOR="#A020F0">new</FONT></B> Integer(i);
+<B><FONT COLOR="#228B22">short</FONT></B> s = o.shortValue();
+</PRE></td></tr></table>
+<br>
+Independed to the pragma cast autobox is the ability to invoke
+methods on basic types:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">cast</FONT> <FONT COLOR="#B8860B">autobox</FONT> <FONT COLOR="#B8860B">false</FONT>
+<B><FONT COLOR="#228B22">int</FONT></B> i = 2;
+String s = i.toString(); <I><FONT COLOR="#B22222">// still possible
+</FONT></I>i = i + 1; 
+<I><FONT COLOR="#B22222">// will basically call 
+</FONT></I>i = (<B><FONT COLOR="#A020F0">new</FONT></B> acdk.lang.dmi.DmiObject(i)).<B><FONT COLOR="#A020F0">operator</FONT></B>+(1).castTo(<B><FONT COLOR="#228B22">int</FONT></B>.GetClass());
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Check range overflow in number assignments">Check range overflow in number assignments</a></h3>
+The <code>#pragma cast checkoverflow</code> is by default false. 
+<br>
+With the pragma cast checkoverflow in assignment from one number type
+to a another the interpreter will check if the value of the right value
+will fit into the type of the left:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">pragma</FONT></B> <FONT COLOR="#B8860B">cast</FONT> <FONT COLOR="#B8860B">checkoverflow</FONT> <FONT COLOR="#B8860B">true</FONT>
+
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+	<B><FONT COLOR="#228B22">short</FONT></B> sval = 0xf234567; <I><FONT COLOR="#B22222">// this value doesn't fit into a short
+</FONT></I>	__script.testAssertComment(false, <B><FONT COLOR="#BC8F8F">&quot;never reach here, exception should be thrown&quot;</FONT></B>);
+} <B><FONT COLOR="#A020F0">catch</FONT></B> (ArithmeticOverflowException ex) {
+	__script.testAssertComment(true, <B><FONT COLOR="#BC8F8F">&quot;expected exception: &quot;</FONT></B> + ex.getMessage());
+}
+</PRE></td></tr></table>
+This also handles situations in arithmic operations:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+{
+	#pragma cast checkoverflow true
+	<B><FONT COLOR="#228B22">short</FONT></B> sval = Short.MAX_VALUE - 1;
+	<B><FONT COLOR="#A020F0">try</FONT></B> {
+		<B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i = 0; i &lt; 10; ++i)
+			sval = sval + 1;
+	} <B><FONT COLOR="#A020F0">catch</FONT></B> (ArithmeticOverflowException ex) {
+		out.println(<B><FONT COLOR="#BC8F8F">&quot;last sval was: &quot;</FONT></B> + sval);
+	}
+}
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast any type to string">Cast any type to string</a></h3>
+The <code>#pragma cast a2s</code> is by default false.<br>
+<br>
+The pragma cast a2s converts automatically any types to a string.<br>
+<br>
+If the type is a basic type it returned the stringified string using
+the corresponding Object wrapper method. If the type is an object
+it will call the to <code>toString()</code> of this method.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+{
+	#pragma cast a2s true
+	String s;
+	s = true;
+	out.println(<B><FONT COLOR="#BC8F8F">&quot;stringified bool true is: &quot;</FONT></B> + s);
+}
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cast string to number types">Cast string to number types</a></h3>
+The <code>#pragma cast s2n</code> is by default false.<br>
+<br>
+The pragma cast s2n converts automatically a string type to a number type.<br>
+This 'duck type cast' (it looks like a duck, it walks like a duck, etc., so it is a duck)
+is also known for example by the Perl language.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+{
+	<B><FONT COLOR="#A020F0">try</FONT></B> {
+		<B><FONT COLOR="#228B22">int</FONT></B> i = <B><FONT COLOR="#BC8F8F">&quot;32&quot;</FONT></B>; <I><FONT COLOR="#B22222">// this does not work by default
+</FONT></I>		__script.testAssertComment(false, <B><FONT COLOR="#BC8F8F">&quot;exception should be thrown&quot;</FONT></B>);
+	} <B><FONT COLOR="#A020F0">catch</FONT></B> (DmiTypeConversionException ex) {
+	
+	}
+}
+{
+	#pragma cast s2n true
+	<I><FONT COLOR="#B22222">// enable parsing numbers
+</FONT></I>	<B><FONT COLOR="#228B22">int</FONT></B> i = <B><FONT COLOR="#BC8F8F">&quot;32&quot;</FONT></B>;
+}
+{
+	#pragma cast s2n true
+	<B><FONT COLOR="#A020F0">try</FONT></B> { 
+		<B><FONT COLOR="#228B22">int</FONT></B> i = <B><FONT COLOR="#BC8F8F">&quot;ba32&quot;</FONT></B>; <I><FONT COLOR="#B22222">// oops not a number
+</FONT></I>	}
+	<B><FONT COLOR="#A020F0">catch</FONT></B> (NumberFormatException ex) {
+	}
+}
+</PRE></td></tr></table>
+<h3><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Combination of cast">Combination of cast</a></h3>
+The pragma casts can have also combination effects.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+{
+	#pragma cast checkoverflow true
+	#pragma cast s2n true
+	<B><FONT COLOR="#A020F0">try</FONT></B> {
+		<I><FONT COLOR="#B22222">// s2n will parse to a number
+</FONT></I>		<I><FONT COLOR="#B22222">// the result number has the int type
+</FONT></I>		<I><FONT COLOR="#B22222">// casting this to short (which is to small)
+</FONT></I>		<I><FONT COLOR="#B22222">// will throw ArithmeticOverflowException
+</FONT></I>		<B><FONT COLOR="#228B22">short</FONT></B> sval = <B><FONT COLOR="#BC8F8F">&quot;0xf234567&quot;</FONT></B>; 
+		__script.testAssertComment(false, <B><FONT COLOR="#BC8F8F">&quot;exception should be thrown&quot;</FONT></B>);
+	} <B><FONT COLOR="#A020F0">catch</FONT></B> (ArithmeticOverflowException ex) {
+		__script.testAssertComment(true, <B><FONT COLOR="#BC8F8F">&quot;expected exception: &quot;</FONT></B> + ex.getMessage());
+	}
+}
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable22"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Forced casts">Forced casts</a></h2>
+<br>
+The class <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__cfgscript__ScriptGlobals"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript::ScriptGlobals</a> contains some pseudo
+operators. To make use of these operators just <code>using</code> the class:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// uses static methods ScriptGlobals
+</FONT></I>using acdk.cfgscript.ScriptGlobals; 
+
+{
+	ucchar c = <B><FONT COLOR="#BC8F8F">'A'</FONT></B>;
+	<I><FONT COLOR="#B22222">// cast from character type to number type:
+</FONT></I>	<B><FONT COLOR="#228B22">int</FONT></B> i = castTo(c, <B><FONT COLOR="#228B22">int</FONT></B>.GetClass());
+}
+</PRE></td></tr></table>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a> | <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a> | Pragma cast |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

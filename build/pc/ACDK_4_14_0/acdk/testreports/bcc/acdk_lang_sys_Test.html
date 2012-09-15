@@ -1,0 +1,521 @@
+<html><body>
+<h1>Unit Test 2004-03-08T10:56:22</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 18; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_newvector_Test.intVector">core_newvector_Test.intVector</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_newvector_Test.structVector">core_newvector_Test.structVector</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_specific_Test.standard">core_specific_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_specific_Test.globalThread">core_specific_Test.globalThread</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_hashmap_Test.standard">core_hashmap_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.rawAllocator">StackAlloc_Test.rawAllocator</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.nullAllocator">StackAlloc_Test.nullAllocator</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.standard">StackAlloc_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.perfTest">StackAlloc_Test.perfTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.heap">StackAlloc_Test.heap</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.reporting">StackAlloc_Test.reporting</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.threadedTest">StackAlloc_Test.threadedTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#BackTrace_Test.standard">BackTrace_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.standard">Heap_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.gc">Heap_Test.gc</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.lowMemTest">Heap_Test.lowMemTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.lowMemWithGcTest">Heap_Test.lowMemWithGcTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.lowMemWithGcThreadedTest">Heap_Test.lowMemWithGcThreadedTest</a> <br>
+</td></tr></table>
+<h2><a id="core_newvector_Test.intVector">core_newvector_Test.intVector</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 15  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT] Start Test: core_newvector_Test.intVector
+[AUNIT:STRT] Start Test: core_newvector_Test.intVector
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(60): cint.size() == count
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(62): cint[i] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(62): cint[i] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(62): cint[i] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(64): cint.size() == count + 1
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(65): cint[0] == 200
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(67): cint[i + 1] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(67): cint[i + 1] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(67): cint[i + 1] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(68): cint.hasElement(200) == true
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(69): cint.hasElement(300) == false
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(71): cint.size() == count
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(73): cint[i] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(73): cint[i] == i
+[AUNIT:SUCC]: core_newvector_Test.intVector:
+acdk_lang_sys_core_vector_Test.cpp(73): cint[i] == i
+</pre>
+<h2><a id="core_newvector_Test.structVector">core_newvector_Test.structVector</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 20  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: core_newvector_Test.intVector
+[AUNIT:ENDT] End Test: core_newvector_Test.intVector
+[AUNIT:STRT] Start Test: core_newvector_Test.structVector
+[AUNIT:STRT] Start Test: core_newvector_Test.structVector
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(125): vec.size() == 4
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(129): vec[i].val == i
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(129): vec[i].val == i
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(129): vec[i].val == i
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(129): vec[i].val == i
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(137): it->val == lit->val + 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(137): it->val == lit->val + 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(137): it->val == lit->val + 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(141): vec.size() == 3
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(146): it->isValid() == true
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(146): it->isValid() == true
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(146): it->isValid() == true
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(148): vec.front().val == 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(149): vec.back().val == 3
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(152): vec.size() == 2
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(153): vec.front().val == 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(154): vec.back().val == 3
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(156): vec.size() == 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(157): vec.front().val == 1
+[AUNIT:SUCC]: core_newvector_Test.structVector:
+acdk_lang_sys_core_vector_Test.cpp(158): vec.back().val == 1
+</pre>
+<h2><a id="core_specific_Test.standard">core_specific_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: core_newvector_Test.structVector
+[AUNIT:ENDT] End Test: core_newvector_Test.structVector
+[AUNIT:STRT] Start Test: core_specific_Test.standard
+[AUNIT:STRT] Start Test: core_specific_Test.standard
+[AUNIT:SUCC]: core_specific_Test.standard:
+acdk_lang_sys_core_specific_test.cpp(115): spec.get().value() == 42
+[AUNIT:SUCC]: core_specific_Test.standard:
+acdk_lang_sys_core_specific_test.cpp(117): MyClass::instances == 0
+</pre>
+<h2><a id="core_specific_Test.globalThread">core_specific_Test.globalThread</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: core_specific_Test.standard
+[AUNIT:ENDT] End Test: core_specific_Test.standard
+[AUNIT:STRT] Start Test: core_specific_Test.globalThread
+[AUNIT:STRT] Start Test: core_specific_Test.globalThread
+[AUNIT:SUCC]: core_specific_Test.globalThread:
+acdk_lang_sys_core_specific_test.cpp(126): mt->_testfailed == false
+[AUNIT:SUCC]: core_specific_Test.globalThread:
+acdk_lang_sys_core_specific_test.cpp(127): MyClass::instances == 0
+</pre>
+<h2><a id="core_hashmap_Test.standard">core_hashmap_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 100  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: core_specific_Test.globalThread
+[AUNIT:ENDT] End Test: core_specific_Test.globalThread
+[AUNIT:STRT] Start Test: core_hashmap_Test.standard
+[AUNIT:STRT] Start Test: core_hashmap_Test.standard
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+[AUNIT:SUCC]: core_hashmap_Test.standard:
+acdk_lang_sys_core_hashmap_Test.cpp(69): cont.get(i).value() == i
+</pre>
+<h2><a id="StackAlloc_Test.rawAllocator">StackAlloc_Test.rawAllocator</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: core_hashmap_Test.standard
+[AUNIT:ENDT] End Test: core_hashmap_Test.standard
+[AUNIT:STRT] Start Test: StackAlloc_Test.rawAllocator
+[AUNIT:STRT] Start Test: StackAlloc_Test.rawAllocator
+</pre>
+<h2><a id="StackAlloc_Test.nullAllocator">StackAlloc_Test.nullAllocator</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.rawAllocator
+[AUNIT:ENDT] End Test: StackAlloc_Test.rawAllocator
+[AUNIT:STRT] Start Test: StackAlloc_Test.nullAllocator
+[AUNIT:STRT] Start Test: StackAlloc_Test.nullAllocator
+</pre>
+<h2><a id="StackAlloc_Test.standard">StackAlloc_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.nullAllocator
+[AUNIT:ENDT] End Test: StackAlloc_Test.nullAllocator
+[AUNIT:STRT] Start Test: StackAlloc_Test.standard
+[AUNIT:STRT] Start Test: StackAlloc_Test.standard
+</pre>
+<h2><a id="StackAlloc_Test.perfTest">StackAlloc_Test.perfTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.standard
+[AUNIT:ENDT] End Test: StackAlloc_Test.standard
+[AUNIT:STRT] Start Test: StackAlloc_Test.perfTest
+[AUNIT:STRT] Start Test: StackAlloc_Test.perfTest
+Allocator 0: 11219; Allocator stackalloc: 4500
+</pre>
+<h2><a id="StackAlloc_Test.heap">StackAlloc_Test.heap</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.perfTest
+[AUNIT:ENDT] End Test: StackAlloc_Test.perfTest
+[AUNIT:STRT] Start Test: StackAlloc_Test.heap
+[AUNIT:STRT] Start Test: StackAlloc_Test.heap
+StackHeap currently not working
+</pre>
+<h2><a id="StackAlloc_Test.reporting">StackAlloc_Test.reporting</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.heap
+[AUNIT:ENDT] End Test: StackAlloc_Test.heap
+[AUNIT:STRT] Start Test: StackAlloc_Test.reporting
+[AUNIT:STRT] Start Test: StackAlloc_Test.reporting
+StackAlloc_Test::reporting not implemented yet
+</pre>
+<h2><a id="StackAlloc_Test.threadedTest">StackAlloc_Test.threadedTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.reporting
+[AUNIT:ENDT] End Test: StackAlloc_Test.reporting
+[AUNIT:STRT] Start Test: StackAlloc_Test.threadedTest
+[AUNIT:STRT] Start Test: StackAlloc_Test.threadedTest
+StackAlloc_Test::threadedTest not implemented yet
+</pre>
+<h2><a id="BackTrace_Test.standard">BackTrace_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in <0x0>
+  called in acdk (ACDK_CORE.DLL)
+  called in acdk (ACDK_CORE.DLL)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_CORE.DLL)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in acdk (ACDK_CORE.DLL)
+  called in acdk (ACDK_CORE.DLL)
+  called in acdk (ACDK_CORE.DLL)
+  called in acdk (ACDK_CORE.DLL)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_TOOLS_AUNIT.DLL)
+  called in acdk (ACDK_CORE.DLL)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+  called in _GetExceptDLLinfo (acdk_lang_sys_Test.exe)
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StackAlloc_Test.threadedTest
+[AUNIT:ENDT] End Test: StackAlloc_Test.threadedTest
+[AUNIT:STRT] Start Test: BackTrace_Test.standard
+[AUNIT:STRT] Start Test: BackTrace_Test.standard
+</pre>
+<h2><a id="Heap_Test.standard">Heap_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: BackTrace_Test.standard
+[AUNIT:ENDT] End Test: BackTrace_Test.standard
+[AUNIT:STRT] Start Test: Heap_Test.standard
+[AUNIT:STRT] Start Test: Heap_Test.standard
+</pre>
+<h2><a id="Heap_Test.gc">Heap_Test.gc</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Heap_Test.standard
+[AUNIT:ENDT] End Test: Heap_Test.standard
+[AUNIT:STRT] Start Test: Heap_Test.gc
+[AUNIT:STRT] Start Test: Heap_Test.gc
+Borland not supported for GC at the moment
+</pre>
+<h2><a id="Heap_Test.lowMemTest">Heap_Test.lowMemTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Heap_Test.gc
+[AUNIT:ENDT] End Test: Heap_Test.gc
+[AUNIT:STRT] Start Test: Heap_Test.lowMemTest
+[AUNIT:STRT] Start Test: Heap_Test.lowMemTest
+Expected Exception: OutOfMemory. MaxGlobalSpace: 14524274; MaxtThreadSpace: 14524274; CurGlobalUsage: 14293967; CurThreadUsage: 14269967; Tried to allocate: 262208
+[AUNIT:SUCC]: Heap_Test.lowMemTest:
+acdk_lang_sys_HeapTest.cpp(246): OutOfMemoryErrorThrown == true
+</pre>
+<h2><a id="Heap_Test.lowMemWithGcTest">Heap_Test.lowMemWithGcTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Heap_Test.lowMemTest
+[AUNIT:ENDT] End Test: Heap_Test.lowMemTest
+[AUNIT:STRT] Start Test: Heap_Test.lowMemWithGcTest
+[AUNIT:STRT] Start Test: Heap_Test.lowMemWithGcTest
+</pre>
+<h2><a id="Heap_Test.lowMemWithGcThreadedTest">Heap_Test.lowMemWithGcThreadedTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Heap_Test.lowMemWithGcTest
+[AUNIT:ENDT] End Test: Heap_Test.lowMemWithGcTest
+[AUNIT:STRT] Start Test: Heap_Test.lowMemWithGcThreadedTest
+[AUNIT:STRT] Start Test: Heap_Test.lowMemWithGcThreadedTest
+Start 4 Thread which does automatically gc on low memory situation
+s: GC Released objects: Elements=[501]; Bytes=[2088168]; 
+s: GC Released objects: Elements=[1486]; Bytes=[6193648]; 
+s: GC Released objects: Elements=[1922]; Bytes=[8010896]; 
+s: GC Released objects: Elements=[12]; Bytes=[50016]; 
+s: GC Released objects: Elements=[56]; Bytes=[233408]; 
+s: GC Released objects: Elements=[18]; Bytes=[75024]; 
+s: GC Released objects: Elements=[745]; Bytes=[3105160]; 
+s: GC Released objects: Elements=[94]; Bytes=[391792]; 
+s: GC Released objects: Elements=[16]; Bytes=[66688]; 
+s: GC Released objects: Elements=[60]; Bytes=[250080]; 
+s: GC Released objects: Elements=[698]; Bytes=[2909264]; 
+s: GC Released objects: Elements=[282]; Bytes=[1175376]; 
+s: GC Released objects: Elements=[41]; Bytes=[170888]; 
+s: GC Released objects: Elements=[128]; Bytes=[533504]; 
+s: GC Released objects: Elements=[146]; Bytes=[608528]; 
+s: GC Released objects: Elements=[457]; Bytes=[1904776]; 
+s: GC Released objects: Elements=[770]; Bytes=[3209360]; 
+s: GC Released objects: Elements=[939]; Bytes=[3913752]; 
+s: GC Released objects: Elements=[50]; Bytes=[208400]; 
+s: GC Released objects: Elements=[184]; Bytes=[766912]; 
+s: GC Released objects: Elements=[583]; Bytes=[2429944]; 
+s: GC Released objects: Elements=[1273]; Bytes=[5305864]; 
+s: GC Released objects: Elements=[561]; Bytes=[2338248]; 
+s: GC Released objects: Elements=[964]; Bytes=[4017952]; 
+s: GC Released objects: Elements=[118]; Bytes=[491824]; 
+s: GC Released objects: Elements=[444]; Bytes=[1850592]; 
+s: GC Released objects: Elements=[684]; Bytes=[2850912]; 
+s: GC Released objects: Elements=[448]; Bytes=[1867264]; 
+s: GC Released objects: Elements=[1124]; Bytes=[4684832]; 
+s: GC Released objects: Elements=[553]; Bytes=[2304904]; 
+s: GC Released objects: Elements=[550]; Bytes=[2292400]; 
+[AUNIT:SUCC]: Heap_Test.lowMemWithGcThreadedTest:
+acdk_lang_sys_HeapTest.cpp(385): gc_test_failed == false
+</pre>
+</body></html>

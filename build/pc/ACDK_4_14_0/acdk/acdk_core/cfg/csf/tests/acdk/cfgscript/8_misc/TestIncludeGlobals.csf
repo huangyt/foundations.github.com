@@ -1,0 +1,5 @@
+
+String GlobalVar = "This is a module global Var";
+{
+  String scopedVar = "This is a scopedVar";
+}

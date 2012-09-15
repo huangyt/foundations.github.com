@@ -1,0 +1,23 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+
+class AClass 
+implements acdk.lang.Comparable
+{
+  int _foo;
+  AClass(int number) { _foo = number; }
+  int compareTo(Object other) { return -1; }
+}
+
+AClass cls = new AClass(42);
+Comparable cmp = cls;
+out.println("cls = Nil;");
+cls = Nil;
+cmp.compareTo("asdf");
+out.println("cmp = Nil;");
+
+cmp = Nil;
+out.println("TEST OK");

@@ -1,0 +1,12 @@
+*.deps
+*.dat
+*.html
+*.txt
+*.ncb
+*.opt
+*.deps
+bin
+obj
+filelist.lst
+tobj
+ids.db

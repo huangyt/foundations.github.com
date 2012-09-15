@@ -1,0 +1,14 @@
+%id: aal_reference_comments
+%title: AAL Comments
+%shorttitle: Comments
+%body:
+<chapterline/>
+<pageintro>
+AAL uses the standard C++/Java comments.
+</pageintro>
+
+
+<jumptable/>
+<jump1>One Line Comments</jump1>
+
+.

@@ -1,0 +1,137 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_tools_odbctests/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_sql -lacdk_sql_odbc  $(ACDK_SQL_ODBC_LDFLAGS)
+CFLAGSX= $(ACDK_SQL_ODBC_CFLAGS)
+LDFLAGSX = 
+
+SOURCES= 	acdk/tools/odbctests/dbconnect.cpp \
+	acdk/tools/odbctests/odbctests.cpp \
+	acdk/tools/odbctests/odbctests_metainf_base.cpp \
+	acdk/tools/odbctests/odbctests_metainf/odbctests_metainf_ext.cpp \
+
+HEADER= 	acdk/tools/odbctests/dbconnect.h \
+	acdk/tools/odbctests/odbctests.h \
+
+OBJECTS= 	../tobj/acdk_tools_odbctests/linux/dbconnect.o \
+	../tobj/acdk_tools_odbctests/linux/odbctests.o \
+	../tobj/acdk_tools_odbctests/linux/odbctests_metainf_base.o \
+	../tobj/acdk_tools_odbctests/linux/odbctests_metainf_ext.o \
+
+
+FINALTARGET=../../bin/acdk_tools_odbctests
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/acdk_tools_odbctests: $(OBJECTS)
+	$(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../bin/acdk_tools_odbctests $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_tools_odbctests.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_tools_odbctests/linux/dbconnect.o: acdk/tools/odbctests/dbconnect.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_odbctests/linux/dbconnect.o -c acdk/tools/odbctests/dbconnect.cpp
+
+../tobj/acdk_tools_odbctests/linux/odbctests.o: acdk/tools/odbctests/odbctests.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_odbctests/linux/odbctests.o -c acdk/tools/odbctests/odbctests.cpp
+
+../tobj/acdk_tools_odbctests/linux/odbctests_metainf_base.o: acdk/tools/odbctests/odbctests_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_odbctests/linux/odbctests_metainf_base.o -c acdk/tools/odbctests/odbctests_metainf_base.cpp
+
+../tobj/acdk_tools_odbctests/linux/odbctests_metainf_ext.o: acdk/tools/odbctests/odbctests_metainf/odbctests_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_odbctests/linux/odbctests_metainf_ext.o -c acdk/tools/odbctests/odbctests_metainf/odbctests_metainf_ext.cpp
+
+
+
+metainfo:
+	$(ACDKMC) acdk/tools/odbctests;\
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_tools_odbctests $(OBJECTS)
+
+  

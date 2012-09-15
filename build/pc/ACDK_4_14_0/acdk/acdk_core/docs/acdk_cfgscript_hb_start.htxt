@@ -1,0 +1,55 @@
+%id: acdk_cfgscript_hb_start
+%title: Start with CfgScript
+%shorttitle: Start 
+%body:
+<chapterline/>
+<pageintro>
+How to use CfgScript
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+<jump1>Requirements</jump1>
+CfgScript is part of ACDK and runs on all ACDK supported platforms:
+<fl>
+<f> Windows
+<f> Linux
+<f> FreeBSD
+<f> Solaris
+</fl>
+
+
+<jump1>Download CfgScript</jump1>
+CfgScript is a part of ACDK.
+
+%ref[ACDK Download on Sourceforge, http://sourceforge.net/project/showfiles.php?group_id=15364].
+
+<jump1>Install CfgScript</jump1>
+Currently there is no binary distribution of ACDK or CfgScript.
+You have to compile it at your own from the ACDK sources.
+
+At minimum you have to compile the acdk_core module from the ACDK source
+distrubtion. 
+This will generate a binary acdkcfgscript[_r/_d.exe].
+
+<jump1>Using CfgScript</jump1>
+<pre>
+acdkcfgscript [acdk-options] &lt;ScriptFile&gt;
+or
+acdkcfgscript [acdk-options] -e script code
+</pre>
+Sample:
+<pre>
+../bin/acdkcfgscript_d.exe -e 'out.println("Hello Folks");'
+Hello Folks
+</pre>
+See more at %ref[acdk_cfgscript_interpreter].
+
+<jump1>CfgScript files</jump1>
+CfgScript files has the extension <b><c>.csf</c></b>.
+Most CfgScript files included into the ACDK distribution are located
+under the direction <c>[package_name]/cfg/csf</c>.
+Samples and unit tests can be found under the directory <c>acdk_core/cfg/csf/tests</c>.
+
+.

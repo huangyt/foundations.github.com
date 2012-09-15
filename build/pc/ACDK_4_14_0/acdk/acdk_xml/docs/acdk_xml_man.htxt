@@ -1,0 +1,163 @@
+%id: acdk_xml_man
+%title: ACDK XML
+%chapter: acdk_xml_XMLObjectReaderWriter_man
+%body:
+<pageintro>
+ACDK XML is a XML parsing framework similar to the java.xml package.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>General</jump1>
+<jump2>Features</jump2>
+Feature list:
+<fl>
+<f> Non-Validating and validating XML SAX parser.
+<f> Non-Validating validating XML DOM parser.
+<f> Supports Ascii, ISO Latin 1 and UTF8 encoding.
+<f> XPath suppport.
+<f> Namespace support.
+<f> Object serialization from/to XML (%ref[acdk_xml_XMLObjectReaderWriter_man]).
+</fl>
+
+<fl>
+<f> All encodings supported by the ACDK framework acdk::locale.
+</fl>
+
+<jump2>Interfaces</jump2>
+The acdk xml interfaces for SAX and DOM is a mixture of the official interface
+definition (%ref[http://www.saxproject.org, http://www.saxproject.org] and 
+%ref[http://www.w3.org/TR/DOM-Level-2-Core/core.html, http://www.w3.org/TR/DOM-Level-2-Core/core.html])
+and the dom4j modell (%ref[http://www.dom4j.org/, http://www.dom4j.org/]), which simplifies
+the official dom modell.
+
+The interfaces can be found the namespace %nsref[org::xml::sax], %nsref[org::w3c::dom] and are
+implementation independent.
+
+
+<jump2>Implementation</jump2>
+
+The acdk_xml modules has to alternative implementations:
+<fl>
+  <f> libxml2 is a c xml library from the gnome project
+  <fl>
+    <f> Implementation in acdk::xml::libxmldom
+    <f> SAX 2 parser
+    <f> DOM 2
+    <f> external entities
+    <f> Validating agains a DTD
+    <f> Namespace
+    <f> XPath
+  </fl>
+  <f> expat is a c xml library
+  <note> This implementation is deprecated. Please use the class in
+       acdk::xml::libxmldom
+  </note>
+  <fl>
+    <f> Implementation in acdk::xml::sax, acdk::xml::dom
+    <f> SAX parser
+    <f> DOM 2
+  </fl>
+</fl>
+
+<b>To parse an XML file to a DOM Tree, use the libxml implemenation!</b>
+
+<jump1>Samples</jump1>
+<jump2>Sample using libxml2</jump2>
+<jump3>Reading a XML file</jump3>
+
+<source>
+// link org_xml and acdk_xml to the application
+#include <org/w3c/dom/NodeList.h>
+#include <acdk/xml/libxmldom/LibXMLDocumentBuilder.h>
+using namespace ::org::w3c::dom;
+using namespace ::org::xml::sax;
+using namespace ::acdk::xml::libxmldom;
+
+LibXMLDocumentBuilder parser;
+parser.setExtendedFlags(XMLRF_PARSE_DTDVALID); // validate the XML file
+::acdk::io::RFile f = new ::acdk::io::File("MyXMLFile.xml");
+::acdk::io::RReader in = f->getReader();
+RLibXMLDocument doc = (RLibXMLDocument)parser.parse(in, ::acdk::net::URL::fileAsUrlName(f));
+RString v = doc->selectNode("/book/body/text()")->getNodeValue();
+RString v2 = doc->selectNode("/book")->selectNode("body/text()")->getNodeValue();
+</source>    
+
+<jump3>Building an XML File</jump3>
+<source>
+RDocument document = LibXMLDocumentBuilder().newDocument();
+  RElement root = document->addElement("root");
+  RElement author1 = root->addElement( "author" )
+                         ->addAttribute( "name", "James" )
+                          ->addAttribute( "location", "UK" )
+                          ->addText( "James Strachan" );
+        
+  RElement author2 = root->addElement( "author" )
+                         ->addAttribute( "name", "Bob" )
+                         ->addAttribute( "location", "US" )
+                         ->addText( "Bob McWhirter" );
+
+  RString xmlstr = document->toXML();
+  System::out->println("Created Document: " + xmlstr);
+</source>
+Output:
+<source>
+Created Document: <?xml version="1.0"?>
+ <root>
+  <author name="James" location="UK">James Strachan</author>
+  <author name="Bob" location="US">Bob McWhirter</author>
+ </root>
+</source>
+
+Please refer to <c>acdk_xml_dom_LibXML_Test.cpp</c> for more samples, how to use
+the parser.
+<jump3>Sample parsing HTML</jump3>
+This sample shows parsing a HTML page using CfgScript:
+<source>
+using acdk.xml.libxmldom;
+using org.xml; 
+using org.w3c.dom;
+
+String urlString = "http://acdk.sourceforge.net";
+URL url = new URL(urlString); 
+Reader in = url.openStream();
+
+DocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+// tell the parser that the document is a HTML document (and not XML)
+docBuilder->setExtendedFlags(acdk.xml.sax.XMLRF_PARSE_HTML_FLAGS);  
+// do parsing
+Document acdkdoc = docBuilder.parse(in, urlString);
+// select the text of <title> via xpath
+out.println("The Title of the page is: " + acdkdoc.selectNode("/html/head/title/text()").getData());
+</source>
+
+A more complex sample, which merges two HTML Documents can be viewed at %cref[csf_acdk_tools_docutils_mergewxdocs_csf].
+
+<jump2>Sample using XML expat DOM</jump1>
+<note>expat is deprecated</note>
+<source>
+#include <acdk.h>
+#include <acdk/lang/System.h>
+#include <acdk/io/CharArrayReader.h>
+#include <acdk/io/File.h>
+#include <acdk/io/GlobFilenameFilter.h>
+#include <acdk/io/MemWriter.h>
+#include <acdk/xml/dom/DOMParser.h>
+#include <org/w3c/dom/NodeList.h>
+
+::acdk::io::RFile f = new ::acdk::io::File("MyXMLFile.xml");
+::acdk::io::RReader in = f->getReader();
+::acdk::io::MemWriter bout;
+in->trans(&bout);
+::acdk::xml::dom::RDOMParser parser = new ::acdk::xml::dom::DOMParser();
+::acdk::xml::dom::RXMLDocument doc = parser->parse(bout.getBuffer());
+RString v = doc->selectNode("/book/body/text()")->getNodeValue();
+RString v2 = doc->selectNode("/book")->selectNode("body/text()")->getNodeValue();
+
+</source>
+
+Please refer also to the source of the unitests of acdk_xml.
+
+
+.

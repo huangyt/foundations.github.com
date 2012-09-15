@@ -1,0 +1,38 @@
+%id: acdkx_orb_init
+%title: Intialization of ACDKX ORB
+%body:
+<pageintro>
+Concept how to configure / initialize ACDKX ORB
+</pageintro>
+<htmlauto/>
+<jumptable/>
+<jump1>The problem</jump1>
+
+On distributed systems it may be difficult to find 
+an initial starting point, the first intial reference.
+
+The Naming Service provides functions to locate Objects
+by name, but how to find the Naming Service itself?
+
+<fl>
+<f> setting an enviromnent variable or a file
+    with the initial IOR.
+    
+<f> setting a fixed (or via configuration options)
+    port adress on each computer, where a deamon provides
+    basic services (like locating naming).
+    
+
+</fl>
+
+<jump1>Actual solution</jump1>
+
+When you startup the acdkx_orb_namesrv, it writes its initial
+IOR to $ACDKHOME/cfg/acdk_orb_namesrv.ref.
+
+Following ACDKX ORB servers try to load this IOR and register
+it reference to this name server.
+
+
+
+.

@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="org">
+      <UniqueIdentifier>{865d91a0-131d-4b95-a7b9-5a4636d6b986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg">
+      <UniqueIdentifier>{04062c21-9dec-4127-a80e-f21dba2a0840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA">
+      <UniqueIdentifier>{f6024d51-e489-4bd4-9257-cc133f76d489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA\CORBA_metainf">
+      <UniqueIdentifier>{7204eb30-54aa-4b33-9e16-adc32f979a6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA\GIOP">
+      <UniqueIdentifier>{e572d5c2-f8c6-414c-9168-99bccab658bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA\IIOP">
+      <UniqueIdentifier>{ab9e7f2a-cea9-42f7-995f-4c2663bfb806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA\IOP">
+      <UniqueIdentifier>{d349b3f6-0266-44f9-aa16-f79c078b7b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA\portable">
+      <UniqueIdentifier>{562ff2fb-9056-4c55-b9bb-d53c0cfd5606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CORBA\portable\portable_metainf">
+      <UniqueIdentifier>{31a7be14-e5c9-41da-989b-a548c59e9348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CosNaming">
+      <UniqueIdentifier>{35c3fccc-5e2a-44e5-9070-b06c3af229bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\CosNaming\CosNaming_metainf">
+      <UniqueIdentifier>{dce2e7e7-345e-4281-9b83-ec05c10a3515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\PortableServer">
+      <UniqueIdentifier>{1f86a506-b195-4885-b0bc-40aec16b0260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\omg\PortableServer\PortableServer_metainf">
+      <UniqueIdentifier>{9f8c74af-0af9-4ca9-b90c-bbfd3eee50bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{79c80226-3604-4c4b-bd8b-685b22272604}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb">
+      <UniqueIdentifier>{71e69319-02cd-49c4-8cf3-4493bad4086d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb\orb_metainf">
+      <UniqueIdentifier>{83c39511-1833-4639-b69b-c599edaba630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb\selftests">
+      <UniqueIdentifier>{ae97db39-b89a-48bf-ac72-5096b8a04578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb\selftests\selftests_metainf">
+      <UniqueIdentifier>{5f8ef7ab-e378-4cbd-9010-536497ff422f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\arb">
+      <UniqueIdentifier>{bcc6b1b6-096c-4feb-b5a6-deec1d02b192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\arb\arb_metainf">
+      <UniqueIdentifier>{00aa21f4-ab7d-4680-8ec7-a0748f96726d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="org\omg\CORBA\Any.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\AttributeDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\Contained.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\Container.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\Context.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\CORBA.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\ExceptionDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\IDLType.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\InterfaceDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\IRObject.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\ModuleDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\Object.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\OperationDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\ORB.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\OrbExceptions.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\PrimitiveDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\Repository.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\SequenceDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\ServerRequest.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\StringDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\StructDef.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\TypeCode.h">
+      <Filter>org\omg\CORBA</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\GIOP\GIOP.h">
+      <Filter>org\omg\CORBA\GIOP</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\IIOP\IIOP.h">
+      <Filter>org\omg\CORBA\IIOP</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\IOP\IOP.h">
+      <Filter>org\omg\CORBA\IOP</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\ApplicationException.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\Delegate.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\InputStream.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\InvokeHandler.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\ObjectImpl.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\OutputStream.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\portable.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\RemarshalException.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CORBA\portable\ResponseHandler.h">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CosNaming\Config.h">
+      <Filter>org\omg\CosNaming</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\CosNaming\CosNaming.h">
+      <Filter>org\omg\CosNaming</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\PortableServer\POA.h">
+      <Filter>org\omg\PortableServer</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\PortableServer\POAManager.h">
+      <Filter>org\omg\PortableServer</Filter>
+    </ClInclude>
+    <ClInclude Include="org\omg\PortableServer\PortableServer.h">
+      <Filter>org\omg\PortableServer</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\acdk2orb.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\AcdkObject.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\AcdkObjectInterface.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\AContextImpl.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\AORB.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\AServerRequestImpl.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\CDRObjectReader.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\CDRObjectWriter.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\Config.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\CorObject.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\GIOPMessage.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\ObjectKey.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\orb.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\OrbConnection.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\OrbConnectionMgr.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\OrbInputStream.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\OrbOutputStream.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\ReplyInputStream.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\ReplyOutputStream.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\RequestOutputStream.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\ServerDelegate.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\std_orb.h">
+      <Filter>acdkx\orb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\selftests\selftests.h">
+      <Filter>acdkx\orb\selftests</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\selftests\TestInterface.h">
+      <Filter>acdkx\orb\selftests</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\selftests\TestInterfaceImpl.h">
+      <Filter>acdkx\orb\selftests</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\arb\ADelegate.h">
+      <Filter>acdkx\arb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\arb\AObjectImpl.h">
+      <Filter>acdkx\arb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\arb\arb.h">
+      <Filter>acdkx\arb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\arb\Config.h">
+      <Filter>acdkx\arb</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\arb\XMLDelegate.h">
+      <Filter>acdkx\arb</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="org\omg\CORBA\Any.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\Contained.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\Container.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\CORBA_metainf_base.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\InterfaceDef.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\ORB.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\OrbExceptions.cpp">
+      <Filter>org\omg\CORBA</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext.cpp">
+      <Filter>org\omg\CORBA\CORBA_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext1.cpp">
+      <Filter>org\omg\CORBA\CORBA_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\GIOP\GIOP.cpp">
+      <Filter>org\omg\CORBA\GIOP</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\portable\ObjectImpl.cpp">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\portable\portable_metainf_base.cpp">
+      <Filter>org\omg\CORBA\portable</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CORBA\portable\portable_metainf\portable_metainf_ext.cpp">
+      <Filter>org\omg\CORBA\portable\portable_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CosNaming\CosNaming_metainf_base.cpp">
+      <Filter>org\omg\CosNaming</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\CosNaming\CosNaming_metainf\CosNaming_metainf_ext.cpp">
+      <Filter>org\omg\CosNaming\CosNaming_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\PortableServer\PortableServer_metainf_base.cpp">
+      <Filter>org\omg\PortableServer</Filter>
+    </ClCompile>
+    <ClCompile Include="org\omg\PortableServer\PortableServer_metainf\PortableServer_metainf_ext.cpp">
+      <Filter>org\omg\PortableServer\PortableServer_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\acdk2orb.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\AcdkObject.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\AcdkObject_clazzInfo.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\AORB.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\AServerRequestImpl.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\CDRObjectReader.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\CDRObjectWriter.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\CorObject.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\CorObject_clazzInfo.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\GIOPMessage.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\ObjectKey.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\OrbConnection.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\OrbConnectionMgr.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\OrbOutputStream.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\orb_metainf_base.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\ReplyInputStream.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\ReplyOutputStream.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\RequestOutputStream.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\ServerDelegate.cpp">
+      <Filter>acdkx\orb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\orb_metainf\orb_metainf_ext.cpp">
+      <Filter>acdkx\orb\orb_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\selftests\selftests_metainf_base.cpp">
+      <Filter>acdkx\orb\selftests</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\selftests\selftests_metainf\selftests_metainf_ext.cpp">
+      <Filter>acdkx\orb\selftests\selftests_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\arb\AObjectImpl.cpp">
+      <Filter>acdkx\arb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\arb\arb.cpp">
+      <Filter>acdkx\arb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\arb\arb_metainf_base.cpp">
+      <Filter>acdkx\arb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\arb\XMLDelegate.cpp">
+      <Filter>acdkx\arb</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\arb\arb_metainf\arb_metainf_ext.cpp">
+      <Filter>acdkx\arb\arb_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

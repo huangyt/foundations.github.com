@@ -1,0 +1,38 @@
+%id: acdk_cfgscript_hb_lang_types_enum
+%title: CfgScript Enum Type
+%shorttitle: Enum Type
+%keywords: enum
+%body:
+<chapterline/>
+<pageintro>
+An enum is a collection of integer types.
+</pageintro>
+
+<htmlauto/>
+
+<pre>
+Enumeration
+: 'enum' TypeName '{' (EnumValues)+ '}'
+;
+
+EnumValues
+: EnumVal [ ',' EnumValues ]
+;
+
+EnumVal
+: Identifier [ '=' %ref[Expression, acdk_cfgscript_hb_lang_expr] ]
+;
+</pre>
+
+Sample:
+<source>
+enum MyEnumValues
+{
+  FirstValue, // == 0
+  SecondValue, // == 1
+  ThirdValue = 10,
+  NextValue, // == 11
+  LastValue = NextValue + ThirdValue 
+}
+</source>
+.

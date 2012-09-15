@@ -1,0 +1,22 @@
+/* XPM */
+static char * folder_fail_xpm[] = {
+"16 16 3 1",
+" 	c Gray100",
+".	c Black",
+"X	c Red",
+"       ..       ",
+"      .XX.      ",
+"     .X  .      ",
+"     .X  X.     ",
+"    .X    .     ",
+"    .X .. X.    ",
+"   .X  ..  .    ",
+"   .X  ..  X.   ",
+"  .X   ..   X.  ",
+"  .X        X.  ",
+" .X    ..    X. ",
+" .X          X. ",
+".XXXXXXXXXXXXXX.",
+"................",
+"                ",
+"                "};

@@ -1,0 +1,91 @@
+<html><body>
+<h1>Unit Test 2004-11-28T19:16:18</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 5; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#AcdkObject_Test.standard">AcdkObject_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#AcdkObject_Test.exceptionHandling">AcdkObject_Test.exceptionHandling</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#AcdkObject_Test.sampleCode">AcdkObject_Test.sampleCode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#AcdkObject_Test.dmiProxy">AcdkObject_Test.dmiProxy</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basic_Test.standard">Basic_Test.standard</a> <br>
+</td></tr></table>
+<h2><a id="AcdkObject_Test.standard">AcdkObject_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 10  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][AcdkObject_Test.standard] Start Test
+[AUNIT:STRT] Start Test: AcdkObject_Test.standard
+IOR:010000002500000049444c3a49444c3a6163646b782f6f72622f4163646b4f626a6563743a312e303a312e300000000001000000000000005c0000000101020008000000302e302e302e300005cf0000400000004143444b08000000302e302e302e300005cf0000573700001d00000049444c3a6163646b782f6f72622f4163646b4f626a6563743a312e30000000003c410c0800000000
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(126): erg->equals("Hello ACDK") == true
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(136): ti->dyn_peek("pubInt")->getIntVar() == 43
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(138): ti->dyn_peek("pubInt")->getIntVar() == 61
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(150): ti->dyn_invoke("dynamicMethodz", inp, outp)->getBoolVar() == true
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(151): ti->dyn_invoke("dynamicMethodc", inp, outp)->getCharVar() == 12
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(152): ti->dyn_invoke("dynamicMethodb", inp, outp)->getByteVar() == 210
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(153): ti->dyn_invoke("dynamicMethods", inp, outp)->getShortVar() == 6001
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(154): ti->dyn_invoke("dynamicMethodi", inp, outp)->getIntVar() == 123456
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(155): ti->dyn_invoke("dynamicMethodl", inp, outp)->getLongVar() == 123456789
+[AUNIT:SUCC]: AcdkObject_Test.standard:
+acdkx_orb_AcdkObject_Test.cpp(157): ti->dyn_invoke("dynamicMethodd", inp, outp)->getDoubleVar() == 12345.6789
+</pre>
+<h2><a id="AcdkObject_Test.exceptionHandling">AcdkObject_Test.exceptionHandling</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][AcdkObject_Test.standard] End Test
+[AUNIT:ENDT] End Test: AcdkObject_Test.standard
+[AUNIT:STRT][AcdkObject_Test.exceptionHandling] Start Test
+[AUNIT:STRT] Start Test: AcdkObject_Test.exceptionHandling
+**  WARN: AORB::reset(): Warning ORB is used somewhere
+IOR:010000002500000049444c3a49444c3a6163646b782f6f72622f4163646b4f626a6563743a312e303a312e300000000001000000000000005c0000000101020008000000302e302e302e30005cc30000400000004143444b08000000302e302e302e30005cc30000573700001d00000049444c3a6163646b782f6f72622f4163646b4f626a6563743a312e3000000000b468100800000000
+Not A Number
+</pre>
+<h2><a id="AcdkObject_Test.sampleCode">AcdkObject_Test.sampleCode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][AcdkObject_Test.exceptionHandling] End Test
+[AUNIT:ENDT] End Test: AcdkObject_Test.exceptionHandling
+[AUNIT:STRT][AcdkObject_Test.sampleCode] Start Test
+[AUNIT:STRT] Start Test: AcdkObject_Test.sampleCode
+**  WARN: AORB::reset(): Warning ORB is used somewhere
+IOR:010000002500000049444c3a49444c3a6163646b782f6f72622f4163646b4f626a6563743a312e303a312e300000000001000000000000005c0000000101020008000000302e302e302e300057d50000400000004143444b08000000302e302e302e300057d50000573700001d00000049444c3a6163646b782f6f72622f4163646b4f626a6563743a312e3000000000bcf4100800000000
+String should contain 'Hello ACDK': Hello ACDK
+
+</pre>
+<h2><a id="AcdkObject_Test.dmiProxy">AcdkObject_Test.dmiProxy</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][AcdkObject_Test.sampleCode] End Test
+[AUNIT:ENDT] End Test: AcdkObject_Test.sampleCode
+[AUNIT:STRT][AcdkObject_Test.dmiProxy] Start Test
+[AUNIT:STRT] Start Test: AcdkObject_Test.dmiProxy
+**  WARN: AORB::reset(): Warning ORB is used somewhere
+IOR:010000002500000049444c3a49444c3a6163646b782f6f72622f4163646b4f626a6563743a312e303a312e300000000001000000000000005c0000000101020008000000302e302e302e300096fe0000400000004143444b08000000302e302e302e300096fe0000573700001d00000049444c3a6163646b782f6f72622f4163646b4f626a6563743a312e30000000003846150800000000
+[AUNIT:SUCC]: AcdkObject_Test.dmiProxy:
+acdkx_orb_AcdkObject_Test.cpp(285): erg->equals("Hello to ACDK over DMI/IIOP")
+</pre>
+<h2><a id="Basic_Test.standard">Basic_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][AcdkObject_Test.dmiProxy] End Test
+[AUNIT:ENDT] End Test: AcdkObject_Test.dmiProxy
+[AUNIT:STRT][Basic_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Basic_Test.standard
+**  WARN: AORB::reset(): Warning ORB is used somewhere
+IOR:010000002a00000049444c3a6163646b782f6f72622f73656c6674657374732f54657374496e746572666163653a312e300000000100000000000000600000000101020008000000302e302e302e30006bd90000440000004143444b08000000302e302e302e30006bd9000057370000220000006163646b782f6f72622f73656c6674657374732f54657374496e74657266616365000000f0fb150800000000
+[AUNIT:SUCC]: Basic_Test.standard:
+acdkx_orb_Basic_Test.cpp(75): ival == 42
+[AUNIT:SUCC]: Basic_Test.standard:
+acdkx_orb_Basic_Test.cpp(78): ioval == 42
+[AUNIT:SUCC]: Basic_Test.standard:
+acdkx_orb_Basic_Test.cpp(79): ti->retvalfoo() == 0
+[AUNIT:SUCC]: Basic_Test.standard:
+acdkx_orb_Basic_Test.cpp(82): str->equals("Hello returned") == true
+</pre>
+</body></html>

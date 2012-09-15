@@ -1,0 +1,11 @@
+
+// Standard new Operator
+new Integer(42);
+Object obj;
+obj = new Object();
+
+obj = new String("A String");
+
+// literal string can also used directly
+obj = "A String";
+

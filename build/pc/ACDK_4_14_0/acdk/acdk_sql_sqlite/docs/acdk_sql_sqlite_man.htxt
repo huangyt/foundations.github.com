@@ -1,0 +1,203 @@
+%id: acdk_sql_sqlite_man
+%title: ACDK SQLite
+%shorttitle: acdk_sql_sqlite
+%body:
+<htmlauto/>
+<pageintro>
+ACDK SQLite is a ACDK library wrapping SQLite3 database with
+the JDBC like C++ interface.
+</pageintro>
+
+<jumptable/>
+<jump1>Usage</jump1>
+<jump2>Using SQLite via the acdk_sql framework</jump2>
+
+Sample in C++/CfgScript
+<source>
+
+// acdk_sql_sqlite/cfg/csf/tests/acdk/sql/sqlite/acdk_sqlite_Standard_Test.csf
+using acdk.sql.sqlite;
+using acdk.sql;
+using acdk.io;
+/**
+  this tests does not use the acdk.sql.* classes, but goes directly to the LiteDb classes
+*/
+
+
+File f = new File("acdk_sql_sqlite_test1.sqlite3");
+if (f.exists() == true)
+  f.deleteFile();
+
+RString dbUrl = "jdbc:sqlite:/acdk_sql_sqlite_test1.sqlite3";
+RDriver driver = DriverManager::getDriver(dbUrl);
+RConnection connection = driver->connect(dbUrl, Nil);
+{
+  RStatement statement = connection->createStatement();
+  statement->executeUpdate("CREATE TABLE ttable (intcol int, stringcol VARCHAR)");
+  connection->createStatement()->executeUpdate("INSERT INTO ttable (intcol, stringcol) VALUES (1, 'first')");
+  connection->createStatement()->executeUpdate("INSERT INTO ttable (intcol, stringcol) VALUES (2, 'second')");
+  connection->createStatement()->executeUpdate("INSERT INTO ttable (intcol, stringcol) VALUES (3, 'third')");
+}
+
+{
+  RStatement statement = connection->createStatement();
+  RResultSet rset = statement->executeQuery("SELECT * from ttable"); 
+  while (rset->next() == true) 
+  {
+    int intcol = rset->getInt(1);
+    RString sval = rset->getString("stringcol");
+    System::out->println("" + intcol + ": " + sval);
+  }
+}
+
+</source>
+
+<jump2>Using the LiteDb class</jump2>
+The classes %cref[acdk::sql::sqlite::LiteDb], %cref[acdk::sql::sqlite::LiteTable], 
+%cref[acdk::sql::sqlite::LiteMemTable] access directly to an SQLite3 database without
+the framework defined in %ref[acdk_sql].
+
+
+Here a short example written in CfgScript:
+
+<source>
+// acdk_sql_sqlite/cfg/csf/tests/acdk/sql/sqlite/SQLiteTable_Test.csf
+using acdk.sql.sqlite;
+using acdk.io;
+/**
+  this tests does not use the acdk.sql.* classes, but goes directly to the LiteDb classes
+*/
+
+File f = new File("acdk_sql_sqlite_test1.sqlite3");
+if (f.exists() == true)
+  f.deleteFile();
+  
+LiteDb db = LiteDb.openDb(f.getName());
+
+db.execute(
+  "CREATE TABLE ttable (intcol int, stringcol VARCHAR);
+   INSERT INTO ttable (intcol, stringcol) VALUES (1, 'first');
+   INSERT INTO ttable (intcol, stringcol) VALUES (2, 'second');
+   INSERT INTO ttable (intcol, stringcol) VALUES (3, 'third');
+  "
+  );
+
+LiteMemTable table = db.execDirect("SELECT * from ttable");
+table.printTable(out);
+</source>
+
+This code prints:
+<pre>
+intcol|stringcol
+-----------------
+1     |first    
+2     |second   
+3     |third    
+</pre>
+
+Alternativally iterate by youself through the rows/columns:
+<source>
+LiteMemTable table = db.execDirect("SELECT * from ttable");
+out.println("use iteration:\n");
+// iterate throw rows
+foreach (LiteMemTableIterator r in table.iterator())
+{
+  // iterates through cols
+  foreach (String f in r.iterator())
+  {
+    out.print(f + "|");  
+  }
+  out.println("");
+}
+</source>
+
+In case the execute method has an additionally argument with a 
+delegate method, this delegate will be called for each row.
+
+<source>
+// call for each row the delegate function
+// this may be a lambda expression or a dynamic/static object/class method
+
+// first version without signature and implicit NamedRest rest parameter
+db.execute("SELECT * from ttable", 
+  lambda 
+  {
+    // first argument is __db for the database
+    // following arguments are the columns, named corresponding the column names in the SQL table
+    out.println("intcol: " + intcol + "; stringcol: " + stringcol);
+  }
+  );
+out.println("");
+
+// second version with explicit method signature
+// The fields of the row can be named different to the original SQL column names.
+db.execute("SELECT * from ttable", 
+  lambda int (LiteDb db, String aintcol, String astringcol)
+  {
+    out.println("intcol: " + aintcol + "; stringcol: " + astringcol);
+    return 0;
+  }
+  );
+</source>
+<jump2>Provide user defined functions</jump2>
+
+<source>
+// ...
+LiteDb db = LiteDb.openDb(f.getName());
+// create some entries
+db.execute(
+  "CREATE TABLE ttable (intcol int, stringcol VARCHAR);
+   INSERT INTO ttable (intcol, stringcol) VALUES (1, 'first');
+   INSERT INTO ttable (intcol, stringcol) VALUES (2, 'second');
+   INSERT INTO ttable (intcol, stringcol) VALUES (3, 'third');
+  "
+  );
+
+// now the important step
+// we create a user defined function, which can
+// be used inside a SQL expression
+db.createSqlFunction(
+  "dneg", // defining a function named "dneg" 
+  1, // with 1 argument
+  lambda         // use any DmiDelegate (here as lambda expression)
+    int (int v)
+    {
+      return -v;  // does not much, just invert the value
+    }
+  );
+
+// now we can use the new SQL function dneg in SQL commands
+// the argument of dneg is the column ttable.intcol in the SELECT statement
+LiteMemTable table = db.execDirect("SELECT dneg(ttable.intcol) as negitcol, stringcol from ttable");
+
+// just print it
+table.printTable(out);
+</source>
+
+The output is:
+<pre>
+negitcol|stringcol
+-------------------
+-1      |first    
+-2      |second   
+-3      |third    
+</pre>
+
+Different to stored procedures user defined functions are not stored inside the 
+database. The new defined function are only valid in the current opened database 
+connection.
+
+<jump1>Supported SQL</jump1>
+For a list of supported SQL by SQLite, please refer to 
+%ref[http://www.sqlite.org/lang.html, http://www.sqlite.org/lang.html].
+
+
+<jump1>More information</jump1>
+The %ref[SQLite webpages, http://www.sqlite.org/docs.html] and 
+%ref[SQLite wiki, http://www.sqlite.org/cvstrac/wiki] provides
+many usefull informations regarding the SQLite database.
+
+<jump1>Logging</jump1>
+All SQL commands are logged in the "acdk.sql.sqlite" category with Trace.
+
+.

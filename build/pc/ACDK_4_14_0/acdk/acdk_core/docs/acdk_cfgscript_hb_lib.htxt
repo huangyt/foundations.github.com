@@ -1,0 +1,124 @@
+%id: acdk_cfgscript_hb_lib
+%title: CfgScript Library
+%shorttitle: Library
+%seealso: acdk_wx
+%body:
+<chapterline/>
+<pageintro>
+CfgScript uses ACDK libraries.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+<jump1>The CfgScript standard library</jump1>
+
+CfgScript has no own standard library, but simply make use of 
+the ACDK class libraries.
+
+All ACDK Classes with provided meta information are available
+in CfgScript. 
+
+<jump2>Available Classes</jump2>
+By default all classes of the acdk_core package are available
+(including acdk.lang, acdk.lang.ref, acdk.lang.reflect, acdk.lang.dmi, 
+acdk.io, acdk.util, acdk.util.logging, acdk.locale).
+Also the classes of the Script interpreter are available
+(acdk.cfgscript).
+
+Addionally all classes implemented in various %ref[acdk_packages] are available
+in CfgScript.
+For example %ref[networking, acdk_net], %ref[XML Processing, acdk_xml], 
+%ref[GUI, acdk_wx] and so on.
+
+<jump1>Using ClassLoader to load the class</jump1>
+If the type is not already loaded, CfgScript uses
+the available %cref[acdk::lang::ClassLoader] to load the class.
+
+Two ClassLoader are available for CfgScript by default:
+
+
+<jump2>System ClassLoader</jump2>
+The system class loader tries to load native code (.so/.dll)
+which contains the ACDK/C++ class definition.
+
+See also: %ref[ACDK Nameservice, acdk_hb_mi_nameservice].
+
+Hundrets of classes are avialable via System ClassLoader including
+%ref[acdk.text, acdk_text] (including RegExp), %ref[acdk.net, acdk_net], 
+%ref[acdk.vfile, acdk_vfile], %ref[acdk.sql, acdk_sql] and
+%ref[acdk.wx, acdk_wx] for GUI programming.
+
+<jump1>CfgScript Classes</jump1>
+
+<jump2>Included CfgScript Files</jump2>
+CfgScript classes may be included via 
+the %ref[include statement, acdk_cfgscript_hb_lang_source#IncludeStatement].
+
+Alternativelly the interpreter uses the CfgScript ClassLoader:
+
+<jump2>CfgScript ClassLoader</jump2>
+
+The CfgScript ClassLoader try to locate a <c>.csf</c>
+file with the same name as the loaded class:
+
+For loading the class <c>mymodule.tools.MyClass</c>
+the CfgScript ClassLoader try to load the script
+<c>mymodule/tools/MyClass.csf</c> from 
+<fl>
+<f> each directory defined in the <c>CSFPATH</c> enviroment variable.
+<f> and in the <c>$ACDKHOME/cfg/csf/lib/</c> directory.
+</fl>
+
+See also: %ref[acdk_cfgscript_interpreter].
+
+See also: %cref[acdk::cfgscript::ScriptClassLoader].
+
+<jump2>Using CfgScript Classes in C++</jump2>
+The CfgScript ClassLoader does not only work for Classes loaded in
+the CfgScript script itself, but also in ACDK C++ and any DMI-enabled Scripting language
+(like list, perl, python, tcl, visual basic, java):
+
+<source>
+// $ACDKHOME/cfg/csf/lib/mytest/MyCfgScriptTestClass.csf
+class MyCfgScriptTestClass
+implements Comparable
+{
+  String value;
+  MyCfgScriptTestClass(String value)
+  {
+    value = val;
+  }
+  String getValue() { return value; }
+  int compareTo(MyCfgScriptTestClass other)
+  {
+    return getValue().compareTo(other.getValue());
+  }
+  
+}
+</source>
+And now in ACDK C++
+<source>
+  // asumes the acdk_cfgscript library is linked to the executable
+  RString arg = "Hello";
+  // uses the class loader to load a cfgscript class, which can be used in
+  RComparable comp1 = (RComparable)Object::New("mytest.MyCfgScriptTestClass", arg);
+  RComparable comp2 = (RComparable)Object::New("mytest.MyCfgScriptTestClass", arg);
+  comp1->compareTo(comp2) == 0;
+</source>
+
+
+<jump1>DMI-able Classes</jump1>
+DMI is the basis language integration mechanism of ACDK called
+Dynamic Method Invocation. 
+
+With the DMI-Bridge CfgScript can make usage of %ref[COM, acdkx_com], 
+%ref[CORBA, acdkx_orb] or %ref[Java, acdk_java] classes
+
+in a way that the code looks exactly the same like the server classes were 
+implemented in CfgScript.
+
+Please refer to %ref[acdk_cfgscript_hb_intro] for the COM sample.
+
+
+.

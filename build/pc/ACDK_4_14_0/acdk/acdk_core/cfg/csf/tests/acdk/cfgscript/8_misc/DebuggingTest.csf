@@ -1,0 +1,41 @@
+
+__script.traceOn();
+int i = 0;
+i = i + 1;
+
+class DebuggingTestClass
+{
+  static void foo()
+  {
+    int i = 42;
+    String s = "asdf";
+    out.println(__script.getScriptBackTrace());
+    __script.breakToDebug();
+    __script.traceOff();
+    i = i + 10;
+    out.println("After debug");
+  }
+  static void baz(int i)
+  {
+    foo();
+    out.println("after foo()");
+  }
+  static void bar(int i)
+  {
+    int i = 43;
+    baz(i);
+    i + 1;
+  }
+}
+/*
+{
+  int j = 2;
+  {
+    String s = "asdf";
+  } 
+}
+*/
+DebuggingTestClass.bar(3);
+out.println("finished");
+
+

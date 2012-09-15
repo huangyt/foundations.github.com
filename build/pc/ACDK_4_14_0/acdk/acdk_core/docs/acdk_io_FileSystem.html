@@ -1,0 +1,211 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="FileSystem, File, virtual file system, acdk::io::File, acdk::io::FileSystem, acdk::io::FileImpl">
+<title>acdk::io::FileSystem</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_core_man.html">man acdk_core</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk::io::FileSystem<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../acdk_vfile/docs/acdk_vfile_man.html">acdk_vfile man</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_core_man_config.html">Runtime Configuration</a> | <a  href="acdk_core_io-concept.html">Reader / Writer</a> | acdk::io::FileSystem | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | <a  href="acdk_util_logging.html">ACDK Logging framework</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk::io::FileSystem</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk::io::FileSystem</h1> -->
+<p class="PageIntro">
+  ACDK implementation of acdk::io::File is a fassade to a virtual file system. 
+</p>
+
+<br>
+<a name="jumptable11"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Overview"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Overview</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation Interfaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Implementation Interfaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#File Naming"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;File Naming</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Available FileSystem "><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Available FileSystem </a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Internal ressources"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Internal ressources</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ZIP files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ZIP files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#TAR files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;TAR files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#HTTP files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;HTTP files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#FTP files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FTP files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Simple Remote Filesystem (experimental)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Simple Remote Filesystem (experimental)</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Configuration of Filesystems"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configuration of Filesystems</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overview">Overview</a></h2>
+ACDK File related classes Java java.io.File In Java the file java.io.File 
+provides access to a File, whereas the file located on the normal operations system file system. 
+<br>
+ACDK acdk::io::File In ACDK files addressed with acdk::io::File can also be 
+located in the local ressources of the executable, a file in an archive, 
+like TAR or ZIP files, or can be located on a remote machine accessible via
+FTP or HTTP.<br>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation Interfaces">Implementation Interfaces</a></h3>
+The framework classes Behind of the fassade of the class File following 
+interfaces build the functionality of files: 
+<ul class="FeatureList">
+<li class="Feature"> interface  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FileSystem"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FileSystem</a>.<br>
+    The FileSystem holds the files and implements the basic file functionalities. 
+<li class="Feature"> interface  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FileImpl"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FileImpl</a>.<br>
+    With this interface the functionality of acdk::io::File will be implemented. 
+<li class="Feature"> interface  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FileSystemFactory"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FileSystemFactory</a>.<br>
+    The FileSystemFactory returns the FileSystem, which handles a given file by name. 
+</ul>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="File Naming">File Naming</a></h3>
+<br>
+Virtual file system naming follows two conventions:<br>
+<ul class="FeatureList">
+<li class="Feature"> URLs identify root file systems (like <code>http://</code> or <code>ftp://</code>)
+<li class="Feature"> container identifies files, which contains own internal file system
+		like zip or tar archives. Container file systems are identified by a 
+		<code>path/file.fileextension@</code> wheras the significant part is <code>.fileextension@</code>.<br>
+		
+</ul>
+<br>
+File names are addresses The internet introduces the concept of URL's - unified ressource locator. 
+The URL concept describes method of access (ftp, http, email, etc.) and the location. 
+<ul class="FeatureList">
+<li class="Feature"> /home/roger/tmp/file.txt is a normal local file 
+<li class="Feature"> /home/roger/tmp/archive.zip is a normal local file too 
+<li class="Feature"> /home/roger/tmp/archive.zip@ is the root directory of the 
+    internal file system contained in the archive.zip. 
+<li class="Feature"> .ressource@/com/artefaktur/test/file.dat is a file in the internal ressource file system 
+<li class="Feature"> ftp://ftp.artefaktur.ch/acdk is a directory on the ftp file system located at ftp.artefaktur.ch. 
+<li class="Feature"> .ressouce@/com/artefaktur/archive.zip@dir/file.txt is file in an archive file system, which itself resides in the internal ressource file system. 
+</ul>
+<br>
+<h2><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Available FileSystem ">Available FileSystem </a></h2>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Internal ressources">Internal ressources</a></h3>
+<code>
+".ressource@com/artefaktur/my/file"
+</code>
+<ul class="FeatureList">
+<li class="Feature"> ".ressource@" is the file system prefix. 
+<li class="Feature"> "com/artefaktur/my" is the directory 
+<li class="Feature"> "file" is the file name. 
+</ul>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ZIP files">ZIP files</a></h3>
+<code>
+/home/roger/myarchive.zip@mydir/sub/myfile.dat
+</code>
+where 
+<ul class="FeatureList">
+<li class="Feature"> /home/roger/myarchive.zip is an existent file 
+<li class="Feature"> mydir/sub the directory in the archive 
+<li class="Feature"> the file in the archive. myfile.dat 
+</ul>
+<br>
+Please refer to 
+<ul class="FeatureList">
+<li class="Feature"> <a  href="../../acdk_vfile/docs/acdk_vfile_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk_vfile man</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__vfile__zip__ZipFileImpl"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::vfile::zip::ZipFileImpl</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__vfile__zip__ZipFileSystem"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::vfile::zip::ZipFileSystem</a> 
+</ul>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="TAR files">TAR files</a></h3>
+<br>
+TAR files are addressed following way: 
+<code>
+/home/roger/myarchive.tar@mydir/sub/myfile.dat
+</code>
+where 
+<ul class="FeatureList">
+<li class="Feature"> /home/roger/myarchive.tar is an existent file 
+<li class="Feature"> mydir/sub the directory in the archive 
+<li class="Feature"> the file in the archive. myfile.dat 
+</ul>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="../../acdk_vfile/docs/acdk_vfile_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk_vfile man</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__vfile__tar__TarFileImpl"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::vfile::tar::TarFileImpl</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__vfile__tar__TarFileSystem"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::vfile::tar::TarFileSystem</a> 
+</ul>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="HTTP files">HTTP files</a></h3>
+<br>
+HTTP files are identified by a url <code>http://domain.net/path/file</code>.<br>
+This file system only supports reading a file. Directory or modification
+operations are not supported.<br>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FTP files">FTP files</a></h3>
+The FTP file system is identified by a url <code>ftp://domain.net/path/file_or_dir</code>
+Not all operations on FTP files are supported. 
+<br>
+<br>
+<h3><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Simple Remote Filesystem (experimental)">Simple Remote Filesystem (experimental)</a></h3>
+<a  href="../../acdk_net/docs/acdk_net_srfsys.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;The Simple Remote Filesystem</a> is a traditional 
+TCP/IP based remote file system used inhouse to synchronize complete directories.<br>
+<br>
+<h2><a href="#jumptable11"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configuration of Filesystems">Configuration of Filesystems</a></h2>
+The implementation of the different file systems are located in dll/shared libraries.<br>
+<br>
+In the configuration (<code>%ACDKHOME/cfg/acdk.cfg</code> by default) these file systems are 
+registered:<br>
+Sample:<br>
+<pre>
+acdk.io.filesystem.protocol.container.0=.zip@=acdk/vfile/zip/ZipFileSystemFactory
+acdk.io.filesystem.protocol.container.1=.ZIP@=acdk/vfile/zip/ZipFileSystemFactory
+acdk.io.filesystem.protocol.container.2=.tar@=acdk/vfile/tar/TarFileSystemFactory
+acdk.io.filesystem.protocol.container.3=.TAR@=acdk/vfile/zip/TarFileSystemFactory
+
+# filename has to start with the url
+acdk.io.filesystem.protocol.url.0=ftp://=acdk/net/ftp/FTPFileSystemFactory
+acdk.io.filesystem.protocol.url.1=http://=acdk/net/UrlFileSystemFactory
+</pre>
+<br>
+If a acdk::io::File instance will be created with a matching naming pattern (url or container)
+the acdk class loader will load the corresponding factory classes.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_core_man_config.html">Runtime Configuration</a> | <a  href="acdk_core_io-concept.html">Reader / Writer</a> | acdk::io::FileSystem | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | <a  href="acdk_util_logging.html">ACDK Logging framework</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

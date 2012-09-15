@@ -1,0 +1,44 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+#pragma strict
+
+
+class MyInteger
+extends acdk.lang.Integer
+{
+  MyInteger(int i) 
+  {
+    super(i);
+    toString();
+  }
+  String toString()
+  {
+    return super.toString(); // alternative 1 
+  }
+  String toString2()
+  {
+    return Integer.toString(); // alternative 2
+  }
+};
+
+
+Integer it = new MyInteger(42);
+String s = it.toString();
+if (s.equals("42") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+s = it.toString2();
+if (s.equals("42") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+out.println("hashCode: " + it.hashCode());
+if (it.hashCode() == 42)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+

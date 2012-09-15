@@ -1,0 +1,26 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+/* this code currently not working
+
+Delegate d3 = lambda { return rest.get(0) + rest.get(1); };
+
+class AClass
+{
+  static String getFirst(int i) = lambda [i] { return "Bla: " + i; };
+  static String getFirstTrad(int i)
+  {
+    return lambda [i] { return "Bla"; };
+  }
+  static int getSecond(int i, int j) = d3;
+  static int getSecondTrad(int i, int j) 
+  {
+    return d3.call(i, j);
+  }
+};
+
+
+String s = AClass.getFirst(42);
+*/

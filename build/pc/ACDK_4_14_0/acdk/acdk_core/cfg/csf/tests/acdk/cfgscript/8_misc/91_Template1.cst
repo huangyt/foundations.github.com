@@ -1,0 +1,11 @@
+<html>
+<header>
+  <title>Hello 3</title>
+</header>
+<body> 
+<table>
+<@ foreach (String s in sa) { 
+@>  <tr><td><@= s @></td></tr>
+<@  } @></table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+%id: acdk_cfgscript_man
+%title: acdk_cfgscript Manual
+%shorttitle: man acdk_cfgscript
+%chapter: ifnid[acdk_handbook: acdk_cfgscript_hb]
+%seealso: acdk::cfgscript=namespace_acdk__cfgscript
+%body:
+<pageintro>
+acdk_cfgscript contains a scripting language named CfgScript
+with maximum integration into ACDK and C++. acdk_cfgscript is used in the 
+the ACDK Metacompiler and the ACDK Make.
+</pageintro>
+
+<htmlauto/>
+<ifhasref ref="acdk_handbook">
+The %ref[CfgScript Handbook, acdk_cfgscript_hb] is either available
+online, or also as seperate handbook: %ref[http://sourceforge.net/projects/acdk/, http://sourceforge.net/projects/acdk/].
+</ifhasref>
+<ifnothasref ref="acdk_handbook">
+<subschapterstable/>
+</ifnothasref>
+
+.

@@ -1,0 +1,8 @@
+*.deps
+*.o
+*.obj
+*.sbr
+*.tmp
+*.plg
+tobj
+

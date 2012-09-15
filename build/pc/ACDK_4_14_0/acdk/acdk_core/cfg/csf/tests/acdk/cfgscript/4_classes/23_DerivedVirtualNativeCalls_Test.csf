@@ -1,0 +1,181 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+#pragma strict
+
+int AClassCount = 0;
+class AClass
+extends acdk.lang.Object
+implements acdk.tools.aunit.SayHelloInterface // native interface
+{
+  AClass() { ++AClassCount; }
+  void finalize() 
+  { 
+  	out.println("AClass.finalize()");
+  	--AClassCount; 
+  }
+  String sayHello(String sayto)
+  {
+    return "AClass";
+  }
+};
+
+
+out.println(
+"===================================
+Test for resolving native virtual calls
+
+You can implement interfaces in the script language
+which can be called from inside a native C++ implemention.
+this enables to implement plugins in a scripting language.
+");
+
+
+String erg;
+// call native acdk object, pass script interface implementation
+//erg = nativeObject.sayHelloViaInterface(cls, "cfgscript_test");
+//out.println(erg);
+//out.println("TEST OK");
+
+class BClass
+extends AClass 
+{
+  BClass() {}
+  String sayHello(String sayto)
+  {
+    return "BClass";
+  }
+  void finalize()
+  {
+  	out.println("BClass::finalize()");
+  	super.finalize();
+  }
+}
+
+AClass cls;
+Object nativeObject;
+
+//cls = new AClass();
+// create native acdk object
+nativeObject = new acdk.tools.aunit.DmiTestClass();
+
+cls = new BClass();
+erg = nativeObject.sayHelloViaInterface(cls, "cfgscript_test");
+if (erg.equals("BClass") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+erg = Nil;
+//System::in->readLine();
+cls = Nil;
+if (AClassCount > 0)
+	out.println("TEST FAILED: AClassCount: " + AClassCount);
+
+class CClass
+extends AClass 
+{
+  CClass() {}
+  String sayHello(String sayto)
+  {
+    return super.sayHello(sayto);
+  }
+}
+
+cls = new CClass();
+
+erg = nativeObject.sayHelloViaInterface(cls, "cfgscript_test");
+if (erg.equals("AClass") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+cls = Nil;
+
+
+class DClass
+extends BClass 
+{
+  DClass() {}
+  String sayHello(String sayto)
+  {
+    return super.sayHello(sayto);
+  }
+}
+
+
+cls = new DClass();
+
+erg = nativeObject.sayHelloViaInterface(cls, "cfgscript_test");
+if (erg.equals("BClass") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+cls = Nil;
+
+class ADerTestClass
+extends acdk.tools.aunit.DmiTestClass
+{
+  ADerTestClass() {}
+  String sayHelloViaInterface(IN(RSayHelloInterface) helloi, IN(RString) sayto)
+  {
+    return "X: " +  helloi->sayHello(sayto);
+  }
+}
+acdk.tools.aunit.DmiTestClass tc;
+
+
+tc = new ADerTestClass();
+cls = new AClass();
+erg = tc->sayHelloViaInterface(cls, "cfgscript_test");
+if (erg.equals("X: AClass") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+tc = Nil;
+cls = Nil;
+
+class BDerTestClass
+extends acdk.tools.aunit.DmiTestClass
+{
+  BDerTestClass() {}
+  String sayHelloViaInterface(IN(RSayHelloInterface) helloi, IN(RString) sayto)
+  {
+    return super->sayHelloViaInterface(helloi, sayto);
+  }
+}
+
+tc = new BDerTestClass();
+cls = new AClass();
+erg = tc->sayHelloViaInterface(cls, "cfgscript_test");
+if (erg.equals("AClass") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+cls = Nil;
+tc = Nil;
+
+class CDerTestClass
+extends ADerTestClass
+{
+  CDerTestClass() {}
+  String sayHelloViaInterface(IN(RSayHelloInterface) helloi, IN(RString) sayto)
+  {
+    return "Y: " +  helloi->sayHello(sayto);
+  }
+}
+
+tc = new CDerTestClass();
+cls = new AClass();
+erg = tc->sayHelloViaInterface(cls, "cfgscript_test");
+out.println(erg);
+if (erg.equals("Y: AClass") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+  
+//ADerTestClass adtc = tc;
+//adtc = Nil;
+cls = Nil;
+tc = Nil;

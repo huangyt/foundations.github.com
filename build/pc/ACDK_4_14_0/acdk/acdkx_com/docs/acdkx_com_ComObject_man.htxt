@@ -1,0 +1,114 @@
+%id: acdkx_com_ComObject_man
+%title: acdkx::com::ComObject Manual
+%shorttitle: acdkx::com::ComObject man
+%seealso: acdkx_com_typemapping
+%keywords: DMI Server COM, COM
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+ACDK COM+ provides an interface from ACDK to Windows COM and vice versa.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Introduction</jump1>
+
+<jump1>acdkx::com::ComObject</jump1>
+
+The ComObject class wrapps an COM ActiveX
+componound for ACDK. If you have installed
+Microsoft Word, you can control it with
+ACDK and it's scripting languages (Lisp, Perl,
+Tcl, Python, Java) without any further requirements.
+<source lang="cpp">
+
+using namespace ::acdk::lang::dmi;
+void sayWordHello()
+{
+    RComObject obj = new ComObject("Word.Application");
+
+    obj->poke("Visible", true);
+    RComObject docs = obj->peek("Documents");
+    RComObject doc = docs->invoke("Add");
+    RComObject sel = obj->peek("ActiveWindow")->peek("Selection");
+    RString s("This is ACDK");
+    sel->invoke("TypeText", new String("This is "));
+    sel->peek("Font")->poke("Bold", true);
+    sel->invoke("TypeText", (const char*)"ACDK ");
+    sel->peek("Font")->poke("Bold", false);
+    sel->invoke("TypeText", (const char*)"instrumenting Word!");
+    
+    Thread::sleep(3000);
+    obj->invoke("Quit", 0);
+}
+</source>
+
+Now the same through a ACDK script language:
+<source lang="elisp">
+; Lisp:
+(defun say-word-hello ()
+  (require 'acdkx.com.ComObject)
+  (set app (invoke-static 'acdkx.com.ComObject 'New "Word.Application"))
+  (poke app 'Visible T)
+  (set doc (invoke (peek app 'Documents) 'Add))
+  (set sel (peek (peek app 'ActiveWindow) 'Selection))
+  (invoke sel 'TypeText "This is ")
+  (poke (peek sel 'Font) 'Bold 1)
+  (invoke sel 'TypeText "ACDK")
+  (poke (peek sel 'Font) 'Bold 0)
+  (invoke sel 'TypeText " instrumenting Word through acdklisp")
+  (sleep 3000)
+  (invoke app 'Quit 0)
+)
+
+</source>
+
+With acdk_perl it is also possible to control Word:
+
+<source lang="perl">
+sub require_class($)
+{
+  my ($cls) = @_;
+  my $cl = acdk::new("acdk/lang/ClassLoader");
+  $cl->findClass($cls);
+}
+
+require_class('acdkx/com/ComObject');
+$word = acdk::invoke_static('acdkx/com/ComObject', 'New', 'Word.Application');
+$word->poke('Visible', 1);
+$doc = $word->peek('Documents')->Add();
+$sel = $word->peek('ActiveWindow')->peek('Selection');
+$sel->TypeText("This is ");
+$sel->peek('Font')->poke('Bold', 1);
+$sel->TypeText("ACDK");
+$sel->peek('Font')->poke('Bold', 0);
+$sel->TypeText(" instrumenting Word through acdk_perl");
+acdk::invoke_static('acdk/lang/Thread', 'sleep', 3000);
+$word->Quit(0);
+</source>
+
+Same game with acdk_python:
+<source lang="python">
+import acdk
+classloader = acdk.Object("acdk/lang/ClassLoader")
+classloader.findClass("acdkx/com/ComObject")
+word = acdk.invoke_static("acdkx/com/ComObject", "New", "Word.Application")
+word.poke("Visible", 1)
+doc = word.peek("Documents").Add()
+sel = word.peek("ActiveWindow").peek("Selection")
+sel.TypeText("This is ")
+sel.peek("Font").poke("Bold", 1)
+sel.TypeText("ACDK")
+sel.peek("Font").poke("Bold", 0)
+sel.TypeText(" instrumenting Word through acdk_perl")
+acdk.invoke_static("acdk/lang/Thread", "sleep", 3000)
+word.Quit(0)
+</source>
+
+From Perl ActiveX methods (like TypeText) can be called directly by name.
+
+
+.
+
+

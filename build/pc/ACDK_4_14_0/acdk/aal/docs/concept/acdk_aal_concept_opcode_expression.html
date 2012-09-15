@@ -1,0 +1,127 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL OpCode Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode.html">OpCode</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Expressions
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Expressions | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | <a  href="acdk_aal_concept_opcode_class.html">Class</a> | <a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL OpCode Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL OpCode Expressions</h1> -->
+<p class="curchapterline"> | Expressions | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | <a  href="acdk_aal_concept_opcode_class.html">Class</a> | <a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a> |</p>
+<p class="PageIntro">
+Intermediate OpCode for AAL.
+</p>
+
+
+<a name="jumptable138"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Basics"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Basics</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Topics"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Topics</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Operators"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Operators</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short circuit boolean evaluation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Short circuit boolean evaluation</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable138"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basics">Basics</a></h2>
+
+Expression are evaluated to a resulting value, which should be on top of stack
+after execution.
+
+<h2><a href="#jumptable138"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Topics">Topics</a></h2>
+
+<h3><a href="#jumptable138"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Operators">Operators</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+id1&nbsp;+&nbsp;id2<br></font>
+</td></tr></table>
+whereas id1/id2 can be an basic type or an Object.
+If both ids are basic types build in operator should
+be used. Otherwise an matching operator should be found.
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+load&nbsp;[id1]<br>
+load&nbsp;[id2]<br>
+add<br>
+<br>
+or<br>
+load&nbsp;[id2]&nbsp;//&nbsp;argument<br>
+load&nbsp;[id1]&nbsp;//&nbsp;object<br>
+push&nbsp;"operator_pl"<br>
+push&nbsp;1&nbsp;//&nbsp;number&nbsp;of&nbsp;args&nbsp;and&nbsp;flags<br>
+invoke<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable138"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short circuit boolean evaluation">Short circuit boolean evaluation</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+i&nbsp;&lt;&nbsp;9&nbsp;&amp;&amp;&nbsp;i&nbsp;&gt;&nbsp;0<br></font>
+</td></tr></table>
+If the first part of the expression i < 9 the second part 
+of the logical expression should not be evaluated.
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+load&nbsp;[i]<br>
+push&nbsp;9<br>
+lt<br>
+brfalse&nbsp;endofexpr&nbsp;//&nbsp;false&nbsp;is&nbsp;on&nbsp;TOS<br>
+pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;TOS=true&nbsp;not&nbsp;further&nbsp;needed<br>
+load&nbsp;[i]<br>
+push&nbsp;0<br>
+gt&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;result&nbsp;is&nbsp;on&nbsp;TOS<br>
+:endofexpr<br>
+<br></font>
+</td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Expressions | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | <a  href="acdk_aal_concept_opcode_class.html">Class</a> | <a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

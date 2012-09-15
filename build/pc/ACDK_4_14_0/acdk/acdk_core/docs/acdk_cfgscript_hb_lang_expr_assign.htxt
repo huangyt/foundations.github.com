@@ -1,0 +1,36 @@
+%id: acdk_cfgscript_hb_lang_expr_assign
+%title: CfgScript Assignment Expressions
+%shorttitle: Assigment
+%seealso: acdk_cfgscript_hb_lang_stmt_vardecl
+%body:
+<chapterline/>
+<pageintro>
+Assignment bind values to a variable
+</pageintro>
+
+<htmlauto/>
+
+<pre>
+AssignmentExpression
+: LValue '=' %ref[Expression, acdk_cfgscript_hb_lang_expr]
+;
+
+LValue
+: Identifier
+| ClassOrObjectMember
+;
+</pre>
+Assign a new value to a variable.
+
+Although the assignment operation will be used in most cases
+as statement (<c>a = 2;</c>) it is an expression. The result
+of the expression is value of the variable.
+Different to many other operations the assignment will be evaluated
+from the right to the left so chained assignments are possible:
+<source>
+a = b = 4; // both a and b contains 4
+</source>
+
+Please refer also to %ref[acdk_cfgscript_hb_lang_stmt_vardecl]
+
+.

@@ -1,0 +1,48 @@
+%id: acdk_cfgscript_hb_lang_stmt_typealias
+%title: CfgScript typealias Statements
+%shorttitle: Type Alias
+%seealso: acdk_cfgscript_hb_lang_stmt_using
+%keywords: typealias
+%body:
+<chapterline/>
+<pageintro>
+Type alias introduces new name for anothother type name 
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>TypeAliasStatement</jump1>
+<pre>
+TypeAliasStatement
+: 'typealias' TypeName TypeName ';'
+;
+</pre>
+typealias introduce a new name for an existent type.
+The new type name is valid in the current and child scopes.
+
+<jump1>Predefined Type Alias</jump1>
+Following type alias are predefined (and cannot be overwritten):
+<fl>
+<f> <c>Any</c> is <c>acdk.lang.dmi.DmiObject</c>
+<f> <c>Rest</c> is <c>acdk.lang.dmi.DmiObjectArray</c>
+<f> <c>NamedRest</c> is <c>acdk.lang.dmi.DmiNamedArgArray</c>
+<f> <c>Delegate</c> is <c>acdk.lang.dmi.DmiDelegate</c>
+</fl>
+
+<jump1>Sample</jump1>
+<source>
+typealias acdk.lang.String mytype;
+
+mytype s = "asdf";
+{
+  typealias acdk.lang.Integer mytype;
+  mytype is = new Integer(42); 
+}
+// now is mytype a string again
+s = "asdf";
+</source>
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_using].
+
+.

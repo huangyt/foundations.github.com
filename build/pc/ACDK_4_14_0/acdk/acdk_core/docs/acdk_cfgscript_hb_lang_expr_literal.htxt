@@ -1,0 +1,134 @@
+%id: acdk_cfgscript_hb_lang_expr_literal
+%title: CfgScript Literal Expressions
+%shorttitle: Literals
+%body:
+<chapterline/>
+<pageintro>
+Literals are hard coded values of basic or component types.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+
+<jump1>LiteralExpression</jump1>
+<pre>
+LiteralExpression
+: %ref[IntegerLiteral, #IntegerLiteral]
+| %ref[BoolLiteral, #BoolLiteral]
+| %ref[FloatLiteral, #FloatLiteral]
+| %ref[NilLiteral, #NilLiteral]
+| %ref[StringLiteral, #StringLiteral]
+| %ref[CharLiteral, #CharLiteral]
+| %ref[ArrayLiteral, acdk_cfgscript_hb_lang_types_arrays#ArrayLiteral]
+| %ref[PropsLiteral, acdk_cfgscript_hb_lang_types_props#PropsLiteral]
+;
+</pre>
+
+<jump2>BoolLiteral</jump2>
+<pre>
+BoolLiteral
+: 'true'
+| 'false'
+;
+</pre>
+
+
+<jump2>IntegerLiteral</jump2>
+<pre>
+IntegerLiteral
+: '0x'(0-F)+ 
+| 0(0-7)+ 
+| (0-9)+ [IntegerLiteralTypeSuffix]
+;
+
+IntegerLiteralTypeSuffix
+: 'b' 
+| 'B' 
+| 's' 
+| 'S' 
+| 'i'
+| 'I' 
+| 'l' 
+| 'L'
+;
+</pre>
+
+<jump2>FloatLiteral</jump2>
+<pre>
+FloatLiteral
+: (0-9)+ '.' (0-9)+[ 'e' (0-9)+] [d|D|f|F]
+;
+</pre>
+
+<jump2>NilLiteral</jump2>
+<pre>
+NilLiteral
+: 'Nil'
+| 'nil'
+| 'null'
+;
+</pre>
+A Nil literal represends an uninitialized (via <c>new</c>) Object variable.
+
+<source>
+acdk.lang.Object obj;
+obj == Nil;
+obj = new String("");
+obj != Nil;
+obj = Nil; // free reference to object
+obj == Nil;
+</source>
+
+
+<jump2>StringLiteral</jump2>
+String literals in CfgScript followings the rules of String in C/C++ 
+with following exceptions:
+<fl>
+<f> Automatic String concanating is not supported yet.
+<f> String literals can be in multiple lines. The resulting string contains the new lines
+</fl>
+
+<source>
+s1 = "Hello\nWorld";
+s2 = "Hello
+World";
+s1.equals(s2) == true;
+</source>
+CfgScript supports also unicode characters using <c>\uxxxx</c> escape sequence.
+The <c>xxxx</c> is a hexdecimal number identifying the character.
+Please refer also to %ref[http://www.unicode.org/charts/].
+
+A sample converting &uuml; &auml; &ouml; to upper case:
+<source>
+String s = "ue=\u00fc; ae=\u00e4; oe=\u00f6"; // 
+String us = s.toUpperCase();
+out.println("lc: " + s + "; uc: " + us + "; = " + "UE=\u00dc; AE=\u00c4; OE=\u00d6");
+</source>
+
+The standard C escape codes (<c>"\n\t\r\b"</c>) are also supported.
+
+With the %ref[BacktickOperator, acdk_cfgscript_hb_lang_expr_backtick] it
+is possible to expand variable inline in the string, similar to perl, tcl or sh.
+
+<jump2>CharLiteral</jump2>
+Single Character are quoted with single '.
+<source>
+char c1 = 'c';
+char c2 = '\0';
+char c3 = 'A';
+</source>
+
+Unicode characters are supported using <c>\uxxxx</c> escape sequence.
+<source>
+UnicodeCharacter.toUpperCase('\u00e4') == '\u00c4'
+</source>
+
+<jump1>Samples</jump1>
+<fl>
+<f> %srcref[csf_tests_acdk_cfgscript_0_types_15_ExtIntegerLiterals_Test_csf]
+<f> %srcref[csf_tests_acdk_cfgscript_0_types_20_Float_Test_csf]
+<f> %srcref[csf_tests_acdk_cfgscript_0_types_23_Character_Test_csf]
+<f> %srcref[csf_tests_acdk_cfgscript_0_types_30_Arrays_Test_csf]
+</fl>
+.

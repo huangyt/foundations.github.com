@@ -1,0 +1,6 @@
+*.o
+*.obj
+*.sbr
+*.tmp
+tobj
+*.plg

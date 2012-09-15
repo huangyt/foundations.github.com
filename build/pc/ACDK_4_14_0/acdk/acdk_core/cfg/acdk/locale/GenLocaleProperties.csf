@@ -1,0 +1,223 @@
+using acdk.xml.libxmldom;
+using org.xml; 
+using org.w3c.dom;
+using acdk.io;
+using acdk.net;
+
+
+
+class GenLocaleProperties
+{
+  static String javaUrl = Nil; //"http://unicode.org/cldr/data/sunjdk/main";
+  static String javaDir = "C:\\d\\artefaktur\\extsrc\\unicode_locals";
+  static String outputDir = "c:\\d\\artefaktur\\acdk\\acdk_core\\cfg\\acdk\\locale";
+  static String localePropBaseName = "LocaleInfo";
+  static void parseWrite(String f)
+  {
+    LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+    RReader in;
+    String surl;
+    if (javaUrl != Nil)
+    {
+      URL url = new URL(javaUrl + "/" + f + ".xml");
+      RHttpURLConnectionImpl urlconnection = new HttpURLConnectionImpl(url);
+      in = urlconnection->getInputStream();
+      surl = url.toString();
+    }
+    else
+    {
+      File file = new File(javaDir, f + ".xml");
+      in = file.getReader();
+      surl = file.getName();
+    }
+    out.println("parsing: " + surl.toString());
+    //__script.breakToDebug();
+    
+    Document doc = docBuilder.parse(in, surl);
+    write(doc, f, surl);
+  }
+  static void add2props(Node n, Properties props, String nodeName, String propName)
+  {
+    Node en = n.selectNode(nodeName + "/text()" );
+    if (en == Nil)
+      return;
+    props.setProperty(propName, en.getData());
+  }
+  static void calTypes2props(NodeList m, Properties props, String attrName, String keyName)
+  {
+    if (m == Nil)
+    {
+      out.println(keyName + " not found");
+      return;
+    }
+    
+    foreach (Node mn in m.iterator())
+    {
+      String t = mn.getAttribute(attrName);
+      Node tn = mn.getFirstChild();
+      if (tn == Nil)
+        continue;
+      String v = mn.getFirstChild().getData();
+      props.setProperty(keyName + "." + t, v);
+    }
+  }
+  static void dateFormat2props(Node greg, Properties props, String format)
+  {
+     Node n = greg.selectNode("dateFormats/dateFormatLength[@type='" + format + "']/dateFormat/pattern/text()");// /[@type='standard']/pattern[@type='standard']/text()");
+      if (n != Nil)
+      {
+        props.setProperty(format + "DateFormat", n.getData());
+      }
+      else
+        out.println(format + "DateFormat not found");
+  }
+  static void timeFormat2props(Node greg, Properties props, String format)
+  {
+     Node n = greg.selectNode("timeFormats/timeFormatLength[@type='" + format + "']/timeFormat/pattern/text()");// /[@type='standard']/pattern[@type='standard']/text()");
+      if (n != Nil)
+      {
+        props.setProperty(format + "TimeFormat", n.getData());
+      }
+      else
+        out.println(format + "TimeFormat not found");
+  }
+  
+  static void doc2props(Document doc, Properties props)
+  {
+    Node symbols = doc.selectNode("ldml/numbers/symbols");
+    if (symbols != Nil)
+    {
+      add2props(symbols, props, "decimal", "decimalSeparator");
+      add2props(symbols, props, "minusSign", "minusSign");
+      add2props(symbols, props, "percentSign", "percent");
+      add2props(symbols, props, "patternDigit", "digit");
+      add2props(symbols, props, "exponential", "exponential");
+      add2props(symbols, props, "perMille", "perMill");
+      add2props(symbols, props, "infinity", "infinity");
+      add2props(symbols, props, "nan", "NaN");
+      add2props(symbols, props, "group", "groupingSeparator");
+      add2props(symbols, props, "list", "patternSeparator");
+      
+      NodeList cl = doc.selectNodes("ldml/numbers/currencies/currency");
+      if (cl != Nil)
+      {
+      	bool defaultSet = false;
+      	foreach(Node c in cl.iterator())
+      	{
+      		if (defaultSet == false)
+      		{
+      			props.setProperty("currency.default", c.selectNode("symbol/text()").getData());
+      			props.setProperty("currency.intlCurrencySymbol", c.getAttribute("type"));
+      			defaultSet = true;
+      		}
+      		props.setProperty("currency." + c.getAttribute("type"), c.selectNode("symbol/text()").getData());
+      	}
+      }
+
+      Node tn = doc.selectNode("ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern/text()");
+      if (tn != Nil)
+      	props.setProperty("currencyFormat", tn.getData());
+     	tn = doc.selectNode("ldml/numbers/percentFormats/percentFormatLength/percentFormat/pattern/text()");
+      if (tn != Nil)
+      	props.setProperty("percentFormat", tn.getData());
+    }
+    symbols = doc.selectNode("ldml/numbers/decimalFormats");
+    if (symbols != Nil)
+    {
+      
+    }
+    Node greg = doc.selectNode("ldml/dates/calendars/calendar[@type='gregorian']");
+    if (greg != Nil)
+    {
+      NodeList m = greg.selectNodes("months/monthContext/monthWidth[@type='wide']/month");
+      calTypes2props(m, props, "type", "month");
+      m = greg.selectNodes("months/monthContext/monthWidth[@type='abbreviated']/month");
+      calTypes2props(m, props, "type", "shortMonths");
+      
+      m = greg.selectNodes("days/dayContext/dayWidth[@type='wide']/day");
+      calTypes2props(m, props, "type", "weekdays");
+      m = greg.selectNodes("days/dayContext/dayWidth[@type='abbreviated']/day");
+      calTypes2props(m, props, "type", "shortWeekdays");
+      add2props(greg, props, "am", "am");
+      add2props(greg, props, "pm", "pm");
+      
+      m = greg.selectNodes("eras/eraAbbr/era");
+      calTypes2props(m, props, "type", "era");
+      
+      dateFormat2props(greg, props, "full");
+      dateFormat2props(greg, props, "long");
+      dateFormat2props(greg, props, "medium");
+      dateFormat2props(greg, props, "short");
+      
+      timeFormat2props(greg, props, "full");
+      timeFormat2props(greg, props, "long");
+      timeFormat2props(greg, props, "medium");
+      timeFormat2props(greg, props, "short");
+      
+      // dateTime??
+      
+    }
+    else 
+      out.println("gregorien not found");
+      
+    NodeList nl = doc.selectNodes("ldml/localeDisplayNames/territories/territory");
+    calTypes2props(nl, props, "type", "territories");
+    nl = doc.selectNodes("ldml/localeDisplayNames/languages/language");
+    calTypes2props(nl, props, "type", "languages");
+    
+    nl = doc.selectNodes("ldml/dates/timeZoneNames/zone");
+    if (nl != Nil)
+    {
+      foreach (Node z in nl.iterator())
+      {
+        String type = z.getAttribute("type");
+        Node n = z.selectNode("long/standard/text()");
+        if (n != Nil)
+          props.setProperty("zones.long.standard." + type, n.getData());
+        n = z.selectNode("long/daylight/text()");
+        if (n != Nil)
+          props.setProperty("zones.long.daylight." + type, n.getData());
+        n = z.selectNode("short/standard/text()");
+        if (n != Nil)
+          props.setProperty("zones.short.standard." + type, n.getData());
+        n = z.selectNode("short/daylight/text()");
+        if (n != Nil)
+          props.setProperty("zones.short.daylight." + type, n.getData());
+      }
+      
+    }
+    
+  }
+  static void write(Document doc, String f, String url)
+  {
+    String langType = "_" + f;
+    if (f.equals("root") == true)
+      langType = "";
+      
+    String propfilename = localePropBaseName + langType + ".properties";
+    Properties props = new Properties();
+    doc2props(doc, props);
+    String header = "# this file was generated from GenLocaleProperties.csf\n" +
+                    "# with " + url + " as source\n";
+    FileWriter fout = new FileWriter(outputDir + "/" + propfilename);
+    //System::out->getWriter()
+    props.store(fout, header);
+  }
+}
+
+String sdir = GenLocaleProperties.javaDir;
+
+File d = new File(sdir);
+foreach (String n in d.list())
+{
+  //out.println(n);
+  if (n.endsWith(".xml") == false)
+    continue;
+  GenLocaleProperties.parseWrite(n.substr(0, n.length() - 4));
+}
+
+//GenLocaleProperties.parseWrite("de_DE");
+//GenLocaleProperties.parseWrite("root");
+
+
+

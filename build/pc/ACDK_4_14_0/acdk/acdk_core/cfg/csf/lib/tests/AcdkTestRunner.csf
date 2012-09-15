@@ -1,0 +1,613 @@
+
+Props testCfg = new Props();
+
+#include "atr_cfg.csf"
+#include "ProcessTestRunner.csf"
+
+using acdk.wx;
+using acdk.tools.aunit;
+
+enum TestState
+{
+  TestUnknown = 0,
+  TestFailed = 1,
+  TestOk = 2
+};
+
+class AcdkTestRunner
+extends Frame
+{
+  TreeCtrl _treectrl;
+  TextCtrl _console;
+  Menu _treeMenu;
+  TextConsoleCharWriter _consoleWriter;
+  Timer _testOutputTimer;
+  TestRunThread _testRunThread;
+  StaticText _stSelectedTest;
+  StaticText _stResult;
+  Button _runButton;
+  TestResult _testResult;
+  GuiListener _guiTestListener;
+  HtmlWindow _htmlLogWindow;
+  TreeItemId _runnedTreeItemId;
+  Gauge _progress;
+  bool _runNextSibling;// @todo = false doesn't working!
+  int _curErrsAndFailures = 0;
+  TestResultEntryArray _allTestResults;
+  bool _stopTests;
+  bool _abortTest;
+  TextCtrl _testRep;
+  TextCtrl _testLog;
+  //acdk.util.HashMap testResultToTreeItemIdMap = new acdk.util.HashMap();
+  acdk.util.TreeMap testResultToTreeItemIdMap = new acdk.util.TreeMap();
+  AcdkTestRunner(String title) 
+  {
+    super(Nil, -1, title, new Point(100, 100), new Size(800, 600));
+    _runNextSibling = false;
+    _stopTests = false;
+    _abortTest = false;
+  
+   MenuBar menuBar = new MenuBar();
+    
+    Menu menuFile = new Menu();
+    /*
+    menuFile.append(Event_FileNew, "New", "Creates a new file"); 
+    menuFile.append(Event_FileOpen, "Open", "Open a file"); 
+    menuFile.append(Event_FileSave, "Save", "Open a file"); 
+    */
+    menuFile.append(Event_ClearLog, "Clear Log", "Clear Log Window"); 
+    menuFile.appendSeparator();
+    menuFile.append(Event_MenuQuit, "E&xit\tAlt-X", "Quit this program");
+    menuBar.append(menuFile, "&File");
+    Menu helpMenu = new Menu();
+    helpMenu.append(Event_MenuAbout, "&About...\tCtrl-A", "Show about dialog");
+    menuBar.append(helpMenu, "&Help");
+    setMenuBar(menuBar);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_MenuQuit, 
+            lambda[this]  { close(true);  } 
+            );
+            
+    connect(CommandEvent.EvtCommandMenuSelected, Event_MenuAbout, delegate onMenuAbout);
+    
+    ToolBar tb = createToolBar();
+    tb.setWindowStyle(TbText | Tb3dbuttons);
+    String helpbmp = __script.getScriptPath() + "/" + "help.bmp";
+    Bitmap helpbm = new Bitmap(helpbmp, BitmapTypeBmp);
+    ToolBarToolBase tbb = tb.addTool(TbHelpId, "Help", helpbm, "Display short help");
+    connect(CommandEvent.EvtCommandMenuSelected, TbHelpId, delegate onMenuAbout);
+    tb.realize();
+    SplitterWindow splitter = new SplitterWindow(this);
+      
+    _treectrl = new TreeCtrl(splitter, TestTreeId, new Point(0, 0), new Size(200, 200));
+    ImageList imageList = new ImageList(16, 16);
+    imageList.add(new Bitmap(__script.getScriptPath() + "/" + "folder_untested.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(__script.getScriptPath() + "/" + "folder_fail.bmp", BitmapTypeBmp));
+    imageList.add(new Bitmap(__script.getScriptPath() + "/" + "folder_ok.bmp", BitmapTypeBmp));
+    _treectrl.assignImageList(imageList);
+    
+    TreeItemId root = _treectrl.addRoot("Test Executables");
+    Notebook  notebook = new Notebook(splitter, -1);
+    SplitterWindow rsplt = new SplitterWindow(notebook);
+    notebook.addPage(rsplt,  "Execute");
+    
+    SplitterWindow testlogsplitter = new SplitterWindow(notebook);
+    
+    _testRep = new TextCtrl(testlogsplitter, TestRepId, "", Point.defaultPosition(), Size.defaultSize(), 
+                            TeMultiline | TeAutoScroll | TeDontwrap);
+    
+    _testLog = new TextCtrl(testlogsplitter, TestLogId, "", Point.defaultPosition(), Size.defaultSize(), 
+                            TeMultiline | TeAutoScroll | TeDontwrap);
+    
+    notebook.addPage(testlogsplitter,  "Test Logs");
+    
+    testlogsplitter.splitHorizontally(_testRep, _testLog, 130);
+    
+    _htmlLogWindow = new HtmlWindow(notebook, -1);
+    notebook.addPage(_htmlLogWindow, "HTML Log");
+    
+    
+    
+    
+    Panel testResultPanel = new Panel(rsplt, 0, 0, 400, 100);
+    
+    _console = new TextCtrl(rsplt, -1, "",
+                            Point.defaultPosition(), Size.defaultSize(), 
+                            TeMultiline | TeAutoScroll | TeDontwrap | TeRich2);
+    //_console.setWindowStyle(TeMultiline + TeAutoScroll + TeDontwrap);
+    
+    connect(CommandEvent.EvtCommandMenuSelected, Event_ClearLog, 
+            lambda[console: _console]  { console.clear(); }
+           );
+            
+    _consoleWriter = new TextConsoleCharWriter();
+    splitter.splitVertically(_treectrl, notebook, 300);
+    rsplt.splitHorizontally(testResultPanel, _console, 130);
+    _runButton = new Button(testResultPanel, RunBtnId, "Run Test", new Point(10, 10), new Size(100, 40));
+    connect(CommandEvent.EvtCommandButtonClicked, RunBtnId, delegate onTestRun);
+    
+    _progress = new Gauge(testResultPanel, -1, 100, new Point(10,60), new Size(400, 40), GaSmooth | BorderNone );
+    
+    _stSelectedTest = new StaticText(testResultPanel, CurrentTestST, "<selected Test>", new Point(120, 25));
+    _stResult = new StaticText(testResultPanel, StResult, "", new Point(10, 100));
+    _treeMenu = new Menu();
+    _treeMenu.append(RunTestId, "Run Test");
+    connect(CommandEvent.EvtCommandMenuSelected, RunTestId, delegate onTestRun);
+    _testOutputTimer = new Timer(this, RunTimerId);
+    connect(TimerEvent.EvtTimer, RunTimerId, delegate onReadTestBuffer);
+    createStatusBar(2);
+    _stResult.setBackgroundColour(new Colour(0, 0, 255));
+    _stResult.setLabel("asdfasdf");
+    
+    connect(Event.EvtNull, Event_TestListenerPing, 
+            lambda [this] { setStatusText("X: " + _guiTestListener.getLastMessage(), 0); }
+            );
+    
+    fillWithTests();
+  }
+  
+  void fillWithTests()
+  {
+    String dir = testCfg.testDir; //acdk.lang.System.getAcdkHome() + "/bin";
+    String filter = testCfg.testPattern;
+    /*
+    String filter = "*_Test";
+    if (System.getPlatformFlags() & acdk.lang.PfWin32)
+       filter = "*Test_d.exe";
+       */
+    StringArray testexec = new File(dir).list(new GlobFilenameFilter(filter));
+    TreeItemId root = _treectrl.getRootItem();
+    _treectrl.setItemImage(root, TestUnknown);
+    _treectrl.setItemImage(root, TestUnknown, TreeitemiconSelected);
+    
+    foreach (String execn in testexec)
+    {
+      bool ignoreTest = false;
+      foreach (String t in testCfg.tests.getKeys())
+      {
+        if (execn.indexOf(t) != -1)
+        {
+          if (testCfg.tests.getProps(t).getBoolVal("ignore") == true)
+            ignoreTest = true;
+          break;
+        }
+      }
+      if (ignoreTest == true)
+        continue;
+      TreeItemId tid = _treectrl.appendItem(root, execn);
+      TestResultEntry tre = new TestResultEntry(new ProcessTestSuite(dir + "/" + execn, Nil, ConfigTools.getTestEnv()));
+      _treectrl.setItemDataObject(tid, tre);
+      testResultToTreeItemIdMap.put(tre, tid);
+      _treectrl.setItemHasChildren(tid, true);
+    }
+    connect(TreeEvent.EvtCommandTreeItemExpanding, TestTreeId, delegate onListBoxExpanded);
+    out.println("TreeEvent.EvtCommandTreeItemExpanding: " + TreeEvent.EvtCommandTreeItemExpanding);
+    connect(TreeEvent.EvtCommandTreeItemRightClick, TestTreeId, 
+            lambda [this]  void (Event event)
+            { 
+              popupMenu(_treeMenu, event.getPoint()); 
+            } 
+           );
+    connect(TreeEvent.EvtCommandTreeSelChanged, TestTreeId, delegate onTestSelChanged);
+    //out.println("TreeEvent.EvtCommandTreeSelChanged: " + TreeEvent.EvtCommandTreeSelChanged);
+  }
+  void onListBoxExpanded(TreeEvent event)
+  {
+    TreeItemId tid = event.getItem();
+    if (_treectrl.getChildrenCount(tid, false) != 0)
+      return;
+    TestResultEntry tre = _treectrl.getItemDataObject(tid);
+    if (tre == Nil)
+        messageBox("No Suit available");
+    ProcessTestSuite psuit = tre.test;
+    TestArray ta = psuit.tests();
+    foreach (Test t in ta)
+    {
+      String tn = t.getName();
+      int idx;
+      if ((idx = tn.indexOf(";")) != -1)
+        tn = tn.substr(idx + 1);
+      TreeItemId ctid = _treectrl.appendItem(tid, tn);
+      TestResultEntry tre = new TestResultEntry(t);
+      _treectrl.setItemDataObject(ctid, tre);
+      testResultToTreeItemIdMap.put(tre, ctid);
+      //out.println("Test Class: " + t.GetClass().toString());
+      if (t instanceof ProcessTestSuite)
+        _treectrl.setItemHasChildren(ctid, true);
+      _treectrl.setItemImage(ctid, _treectrl.getItemImage(tid));
+      _treectrl.setItemImage(ctid, _treectrl.getItemImage(tid, TreeitemiconSelected), TreeitemiconSelected);
+    }
+  }
+  int setIconsToUnknown(TreeItemId id)
+  {
+    _treectrl.setItemImage(id, TestUnknown);
+    _treectrl.setItemImage(id, TestUnknown, TreeitemiconSelected);
+    int cookie = 0;
+    RTreeItemId c = _treectrl.getFirstChild(id, cookie);
+    int count = 0;
+    if (c.isOk() == false)
+      count = 1;
+    while (c.isOk() == true)
+    {
+      count = count + setIconsToUnknown(c);
+      c = _treectrl.getNextChild(id, cookie);
+    }
+    return count;
+  }
+  void expandAllTests(TreeItemId tid)
+  {
+    if (_treectrl.getChildrenCount(tid, false) != 0)
+    {
+      int cookie = 0;
+      RTreeItemId c = _treectrl.getFirstChild(tid, cookie);
+      while (c.isOk() == true)
+      {
+        expandAllTests(c);
+        c = _treectrl.getNextChild(tid, cookie);
+      }      
+      return;
+    }
+    Test test = _treectrl.getItemDataObject(tid).test;
+    if ((test instanceof ProcessTestSuite) == false)
+      return;
+    ProcessTestSuite psuit = test;
+    if (psuit == Nil)
+      return;
+    TestArray ta = psuit.tests();
+    String tests = psuit.getName();
+    foreach (Test t in ta)
+    {
+      String tn = t.getName();
+      int idx;
+      if ((idx = tn.indexOf(";")) != -1)
+        tn = tn.substr(idx + 1);
+      TreeItemId ctid = _treectrl.appendItem(tid, tn);
+      TestResultEntry tre = new TestResultEntry(t);
+      _treectrl.setItemDataObject(ctid, tre);
+      //out.println("HashCode of tre: " + tre.hashCode());
+      
+      testResultToTreeItemIdMap.put(tre, ctid);
+      //out.println("Test Class: " + t.GetClass().toString());
+      _treectrl.setItemImage(ctid, _treectrl.getItemImage(tid));
+      _treectrl.setItemImage(ctid, _treectrl.getItemImage(tid, TreeitemiconSelected), TreeitemiconSelected);
+      if (t instanceof ProcessTestSuite)
+      {
+        _treectrl.setItemHasChildren(ctid, true);
+        expandAllTests(ctid);
+      }
+    }
+  }
+  void onTestRun(Event event)
+  {
+    if (_runButton.getLabel().equals("Stop") == true)
+    {
+      _stopTests = true;  
+      _runButton.setLabel("Abort");
+      _guiTestListener.doStop();
+      return;
+    }
+    if (_runButton.getLabel().equals("Abort") == true)
+    {
+      _abortTest = true;
+      return;
+    }
+  
+    TreeItemId tid = _treectrl.getSelection();
+    setCursor(Cursor.getHourglassCursor());
+    setStatusText("Prepare Test Execution", 0);    
+    _runButton.enable(false);
+    
+    expandAllTests(tid);
+    /*
+    int allTestCount = setIconsToUnknown(tid);
+    _progress.setRange(allTestCount);
+    _progress.setValue(0);
+    */
+    _runButton.enable(true);
+    setCursor(Cursor.getNullCursor());
+    _curErrsAndFailures = 0;
+    _allTestResults = new TestResultEntryArray(0);
+    TestResultEntry tre = _treectrl.getItemDataObject(tid);
+    if (tre == Nil)
+    {
+      if (_treectrl.getItemText(tid).equals("Test Executables") == true)
+      {
+        int cookie = 0;
+        tid = _treectrl.getFirstChild(tid, cookie);
+        if (tid.isOk() == false)
+          return;
+        _runNextSibling = true;
+        tre = _treectrl.getItemDataObject(tid);
+      }
+    }
+    if (tre == Nil)
+    {
+      messageBox("No Test defined");
+      return;
+    }
+    _runButton.setLabel("Stop");
+    runTest(tre.test, tid);
+  }
+  void runTest(Test t, TreeItemId tid, bool nextRun = false)
+  {
+    _runnedTreeItemId = tid;
+    StringWriter sout = new StringWriter();
+    StringWriter serr = new StringWriter();
+    t.setOutWriter(new TeeCharWriter(_consoleWriter, sout));
+    t.setErrWriter(new TeeCharWriter(_consoleWriter, serr));
+    _testResult = new TestResult(sout, serr);
+    _guiTestListener = new GuiListener(this);
+    
+    int allTestCount = setIconsToUnknown(tid);
+    _progress.setRange(allTestCount);
+    _progress.setValue(0);
+    
+    _testResult.addTestListener(_guiTestListener);
+    _testRunThread = new TestRunThread(t, _testResult);
+    _testRunThread.start();
+    _testOutputTimer.start(500, false);
+    //_runButton.enable(false);
+    onReadTestBuffer(new TimerEvent());
+    
+  }
+  void onReadTestBuffer(Event event)
+  {
+    String s = _consoleWriter.fetchBuffer();
+    //out.println("Runned: " + _guiTestListener.runnedTest);
+    _progress.setValue(_guiTestListener.runnedTest);
+    if (s.length() > 0)
+    {
+      _console.appendText(s);
+    }
+    if (_testRunThread.isAlive() == false)
+    {
+      _testOutputTimer.stop();
+      _testRunThread = Nil;
+      if (_stopTests == true)
+        _runNextSibling = false;
+        
+      if (_runNextSibling == true)
+      {
+        TreeItemId nid = _treectrl.getNextSibling(_runnedTreeItemId);
+        if (nid.isOk() == true)
+        {
+          TestResultEntry tre = _treectrl.getItemDataObject(nid);
+          if (tre != Nil)
+          {
+            writeTestResult();
+            runTest(tre.test, nid, true);
+            return;
+          }
+        }
+        else
+        {
+          _runNextSibling = false;
+        }
+      }
+      _runButton.setLabel("Run");
+      _console.appendText("Test Finished\r\n");
+      _runButton.enable(true);
+      setStatusText("Postprocess tests results");
+      setCursor(Cursor.getHourglassCursor());
+      writeTestResult();
+      setCursor(Cursor.getNullCursor());
+    }
+    else
+    {
+      setStatusText(_guiTestListener.getLastMessage(), 0);
+    }
+  }
+  void setTestResult(TreeItemId id, TestResultEntry tre, bool derived = false)
+  {
+    // set parents on fail and icon
+    _treectrl.setItemDataObject(id, tre);
+    if ((tre.errors.length() > 0) || (tre.failures.length() > 0))
+    {
+      setTestFailed(id);
+    }
+    else
+    {
+      setTestOk(id);
+      /*
+      if (derived == false || _treectrl.getItemImage(id) == TestUnknown)
+      {
+        _treectrl.setItemImage(id, TestOk);
+        _treectrl.setItemImage(id, TestOk, TreeitemiconSelected);
+      }
+      */
+    }
+  }
+  bool findSetTestResult(TreeItemId id, TestResultEntry tre)
+  {
+    TreeItemId fid = testResultToTreeItemIdMap.get(tre);
+    if (fid != Nil)
+    {
+      setTestResult(fid, tre);
+      return true;
+    }
+    out.println("TEST not found: " + tre.test.getName() + " in:\n" + testResultToTreeItemIdMap.toString());
+    TestResultEntry itre = _treectrl.getItemDataObject(id);
+    if (itre != Nil)
+    {
+      //out.println(itre.test.toString() + " == " + tre.test.toString());
+      if (tre.test.getName().equals(itre.test.getName()) == true)
+      {
+        setTestResult(id, tre);
+        return true;
+      }  
+    }
+
+    int cookie = 0;
+    RTreeItemId c = _treectrl.getFirstChild(id, cookie);
+    while (c.isOk() == true)
+    {
+      if (findSetTestResult(c, tre) == true)
+      {
+        setTestResult(id, tre, true);
+        return true;
+      }
+      c = _treectrl.getNextChild(id, cookie);
+    }
+    return false;
+  }
+  void writeTestResult()
+  {
+    TestResultEntryArray results = _testResult.getResults();
+    StringBuffer sb = new StringBuffer();
+    sb << "Runned Test: " << results.length() << "\n";
+    int allErrors = 0;
+    int allFailures = 0;
+    
+    foreach (TestResultEntry tre in results)
+    {
+      allErrors = allErrors + tre.errors.length();
+      allFailures = allFailures + tre.failures.length();
+      //if (findSetTestResult(_treectrl.getRootItem(), tre) == false)
+      if (findSetTestResult(_runnedTreeItemId, tre) == false)
+      {
+        out.println("Test was not found: " + tre.test.getName());
+      }
+    }
+    if ((allErrors + allFailures) != 0)
+    {
+      sb << "      TEST FAILED\n"
+         << "Errors: " << allErrors << "\n"
+         << "Failures: " <<  allFailures << "\n";
+     _stResult.setBackgroundColour(new Colour(255, 0, 0));
+     //setTestFailed();
+    }
+    else
+    {
+      sb << "        Test ok\n";
+      _stResult.setBackgroundColour(new Colour(0, 255, 0));
+      setTestOk(_runnedTreeItemId);
+    }
+    out.println(sb.toString());
+    _stResult.setLabel(sb.toString());
+    
+  }
+  void setTestFailed()
+  {
+    setTestFailed(_runnedTreeItemId);
+  }
+  void setTestFailed(TreeItemId p)
+  {
+    _treectrl.setItemImage(p, TestFailed);
+    _treectrl.setItemImage(p, TestFailed, TreeitemiconSelected);
+    
+    while (p.isOk() == true)
+    {
+      p = _treectrl.getItemParent(p);
+      if (p.isOk() == false)
+        break;
+      _treectrl.setItemImage(p, TestFailed);
+      _treectrl.setItemImage(p, TestFailed, TreeitemiconSelected);
+    }
+  }
+  void setTestOk(TreeItemId p = Nil)
+  {
+    if (p == Nil)
+      p = _runnedTreeItemId;
+    //out.println("SetOK: " + _treectrl.getItemText(p));
+    _treectrl.setItemImage(p, TestOk);
+    _treectrl.setItemImage(p, TestOk, TreeitemiconSelected);
+    setTestOkInChilds(p);
+    while (p.isOk() == true)
+    {
+      p = _treectrl.getItemParent(p);
+      if (p.isOk() == false)
+        break;
+      if (_treectrl.getItemImage(p) == TestUnknown)
+      {
+        _treectrl.setItemImage(p, TestOk);
+        _treectrl.setItemImage(p, TestOk, TreeitemiconSelected);
+      }
+    }
+  }
+  void setTestOkInChilds(TreeItemId p)
+  {
+    int cookie = 0;
+    RTreeItemId c = _treectrl.getFirstChild(p, cookie);
+    
+    while (c.isOk() == true)
+    {
+      _treectrl.setItemImage(c, TestOk);
+      _treectrl.setItemImage(c, TestOk, TreeitemiconSelected);
+      setTestOkInChilds(c);
+      c = _treectrl.getNextChild(p, cookie);
+    }
+  }
+  void onTestSelChanged(TreeEvent event)
+  {
+    TreeItemId id = _treectrl.getSelection();
+    String t = _treectrl.getItemText(id);
+    _stSelectedTest.setLabel(t);
+    setStatusText(t, 1);
+    TestResultEntry tre = _treectrl.getItemDataObject(id);
+    if (tre == Nil)
+    {
+      _testLog.setValue("");
+      _testRep.setValue("not runned");
+      return;
+    }
+    StringBuffer sb = new StringBuffer();
+    sb << tre.toString() << ":\n";
+    if (tre.errors != Nil && tre.errors.length() > 0)
+    {
+      sb << tre.errors.length() << " ERRORS:\n";
+      foreach (Throwable ex in tre.errors)
+      {
+        if (ex != Nil)
+          sb << ex.getMessage() << "\n";
+      }
+    }
+    else
+      sb << "0 Errors\n";
+    if (tre.failures != Nil && tre.failures.length() > 0)
+    {
+      sb << tre.failures.length() << " ERRORS:\n";
+      foreach (Throwable ex in tre.failures)
+      {
+        if (ex != Nil)
+          sb << ex.getMessage() << "\n";
+      }
+    }
+    else
+      sb << "0 Failures\n";
+    _testRep.setValue(sb.toString());
+    
+    _testLog.setValue("STDOUT:\n" + tre.output + "\n==========================================\nSTDERR:\n" + tre.errput + "\n");
+    Test test = tre.test;
+    String tn = test.getName();
+    if (tn.endsWith("_Test") == true || tn.endsWith("_Test.exe") == true)
+    {
+      String fn;
+      if (t.endsWith(".exe") == true)
+         fn = System.getAcdkHome() + "/testreports/" + t.substr(0, t.length()  - 4) + ".html";
+      else
+        fn = System.getAcdkHome() + "/testreports/" + t + ".html";
+      if ((new File(fn)).exists() == true)
+        _htmlLogWindow.loadFile(fn);
+      else
+        setStatusText("File doesn't exists: " + fn, 0);
+    }
+    
+  }
+  void onMenuAbout(Event event)
+  {
+    Window.messageBox("ACDK Unit Testrunner written with ACDK CfgScript\n By Roger Rene Kommer (http://acdk.sourceforge.net)");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new AcdkTestRunner("ACDK Test Runner")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

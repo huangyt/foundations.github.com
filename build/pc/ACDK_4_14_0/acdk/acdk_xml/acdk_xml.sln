@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "org_xml", "src\org_xml.vcxproj", "{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "org_xml_metainf", "src\org_xml_metainf.vcxproj", "{50B7E70B-FE14-1BB7-B00A-0154AB92843B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41} = {C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_xml", "src\acdk_xml.vcxproj", "{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41} = {C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_xml_metainf", "src\acdk_xml_metainf.vcxproj", "{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41} = {C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB} = {51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_xml_XMLObjectReaderWriter_Test", "tests\acdk\xml\acdk_xml_XMLObjectReaderWriter_Test.vcxproj", "{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41} = {C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB} = {51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_xml_sax_Test", "tests\acdk\xml\sax\acdk_xml_sax_Test.vcxproj", "{6AA51348-FEA9-B499-B1AD-B525615421B8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41} = {C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB} = {51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_xml_dom_Test", "tests\acdk\xml\dom\acdk_xml_dom_Test.vcxproj", "{F8E86C80-7767-01AA-1A70-9713F004F248}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41} = {C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB} = {51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}.Debug|Win32.Build.0 = Debug|Win32
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}.Release|Win32.ActiveCfg = Release|Win32
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}.Release|Win32.Build.0 = Release|Win32
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}.Template|Win32.ActiveCfg = Release|Win32
+		{C5ECC7B9-F652-5D38-A05D-38C63FAB0F41}.Template|Win32.Build.0 = Release|Win32
+		{50B7E70B-FE14-1BB7-B00A-0154AB92843B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{50B7E70B-FE14-1BB7-B00A-0154AB92843B}.Debug|Win32.Build.0 = Debug|Win32
+		{50B7E70B-FE14-1BB7-B00A-0154AB92843B}.Release|Win32.ActiveCfg = Release|Win32
+		{50B7E70B-FE14-1BB7-B00A-0154AB92843B}.Release|Win32.Build.0 = Release|Win32
+		{50B7E70B-FE14-1BB7-B00A-0154AB92843B}.Template|Win32.ActiveCfg = Template|Win32
+		{50B7E70B-FE14-1BB7-B00A-0154AB92843B}.Template|Win32.Build.0 = Template|Win32
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}.Debug|Win32.Build.0 = Debug|Win32
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}.Release|Win32.ActiveCfg = Release|Win32
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}.Release|Win32.Build.0 = Release|Win32
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}.Template|Win32.ActiveCfg = Template|Win32
+		{51750CAC-AC69-34C1-CF21-9A2B5C7EB6FB}.Template|Win32.Build.0 = Template|Win32
+		{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}.Debug|Win32.Build.0 = Debug|Win32
+		{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}.Release|Win32.ActiveCfg = Release|Win32
+		{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}.Release|Win32.Build.0 = Release|Win32
+		{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}.Template|Win32.ActiveCfg = Template|Win32
+		{7E2C13C0-9E84-11C4-98E9-84463A6CE24F}.Template|Win32.Build.0 = Template|Win32
+		{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}.Debug|Win32.Build.0 = Debug|Win32
+		{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}.Release|Win32.ActiveCfg = Release|Win32
+		{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}.Release|Win32.Build.0 = Release|Win32
+		{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}.Template|Win32.ActiveCfg = Template|Win32
+		{8BC1D321-A280-91B9-FC62-2E9B13AEE5F9}.Template|Win32.Build.0 = Template|Win32
+		{6AA51348-FEA9-B499-B1AD-B525615421B8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6AA51348-FEA9-B499-B1AD-B525615421B8}.Debug|Win32.Build.0 = Debug|Win32
+		{6AA51348-FEA9-B499-B1AD-B525615421B8}.Release|Win32.ActiveCfg = Release|Win32
+		{6AA51348-FEA9-B499-B1AD-B525615421B8}.Release|Win32.Build.0 = Release|Win32
+		{6AA51348-FEA9-B499-B1AD-B525615421B8}.Template|Win32.ActiveCfg = Template|Win32
+		{6AA51348-FEA9-B499-B1AD-B525615421B8}.Template|Win32.Build.0 = Template|Win32
+		{F8E86C80-7767-01AA-1A70-9713F004F248}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F8E86C80-7767-01AA-1A70-9713F004F248}.Debug|Win32.Build.0 = Debug|Win32
+		{F8E86C80-7767-01AA-1A70-9713F004F248}.Release|Win32.ActiveCfg = Release|Win32
+		{F8E86C80-7767-01AA-1A70-9713F004F248}.Release|Win32.Build.0 = Release|Win32
+		{F8E86C80-7767-01AA-1A70-9713F004F248}.Template|Win32.ActiveCfg = Template|Win32
+		{F8E86C80-7767-01AA-1A70-9713F004F248}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

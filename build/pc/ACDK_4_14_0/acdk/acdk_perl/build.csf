@@ -1,0 +1,23 @@
+
+#include "amake_config.csf"
+
+acdk_perl = new acdk.make.AcdkLibTask("acdk_perl");
+acdk_perl.addSource("src/acdk/perl");
+acdk_perl.addAcdkLib("acdk_core");
+acdk_perl.addModuleConfigTask("amake_perl_config");
+
+acdk_perl_Test = new acdk.make.AcdkTestExeTask("acdk_perl_Test");
+acdk_perl_Test.setBaseDir("tests/acdk/perl");
+acdk_perl_Test.addSource("tests/acdk/perl");
+acdk_perl_Test.addAcdkLib("acdk_core");
+acdk_perl_Test.addAcdkLib("acdk_perl");
+acdk_perl_Test.addAcdkLib("acdk_tools_aunit");
+acdk_perl_Test.addSubTask("acdk_perl");
+acdk_perl_Test.addModuleConfigTask("amake_perl_config");
+
+acdk_perl_prj = new acdk.make.AcdkProjectTask("acdk_perl_prj");
+acdk_perl_prj.registerTask("default");
+acdk_perl_prj.addSubTask("acdk_perl");
+acdk_perl_prj.addSubTask("acdk_perl_Test");
+
+

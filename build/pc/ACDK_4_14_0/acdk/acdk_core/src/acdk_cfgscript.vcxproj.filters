@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{2c08026a-5daf-44af-bbc7-3b966eae684f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\cfgscript">
+      <UniqueIdentifier>{95e08059-0ab7-48ad-b303-5283099f9661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\cfgscript\cfgscript_metainf">
+      <UniqueIdentifier>{32ee2276-6778-4dbb-943f-bb11bb0fdaf3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\cfgscript\cfgscript.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ChDir.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\Config.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ExecutionStack.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\Props.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\Script.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptClassLoader.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptDebug.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptEval.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptException.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptExpr.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptGlobals.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptObject.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ScriptSource.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\ShellExecutor.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\cfgscript\SourceTokenizer.h">
+      <Filter>acdk\cfgscript</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\cfgscript\cfgscript_metainf_base.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\Delegate.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ExecutionStack.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\Props.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\Script.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\Script2.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptClassLoader.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptDebug.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptEval.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptExpr.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptObject.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptSource.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ScriptStatements.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\ShellExecutor.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\SourceTokenizer.cpp">
+      <Filter>acdk\cfgscript</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext.cpp">
+      <Filter>acdk\cfgscript\cfgscript_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext1.cpp">
+      <Filter>acdk\cfgscript\cfgscript_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+%id: acdk_java_man
+%title: acdk_java Manual
+%shorttitle: acdk_java
+%keywords: acdk_java, Java
+%chapter: acdk_java_man_intro, acdk_java_man_acdkobject, acdk_java_man_javaobject, \
+          acdk_java_man_typemapping, acdk_java_man_installation
+%body:
+<htmlauto/>
+<pageintro>
+With the module acdk_java you can access ACDK objects from Java and
+Java objects from ACDK.
+</pageintro>
+
+<subschapterstable/>
+
+.
+
+
+

@@ -1,0 +1,58 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = %[acdk-home]%
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=%[(acdkmake-get-target-compile)]%
+CCOPTS=%[(acdkmake-get-target-cflags)]%
+CFLAGSX=%[(acdkmake-get-cflags2)]%
+CCINCLUDE=%[(acdkmake-get-includes)]%
+DEFINES=%[(acdkmake-get-defines)]%
+
+SYSLDFLAGS=%[(acdkmake-get-target-ldflags)]%
+PRJLDFLAGS=%[(acdkmake-get-project-ldflags)]%
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=%[(acdkmake-get-target-link)]%
+
+
+
+SYSOBJ=%[(acdkmake-target-get-startupobj)]%
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES) %[(acdkmake-get-libs)]%
+
+OUTFILE=%[(acdkmake-target-get-outfile)]%
+OUTDIR = %[(acdkmake-convert-file-if-needed (s+ acdkmake-project-exec-dir))]%
+INTDIR = %[(acdkmake-project-get-object-dir)]%
+SOURCES= %[(acdkmake-target-getfilelist acdkmake-project-sources)]%
+HEADER= %[(acdkmake-target-getfilelist acdkmake-project-header)]%
+OBJECTS= %[(acdkmake-target-getfilelist acdkmake-project-objects)]%
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	%[(acdk-make-target-getimplib)]%
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+%[(acdkmake-target-make-objects)]%
+
+clean:
+	%[(acdkmake-target-get-clean)]%
+

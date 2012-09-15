@@ -1,0 +1,50 @@
+
+using acdk.aci.ast;
+using acdk.aci.parser;
+using acdk.aci.vm;
+
+class aal.IfStatement
+extends AstNodeWithChilds
+{
+  IfStatement(AstNode parent, ParseNode pn, String nodeName)
+  {
+    super(parent, pn, nodeName);
+  }
+  void genOpCode(Compiler comp) 
+  {
+    AstNode exp = getChild(0);
+    AstNode trueblock = getChild(1);
+    AstNode falseblock;
+    if (getChildCount() > 2)
+      falseblock = getChild(2);
+    exp->genOpCode(comp);
+    if (falseblock != Nil)
+      addChild(new BranchOp(this, OCO_BRFALSE, "elseblock" + comp.getCounter()), true);
+    else
+      addChild(new BranchOp(this, OCO_BRFALSE, "endif" + comp.getCounter()), true);
+    trueblock->genOpCode(comp);
+    if (falseblock != Nil)
+    {
+      addChild(new BranchOp(this, OCO_BR, "endif" + comp.getCounter()), true);
+      addChild(new OpCodeStm(this, OCO_NOP, "elseblock" + comp.getCounter()), true);
+    }
+    for (int i = 0; i < getChildCount(); ++i)
+    {
+      AstNode c = getChild(i);
+      out.println("Child No: " + i + ": " + c.toString());
+    }
+  }
+}
+
+AalHelper.defineParseNode("IfStatement");
+/*
+class aal.IfStatementParseNode
+extends SyntaxParseNode
+{
+  IfStatementParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new IfStatement(Nil, this, getNodeName()); }
+}
+*/

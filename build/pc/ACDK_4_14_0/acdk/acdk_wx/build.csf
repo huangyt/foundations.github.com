@@ -1,0 +1,27 @@
+
+#include "amake_config.csf"
+
+
+
+acdk_wx = new acdk.make.AcdkLibTask("acdk_wx");
+acdk_wx.addModule("src/acdk/wx");
+acdk_wx.addAcdkLib("acdk_core");
+acdk_wx.addModuleConfigTask("amake_python_config");
+
+/*
+acdk_wx_Test = new acdk.make.AcdkTestExeTask("acdk_wx_Test");
+acdk_wx_Test.setBaseDir("tests/acdk/wx");
+acdk_wx_Test.addSource("tests/acdk/python");
+acdk_wx_Test.addAcdkLib("acdk_core");
+acdk_wx_Test.addAcdkLib("acdk_wx");
+acdk_wx_Test.addAcdkLib("acdk_tools_aunit");
+acdk_wx_Test.addSubTask("acdk_wx");
+acdk_wx_Test.addModuleConfigTask("amake_python_config");
+
+acdk_wx_prj = new acdk.make.AcdkProjectTask("acdk_wx_prj");
+acdk_wx_prj.registerTask("default");
+acdk_wx_prj.addSubTask("acdk_wx");
+acdk_wx_prj.addSubTask("acdk_wx_Test");
+*/
+
+

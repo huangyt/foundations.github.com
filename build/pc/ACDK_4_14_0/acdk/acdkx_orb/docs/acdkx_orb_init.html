@@ -1,0 +1,100 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Intialization of ACDKX ORB</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK ORB</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdkx_orb_init
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | acdkx_orb_init | <a  href="acdkx_orb_mapping.html">Mapping of ACDK</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Intialization of ACDKX ORB</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Intialization of ACDKX ORB</h1> -->
+<p class="PageIntro">
+Concept how to configure / initialize ACDKX ORB
+</p>
+<br>
+<a name="jumptable104"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The problem"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The problem</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Actual solution"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Actual solution</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable104"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The problem">The problem</a></h2>
+<br>
+On distributed systems it may be difficult to find 
+an initial starting point, the first intial reference.<br>
+<br>
+The Naming Service provides functions to locate Objects
+by name, but how to find the Naming Service itself?<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> setting an enviromnent variable or a file
+    with the initial IOR.<br>
+    
+<li class="Feature"> setting a fixed (or via configuration options)
+    port adress on each computer, where a deamon provides
+    basic services (like locating naming).<br>
+    
+<br>
+</ul>
+<br>
+<h2><a href="#jumptable104"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Actual solution">Actual solution</a></h2>
+<br>
+When you startup the acdkx_orb_namesrv, it writes its initial
+IOR to $ACDKHOME/cfg/acdk_orb_namesrv.ref.<br>
+<br>
+Following ACDKX ORB servers try to load this IOR and register
+it reference to this name server.<br>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | acdkx_orb_init | <a  href="acdkx_orb_mapping.html">Mapping of ACDK</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

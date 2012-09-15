@@ -1,0 +1,141 @@
+%id: acdk_io_FileSystem
+%title: acdk::io::FileSystem
+%keywords: FileSystem, File, virtual file system, acdk::io::File, acdk::io::FileSystem, acdk::io::FileImpl
+%seealso: acdk_vfile_man
+%body:
+<pageintro>
+  ACDK implementation of acdk::io::File is a fassade to a virtual file system. 
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Overview</jump1>
+ACDK File related classes Java java.io.File In Java the file java.io.File 
+provides access to a File, whereas the file located on the normal operations system file system. 
+
+ACDK acdk::io::File In ACDK files addressed with acdk::io::File can also be 
+located in the local ressources of the executable, a file in an archive, 
+like TAR or ZIP files, or can be located on a remote machine accessible via
+FTP or HTTP.
+
+<jump2>Implementation Interfaces</jump2>
+The framework classes Behind of the fassade of the class File following 
+interfaces build the functionality of files: 
+<fl>
+<f> interface  %cref[acdk::io::FileSystem].
+    The FileSystem holds the files and implements the basic file functionalities. 
+<f> interface  %cref[acdk::io::FileImpl].
+    With this interface the functionality of acdk::io::File will be implemented. 
+<f> interface  %cref[acdk::io::FileSystemFactory].
+    The FileSystemFactory returns the FileSystem, which handles a given file by name. 
+</fl>
+
+<jump2>File Naming</jump2>
+
+Virtual file system naming follows two conventions:
+<fl>
+<f> URLs identify root file systems (like <c>http://</c> or <c>ftp://</c>)
+<f> container identifies files, which contains own internal file system
+		like zip or tar archives. Container file systems are identified by a 
+		<c>path/file.fileextension@</c> wheras the significant part is <c>.fileextension@</c>.
+		
+</fl>
+
+File names are addresses The internet introduces the concept of URL's - unified ressource locator. 
+The URL concept describes method of access (ftp, http, email, etc.) and the location. 
+<fl>
+<f> /home/roger/tmp/file.txt is a normal local file 
+<f> /home/roger/tmp/archive.zip is a normal local file too 
+<f> /home/roger/tmp/archive.zip@ is the root directory of the 
+    internal file system contained in the archive.zip. 
+<f> .ressource@/com/artefaktur/test/file.dat is a file in the internal ressource file system 
+<f> ftp://ftp.artefaktur.ch/acdk is a directory on the ftp file system located at ftp.artefaktur.ch. 
+<f> .ressouce@/com/artefaktur/archive.zip@dir/file.txt is file in an archive file system, which itself resides in the internal ressource file system. 
+</fl>
+
+<jump1>Available FileSystem </jump1>
+<jump2>Internal ressources</jump2>
+<code>
+".ressource@com/artefaktur/my/file"
+</code>
+<fl>
+<f> ".ressource@" is the file system prefix. 
+<f> "com/artefaktur/my" is the directory 
+<f> "file" is the file name. 
+</fl>
+
+<jump2>ZIP files</jump2>
+<code>
+/home/roger/myarchive.zip@mydir/sub/myfile.dat
+</code>
+where 
+<fl>
+<f> /home/roger/myarchive.zip is an existent file 
+<f> mydir/sub the directory in the archive 
+<f> the file in the archive. myfile.dat 
+</fl>
+
+Please refer to 
+<fl>
+<f> %ref[acdk_vfile_man]
+<f> %cref[acdk::vfile::zip::ZipFileImpl]
+<f> %cref[acdk::vfile::zip::ZipFileSystem] 
+</fl>
+
+<jump2>TAR files</jump2>
+
+TAR files are addressed following way: 
+<code>
+/home/roger/myarchive.tar@mydir/sub/myfile.dat
+</code>
+where 
+<fl>
+<f> /home/roger/myarchive.tar is an existent file 
+<f> mydir/sub the directory in the archive 
+<f> the file in the archive. myfile.dat 
+</fl>
+
+<fl>
+<f> %ref[acdk_vfile_man]
+<f> %cref[acdk::vfile::tar::TarFileImpl]
+<f> %cref[acdk::vfile::tar::TarFileSystem] 
+</fl>
+
+<jump2>HTTP files</jump2>
+
+HTTP files are identified by a url <c>http://domain.net/path/file</c>.
+This file system only supports reading a file. Directory or modification
+operations are not supported.
+
+<jump2>FTP files</jump2>
+The FTP file system is identified by a url <c>ftp://domain.net/path/file_or_dir</c>
+Not all operations on FTP files are supported. 
+
+
+<jump2>Simple Remote Filesystem (experimental)</jump2>
+%ref[The Simple Remote Filesystem, acdk_net_srfsys_man] is a traditional 
+TCP/IP based remote file system used inhouse to synchronize complete directories.
+
+<jump1>Configuration of Filesystems</jump1>
+The implementation of the different file systems are located in dll/shared libraries.
+
+In the configuration (<c>%ACDKHOME/cfg/acdk.cfg</c> by default) these file systems are 
+registered:
+Sample:
+<pre>
+acdk.io.filesystem.protocol.container.0=.zip@=acdk/vfile/zip/ZipFileSystemFactory
+acdk.io.filesystem.protocol.container.1=.ZIP@=acdk/vfile/zip/ZipFileSystemFactory
+acdk.io.filesystem.protocol.container.2=.tar@=acdk/vfile/tar/TarFileSystemFactory
+acdk.io.filesystem.protocol.container.3=.TAR@=acdk/vfile/zip/TarFileSystemFactory
+
+# filename has to start with the url
+acdk.io.filesystem.protocol.url.0=ftp://=acdk/net/ftp/FTPFileSystemFactory
+acdk.io.filesystem.protocol.url.1=http://=acdk/net/UrlFileSystemFactory
+</pre>
+
+If a acdk::io::File instance will be created with a matching naming pattern (url or container)
+the acdk class loader will load the corresponding factory classes.
+
+
+.

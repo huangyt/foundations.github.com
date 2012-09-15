@@ -1,0 +1,65 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I$(ACDK_PYTHON_INCLUDE)  -I$(ACDK_PYTHON_INCLUDE_PLATFROM)  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=-L"$(ACDK_PYTHON_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_python.lib" $(ACDK_PYTHON_PYLIBS_DEBUG)
+
+OUTFILE="..\..\bin\acdkpython.exe"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdkpython\bcc"
+SOURCES= 	"acdk\python\interpreter\Main.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdkpython\bcc\Main.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdkpython\bcc\Main.obj": "acdk\python\interpreter\Main.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkpython\bcc" "acdk\python\interpreter\Main.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdkpython.exe"
+	del "..\tobj\acdkpython\bcc\Main.obj"
+
+

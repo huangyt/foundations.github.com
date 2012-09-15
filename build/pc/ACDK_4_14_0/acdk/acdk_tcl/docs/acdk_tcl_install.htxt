@@ -1,0 +1,53 @@
+%id: acdk_tcl_install
+%title: Compile acdk_tcl
+%shorttitle: Compile acdk_tcl
+%keywords: install, compile, acdk_tcl, Tcl
+%seealso: acdk_general_install
+%body:
+<htmlauto/>
+<pageintro>
+  How to compile and use acdk_tcl.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Download Tcl</jump1>
+In most Unix environmet the Tcl interpreter is part of the distribution.
+
+You can download the Tcl distribution from: 
+%ref[http://tcl.sourceforge.net/, http://tcl.sourceforge.net/].
+
+Follow the instruction to compile and install the Tcl interpreter.
+
+<jump1>Configure ACDK</jump1>
+After installing Tcl you probably have to ajust some
+configuration in acdk:
+<fl>
+  <f> Unix: open <c>acdk_globals.[your platform]</c> in the ACDK root directory and 
+      ajust the <c>ACDK_TCL_*</c> values to point
+      to the correct directories and library names.
+      
+  <f> Windows: open the <c>acdkenv.cmd</c> ACDK root directory and ajust the 
+      <c>ACDK_TCL_*</c> values.
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <c>startvstudio6.cmd</c>).
+      Alternately you can also add these environment variables into your global
+      environment.      
+</fl>
+
+<jump1>Compile acdk_tcl</jump1>
+If the environment variables are set correctly acdk_tcl can be compiled.
+
+<jump1>Running executables using acdk_pthyton</jump1>
+To run an executble using <m>acdk_pthon</m> you may have set
+environment variables (<c>PATH</c> on Windows and <c>LD_LIBRARY_PATH</c>)
+to point to ACDK <c>bin</c> directory and the directory of the shared libraries
+of Tcl.
+
+On windows you can use the <c>acdkenv.cmd</c> for this purpose.
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <c>acdkenv.[platform]</c> before executing the application.
+
+.

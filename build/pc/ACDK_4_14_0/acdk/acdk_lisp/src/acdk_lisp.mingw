@@ -1,0 +1,217 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.mingw
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_lisp/mingw
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -O2  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_WIN32 -D_REENTRANT -DWIN32_THREADS -DACDK_OS_WIN32 -DACDK_MINGW -DIN_ACDK_LISP_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lkernel32 -lwsock32
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR)  -lacdk_core -lacdk_text
+CFLAGSX=
+
+SOURCES= 	acdk/lisp/Lisp.cpp \
+	acdk/lisp/LispBinaryCode.cpp \
+	acdk/lisp/LispCallBack.cpp \
+	acdk/lisp/LispClass.cpp \
+	acdk/lisp/LispDmiClient.cpp \
+	acdk/lisp/LispEnvironment.cpp \
+	acdk/lisp/LispException.cpp \
+	acdk/lisp/LispFunction.cpp \
+	acdk/lisp/LispList.cpp \
+	acdk/lisp/LispObject.cpp \
+	acdk/lisp/LispObject_clazzinfo.cpp \
+	acdk/lisp/LispTemplateFilter.cpp \
+	acdk/lisp/LispTokenizer.cpp \
+	acdk/lisp/LispVar.cpp \
+	acdk/lisp/lisp_metainf_base.cpp \
+	acdk/lisp/lisp_metainf/lisp_metainf_ext.cpp \
+	acdk/lisp/lisp_metainf/lisp_metainf_ext1.cpp \
+
+HEADER= 	acdk/lisp/acdk_lisp_decl.h \
+	acdk/lisp/Config.h \
+	acdk/lisp/Function.h \
+	acdk/lisp/lisp.h \
+	acdk/lisp/LispArray.h \
+	acdk/lisp/LispAtom.h \
+	acdk/lisp/LispBinaryCode.h \
+	acdk/lisp/LispBuildInFunction.h \
+	acdk/lisp/LispCallBack.h \
+	acdk/lisp/LispClass.h \
+	acdk/lisp/LispCode.h \
+	acdk/lisp/LispDmiClient.h \
+	acdk/lisp/LispEnvironment.h \
+	acdk/lisp/LispException.h \
+	acdk/lisp/LispFunction.h \
+	acdk/lisp/LispInterpreter.h \
+	acdk/lisp/LispList.h \
+	acdk/lisp/LispObject.h \
+	acdk/lisp/LispSymbol.h \
+	acdk/lisp/LispTemplateFilter.h \
+	acdk/lisp/LispTokenizer.h \
+	acdk/lisp/LispVar.h \
+	acdk/lisp/StackFrame.h \
+
+OBJECTS= 	../tobj/acdk_lisp/mingw/Lisp.o \
+	../tobj/acdk_lisp/mingw/LispBinaryCode.o \
+	../tobj/acdk_lisp/mingw/LispCallBack.o \
+	../tobj/acdk_lisp/mingw/LispClass.o \
+	../tobj/acdk_lisp/mingw/LispDmiClient.o \
+	../tobj/acdk_lisp/mingw/LispEnvironment.o \
+	../tobj/acdk_lisp/mingw/LispException.o \
+	../tobj/acdk_lisp/mingw/LispFunction.o \
+	../tobj/acdk_lisp/mingw/LispList.o \
+	../tobj/acdk_lisp/mingw/LispObject.o \
+	../tobj/acdk_lisp/mingw/LispObject_clazzinfo.o \
+	../tobj/acdk_lisp/mingw/LispTemplateFilter.o \
+	../tobj/acdk_lisp/mingw/LispTokenizer.o \
+	../tobj/acdk_lisp/mingw/LispVar.o \
+	../tobj/acdk_lisp/mingw/lisp_metainf_base.o \
+	../tobj/acdk_lisp/mingw/lisp_metainf_ext.o \
+	../tobj/acdk_lisp/mingw/lisp_metainf_ext1.o \
+
+
+FINALTARGET=../../bin/libacdk_lisp.dll
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_lisp.dll: $(OBJECTS)
+	$(LINK) -Wl,--enable-auto-image-base -Wl,--out-implib,../../bin/libacdk_lisp.a $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_lisp.dll $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+
+DEPSFILE=acdk_lisp.mingw.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_lisp/mingw/Lisp.o: acdk/lisp/Lisp.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/Lisp.o -c acdk/lisp/Lisp.cpp
+
+../tobj/acdk_lisp/mingw/LispBinaryCode.o: acdk/lisp/LispBinaryCode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispBinaryCode.o -c acdk/lisp/LispBinaryCode.cpp
+
+../tobj/acdk_lisp/mingw/LispCallBack.o: acdk/lisp/LispCallBack.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispCallBack.o -c acdk/lisp/LispCallBack.cpp
+
+../tobj/acdk_lisp/mingw/LispClass.o: acdk/lisp/LispClass.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispClass.o -c acdk/lisp/LispClass.cpp
+
+../tobj/acdk_lisp/mingw/LispDmiClient.o: acdk/lisp/LispDmiClient.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispDmiClient.o -c acdk/lisp/LispDmiClient.cpp
+
+../tobj/acdk_lisp/mingw/LispEnvironment.o: acdk/lisp/LispEnvironment.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispEnvironment.o -c acdk/lisp/LispEnvironment.cpp
+
+../tobj/acdk_lisp/mingw/LispException.o: acdk/lisp/LispException.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispException.o -c acdk/lisp/LispException.cpp
+
+../tobj/acdk_lisp/mingw/LispFunction.o: acdk/lisp/LispFunction.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispFunction.o -c acdk/lisp/LispFunction.cpp
+
+../tobj/acdk_lisp/mingw/LispList.o: acdk/lisp/LispList.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispList.o -c acdk/lisp/LispList.cpp
+
+../tobj/acdk_lisp/mingw/LispObject.o: acdk/lisp/LispObject.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispObject.o -c acdk/lisp/LispObject.cpp
+
+../tobj/acdk_lisp/mingw/LispObject_clazzinfo.o: acdk/lisp/LispObject_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispObject_clazzinfo.o -c acdk/lisp/LispObject_clazzinfo.cpp
+
+../tobj/acdk_lisp/mingw/LispTemplateFilter.o: acdk/lisp/LispTemplateFilter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispTemplateFilter.o -c acdk/lisp/LispTemplateFilter.cpp
+
+../tobj/acdk_lisp/mingw/LispTokenizer.o: acdk/lisp/LispTokenizer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispTokenizer.o -c acdk/lisp/LispTokenizer.cpp
+
+../tobj/acdk_lisp/mingw/LispVar.o: acdk/lisp/LispVar.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/LispVar.o -c acdk/lisp/LispVar.cpp
+
+../tobj/acdk_lisp/mingw/lisp_metainf_base.o: acdk/lisp/lisp_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/lisp_metainf_base.o -c acdk/lisp/lisp_metainf_base.cpp
+
+../tobj/acdk_lisp/mingw/lisp_metainf_ext.o: acdk/lisp/lisp_metainf/lisp_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/lisp_metainf_ext.o -c acdk/lisp/lisp_metainf/lisp_metainf_ext.cpp
+
+../tobj/acdk_lisp/mingw/lisp_metainf_ext1.o: acdk/lisp/lisp_metainf/lisp_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_lisp/mingw/lisp_metainf_ext1.o -c acdk/lisp/lisp_metainf/lisp_metainf_ext1.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_lisp.dll $(OBJECTS)
+
+  

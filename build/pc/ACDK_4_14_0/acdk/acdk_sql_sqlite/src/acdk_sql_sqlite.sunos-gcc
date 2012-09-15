@@ -1,0 +1,325 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acdk_sql_sqlite/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fPIC $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT -DIN_ACDK_SQL_SQLITE_LIB -DTHREADSAFE $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-G -Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_sql 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/sql/sqlite/LiteConnection.cpp \
+	acdk/sql/sqlite/LiteDatabaseMetaData.cpp \
+	acdk/sql/sqlite/LiteResultSet.cpp \
+	acdk/sql/sqlite/LiteStatement.cpp \
+	acdk/sql/sqlite/LiteTable.cpp \
+	acdk/sql/sqlite/sqlite_metainf_base.cpp \
+	sqlitesrc/alter.c \
+	sqlitesrc/attach.c \
+	sqlitesrc/auth.c \
+	sqlitesrc/btree.c \
+	sqlitesrc/build.c \
+	sqlitesrc/date.c \
+	sqlitesrc/delete.c \
+	sqlitesrc/expr.c \
+	sqlitesrc/func.c \
+	sqlitesrc/hash.c \
+	sqlitesrc/insert.c \
+	sqlitesrc/legacy.c \
+	sqlitesrc/main.c \
+	sqlitesrc/opcodes.c \
+	sqlitesrc/os_unix.c \
+	sqlitesrc/os_win.c \
+	sqlitesrc/pager.c \
+	sqlitesrc/parse.c \
+	sqlitesrc/pragma.c \
+	sqlitesrc/printf.c \
+	sqlitesrc/random.c \
+	sqlitesrc/select.c \
+	sqlitesrc/table.c \
+	sqlitesrc/tokenize.c \
+	sqlitesrc/trigger.c \
+	sqlitesrc/update.c \
+	sqlitesrc/utf.c \
+	sqlitesrc/util.c \
+	sqlitesrc/vacuum.c \
+	sqlitesrc/vdbe.c \
+	sqlitesrc/vdbeapi.c \
+	sqlitesrc/vdbeaux.c \
+	sqlitesrc/vdbemem.c \
+	sqlitesrc/where.c \
+
+HEADER= 	acdk/sql/sqlite/Config.h \
+	acdk/sql/sqlite/LiteConnection.h \
+	acdk/sql/sqlite/LiteDatabaseMetaData.h \
+	acdk/sql/sqlite/LiteDriver.h \
+	acdk/sql/sqlite/LitePreparedStatement.h \
+	acdk/sql/sqlite/LiteResultSet.h \
+	acdk/sql/sqlite/LiteResultSetMetaData.h \
+	acdk/sql/sqlite/LiteStatement.h \
+	acdk/sql/sqlite/LiteTable.h \
+	acdk/sql/sqlite/sqlite.h \
+
+OBJECTS= 	../tobj/acdk_sql_sqlite/sunos-gcc/LiteConnection.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/LiteDatabaseMetaData.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/LiteResultSet.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/LiteStatement.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/LiteTable.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/sqlite_metainf_base.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/alter.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/attach.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/auth.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/btree.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/build.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/date.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/delete.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/expr.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/func.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/hash.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/insert.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/legacy.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/main.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/opcodes.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/os_unix.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/os_win.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/pager.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/parse.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/pragma.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/printf.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/random.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/select.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/table.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/tokenize.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/trigger.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/update.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/utf.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/util.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/vacuum.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/vdbe.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/vdbeapi.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/vdbeaux.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/vdbemem.o \
+	../tobj/acdk_sql_sqlite/sunos-gcc/where.o \
+
+
+FINALTARGET=../../bin/libacdk_sql_sqlite.so
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/libacdk_sql_sqlite.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_sql_sqlite.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_sql_sqlite.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_sql_sqlite/sunos-gcc/LiteConnection.o: acdk/sql/sqlite/LiteConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/LiteConnection.o -c acdk/sql/sqlite/LiteConnection.cpp
+
+../tobj/acdk_sql_sqlite/sunos-gcc/LiteDatabaseMetaData.o: acdk/sql/sqlite/LiteDatabaseMetaData.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/LiteDatabaseMetaData.o -c acdk/sql/sqlite/LiteDatabaseMetaData.cpp
+
+../tobj/acdk_sql_sqlite/sunos-gcc/LiteResultSet.o: acdk/sql/sqlite/LiteResultSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/LiteResultSet.o -c acdk/sql/sqlite/LiteResultSet.cpp
+
+../tobj/acdk_sql_sqlite/sunos-gcc/LiteStatement.o: acdk/sql/sqlite/LiteStatement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/LiteStatement.o -c acdk/sql/sqlite/LiteStatement.cpp
+
+../tobj/acdk_sql_sqlite/sunos-gcc/LiteTable.o: acdk/sql/sqlite/LiteTable.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/LiteTable.o -c acdk/sql/sqlite/LiteTable.cpp
+
+../tobj/acdk_sql_sqlite/sunos-gcc/sqlite_metainf_base.o: acdk/sql/sqlite/sqlite_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/sqlite_metainf_base.o -c acdk/sql/sqlite/sqlite_metainf_base.cpp
+
+../tobj/acdk_sql_sqlite/sunos-gcc/alter.o: sqlitesrc/alter.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/alter.o -c sqlitesrc/alter.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/attach.o: sqlitesrc/attach.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/attach.o -c sqlitesrc/attach.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/auth.o: sqlitesrc/auth.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/auth.o -c sqlitesrc/auth.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/btree.o: sqlitesrc/btree.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/btree.o -c sqlitesrc/btree.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/build.o: sqlitesrc/build.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/build.o -c sqlitesrc/build.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/date.o: sqlitesrc/date.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/date.o -c sqlitesrc/date.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/delete.o: sqlitesrc/delete.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/delete.o -c sqlitesrc/delete.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/expr.o: sqlitesrc/expr.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/expr.o -c sqlitesrc/expr.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/func.o: sqlitesrc/func.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/func.o -c sqlitesrc/func.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/hash.o: sqlitesrc/hash.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/hash.o -c sqlitesrc/hash.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/insert.o: sqlitesrc/insert.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/insert.o -c sqlitesrc/insert.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/legacy.o: sqlitesrc/legacy.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/legacy.o -c sqlitesrc/legacy.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/main.o: sqlitesrc/main.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/main.o -c sqlitesrc/main.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/opcodes.o: sqlitesrc/opcodes.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/opcodes.o -c sqlitesrc/opcodes.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/os_unix.o: sqlitesrc/os_unix.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/os_unix.o -c sqlitesrc/os_unix.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/os_win.o: sqlitesrc/os_win.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/os_win.o -c sqlitesrc/os_win.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/pager.o: sqlitesrc/pager.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/pager.o -c sqlitesrc/pager.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/parse.o: sqlitesrc/parse.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/parse.o -c sqlitesrc/parse.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/pragma.o: sqlitesrc/pragma.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/pragma.o -c sqlitesrc/pragma.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/printf.o: sqlitesrc/printf.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/printf.o -c sqlitesrc/printf.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/random.o: sqlitesrc/random.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/random.o -c sqlitesrc/random.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/select.o: sqlitesrc/select.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/select.o -c sqlitesrc/select.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/table.o: sqlitesrc/table.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/table.o -c sqlitesrc/table.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/tokenize.o: sqlitesrc/tokenize.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/tokenize.o -c sqlitesrc/tokenize.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/trigger.o: sqlitesrc/trigger.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/trigger.o -c sqlitesrc/trigger.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/update.o: sqlitesrc/update.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/update.o -c sqlitesrc/update.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/utf.o: sqlitesrc/utf.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/utf.o -c sqlitesrc/utf.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/util.o: sqlitesrc/util.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/util.o -c sqlitesrc/util.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/vacuum.o: sqlitesrc/vacuum.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/vacuum.o -c sqlitesrc/vacuum.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/vdbe.o: sqlitesrc/vdbe.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/vdbe.o -c sqlitesrc/vdbe.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/vdbeapi.o: sqlitesrc/vdbeapi.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/vdbeapi.o -c sqlitesrc/vdbeapi.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/vdbeaux.o: sqlitesrc/vdbeaux.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/vdbeaux.o -c sqlitesrc/vdbeaux.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/vdbemem.o: sqlitesrc/vdbemem.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/vdbemem.o -c sqlitesrc/vdbemem.c
+
+../tobj/acdk_sql_sqlite/sunos-gcc/where.o: sqlitesrc/where.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/sunos-gcc/where.o -c sqlitesrc/where.c
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_sql_sqlite.so $(OBJECTS)
+
+  

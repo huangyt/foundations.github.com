@@ -1,0 +1,184 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_LISP_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib"
+
+OUTFILE="..\..\bin\acdk_lisp.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_lisp\bcc"
+SOURCES= 	"acdk\lisp\Lisp.cpp" \
+	"acdk\lisp\LispBinaryCode.cpp" \
+	"acdk\lisp\LispCallBack.cpp" \
+	"acdk\lisp\LispClass.cpp" \
+	"acdk\lisp\LispDmiClient.cpp" \
+	"acdk\lisp\LispEnvironment.cpp" \
+	"acdk\lisp\LispException.cpp" \
+	"acdk\lisp\LispFunction.cpp" \
+	"acdk\lisp\LispList.cpp" \
+	"acdk\lisp\LispObject.cpp" \
+	"acdk\lisp\LispObject_clazzinfo.cpp" \
+	"acdk\lisp\LispTemplateFilter.cpp" \
+	"acdk\lisp\LispTokenizer.cpp" \
+	"acdk\lisp\LispVar.cpp" \
+	"acdk\lisp\lisp_metainf_base.cpp" \
+	"acdk\lisp\lisp_metainf\lisp_metainf_ext.cpp" \
+	"acdk\lisp\lisp_metainf\lisp_metainf_ext1.cpp" \
+
+HEADER= 	"acdk\lisp\acdk_lisp_decl.h" \
+	"acdk\lisp\Config.h" \
+	"acdk\lisp\Function.h" \
+	"acdk\lisp\lisp.h" \
+	"acdk\lisp\LispArray.h" \
+	"acdk\lisp\LispAtom.h" \
+	"acdk\lisp\LispBinaryCode.h" \
+	"acdk\lisp\LispBuildInFunction.h" \
+	"acdk\lisp\LispCallBack.h" \
+	"acdk\lisp\LispClass.h" \
+	"acdk\lisp\LispCode.h" \
+	"acdk\lisp\LispDmiClient.h" \
+	"acdk\lisp\LispEnvironment.h" \
+	"acdk\lisp\LispException.h" \
+	"acdk\lisp\LispFunction.h" \
+	"acdk\lisp\LispInterpreter.h" \
+	"acdk\lisp\LispList.h" \
+	"acdk\lisp\LispObject.h" \
+	"acdk\lisp\LispSymbol.h" \
+	"acdk\lisp\LispTemplateFilter.h" \
+	"acdk\lisp\LispTokenizer.h" \
+	"acdk\lisp\LispVar.h" \
+	"acdk\lisp\StackFrame.h" \
+
+OBJECTS= 	"..\tobj\acdk_lisp\bcc\Lisp.obj" \
+	"..\tobj\acdk_lisp\bcc\LispBinaryCode.obj" \
+	"..\tobj\acdk_lisp\bcc\LispCallBack.obj" \
+	"..\tobj\acdk_lisp\bcc\LispClass.obj" \
+	"..\tobj\acdk_lisp\bcc\LispDmiClient.obj" \
+	"..\tobj\acdk_lisp\bcc\LispEnvironment.obj" \
+	"..\tobj\acdk_lisp\bcc\LispException.obj" \
+	"..\tobj\acdk_lisp\bcc\LispFunction.obj" \
+	"..\tobj\acdk_lisp\bcc\LispList.obj" \
+	"..\tobj\acdk_lisp\bcc\LispObject.obj" \
+	"..\tobj\acdk_lisp\bcc\LispObject_clazzinfo.obj" \
+	"..\tobj\acdk_lisp\bcc\LispTemplateFilter.obj" \
+	"..\tobj\acdk_lisp\bcc\LispTokenizer.obj" \
+	"..\tobj\acdk_lisp\bcc\LispVar.obj" \
+	"..\tobj\acdk_lisp\bcc\lisp_metainf_base.obj" \
+	"..\tobj\acdk_lisp\bcc\lisp_metainf_ext.obj" \
+	"..\tobj\acdk_lisp\bcc\lisp_metainf_ext1.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_lisp\bcc\Lisp.obj": "acdk\lisp\Lisp.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\Lisp.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispBinaryCode.obj": "acdk\lisp\LispBinaryCode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispBinaryCode.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispCallBack.obj": "acdk\lisp\LispCallBack.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispCallBack.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispClass.obj": "acdk\lisp\LispClass.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispClass.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispDmiClient.obj": "acdk\lisp\LispDmiClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispDmiClient.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispEnvironment.obj": "acdk\lisp\LispEnvironment.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispEnvironment.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispException.obj": "acdk\lisp\LispException.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispException.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispFunction.obj": "acdk\lisp\LispFunction.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispFunction.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispList.obj": "acdk\lisp\LispList.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispList.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispObject.obj": "acdk\lisp\LispObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispObject.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispObject_clazzinfo.obj": "acdk\lisp\LispObject_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispObject_clazzinfo.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispTemplateFilter.obj": "acdk\lisp\LispTemplateFilter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispTemplateFilter.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispTokenizer.obj": "acdk\lisp\LispTokenizer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispTokenizer.cpp"
+
+"..\tobj\acdk_lisp\bcc\LispVar.obj": "acdk\lisp\LispVar.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\LispVar.cpp"
+
+"..\tobj\acdk_lisp\bcc\lisp_metainf_base.obj": "acdk\lisp\lisp_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\lisp_metainf_base.cpp"
+
+"..\tobj\acdk_lisp\bcc\lisp_metainf_ext.obj": "acdk\lisp\lisp_metainf\lisp_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\lisp_metainf\lisp_metainf_ext.cpp"
+
+"..\tobj\acdk_lisp\bcc\lisp_metainf_ext1.obj": "acdk\lisp\lisp_metainf\lisp_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_lisp\bcc" "acdk\lisp\lisp_metainf\lisp_metainf_ext1.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_lisp.dll"
+	del "..\tobj\acdk_lisp\bcc\Lisp.obj"
+	del "..\tobj\acdk_lisp\bcc\LispBinaryCode.obj"
+	del "..\tobj\acdk_lisp\bcc\LispCallBack.obj"
+	del "..\tobj\acdk_lisp\bcc\LispClass.obj"
+	del "..\tobj\acdk_lisp\bcc\LispDmiClient.obj"
+	del "..\tobj\acdk_lisp\bcc\LispEnvironment.obj"
+	del "..\tobj\acdk_lisp\bcc\LispException.obj"
+	del "..\tobj\acdk_lisp\bcc\LispFunction.obj"
+	del "..\tobj\acdk_lisp\bcc\LispList.obj"
+	del "..\tobj\acdk_lisp\bcc\LispObject.obj"
+	del "..\tobj\acdk_lisp\bcc\LispObject_clazzinfo.obj"
+	del "..\tobj\acdk_lisp\bcc\LispTemplateFilter.obj"
+	del "..\tobj\acdk_lisp\bcc\LispTokenizer.obj"
+	del "..\tobj\acdk_lisp\bcc\LispVar.obj"
+	del "..\tobj\acdk_lisp\bcc\lisp_metainf_base.obj"
+	del "..\tobj\acdk_lisp\bcc\lisp_metainf_ext.obj"
+	del "..\tobj\acdk_lisp\bcc\lisp_metainf_ext1.obj"
+
+

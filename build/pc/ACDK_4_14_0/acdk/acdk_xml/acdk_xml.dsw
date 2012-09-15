@@ -1,0 +1,137 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+
+
+###############################################################################
+Project: "org_xml"=src\org_xml.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "org_xml_metainf"=src\org_xml_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_xml"=src\acdk_xml.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_xml_metainf"=src\acdk_xml_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_xml
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_xml_XMLObjectReaderWriter_Test"=tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_xml
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_xml_sax_Test"=tests/acdk/xml/sax\acdk_xml_sax_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_xml
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_xml_dom_Test"=tests/acdk/xml/dom\acdk_xml_dom_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_xml
+    End Project Dependency
+}}}
+
+
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

@@ -1,0 +1,60 @@
+
+// #include "CppExeTask.csf"
+
+using acdk.cfgscript;
+
+
+class CppExeTask
+implements acdk.make.AbstractCppTask
+{
+  
+  CppExeTask(String name, String target = "", String descr = "")
+  {
+    super(name, descr);
+  }
+}
+
+class CppLibTask
+implements acdk.make.AbstractCppTask
+{
+  
+  CppLibTask(String name, String target = "", String descr = "")
+  {
+    super(name, descr);
+    _taskProps->appendStringArrayVal("COMPILE_TYPE", "LIB", PropsNoParentWrite | PropsNoStringDups);
+  }
+  void setupAcdkDeps(IN(RProps) props)
+  {
+    //props->appendStringArrayVal("COMPILE_TYPE", "LIB", PropsNoStringDups);
+    super.setupAcdkDeps(props);
+  }
+  bool execute(String exec, Props props)
+  {
+    out.println("CppLibTask.execute");
+    //props->appendStringArrayVal("COMPILE_TYPE", "LIB", PropsNoParentWrite | PropsNoStringDups);
+    return super.execute(exec, props);
+  }
+}
+
+
+
+with (cpptask = new CppExeTask("cpptask", "cpptask", "cpptask"))
+{
+  .addSource("exetask.cpp");
+  .addLib("libtask");
+  .addLibraryPath(".");
+}
+with (cpptask = new CppLibTask("libtask", "libtask", "libtask"))
+{
+  .addSource("libtask.cpp");
+}
+
+
+with (default = new acdk.make.AcdkProjectTask("default"))
+{
+  .addSubTask("libtask");
+  .addSubTask("cpptask");
+  
+}
+
+

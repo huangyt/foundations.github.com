@@ -1,0 +1,158 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Make targets</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Make</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_make_man.html">ACDK Make manual</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Make targets
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_make_features.html">acdkmake features</a> | ACDK Make targets | <a  href="acdk_make_tasks.html">Tasks</a> | <a  href="acdk_make_concepts.html">ACDK Make concepts</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Make targets</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Make targets</h1> -->
+
+<br>
+<p class="PageIntro">
+acdkmake supports several platforms and compilers.<br>
+It automatically try to find a suitable compiler to 
+translate a source.<br>
+<br>
+</p>
+<br>
+<br>
+<a name="jumptable78"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#About Targets"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;About Targets</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Selecting targets"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Selecting targets</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Available Targets"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Available Targets</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#linux"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;linux</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#vc"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;vc</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#vc7"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;vc7</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#bsd"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;bsd</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#bcc"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;bcc</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#sungcc"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;sungcc</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#lintel"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;lintel</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#mingw"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;mingw</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="About Targets">About Targets</a></h2>
+Because acdkmake supports several platforms and compilers,
+a target is bundle of settings which specifies the needed
+tools to compile, link, install, etc.<br>
+<br>
+The targets are organized as an hierarchy. For example
+the target <i>linux</i> is derived from the targets <i>unix</i>
+and <i>gcc</i>.<br>
+<br>
+The core target definition is defined in the file
+<pre>cfg/cfginclude/compile_specs.cfg</pre>.<br>
+<br>
+<h2><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Selecting targets">Selecting targets</a></h2>
+At the beginning starting <b>acdkmc</b> it try to
+find a suitable target on the current enviromnent.<br>
+Therefore it try to figure out on what host type 
+acdkmake is running and try to figure out what compiler
+works. On a MS Windows host it try to locate the Visual C++
+compiler, and if this fails it looking for a Borland C++ compiler.<br>
+<br>
+<br>
+<h2><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Available Targets">Available Targets</a></h2>
+The variable AMAKE_TARGET set the build target.<br>
+<br>
+You can list all supported targets with the <code>-dump-targets</code>
+option.<br>
+To view the specs for a target you can use the 
+<code>-dump-target  &lt;targetname&gt;</code> option.<br>
+<br>
+Following targets are known by acdkmake.<br>
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="linux">linux</a></h3>
+<li> Platform: Linux
+<li> Compiler gcc
+<li> Shell: bash/sh
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="vc">vc</a></h3>
+<li> Platform: Windows NT, XP.<br>
+<li> Compiler: Visual C++ 6.0
+<li> Shell: cmd
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="vc7">vc7</a></h3>
+Same as <a  href="acdk_make_targets.html#vc"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;vc</a> but using Visual C++ 7 or higher
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="bsd">bsd</a></h3>
+<li> Platform: FreeBSD
+<li> Compiler: gcc
+<li> Shell: bash/sh
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="bcc">bcc</a></h3>
+<li> Platform: Windows NT, XP.<br>
+<li> Compiler: Borland C++ 5.5.x
+<li> Shell: cmd
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="sungcc">sungcc</a></h3>
+<li> Platform: Solaris.<br>
+<li> Compiler: gcc
+<li> Shell: bash/sh
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="lintel">lintel</a></h3>
+<li> Platform: Linux.<br>
+<li> Compiler: Intel C++
+<li> Shell: bash/sh
+<br>
+<h3><a href="#jumptable78"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="mingw">mingw</a></h3>
+<li> Platform: Windows NT/XP.<br>
+<li> Compiler: gcc
+<li> Shell: cmd
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_make_features.html">acdkmake features</a> | ACDK Make targets | <a  href="acdk_make_tasks.html">Tasks</a> | <a  href="acdk_make_concepts.html">ACDK Make concepts</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

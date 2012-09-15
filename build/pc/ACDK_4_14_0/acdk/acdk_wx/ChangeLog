@@ -1,0 +1,1097 @@
+2005-02-06 14:54  kommer
+
+	* src/: acdkcsfide.bcc, acdkcsfide.bsd, acdkcsfide.cbx,
+	acdkcsfide.dsp, acdkcsfide.linux, acdkcsfide.lsp, acdkcsfide.mingw,
+	acdkcsfide.sunos-gcc, acdk/wx/xpms/toolbar/README.txt: initial
+	revision
+
+2005-02-06 14:14  kommer
+
+	* src/acdk/wx/xpms/: help.xpm, run.xpm, text_BR_1616.xpm,
+	text_CT_1616.xpm, text_DB_1616.xpm, text_GO_1616.xpm,
+	text_NE_1616.xpm, text_RT_1616.xpm, text_ST_1616.xpm,
+	text_TE_1616.xpm, copy_1616.bmp, cut_1616.bmp, floppy_1616.bmp,
+	folderopen_1616.bmp, help.bmp, run.bmp, sheet_1616.bmp,
+	text_BR_1616.bmp, text_CT_1616.bmp, text_DB_1616.bmp,
+	text_GO_1616.bmp, text_NE_1616.bmp, text_RT_1616.bmp,
+	text_ST_1616.bmp, text_TE_1616.bmp, toolbar/copy.xpm,
+	toolbar/cut.xpm, toolbar/help.xpm, toolbar/new.xpm,
+	toolbar/open.xpm, toolbar/page.xpm, toolbar/paste.xpm,
+	toolbar/preview.xpm, toolbar/print.xpm, toolbar/redo.xpm,
+	toolbar/save.xpm, toolbar/undo.xpm, toolbar/copy.bmp,
+	toolbar/cut.bmp, toolbar/help.bmp, toolbar/new.bmp,
+	toolbar/open.bmp, toolbar/page.bmp, toolbar/paste.bmp,
+	toolbar/preview.bmp, toolbar/print.bmp, toolbar/redo.bmp,
+	toolbar/save.bmp, toolbar/undo.bmp: initial revision
+
+2005-02-05 11:45  kommer
+
+	* src/acdk/tools/aunit/guitestrunner/GuiTestListener.h,
+	src/acdk/tools/aunit/guitestrunner/TestRunnerFrame.h,
+	src/acdk/tools/aunit/guitestrunner/TestTreeCtrl.h,
+	src/acdk/tools/aunit/guitestrunner/guitestrunner.cpp,
+	src/acdk/wx/App.cpp, src/acdk/wx/App.h, src/acdk/wx/ArtProvider.h,
+	src/acdk/wx/Bitmap.h, src/acdk/wx/BitmapButton.h,
+	src/acdk/wx/BitmapDataObject.h, src/acdk/wx/BoxSizer.h,
+	src/acdk/wx/Button.h, src/acdk/wx/Caret.h, src/acdk/wx/CheckBox.h,
+	src/acdk/wx/Choice.h, src/acdk/wx/ClientDC.h,
+	src/acdk/wx/ClientData.h, src/acdk/wx/Clipboard.h,
+	src/acdk/wx/Colour.h, src/acdk/wx/ColourData.h,
+	src/acdk/wx/ColourDialog.h, src/acdk/wx/ComboBox.h,
+	src/acdk/wx/Config.h, src/acdk/wx/Control.h,
+	src/acdk/wx/ControlWithItems.h, src/acdk/wx/Cursor.h,
+	src/acdk/wx/DC.h, src/acdk/wx/DataFormat.h,
+	src/acdk/wx/DataObject.h, src/acdk/wx/DataObjectComposite.h,
+	src/acdk/wx/DataObjectSimple.h, src/acdk/wx/Dialog.h,
+	src/acdk/wx/DirDialog.h, src/acdk/wx/DropSource.h,
+	src/acdk/wx/DropTarget.h, src/acdk/wx/Event.cpp,
+	src/acdk/wx/Event.h, src/acdk/wx/FileDataObject.h,
+	src/acdk/wx/FileDialog.h, src/acdk/wx/FileDropTarget.h,
+	src/acdk/wx/Font.h, src/acdk/wx/FontData.h,
+	src/acdk/wx/FontDialog.h, src/acdk/wx/Frame.cpp,
+	src/acdk/wx/Frame.h, src/acdk/wx/GDIImage.h,
+	src/acdk/wx/GDIObject.h, src/acdk/wx/Gauge.h,
+	src/acdk/wx/HtmlWindow.h, src/acdk/wx/Icon.h,
+	src/acdk/wx/LayoutConstraints.h, src/acdk/wx/ListBox.h,
+	src/acdk/wx/MDIChildFrame.h, src/acdk/wx/MDIClientWindow.h,
+	src/acdk/wx/MDIParentFrame.h, src/acdk/wx/MemoryDC.h,
+	src/acdk/wx/Menu.h, src/acdk/wx/MenuBar.h, src/acdk/wx/MenuItem.h,
+	src/acdk/wx/Notebook.cpp, src/acdk/wx/Notebook.h,
+	src/acdk/wx/PaintDC.h, src/acdk/wx/Panel.h, src/acdk/wx/Pen.h,
+	src/acdk/wx/PostScriptDC.h, src/acdk/wx/ProgressDialog.h,
+	src/acdk/wx/RadioBox.h, src/acdk/wx/RadioButton.h,
+	src/acdk/wx/Region.h, src/acdk/wx/ScreenDC.h,
+	src/acdk/wx/ScrolledWindow.h, src/acdk/wx/SingleChoiceDialog.h,
+	src/acdk/wx/Sizer.h, src/acdk/wx/Slider.h,
+	src/acdk/wx/SpinButton.h, src/acdk/wx/SpinCtrl.h,
+	src/acdk/wx/SplitterWindow.h, src/acdk/wx/StaticBitmap.h,
+	src/acdk/wx/StaticBox.h, src/acdk/wx/StaticText.h,
+	src/acdk/wx/StatusBar.h, src/acdk/wx/Structs.h,
+	src/acdk/wx/TextCtrl.h, src/acdk/wx/TextCtrlCharWriter.h,
+	src/acdk/wx/TextDataObject.h, src/acdk/wx/TextDropTarget.h,
+	src/acdk/wx/TextEntryDialog.h, src/acdk/wx/Timer.h,
+	src/acdk/wx/ToggleButton.h, src/acdk/wx/ToolBar.h,
+	src/acdk/wx/ToolTip.h, src/acdk/wx/TreeCtrl.cpp,
+	src/acdk/wx/TreeCtrl.h, src/acdk/wx/Validator.h,
+	src/acdk/wx/Window.cpp, src/acdk/wx/Window.h,
+	src/acdk/wx/WindowDC.h, src/acdk/wx/WindowStyle.h,
+	src/acdk/wx/Wizard.h, src/acdk/wx/WizardPage.h,
+	src/acdk/wx/WxObject.cpp, src/acdk/wx/WxObject.h,
+	src/acdk/wx/XmlResource.h, src/acdk/wx/wx.h,
+	src/acdk/wx/ide/inspector/CfgScriptConsole.cpp,
+	src/acdk/wx/ide/inspector/CfgScriptConsole.h,
+	src/acdk/wx/ide/inspector/ClassTreeCtrl.cpp,
+	src/acdk/wx/ide/inspector/ClassTreeCtrl.h,
+	src/acdk/wx/ide/inspector/ObjectTreeCtrl.cpp,
+	src/acdk/wx/ide/inspector/ObjectTreeCtrl.h,
+	tests/acdk/wx/TestFrame.h,
+	tests/acdk/wx/acdk_wx_DragNDrop_Test.cpp,
+	tests/acdk/wx/acdk_wx_Drawing_Test.cpp,
+	tests/acdk/wx/acdk_wx_Test.cpp,
+	tests/acdk/wx/acdk_wx_TextCtrl_Test.cpp,
+	tests/acdk/wx/HelloWorld/HelloWorld.cpp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cpp,
+	tests/acdk/wx/ide/acdk_wx_ide_StyledTextCtrl_Test.cpp,
+	tests/acdk/wx/ide/acdk_wx_ide_Test.cpp: copyright statement ajusted
+
+2005-02-03 08:59  kommer
+
+	* src/acdk/: wx/ide/TextOutputCtrl.h, tools/csfide/BackTraceCtrl.h,
+	tools/csfide/CsfDebugger.cpp, tools/csfide/CsfDebugger.h,
+	tools/csfide/Editor.cpp, tools/csfide/Editor.h,
+	tools/csfide/LocalVarsCtrl.h, tools/csfide/Main.cpp,
+	tools/csfide/Main.h, tools/csfide/OutputWindow.h: initial revision
+
+2005-01-27 13:25  kommer
+
+	* src/acdk/wx/App.cpp: initial revision
+
+2005-01-27 10:44  kommer
+
+	* tests/acdk/wx/: ide/acdk_wx_ide_StyledTextCtrl_Test.cpp,
+	ide/acdk_wx_ide_Test.bcc, ide/acdk_wx_ide_Test.bsd,
+	ide/acdk_wx_ide_Test.cbx, ide/acdk_wx_ide_Test.cpp,
+	ide/acdk_wx_ide_Test.dsp, ide/acdk_wx_ide_Test.linux,
+	ide/acdk_wx_ide_Test.lsp, ide/acdk_wx_ide_Test.mingw,
+	ide/acdk_wx_ide_Test.sunos-gcc, .cvsignore, ide/.cvsignore: initial
+	revision
+
+2005-01-26 21:19  kommer
+
+	* src/acdk/wx/ide/inspector/: CfgScriptConsole.cpp,
+	CfgScriptConsole.h, ClassTreeCtrl.cpp, ClassTreeCtrl.h,
+	ObjectTreeCtrl.cpp, ObjectTreeCtrl.h, inspector.h,
+	inspector_metainf_base.cpp, ti_class.xpm, ti_enumeration.xpm,
+	ti_field.xpm, ti_interface.xpm, ti_method.xpm, ti_unit.xpm,
+	ti_class.bmp, ti_enumeration.bmp, ti_field.bmp, ti_interface.bmp,
+	ti_method.bmp, ti_unit.bmp,
+	inspector_metainf/inspector_metainf_ext.cpp: initial revision
+
+2005-01-26 20:22  kommer
+
+	* src/acdk/: wx/ide/StyledTextCtrl.h, wx/ide/ide.h,
+	tools/aunit/guitestrunner/TestRunnerFrame.h, wx/Config.h,
+	wx/MDIParentFrame.h: ajustment for gtk
+
+2005-01-26 20:07  kommer
+
+	* src/acdk/wx/ide/: Scintilla.cpp, Scintilla.h: [no log message]
+
+2005-01-26 20:07  kommer
+
+	* cfg/csf/tests/8_ide/: 10_Scintilla_Test.csf,
+	30_FrameLayout_Test.csf: initial revision
+
+2005-01-26 18:38  kommer
+
+	* src/acdk/wx/ide/StyledTextCtrl.cpp: initial revision
+
+2005-01-26 15:18  kommer
+
+	* wx_cfg.lsp, docs/acdk_wx_hb_installation.htxt, src/acdk_wx.bcc,
+	src/acdk_wx.cbx, src/acdk_wx.dsp, src/acdk_wx.mingw,
+	src/acdk_wx_dmiproxy.bcc, src/acdk_wx_dmiproxy.cbx,
+	src/acdk_wx_dmiproxy.dsp, src/acdk_wx_dmiproxy.mingw,
+	src/acdk_wx_ide.bcc, src/acdk_wx_ide.bsd, src/acdk_wx_ide.cbx,
+	src/acdk_wx_ide.dsp, src/acdk_wx_ide.linux, src/acdk_wx_ide.lsp,
+	src/acdk_wx_ide.mingw, src/acdk_wx_ide.sunos-gcc,
+	src/acdk_wx_metainf.bcc, src/acdk_wx_metainf.cbx,
+	src/acdk_wx_metainf.dsp, src/acdk_wx_metainf.mingw,
+	src/guitestrunner.bcc, src/guitestrunner.cbx,
+	src/guitestrunner.dsp, src/guitestrunner.mingw,
+	src/acdk/wx/Bitmap.h, src/acdk/wx/BitmapButton.h,
+	src/acdk/wx/Config.h, src/acdk/wx/Window.cpp,
+	src/acdk/wx/ide/StyledTextCtrl.h,
+	src/acdk/wx/ide/ide_metainf_base.cpp,
+	src/acdk/wx/ide/ide_metainf/ide_metainf_ext.cpp,
+	tests/acdk/wx/acdk_wx_Test.bcc, tests/acdk/wx/acdk_wx_Test.cbx,
+	tests/acdk/wx/acdk_wx_Test.dsp, tests/acdk/wx/acdk_wx_Test.mingw,
+	tests/acdk/wx/HelloWorld/HelloWorld.bcc,
+	tests/acdk/wx/HelloWorld/HelloWorld.cbx,
+	tests/acdk/wx/HelloWorld/HelloWorld.dsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.mingw,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.bcc,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cbx,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.dsp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.mingw: use 2.5 wxWidgets
+
+2005-01-26 14:53  kommer
+
+	* docs/acdk_wx_hb_installation.htxt: concept
+
+2005-01-26 00:36  kommer
+
+	* src/acdk/wx/ide/StyledTextCtrl.h: new
+
+2005-01-25 20:48  kommer
+
+	* src/: acdk_wx_ide.bcc, acdk_wx_ide.bsd, acdk_wx_ide.cbx,
+	acdk_wx_ide.dsp, acdk_wx_ide.linux, acdk_wx_ide.lsp,
+	acdk_wx_ide.mingw, acdk_wx_ide.sunos-gcc: initial revision
+
+2005-01-25 17:26  kommer
+
+	* src/acdk/wx/ide/: Config.h, FrameLayout.h, Scintilla.cpp,
+	Scintilla.h, ide.h, ide_metainf_base.cpp,
+	ide_metainf/ide_metainf_ext.cpp: initial revision
+
+2005-01-25 17:00  kommer
+
+	* acdk_wx.bcc, acdk_wx.bpgr, acdk_wx.bsd, acdk_wx.dsw,
+	acdk_wx.linux, acdk_wx.lsp, acdk_wx.mingw, acdk_wx.nmake,
+	acdk_wx.sunos-gcc, wx_cfg.lsp, cfg/vstudio/wxmacros.dsm,
+	src/acdk_wx.bcc, src/acdk_wx.bsd, src/acdk_wx.cbx, src/acdk_wx.dsp,
+	src/acdk_wx.linux, src/acdk_wx.lsp, src/acdk_wx.mingw,
+	src/acdk_wx.sunos-gcc, src/acdk_wx_dmiproxy.bcc,
+	src/acdk_wx_dmiproxy.bsd, src/acdk_wx_dmiproxy.cbx,
+	src/acdk_wx_dmiproxy.dsp, src/acdk_wx_dmiproxy.linux,
+	src/acdk_wx_dmiproxy.mingw, src/acdk_wx_dmiproxy.sunos-gcc,
+	src/acdk_wx_metainf.bcc, src/acdk_wx_metainf.bsd,
+	src/acdk_wx_metainf.cbx, src/acdk_wx_metainf.dsp,
+	src/acdk_wx_metainf.linux, src/acdk_wx_metainf.lsp,
+	src/acdk_wx_metainf.mingw, src/acdk_wx_metainf.sunos-gcc,
+	src/guitestrunner.bcc, src/guitestrunner.cbx,
+	src/guitestrunner.dsp, src/guitestrunner.mingw,
+	src/acdk/wx/MDIParentFrame.h, src/acdk/wx/ToolBar.h,
+	src/acdk/wx/wx_metainf_base.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy1.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy3.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext4.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext7.cpp,
+	tests/acdk/wx/acdk_wx_Test.bcc, tests/acdk/wx/acdk_wx_Test.cbx,
+	tests/acdk/wx/acdk_wx_Test.dsp, tests/acdk/wx/acdk_wx_Test.mingw,
+	tests/acdk/wx/HelloWorld/HelloWorld.bcc,
+	tests/acdk/wx/HelloWorld/HelloWorld.cbx,
+	tests/acdk/wx/HelloWorld/HelloWorld.dsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.mingw,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.bcc,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cbx,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.dsp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.mingw: rorganized package
+
+2004-11-23 01:05  kommer
+
+	* src/acdk/wx/DataObject.h: comment only
+
+2004-11-21 22:56  kommer
+
+	* tests/acdk/wx/: TestFrame.h, acdk_wx_DragNDrop_Test.cpp,
+	acdk_wx_Drawing_Test.cpp, acdk_wx_Test.cpp,
+	acdk_wx_TextCtrl_Test.cpp, HelloWorld/HelloWorld.cpp,
+	HelloWxWorld/HelloWxWorld.cpp: changed copyright date to 2005
+
+2004-11-16 10:39  kommer
+
+	* acdk_wx.sln: vc7 compat fixes
+
+2004-08-09 01:19  kommer
+
+	* acdk_wx.bpgr, src/acdk_wx.cbx, src/acdk_wx_dmiproxy.cbx,
+	src/acdk_wx_metainf.cbx, src/guitestrunner.cbx,
+	src/acdk/wx/Bitmap.h, src/acdk/wx/BitmapButton.h,
+	src/acdk/wx/ComboBox.h, src/acdk/wx/Control.h,
+	src/acdk/wx/Cursor.h, src/acdk/wx/DC.h, src/acdk/wx/DataFormat.h,
+	src/acdk/wx/DataObject.h, src/acdk/wx/DirDialog.h,
+	src/acdk/wx/DropSource.h, src/acdk/wx/DropTarget.h,
+	src/acdk/wx/Event.h, src/acdk/wx/FileDialog.h, src/acdk/wx/Font.h,
+	src/acdk/wx/Gauge.h, src/acdk/wx/LayoutConstraints.h,
+	src/acdk/wx/ListBox.h, src/acdk/wx/ProgressDialog.h,
+	src/acdk/wx/RadioBox.h, src/acdk/wx/Region.h, src/acdk/wx/Slider.h,
+	src/acdk/wx/SpinButton.h, src/acdk/wx/SplitterWindow.h,
+	src/acdk/wx/StatusBar.h, src/acdk/wx/TextCtrl.h,
+	src/acdk/wx/ToolBar.h, src/acdk/wx/TreeCtrl.h,
+	src/acdk/wx/Window.h, src/acdk/wx/WindowStyle.h,
+	src/acdk/wx/wx_metainf_base.cpp, tests/acdk/wx/acdk_wx_Test.cbx,
+	tests/acdk/wx/HelloWorld/HelloWorld.cbx,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cbx: enum metainfo changed
+
+2004-06-14 13:20  kommer
+
+	* acdk_wx.bcc, acdk_wx.bsd, acdk_wx.dsw, acdk_wx.linux,
+	acdk_wx.mingw, acdk_wx.nmake, acdk_wx.sunos-gcc, src/acdk_wx.dsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.dsp: introduced a new make
+	target "clean-temps" which only delete object files, but not
+	libraries or executables
+
+2004-06-13 00:30  kommer
+
+	* acdk_wx.nmake: make clean for nmake also cleans now release
+	target
+
+2004-06-08 22:55  kommer
+
+	* src/acdk/wx/: ArtProvider.h, DC.h, Event.cpp, Window.cpp,
+	WxObject.h: bcc compat
+
+2004-06-08 22:54  kommer
+
+	* acdk_wx.bpgr, src/acdk_wx.cbx, src/acdk_wx_dmiproxy.cbx,
+	src/acdk_wx_metainf.cbx, src/guitestrunner.cbx,
+	tests/acdk/wx/acdk_wx_Test.cbx,
+	tests/acdk/wx/HelloWorld/HelloWorld.cbx,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cbx: initial revision
+
+2004-04-25 18:35  kommer
+
+	* src/acdk/wx/: Event.h, TreeCtrl.h, Window.cpp, Window.h:
+	wxWidgets 2.5 compatibility
+
+2004-04-25 01:51  kommer
+
+	* src/: acdk_wx.linux, acdk/wx/Config.h, acdk/wx/DataFormat.h,
+	acdk/wx/DataObject.h, acdk/wx/DataObjectSimple.h, acdk/wx/Frame.h,
+	acdk/wx/WxObject.cpp, acdk/wx/WxObject.h: ajustments on gtk2
+
+2004-04-20 11:35  kommer
+
+	* docs/: guitestrunner1.gif, inspector_classview.gif,
+	inspector_objectview.gif: initial revision
+
+2004-04-20 11:30  kommer
+
+	* tests/acdk/wx/acdk_wx_Test.vcproj, docs/acdk_wx_hb_apps.htxt,
+	docs/acdk_wx_hb_apps_guitestrunner.htxt,
+	docs/acdk_wx_hb_apps_inspector.htxt: initial revision
+
+2004-04-15 11:29  kommer
+
+	* src/acdk/tools/aunit/guitestrunner/run.bmp,
+	src/acdk/tools/aunit/guitestrunner/run.xpm,
+	src/acdk/wx/wx_metainf/wx_metainf_ext8.cpp,
+	tests/acdk/wx/TestFrame.h, cfg/guitestrunner.csf: initial revision
+
+2004-04-13 16:09  kommer
+
+	* acdk_wx.dsw, cfg/csf/tests/1_window/10_HelloWxWindow.csf,
+	cfg/csf/tests/1_window/12_EventsSample.csf,
+	cfg/csf/tests/1_window/20_TextEditor.csf,
+	cfg/csf/tests/3_control/10_ControlsDemo.csf,
+	cfg/csf/tests/4_mdi/10_MdiSample.csf,
+	cfg/csf/tests/5_paint/10_PaintBasic.csf,
+	cfg/csf/tests/xmlres/10_XmlResource.csf,
+	docs/acdk_wx_hb_events.htxt, docs/acdk_wx_hb_mapping.htxt,
+	docs/acdk_wx_sample.htxt, src/guitestrunner.bcc,
+	src/guitestrunner.bsd, src/guitestrunner.dsp,
+	src/guitestrunner.linux, src/guitestrunner.lsp,
+	src/guitestrunner.mingw, src/guitestrunner.sunos-gcc,
+	src/acdk/tools/aunit/guitestrunner/GuiTestListener.h,
+	src/acdk/tools/aunit/guitestrunner/TestRunnerFrame.h,
+	src/acdk/tools/aunit/guitestrunner/TestTreeCtrl.h,
+	src/acdk/tools/aunit/guitestrunner/guitestrunner.cpp,
+	src/acdk/wx/DC.h, src/acdk/wx/Event.cpp, src/acdk/wx/Event.h,
+	src/acdk/wx/Menu.h, src/acdk/wx/Notebook.cpp,
+	src/acdk/wx/Notebook.h, src/acdk/wx/TextCtrl.h,
+	src/acdk/wx/TextCtrlCharWriter.h, src/acdk/wx/ToggleButton.h,
+	src/acdk/wx/TreeCtrl.cpp, src/acdk/wx/TreeCtrl.h,
+	src/acdk/wx/Window.cpp, src/acdk/wx/wx_metainf_base.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy1.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy2.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy3.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext1.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext2.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext3.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext4.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext5.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext6.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext7.cpp: revised Event handling,
+	no more enum EventType, but static members to Event classes to
+	identify event type
+
+2004-04-11 21:01  kommer
+
+	* src/acdk/tools/aunit/guitestrunner/: GuiTestListener.h,
+	TestRunnerFrame.h, TestTreeCtrl.h, folder_fail.xpm, folder_ok.xpm,
+	folder_untested.xpm, help.xpm, folder_fail.bmp, folder_ok.bmp,
+	folder_untested.bmp, help.bmp, guitestrunner.cpp: initial revision
+
+2004-04-11 20:57  kommer
+
+	* src/: guitestrunner.bcc, guitestrunner.bsd, guitestrunner.dsp,
+	guitestrunner.linux, guitestrunner.lsp, guitestrunner.mingw,
+	guitestrunner.sunos-gcc, acdk/wx/TextCtrlCharWriter.h: initial
+	revision
+
+2004-04-07 14:06  kommer
+
+	* cfg/csf/tests/3_dialog/15_DialogWithText.csf: initial revision
+
+2004-04-07 13:13  kommer
+
+	* cfg/vstudio/wxmacros.dsm: initial revision
+
+2004-04-07 12:59  kommer
+
+	* src/acdk/res/: wx.rc, wx/msw/cdrom.ico, wx/msw/child.ico,
+	wx/msw/computer.ico, wx/msw/drive.ico, wx/msw/error.ico,
+	wx/msw/file1.ico, wx/msw/floppy.ico, wx/msw/folder1.ico,
+	wx/msw/folder2.ico, wx/msw/info.ico, wx/msw/mdi.ico,
+	wx/msw/question.ico, wx/msw/removble.ico, wx/msw/std.ico,
+	wx/msw/warning.ico, wx/msw/wx.rc: initial revision
+
+2004-04-07 12:56  kommer
+
+	* src/: acdk_tools_wx2acdk.bcc, acdk_tools_wx2acdk.bsd,
+	acdk_tools_wx2acdk.dsp, acdk_tools_wx2acdk.linux,
+	acdk_tools_wx2acdk.lsp, acdk_tools_wx2acdk.mingw,
+	acdk_tools_wx2acdk.sunos-gcc, acdk_tools_wx2acdk.vcproj: [no log
+	message]
+
+2004-04-07 12:09  kommer
+
+	* cfg/csf/tests/: 1_window/10_MinimalSample.lsp,
+	4_mdi/10_MdiSample.csf: initial revision
+
+2004-04-07 11:49  kommer
+
+	* cfg/csf/tests/1_window/10_MinimalSample.csf,
+	cfg/csf/tests/1_window/12_EventsSample.csf,
+	docs/acdk_wx_hb_events.htxt, docs/acdk_wx_hb_installation.htxt,
+	docs/acdk_wx_hb_mapping.htxt, docs/acdk_wx_hb_minimal.htxt,
+	src/acdk/wx/App.h: initial revision
+
+2004-04-04 11:26  kommer
+
+	* src/acdk/wx/: ColourData.h, ColourDialog.h, DirDialog.h,
+	FontData.h, FontDialog.h, SingleChoiceDialog.h, TextEntryDialog.h,
+	ToolTip.h: initial revision
+
+2004-04-03 22:37  kommer
+
+	* cfg/csf/tests/: 5_paint/10_PaintBasic.csf, 7_dnd/10_DragDrop.csf:
+	initial revision
+
+2004-04-03 22:28  kommer
+
+	* docs/acdk_wx_hb.htxt, docs/acdk_wx_hb_overview_classes.htxt,
+	src/acdk/wx/BitmapDataObject.h, src/acdk/wx/ClientDC.h,
+	src/acdk/wx/Clipboard.h, src/acdk/wx/DataFormat.h,
+	src/acdk/wx/DataObject.h, src/acdk/wx/DataObjectComposite.h,
+	src/acdk/wx/DataObjectSimple.h, src/acdk/wx/DropSource.h,
+	src/acdk/wx/DropTarget.h, src/acdk/wx/FileDataObject.h,
+	src/acdk/wx/FileDropTarget.h, src/acdk/wx/Font.h,
+	src/acdk/wx/MDIChildFrame.h, src/acdk/wx/MDIClientWindow.h,
+	src/acdk/wx/MDIParentFrame.h, src/acdk/wx/PaintDC.h,
+	src/acdk/wx/PostScriptDC.h, src/acdk/wx/ScreenDC.h,
+	src/acdk/wx/TextDataObject.h, src/acdk/wx/TextDropTarget.h,
+	src/acdk/wx/WindowDC.h, src/acdk/wx/Wizard.h,
+	src/acdk/wx/WizardPage.h, tests/acdk/wx/acdk_wx_DragNDrop_Test.cpp,
+	tests/acdk/wx/acdk_wx_Drawing_Test.cpp: initial revision
+
+2004-03-23 01:28  kommer
+
+	* src/acdk/wx/: ArtProvider.h, BitmapButton.h, DC.h, Icon.h,
+	MemoryDC.h, Region.h, StaticBitmap.h, ToggleButton.h,
+	wx_dmiproxy/wx_dmiproxy3.cpp, wx_metainf/wx_metainf_ext7.cpp:
+	initial revision
+
+2004-03-22 03:44  kommer
+
+	* src/acdk/wx/ProgressDialog.h: initial revision
+
+2004-03-22 01:11  kommer
+
+	* cfg/csf/tests/3_control/images/: choice.bmp, combo.bmp,
+	gauge.bmp, list.bmp, mondrian.ico, radio.bmp, test2.bmp, text.bmp:
+	initial revision
+
+2004-03-21 23:09  kommer
+
+	* cfg/csf/tests/3_control/10_ControlsDemo.csf: initial revision
+
+2004-03-21 22:24  kommer
+
+	* src/acdk/wx/wx_metainf/wx_metainf_ext6.cpp: initial revision
+
+2004-03-21 22:13  kommer
+
+	* src/acdk/wx/: Choice.h, ComboBox.h, Cursor.h, ListBox.h,
+	RadioBox.h, SpinCtrl.h, Window.h, wx_metainf_base.cpp,
+	wx_metainf/wx_metainf_ext.cpp, wx_metainf/wx_metainf_ext1.cpp,
+	wx_metainf/wx_metainf_ext2.cpp, wx_metainf/wx_metainf_ext3.cpp,
+	wx_metainf/wx_metainf_ext4.cpp, wx_metainf/wx_metainf_ext5.cpp: gtk
+	compat
+
+2004-03-21 21:03  kommer
+
+	* src/acdk/wx/: BoxSizer.h, CheckBox.h, Choice.h, ComboBox.h,
+	Gauge.h, Notebook.cpp, RadioBox.h, RadioButton.h, Slider.h,
+	SpinButton.h, SpinCtrl.h, StaticBox.h,
+	wx_metainf/wx_metainf_ext5.cpp: initial revision
+
+2004-03-17 00:39  kommer
+
+	* cfg/csf/tests/1_window/80_HtmlView.csf,
+	cfg/csf/tests/3_control/70_Notebook.csf, src/acdk/wx/ClientData.h,
+	src/acdk/wx/HtmlWindow.h, src/acdk/wx/Notebook.h,
+	src/acdk/wx/ScrolledWindow.h, src/acdk/wx/StatusBar.h,
+	src/acdk/wx/ToolBar.h, src/acdk/wx/wx_metainf/wx_metainf_ext4.cpp:
+	initial revision
+
+2004-03-15 18:42  kommer
+
+	* src/acdk/wx/Config.h: unicode bug in wxGTK
+
+2004-03-14 13:38  kommer
+
+	* src/acdk/wx/Panel.h, src/acdk/wx/WindowStyle.h,
+	tests/acdk/wx/acdk_wx_Test.bcc, tests/acdk/wx/acdk_wx_Test.bsd,
+	tests/acdk/wx/acdk_wx_Test.cpp, tests/acdk/wx/acdk_wx_Test.dsp,
+	tests/acdk/wx/acdk_wx_Test.linux, tests/acdk/wx/acdk_wx_Test.lsp,
+	tests/acdk/wx/acdk_wx_Test.mingw,
+	tests/acdk/wx/acdk_wx_Test.sunos-gcc,
+	tests/acdk/wx/acdk_wx_TextCtrl_Test.cpp,
+	src/acdk/wx/wx_dmiproxy/wx_dmiproxy2.cpp: initial revision
+
+2004-03-14 13:35  kommer
+
+	* src/acdk/wx/: Window.cpp, Window.h: added App::createGui usefull
+	for unitests
+
+2004-03-14 10:15  kommer
+
+	* src/acdk/wx/SplitterWindow.h, src/acdk/wx/Timer.h,
+	src/acdk/wx/TreeCtrl.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext3.cpp,
+	cfg/csf/tests/3_control/80_SplitterWindow.csf,
+	cfg/csf/tests/3_control/90_TreeControl.csf: initial revision
+
+2004-03-14 10:14  kommer
+
+	* src/: acdk_wx.bcc, acdk_wx.bsd, acdk_wx.dsp, acdk_wx.linux,
+	acdk_wx.mingw, acdk_wx.sunos-gcc, acdk_wx_dmiproxy.linux,
+	acdk_wx_metainf.bcc, acdk_wx_metainf.bsd, acdk_wx_metainf.dsp,
+	acdk_wx_metainf.linux, acdk_wx_metainf.mingw,
+	acdk_wx_metainf.sunos-gcc, acdk/wx/Event.cpp, acdk/wx/Event.h,
+	acdk/wx/TextCtrl.h, acdk/wx/TreeCtrl.h, acdk/wx/Window.cpp,
+	acdk/wx/wx_metainf_base.cpp, acdk/wx/wx_dmiproxy/wx_dmiproxy.cpp,
+	acdk/wx/wx_dmiproxy/wx_dmiproxy1.cpp,
+	acdk/wx/wx_metainf/wx_metainf_ext.cpp,
+	acdk/wx/wx_metainf/wx_metainf_ext1.cpp,
+	acdk/wx/wx_metainf/wx_metainf_ext2.cpp: new TreeCtrl, Timer,
+	SplitterWindow
+
+2004-03-11 12:17  kommer
+
+	* acdk_wx.sln, src/acdk_tools_wx2acdk.vcproj, src/acdk_wx.vcproj,
+	src/acdk_wx_dmiproxy.vcproj, src/acdk_wx_metainf.vcproj,
+	tests/acdk/wx/HelloWorld/HelloWorld.vcproj,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.vcproj: initial revision
+
+2004-03-11 10:01  kommer
+
+	* cfg/: .cvsignore, csf/.cvsignore: initial revision
+
+2004-03-10 15:47  kommer
+
+	* ChangeLog: initial revision
+
+2004-03-09 00:08  kommer
+
+	* docs/HelloWorld_linux.gif: initial revision
+
+2004-03-08 23:42  kommer
+
+	* cfg/csf/tests/1_window/20_TextEditor.csf,
+	docs/acdk_wx_sample.htxt, docs/HelloWorld_windows.gif: initial
+	revision
+
+2004-03-07 03:18  kommer
+
+	* src/acdk/wx/: wx_metainf_base.cpp, wx_dmiproxy/wx_dmiproxy.cpp,
+	wx_dmiproxy/wx_dmiproxy1.cpp, wx_metainf/wx_metainf_ext.cpp,
+	wx_metainf/wx_metainf_ext1.cpp, wx_metainf/wx_metainf_ext2.cpp:
+	reorganized MetaInfo for performance and prepared for nested types
+
+2004-03-05 11:41  kommer
+
+	* build.csf, .cvsignore, docs/.cvsignore, src/.cvsignore,
+	tests/acdk/wx/HelloWorld/.cvsignore,
+	tests/acdk/wx/HelloWxWorld/.cvsignore: initial revision
+
+2004-03-05 11:37  kommer
+
+	* cfg/csf/tests/xmlres/res/: artprov.xrc, basicdlg.xrc,
+	controls.xrc, custclas.xrc, derivdlg.xrc, frame.xrc, menu.xrc,
+	platform.xrc, resource.xrc, toolbar.xrc, uncenter.xrc,
+	variable.xrc, appicon.xpm, artprov.xpm, basicdlg.xpm, controls.xpm,
+	custclas.xpm, derivdlg.xpm, platform.xpm, uncenter.xpm,
+	variable.xpm, appicon.ico, fileopen.gif, filesave.gif, fuzzy.gif,
+	quotes.gif, scanning.gif, sppicon.ico, update.gif: initial revision
+
+2004-03-04 17:42  kommer
+
+	* index.htxt, docs/package.xml, docs/readme.htxt: initial revision
+
+2004-02-28 12:40  kommer
+
+	* src/acdk/wx/: Config.h, Window.cpp, WxObject.h: ajustments to
+	linux-gtk
+
+2004-02-28 12:34  kommer
+
+	* cfg/csf/tests/: 1_window/10_BasicWindow.csf,
+	1_window/10_HelloWxWindow.csf, 3_dialog/10_BasicDialog.csf,
+	xmlres/10_XmlResource.csf, xmlres/xmlresource1.xrc: initial
+	revision
+
+2004-02-28 12:33  kommer
+
+	* acdk_wx.ncb: [no log message]
+
+2004-02-27 22:12  kommer
+
+	* acdk_wx.bcc, acdk_wx.bsd, acdk_wx.dsw, acdk_wx.linux,
+	acdk_wx.lsp, acdk_wx.mingw, acdk_wx.nmake, acdk_wx.sunos-gcc,
+	wx_cfg.lsp, src/acdk_tools_wx2acdk.bcc, src/acdk_tools_wx2acdk.bsd,
+	src/acdk_tools_wx2acdk.dsp, src/acdk_tools_wx2acdk.linux,
+	src/acdk_tools_wx2acdk.mingw, src/acdk_tools_wx2acdk.sunos-gcc,
+	src/acdk_wx.bcc, src/acdk_wx.bsd, src/acdk_wx.dsp,
+	src/acdk_wx.linux, src/acdk_wx.mingw, src/acdk_wx.sunos-gcc,
+	src/acdk_wx_dmiproxy.bcc, src/acdk_wx_dmiproxy.bsd,
+	src/acdk_wx_dmiproxy.dsp, src/acdk_wx_dmiproxy.linux,
+	src/acdk_wx_dmiproxy.mingw, src/acdk_wx_dmiproxy.sunos-gcc,
+	src/acdk_wx_metainf.bcc, src/acdk_wx_metainf.bsd,
+	src/acdk_wx_metainf.dsp, src/acdk_wx_metainf.linux,
+	src/acdk_wx_metainf.mingw, src/acdk_wx_metainf.sunos-gcc,
+	src/acdk/wx/Bitmap.h, src/acdk/wx/Config.h,
+	src/acdk/wx/FileDialog.h, src/acdk/wx/GDIImage.h,
+	src/acdk/wx/Pen.h, src/acdk/wx/TextCtrl.h, src/acdk/wx/Window.cpp,
+	src/acdk/wx/wx.h, src/acdk/wx/wx_metainf_base.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext1.cpp,
+	src/acdk/wx/wx_metainf/wx_metainf_ext2.cpp,
+	tests/acdk/wx/HelloWorld/HelloWorld.bcc,
+	tests/acdk/wx/HelloWorld/HelloWorld.bsd,
+	tests/acdk/wx/HelloWorld/HelloWorld.dsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.linux,
+	tests/acdk/wx/HelloWorld/HelloWorld.mingw,
+	tests/acdk/wx/HelloWorld/HelloWorld.sunos-gcc,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.bcc,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.bsd,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.dsp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.linux,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.mingw,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.sunos-gcc: linux/gtk
+	ajustments
+
+2004-02-27 19:39  kommer
+
+	* Makefile: initial revision
+
+2004-02-27 18:43  kommer
+
+	* src/acdk/wx/: Frame.cpp, XmlResource.h: initial revision
+
+2004-02-17 10:42  kommer
+
+	* src/acdk/wx/: wx_dmiproxy/wx_dmiproxy.cpp,
+	wx_dmiproxy/wx_dmiproxy1.cpp, wx_metainf/wx_metainf_ext.cpp,
+	wx_metainf/wx_metainf_ext1.cpp, wx_metainf/wx_metainf_ext2.cpp:
+	initial revision
+
+2004-02-17 10:31  kommer
+
+	* src/: acdk_wx_dmiproxy.bcc, acdk_wx_dmiproxy.bsd,
+	acdk_wx_dmiproxy.dsp, acdk_wx_dmiproxy.linux, acdk_wx_dmiproxy.lsp,
+	acdk_wx_dmiproxy.mingw, acdk_wx_dmiproxy.sunos-gcc,
+	acdk_wx_metainf.bcc, acdk_wx_metainf.bsd, acdk_wx_metainf.dsp,
+	acdk_wx_metainf.linux, acdk_wx_metainf.lsp, acdk_wx_metainf.mingw,
+	acdk_wx_metainf.sunos-gcc, acdk/wx/ControlWithItems.h,
+	acdk/wx/FileDialog.h, acdk/wx/ListBox.h,
+	acdk/wx/wx_metainf_base.cpp: initial revision
+
+2004-02-16 12:15  kommer
+
+	* src/: acdk_tools_wx2acdk.bcc, acdk_tools_wx2acdk.bsd,
+	acdk_tools_wx2acdk.dsp, acdk_tools_wx2acdk.linux,
+	acdk_tools_wx2acdk.lsp, acdk_tools_wx2acdk.mingw,
+	acdk_tools_wx2acdk.sunos-gcc: initial revision
+
+2004-02-16 12:12  kommer
+
+	* docs/acdk_wx_concept.htxt: initial revision
+
+2004-02-16 11:48  kommer
+
+	* tests/acdk/wx/HelloWxWorld/: ObjectExplorer.cpp,
+	ObjectExplorer.h: initial revision
+
+2003-06-19 16:37  kommer
+
+	* src/acdk/wx/Bitmap.h, src/acdk/wx/Button.h, src/acdk/wx/Caret.h,
+	src/acdk/wx/Colour.h, src/acdk/wx/Config.h, src/acdk/wx/Control.h,
+	src/acdk/wx/Cursor.h, src/acdk/wx/Dialog.h, src/acdk/wx/Event.cpp,
+	src/acdk/wx/Event.h, src/acdk/wx/Frame.h, src/acdk/wx/GDIImage.h,
+	src/acdk/wx/GDIObject.h, src/acdk/wx/LayoutConstraints.h,
+	src/acdk/wx/Menu.h, src/acdk/wx/MenuBar.h, src/acdk/wx/MenuItem.h,
+	src/acdk/wx/Pen.h, src/acdk/wx/Sizer.h, src/acdk/wx/StaticText.h,
+	src/acdk/wx/Structs.h, src/acdk/wx/TextCtrl.h,
+	src/acdk/wx/TreeCtrl.h, src/acdk/wx/Validator.h,
+	src/acdk/wx/Window.cpp, src/acdk/wx/Window.h,
+	src/acdk/wx/WxObject.cpp, src/acdk/wx/WxObject.h, src/acdk/wx/wx.h,
+	tests/acdk/wx/HelloWorld/HelloWorld.cpp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cpp: source comment header
+	ajusted
+
+2003-06-19 15:17  kommer
+
+	* acdk_wx.bcc, acdk_wx.bsd, acdk_wx.dsw, acdk_wx.linux,
+	acdk_wx.lsp, acdk_wx.mingw, acdk_wx.ncb, acdk_wx.nmake,
+	acdk_wx.sunos-gcc, wx_cfg.lsp, src/acdk_wx.bcc, src/acdk_wx.bsd,
+	src/acdk_wx.dsp, src/acdk_wx.linux, src/acdk_wx.lsp,
+	src/acdk_wx.mingw, src/acdk_wx.sunos-gcc, src/acdk/wx/Bitmap.h,
+	src/acdk/wx/Button.h, src/acdk/wx/Caret.h, src/acdk/wx/Colour.h,
+	src/acdk/wx/Config.h, src/acdk/wx/Control.h, src/acdk/wx/Cursor.h,
+	src/acdk/wx/Dialog.h, src/acdk/wx/Event.cpp, src/acdk/wx/Event.h,
+	src/acdk/wx/Frame.h, src/acdk/wx/GDIImage.h,
+	src/acdk/wx/GDIObject.h, src/acdk/wx/LayoutConstraints.h,
+	src/acdk/wx/Menu.h, src/acdk/wx/MenuBar.h, src/acdk/wx/MenuItem.h,
+	src/acdk/wx/Pen.h, src/acdk/wx/Sizer.h, src/acdk/wx/StaticText.h,
+	src/acdk/wx/Structs.h, src/acdk/wx/TextCtrl.h,
+	src/acdk/wx/TreeCtrl.h, src/acdk/wx/Validator.h,
+	src/acdk/wx/Window.cpp, src/acdk/wx/Window.h,
+	src/acdk/wx/WxObject.cpp, src/acdk/wx/WxObject.h, src/acdk/wx/wx.h,
+	tests/acdk/wx/HelloWorld/HelloWorld.bcc,
+	tests/acdk/wx/HelloWorld/HelloWorld.bsd,
+	tests/acdk/wx/HelloWorld/HelloWorld.cpp,
+	tests/acdk/wx/HelloWorld/HelloWorld.dsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.linux,
+	tests/acdk/wx/HelloWorld/HelloWorld.lsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.mingw,
+	tests/acdk/wx/HelloWorld/HelloWorld.sunos-gcc,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.bcc,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.bsd,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.cpp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.dsp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.linux,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.lsp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.mingw,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.sunos-gcc: merged
+	acdk-3-unicode into MAIN
+
+2003-04-26 15:33  kommer
+
+	* acdk_wx.lsp, src/acdk/wx/Event.cpp, src/acdk/wx/Event.h,
+	src/acdk/wx/Window.h, tests/acdk/wx/HelloWxWorld/HelloWxWorld.cpp,
+	tests/acdk/wx/HelloWxWorld/HelloWxWorld.dsp: shift to version
+	4.00.*
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.sunos-gcc: file
+	HelloWxWorld.sunos-gcc was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.mingw: file
+	HelloWxWorld.mingw was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.lsp: file
+	HelloWxWorld.lsp was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.linux: file
+	HelloWxWorld.linux was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.dsp: file
+	HelloWxWorld.dsp was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.cpp: file
+	HelloWxWorld.cpp was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.bcc: file
+	HelloWxWorld.bcc was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/: HelloWxWorld.bcc, HelloWxWorld.bsd,
+	HelloWxWorld.cpp, HelloWxWorld.dsp, HelloWxWorld.linux,
+	HelloWxWorld.lsp, HelloWxWorld.mingw, HelloWxWorld.sunos-gcc:
+	initial revision
+
+2003-04-07 21:42  kommer
+
+	* tests/acdk/wx/HelloWxWorld/HelloWxWorld.bsd: file
+	HelloWxWorld.bsd was initially added on branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/WxObject.cpp: file WxObject.cpp was initially added
+	on branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Validator.h: file Validator.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/TreeCtrl.h: file TreeCtrl.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/TextCtrl.h: file TextCtrl.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Structs.h: file Structs.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/StaticText.h: file StaticText.h was initially added
+	on branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Pen.h: file Pen.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Sizer.h: file Sizer.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/MenuItem.h: file MenuItem.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/MenuBar.h: file MenuBar.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/LayoutConstraints.h: file LayoutConstraints.h was
+	initially added on branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/GDIImage.h: file GDIImage.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/GDIObject.h: file GDIObject.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Event.cpp: file Event.cpp was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Dialog.h: file Dialog.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Cursor.h: file Cursor.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Control.h: file Control.h was initially added on
+	branch acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Colour.h: file Colour.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Caret.h: file Caret.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Button.h: file Button.h was initially added on branch
+	acdk-3-unicode.
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/: Bitmap.h, Button.h, Caret.h, Colour.h, Control.h,
+	Cursor.h, Dialog.h, Event.cpp, GDIImage.h, GDIObject.h,
+	LayoutConstraints.h, MenuBar.h, MenuItem.h, Pen.h, Sizer.h,
+	StaticText.h, Structs.h, TextCtrl.h, TreeCtrl.h, Validator.h,
+	WxObject.cpp: initial revision
+
+2003-04-07 21:39  kommer
+
+	* src/acdk/wx/Bitmap.h: file Bitmap.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 14:52  kommer
+
+	* wx_cfg.lsp: file wx_cfg.lsp was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 14:52  kommer
+
+	* wx_cfg.lsp: initial revision
+
+2003-03-25 14:07  kommer
+
+	* src/acdk/wx/Event.h: file Event.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 14:07  kommer
+
+	* src/acdk/wx/: Event.h, WxObject.h: initial revision
+
+2003-03-25 14:07  kommer
+
+	* src/acdk/wx/WxObject.h: file WxObject.h was initially added on
+	branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.sunos-gcc: file
+	HelloWorld.sunos-gcc was initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.mingw: file HelloWorld.mingw
+	was initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.dsp: file HelloWorld.dsp was
+	initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.linux: file HelloWorld.linux
+	was initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.cpp: file HelloWorld.cpp was
+	initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.lsp: file HelloWorld.lsp was
+	initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.bsd: file HelloWorld.bsd was
+	initially added on branch acdk-3-unicode.
+
+2003-03-25 11:12  kommer
+
+	* tests/acdk/wx/HelloWorld/HelloWorld.bcc: file HelloWorld.bcc was
+	initially added on branch acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/Window.cpp: file Window.cpp was initially added on
+	branch acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/wx.h: file wx.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/Window.h: file Window.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/Menu.h: file Menu.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/Frame.h: file Frame.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/Config.h: file Config.h was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:10  kommer
+
+	* src/acdk/wx/Config.h, src/acdk/wx/Frame.h, src/acdk/wx/Menu.h,
+	src/acdk/wx/Window.h, src/acdk/wx/wx.h, src/acdk/wx/Window.cpp,
+	tests/acdk/wx/HelloWorld/HelloWorld.bcc,
+	tests/acdk/wx/HelloWorld/HelloWorld.bsd,
+	tests/acdk/wx/HelloWorld/HelloWorld.cpp,
+	tests/acdk/wx/HelloWorld/HelloWorld.dsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.linux,
+	tests/acdk/wx/HelloWorld/HelloWorld.lsp,
+	tests/acdk/wx/HelloWorld/HelloWorld.mingw,
+	tests/acdk/wx/HelloWorld/HelloWorld.sunos-gcc: initial revision
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.dsp: file acdk_wx.dsp was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.sunos-gcc: file acdk_wx.sunos-gcc was initially added
+	on branch acdk-3-unicode.
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.lsp: file acdk_wx.lsp was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.linux: file acdk_wx.linux was initially added on
+	branch acdk-3-unicode.
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.bsd: file acdk_wx.bsd was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.mingw: file acdk_wx.mingw was initially added on
+	branch acdk-3-unicode.
+
+2003-03-25 11:04  kommer
+
+	* src/: acdk_wx.bcc, acdk_wx.bsd, acdk_wx.dsp, acdk_wx.linux,
+	acdk_wx.lsp, acdk_wx.mingw, acdk_wx.sunos-gcc: initial revision
+
+2003-03-25 11:04  kommer
+
+	* src/acdk_wx.bcc: file acdk_wx.bcc was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.sunos-gcc: file acdk_wx.sunos-gcc was initially added on
+	branch acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.nmake: file acdk_wx.nmake was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.ncb: file acdk_wx.ncb was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.lsp: file acdk_wx.lsp was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.mingw: file acdk_wx.mingw was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.dsw: file acdk_wx.dsw was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.linux: file acdk_wx.linux was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.bsd: file acdk_wx.bsd was initially added on branch
+	acdk-3-unicode.
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.bcc, acdk_wx.bsd, acdk_wx.dsw, acdk_wx.linux,
+	acdk_wx.lsp, acdk_wx.mingw, acdk_wx.ncb, acdk_wx.nmake,
+	acdk_wx.sunos-gcc: initial revision
+
+2003-03-25 10:52  kommer
+
+	* acdk_wx.bcc: file acdk_wx.bcc was initially added on branch
+	acdk-3-unicode.
+

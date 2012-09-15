@@ -1,0 +1,27 @@
+%id: acdk_vfile_convert_man
+%title: acdk_vfile_convert
+%keywords: acdk_vfile_convert
+%body:
+<pageintro>
+acdk_vfile_convert is just a little demo for 
+reading archives supported by acdk_vfile.
+</pageintro>
+<jumptable/>
+
+<jump1>Usage</jump1>
+<pre>
+acdk_vfile_convert [-d|-t] &lt;filename&gt;
+</pre>
+
+read the archive file given under &lt;filename&gt; and 
+<f> -t test the archive if it can be readed. 
+<f> -d dump the content of the archive on to console
+<f> (no option) extract the files from the archive into the current 
+    directory.
+
+<jump1>Notes</jump1>
+Don't this utility as real archive extractor, because
+many aspects (like file attributes, file time, etc) are
+not handled.
+
+.

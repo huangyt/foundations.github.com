@@ -1,0 +1,44 @@
+%id: acdk_wx_hb_mapping
+%title: Mapping between wxWidget and ACDK
+%shorttitle: Mapping
+%body:
+<pageintro>
+The mapping rules for types on wxWidget and ACDK wrapper classes.
+</pageintro>
+<htmlauto/>
+<jumptable/>
+
+<jump1>Difference between wxWidgets and acdk_wx</jump1>
+wxWidgets itself is a C++ library, but uses a different
+object modell than ACDK. 
+
+<jump2>Names</jump2>
+<jump3>Classes</jump3>
+Most (all?) classes and types starts with <c>wx</c> in wxWidgets.
+acdk_wx uses namespaces:
+<c>wxWindow</c> becomes to <c>acdk::wx::Window</c> in ACDK.
+To avoid conflicts <c>wxObject</c> is not named <c>acdk::wx::Object</c>
+but <c>acdk::wx::WxObject</c>.
+
+<jump3>Methods</jump3>
+The names of Methods starts with upper case in wxWidgets. The methods
+in ACDK WX starts with lower case. This has two reasons: Methods names
+with starting lower case is conforming to ACDK style guide and avoid
+overloading troubles between these two class hierarchies.
+
+<jump3>Defines/Enumerations</jump3>
+ACDK doesn't support defines - of course defines can be used in ACDK,
+but they are not visible as meta info. 
+All int defines of wxWidgets are tranfered to enumerations. 
+wxWidget value <c>wxEVT_COMMAND_CHOICE_SELECTED</c> becomes to <c>CommandEvent::EvtCommandChoiceSelected</c>
+in ACDK WX.
+
+String defines are either used hard coded or are available as static member of the related class
+
+<jump3>Free Function</jump3>
+wxWidgets provides some functionally, which can be accessed via free functions.
+ACDK meta object modell doesn't support free function. The free function of wxWidgets 
+are available as static member methods in the related classes.
+
+
+.

@@ -1,0 +1,74 @@
+
+
+#include "amake_config.csf"
+
+
+acdk_vfile = new acdk.make.AcdkLibTask("acdk_vfile");
+acdk_vfile.addSource("src/acdk/vfile");
+acdk_vfile.addSource("src/acdk/vfile/tar");
+acdk_vfile.addSource("src/acdk/vfile/zip");
+acdk_vfile.addSource("src/acdk/vfile/zlib/adler32.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/deflate.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/infblock.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/infcodes.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/inffast.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/inftrees.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/inflate.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/infutil.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/trees.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/zutil.c");
+acdk_vfile.addSource("src/acdk/vfile/zlib/zlib.h");
+acdk_vfile.addSource("src/acdk/vfile/zlib/zconf.h");
+
+
+acdk_vfile.addAcdkLib("acdk_core");
+
+acdk_vfile_Test = new acdk.make.AcdkTestExeTask("acdk_vfile_Test");
+acdk_vfile_Test.setBaseDir("tests/acdk/vfile");
+acdk_vfile_Test.addSource("tests/acdk/vfile");
+acdk_vfile_Test.addAcdkLib("acdk_core");
+acdk_vfile_Test.addAcdkLib("acdk_tools_aunit");
+acdk_vfile_Test.addAcdkLib("acdk_vfile");
+acdk_vfile_Test.addSubTask("acdk_vfile");
+
+acdk_vfile_tar_Test = new acdk.make.AcdkTestExeTask("acdk_vfile_tar_Test");
+acdk_vfile_tar_Test.setBaseDir("tests/acdk/vfile/tar");
+acdk_vfile_tar_Test.addSource("tests/acdk/vfile/tar");
+acdk_vfile_tar_Test.addAcdkLib("acdk_core");
+acdk_vfile_tar_Test.addAcdkLib("acdk_tools_aunit");
+acdk_vfile_tar_Test.addAcdkLib("acdk_vfile");
+acdk_vfile_tar_Test.addSubTask("acdk_vfile");
+
+acdk_vfile_zip_Test = new acdk.make.AcdkTestExeTask("acdk_vfile_zip_Test");
+acdk_vfile_zip_Test.setBaseDir("tests/acdk/vfile/zip");
+acdk_vfile_zip_Test.addSource("tests/acdk/vfile/zip");
+acdk_vfile_zip_Test.addAcdkLib("acdk_core");
+acdk_vfile_zip_Test.addAcdkLib("acdk_tools_aunit");
+acdk_vfile_zip_Test.addAcdkLib("acdk_vfile");
+acdk_vfile_zip_Test.addSubTask("acdk_vfile");
+
+
+acdk_vfile_convert = new acdk.make.AcdkExeTask("acdk_vfile_convert");
+acdk_vfile_convert.addSource("src/acdk/vfile/convert");
+acdk_vfile_convert.addAcdkLib("acdk_core");
+acdk_vfile_convert.addAcdkLib("acdk_vfile");
+acdk_vfile_convert.addSubTask("acdk_vfile");
+
+acdk_vfile_file2rc = new acdk.make.AcdkExeTask("acdk_vfile_file2rc");
+acdk_vfile_file2rc.addSource("src/acdk/vfile/file2rc");
+acdk_vfile_file2rc.addAcdkLib("acdk_core");
+acdk_vfile_file2rc.addAcdkLib("acdk_vfile");
+acdk_vfile_file2rc.addSubTask("acdk_vfile");
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("acdk_vfile_prj");
+default.registerTask("default");
+default.addSubTask("acdk_vfile");
+default.addSubTask("acdk_vfile_Test");
+default.addSubTask("acdk_vfile_tar_Test");
+default.addSubTask("acdk_vfile_zip_Test");
+default.addSubTask("acdk_vfile_convert");
+default.addSubTask("acdk_vfile_file2rc");
+

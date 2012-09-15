@@ -1,0 +1,267 @@
+%id: acdk_wx_sample
+%title: An ACDK WX Sample
+%body:
+<pageintro>
+Shows a little sample to write GUIs with Scripting
+CfgScript and ACDK WX.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>The Source</jump1>
+For demonstration I use %ref[CfgScript, acdk_cfgscript_hb], 
+but exactly the same (just put it into .cpp, replace some '.' with
+'->', add some leading 'R', etc.) can also be done in native C++.
+
+<source>
+// use classes and enumerations from the acdk.wx namespace
+// the package acdk_wx will be loaded automatically be the 
+// ClassLoader
+using acdk.wx;
+
+// IDs for the controls and the menu commands
+enum MyEvents
+{
+  // menu items
+  Event_Quit = 1,
+  Event_About,
+  // ListBox id
+  Event_ListBoxSelected
+}
+
+/**
+  an own dialog
+*/
+class AboutDialog
+extends Dialog
+{
+  Button _okButton;
+  StaticText _label;
+  AboutDialog(Window parent)
+  {
+    super(parent, -1, "About", Point.defaultPosition(), new Size(200, 200))
+    // a little bit complicated layout management
+    // using XML ressource for Dialog description is much easier
+    setAutoLayout(true);
+    LayoutConstraints layout = new LayoutConstraints();
+    layout.top().sameAs(this, Top, 10);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _label = new StaticText(this, -1, "Hello");
+    _label.setConstraints(layout);
+
+    layout = new LayoutConstraints();
+    layout.top().below(_label);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _okButton = new Button(this, CID_OK, "Close");
+    _okButton.setConstraints(layout);
+    ListBox list = new ListBox(this, Event_ListBoxSelected);
+    list.appendAndEnsureVisible("First");
+    list.appendAndEnsureVisible("Second");
+    list.appendAndEnsureVisible("Third");
+    layout = new LayoutConstraints();
+    layout.top().below(_okButton);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().sameAs(this, Width);
+    layout.width().asIs();
+    layout.bottom().sameAs(this, Bottom);
+    list.setConstraints(layout);
+    
+    // use keyword delegate to connect events with methods
+    connect(CommandEvent.EvtCommandListboxSelected, Event_ListBoxSelected, delegate onListBoxSelected);
+  }
+  void onListBoxSelected(Event event)
+  {
+    Window.messageBox("ListBox selected: " + event.getString());
+  }
+}
+
+
+class MyFrame
+extends Frame
+{
+  MyFrame() 
+  {
+    Menu menuFile = new Menu();
+    menuFile.append(Event_About, "&About...\tCtrl-A", "Show about dialog");
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, "E&xit\tAlt-X", "Quit this program");
+    MenuBar menuBar = new MenuBar();
+    menuBar.append(menuFile, "&File");
+    setMenuBar(menuBar);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, delegate onQuit);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, delegate onAbout);
+    
+    setTitle("Test");
+  }
+  void onQuit(Event event)
+  {
+    close(true);
+  }
+  void onAbout(CommandEvent event)
+  {
+    AboutDialog about = new AboutDialog(this);
+    about.setSizeConstraint(1, 1, 300, 400);
+    about.showModal();
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    MyFrame win = new MyFrame();
+    win.show(true);
+    return true;
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args); // run the application until MyFrame is closed
+</source>
+
+<jump1>Screenshots</jump1>
+<jump2>Windows</jump2>
+The Sample for Windows:
+<image src="HelloWorld_windows.gif"/>
+
+<jump2>Linux</jump2>
+Same on Linux:
+<image src="HelloWorld_linux.gif"/>
+
+<jump1>Sample 2, a Simple Text Editor</jump1>
+<source>
+
+using acdk.wx;
+
+// IDs for the controls and the menu commands
+enum MyEvents
+{
+  // menu items
+  Event_Quit = 1,
+  Event_About,
+  Event_FileNew,
+  Event_FileOpen,
+  Event_FileSave,
+  Id_TextControl
+}
+
+class TextEditFrame
+extends Frame
+{
+  TextCtrl editControl;
+  TextEditFrame() 
+  {
+    editControl = new TextCtrl(this, Id_TextControl, "Simple Text Editor");
+    MenuBar menuBar = new MenuBar();
+    
+    Menu menuFile = new Menu();
+    menuFile.append(Event_FileNew, "New", "Creates a new file"); 
+    menuFile.append(Event_FileOpen, "Open", "Open a file"); 
+    menuFile.append(Event_FileSave, "Save", "Open a file"); 
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, "E&xit\tAlt-X", "Quit this program");
+    
+    menuBar.append(menuFile, "&File");
+    
+    Menu helpMenu = new Menu();
+    helpMenu.append(Event_About, "&About...\tCtrl-A", "Show about dialog");
+    menuBar.append(helpMenu, "&Help");
+    setMenuBar(menuBar);
+    
+    connect(CommandEvent.EvtCommandMenuSelected, Event_FileNew, delegate onNew);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_FileOpen, delegate onOpen);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_FileSave, delegate onSave);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, delegate onQuit);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, delegate onAbout);
+    
+    setTitle("Test");
+  }
+  void onNew(Event event)
+  {
+    editControl.setValue("");
+    editControl.discardEdits();
+  }
+  void onOpen(Event event)
+  {
+    Dialog dlg = new FileDialog(this, message: "Open a file", 
+                                      wildCard: "*.txt;*.csf",
+                                      defaultDir: "",
+                                      defaultFile: "",
+                                      style: FDFOpen);
+                                      
+    if (dlg.showModal() != IdOk)
+      return;
+    if (true) // acdk way
+    {
+      editControl.setValue((new acdk.io.File(dlg.getPath())).getReader().getCharReader().readString());
+    } 
+    else
+    {
+      editControl.loadFile(dlg.getPath());
+    }
+  }
+  void onSave(Event event)
+  {
+    Dialog dlg = new FileDialog(this, "Save a file", "", "", "*.txt;*.csf", FDFSave);
+    if (dlg.showModal() != IdOk)
+      return;
+    String fname = dlg.getPath();
+    if (true) // acdk way
+    { 
+      (new acdk.io.File(fname)).getWriter().getCharWriter().writeString(editControl.getValue());
+    }
+    else
+    {
+      editControl.saveFile(fname);
+    }
+  }
+  void onQuit(Event event)
+  {
+    if (editControl.isModified() == true)
+    {
+       if (Window.messageBox("File unsaved. Really want to quit?", "Text Editor", MbYesNo, this) == MbNo)
+        return;
+    }
+    close(true);
+  }
+  void onAbout(CommandEvent event)
+  {
+    Window.messageBox("Simple Text editor written with ACDK CfgScript\n By Roger Rene Kommer (http://acdk.sourceforge.net)");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    TextEditFrame win = new TextEditFrame();
+    win.show(true);
+    return true;
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args); // run the application until MyFrame is closed
+</source>
+
+<jump1>Controls Sample</jump1>
+Run <br>
+<c>acdk/bin/acdkcfgscript acdk_wx/cfg/csf/tests/3_controls/10_ControlsDemo.csf</c>
+for a port of the wxWidgets sample of common dialog controls.
+
+<jump1>Other Samples</jump1>
+Please refer into the director <c>acdk_wx/cfg/csf/tests/*</c> for more
+samples.
+
+You can also refer to %ref[ACDK GUI Test Runner, acdk_tools_aunit_man#GUI Test Runner].
+
+.

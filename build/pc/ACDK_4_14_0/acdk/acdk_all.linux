@@ -1,0 +1,276 @@
+
+
+DOCPACKAGES=acdk_core acdk_text acdk_make acdk_net acdk_boot acdk_xml acdk_vfile \
+         acdk_lisp acdkx_com acdkx_orb  \
+         acdk_perl acdk_python acdk_tcl acdk_java \
+         acdk_wx \
+         acdk_sql acdk_sql_odbc \
+         acdk_tools_java2acdk
+PACKAGES=acdk_core acdk_text acdk_make acdk_net acdk_boot acdk_xml acdk_vfile \
+         acdk_lisp acdkx_orb  acdkx_rdmi \
+         acdk_sql acdk_sql_sqlite \
+         acdk_perl acdk_python acdk_tcl acdk_java \
+         acdk_wx acdk_sql_odbc \
+         acdk_tools_java2acdk
+
+
+
+TARGETS=$(PACKAGES)
+OLDTARGETS=acdkx_sol
+        
+PACKAGEVERSION=4.12
+PERL=perl
+
+MAKETARGET=linux
+GENWEBHOME=../genweb
+
+default:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -k -f  $$target.$(MAKETARGET); \
+	  cd ..; \
+	done
+
+compile:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -k -f  $$target.$(MAKETARGET); \
+	  cd ..; \
+	done
+
+all:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -k -f  $$target.$(MAKETARGET) all; \
+	  cd ..; \
+	done
+
+pkg_compile:
+	@for target in $(PKG_BUILD); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) install; \
+	  $(MAKE) BUILD=release -f  $$target.$(MAKETARGET) dists; \
+	  cd ..; \
+	done
+
+clean:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) clean; \
+	  cd ..; \
+	done
+
+clean-temps	:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) clean-temps; \
+	  cd ..; \
+	done
+
+projectgen:
+	for target in $(TARGETS); do \
+		cd $$target; \
+		../bin/acdklisp -acdk-home=.. $$target.lsp; \
+		cd ..; \
+	done
+
+install:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) install; \
+	  cd ..; \
+	done
+
+doc:
+	@for target in $(DOCPACKAGES); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) doc; \
+	  cd ..; \
+	done
+
+wdoc:
+	@for target in $(DOCPACKAGES); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) wdoc; \
+	  cd ..; \
+	done
+
+HTML2TEXT="html2text -nobs -style pretty -rcfile $(GENWEBHOME)/html2textrc"
+SRC2HTML=src2html
+#GENWEB_FWDID=-fwdid 'http://rogwork/wweb/phpincl/gw/fwdid.php?id='
+GENWEB_FWDID=-fwdid 'http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id='
+DOCIGN=-igndir bin -igndir include -igndir bin -igndir acdk_doc \
+       -igndir acdk_tools -igndir acdkx_sol -igndir acdk_tools_java2acdk \
+       -igndir aal
+
+alldoc:
+	export GENWEBHOME=$(GENWEBHOME); \
+	export SRC2HTML=$(SRC2HTML); \
+	export PERL5LIB=$(GENWEBHOME):$(GENWEBHOME)/bin:$(PERL5LIB); export PATH=$(GENWEBHOME)/bin:$(PATH); \
+	export GENWEBHOME=$(GENWEBHOME)/bin; \
+	$(PERL) $(GENWEBHOME)/bin/genweb.pl -genweb-home $(GENWEBHOME)/bin -gw -imagesource docs/images -ignoreorg \
+	                                    -src2html $(SRC2HTML) \
+	                                    $(GENWEB_FWDID) \
+					                            $(DOCIGN) \
+					                            -trace 0 \
+	                                    -template $(GENWEBHOME)/images/acdk_readme_html_template.htmt; \
+        $(PERL) $(GENWEBHOME)/bin/genweb.pl -genweb-home $(GENWEBHOME)/bin -gw -noimages \
+	                                    -src2html $(SRC2HTML) -html2text $(HTML2TEXT) \
+                                      -ignoreorg -fileext '.txt' -format 	txt \
+				                              $(DOCIGN) \
+	                                    -template $(GENWEBHOME)/images/acdk_readme_txt_template.htmt; \
+
+
+
+
+distrib:
+	if test ! -d distribution; then \
+    mkdir distribution; \
+  fi; \
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) distrib; \
+	  cd ..; \
+	done
+
+ddistrib:
+	if test ! -d distribution; then \
+    mkdir distribution; \
+  fi; \
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) ddistrib; \
+	  cd ..; \
+	done
+
+depend:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) depend; \
+	  cd ..; \
+	done
+
+
+test:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) test; \
+	  cd ..; \
+	done
+
+
+metainfo:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) metainfo; \
+	  cd ..; \
+	done
+
+
+makemake:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) makemake; \
+	  cd ..; \
+	done
+	
+metamakemake:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) metamakemake; \
+	  cd ..; \
+	done
+
+
+RELACDKHOME=..
+ACDKMAKE=../bin/acdklisp -acdk-home=$(RELACDKHOME)
+
+acdkmake::
+	for target in $(TARGETS); do \
+	  cd $$target; \
+    $(ACDKMAKE) -acdk-home=$(RELACDKHOME) $$target.lsp; \
+	  cd ..; \
+	done;
+
+TARBALL=acdk_all-$(MAKETARGET)-$(PACKAGEVERSION).tgz
+
+dist-snapshot:
+	cd ..; \
+  $(PERL) ./genweb/bin/backup.pl \
+  --exclbin --exclcvs --distignore \
+  -ptsrc\.html -pids\.db -p\.\#.* \
+  -etds -eilf -eils -eilc -eild -elimg -estackdump -eref -epft -esuo -epbi -epbt -edout -edb \
+  -P/idl/.*\.cpp -P/idl/.*\.h +Pacdkorbidl\.cpp -elog -e_ll -n_profile.txt -n_profile1.txt -nKopie \
+  -dacdk_doc -dacdk_tk -dacdk_gtk -dacdk_tools_modtests -dacdk_tutorial -dacdkx_corba -dacdkx_sol -dacdk_dmi \
+  -dacdk_tools_java2cpp \
+  -dCVS -dtobj \
+  -P^acdkx_servlet -P^aal \
+  -P^include +Pinclude/note.txt \
+  -P^cfg +P^cfg/general \
+  acdk
+
+# create snapshot
+snapshot:
+	cd ..; \
+  $(PERL) ./genweb/bin/backup.pl \
+  --exclbin --exclcvs --distignore \
+  -ptsrc\.html -pids\.db -p\.\#.* \
+  -etds -eilf -eils -eilc -eild -elimg -estackdump -eref -epft -esuo -epbi -epbt -edout -edb \
+  -P/idl/.*\.cpp -P/idl/.*\.h +Pacdkorbidl\.cpp -elog -e_ll -n_profile.txt -n_profile1.txt -nKopie \
+  -dacdk_doc -dacdk_tk -dacdk_gtk -dacdk_tools_modtests -dacdk_tutorial -dacdkx_corba -dacdkx_sol -dacdk_dmi \
+  -dacdk_tools_java2cpp \
+  -dCVS -dtobj \
+  -P^include +Pinclude/note.txt \
+  -P^cfg +P^cfg/general \
+  acdk
+
+# create snapshot from clean checkout
+cleansnapshot:
+	cd ..; \
+  $(PERL) ./genweb/bin/backup.pl \
+  --exclbin --exclcvs --distignore \
+  -dacdk_tools -dacdk_tools_modtests -dacdk_tutorial -dacdkx_corba -dacdkx_sol -dacdk_dmi \
+  -dacdk_tools_java2cpp -dacdkx_servlet \
+  -dCVS \
+  acdk
+
+
+
+
+snapshot-old:
+	$(PERL) ./bin/makedistr2.pl -snap -src '.' \
+	   -name acdk-all-src-`date "+%Y-%m-%d_%H-%M-%S"`
+
+cl:
+	$(PERL) ../genweb/bin/cvs2cl.pl
+	@for target in $(DOCPACKAGES); do \
+	  cd $$target; \
+	  $(PERL) ../../genweb/bin/cvs2cl.pl; \
+	  cd ..; \
+	done 
+	
+
+ACDKTOOLSDIR=../acdktools
+ACDKTOOLSBINS = bin/libacdk_core.so  bin/libacdk_core_metainf.so \
+	bin/libacdk_security.so bin/libacdk_security_metainf.so \
+	bin/libacdk_tools_mc.so bin/acdkmc \
+	bin/libacdk_tools_aunit.so bin/libacdk_tools_aunit_metainf.so \
+	bin/libacdk_vfile.so \
+	bin/liborg_xml.so bin/liborg_xml_metainf.so \
+	bin/libacdk_xml.so bin/libacdk_xml_metainf.so \
+	bin/libacdk_text.so bin/libacdk_text_metainf.so \
+	bin/libacdk_net.so bin/libacdk_net_metainf.so \
+	bin/libacdk_lisp.so bin/acdklisp \
+	bin/libacdk_make.so bin/acdkmake
+	
+tools:
+	mkdir $(ACDKTOOLSDIR); \
+	cp --parents $(ACDKTOOLSBINS) $(ACDKTOOLSDIR); \
+	cp --parents -r cfg $(ACDKTOOLSDIR); \
+	cd $(ACDKTOOLSDIR); \
+	strip $(ACDKTOOLSBINS); \
+	find . -name CVS -exec rm -rf {} ';'; \
+	find . -name .cvsignore -exec rm {} ';'
+
+	
+

@@ -1,0 +1,1086 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.sunos-ws6
+
+# where to store the .o files
+
+OBJECTDIR=../obj/acdk_core/sunos-ws6
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -KPIC -g $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I../src  -I../include  -I../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT -DACDK_IN_ACDK_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+#SYSLDFLAGS=-Wl,-G -Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= -Bdynamic -G -g
+#-G is build shared lib, instead of executabe
+#-g is debugging
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+#LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR)
+LIBS =  $(SYSLIBRARIES) -L$(BINDIR)
+
+SOURCES= 	acdk/lang/Character.cpp \
+	acdk/lang/Boolean.cpp \
+	acdk/lang/Byte.cpp \
+	acdk/lang/ClassLoader.cpp \
+	acdk/lang/Class.cpp \
+	acdk/lang/ClazzInfo.cpp \
+	acdk/lang/Double.cpp \
+	acdk/lang/Float.cpp \
+	acdk/lang/Integer.cpp \
+	acdk/lang/Lang.cpp \
+	acdk/lang/Long.cpp \
+	acdk/lang/Math.cpp \
+	acdk/lang/Object.cpp \
+	acdk/lang/ObjectDebug.cpp \
+	acdk/lang/Package.cpp \
+	acdk/lang/Process.cpp \
+	acdk/lang/Runtime.cpp \
+	acdk/lang/acdk_lang_Package.cpp \
+	acdk/lang/SharedLibrary.cpp \
+	acdk/lang/Short.cpp \
+	acdk/lang/String.cpp \
+	acdk/lang/StringBuffer.cpp \
+	acdk/lang/System.cpp \
+	acdk/lang/Thread.cpp \
+	acdk/lang/ThreadGroup.cpp \
+	acdk/lang/Throwable.cpp \
+	acdk/lang/Void.cpp \
+	acdk/lang/lang_clazzinfo.cpp \
+	acdk/lang/CmdLineOption.cpp \
+	acdk/lang/CmdLineParser.cpp \
+	acdk/lang/lang_clazzinfo1.cpp \
+	acdk/lang/sys/Allocator.cpp \
+	acdk/lang/sys/BasicArray.cpp \
+	acdk/lang/sys/Garbage_Heap.cpp \
+	acdk/lang/sys/BitmapPagedAllocator.cpp \
+	acdk/lang/sys/Fields.cpp \
+	acdk/lang/sys/ObjectArrayImpl.cpp \
+	acdk/lang/sys/TracedRawAllocator.cpp \
+	acdk/lang/sys/ObjectHeap.cpp \
+	acdk/lang/sys/ObjectLockPool.cpp \
+	acdk/lang/sys/PagedAllocator.cpp \
+	acdk/lang/sys/PagedHeap.cpp \
+	acdk/lang/sys/RC_GC_Heap.cpp \
+	acdk/lang/sys/RC_Heap.cpp \
+	acdk/lang/sys/ScriptVar.cpp \
+	acdk/lang/sys/TraceCallStack.cpp \
+	acdk/lang/sys/core_condition.cpp \
+	acdk/lang/sys/core_fastmutex.cpp \
+	acdk/lang/sys/core_mutex.cpp \
+	acdk/lang/sys/sys_clazzinfo.cpp \
+	acdk/lang/sys/core_winimage.cpp \
+	acdk/lang/sys/Marshaler.cpp \
+	acdk/lang/sys/ScriptVar2.cpp \
+	acdk/lang/sys/BackTrace.cpp \
+	acdk/lang/sys/core_specific.cpp \
+	acdk/lang/ref/acdk_lang_ref_Package.cpp \
+	acdk/lang/ref/NotifyObjectEvent.cpp \
+	acdk/lang/ref/Reference.cpp \
+	acdk/lang/ref/ReferenceQueue.cpp \
+	acdk/lang/ref/ref_clazzinfo.cpp \
+	acdk/lang/reflect/reflect_clazzinfo.cpp \
+	acdk/lang/reflect/Constructor.cpp \
+	acdk/lang/reflect/Field.cpp \
+	acdk/lang/reflect/Method.cpp \
+	acdk/lang/reflect/Modifier.cpp \
+	acdk/io/ASCIIDataReader.cpp \
+	acdk/io/ASCIIDataWriter.cpp \
+	acdk/io/File.cpp \
+	acdk/io/AbstractFilterWriter.cpp \
+	acdk/io/AbstractReader.cpp \
+	acdk/io/BinaryDataReader.cpp \
+	acdk/io/BinaryDataWriter.cpp \
+	acdk/io/BufferedReader.cpp \
+	acdk/io/BufferedWriter.cpp \
+	acdk/io/CharArrayReader.cpp \
+	acdk/io/CharArrayWriter.cpp \
+	acdk/io/ConsoleReader.cpp \
+	acdk/io/ConsoleWriter.cpp \
+	acdk/io/FileDescriptor.cpp \
+	acdk/io/FileReader.cpp \
+	acdk/io/FileWriter.cpp \
+	acdk/io/FileReaderWriterImpl.cpp \
+	acdk/io/AbstractObjectReader.cpp \
+	acdk/io/GlobFilenameFilter.cpp \
+	acdk/io/IOException.cpp \
+	acdk/io/InputReader.cpp \
+	acdk/io/JoinedReader.cpp \
+	acdk/io/LineNumberReader.cpp \
+	acdk/io/MemReader.cpp \
+	acdk/io/MemWriter.cpp \
+	acdk/io/ObjectReader.cpp \
+	acdk/io/ObjectWriter.cpp \
+	acdk/io/PipedReader.cpp \
+	acdk/io/PushbackReader.cpp \
+	acdk/io/PipedWriter.cpp \
+	acdk/io/PrintWriter.cpp \
+	acdk/io/RandomAccessFile.cpp \
+	acdk/io/Reader.cpp \
+	acdk/io/StreamTokenizer.cpp \
+	acdk/io/Writer.cpp \
+	acdk/io/acdk_io_Package.cpp \
+	acdk/io/io_clazzinfo.cpp \
+	acdk/io/AbstractObjectWriter.cpp \
+	acdk/io/BinaryObjectWriter.cpp \
+	acdk/io/BinaryObjectReader.cpp \
+	acdk/io/io_clazzinfo1.cpp \
+	acdk/util/AbstractCollection.cpp \
+	acdk/util/AbstractList.cpp \
+	acdk/util/AbstractSequentialList.cpp \
+	acdk/util/AbstractListSubList.cpp \
+	acdk/util/AbstractMap.cpp \
+	acdk/util/AbstractSet.cpp \
+	acdk/util/ArrayList.cpp \
+	acdk/util/Arrays.cpp \
+	acdk/util/Calendar.cpp \
+	acdk/util/BitSet.cpp \
+	acdk/util/Bucket.cpp \
+	acdk/util/Collections.cpp \
+	acdk/util/Date.cpp \
+	acdk/util/GregorianCalendar.cpp \
+	acdk/util/HashMap.cpp \
+	acdk/util/HashSet.cpp \
+	acdk/util/Hashtable.cpp \
+	acdk/util/LinkedList.cpp \
+	acdk/util/ListResourceBundle.cpp \
+	acdk/util/Locale.cpp \
+	acdk/util/Properties.cpp \
+	acdk/util/PropertyResourceBundle.cpp \
+	acdk/util/Random.cpp \
+	acdk/util/acdk_util_Package.cpp \
+	acdk/util/ResourceBundle.cpp \
+	acdk/util/SimpleTimeZone.cpp \
+	acdk/util/SimpleListResourceBundle.cpp \
+	acdk/util/StringTokenizer.cpp \
+	acdk/util/SysDate.cpp \
+	acdk/util/TimeZone.cpp \
+	acdk/util/TreeMap.cpp \
+	acdk/util/TreeSet.cpp \
+	acdk/util/Vector.cpp \
+	acdk/util/util_clazzinfo.cpp \
+	acdk/util/util_clazzinfo1.cpp \
+	acdk/util/util_clazzinfo2.cpp \
+	acdk/locale/LocaleInfo_de.cpp \
+	acdk/locale/LocaleInfo.cpp \
+	acdk/locale/locale_clazzinfo.cpp \
+
+HEADER= 	acdk/Compiler.h \
+	acdk/Config.h \
+	acdk/Platform.h \
+	acdk/acdk.h \
+	acdk/acdk_all.h \
+	acdk/lang/ArrayIndexOutOfBoundsException.h \
+	acdk/lang/BadCastException.h \
+	acdk/lang/Boolean.h \
+	acdk/lang/Byte.h \
+	acdk/lang/Character.h \
+	acdk/lang/Class.h \
+	acdk/lang/RuntimeException.h \
+	acdk/lang/ClassLoader.h \
+	acdk/lang/Double.h \
+	acdk/lang/ClassNotFoundException.h \
+	acdk/lang/ClazzInfo.h \
+	acdk/lang/Cloneable.h \
+	acdk/lang/Comparable.h \
+	acdk/lang/CloneNotSupportedException.h \
+	acdk/lang/Error.h \
+	acdk/lang/Exception.h \
+	acdk/lang/Float.h \
+	acdk/lang/ExceptionDeclarations.h \
+	acdk/lang/IllegalMonitorStateException.h \
+	acdk/lang/IllegalAccessException.h \
+	acdk/lang/IllegalArgumentException.h \
+	acdk/lang/IndexOutOfBoundsException.h \
+	acdk/lang/IllegalStateException.h \
+	acdk/lang/InOutPreDeclaration.h \
+	acdk/lang/IllegalThreadStateException.h \
+	acdk/lang/Integer.h \
+	acdk/lang/InstantiationException.h \
+	acdk/lang/Logger.h \
+	acdk/lang/InterruptedException.h \
+	acdk/lang/Long.h \
+	acdk/lang/Math.h \
+	acdk/lang/Number.h \
+	acdk/lang/NoSuchMethodException.h \
+	acdk/lang/NullPointerException.h \
+	acdk/lang/Object.h \
+	acdk/lang/ObjectBase.h \
+	acdk/lang/NumberFormatException.h \
+	acdk/lang/ObjectDebug.h \
+	acdk/lang/ObjectImpl.h \
+	acdk/lang/ObjectInline.h \
+	acdk/lang/Package.h \
+	acdk/lang/Process.h \
+	acdk/lang/Runnable.h \
+	acdk/lang/Runtime.h \
+	acdk/lang/SharedLibrary.h \
+	acdk/lang/Short.h \
+	acdk/lang/String.h \
+	acdk/lang/StringBuffer.h \
+	acdk/lang/StringInline.h \
+	acdk/lang/StringIndexOutOfBoundsException.h \
+	acdk/lang/System.h \
+	acdk/lang/SystemError.h \
+	acdk/lang/SystemInline.h \
+	acdk/lang/Thread.h \
+	acdk/lang/ThreadGroup.h \
+	acdk/lang/Throwable.h \
+	acdk/lang/ThreadImpl.h \
+	acdk/lang/ThreadLocal.h \
+	acdk/lang/ThreadLocalImpl.h \
+	acdk/lang/lang_all.h \
+	acdk/lang/Void.h \
+	acdk/lang/UnsupportedOperationException.h \
+	acdk/lang/lang.h \
+	acdk/lang/CmdLineParseException.h \
+	acdk/lang/CmdLineOption.h \
+	acdk/lang/CmdLineParser.h \
+	acdk/lang/InterfaceBase.h \
+	acdk/lang/sys/BoehmGCAllocator.h \
+	acdk/lang/sys/Allocator.h \
+	acdk/lang/sys/BasicArray.h \
+	acdk/lang/sys/Fields.h \
+	acdk/lang/sys/BitmapPagedAllocator.h \
+	acdk/lang/sys/ControlPushPopOnStack.h \
+	acdk/lang/sys/Garbage_Heap.h \
+	acdk/lang/sys/HeapFrame.h \
+	acdk/lang/sys/ObjectArrayImpl.h \
+	acdk/lang/sys/ObjectHeap.h \
+	acdk/lang/sys/ObjectLockPool.h \
+	acdk/lang/sys/PagedAllocator.h \
+	acdk/lang/sys/PagedHeap.h \
+	acdk/lang/sys/RC_GC_Heap.h \
+	acdk/lang/sys/RC_Heap.h \
+	acdk/lang/sys/RefHolder.h \
+	acdk/lang/sys/ScriptVar.h \
+	acdk/lang/sys/SysRefHolder.h \
+	acdk/lang/sys/TraceCallStack.h \
+	acdk/lang/sys/stdio.h \
+	acdk/lang/sys/TracedRawAllocator.h \
+	acdk/lang/sys/core_condition.h \
+	acdk/lang/sys/core_fastmutex.h \
+	acdk/lang/sys/core_hashmap.h \
+	acdk/lang/sys/core_mutex.h \
+	acdk/lang/sys/core_ptherror.h \
+	acdk/lang/sys/core_string.h \
+	acdk/lang/sys/core_vector.h \
+	acdk/lang/sys/default_vc_warnings.h \
+	acdk/lang/sys/disable_vc_warnings.h \
+	acdk/lang/sys/RefHolder3.h \
+	acdk/lang/sys/sys.h \
+	acdk/lang/sys/ExtRefHolder.h \
+	acdk/lang/sys/RefHolderX.h \
+	acdk/lang/sys/RefHolder1.h \
+	acdk/lang/sys/RefHolder2.h \
+	acdk/lang/sys/core_atomicop.h \
+	acdk/lang/sys/core_guard.h \
+	acdk/lang/sys/RefHolderExt.h \
+	acdk/lang/sys/RefHeap.h \
+	acdk/lang/sys/Marshaler.h \
+	acdk/lang/sys/BackTrace.h \
+	acdk/lang/sys/RefHolder4.h \
+	acdk/lang/sys/core_winimage.h \
+	acdk/lang/sys/core_smartptr.h \
+	acdk/lang/sys/core_specific.h \
+	acdk/lang/sys/core_thread_id.h \
+	acdk/lang/sys/core_threadsys.h \
+	acdk/lang/ref/NotifyObjectEvent.h \
+	acdk/lang/ref/PhantomReference.h \
+	acdk/lang/ref/Reference.h \
+	acdk/lang/ref/ReferenceQueue.h \
+	acdk/lang/ref/SoftReference.h \
+	acdk/lang/ref/WeakReference.h \
+	acdk/lang/ref/ref.h \
+	acdk/lang/reflect/AccessibleObject.h \
+	acdk/lang/reflect/Constructor.h \
+	acdk/lang/reflect/Field.h \
+	acdk/lang/reflect/Member.h \
+	acdk/lang/reflect/InvocationTargetException.h \
+	acdk/lang/reflect/Method.h \
+	acdk/lang/reflect/Modifier.h \
+	acdk/lang/reflect/reflect.h \
+	acdk/io/AbstractFilterReader.h \
+	acdk/io/ASCIIDataReader.h \
+	acdk/io/ASCIIDataWriter.h \
+	acdk/io/FileDescriptor.h \
+	acdk/io/AbstractFilterWriter.h \
+	acdk/io/AbstractReader.h \
+	acdk/io/AbstractStorageReader.h \
+	acdk/io/AbstractStorageWriter.h \
+	acdk/io/AbstractWriter.h \
+	acdk/io/BinaryDataReader.h \
+	acdk/io/BinaryDataWriter.h \
+	acdk/io/BufferedReader.h \
+	acdk/io/BufferedWriter.h \
+	acdk/io/CharArrayReader.h \
+	acdk/io/CharArrayWriter.h \
+	acdk/io/ConsoleReader.h \
+	acdk/io/ConsoleWriter.h \
+	acdk/io/DataReader.h \
+	acdk/io/DataWriter.h \
+	acdk/io/EOFException.h \
+	acdk/io/File.h \
+	acdk/io/FileNotFoundException.h \
+	acdk/io/FileFilter.h \
+	acdk/io/FilenameFilter.h \
+	acdk/io/FileReader.h \
+	acdk/io/Reader.h \
+	acdk/io/FileReaderWriterImpl.h \
+	acdk/io/FileWriter.h \
+	acdk/io/GlobFilenameFilter.h \
+	acdk/io/FilterReader.h \
+	acdk/io/FilterWriter.h \
+	acdk/io/IOException.h \
+	acdk/io/InputReader.h \
+	acdk/io/JoinedReader.h \
+	acdk/io/LineNumberReader.h \
+	acdk/io/MemReader.h \
+	acdk/io/MemWriter.h \
+	acdk/io/NullWriter.h \
+	acdk/io/ObjectReader.h \
+	acdk/io/ObjectWriter.h \
+	acdk/io/PipedReader.h \
+	acdk/io/PipedWriter.h \
+	acdk/io/PrintWriter.h \
+	acdk/io/PushbackReader.h \
+	acdk/io/io_all.h \
+	acdk/io/io.h \
+	acdk/io/RandomAccessFile.h \
+	acdk/io/Serializable.h \
+	acdk/io/Storage.h \
+	acdk/io/StreamTokenizer.h \
+	acdk/io/TeeWriter.h \
+	acdk/io/Writer.h \
+	acdk/io/BinaryObjectWriter.h \
+	acdk/io/TeeReader.h \
+	acdk/io/AbstractObjectWriter.h \
+	acdk/io/AbstractObjectReader.h \
+	acdk/io/BinaryObjectReader.h \
+	acdk/io/ObjectStreamException.h \
+	acdk/util/AbstractListListIterator.h \
+	acdk/util/AbstractCollection.h \
+	acdk/util/AbstractList.h \
+	acdk/util/AbstractListIterator.h \
+	acdk/util/AbstractListSubList.h \
+	acdk/util/AbstractMap.h \
+	acdk/util/BasicMapEntry.h \
+	acdk/util/Arrays.h \
+	acdk/util/AbstractSequentialList.h \
+	acdk/util/AbstractSet.h \
+	acdk/util/ArrayList.h \
+	acdk/util/BitSet.h \
+	acdk/util/Bucket.h \
+	acdk/util/Collection.h \
+	acdk/util/Calendar.h \
+	acdk/util/DoubleIterator.h \
+	acdk/util/Collections.h \
+	acdk/util/Comparator.h \
+	acdk/util/Date.h \
+	acdk/util/List.h \
+	acdk/util/ConcurrentModificationException.h \
+	acdk/util/Dictionary.h \
+	acdk/util/GregorianCalendar.h \
+	acdk/util/Enumeration.h \
+	acdk/util/Properties.h \
+	acdk/util/Map.h \
+	acdk/util/HashMap.h \
+	acdk/util/HashSet.h \
+	acdk/util/Hashtable.h \
+	acdk/util/Iterator.h \
+	acdk/util/LinkedList.h \
+	acdk/util/ListIterator.h \
+	acdk/util/ListResourceBundle.h \
+	acdk/util/Locale.h \
+	acdk/util/ResourceBundle.h \
+	acdk/util/Random.h \
+	acdk/util/MissingResourceException.h \
+	acdk/util/NoSuchElementException.h \
+	acdk/util/PropertyResourceBundle.h \
+	acdk/util/Set.h \
+	acdk/util/Vector.h \
+	acdk/util/SimpleListResourceBundle.h \
+	acdk/util/SimpleTimeZone.h \
+	acdk/util/SortedMap.h \
+	acdk/util/SortedSet.h \
+	acdk/util/StringTokenizer.h \
+	acdk/util/SysDate.h \
+	acdk/util/SynchronizedCollections.h \
+	acdk/util/TimeZone.h \
+	acdk/util/TreeMap.h \
+	acdk/util/TreeSet.h \
+	acdk/util/util_all.h \
+	acdk/util/acdk_util_classes.h \
+	acdk/util/util.h \
+	acdk/locale/LocaleInfo.h \
+	acdk/locale/LocaleInfo_de.h \
+	acdk/locale/LocaleInfo_en.h \
+	acdk/locale/locale.h \
+
+OBJECTS= 	../obj/acdk_core/sunos-ws6/Character.o \
+	../obj/acdk_core/sunos-ws6/Boolean.o \
+	../obj/acdk_core/sunos-ws6/Byte.o \
+	../obj/acdk_core/sunos-ws6/ClassLoader.o \
+	../obj/acdk_core/sunos-ws6/Class.o \
+	../obj/acdk_core/sunos-ws6/ClazzInfo.o \
+	../obj/acdk_core/sunos-ws6/Double.o \
+	../obj/acdk_core/sunos-ws6/Float.o \
+	../obj/acdk_core/sunos-ws6/Integer.o \
+	../obj/acdk_core/sunos-ws6/Lang.o \
+	../obj/acdk_core/sunos-ws6/Long.o \
+	../obj/acdk_core/sunos-ws6/Math.o \
+	../obj/acdk_core/sunos-ws6/Object.o \
+	../obj/acdk_core/sunos-ws6/ObjectDebug.o \
+	../obj/acdk_core/sunos-ws6/Package.o \
+	../obj/acdk_core/sunos-ws6/Process.o \
+	../obj/acdk_core/sunos-ws6/Runtime.o \
+	../obj/acdk_core/sunos-ws6/acdk_lang_Package.o \
+	../obj/acdk_core/sunos-ws6/SharedLibrary.o \
+	../obj/acdk_core/sunos-ws6/Short.o \
+	../obj/acdk_core/sunos-ws6/String.o \
+	../obj/acdk_core/sunos-ws6/StringBuffer.o \
+	../obj/acdk_core/sunos-ws6/System.o \
+	../obj/acdk_core/sunos-ws6/SystemError.o \
+	../obj/acdk_core/sunos-ws6/Thread.o \
+	../obj/acdk_core/sunos-ws6/ThreadGroup.o \
+	../obj/acdk_core/sunos-ws6/Throwable.o \
+	../obj/acdk_core/sunos-ws6/Void.o \
+	../obj/acdk_core/sunos-ws6/lang_clazzinfo.o \
+	../obj/acdk_core/sunos-ws6/CmdLineOption.o \
+	../obj/acdk_core/sunos-ws6/CmdLineParser.o \
+	../obj/acdk_core/sunos-ws6/lang_clazzinfo1.o \
+	../obj/acdk_core/sunos-ws6/Allocator.o \
+	../obj/acdk_core/sunos-ws6/BasicArray.o \
+	../obj/acdk_core/sunos-ws6/Garbage_Heap.o \
+	../obj/acdk_core/sunos-ws6/BitmapPagedAllocator.o \
+	../obj/acdk_core/sunos-ws6/Fields.o \
+	../obj/acdk_core/sunos-ws6/ObjectArrayImpl.o \
+	../obj/acdk_core/sunos-ws6/TracedRawAllocator.o \
+	../obj/acdk_core/sunos-ws6/ObjectHeap.o \
+	../obj/acdk_core/sunos-ws6/ObjectLockPool.o \
+	../obj/acdk_core/sunos-ws6/PagedAllocator.o \
+	../obj/acdk_core/sunos-ws6/PagedHeap.o \
+	../obj/acdk_core/sunos-ws6/RC_GC_Heap.o \
+	../obj/acdk_core/sunos-ws6/RC_Heap.o \
+	../obj/acdk_core/sunos-ws6/ScriptVar.o \
+	../obj/acdk_core/sunos-ws6/TraceCallStack.o \
+	../obj/acdk_core/sunos-ws6/core_condition.o \
+	../obj/acdk_core/sunos-ws6/core_fastmutex.o \
+	../obj/acdk_core/sunos-ws6/core_mutex.o \
+	../obj/acdk_core/sunos-ws6/sys_clazzinfo.o \
+	../obj/acdk_core/sunos-ws6/core_winimage.o \
+	../obj/acdk_core/sunos-ws6/Marshaler.o \
+	../obj/acdk_core/sunos-ws6/ScriptVar2.o \
+	../obj/acdk_core/sunos-ws6/BackTrace.o \
+	../obj/acdk_core/sunos-ws6/core_specific.o \
+	../obj/acdk_core/sunos-ws6/acdk_lang_ref_Package.o \
+	../obj/acdk_core/sunos-ws6/NotifyObjectEvent.o \
+	../obj/acdk_core/sunos-ws6/Reference.o \
+	../obj/acdk_core/sunos-ws6/ReferenceQueue.o \
+	../obj/acdk_core/sunos-ws6/ref_clazzinfo.o \
+	../obj/acdk_core/sunos-ws6/reflect_clazzinfo.o \
+	../obj/acdk_core/sunos-ws6/Constructor.o \
+	../obj/acdk_core/sunos-ws6/Field.o \
+	../obj/acdk_core/sunos-ws6/Method.o \
+	../obj/acdk_core/sunos-ws6/Modifier.o \
+	../obj/acdk_core/sunos-ws6/ASCIIDataReader.o \
+	../obj/acdk_core/sunos-ws6/ASCIIDataWriter.o \
+	../obj/acdk_core/sunos-ws6/File.o \
+	../obj/acdk_core/sunos-ws6/AbstractFilterWriter.o \
+	../obj/acdk_core/sunos-ws6/AbstractReader.o \
+	../obj/acdk_core/sunos-ws6/BinaryDataReader.o \
+	../obj/acdk_core/sunos-ws6/BinaryDataWriter.o \
+	../obj/acdk_core/sunos-ws6/BufferedReader.o \
+	../obj/acdk_core/sunos-ws6/BufferedWriter.o \
+	../obj/acdk_core/sunos-ws6/CharArrayReader.o \
+	../obj/acdk_core/sunos-ws6/CharArrayWriter.o \
+	../obj/acdk_core/sunos-ws6/ConsoleReader.o \
+	../obj/acdk_core/sunos-ws6/ConsoleWriter.o \
+	../obj/acdk_core/sunos-ws6/FileDescriptor.o \
+	../obj/acdk_core/sunos-ws6/FileReader.o \
+	../obj/acdk_core/sunos-ws6/FileWriter.o \
+	../obj/acdk_core/sunos-ws6/FileReaderWriterImpl.o \
+	../obj/acdk_core/sunos-ws6/AbstractObjectReader.o \
+	../obj/acdk_core/sunos-ws6/GlobFilenameFilter.o \
+	../obj/acdk_core/sunos-ws6/IOException.o \
+	../obj/acdk_core/sunos-ws6/InputReader.o \
+	../obj/acdk_core/sunos-ws6/JoinedReader.o \
+	../obj/acdk_core/sunos-ws6/LineNumberReader.o \
+	../obj/acdk_core/sunos-ws6/MemReader.o \
+	../obj/acdk_core/sunos-ws6/MemWriter.o \
+	../obj/acdk_core/sunos-ws6/ObjectReader.o \
+	../obj/acdk_core/sunos-ws6/ObjectWriter.o \
+	../obj/acdk_core/sunos-ws6/PipedReader.o \
+	../obj/acdk_core/sunos-ws6/PushbackReader.o \
+	../obj/acdk_core/sunos-ws6/PipedWriter.o \
+	../obj/acdk_core/sunos-ws6/PrintWriter.o \
+	../obj/acdk_core/sunos-ws6/RandomAccessFile.o \
+	../obj/acdk_core/sunos-ws6/Reader.o \
+	../obj/acdk_core/sunos-ws6/StreamTokenizer.o \
+	../obj/acdk_core/sunos-ws6/Writer.o \
+	../obj/acdk_core/sunos-ws6/acdk_io_Package.o \
+	../obj/acdk_core/sunos-ws6/io_clazzinfo.o \
+	../obj/acdk_core/sunos-ws6/AbstractObjectWriter.o \
+	../obj/acdk_core/sunos-ws6/BinaryObjectWriter.o \
+	../obj/acdk_core/sunos-ws6/BinaryObjectReader.o \
+	../obj/acdk_core/sunos-ws6/io_clazzinfo1.o \
+	../obj/acdk_core/sunos-ws6/AbstractCollection.o \
+	../obj/acdk_core/sunos-ws6/AbstractList.o \
+	../obj/acdk_core/sunos-ws6/AbstractSequentialList.o \
+	../obj/acdk_core/sunos-ws6/AbstractListSubList.o \
+	../obj/acdk_core/sunos-ws6/AbstractMap.o \
+	../obj/acdk_core/sunos-ws6/AbstractSet.o \
+	../obj/acdk_core/sunos-ws6/ArrayList.o \
+	../obj/acdk_core/sunos-ws6/Arrays.o \
+	../obj/acdk_core/sunos-ws6/Calendar.o \
+	../obj/acdk_core/sunos-ws6/BitSet.o \
+	../obj/acdk_core/sunos-ws6/Bucket.o \
+	../obj/acdk_core/sunos-ws6/Collections.o \
+	../obj/acdk_core/sunos-ws6/Date.o \
+	../obj/acdk_core/sunos-ws6/GregorianCalendar.o \
+	../obj/acdk_core/sunos-ws6/HashMap.o \
+	../obj/acdk_core/sunos-ws6/HashSet.o \
+	../obj/acdk_core/sunos-ws6/Hashtable.o \
+	../obj/acdk_core/sunos-ws6/LinkedList.o \
+	../obj/acdk_core/sunos-ws6/ListResourceBundle.o \
+	../obj/acdk_core/sunos-ws6/Locale.o \
+	../obj/acdk_core/sunos-ws6/Properties.o \
+	../obj/acdk_core/sunos-ws6/PropertyResourceBundle.o \
+	../obj/acdk_core/sunos-ws6/Random.o \
+	../obj/acdk_core/sunos-ws6/acdk_util_Package.o \
+	../obj/acdk_core/sunos-ws6/ResourceBundle.o \
+	../obj/acdk_core/sunos-ws6/SimpleTimeZone.o \
+	../obj/acdk_core/sunos-ws6/SimpleListResourceBundle.o \
+	../obj/acdk_core/sunos-ws6/StringTokenizer.o \
+	../obj/acdk_core/sunos-ws6/SysDate.o \
+	../obj/acdk_core/sunos-ws6/TimeZone.o \
+	../obj/acdk_core/sunos-ws6/TreeMap.o \
+	../obj/acdk_core/sunos-ws6/TreeSet.o \
+	../obj/acdk_core/sunos-ws6/Vector.o \
+	../obj/acdk_core/sunos-ws6/util_clazzinfo.o \
+	../obj/acdk_core/sunos-ws6/util_clazzinfo1.o \
+	../obj/acdk_core/sunos-ws6/util_clazzinfo2.o \
+	../obj/acdk_core/sunos-ws6/LocaleInfo_de.o \
+	../obj/acdk_core/sunos-ws6/LocaleInfo.o \
+	../obj/acdk_core/sunos-ws6/locale_clazzinfo.o \
+
+
+FINALTARGET=../../bin/libacdk_core.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_core.so: $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS)  $(OBJECTS)  -o ../../bin/libacdk_core.so -hlibacdk_core.so $(LIBS)
+
+DEPSFILE=acdk_core.sunos-ws6.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../obj/acdk_core/sunos-ws6/Character.o:acdk/lang/Character.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Character.o -c acdk/lang/Character.cpp
+
+../obj/acdk_core/sunos-ws6/Boolean.o:acdk/lang/Boolean.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Boolean.o -c acdk/lang/Boolean.cpp
+
+../obj/acdk_core/sunos-ws6/Byte.o:acdk/lang/Byte.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Byte.o -c acdk/lang/Byte.cpp
+
+../obj/acdk_core/sunos-ws6/ClassLoader.o:acdk/lang/ClassLoader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ClassLoader.o -c acdk/lang/ClassLoader.cpp
+
+../obj/acdk_core/sunos-ws6/Class.o:acdk/lang/Class.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Class.o -c acdk/lang/Class.cpp
+
+../obj/acdk_core/sunos-ws6/ClazzInfo.o:acdk/lang/ClazzInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ClazzInfo.o -c acdk/lang/ClazzInfo.cpp
+
+../obj/acdk_core/sunos-ws6/Double.o:acdk/lang/Double.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Double.o -c acdk/lang/Double.cpp
+
+../obj/acdk_core/sunos-ws6/Float.o:acdk/lang/Float.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Float.o -c acdk/lang/Float.cpp
+
+../obj/acdk_core/sunos-ws6/Integer.o:acdk/lang/Integer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Integer.o -c acdk/lang/Integer.cpp
+
+../obj/acdk_core/sunos-ws6/Lang.o:acdk/lang/Lang.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Lang.o -c acdk/lang/Lang.cpp
+
+../obj/acdk_core/sunos-ws6/Long.o:acdk/lang/Long.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Long.o -c acdk/lang/Long.cpp
+
+../obj/acdk_core/sunos-ws6/Math.o:acdk/lang/Math.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Math.o -c acdk/lang/Math.cpp
+
+../obj/acdk_core/sunos-ws6/Object.o:acdk/lang/Object.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Object.o -c acdk/lang/Object.cpp
+
+../obj/acdk_core/sunos-ws6/ObjectDebug.o:acdk/lang/ObjectDebug.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ObjectDebug.o -c acdk/lang/ObjectDebug.cpp
+
+../obj/acdk_core/sunos-ws6/Package.o:acdk/lang/Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Package.o -c acdk/lang/Package.cpp
+
+../obj/acdk_core/sunos-ws6/Process.o:acdk/lang/Process.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Process.o -c acdk/lang/Process.cpp
+
+../obj/acdk_core/sunos-ws6/Runtime.o:acdk/lang/Runtime.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Runtime.o -c acdk/lang/Runtime.cpp
+
+../obj/acdk_core/sunos-ws6/acdk_lang_Package.o:acdk/lang/acdk_lang_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/acdk_lang_Package.o -c acdk/lang/acdk_lang_Package.cpp
+
+../obj/acdk_core/sunos-ws6/SharedLibrary.o:acdk/lang/SharedLibrary.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/SharedLibrary.o -c acdk/lang/SharedLibrary.cpp
+
+../obj/acdk_core/sunos-ws6/Short.o:acdk/lang/Short.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Short.o -c acdk/lang/Short.cpp
+
+../obj/acdk_core/sunos-ws6/String.o:acdk/lang/String.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/String.o -c acdk/lang/String.cpp
+
+../obj/acdk_core/sunos-ws6/StringBuffer.o:acdk/lang/StringBuffer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/StringBuffer.o -c acdk/lang/StringBuffer.cpp
+
+../obj/acdk_core/sunos-ws6/System.o:acdk/lang/System.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/System.o -c acdk/lang/System.cpp
+
+../obj/acdk_core/sunos-ws6/SystemError.o:acdk/lang/SystemError.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/SystemError.o -c acdk/lang/SystemError.cpp
+
+../obj/acdk_core/sunos-ws6/Thread.o:acdk/lang/Thread.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Thread.o -c acdk/lang/Thread.cpp
+
+../obj/acdk_core/sunos-ws6/ThreadGroup.o:acdk/lang/ThreadGroup.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ThreadGroup.o -c acdk/lang/ThreadGroup.cpp
+
+../obj/acdk_core/sunos-ws6/Throwable.o:acdk/lang/Throwable.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Throwable.o -c acdk/lang/Throwable.cpp
+
+../obj/acdk_core/sunos-ws6/Void.o:acdk/lang/Void.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Void.o -c acdk/lang/Void.cpp
+
+../obj/acdk_core/sunos-ws6/lang_clazzinfo.o:acdk/lang/lang_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/lang_clazzinfo.o -c acdk/lang/lang_clazzinfo.cpp
+
+../obj/acdk_core/sunos-ws6/CmdLineOption.o:acdk/lang/CmdLineOption.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/CmdLineOption.o -c acdk/lang/CmdLineOption.cpp
+
+../obj/acdk_core/sunos-ws6/CmdLineParser.o:acdk/lang/CmdLineParser.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/CmdLineParser.o -c acdk/lang/CmdLineParser.cpp
+
+../obj/acdk_core/sunos-ws6/lang_clazzinfo1.o:acdk/lang/lang_clazzinfo1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/lang_clazzinfo1.o -c acdk/lang/lang_clazzinfo1.cpp
+
+../obj/acdk_core/sunos-ws6/Allocator.o:acdk/lang/sys/Allocator.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Allocator.o -c acdk/lang/sys/Allocator.cpp
+
+../obj/acdk_core/sunos-ws6/BasicArray.o:acdk/lang/sys/BasicArray.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BasicArray.o -c acdk/lang/sys/BasicArray.cpp
+
+../obj/acdk_core/sunos-ws6/Garbage_Heap.o:acdk/lang/sys/Garbage_Heap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Garbage_Heap.o -c acdk/lang/sys/Garbage_Heap.cpp
+
+../obj/acdk_core/sunos-ws6/BitmapPagedAllocator.o:acdk/lang/sys/BitmapPagedAllocator.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BitmapPagedAllocator.o -c acdk/lang/sys/BitmapPagedAllocator.cpp
+
+../obj/acdk_core/sunos-ws6/Fields.o:acdk/lang/sys/Fields.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Fields.o -c acdk/lang/sys/Fields.cpp
+
+../obj/acdk_core/sunos-ws6/ObjectArrayImpl.o:acdk/lang/sys/ObjectArrayImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ObjectArrayImpl.o -c acdk/lang/sys/ObjectArrayImpl.cpp
+
+../obj/acdk_core/sunos-ws6/TracedRawAllocator.o:acdk/lang/sys/TracedRawAllocator.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/TracedRawAllocator.o -c acdk/lang/sys/TracedRawAllocator.cpp
+
+../obj/acdk_core/sunos-ws6/ObjectHeap.o:acdk/lang/sys/ObjectHeap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ObjectHeap.o -c acdk/lang/sys/ObjectHeap.cpp
+
+../obj/acdk_core/sunos-ws6/ObjectLockPool.o:acdk/lang/sys/ObjectLockPool.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ObjectLockPool.o -c acdk/lang/sys/ObjectLockPool.cpp
+
+../obj/acdk_core/sunos-ws6/PagedAllocator.o:acdk/lang/sys/PagedAllocator.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PagedAllocator.o -c acdk/lang/sys/PagedAllocator.cpp
+
+../obj/acdk_core/sunos-ws6/PagedHeap.o:acdk/lang/sys/PagedHeap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PagedHeap.o -c acdk/lang/sys/PagedHeap.cpp
+
+../obj/acdk_core/sunos-ws6/RC_GC_Heap.o:acdk/lang/sys/RC_GC_Heap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/RC_GC_Heap.o -c acdk/lang/sys/RC_GC_Heap.cpp
+
+../obj/acdk_core/sunos-ws6/RC_Heap.o:acdk/lang/sys/RC_Heap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/RC_Heap.o -c acdk/lang/sys/RC_Heap.cpp
+
+../obj/acdk_core/sunos-ws6/ScriptVar.o:acdk/lang/sys/ScriptVar.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ScriptVar.o -c acdk/lang/sys/ScriptVar.cpp
+
+../obj/acdk_core/sunos-ws6/TraceCallStack.o:acdk/lang/sys/TraceCallStack.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/TraceCallStack.o -c acdk/lang/sys/TraceCallStack.cpp
+
+../obj/acdk_core/sunos-ws6/core_condition.o:acdk/lang/sys/core_condition.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/core_condition.o -c acdk/lang/sys/core_condition.cpp
+
+../obj/acdk_core/sunos-ws6/core_fastmutex.o:acdk/lang/sys/core_fastmutex.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/core_fastmutex.o -c acdk/lang/sys/core_fastmutex.cpp
+
+../obj/acdk_core/sunos-ws6/core_mutex.o:acdk/lang/sys/core_mutex.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/core_mutex.o -c acdk/lang/sys/core_mutex.cpp
+
+../obj/acdk_core/sunos-ws6/sys_clazzinfo.o:acdk/lang/sys/sys_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/sys_clazzinfo.o -c acdk/lang/sys/sys_clazzinfo.cpp
+
+../obj/acdk_core/sunos-ws6/core_winimage.o:acdk/lang/sys/core_winimage.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/core_winimage.o -c acdk/lang/sys/core_winimage.cpp
+
+../obj/acdk_core/sunos-ws6/Marshaler.o:acdk/lang/sys/Marshaler.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Marshaler.o -c acdk/lang/sys/Marshaler.cpp
+
+../obj/acdk_core/sunos-ws6/ScriptVar2.o:acdk/lang/sys/ScriptVar2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ScriptVar2.o -c acdk/lang/sys/ScriptVar2.cpp
+
+../obj/acdk_core/sunos-ws6/BackTrace.o:acdk/lang/sys/BackTrace.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BackTrace.o -c acdk/lang/sys/BackTrace.cpp
+
+../obj/acdk_core/sunos-ws6/core_specific.o:acdk/lang/sys/core_specific.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/core_specific.o -c acdk/lang/sys/core_specific.cpp
+
+../obj/acdk_core/sunos-ws6/acdk_lang_ref_Package.o:acdk/lang/ref/acdk_lang_ref_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/acdk_lang_ref_Package.o -c acdk/lang/ref/acdk_lang_ref_Package.cpp
+
+../obj/acdk_core/sunos-ws6/NotifyObjectEvent.o:acdk/lang/ref/NotifyObjectEvent.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/NotifyObjectEvent.o -c acdk/lang/ref/NotifyObjectEvent.cpp
+
+../obj/acdk_core/sunos-ws6/Reference.o:acdk/lang/ref/Reference.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Reference.o -c acdk/lang/ref/Reference.cpp
+
+../obj/acdk_core/sunos-ws6/ReferenceQueue.o:acdk/lang/ref/ReferenceQueue.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ReferenceQueue.o -c acdk/lang/ref/ReferenceQueue.cpp
+
+../obj/acdk_core/sunos-ws6/ref_clazzinfo.o:acdk/lang/ref/ref_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ref_clazzinfo.o -c acdk/lang/ref/ref_clazzinfo.cpp
+
+../obj/acdk_core/sunos-ws6/reflect_clazzinfo.o:acdk/lang/reflect/reflect_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/reflect_clazzinfo.o -c acdk/lang/reflect/reflect_clazzinfo.cpp
+
+../obj/acdk_core/sunos-ws6/Constructor.o:acdk/lang/reflect/Constructor.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Constructor.o -c acdk/lang/reflect/Constructor.cpp
+
+../obj/acdk_core/sunos-ws6/Field.o:acdk/lang/reflect/Field.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Field.o -c acdk/lang/reflect/Field.cpp
+
+../obj/acdk_core/sunos-ws6/Method.o:acdk/lang/reflect/Method.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Method.o -c acdk/lang/reflect/Method.cpp
+
+../obj/acdk_core/sunos-ws6/Modifier.o:acdk/lang/reflect/Modifier.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Modifier.o -c acdk/lang/reflect/Modifier.cpp
+
+../obj/acdk_core/sunos-ws6/ASCIIDataReader.o:acdk/io/ASCIIDataReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ASCIIDataReader.o -c acdk/io/ASCIIDataReader.cpp
+
+../obj/acdk_core/sunos-ws6/ASCIIDataWriter.o:acdk/io/ASCIIDataWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ASCIIDataWriter.o -c acdk/io/ASCIIDataWriter.cpp
+
+../obj/acdk_core/sunos-ws6/File.o:acdk/io/File.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/File.o -c acdk/io/File.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractFilterWriter.o:acdk/io/AbstractFilterWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractFilterWriter.o -c acdk/io/AbstractFilterWriter.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractReader.o:acdk/io/AbstractReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractReader.o -c acdk/io/AbstractReader.cpp
+
+../obj/acdk_core/sunos-ws6/BinaryDataReader.o:acdk/io/BinaryDataReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BinaryDataReader.o -c acdk/io/BinaryDataReader.cpp
+
+../obj/acdk_core/sunos-ws6/BinaryDataWriter.o:acdk/io/BinaryDataWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BinaryDataWriter.o -c acdk/io/BinaryDataWriter.cpp
+
+../obj/acdk_core/sunos-ws6/BufferedReader.o:acdk/io/BufferedReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BufferedReader.o -c acdk/io/BufferedReader.cpp
+
+../obj/acdk_core/sunos-ws6/BufferedWriter.o:acdk/io/BufferedWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BufferedWriter.o -c acdk/io/BufferedWriter.cpp
+
+../obj/acdk_core/sunos-ws6/CharArrayReader.o:acdk/io/CharArrayReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/CharArrayReader.o -c acdk/io/CharArrayReader.cpp
+
+../obj/acdk_core/sunos-ws6/CharArrayWriter.o:acdk/io/CharArrayWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/CharArrayWriter.o -c acdk/io/CharArrayWriter.cpp
+
+../obj/acdk_core/sunos-ws6/ConsoleReader.o:acdk/io/ConsoleReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ConsoleReader.o -c acdk/io/ConsoleReader.cpp
+
+../obj/acdk_core/sunos-ws6/ConsoleWriter.o:acdk/io/ConsoleWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ConsoleWriter.o -c acdk/io/ConsoleWriter.cpp
+
+../obj/acdk_core/sunos-ws6/FileDescriptor.o:acdk/io/FileDescriptor.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/FileDescriptor.o -c acdk/io/FileDescriptor.cpp
+
+../obj/acdk_core/sunos-ws6/FileReader.o:acdk/io/FileReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/FileReader.o -c acdk/io/FileReader.cpp
+
+../obj/acdk_core/sunos-ws6/FileWriter.o:acdk/io/FileWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/FileWriter.o -c acdk/io/FileWriter.cpp
+
+../obj/acdk_core/sunos-ws6/FileReaderWriterImpl.o:acdk/io/FileReaderWriterImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/FileReaderWriterImpl.o -c acdk/io/FileReaderWriterImpl.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractObjectReader.o:acdk/io/AbstractObjectReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractObjectReader.o -c acdk/io/AbstractObjectReader.cpp
+
+../obj/acdk_core/sunos-ws6/GlobFilenameFilter.o:acdk/io/GlobFilenameFilter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/GlobFilenameFilter.o -c acdk/io/GlobFilenameFilter.cpp
+
+../obj/acdk_core/sunos-ws6/IOException.o:acdk/io/IOException.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/IOException.o -c acdk/io/IOException.cpp
+
+../obj/acdk_core/sunos-ws6/InputReader.o:acdk/io/InputReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/InputReader.o -c acdk/io/InputReader.cpp
+
+../obj/acdk_core/sunos-ws6/JoinedReader.o:acdk/io/JoinedReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/JoinedReader.o -c acdk/io/JoinedReader.cpp
+
+../obj/acdk_core/sunos-ws6/LineNumberReader.o:acdk/io/LineNumberReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/LineNumberReader.o -c acdk/io/LineNumberReader.cpp
+
+../obj/acdk_core/sunos-ws6/MemReader.o:acdk/io/MemReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/MemReader.o -c acdk/io/MemReader.cpp
+
+../obj/acdk_core/sunos-ws6/MemWriter.o:acdk/io/MemWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/MemWriter.o -c acdk/io/MemWriter.cpp
+
+../obj/acdk_core/sunos-ws6/ObjectReader.o:acdk/io/ObjectReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ObjectReader.o -c acdk/io/ObjectReader.cpp
+
+../obj/acdk_core/sunos-ws6/ObjectWriter.o:acdk/io/ObjectWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ObjectWriter.o -c acdk/io/ObjectWriter.cpp
+
+../obj/acdk_core/sunos-ws6/PipedReader.o:acdk/io/PipedReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PipedReader.o -c acdk/io/PipedReader.cpp
+
+../obj/acdk_core/sunos-ws6/PushbackReader.o:acdk/io/PushbackReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PushbackReader.o -c acdk/io/PushbackReader.cpp
+
+../obj/acdk_core/sunos-ws6/PipedWriter.o:acdk/io/PipedWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PipedWriter.o -c acdk/io/PipedWriter.cpp
+
+../obj/acdk_core/sunos-ws6/PrintWriter.o:acdk/io/PrintWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PrintWriter.o -c acdk/io/PrintWriter.cpp
+
+../obj/acdk_core/sunos-ws6/RandomAccessFile.o:acdk/io/RandomAccessFile.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/RandomAccessFile.o -c acdk/io/RandomAccessFile.cpp
+
+../obj/acdk_core/sunos-ws6/Reader.o:acdk/io/Reader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Reader.o -c acdk/io/Reader.cpp
+
+../obj/acdk_core/sunos-ws6/StreamTokenizer.o:acdk/io/StreamTokenizer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/StreamTokenizer.o -c acdk/io/StreamTokenizer.cpp
+
+../obj/acdk_core/sunos-ws6/Writer.o:acdk/io/Writer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Writer.o -c acdk/io/Writer.cpp
+
+../obj/acdk_core/sunos-ws6/acdk_io_Package.o:acdk/io/acdk_io_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/acdk_io_Package.o -c acdk/io/acdk_io_Package.cpp
+
+../obj/acdk_core/sunos-ws6/io_clazzinfo.o:acdk/io/io_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/io_clazzinfo.o -c acdk/io/io_clazzinfo.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractObjectWriter.o:acdk/io/AbstractObjectWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractObjectWriter.o -c acdk/io/AbstractObjectWriter.cpp
+
+../obj/acdk_core/sunos-ws6/BinaryObjectWriter.o:acdk/io/BinaryObjectWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BinaryObjectWriter.o -c acdk/io/BinaryObjectWriter.cpp
+
+../obj/acdk_core/sunos-ws6/BinaryObjectReader.o:acdk/io/BinaryObjectReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BinaryObjectReader.o -c acdk/io/BinaryObjectReader.cpp
+
+../obj/acdk_core/sunos-ws6/io_clazzinfo1.o:acdk/io/io_clazzinfo1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/io_clazzinfo1.o -c acdk/io/io_clazzinfo1.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractCollection.o:acdk/util/AbstractCollection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractCollection.o -c acdk/util/AbstractCollection.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractList.o:acdk/util/AbstractList.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractList.o -c acdk/util/AbstractList.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractSequentialList.o:acdk/util/AbstractSequentialList.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractSequentialList.o -c acdk/util/AbstractSequentialList.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractListSubList.o:acdk/util/AbstractListSubList.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractListSubList.o -c acdk/util/AbstractListSubList.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractMap.o:acdk/util/AbstractMap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractMap.o -c acdk/util/AbstractMap.cpp
+
+../obj/acdk_core/sunos-ws6/AbstractSet.o:acdk/util/AbstractSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/AbstractSet.o -c acdk/util/AbstractSet.cpp
+
+../obj/acdk_core/sunos-ws6/ArrayList.o:acdk/util/ArrayList.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ArrayList.o -c acdk/util/ArrayList.cpp
+
+../obj/acdk_core/sunos-ws6/Arrays.o:acdk/util/Arrays.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Arrays.o -c acdk/util/Arrays.cpp
+
+../obj/acdk_core/sunos-ws6/Calendar.o:acdk/util/Calendar.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Calendar.o -c acdk/util/Calendar.cpp
+
+../obj/acdk_core/sunos-ws6/BitSet.o:acdk/util/BitSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/BitSet.o -c acdk/util/BitSet.cpp
+
+../obj/acdk_core/sunos-ws6/Bucket.o:acdk/util/Bucket.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Bucket.o -c acdk/util/Bucket.cpp
+
+../obj/acdk_core/sunos-ws6/Collections.o:acdk/util/Collections.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Collections.o -c acdk/util/Collections.cpp
+
+../obj/acdk_core/sunos-ws6/Date.o:acdk/util/Date.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Date.o -c acdk/util/Date.cpp
+
+../obj/acdk_core/sunos-ws6/GregorianCalendar.o:acdk/util/GregorianCalendar.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/GregorianCalendar.o -c acdk/util/GregorianCalendar.cpp
+
+../obj/acdk_core/sunos-ws6/HashMap.o:acdk/util/HashMap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/HashMap.o -c acdk/util/HashMap.cpp
+
+../obj/acdk_core/sunos-ws6/HashSet.o:acdk/util/HashSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/HashSet.o -c acdk/util/HashSet.cpp
+
+../obj/acdk_core/sunos-ws6/Hashtable.o:acdk/util/Hashtable.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Hashtable.o -c acdk/util/Hashtable.cpp
+
+../obj/acdk_core/sunos-ws6/LinkedList.o:acdk/util/LinkedList.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/LinkedList.o -c acdk/util/LinkedList.cpp
+
+../obj/acdk_core/sunos-ws6/ListResourceBundle.o:acdk/util/ListResourceBundle.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ListResourceBundle.o -c acdk/util/ListResourceBundle.cpp
+
+../obj/acdk_core/sunos-ws6/Locale.o:acdk/util/Locale.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Locale.o -c acdk/util/Locale.cpp
+
+../obj/acdk_core/sunos-ws6/Properties.o:acdk/util/Properties.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Properties.o -c acdk/util/Properties.cpp
+
+../obj/acdk_core/sunos-ws6/PropertyResourceBundle.o:acdk/util/PropertyResourceBundle.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/PropertyResourceBundle.o -c acdk/util/PropertyResourceBundle.cpp
+
+../obj/acdk_core/sunos-ws6/Random.o:acdk/util/Random.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Random.o -c acdk/util/Random.cpp
+
+../obj/acdk_core/sunos-ws6/acdk_util_Package.o:acdk/util/acdk_util_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/acdk_util_Package.o -c acdk/util/acdk_util_Package.cpp
+
+../obj/acdk_core/sunos-ws6/ResourceBundle.o:acdk/util/ResourceBundle.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/ResourceBundle.o -c acdk/util/ResourceBundle.cpp
+
+../obj/acdk_core/sunos-ws6/SimpleTimeZone.o:acdk/util/SimpleTimeZone.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/SimpleTimeZone.o -c acdk/util/SimpleTimeZone.cpp
+
+../obj/acdk_core/sunos-ws6/SimpleListResourceBundle.o:acdk/util/SimpleListResourceBundle.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/SimpleListResourceBundle.o -c acdk/util/SimpleListResourceBundle.cpp
+
+../obj/acdk_core/sunos-ws6/StringTokenizer.o:acdk/util/StringTokenizer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/StringTokenizer.o -c acdk/util/StringTokenizer.cpp
+
+../obj/acdk_core/sunos-ws6/SysDate.o:acdk/util/SysDate.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/SysDate.o -c acdk/util/SysDate.cpp
+
+../obj/acdk_core/sunos-ws6/TimeZone.o:acdk/util/TimeZone.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/TimeZone.o -c acdk/util/TimeZone.cpp
+
+../obj/acdk_core/sunos-ws6/TreeMap.o:acdk/util/TreeMap.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/TreeMap.o -c acdk/util/TreeMap.cpp
+
+../obj/acdk_core/sunos-ws6/TreeSet.o:acdk/util/TreeSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/TreeSet.o -c acdk/util/TreeSet.cpp
+
+../obj/acdk_core/sunos-ws6/Vector.o:acdk/util/Vector.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/Vector.o -c acdk/util/Vector.cpp
+
+../obj/acdk_core/sunos-ws6/util_clazzinfo.o:acdk/util/util_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/util_clazzinfo.o -c acdk/util/util_clazzinfo.cpp
+
+../obj/acdk_core/sunos-ws6/util_clazzinfo1.o:acdk/util/util_clazzinfo1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/util_clazzinfo1.o -c acdk/util/util_clazzinfo1.cpp
+
+../obj/acdk_core/sunos-ws6/util_clazzinfo2.o:acdk/util/util_clazzinfo2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/util_clazzinfo2.o -c acdk/util/util_clazzinfo2.cpp
+
+../obj/acdk_core/sunos-ws6/LocaleInfo_de.o:acdk/locale/LocaleInfo_de.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/LocaleInfo_de.o -c acdk/locale/LocaleInfo_de.cpp
+
+../obj/acdk_core/sunos-ws6/LocaleInfo.o:acdk/locale/LocaleInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/LocaleInfo.o -c acdk/locale/LocaleInfo.cpp
+
+../obj/acdk_core/sunos-ws6/locale_clazzinfo.o:acdk/locale/locale_clazzinfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ../obj/acdk_core/sunos-ws6/locale_clazzinfo.o -c acdk/locale/locale_clazzinfo.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_core.so $(OBJECTS)
+
+  

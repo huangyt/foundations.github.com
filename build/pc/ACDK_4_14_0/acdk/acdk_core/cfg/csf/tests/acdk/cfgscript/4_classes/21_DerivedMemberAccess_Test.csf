@@ -1,0 +1,39 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+
+
+class AClass 
+extends acdk.lang.Object
+{
+  int _avar;
+  AClass() { _avar = 1; }
+}
+
+class BClass 
+extends AClass
+{
+  int _bvar;
+  BClass() { _bvar = 2; }
+  void foo()
+  {
+    int a = super._avar;
+    int b = _bvar;
+    acdk.lang.System.out.println("super._avar: " + a + "; [this.]_bvar: " + b);
+  }
+}
+
+
+out.println(
+"===================================
+Test for accessing parent classes members
+");
+
+BClass cls = new BClass();
+cls.foo();
+
+out.println("TEST OK");
+
+int i = 1 + 2;

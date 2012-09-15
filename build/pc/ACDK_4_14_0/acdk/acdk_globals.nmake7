@@ -1,0 +1,7 @@
+
+
+WEBHOME=d:\artefaktur\wweb\acdk\modules
+AUNIT_TESTOPTS=-test-htmlreport
+ 
+# DEBUG, RELEASE or ALL
+ACDK_BUILD_TYPE = ALL

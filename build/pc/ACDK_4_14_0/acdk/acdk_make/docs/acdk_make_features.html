@@ -1,0 +1,276 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Make features</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Make</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_make_man.html">ACDK Make manual</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdkmake features
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | acdkmake features | <a  href="acdk_make_targets.html">ACDK Make targets</a> | <a  href="acdk_make_tasks.html">Tasks</a> | <a  href="acdk_make_concepts.html">ACDK Make concepts</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Make features</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Make features</h1> -->
+
+<br>
+<br>
+<p class="PageIntro">
+An overview to the features of acdkmake.<br>
+</p>
+<br>
+<br>
+<a name="jumptable77"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Overall purpose"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Overall purpose</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Alternatives"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Alternatives</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_lisp"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_lisp</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#autoconf/automake"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;autoconf/automake</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Ant"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Ant</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Construction of acdkmake"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Construction of acdkmake</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Tasks"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Tasks</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdmake notation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdmake notation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configuration</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Feature Table"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Feature Table</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overall purpose">Overall purpose</a></h2>
+<b>acdkmake</b> was developed on the background of ACDK, 
+a portable C++ library, which provides an higher level object model
+and connects several middle ware and scripting technologies.<br>
+<br>
+Building ACDK has several challenges:<br>
+<ul class="FeatureList">
+<li class="Feature"> Supporting multiple platforms.<br>
+<li class="Feature"> Supporting multiple compilers.<br>
+<li class="Feature"> Supporting multiple compile modes (debug/release, dynamic/static)
+<li class="Feature"> Instrumenting sources with meta compiler
+<li class="Feature"> Automatic self tests
+<li class="Feature"> Compile again several interpreter (Java, perl, tcl, python)
+</ul>
+<br>
+<h3><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Alternatives">Alternatives</a></h3>
+<br>
+<h4><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_lisp">acdk_lisp</a></h4>
+ACDK uses still a set of lisp files which are interpreted
+by the <b><a  href="../../acdk_lisp/docs/acdk_lisp_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk_lisp Man</a></b> interpreter and generates make files
+for several platforms.<br>
+<br>
+As long <b>acdkmake</b> cannot create platform make files
+the acdk_lisp make framework will supported for ACDK.<br>
+<br>
+<h4><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="autoconf/automake">autoconf/automake</a></h4>
+automake is limited traditional unix environments and
+not useable for other platforms.<br>
+<br>
+<h4><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Ant">Ant</a></h4>
+Ant was developed for compiling Java projects
+and becomes a de facto standard.<br>
+Unfortunately Ant has no support for C++.<br>
+<br>
+acdkmake uses some ideas from ant, but differs
+also in some aspects.<br>
+<br>
+<h3><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Construction of acdkmake">Construction of acdkmake</a></h3>
+<h4><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Tasks">Tasks</a></h4>
+<br>
+The base construct in acdkmake is a Task.<br>
+See: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__Task"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::Task</a>.<br>
+A Task is simply a class which has an execute method.<br>
+<br>
+An build process is build as an tree of Tasks, starting
+with the the Task named "default". This Task has children
+task, which may build executable, and so on.<br>
+<br>
+<pre>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__ProjectTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.ProjectTask</a> ("default").
+ -> (depends on) acdk.make.AcdkLibTask("acdk_make").
+    -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__LookupFileTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.LookupFileTask</a> (find matching sources, compiler, etc. ).
+    -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__CompileTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.CompileTask</a> ( .cpp -> .o ).
+      -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__FileDependTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.FileDependTask</a> (check if .c is newer then .o).
+      -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__CppSourceDependTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.CppSourceDependTask</a> (check .cpp #include).
+        -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__FileDependTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.FileDependTask</a> (check if .h is newer then .o).
+      -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__JobExecuterTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.JobExecuterTask</a> (starts multiple compile tasks parallel).
+        -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__ShellExecuteTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.ShellExecuteTask</a> ( starts compiler ).
+    -> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__ShellExecuteTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk.make.ShellExecuteTask</a> ( starts linker ).
+</pre>
+<br>
+An important difference to traditional make's the task dependencies are
+not static, but can be created dynamically by a task. 
+Actually it is up to an Task, which sub-Task it starts.<br>
+<br>
+See on <a  href="acdk_make_tasks.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Tasks</a> for more information about Tasks.<br>
+<br>
+<h4><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdmake notation">acdmake notation</a></h4>
+<br>
+<b>Traditional make</b> uses declarative statments with
+very limited evaluation possibilities. In the execution
+part of a traditional normally a shell interpreter is 
+used.<br>
+<b>Ant</b> uses XML as notation. This has the advantage
+that it is more general, but XML is not the easiest way
+to read and write by humans.<br>
+<br>
+<b>acdkmake</b> uses a very simple scripting language, which
+mainly just invokes ACDK C++ classes (or other DMI server).<br>
+<a  href="../../acdk_core/docs/acdk_cfgscript_hb.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a> is also used by <a  href="../../acdk_core/docs/acdkmc.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;man acdkmc</a> to
+code class attributes (see <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_attributes"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Meta Attributes</a>).<br>
+<br>
+The main purpose of CfgScript to call ACDK classes via DMI.<br>
+<br>
+<h4><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configuration">Configuration</a></h4>
+If an project needs external ressources, like shared libries,
+headers, compilers, etc. the build system has to know where
+to find these files.<br>
+In traditional make files the locations of these ressources
+are often defined as variables at the top of the Makefile or
+the Makefile asumes that the variables are defined in the
+environment. The 
+user of the project has to ajust these values fitting to his
+platform.<br>
+<br>
+Autoconf/automake is a generator, which looks and tests if all
+prerequistist can be located. 
+<br>
+acdkmake merged the configuration step into the build process.<br>
+<br>
+<br>
+<br>
+<h2><a href="#jumptable77"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Feature Table">Feature Table</a></h2>
+<ul>
+<li> <b>Configuration</b>
+  <ul>
+  <li> check environment (ACDKHOME) (done)
+  <li> Check platform and compiler compatibility (done for NT and Linux)
+  <li> find needed tools (done for NT and Linux)
+  <li> find needed header
+  <li> find needed libs
+  <li> setup environment (done for NT and Linux)
+  <li> Conditions (uses scripting engine)
+  </ul>
+<li> <b>Grouping Sources</b>
+  <ul>
+  <li> Make list after pattern (done)
+  </ul>
+<li> <b>Variables</b>
+  <ul>
+  <li> Overwritable Variables (make cannot overwrite Variables) (done)
+  <li> Evaluation $(VAR) (done)
+  <li> Concenation (done)
+  <li> String Replacement (done)
+  </ul>
+  
+<li> <b>Dependencies Rules</b>
+  <ul>
+  <li> Execute Task if file does not exist, is newer. (done)
+  </ul>
+<li> <b>Targets</b>
+  <ul>
+  <li> Execute Targets, common in makes. (done)
+  </ul>
+<li> <b>platform abstract standard tasks</b>
+  <ul>
+  <li> Compiling (done)
+  <li> Linking (done)
+  <li> support for modification like DEBUG, RELEASE, SHARED, STATIC etc. (done)
+  <li> compile with multiple threads.<br>
+  </ul>
+<br>
+<li> <b>Generate Sources</b>
+  <ul>
+  <li> Start acdkmc depending to change of .h (done)
+  </ul>
+<li> <b>Compile Sources</b>
+  <ul>
+  <li> C-header include dependencies (done)
+  <li> Compile java 
+  </ul>
+<li> <b>Installing</b>
+  <ul>
+  <li> install to directory, generate needed dirs, only write file if newer. (done)
+  <li> chmod to files.<br>
+  </ul>
+<li> <b>Testing</b>
+  <ul>
+  <li> setting environment before testing (see also configuration)
+  <li> execute tests and make reports.<br>
+  </ul>
+<li> <b>General purpose Scripting</b>
+  <ul>
+  <li> File manipulation
+  <li> statement based scripts
+  <li> contitional and iteration statements
+  </ul>
+  
+<li> <b>Generating Project files</b>
+  <ul>
+  <li> generate standard make files (corresponding to current solution)
+  <li> generate Project files for IDEs
+  </ul>
+<li> <b>Generic Targets</b>
+  <ul>
+  <li> For common tasks, like Project settings (done for acdk projects)
+  <li> Metatargets with abstract rules
+  </ul>
+<br>
+<li> <b>Template support for generating files</b>
+  <ul>
+  <li> For example for project files (like realized to generate make and 
+       project files in current solution).<br>
+  </ul>
+<br>
+<li> <b>Script integration</b> (done for lisp)
+  <ul>
+  <li> Integrate Script elements (list, perl, etc).<br>
+  </ul>
+</ul>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | acdkmake features | <a  href="acdk_make_targets.html">ACDK Make targets</a> | <a  href="acdk_make_tasks.html">Tasks</a> | <a  href="acdk_make_concepts.html">ACDK Make concepts</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

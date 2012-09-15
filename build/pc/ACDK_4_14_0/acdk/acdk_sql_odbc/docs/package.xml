@@ -1,0 +1,165 @@
+<package>
+
+<name>acdk_sql_odbc</name>
+
+<title>
+ACDK SQL ODBC (acdk_sql_odbc)
+</title>
+
+
+<shortdescription>
+With acdk_sql_odbc, you can access all databases providing the
+ODBC interface.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<description>
+
+The <m>acdk_sql_odbc</m> library implements the 
+interfaces of %ref[<m>acdk_sql</m>, acdk_sql] to
+access databases via the ODBC interface.
+
+
+Following Databases should be supported:
+
+Windows all ODBC-Databases, including MS SQL 2000,
+MS Access, PostgreSQL, Oracle, Informix.
+
+On Linux/Solaris platform:
+Oracle 8, mySQL, MiniSQL, PostgreSQL, Text-Files.
+
+<m>acdk_sql_odbc</m> support the %ref[basic SQL Type, acdk_sql_man_types]
+the %ref[standard queries and operations, acdk_sql_man_basics], %ref[prepared statements, acdk_sql_man_prep]
+invokation of %ref[stored procedures, acdk_sql_man_callable] and %ref[database metainfo, acdk_sql_man_dbinfo].
+
+Please refer to %ref[acdk_sql_man_inst] how to use <m>acdk_sql_odbc</m> on Windows and Unix platforms.
+
+</description>
+
+<notes>
+<pre>
+===========================================================
+Bugs - Limitations.
+
+Not all SQL-types are supported, but
+the basic ones.
+
+</pre>
+</notes>
+
+<license>
+%ref[ACDK Free Edition License, acdk_license].
+</license>
+<dependencies>
+%ref[acdk_core]
+%ref[acdk_net]
+%ref[acdk_sql]
+</dependencies>
+
+<namespaces>
+%nsref[acdk::sql::odbc]
+</namespaces>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+With contributions of:
+Jürgen Baumann.
+Achim Brelle.
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+- Fixed character encoding bug on unix platforms
+- Tested with mySQL and PostgreSQL on Linux.
+- Tested with MS SQL 2000, Oracle 9, MS Access and 
+  PostgreSQL 8 on Windows.
+  
+===========================================================
+4.13.0
+- Wrote basic documentation
+- Implemented parts of ODBCDatabaseMetaData
+- Fixed compatiblity to Oracle on Windows
+
+===========================================================
+4.10.0
+- New: Make acdk_sql work with SQL Server 2000.
+- Implement PreparedStatement and CallableStatement.
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.01.1
+- Only ajustments to ACDK 2
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved Configurations.
+
+===========================================================
+1.00.2
+Changed configuration managment.
+
+===========================================================
+acdk_sql_odbc 1.01
+Added a test program odbctest, which performs the basic
+dabase routines (create,drop,insert,select, delete, update).
+
+
+===========================================================
+acdk_sql_odbc 1.00 
+Initial version
+</changes>
+<notes>
+None at the moment.
+</notes>
+
+<sf-notes>
+With acdk_sql_odbc, you can access all databases providing the
+ODBC interface.
+
+Following Databases should be supported:
+
+Windows all ODBC-Databases.
+On Linux/Solaris platform:
+Oracle 8, mySQL, MiniSQL, PostgreSQL, Text-Files.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/sql/odbc">http://acdk.sourceforge.net/acdk/sql/odbc</a>
+
+</sf-notes>
+<sf-changes>
+- Only ajustments to ACDK 2
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_sql_odbc/docs/readme-en.html#Changes">Changes</a>
+
+</sf-changes>
+
+
+</package>

@@ -1,0 +1,131 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="syntax">
+<title>CfgScript Syntax Elements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Syntax Elements
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Syntax Elements | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Syntax Elements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Syntax Elements</h1> -->
+<p class="curchapterline"> | Syntax Elements | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p>
+<p class="PageIntro">
+Explanation of Sytanx
+</p>
+
+<br>
+<a name="jumptable18"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Starting Point"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Starting Point</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Syntax of Syntax"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Syntax of Syntax</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Basic Elements"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Basic Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Identifier"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Identifier</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#TypeName"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;TypeName</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ComponentTypeName"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ComponentTypeName</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Identifier"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Identifier</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Starting Point">Starting Point</a></h2>
+The syntax of CfgScript starts with a CfgScource:<br>
+<a  href="acdk_cfgscript_hb_lang_source.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Source</a>.<br>
+<br>
+<h2><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax of Syntax">Syntax of Syntax</a></h2>
+The syntax follows the rules of the EBNF notation.<br>
+<pre>
+Rule // name of Rule
+: Production // how to produce this rule
+| AlternativeProduction // alternative production
+; // end of rule
+
+Rule
+: '[' ']' // ' quoted strings must match in the source text
+| OtherRule // Identifier reference to other rule
+| FirstRule SecondRule // FirstRule has to match first, than SecondRule. 
+                      // Both may consume Characters of the source code
+;
+
+Rule
+: [ OptionalRule ] OtherRule // parts bracket with [ ] are optional
+| (XRule YRule)* // ( ) groups rules, * matches 0 - n times
+| ZRule+ // + matches 1 - n times
+;
+</pre>
+<br>
+<br>
+<h2><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basic Elements">Basic Elements</a></h2>
+<br>
+<h3><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Identifier">Identifier</a></h3>
+An identifier corresponds the rules of C/C++/Java identifiers.<br>
+An identifier must not start with a digit.<br>
+<br>
+<br>
+<h3><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="TypeName">TypeName</a></h3>
+<pre>
+TypeName
+: <a  href="acdk_cfgscript_hb_lang_types_basic.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BasicType</a>
+| <a  href="acdk_cfgscript_hb_lang_syntax.html#ComponentTypeName"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ComponentTypeName</a>
+</pre>
+<br>
+<br>
+<h3><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ComponentTypeName">ComponentTypeName</a></h3>
+<pre>
+ComponentTypeName
+: <a  href="acdk_cfgscript_hb_lang_syntax.html#Identifier"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Identifier</a> [ '.' ComponentTypeName ]
+</pre>
+<h3><a href="#jumptable18"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Identifier">Identifier</a></h3>
+Please refer to <a  href="acdk_cfgscript_hb_lang_expr_literal.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Literals</a>.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Syntax Elements | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

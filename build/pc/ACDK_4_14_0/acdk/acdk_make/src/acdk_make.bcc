@@ -1,0 +1,306 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_MAKE_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib"
+
+OUTFILE="..\..\bin\acdk_make.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_make\bcc"
+SOURCES= 	"acdk\make\AbstractCppTask.cpp" \
+	"acdk\make\AbstractTask.cpp" \
+	"acdk\make\AcdkBinaryTask.cpp" \
+	"acdk\make\AcdkExeTask.cpp" \
+	"acdk\make\AcdkLibTask.cpp" \
+	"acdk\make\AcdkMetainfLibTask.cpp" \
+	"acdk\make\AcdkProjectTask.cpp" \
+	"acdk\make\AcdkTestExeTask.cpp" \
+	"acdk\make\AcdkUnitConfigTask.cpp" \
+	"acdk\make\CommandLineCompilerTool.cpp" \
+	"acdk\make\CompileTask.cpp" \
+	"acdk\make\CppSourceDependTask.cpp" \
+	"acdk\make\FileCopyTask.cpp" \
+	"acdk\make\FileDeleteTask.cpp" \
+	"acdk\make\FileDependTask.cpp" \
+	"acdk\make\FileOpTask.cpp" \
+	"acdk\make\FileSet.cpp" \
+	"acdk\make\JavaCompileTask.cpp" \
+	"acdk\make\JobExecuterTask.cpp" \
+	"acdk\make\JobTask.cpp" \
+	"acdk\make\LookupFileTask.cpp" \
+	"acdk\make\MakeProps.cpp" \
+	"acdk\make\make_metainf_base.cpp" \
+	"acdk\make\PlattformSelectTask.cpp" \
+	"acdk\make\ProjectTask.cpp" \
+	"acdk\make\ScriptExecuteTask.cpp" \
+	"acdk\make\ShellExecuteTask.cpp" \
+	"acdk\make\Task.cpp" \
+	"acdk\make\TaskCfgFile.cpp" \
+	"acdk\make\TaskManager.cpp" \
+	"acdk\make\TestTask.cpp" \
+	"acdk\make\ThreadPool.cpp" \
+	"acdk\make\Tool.cpp" \
+	"acdk\make\make_metainf\make_metainf_ext.cpp" \
+	"acdk\make\make_metainf\make_metainf_ext1.cpp" \
+
+HEADER= 	"acdk\make\AbstractCppTask.h" \
+	"acdk\make\AbstractTask.h" \
+	"acdk\make\AcdkBinaryTask.h" \
+	"acdk\make\AcdkExeTask.h" \
+	"acdk\make\AcdkLibTask.h" \
+	"acdk\make\AcdkMetainfLibTask.h" \
+	"acdk\make\AcdkProjectTask.h" \
+	"acdk\make\AcdkTestExeTask.h" \
+	"acdk\make\AcdkUnitConfigTask.h" \
+	"acdk\make\ChDir.h" \
+	"acdk\make\CommandLineCompilerTool.h" \
+	"acdk\make\CompileTask.h" \
+	"acdk\make\Config.h" \
+	"acdk\make\CppSourceDependTask.h" \
+	"acdk\make\DirExistsTask.h" \
+	"acdk\make\FileCopyTask.h" \
+	"acdk\make\FileDeleteTask.h" \
+	"acdk\make\FileDependTask.h" \
+	"acdk\make\FileOpTask.h" \
+	"acdk\make\FileSet.h" \
+	"acdk\make\JavaCompileTask.h" \
+	"acdk\make\JobExecuterTask.h" \
+	"acdk\make\JobTask.h" \
+	"acdk\make\LookupFileTask.h" \
+	"acdk\make\make.h" \
+	"acdk\make\MakeProps.h" \
+	"acdk\make\PlattformSelectTask.h" \
+	"acdk\make\ProjectTask.h" \
+	"acdk\make\ScriptExecuteTask.h" \
+	"acdk\make\ShellExecuteTask.h" \
+	"acdk\make\Task.h" \
+	"acdk\make\TaskCfgFile.h" \
+	"acdk\make\TaskInfo.h" \
+	"acdk\make\TaskManager.h" \
+	"acdk\make\TestTask.h" \
+	"acdk\make\ThreadPool.h" \
+	"acdk\make\Tool.h" \
+
+OBJECTS= 	"..\tobj\acdk_make\bcc\AbstractCppTask.obj" \
+	"..\tobj\acdk_make\bcc\AbstractTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkBinaryTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkExeTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkLibTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkMetainfLibTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkProjectTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkTestExeTask.obj" \
+	"..\tobj\acdk_make\bcc\AcdkUnitConfigTask.obj" \
+	"..\tobj\acdk_make\bcc\CommandLineCompilerTool.obj" \
+	"..\tobj\acdk_make\bcc\CompileTask.obj" \
+	"..\tobj\acdk_make\bcc\CppSourceDependTask.obj" \
+	"..\tobj\acdk_make\bcc\FileCopyTask.obj" \
+	"..\tobj\acdk_make\bcc\FileDeleteTask.obj" \
+	"..\tobj\acdk_make\bcc\FileDependTask.obj" \
+	"..\tobj\acdk_make\bcc\FileOpTask.obj" \
+	"..\tobj\acdk_make\bcc\FileSet.obj" \
+	"..\tobj\acdk_make\bcc\JavaCompileTask.obj" \
+	"..\tobj\acdk_make\bcc\JobExecuterTask.obj" \
+	"..\tobj\acdk_make\bcc\JobTask.obj" \
+	"..\tobj\acdk_make\bcc\LookupFileTask.obj" \
+	"..\tobj\acdk_make\bcc\MakeProps.obj" \
+	"..\tobj\acdk_make\bcc\make_metainf_base.obj" \
+	"..\tobj\acdk_make\bcc\PlattformSelectTask.obj" \
+	"..\tobj\acdk_make\bcc\ProjectTask.obj" \
+	"..\tobj\acdk_make\bcc\ScriptExecuteTask.obj" \
+	"..\tobj\acdk_make\bcc\ShellExecuteTask.obj" \
+	"..\tobj\acdk_make\bcc\Task.obj" \
+	"..\tobj\acdk_make\bcc\TaskCfgFile.obj" \
+	"..\tobj\acdk_make\bcc\TaskManager.obj" \
+	"..\tobj\acdk_make\bcc\TestTask.obj" \
+	"..\tobj\acdk_make\bcc\ThreadPool.obj" \
+	"..\tobj\acdk_make\bcc\Tool.obj" \
+	"..\tobj\acdk_make\bcc\make_metainf_ext.obj" \
+	"..\tobj\acdk_make\bcc\make_metainf_ext1.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_make\bcc\AbstractCppTask.obj": "acdk\make\AbstractCppTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AbstractCppTask.cpp"
+
+"..\tobj\acdk_make\bcc\AbstractTask.obj": "acdk\make\AbstractTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AbstractTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkBinaryTask.obj": "acdk\make\AcdkBinaryTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkBinaryTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkExeTask.obj": "acdk\make\AcdkExeTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkExeTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkLibTask.obj": "acdk\make\AcdkLibTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkLibTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkMetainfLibTask.obj": "acdk\make\AcdkMetainfLibTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkMetainfLibTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkProjectTask.obj": "acdk\make\AcdkProjectTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkProjectTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkTestExeTask.obj": "acdk\make\AcdkTestExeTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkTestExeTask.cpp"
+
+"..\tobj\acdk_make\bcc\AcdkUnitConfigTask.obj": "acdk\make\AcdkUnitConfigTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\AcdkUnitConfigTask.cpp"
+
+"..\tobj\acdk_make\bcc\CommandLineCompilerTool.obj": "acdk\make\CommandLineCompilerTool.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\CommandLineCompilerTool.cpp"
+
+"..\tobj\acdk_make\bcc\CompileTask.obj": "acdk\make\CompileTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\CompileTask.cpp"
+
+"..\tobj\acdk_make\bcc\CppSourceDependTask.obj": "acdk\make\CppSourceDependTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\CppSourceDependTask.cpp"
+
+"..\tobj\acdk_make\bcc\FileCopyTask.obj": "acdk\make\FileCopyTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\FileCopyTask.cpp"
+
+"..\tobj\acdk_make\bcc\FileDeleteTask.obj": "acdk\make\FileDeleteTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\FileDeleteTask.cpp"
+
+"..\tobj\acdk_make\bcc\FileDependTask.obj": "acdk\make\FileDependTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\FileDependTask.cpp"
+
+"..\tobj\acdk_make\bcc\FileOpTask.obj": "acdk\make\FileOpTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\FileOpTask.cpp"
+
+"..\tobj\acdk_make\bcc\FileSet.obj": "acdk\make\FileSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\FileSet.cpp"
+
+"..\tobj\acdk_make\bcc\JavaCompileTask.obj": "acdk\make\JavaCompileTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\JavaCompileTask.cpp"
+
+"..\tobj\acdk_make\bcc\JobExecuterTask.obj": "acdk\make\JobExecuterTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\JobExecuterTask.cpp"
+
+"..\tobj\acdk_make\bcc\JobTask.obj": "acdk\make\JobTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\JobTask.cpp"
+
+"..\tobj\acdk_make\bcc\LookupFileTask.obj": "acdk\make\LookupFileTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\LookupFileTask.cpp"
+
+"..\tobj\acdk_make\bcc\MakeProps.obj": "acdk\make\MakeProps.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\MakeProps.cpp"
+
+"..\tobj\acdk_make\bcc\make_metainf_base.obj": "acdk\make\make_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\make_metainf_base.cpp"
+
+"..\tobj\acdk_make\bcc\PlattformSelectTask.obj": "acdk\make\PlattformSelectTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\PlattformSelectTask.cpp"
+
+"..\tobj\acdk_make\bcc\ProjectTask.obj": "acdk\make\ProjectTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\ProjectTask.cpp"
+
+"..\tobj\acdk_make\bcc\ScriptExecuteTask.obj": "acdk\make\ScriptExecuteTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\ScriptExecuteTask.cpp"
+
+"..\tobj\acdk_make\bcc\ShellExecuteTask.obj": "acdk\make\ShellExecuteTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\ShellExecuteTask.cpp"
+
+"..\tobj\acdk_make\bcc\Task.obj": "acdk\make\Task.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\Task.cpp"
+
+"..\tobj\acdk_make\bcc\TaskCfgFile.obj": "acdk\make\TaskCfgFile.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\TaskCfgFile.cpp"
+
+"..\tobj\acdk_make\bcc\TaskManager.obj": "acdk\make\TaskManager.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\TaskManager.cpp"
+
+"..\tobj\acdk_make\bcc\TestTask.obj": "acdk\make\TestTask.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\TestTask.cpp"
+
+"..\tobj\acdk_make\bcc\ThreadPool.obj": "acdk\make\ThreadPool.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\ThreadPool.cpp"
+
+"..\tobj\acdk_make\bcc\Tool.obj": "acdk\make\Tool.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\Tool.cpp"
+
+"..\tobj\acdk_make\bcc\make_metainf_ext.obj": "acdk\make\make_metainf\make_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\make_metainf\make_metainf_ext.cpp"
+
+"..\tobj\acdk_make\bcc\make_metainf_ext1.obj": "acdk\make\make_metainf\make_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make\bcc" "acdk\make\make_metainf\make_metainf_ext1.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_make.dll"
+	del "..\tobj\acdk_make\bcc\AbstractCppTask.obj"
+	del "..\tobj\acdk_make\bcc\AbstractTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkBinaryTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkExeTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkLibTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkMetainfLibTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkProjectTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkTestExeTask.obj"
+	del "..\tobj\acdk_make\bcc\AcdkUnitConfigTask.obj"
+	del "..\tobj\acdk_make\bcc\CommandLineCompilerTool.obj"
+	del "..\tobj\acdk_make\bcc\CompileTask.obj"
+	del "..\tobj\acdk_make\bcc\CppSourceDependTask.obj"
+	del "..\tobj\acdk_make\bcc\FileCopyTask.obj"
+	del "..\tobj\acdk_make\bcc\FileDeleteTask.obj"
+	del "..\tobj\acdk_make\bcc\FileDependTask.obj"
+	del "..\tobj\acdk_make\bcc\FileOpTask.obj"
+	del "..\tobj\acdk_make\bcc\FileSet.obj"
+	del "..\tobj\acdk_make\bcc\JavaCompileTask.obj"
+	del "..\tobj\acdk_make\bcc\JobExecuterTask.obj"
+	del "..\tobj\acdk_make\bcc\JobTask.obj"
+	del "..\tobj\acdk_make\bcc\LookupFileTask.obj"
+	del "..\tobj\acdk_make\bcc\MakeProps.obj"
+	del "..\tobj\acdk_make\bcc\make_metainf_base.obj"
+	del "..\tobj\acdk_make\bcc\PlattformSelectTask.obj"
+	del "..\tobj\acdk_make\bcc\ProjectTask.obj"
+	del "..\tobj\acdk_make\bcc\ScriptExecuteTask.obj"
+	del "..\tobj\acdk_make\bcc\ShellExecuteTask.obj"
+	del "..\tobj\acdk_make\bcc\Task.obj"
+	del "..\tobj\acdk_make\bcc\TaskCfgFile.obj"
+	del "..\tobj\acdk_make\bcc\TaskManager.obj"
+	del "..\tobj\acdk_make\bcc\TestTask.obj"
+	del "..\tobj\acdk_make\bcc\ThreadPool.obj"
+	del "..\tobj\acdk_make\bcc\Tool.obj"
+	del "..\tobj\acdk_make\bcc\make_metainf_ext.obj"
+	del "..\tobj\acdk_make\bcc\make_metainf_ext1.obj"
+
+

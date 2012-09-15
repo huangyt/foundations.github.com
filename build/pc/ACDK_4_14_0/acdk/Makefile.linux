@@ -1,0 +1,28 @@
+
+default:
+	echo "can make ddistrib and distrib";
+
+
+ddistrib:
+	for package in acdk_core acdk_text acdk_net acdk_lisp acdk_boot acdk_perl acdk_sql acdk_sql_odbc; do \
+	  TPWD="`pwd`"; \
+	  cd $$package; \
+	  make -f $$package.linux ddistrib; \
+	  cd ..; \
+	done; 
+
+
+distrib:
+	for package in acdk_core acdk_text acdk_net acdk_lisp acdk_boot acdk_perl acdk_sql acdk_sql_odbc; do \
+	  TPWD="`pwd`"; \
+	  cd $$package; \
+	  make -f $$package.linux distrib; \
+	  cd ..; \
+	done; 
+
+propagate:
+	for package in acdk_core acdk_text acdk_net acdk_lisp acdk_boot acdk_perl acdk_sql acdk_sql_odbc; do \
+	  for file in ACDK-FreeLicense.txt INSTALL version.txt; do \
+	    cp cfg/general/$$file $$package; \
+	  done; \
+	done;

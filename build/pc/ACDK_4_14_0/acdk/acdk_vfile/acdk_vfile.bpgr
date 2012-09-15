@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_vfile.cbx"/>
+  <project path="src/acdk_vfile_file2rc.cbx"/>
+  <project path="src/acdk_vfile_convert.cbx"/>
+  <project path="tests/acdk/vfile/acdk_vfile_Test.cbx"/>
+  <project path="tests/acdk/vfile/tar/acdk_vfile_tar_Test.cbx"/>
+  <project path="tests/acdk/vfile/zip/acdk_vfile_zip_Test.cbx"/>
+
+</projectgroup>

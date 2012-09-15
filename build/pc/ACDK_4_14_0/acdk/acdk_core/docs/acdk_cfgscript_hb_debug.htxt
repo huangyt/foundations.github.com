@@ -1,0 +1,276 @@
+%id: acdk_cfgscript_hb_debug
+%title: Debugging CfgScript
+%shorttitle: Debugging
+%body:
+<chapterline/>
+<pageintro>
+How to debug a CfgScript.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Using the CfgScript debugger</jump1>
+
+Using CfgScript interpreter in debugging mode just start the <c>acdkcfgscript</c>
+interpreter with the <c>-csfdebug</c> option.
+
+<source>
+0:
+1:
+! int i = 0;
+> 
+</source>
+In the debugger the statement, which will executed next will marked with <c>!</c>.
+Type <c>?</c> at the prompt and you will receive a short help:
+
+<source>
+Debugging commands:
+running:
+c|continue           continue running
+n|next               execute next line
+s|step               next statement (step into functions)
+r|return             run until return
+q|quit               quit debugging/interpreter
+
+Breakpoints:
+br[f|l|e] <cmd> [<substr>] break at function, line or exception
+    cmd: new|list|delete
+
+View Data:
+bt                   print backtrace
+l|list               view source
+df|dumpframe [frame] dump current scope or scope of frame number
+de|dumpenv           dump current environment
+trace [on|off]       activate or deactivate tracing
+
+view/modify:
+p|print <expr>       print expression
+i|input              interactive mode
+
+(Please refer to the CfgScript handbook for more information)
+
+> 
+</source>
+
+
+<jump2>(c)ontinue</jump2>
+When break into the debugger with <c>c</c> the program will continue
+running until next breakpoint.
+
+<jump2>(n)next</jump2>
+When break into the debugger with <c>n</c> will execute the script
+until next statement will be reached. This command will not step into
+function calls or block statements.
+
+<jump2>(s)tep</jump2>
+When break into the debugger with <c>s</c> will execute the script
+until next statement will be reached. This command will step into
+function calls of CfgScript class methods.
+
+<jump2>(q)uit</jump2>
+When break into the debugger with <c>q</c> will stop the execution
+the script and quits.
+
+<jump2>brf (break at function)</jump2>
+With the <c>brf</c> command a breakpoint can be list, set or remove at a method of a CfgScript 
+class. 
+
+With <c>brf new</c> a new breakpoint can be inserted.
+
+The argument is simply a substring of the method signature. 
+<fl>
+<f> <c>foo(</c> stops at any CfgScript method named foo
+<f> <c>MyClass.</c> stops at any method of the CfgScript class MyClass
+<f> <c>MyClass.foo(</c> stops at any MyClass method named foo
+<f> <c>MyClass.foo()</c> stops at the MyClass foo method, which has no arguments.
+<f> <c>MyClass</c> stops at any CfgScript method, either owned by MyClass or has
+    MyClass as return value or parameter.
+</fl>
+To delete a breakpoint enter for example:
+<c>brf delete foo(</c>
+
+If no argument at <c>brf delete</c> is given, all breakpoints will be deleted.
+
+<jump2>Set breakpoint at source line</jump2>
+With <c>brl</c> it is possible to insert a break point
+at a source line. <c>brl</c> has the same commands as brf, but 
+the argument will be parsed following way:
+<fl>
+<f> &lt;number&gt; it will break at source line in any source
+<f> &lt;sourcefile&gt;:&lt;number&gt; will break at line of given 
+    csf source. The source file must only a substring of the fully 
+    qualified source file name.
+</fl>
+
+<jump2>Set breakpoint at exception</jump2>
+With <c>bre</c> it is possible to insert a break point
+just before an exception will be thrown. 
+<c>brl</c> has the same commands as brf.
+If the optional argument is not given (in case <c> bre new</c>)
+the interpreter will break to debugger if any exception will be thrown.
+Otherwise the argument will check if it is a substring of the class name
+(for example <c>"acdk/lang/IndexOutOfBoundsException"</c>) of the thrown
+exception.
+
+<jump2>bt (Print BackTrace)</jump2>
+Print the current stack backtrace.
+The current stack frame is at top.
+<source>
+> bt
+cfg/csf/tests/8_misc/DebuggingTest.csf(14):     __script.traceOff();
+static  void DebuggingTestClass.foo()
+cfg/csf/tests/8_misc/DebuggingTest.csf(20):     foo();
+static  void DebuggingTestClass.baz(int i)
+cfg/csf/tests/8_misc/DebuggingTest.csf(26):     baz(i);
+static  void DebuggingTestClass.bar(int i)
+cfg/csf/tests/8_misc/DebuggingTest.csf(38): DebuggingTestClass.bar(3);
+</source>
+
+See also %ref[__script.getScriptBackTrace(), #__script.getScriptBackTrace()].
+
+<jump2>(l)ist</jump2>
+View the source at the current position.
+The possition of the next executed statement will be marked
+with a <c>!</c>.
+<source>
+> vs
+8:   {
+9:     int i = 42;
+10:     String s = "asdf";
+11:     out.println(__script.getScriptBackTrace());
+12:     __script.breakToDebug();
+! __script.traceOff();
+14: i = i + 10;
+15: out.println("After debug");
+16: }
+17: static void baz(int i)
+</source>
+
+<jump2>df or dumpframe</jump2>
+Dump all variables in current stack frame.
+Optional the frame number can given with integer argument.
+
+<jump2>de or dumpenv</jump2>
+Dump all variables, visible from current point.
+
+<jump2>trace on/off</jump2>
+With <c>trace on</c> all code lines are printed, which are executed.
+
+See also %ref[__script.traceOn()/__script.traceOff(), #__script.traceOn()/__script.traceOff()].
+
+<jump2>(p)rint</jump2>
+The <c>print</c> command expects an argument, which should be an CfgScript expression.
+The result of this expression will be printed.
+
+<source>
+> print 42 * 3
+126
+</source>
+
+<jump2>(i)nput</jump2>
+With <c>i</c> code can be inserted and executed.
+Finish code input with a input line with single . (point).
+After finish the input the source code, it will be executed in a nested scope.
+
+<source>
+0:
+! __script.traceOn();
+> i
+enter code and end it with a single . in the line
+out.println("Hello");
+. 
+
+Hello
+>
+</source>
+<jump1>Control debugger from source</jump1>
+<jump2>__script.breakToDebug()</jump2>
+Insert the <c>__script.breakToDebug();</c> statement in our
+code. When executed the interpreter breaks to the debugger.
+
+<jump2>__script.traceOn()/__script.traceOff()</jump2>
+With the <c>__script.traceOn();</c> statement each line
+will be printed to standard out before executed.
+With <c>__script.traceOff();</c> the trace will be switched off.
+
+<jump2>__script.getScriptBackTrace()</jump2>
+The <c>__script.getScriptBackTrace();</c> statement gives
+you a textual representation of the the current call stack.
+
+<source>
+out.println(__script.getScriptBackTrace());
+</source>
+
+<jump1>Error situation in Script</jump1>
+
+<jump2>What happens on errors</jump2>
+Whenever an error happens in the Script and the script terminates
+because either a unhandled thrown exception or a syntax/semantic 
+error the stack trace of the script will be dumped.
+
+Sample output:
+<pre>
+507$/artefaktur/acdk/acdk_core>../bin/acdkcfgscript_d.exe cfg/csf/tests/8_misc/20_ScriptBackTrace.csf 
+unhandled exception:
+don't call this, Go Away!
+In:
+c:\d\artefaktur\acdk\acdk_core\cfg\csf\tests\8_misc\TestIncludeBackTrace.csf(7):     throw new Exception("don't call this, Go Away!");
+static  void IncludedClass.foo()
+c:\d\artefaktur\acdk\acdk_core\cfg\csf\tests\8_misc\TestIncludeBackTrace.csf(11):     foo();
+static  void IncludedClass.bar(int i)
+cfg/csf/tests/8_misc/20_ScriptBackTrace.csf(10):     IncludedClass.bar(42);
+static  void AClass.foo()
+cfg/csf/tests/8_misc/20_ScriptBackTrace.csf(18):     foo();
+static  AClass AClass.bar(int i)
+cfg/csf/tests/8_misc/20_ScriptBackTrace.csf(22): AClass.bar(2);
+</pre>
+
+
+<jump2>Handle interpreter errors with code</jump2>
+
+If the CfgScript error encounter an error it throws 
+an exception. Because the exception handling in CfgScript 
+using C++ exceptions the interpreter thrown exceptions can 
+also be handled inside the script.
+
+<source>
+/*
+  first example try to use a variable, which is not
+  not defined.
+*/ 
+try {
+  new StringBuffer(this_variable_doesn_exists);
+  out.println("TEST FAILED");
+} catch (acdk.cfgscript.ScriptException ex) {
+  out.println("Caught script error in script: " + ex.getMessage());
+}
+/*
+  second example tries to invoke a method, which doesn't exists.
+*/
+try {
+  num = 3;
+  // try to call non existent method
+  num.foobaz();
+} catch (acdk.lang.NoSuchMethodException ex) {
+  out.println("Caught script error in script: " + ex.getMessage());
+}
+/*
+  it is also possibe - as long the curled brackets {} are balanced - 
+  to handle really ugly syntax error
+*/
+try {
+  num = 3;
+  // syntax error
+  if num = 3 then num = 4;
+  p- alsjd8u usdyfiu]'lu1e // more garbage
+} catch (acdk.cfgscript.ScriptException ex) {
+  out.println("Caught script error in script: " + ex.getMessage());
+}
+</source>
+
+<jump1>Unittests</jump1>
+CfgScript files can also be used as plugins for the %ref[ACDK Unit Tests , acdk_tools_aunit_man] framework.
+Please refer to %ref[Using CfgScript as Unit Tests, acdk_tools_aunit_man#Using CfgScript as Unit Tests].
+.

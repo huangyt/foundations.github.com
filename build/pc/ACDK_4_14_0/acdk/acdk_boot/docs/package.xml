@@ -1,0 +1,91 @@
+<package>
+This is sample package (acdk_boot) of the ACDK
+distribution.
+
+<name>acdk_boot</name>
+
+<title>
+ACDK Boot (acdk_boot)
+</title>
+
+
+<shortdescription>
+acdk_boot contains a basic ACDK project with
+a shared library/DLL and a HelloWorld executable.
+</shortdescription>
+
+<description>
+acdk_boot is designed to be used as a demonstration
+package for ACDK.
+It contains a acdk module <m>acdk_boot</m> as shared library/dll 
+including meta info, an <m>HelloWorld</m> executable, which uses 
+the <m>acdk_boot</m> and a unit test project.
+
+</description>
+
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+ACDK Free Edition License.
+See %ref[acdk_license].
+</license>
+<dependencies>
+  %ref[acdk_core].
+</dependencies>
+
+<namespaces>
+  %nsref[acdk::boot];
+</namespaces>
+
+<authors>
+  Roger René Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+
+<notes>
+
+</notes>
+<changes>
+===========================================================
+4.10.0
+- Nothing
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+
+===========================================================
+acdk_boot 4.00.1
+- Ajustments to Unicode and revised metainfo
+
+
+===========================================================
+acdk_boot 2.01.1
+- Clean documentation a little bit.
+
+acdk_boot 2.00.1
+- Add test sample
+
+
+</changes>
+</package>

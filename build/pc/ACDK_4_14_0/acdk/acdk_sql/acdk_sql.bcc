@@ -1,0 +1,128 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_sql
+
+default: all
+all:: install compile
+
+compile:: acdk_sql acdk_sql_metainf 
+clean:: acdk_sql-clean acdk_sql_metainf-clean 
+metainfo:: acdk_sql-metainfo acdk_sql_metainf-metainfo 
+acdk_sql:  
+	cd src
+	$(MAKE) -f acdk_sql.bcc
+	cd ..
+
+
+acdk_sql-clean:
+	cd src
+	$(MAKE) -f acdk_sql.bcc clean
+	cd ..
+
+
+acdk_sql-metainfo:
+	cd src
+	$(MAKE) -f acdk_sql.bcc metainfo
+	cd ..
+
+
+acdk_sql_metainf:  acdk_sql
+	cd src
+	$(MAKE) -f acdk_sql_metainf.bcc
+	cd ..
+
+
+acdk_sql_metainf-clean:
+	cd src
+	$(MAKE) -f acdk_sql_metainf.bcc clean
+	cd ..
+
+
+acdk_sql_metainf-metainfo:
+	cd src
+	$(MAKE) -f acdk_sql_metainf.bcc metainfo
+	cd ..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	echo no test cases defined
+
+
+
+acdk_sql-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src cbx
+
+acdk_sql_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src cbx
+
+
+makemake:: acdk_sql-makemake acdk_sql_metainf-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_metainf.lsp -pdir src cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_sql.lsp
+
+

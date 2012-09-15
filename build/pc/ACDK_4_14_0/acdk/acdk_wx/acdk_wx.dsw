@@ -1,0 +1,176 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+
+
+###############################################################################
+Project: "acdk_wx"=src\acdk_wx.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_wx_metainf"=src\acdk_wx_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_wx_dmiproxy"=src\acdk_wx_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_wx_Test"=tests/acdk/wx\acdk_wx_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "guitestrunner"=src\guitestrunner.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "HelloWxWorld"=tests/acdk/wx/HelloWxWorld\HelloWxWorld.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "HelloWorld"=tests/acdk/wx/HelloWorld\HelloWorld.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_wx_ide"=src\acdk_wx_ide.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkcsfide"=src\acdkcsfide.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx_ide
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_wx_ide_Test"=tests/acdk/wx/ide\acdk_wx_ide_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_wx_ide
+    End Project Dependency
+}}}
+
+
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

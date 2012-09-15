@@ -1,0 +1,1 @@
+http://code.google.com/p/v8/wiki/BuildingWithGYP

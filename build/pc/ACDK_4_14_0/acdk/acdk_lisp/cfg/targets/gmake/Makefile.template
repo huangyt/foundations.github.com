@@ -1,0 +1,25 @@
+
+
+CC=%[acdkmake-target-compileexe]%
+LINK=%[acdkmake-target-linkexe]%
+CCOPTS=%[acdkmake-target-copts]%
+CCINCLUDE=%[(acdkmake-get-includes)]%
+DEFINES=%[(acdkmake-get-defines)]%
+
+SYSLDFLAGS=%[(acdkmake-get-target-ldflags)]%
+LDFLAGS=%[(acdkmake-get-project-ldflags)]%
+CFLAGSX = %[(if (isdef CFLAGSX) CFLAGSX "") ]%
+LDFLAGSX = %[(if (isdef LDFLAGSX) LDFLAGSX "") ]%
+
+SOURCES= %[(acdkmake-target-getfilelist acdkmake-project-sources)]%
+HEADER= %[(acdkmake-target-getfilelist acdkmake-project-header)]%
+OBJECTS= %[(acdkmake-target-getfilelist acdkmake-project-objects)]%
+
+
+%[(getBindModule)]%
+
+%[(getMakeObjects)]%
+
+
+
+  

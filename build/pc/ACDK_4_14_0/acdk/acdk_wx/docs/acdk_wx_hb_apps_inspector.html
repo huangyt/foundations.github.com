@@ -1,0 +1,111 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>acdk_wx Inspector</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK WX</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_wx_hb.html">acdk_wx Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_wx_hb_apps.html">Applications</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Inspector
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_apps_guitestrunner.html">GuiTestRunner</a> | Inspector |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_wx Inspector</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_wx Inspector</h1> -->
+<p class="PageIntro">
+Inspector is is type explorer/class browser, a heap/object explorer and 
+a interactive CfgScript console.
+Inspector is written using a mixture of C++ and CfgScript.
+</p>
+<br>
+<br>
+<a name="jumptable70"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Start Inspector"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Start Inspector</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Construction"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Construction</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Class View"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Class View</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Object View"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Object View</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#CfgScript Console"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CfgScript Console</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable70"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Start Inspector">Start Inspector</a></h2>
+The main Inspector application is written in CfgScript. 
+You have to start it with acdkcfgscript interpreter:<br>
+<code>acdk/bin/acdkcfgscript[_d] acdk/acdk_core/cfg/csf/lib/inspect/Inspector.csf</code>
+<br>
+<h2><a href="#jumptable70"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Construction">Construction</a></h2>
+Inspector is written with a combination of ACDK C++ and CfgScript.<br>
+The GUI components ClassTreeCtrl, ObjectTreeCtrl and CfgScriptConsole are
+written in ACDK C++.<br>
+These controls are used and controled in the CfgScript frame
+<code>acdk/acdk_core/cfg/csf/lib/inspect/Inspector.csf</code>.<br>
+<br>
+<h3><a href="#jumptable70"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Class View">Class View</a></h3>
+The Class view (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__wx__inspector__ClassTreeCtrl"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::wx::inspector::ClassTreeCtrl</a>) is a traditional class browser. 
+<br>
+All available type information can be viewed.<br>
+Via File / Load DLL/SO additionally ACDK libraries with type information can be 
+loaded.<br>
+<p class="image"><img src="inspector_classview.gif"></p>
+<br>
+<br>
+<h3><a href="#jumptable70"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Object View">Object View</a></h3>
+<br>
+The Object view (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__wx__inspector__ObjectTreeCtrl"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::wx::inspector::ObjectTreeCtrl</a>) display all root objects (Objects, which are not itself member
+of another Object). 
+<br>
+<p class="image"><img src="inspector_objectview.gif"></p>
+<br>
+<br>
+<h3><a href="#jumptable70"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CfgScript Console">CfgScript Console</a></h3>
+The CfgScript Console (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__wx__inspector__CfgScriptConsole"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::wx::inspector::CfgScriptConsole</a>) can invoke the the garbage collector or
+invoke fragments of CfgScript code.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_apps_guitestrunner.html">GuiTestRunner</a> | Inspector |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

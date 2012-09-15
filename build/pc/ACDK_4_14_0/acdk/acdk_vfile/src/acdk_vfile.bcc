@@ -1,0 +1,201 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_VFILE_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_vfile.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_vfile"
+SOURCES= 	"acdk\vfile\DeflateWriter.cpp" \
+	"acdk\vfile\InflaterReader.cpp" \
+	"acdk\vfile\tar\TarFileHeader.cpp" \
+	"acdk\vfile\tar\TarFileImpl.cpp" \
+	"acdk\vfile\tar\TarFileSystem.cpp" \
+	"acdk\vfile\tar\tar_metainf_base.cpp" \
+	"acdk\vfile\zip\LocalFileHeader.cpp" \
+	"acdk\vfile\zip\ZipFileImpl.cpp" \
+	"acdk\vfile\zip\ZipFileReader.cpp" \
+	"acdk\vfile\zip\ZipFileSystem.cpp" \
+	"acdk\vfile\zip\zip_metainf_base.cpp" \
+	"acdk\vfile\zlib\adler32.c" \
+	"acdk\vfile\zlib\crc32.c" \
+	"acdk\vfile\zlib\deflate.c" \
+	"acdk\vfile\zlib\infblock.c" \
+	"acdk\vfile\zlib\infcodes.c" \
+	"acdk\vfile\zlib\inffast.c" \
+	"acdk\vfile\zlib\inftrees.c" \
+	"acdk\vfile\zlib\inflate.c" \
+	"acdk\vfile\zlib\infutil.c" \
+	"acdk\vfile\zlib\trees.c" \
+	"acdk\vfile\zlib\zutil.c" \
+
+HEADER= 	"acdk\vfile\Config.h" \
+	"acdk\vfile\DeflateWriter.h" \
+	"acdk\vfile\InflaterReader.h" \
+	"acdk\vfile\tar\TarFileHeader.h" \
+	"acdk\vfile\tar\TarFileImpl.h" \
+	"acdk\vfile\tar\TarFileSystem.h" \
+	"acdk\vfile\zip\LocalFileHeader.h" \
+	"acdk\vfile\zip\ZipFileImpl.h" \
+	"acdk\vfile\zip\ZipFileReader.h" \
+	"acdk\vfile\zip\ZipFileSystem.h" \
+
+OBJECTS= 	"..\tobj\acdk_vfile\DeflateWriter.obj" \
+	"..\tobj\acdk_vfile\InflaterReader.obj" \
+	"..\tobj\acdk_vfile\TarFileHeader.obj" \
+	"..\tobj\acdk_vfile\TarFileImpl.obj" \
+	"..\tobj\acdk_vfile\TarFileSystem.obj" \
+	"..\tobj\acdk_vfile\tar_metainf_base.obj" \
+	"..\tobj\acdk_vfile\LocalFileHeader.obj" \
+	"..\tobj\acdk_vfile\ZipFileImpl.obj" \
+	"..\tobj\acdk_vfile\ZipFileReader.obj" \
+	"..\tobj\acdk_vfile\ZipFileSystem.obj" \
+	"..\tobj\acdk_vfile\zip_metainf_base.obj" \
+	"..\tobj\acdk_vfile\adler32.obj" \
+	"..\tobj\acdk_vfile\crc32.obj" \
+	"..\tobj\acdk_vfile\deflate.obj" \
+	"..\tobj\acdk_vfile\infblock.obj" \
+	"..\tobj\acdk_vfile\infcodes.obj" \
+	"..\tobj\acdk_vfile\inffast.obj" \
+	"..\tobj\acdk_vfile\inftrees.obj" \
+	"..\tobj\acdk_vfile\inflate.obj" \
+	"..\tobj\acdk_vfile\infutil.obj" \
+	"..\tobj\acdk_vfile\trees.obj" \
+	"..\tobj\acdk_vfile\zutil.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_vfile\DeflateWriter.obj": "acdk\vfile\DeflateWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\DeflateWriter.cpp"
+
+"..\tobj\acdk_vfile\InflaterReader.obj": "acdk\vfile\InflaterReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\InflaterReader.cpp"
+
+"..\tobj\acdk_vfile\TarFileHeader.obj": "acdk\vfile\tar\TarFileHeader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\tar\TarFileHeader.cpp"
+
+"..\tobj\acdk_vfile\TarFileImpl.obj": "acdk\vfile\tar\TarFileImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\tar\TarFileImpl.cpp"
+
+"..\tobj\acdk_vfile\TarFileSystem.obj": "acdk\vfile\tar\TarFileSystem.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\tar\TarFileSystem.cpp"
+
+"..\tobj\acdk_vfile\tar_metainf_base.obj": "acdk\vfile\tar\tar_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\tar\tar_metainf_base.cpp"
+
+"..\tobj\acdk_vfile\LocalFileHeader.obj": "acdk\vfile\zip\LocalFileHeader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zip\LocalFileHeader.cpp"
+
+"..\tobj\acdk_vfile\ZipFileImpl.obj": "acdk\vfile\zip\ZipFileImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zip\ZipFileImpl.cpp"
+
+"..\tobj\acdk_vfile\ZipFileReader.obj": "acdk\vfile\zip\ZipFileReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zip\ZipFileReader.cpp"
+
+"..\tobj\acdk_vfile\ZipFileSystem.obj": "acdk\vfile\zip\ZipFileSystem.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zip\ZipFileSystem.cpp"
+
+"..\tobj\acdk_vfile\zip_metainf_base.obj": "acdk\vfile\zip\zip_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zip\zip_metainf_base.cpp"
+
+"..\tobj\acdk_vfile\adler32.obj": "acdk\vfile\zlib\adler32.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\adler32.c"
+
+"..\tobj\acdk_vfile\crc32.obj": "acdk\vfile\zlib\crc32.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\crc32.c"
+
+"..\tobj\acdk_vfile\deflate.obj": "acdk\vfile\zlib\deflate.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\deflate.c"
+
+"..\tobj\acdk_vfile\infblock.obj": "acdk\vfile\zlib\infblock.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\infblock.c"
+
+"..\tobj\acdk_vfile\infcodes.obj": "acdk\vfile\zlib\infcodes.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\infcodes.c"
+
+"..\tobj\acdk_vfile\inffast.obj": "acdk\vfile\zlib\inffast.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\inffast.c"
+
+"..\tobj\acdk_vfile\inftrees.obj": "acdk\vfile\zlib\inftrees.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\inftrees.c"
+
+"..\tobj\acdk_vfile\inflate.obj": "acdk\vfile\zlib\inflate.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\inflate.c"
+
+"..\tobj\acdk_vfile\infutil.obj": "acdk\vfile\zlib\infutil.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\infutil.c"
+
+"..\tobj\acdk_vfile\trees.obj": "acdk\vfile\zlib\trees.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\trees.c"
+
+"..\tobj\acdk_vfile\zutil.obj": "acdk\vfile\zlib\zutil.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_vfile" "acdk\vfile\zlib\zutil.c"
+
+
+
+clean:
+	del "..\..\bin\acdk_vfile.dll"
+	del "..\tobj\acdk_vfile\DeflateWriter.obj"
+	del "..\tobj\acdk_vfile\InflaterReader.obj"
+	del "..\tobj\acdk_vfile\TarFileHeader.obj"
+	del "..\tobj\acdk_vfile\TarFileImpl.obj"
+	del "..\tobj\acdk_vfile\TarFileSystem.obj"
+	del "..\tobj\acdk_vfile\tar_metainf_base.obj"
+	del "..\tobj\acdk_vfile\LocalFileHeader.obj"
+	del "..\tobj\acdk_vfile\ZipFileImpl.obj"
+	del "..\tobj\acdk_vfile\ZipFileReader.obj"
+	del "..\tobj\acdk_vfile\ZipFileSystem.obj"
+	del "..\tobj\acdk_vfile\zip_metainf_base.obj"
+	del "..\tobj\acdk_vfile\adler32.obj"
+	del "..\tobj\acdk_vfile\crc32.obj"
+	del "..\tobj\acdk_vfile\deflate.obj"
+	del "..\tobj\acdk_vfile\infblock.obj"
+	del "..\tobj\acdk_vfile\infcodes.obj"
+	del "..\tobj\acdk_vfile\inffast.obj"
+	del "..\tobj\acdk_vfile\inftrees.obj"
+	del "..\tobj\acdk_vfile\inflate.obj"
+	del "..\tobj\acdk_vfile\infutil.obj"
+	del "..\tobj\acdk_vfile\trees.obj"
+	del "..\tobj\acdk_vfile\zutil.obj"
+
+

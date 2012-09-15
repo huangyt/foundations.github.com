@@ -1,0 +1,114 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.mingw
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdkx_net_ssl_metainf/mingw
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -O2  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_WIN32 -D_REENTRANT -DWIN32_THREADS -DACDK_OS_WIN32 -DACDK_MINGW  $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lkernel32 -lwsock32
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR)  -lacdk_core -lacdk_net -lacdk_net_metainf
+CFLAGSX=
+
+SOURCES= 	acdkx/net/ssl/ssl_metainf/ssl_metainf_ext.cpp \
+
+HEADER= 
+OBJECTS= 	../tobj/acdkx_net_ssl_metainf/mingw/ssl_metainf_ext.o \
+
+
+FINALTARGET=../../bin/libacdkx_net_ssl_metainf.dll
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdkx_net_ssl_metainf.dll: $(OBJECTS)
+	$(LINK) -Wl,--enable-auto-image-base -Wl,--out-implib,../../bin/libacdkx_net_ssl_metainf.a $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdkx_net_ssl_metainf.dll $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+
+DEPSFILE=acdkx_net_ssl_metainf.mingw.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdkx_net_ssl_metainf/mingw/ssl_metainf_ext.o: acdkx/net/ssl/ssl_metainf/ssl_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_net_ssl_metainf/mingw/ssl_metainf_ext.o -c acdkx/net/ssl/ssl_metainf/ssl_metainf_ext.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdkx_net_ssl_metainf.dll $(OBJECTS)
+
+  

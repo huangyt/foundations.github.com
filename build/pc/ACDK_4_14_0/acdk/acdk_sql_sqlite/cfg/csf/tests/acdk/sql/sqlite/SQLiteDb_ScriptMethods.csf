@@ -1,0 +1,37 @@
+
+
+// SQLiteDb_ScriptMethods.csf
+using acdk.sql.sqlite;
+using acdk.sql;
+using acdk.io;
+/**
+  this tests does not use the acdk.sql.* classes, but goes directly to the LiteDb classes
+*/
+
+
+File f = new File("acdk_sql_sqlite_test1.sqlite3");
+if (f.exists() == true)
+  f.deleteFile();
+
+LiteDb db = LiteDb.openDb(f.getName());
+
+db.execute(
+  "CREATE TABLE ttable (intcol int, stringcol VARCHAR);
+   INSERT INTO ttable (intcol, stringcol) VALUES (1, 'first');
+   INSERT INTO ttable (intcol, stringcol) VALUES (2, 'second');
+   INSERT INTO ttable (intcol, stringcol) VALUES (3, 'third');
+  "
+  );
+  
+db.createSqlFunction("dneg", 1, 
+  lambda 
+    int (int v)
+    {
+      return -v;  
+    }
+  );
+
+LiteMemTable table = db.execDirect("SELECT dneg(ttable.intcol) as negitcol, stringcol from ttable");
+// just print it
+table.printTable(out);
+

@@ -1,0 +1,117 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../../../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=./tobj/acdk_net_Test/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DACDK_USE_ACDK_LIB -DUSE_ACDK_PERL_LIB -DUSE_ACDK_TOOLS_TESTUNIT_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDKHOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_tools_testunit -lacdk_perl
+
+
+SOURCES= 	acdk_perl_Test.cpp \
+	acdk_perl_Basics.cpp \
+
+HEADER= 
+OBJECTS= 	./tobj/acdk_net_Test/linux/acdk_perl_Test.o \
+	./tobj/acdk_net_Test/linux/acdk_perl_Basics.o \
+
+
+FINALTARGET=../../../../bin/acdk_net_Test
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../../../bin/acdk_net_Test: $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) $(LIBS) -o ../../../../bin/acdk_net_Test
+
+DEPSFILE=acdk_net_Test.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+./tobj/acdk_net_Test/linux/acdk_perl_Test.o: acdk_perl_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ./tobj/acdk_net_Test/linux/acdk_perl_Test.o -c acdk_perl_Test.cpp
+
+./tobj/acdk_net_Test/linux/acdk_perl_Basics.o: acdk_perl_Basics.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) -o ./tobj/acdk_net_Test/linux/acdk_perl_Basics.o -c acdk_perl_Basics.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../../../bin/acdk_net_Test $(OBJECTS)
+
+  

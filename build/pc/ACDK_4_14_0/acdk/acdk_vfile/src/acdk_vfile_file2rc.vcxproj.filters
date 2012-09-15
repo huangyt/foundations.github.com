@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{129e80b1-3f42-40f2-84d2-6d193e307d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\vfile">
+      <UniqueIdentifier>{1e2a3aea-4356-4f6b-8d44-c83ee7335b4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\vfile\file2rc">
+      <UniqueIdentifier>{27103c0d-0b22-4ef6-9d4c-9a6ae589bd1b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\vfile\file2rc\file2rc.cpp">
+      <Filter>acdk\vfile\file2rc</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

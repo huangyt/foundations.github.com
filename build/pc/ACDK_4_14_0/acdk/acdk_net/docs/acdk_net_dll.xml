@@ -1,0 +1,37 @@
+<package>
+<name>acdk_net</name>
+
+<title>
+  ACDK NET Library
+</title>
+
+<shortdescription>
+  acdk_net includes the basic functions for network communication.
+</shortdescription>
+
+<description>
+  <htmlauto>
+  
+  </htmlauto>
+</description>
+
+<dependencies>
+  acdk_core
+</dependencies>
+
+<namespaces>
+  acdk::net
+</namespaces>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+Nothing at the moment. 
+</todo>
+
+<notes>
+None
+</notes>
+</package>

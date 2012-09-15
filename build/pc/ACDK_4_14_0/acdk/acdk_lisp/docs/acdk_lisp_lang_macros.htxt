@@ -1,0 +1,107 @@
+%id: acdk_lisp_lang_macros
+%title: ACDK Lisp Macros
+%shorttitle: Lisp Macros
+%keywords: Lisp, macros, defmacro
+%body:
+<htmlauto/>
+<pageintro>
+Macros give Lisp the possibility to redesign its
+own language
+</pageintro>
+
+<jumptable/>
+
+<jump1>Backquote and comma operator</jump1>
+
+An expression can be quoted to protect the quoted expression
+for evaluation:
+<source lang="lisp">
+;; Quote an atom:
+'a
+;; Quote a list
+'(a b c)
+; -> (a b c)
+</source>
+
+An expression can also be backquoted. 
+
+
+<source lang="lisp">
+;; Quote an atom:
+`a
+;; Quote a list
+`(a b c) 
+; -> (a b c)
+</source>
+
+The both expression are qually as long no comma or comma-at operator
+are defined:
+With the comma operator the next token will 'unquoted' and will be evaled:
+
+<source lang="lisp">
+(setf b 1)
+(setf l '(d e f))
+`(a ,b ,l c)
+; -> (a 1 (d e f) c)
+</source>
+
+The difference between the comma an the comma-at operator is
+that the the comma-at operator will replace the resulting list 
+elements not the list.
+
+<source lang="lisp">
+(setf l '(d e f))
+`(a ,l c)
+; -> (a  (d e f) c)
+`(a ,@l c)
+; -> (a  d e f c)
+</source>
+
+<note>
+ACDK Lisp doesn't support multiple backquotes and comma operators.
+</note>
+
+<jump1>Define a macro with defmacro</jump1>
+
+<source lang="lisp">
+(defmacro nil! (nilatt_a)
+  (setf nilatt_a nil)
+)
+
+(setf a 32)
+(nil! a)
+</source>
+
+Macros will be evaluated by parse time, not at runtime.
+The resulting atom or list will be replaces at place 
+where the macro was called: The code will will be 'patched'.
+After parsing the code above:
+<source lang="lisp">
+(setf a 32)
+(setf a nil)
+</source>
+
+The power of macros will be evolved in corporatation with
+the backquotes an the comma operators.
+
+<source lang="lisp">
+(defmacro doaddition (&rest doaddition_args)
+  `(+ ,@doaddition_args) ; replaces the argument list directly
+)
+(setf a 3)
+(doaddition 1 a 4)
+
+</source>
+Will expand to:
+<source lang="lisp">
+(setf a 3)
+(+ 1 a 4)
+</source>
+
+Please refer to online LISP manuals (google Lisp defmacro) 
+for more information.
+
+.
+
+
+

@@ -1,0 +1,32 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+#pragma strict
+
+
+class AClass
+extends acdk.lang.Object
+{
+  static String getName()
+  {
+    return "AClass";
+  }
+  static int staticVariable = 42;
+};
+
+
+out.println(
+"===================================
+Test for accessing static functions and members
+
+");
+
+String name = AClass.getName();
+AClass.staticVariable = 2;
+int var = AClass.staticVariable;
+if (name.equals("AClass") == true && var == 2)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

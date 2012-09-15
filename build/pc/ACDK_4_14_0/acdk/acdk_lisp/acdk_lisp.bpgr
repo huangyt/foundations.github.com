@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_lisp.cbx"/>
+  <project path="src/acdklisp.cbx"/>
+  <project path="tests/acdk/lisp/acdk_lisp_Test.cbx"/>
+
+</projectgroup>

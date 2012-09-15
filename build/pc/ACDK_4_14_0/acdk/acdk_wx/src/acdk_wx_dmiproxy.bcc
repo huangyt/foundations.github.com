@@ -1,0 +1,89 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX= $(WX_CFLAGS)
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_wx.lib" $(ACDK_WX_WXLIBS_DEBUG)
+
+OUTFILE="..\..\bin\acdk_wx_dmiproxy.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_wx_dmiproxy\bcc"
+SOURCES= 	"acdk\wx\wx_dmiproxy\wx_dmiproxy.cpp" \
+	"acdk\wx\wx_dmiproxy\wx_dmiproxy1.cpp" \
+	"acdk\wx\wx_dmiproxy\wx_dmiproxy2.cpp" \
+	"acdk\wx\wx_dmiproxy\wx_dmiproxy3.cpp" \
+	"acdk\wx\wx_dmiproxy\wx_dmiproxy4.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy.obj" \
+	"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy1.obj" \
+	"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy2.obj" \
+	"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy3.obj" \
+	"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy4.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy.obj": "acdk\wx\wx_dmiproxy\wx_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_dmiproxy\bcc" "acdk\wx\wx_dmiproxy\wx_dmiproxy.cpp"
+
+"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy1.obj": "acdk\wx\wx_dmiproxy\wx_dmiproxy1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_dmiproxy\bcc" "acdk\wx\wx_dmiproxy\wx_dmiproxy1.cpp"
+
+"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy2.obj": "acdk\wx\wx_dmiproxy\wx_dmiproxy2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_dmiproxy\bcc" "acdk\wx\wx_dmiproxy\wx_dmiproxy2.cpp"
+
+"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy3.obj": "acdk\wx\wx_dmiproxy\wx_dmiproxy3.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_dmiproxy\bcc" "acdk\wx\wx_dmiproxy\wx_dmiproxy3.cpp"
+
+"..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy4.obj": "acdk\wx\wx_dmiproxy\wx_dmiproxy4.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx_dmiproxy\bcc" "acdk\wx\wx_dmiproxy\wx_dmiproxy4.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_wx_dmiproxy.dll"
+	del "..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy.obj"
+	del "..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy1.obj"
+	del "..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy2.obj"
+	del "..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy3.obj"
+	del "..\tobj\acdk_wx_dmiproxy\bcc\wx_dmiproxy4.obj"
+
+

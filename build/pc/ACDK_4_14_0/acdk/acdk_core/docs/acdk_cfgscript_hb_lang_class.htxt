@@ -1,0 +1,15 @@
+%id: acdk_cfgscript_hb_lang_class
+%title: CfgScript Class
+%shorttitle: Class
+%chapter: acdk_cfgscript_hb_lang_class_decl, acdk_cfgscript_hb_lang_class_method, \
+          acdk_cfgscript_hb_lang_class_member, acdk_cfgscript_hb_lang_class_call
+%keywords: Class
+%body:
+<chapterline/>
+<pageintro>
+CfgScript is a object oriented language reusing and extends the ACDK class modell.
+</pageintro>
+
+<subschapterstable/>
+
+.

@@ -1,0 +1,14 @@
+%id: acdkx_orb_dynamic_proxy
+%title: Automatic Dynamic Proxy
+%body:
+<pageintro>
+A basic idea of of ACDK dynamic proxy over DMI is, that
+it is not necessary to write any to enable normal 
+ACDK objects as CORBA server objects or
+client interfaces.
+</pageintro>
+
+Please refer to tests/acdkx/orb/acdkx_orb_AcdkObject_Test.cpp
+
+### TODO write
+.

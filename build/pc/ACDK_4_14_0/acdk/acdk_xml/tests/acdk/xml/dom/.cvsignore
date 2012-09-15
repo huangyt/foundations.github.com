@@ -1,0 +1,6 @@
+*.o
+*.obj
+*.sbr
+*.tmp
+acdk_xml_sax_Test.plg
+tobj

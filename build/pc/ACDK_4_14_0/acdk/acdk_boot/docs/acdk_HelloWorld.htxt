@@ -1,0 +1,25 @@
+%id: acdk_HelloWorld_man
+%title: ACDK's HelloWorld - manual
+%shorttitle: HelloWorld man
+%seealso: acdk_boot_man
+%body:
+<chapterline/>
+
+<pageintro>
+This little sample programm just print Hello to the console.
+</pageintro>
+
+<jumptable/>
+
+<jump2>NAME</jump2>
+HelloWorld - a sample ACDK executable.
+
+<jump2>DESCRIPTION</jump2>
+<greptag fname="./HelloWorld.xml" tag="description"/>
+
+<jump2>FILES</jump2>
+<fl>
+<f> bin/HelloWorld.*<br>
+   The executable
+</fl>
+.

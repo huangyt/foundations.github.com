@@ -1,0 +1,154 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="sychronize, thread">
+<title>CfgScript Synchronize Statements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Synchronize Statements
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | Synchronize Statements | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Synchronize Statements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Synchronize Statements</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | Synchronize Statements | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p>
+<p class="PageIntro">
+CfgScript allow real multithread applications.
+</p>
+
+<br>
+<a name="jumptable38"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#SynchronizeStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;SynchronizeStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sample"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sample</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable38"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="SynchronizeStatement">SynchronizeStatement</a></h2>
+<pre>
+SynchronizeStatement
+: 'synchronize' '(' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ')' <a  href="acdk_cfgscript_hb_lang_stmt.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Statement</a>
+;
+</pre>
+<br>
+<h3><a href="#jumptable38"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample">Sample</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyObject
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> _counter = 0;
+  MyObject()
+  {
+  }
+  MyObject <B><FONT COLOR="#A020F0">operator</FONT></B>++()
+  {
+    synchronize(<B><FONT COLOR="#A020F0">this</FONT></B>)
+    {
+      ++_counter;
+      <I><FONT COLOR="#B22222">//out.println(&quot;c: &quot; + _counter);
+</FONT></I>      <B><FONT COLOR="#A020F0">return</FONT></B> <B><FONT COLOR="#A020F0">this</FONT></B>;
+    }
+    <B><FONT COLOR="#A020F0">return</FONT></B> <B><FONT COLOR="#A020F0">this</FONT></B>;
+  }
+}
+<I><FONT COLOR="#B22222">/**
+  note: you can also derive directly from acdk.lang.Thread
+  but using acdk.cfgscript.core.ScriptThread (which is implemented
+  in CfgScript) has the advantage, that in case the thread throws
+  an exception, you will receive an Script Backtrace
+*/</FONT></I>
+<B><FONT COLOR="#228B22">class</FONT></B> MyThread
+extends acdk.cfgscript.core.ScriptThread
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> _loops;
+  String _name;
+  MyObject _counter;
+  MyThread(String name, <B><FONT COLOR="#228B22">int</FONT></B> loops, MyObject cnt)
+  {
+    _name = name;
+    _loops = loops;
+    _counter = cnt;
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> run()
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;loops: &quot;</FONT></B> + _loops);
+    <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i = 0; i &lt; _loops; ++i)
+    {
+      <I><FONT COLOR="#B22222">//Thread.sleep(25);
+</FONT></I>      <I><FONT COLOR="#B22222">//out.println(_name + &quot;: &quot; + i);
+</FONT></I>      ++_counter;
+    }
+  }
+}
+MyObject counter = <B><FONT COLOR="#A020F0">new</FONT></B> MyObject();
+<B><FONT COLOR="#228B22">int</FONT></B> count1 = 1200;
+<B><FONT COLOR="#228B22">int</FONT></B> count2 = 1250;
+MyThread thr1 = <B><FONT COLOR="#A020F0">new</FONT></B> MyThread(<B><FONT COLOR="#BC8F8F">&quot;1&quot;</FONT></B>, count1, counter);
+MyThread thr2 = <B><FONT COLOR="#A020F0">new</FONT></B> MyThread(<B><FONT COLOR="#BC8F8F">&quot;2&quot;</FONT></B>, count2, counter);
+
+thr1.start();
+thr2.start();
+
+thr1.join();
+thr2.join();
+
+out.println(<B><FONT COLOR="#BC8F8F">&quot;Synchronized counter is: &quot;</FONT></B> + counter._counter);
+<B><FONT COLOR="#0000FF">if</FONT></B> (counter._counter == (count1 + count2))
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST OK&quot;</FONT></B>);
+<B><FONT COLOR="#A020F0">else</FONT></B>
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST FAILED&quot;</FONT></B>);
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | Synchronize Statements | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

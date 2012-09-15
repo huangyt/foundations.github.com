@@ -1,0 +1,175 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_sql, SQL">
+<title>ACDK SQL Readme</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK SQL</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK SQL Readme<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../acdk_sql_odbc/index.html">ACDK SQL ODBC</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | ACDK SQL Readme | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK SQL Readme</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK SQL Readme</h1> -->
+<br>
+<p class="PageIntro">
+ACDK SQL (acdk_sql)acdk_sql contains the specification for JDBC-like interface to 
+SQL databases.</p>
+<br>
+<br>
+<a name="jumptable112"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Title"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Title</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Version"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Short Description</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Authors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Authors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#License"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;License</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Description</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Notes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Todo"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Todo</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Changes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Changes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+  <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Title">Title</a></h3>
+ACDK SQL (acdk_sql)  <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Version">Version</a></h3>
+Distribution version: 4.14.<br>
+Package version: 4.14.0.<br>
+   
+  <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short Description">Short Description</a></h3>
+    <pre class="quoted">
+acdk_sql contains the specification for JDBC-like interface to 
+SQL databases.    </pre>
+  <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h3>
+    <pre class="quoted">
+acdk_core
+acdk_net    </pre>
+  <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+    <pre class="quoted">
+acdk::sql;    </pre>
+  <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Authors">Authors</a></h3>
+    <pre class="quoted">
+Roger Rene Kommer (kommer@artefaktur.com).    </pre>
+   <h3><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="License">License</a></h3>
+    <pre class="quoted">
+<a  href="../../docs/ACDK-FreeLicense.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Free Edition License</a>.    </pre>
+<h2><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Description">Description</a></h2>
+  <m>acdk_sql</m> contains the driver model, which 
+is quite similar to the JDBC interface.<br>
+<br>
+The following database drivers are available:<br>
+<ul>
+<li> <a  href="../../acdk_sql_sqlite/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_sql_sqlite</m></a> contains 
+     a small, ready to use, embedded SQL database. 
+<li> <a  href="../../acdk_sql_odbc/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ODBC Bridge</a>:<br>
+<ul>
+  <li> all databases with an ODBC interface on Windows.<br>
+     Tested with MS SQL 2000, MS Access, Oracle 9 and postgreSQL.<br>
+  <li> mySQL and postgreSQL under Linux over the libODBC/unixODBC library.<br>
+  <li> Oracle under Solaris aover the libODBC/unixODBC library.<br>
+</ul>
+</ul>
+<br>
+acdk_sql is only a interface library. An implementation
+of acdk_sql library for ODBC can be found in  <a  href="../../acdk_sql_odbc/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK SQL ODBC</a>. 
+This package also provides <a  href="../../acdk_sql_odbc/docs/acdk_sql_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;detailed documentation</a>.<br>
+<h2><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes">Notes</a></h2>
+  <pre class="quoted">
+  </pre>
+<br>
+<h2><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Todo">Todo</a></h2>
+  <pre class="quoted">
+Nothing at the moment.  </pre>
+ 
+<h2><a href="#jumptable112"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Changes">Changes</a></h2>
+<pre class="quoted">
+  ===========================================================
+4.10.0
+- New:  CallableStatement, PreparedStatement
+<br>
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a> and  <a  href="../../acdk_sql_odbc/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK SQL ODBC</a>.<br>
+<br>
+===========================================================
+4.02.0
+- Configuration and documentation fixes.<br>
+<br>
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.<br>
+<br>
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.<br>
+<br>
+===========================================================
+2.01.1
+- Only ajustments to ACDK 2
+<br>
+===========================================================
+1.01.0
+<br>
+- Enhanced Metainfo compiler for CORBA functionality.<br>
+- Improved configurations.<br>
+<br>
+===========================================================
+1.00.2
+Changed configuration managment.<br>
+<br>
+===========================================================
+1.00 
+Initial version</pre>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | ACDK SQL Readme | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_make
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_make_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_make_Test failed; exit 1; 
+
+
+
+acdk_make-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src bcc
+
+acdkmake-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src bcc
+
+acdk_make_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make bcc
+
+
+makemake:: acdk_make-makemake acdkmake-makemake acdk_make_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_make.lsp
+
+

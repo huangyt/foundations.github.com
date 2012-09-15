@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{db8fee1e-c88d-4610-b616-59a00bba349a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net">
+      <UniqueIdentifier>{a059ed3a-f0ac-4e37-a02c-0181f9e22a7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net\srfsys">
+      <UniqueIdentifier>{c2a62817-6d6b-4980-b699-b3c49f21bb1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net\srfsys\srfsys_metainf">
+      <UniqueIdentifier>{e02d70f7-844d-4b83-8b48-7fd4dd12a36e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\net\srfsys\Config.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\FileInfo.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\Message.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\ObjectLogReader.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\ObjectLogWriter.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\SRFileImpl.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\SRFileSystemClient.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\SRFileSystemServer.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\srfsys\srfsys.h">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\net\srfsys\Message.cpp">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\srfsys\SRFileImpl.cpp">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\srfsys\SRFileSystemClient.cpp">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\srfsys\SRFileSystemServer.cpp">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\srfsys\srfsys_metainf_base.cpp">
+      <Filter>acdk\net\srfsys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\srfsys\srfsys_metainf\srfsys_metainf_ext.cpp">
+      <Filter>acdk\net\srfsys\srfsys_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

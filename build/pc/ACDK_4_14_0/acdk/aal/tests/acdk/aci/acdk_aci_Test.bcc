@@ -1,0 +1,88 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CCINCLUDE= -I../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=""
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\bin\acdk_text.lib" "..\..\..\..\bin\acdk_aci.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_aci_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_aci_Test\bcc"
+SOURCES= 	".\acdk_aci_Asd_Test.cpp" \
+	".\acdk_aci_DClazzInfo_Test.cpp" \
+	".\acdk_aci_Sasm_Test.cpp" \
+	".\acdk_aci_SyntaxParseNode_Test.cpp" \
+	".\acdk_aci_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_aci_Test\bcc\acdk_aci_Asd_Test.obj" \
+	".\tobj\acdk_aci_Test\bcc\acdk_aci_DClazzInfo_Test.obj" \
+	".\tobj\acdk_aci_Test\bcc\acdk_aci_Sasm_Test.obj" \
+	".\tobj\acdk_aci_Test\bcc\acdk_aci_SyntaxParseNode_Test.obj" \
+	".\tobj\acdk_aci_Test\bcc\acdk_aci_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_aci_Test\bcc\acdk_aci_Asd_Test.obj": ".\acdk_aci_Asd_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aci_Test\bcc" ".\acdk_aci_Asd_Test.cpp"
+
+".\tobj\acdk_aci_Test\bcc\acdk_aci_DClazzInfo_Test.obj": ".\acdk_aci_DClazzInfo_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aci_Test\bcc" ".\acdk_aci_DClazzInfo_Test.cpp"
+
+".\tobj\acdk_aci_Test\bcc\acdk_aci_Sasm_Test.obj": ".\acdk_aci_Sasm_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aci_Test\bcc" ".\acdk_aci_Sasm_Test.cpp"
+
+".\tobj\acdk_aci_Test\bcc\acdk_aci_SyntaxParseNode_Test.obj": ".\acdk_aci_SyntaxParseNode_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aci_Test\bcc" ".\acdk_aci_SyntaxParseNode_Test.cpp"
+
+".\tobj\acdk_aci_Test\bcc\acdk_aci_Test.obj": ".\acdk_aci_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n".\tobj\acdk_aci_Test\bcc" ".\acdk_aci_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_aci_Test.exe"
+	del ".\tobj\acdk_aci_Test\bcc\acdk_aci_Asd_Test.obj"
+	del ".\tobj\acdk_aci_Test\bcc\acdk_aci_DClazzInfo_Test.obj"
+	del ".\tobj\acdk_aci_Test\bcc\acdk_aci_Sasm_Test.obj"
+	del ".\tobj\acdk_aci_Test\bcc\acdk_aci_SyntaxParseNode_Test.obj"
+	del ".\tobj\acdk_aci_Test\bcc\acdk_aci_Test.obj"
+
+

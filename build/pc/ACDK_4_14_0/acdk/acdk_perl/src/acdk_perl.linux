@@ -1,0 +1,132 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_perl/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ACDK_PERL_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text   `perl -MExtUtils::Embed -e ldopts` 
+CFLAGSX=  `perl -MExtUtils::Embed -e ccopts`
+LDFLAGSX = 
+
+SOURCES= 	acdk/perl/Perl.cpp \
+	acdk/perl/PerlInterpreter.cpp \
+	acdk/perl/PerlObject.cpp \
+
+HEADER= 	acdk/perl/Config.h \
+	acdk/perl/PerlInterpreter.h \
+	acdk/perl/PerlObject.h \
+
+OBJECTS= 	../tobj/acdk_perl/linux/Perl.o \
+	../tobj/acdk_perl/linux/PerlInterpreter.o \
+	../tobj/acdk_perl/linux/PerlObject.o \
+
+
+FINALTARGET=../../bin/libacdk_perl.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_perl.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_perl.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_perl.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_perl/linux/Perl.o: acdk/perl/Perl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_perl/linux/Perl.o -c acdk/perl/Perl.cpp
+
+../tobj/acdk_perl/linux/PerlInterpreter.o: acdk/perl/PerlInterpreter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_perl/linux/PerlInterpreter.o -c acdk/perl/PerlInterpreter.cpp
+
+../tobj/acdk_perl/linux/PerlObject.o: acdk/perl/PerlObject.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_perl/linux/PerlObject.o -c acdk/perl/PerlObject.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_perl.so $(OBJECTS)
+
+  

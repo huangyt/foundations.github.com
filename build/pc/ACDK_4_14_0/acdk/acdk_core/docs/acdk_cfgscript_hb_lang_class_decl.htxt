@@ -1,0 +1,119 @@
+%id: acdk_cfgscript_hb_lang_class_decl
+%title: CfgScript Class Declaration
+%shorttitle: ClassDeclaration
+%keywords: Class Definition; CfgScript
+%body:
+<chapterline/>
+<pageintro>
+CfgScript is a object oriented language based on the class model of Java/C#.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>ClassDeclaration</jump1>
+<pre>
+ClassDeclaration
+: ( 'class' | 'interface' ) %ref[ComponentTypeName, acdk_cfgscript_hb_lang_syntax#ComponentTypeName]
+   %ref[SuperDecl, #SuperDecl]
+  '{' %ref[ClassBody, #ClassBody] '}'
+;
+</pre>
+
+<jump1>SuperDecl</jump1>
+<pre>
+SuperDecl
+: [ 'extends' %ref[ComponentTypeName, acdk_cfgscript_hb_lang_syntax#ComponentTypeName] ]
+  [ 'implements' %ref[ComponentTypeName, acdk_cfgscript_hb_lang_syntax#ComponentTypeName] ( ',' %ref[ComponentTypeName, acdk_cfgscript_hb_lang_syntax#ComponentTypeName])* ]
+;
+</pre>
+
+<source>
+// class is in namespace/unit/module mymodule
+class mymodule.MyClass
+extends acdk.lang.Object // is derived from acdk.lang.Object
+implements acdk.lang.Comparable, acdk.io.Serializable // and implements 2 interfaces
+{
+}
+</source>
+
+See also: %ref[Constructor, acdk_cfgscript_hb_lang_class_method#Constructor].
+
+<jump1>ClassBody</jump1>
+<pre>
+ClassBody
+: ( %ref[ClassMember, acdk_cfgscript_hb_lang_class_method] | %ref[ClassMethod, acdk_cfgscript_hb_lang_class_method] )*
+;
+</pre>
+
+<jump1>Interface</jump1>
+It is possible to declare an interface in CfgScript:
+<source>
+interface mymodule.MyInterface
+{
+  MyInterface() {}
+  void doIt();
+  // alternative:
+  void doItAlso() = 0;;
+}
+
+class mymodule.MyClass
+extends acdk.lang.Object
+implements mymodule.MyInterface
+{
+  MyClass() {}
+  void doIt()
+  {
+  }
+  void doItAlso()
+  {
+  }
+}
+mymodule.MyInterface mint = new mymodule.MyClass();
+mint.doIt();
+</source>
+
+Different to C++/Java/C# CfgScript doesn't ensure at compile time, that all interface
+methods has also an implementation in the created object class.
+If you try to call an interface method, which doesn't have an implementation an exception will
+be thrown.
+
+<jump1>Reflection</jump1>
+Each CfgScript class is also a ACDK class. 
+So meta features, like reflection can be used on CfgScript classes.
+
+Sample:
+<source>
+class AClass 
+extends acdk.lang.Object
+{
+  static String svar;
+  int ivar;
+  AClass(int i = 3) { ivar = i; }
+  String foo() { return svar; }
+  int bar() { return ivar; }
+}
+
+Class cls = Class.forName("AClass");
+out.println("Class name for class is: " + cls.toString());
+
+out.println("Class has following Contructors:");
+foreach(Constructor con in cls.getDeclaredConstructors())
+{
+  out.println(con.toString());  
+}
+
+out.println("Class has following Members:");
+foreach(Field field in cls.getDeclaredFields())
+{
+  out.println(field.toString());  
+}
+
+out.println("Class has following Methods:");
+foreach(Method method in cls.getDeclaredMethods())
+{
+  out.println(method.toString());  
+}
+</source>
+.
+

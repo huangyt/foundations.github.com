@@ -1,0 +1,340 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>An ACDK WX Sample</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK WX</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_wx_hb.html">acdk_wx Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;An ACDK WX Sample
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_installation.html">Compile acdk_wx</a> | <a  href="acdk_wx_hb_mapping.html">Mapping</a> | <a  href="acdk_wx_hb_overview_classes.html">Class Overview</a> | <a  href="acdk_wx_hb_minimal.html">Minimal Sample</a> | An ACDK WX Sample | <a  href="acdk_wx_hb_events.html">Events</a> | <a  href="acdk_wx_hb_apps.html">Applications</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>An ACDK WX Sample</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>An ACDK WX Sample</h1> -->
+<p class="PageIntro">
+Shows a little sample to write GUIs with Scripting
+CfgScript and ACDK WX.
+</p>
+
+
+<a name="jumptable69"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The Source"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The Source</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Screenshots"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Screenshots</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Windows"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Windows</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Linux"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Linux</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Sample 2, a Simple Text Editor"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sample 2, a Simple Text Editor</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Controls Sample"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Controls Sample</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Other Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Other Samples</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The Source">The Source</a></h2>
+For demonstration I use <a  href="../../acdk_core/docs/acdk_cfgscript_hb.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a>, 
+but exactly the same (just put it into .cpp, replace some '.' with
+'->', add some leading 'R', etc.) can also be done in native C++.
+
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// use classes and enumerations from the acdk.wx namespace
+</FONT></I><I><FONT COLOR="#B22222">// the package acdk_wx will be loaded automatically be the 
+</FONT></I><I><FONT COLOR="#B22222">// ClassLoader
+</FONT></I>using acdk.wx;
+
+<I><FONT COLOR="#B22222">// IDs for the controls and the menu commands
+</FONT></I><B><FONT COLOR="#228B22">enum</FONT></B> MyEvents
+{
+  <I><FONT COLOR="#B22222">// menu items
+</FONT></I>  Event_Quit = 1,
+  Event_About,
+  <I><FONT COLOR="#B22222">// ListBox id
+</FONT></I>  Event_ListBoxSelected
+}
+
+<I><FONT COLOR="#B22222">/**
+  an own dialog
+*/</FONT></I>
+<B><FONT COLOR="#228B22">class</FONT></B> AboutDialog
+extends Dialog
+{
+  Button _okButton;
+  StaticText _label;
+  AboutDialog(Window parent)
+  {
+    super(parent, -1, <B><FONT COLOR="#BC8F8F">&quot;About&quot;</FONT></B>, Point.defaultPosition(), <B><FONT COLOR="#A020F0">new</FONT></B> Size(200, 200))
+    <I><FONT COLOR="#B22222">// a little bit complicated layout management
+</FONT></I>    <I><FONT COLOR="#B22222">// using XML ressource for Dialog description is much easier
+</FONT></I>    setAutoLayout(true);
+    LayoutConstraints layout = <B><FONT COLOR="#A020F0">new</FONT></B> LayoutConstraints();
+    layout.top().sameAs(<B><FONT COLOR="#A020F0">this</FONT></B>, Top, 10);
+    layout.centreX().sameAs(<B><FONT COLOR="#A020F0">this</FONT></B>, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _label = <B><FONT COLOR="#A020F0">new</FONT></B> StaticText(<B><FONT COLOR="#A020F0">this</FONT></B>, -1, <B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>);
+    _label.setConstraints(layout);
+
+    layout = <B><FONT COLOR="#A020F0">new</FONT></B> LayoutConstraints();
+    layout.top().below(_label);
+    layout.centreX().sameAs(<B><FONT COLOR="#A020F0">this</FONT></B>, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _okButton = <B><FONT COLOR="#A020F0">new</FONT></B> Button(<B><FONT COLOR="#A020F0">this</FONT></B>, CID_OK, <B><FONT COLOR="#BC8F8F">&quot;Close&quot;</FONT></B>);
+    _okButton.setConstraints(layout);
+    ListBox list = <B><FONT COLOR="#A020F0">new</FONT></B> ListBox(<B><FONT COLOR="#A020F0">this</FONT></B>, Event_ListBoxSelected);
+    list.appendAndEnsureVisible(<B><FONT COLOR="#BC8F8F">&quot;First&quot;</FONT></B>);
+    list.appendAndEnsureVisible(<B><FONT COLOR="#BC8F8F">&quot;Second&quot;</FONT></B>);
+    list.appendAndEnsureVisible(<B><FONT COLOR="#BC8F8F">&quot;Third&quot;</FONT></B>);
+    layout = <B><FONT COLOR="#A020F0">new</FONT></B> LayoutConstraints();
+    layout.top().below(_okButton);
+    layout.centreX().sameAs(<B><FONT COLOR="#A020F0">this</FONT></B>, CentreX);
+    layout.width().sameAs(<B><FONT COLOR="#A020F0">this</FONT></B>, Width);
+    layout.width().asIs();
+    layout.bottom().sameAs(<B><FONT COLOR="#A020F0">this</FONT></B>, Bottom);
+    list.setConstraints(layout);
+    
+    <I><FONT COLOR="#B22222">// use keyword delegate to connect events with methods
+</FONT></I>    connect(CommandEvent.EvtCommandListboxSelected, Event_ListBoxSelected, delegate onListBoxSelected);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onListBoxSelected(Event event)
+  {
+    Window.messageBox(<B><FONT COLOR="#BC8F8F">&quot;ListBox selected: &quot;</FONT></B> + event.getString());
+  }
+}
+
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyFrame
+extends Frame
+{
+  MyFrame() 
+  {
+    Menu menuFile = <B><FONT COLOR="#A020F0">new</FONT></B> Menu();
+    menuFile.append(Event_About, <B><FONT COLOR="#BC8F8F">&quot;&amp;About...\tCtrl-A&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Show about dialog&quot;</FONT></B>);
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, <B><FONT COLOR="#BC8F8F">&quot;E&amp;xit\tAlt-X&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Quit this program&quot;</FONT></B>);
+    MenuBar menuBar = <B><FONT COLOR="#A020F0">new</FONT></B> MenuBar();
+    menuBar.append(menuFile, <B><FONT COLOR="#BC8F8F">&quot;&amp;File&quot;</FONT></B>);
+    setMenuBar(menuBar);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, delegate onQuit);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, delegate onAbout);
+    
+    setTitle(<B><FONT COLOR="#BC8F8F">&quot;Test&quot;</FONT></B>);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onQuit(Event event)
+  {
+    close(true);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onAbout(CommandEvent event)
+  {
+    AboutDialog about = <B><FONT COLOR="#A020F0">new</FONT></B> AboutDialog(<B><FONT COLOR="#A020F0">this</FONT></B>);
+    about.setSizeConstraint(1, 1, 300, 400);
+    about.showModal();
+  }
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  <B><FONT COLOR="#228B22">bool</FONT></B> onInit()
+  {
+    MyFrame win = <B><FONT COLOR="#A020F0">new</FONT></B> MyFrame();
+    win.show(true);
+    <B><FONT COLOR="#A020F0">return</FONT></B> true;
+  }
+}
+
+StringArray args = <B><FONT COLOR="#A020F0">new</FONT></B> StringArray(0);
+acdk.wx.App.createGui(<B><FONT COLOR="#BC8F8F">&quot;MyApp&quot;</FONT></B>, args); <I><FONT COLOR="#B22222">// run the application until MyFrame is closed
+</FONT></I></PRE></td></tr></table>
+
+<h2><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Screenshots">Screenshots</a></h2>
+<h3><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Windows">Windows</a></h3>
+The Sample for Windows:
+<p class="image"><img src="HelloWorld_windows.gif"></p>
+
+
+<h3><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Linux">Linux</a></h3>
+Same on Linux:
+<p class="image"><img src="HelloWorld_linux.gif"></p>
+
+
+<h2><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample 2, a Simple Text Editor">Sample 2, a Simple Text Editor</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+using acdk.wx;
+
+<I><FONT COLOR="#B22222">// IDs for the controls and the menu commands
+</FONT></I><B><FONT COLOR="#228B22">enum</FONT></B> MyEvents
+{
+  <I><FONT COLOR="#B22222">// menu items
+</FONT></I>  Event_Quit = 1,
+  Event_About,
+  Event_FileNew,
+  Event_FileOpen,
+  Event_FileSave,
+  Id_TextControl
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> TextEditFrame
+extends Frame
+{
+  TextCtrl editControl;
+  TextEditFrame() 
+  {
+    editControl = <B><FONT COLOR="#A020F0">new</FONT></B> TextCtrl(<B><FONT COLOR="#A020F0">this</FONT></B>, Id_TextControl, <B><FONT COLOR="#BC8F8F">&quot;Simple Text Editor&quot;</FONT></B>);
+    MenuBar menuBar = <B><FONT COLOR="#A020F0">new</FONT></B> MenuBar();
+    
+    Menu menuFile = <B><FONT COLOR="#A020F0">new</FONT></B> Menu();
+    menuFile.append(Event_FileNew, <B><FONT COLOR="#BC8F8F">&quot;New&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Creates a new file&quot;</FONT></B>); 
+    menuFile.append(Event_FileOpen, <B><FONT COLOR="#BC8F8F">&quot;Open&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Open a file&quot;</FONT></B>); 
+    menuFile.append(Event_FileSave, <B><FONT COLOR="#BC8F8F">&quot;Save&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Open a file&quot;</FONT></B>); 
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, <B><FONT COLOR="#BC8F8F">&quot;E&amp;xit\tAlt-X&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Quit this program&quot;</FONT></B>);
+    
+    menuBar.append(menuFile, <B><FONT COLOR="#BC8F8F">&quot;&amp;File&quot;</FONT></B>);
+    
+    Menu helpMenu = <B><FONT COLOR="#A020F0">new</FONT></B> Menu();
+    helpMenu.append(Event_About, <B><FONT COLOR="#BC8F8F">&quot;&amp;About...\tCtrl-A&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Show about dialog&quot;</FONT></B>);
+    menuBar.append(helpMenu, <B><FONT COLOR="#BC8F8F">&quot;&amp;Help&quot;</FONT></B>);
+    setMenuBar(menuBar);
+    
+    connect(CommandEvent.EvtCommandMenuSelected, Event_FileNew, delegate onNew);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_FileOpen, delegate onOpen);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_FileSave, delegate onSave);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, delegate onQuit);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, delegate onAbout);
+    
+    setTitle(<B><FONT COLOR="#BC8F8F">&quot;Test&quot;</FONT></B>);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onNew(Event event)
+  {
+    editControl.setValue(<B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>);
+    editControl.discardEdits();
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onOpen(Event event)
+  {
+    Dialog dlg = <B><FONT COLOR="#A020F0">new</FONT></B> FileDialog(<B><FONT COLOR="#A020F0">this</FONT></B>, message: <B><FONT COLOR="#BC8F8F">&quot;Open a file&quot;</FONT></B>, 
+                                      <B><FONT COLOR="#5F9EA0">wildCard</FONT></B>: <B><FONT COLOR="#BC8F8F">&quot;*.txt;*.csf&quot;</FONT></B>,
+                                      <B><FONT COLOR="#5F9EA0">defaultDir</FONT></B>: <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>,
+                                      <B><FONT COLOR="#5F9EA0">defaultFile</FONT></B>: <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>,
+                                      <B><FONT COLOR="#5F9EA0">style</FONT></B>: FDFOpen);
+                                      
+    <B><FONT COLOR="#A020F0">if</FONT></B> (dlg.showModal() != IdOk)
+      <B><FONT COLOR="#A020F0">return</FONT></B>;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (true) <I><FONT COLOR="#B22222">// acdk way
+</FONT></I>    {
+      editControl.setValue((<B><FONT COLOR="#A020F0">new</FONT></B> acdk.io.File(dlg.getPath())).getReader().getCharReader().readString());
+    } 
+    <B><FONT COLOR="#A020F0">else</FONT></B>
+    {
+      editControl.loadFile(dlg.getPath());
+    }
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onSave(Event event)
+  {
+    Dialog dlg = <B><FONT COLOR="#A020F0">new</FONT></B> FileDialog(<B><FONT COLOR="#A020F0">this</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Save a file&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;*.txt;*.csf&quot;</FONT></B>, FDFSave);
+    <B><FONT COLOR="#A020F0">if</FONT></B> (dlg.showModal() != IdOk)
+      <B><FONT COLOR="#A020F0">return</FONT></B>;
+    String fname = dlg.getPath();
+    <B><FONT COLOR="#A020F0">if</FONT></B> (true) <I><FONT COLOR="#B22222">// acdk way
+</FONT></I>    { 
+      (<B><FONT COLOR="#A020F0">new</FONT></B> acdk.io.File(fname)).getWriter().getCharWriter().writeString(editControl.getValue());
+    }
+    <B><FONT COLOR="#A020F0">else</FONT></B>
+    {
+      editControl.saveFile(fname);
+    }
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onQuit(Event event)
+  {
+    <B><FONT COLOR="#A020F0">if</FONT></B> (editControl.isModified() == true)
+    {
+       <B><FONT COLOR="#A020F0">if</FONT></B> (Window.messageBox(<B><FONT COLOR="#BC8F8F">&quot;File unsaved. Really want to quit?&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Text Editor&quot;</FONT></B>, MbYesNo, <B><FONT COLOR="#A020F0">this</FONT></B>) == MbNo)
+        <B><FONT COLOR="#A020F0">return</FONT></B>;
+    }
+    close(true);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onAbout(CommandEvent event)
+  {
+    Window.messageBox(<B><FONT COLOR="#BC8F8F">&quot;Simple Text editor written with ACDK CfgScript\n By Roger Rene Kommer (http://acdk.sourceforge.net)&quot;</FONT></B>);
+  }
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  <B><FONT COLOR="#228B22">bool</FONT></B> onInit()
+  {
+    TextEditFrame win = <B><FONT COLOR="#A020F0">new</FONT></B> TextEditFrame();
+    win.show(true);
+    <B><FONT COLOR="#A020F0">return</FONT></B> true;
+  }
+}
+
+StringArray args = <B><FONT COLOR="#A020F0">new</FONT></B> StringArray(0);
+acdk.wx.App.createGui(<B><FONT COLOR="#BC8F8F">&quot;MyApp&quot;</FONT></B>, args); <I><FONT COLOR="#B22222">// run the application until MyFrame is closed
+</FONT></I></PRE></td></tr></table>
+
+<h2><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Controls Sample">Controls Sample</a></h2>
+Run <br>
+<code>acdk/bin/acdkcfgscript acdk_wx/cfg/csf/tests/3_controls/10_ControlsDemo.csf</code>
+for a port of the wxWidgets sample of common dialog controls.
+
+<h2><a href="#jumptable69"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Other Samples">Other Samples</a></h2>
+Please refer into the director <code>acdk_wx/cfg/csf/tests/*</code> for more
+samples.
+
+You can also refer to <a  href="../../acdk_core/docs/acdk_tools_testunit_man.html#GUI Test Runner"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK GUI Test Runner</a>.
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_installation.html">Compile acdk_wx</a> | <a  href="acdk_wx_hb_mapping.html">Mapping</a> | <a  href="acdk_wx_hb_overview_classes.html">Class Overview</a> | <a  href="acdk_wx_hb_minimal.html">Minimal Sample</a> | An ACDK WX Sample | <a  href="acdk_wx_hb_events.html">Events</a> | <a  href="acdk_wx_hb_apps.html">Applications</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

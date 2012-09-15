@@ -1,0 +1,87 @@
+
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+OUTDIR=%[(acdkmake-convert-file-if-needed acdkmake-project-exec-dir)]%
+INTDIR=%[(acdkmake-project-get-object-dir)]%
+
+TARGET = %[(acdkmake-convert-file-if-needed (s+ acdkmake-project-exec-dir (slash) acdkmake-project-name (acdkmake-get-target-binext)))]%
+ALL : $(TARGET)
+
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+CPP_SYSDEFINES = /nologo /MDd /w /W0 /Gm /GR /GX /Zi /Od 
+CPP_USERDEFINES = %[(acdkmake-get-target-cflags)]% 
+CPP_INCLUDES = %[(acdkmake-get-includes)]% 
+CPP_DEFINES = %[(acdkmake-get-defines)]%
+CPP_PROJ= $(CPP_SYSDEFINES) $(CPP_INCLUDES) $(CPP_DEFINES) $(CPP_USERDEFINES)  /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MT" /D "_USRDLL" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /GZ /c 
+
+
+LINK32=link.exe
+LINK32_SYSLIBS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib 
+LINK32_ACDK_LIBS=%[(acdkmake-get-libs)]%
+LINK32_FLAGS=$(LINK32_ACDK_LIBS) $(LINK32_SYSLIBS)  %[(acdkmake-get-ldflags)]%
+LINK32_OBJS= \
+	%[(acdkmake-target-getfilelist acdkmake-project-objects)]%
+
+$(TARGET) : $(INTDIR) $(OUTDIR) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+
+
+
+%[(acdkmake-target-make-objects)]%
+
+clean:
+	%[(acdkmake-target-get-clean)]%
+
+
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+
+
+

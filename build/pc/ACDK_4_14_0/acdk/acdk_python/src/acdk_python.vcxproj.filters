@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{e46a2ac9-2cfa-45bf-b59a-0e53cbb142ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\python">
+      <UniqueIdentifier>{e7bfb71c-41f3-4deb-9525-0e121e567806}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\python\Config.h">
+      <Filter>acdk\python</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\python\PythonInterpreter.h">
+      <Filter>acdk\python</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\python\PythonProxy.h">
+      <Filter>acdk\python</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\python\PythonSys.h">
+      <Filter>acdk\python</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\python\PythonInterpreter.cpp">
+      <Filter>acdk\python</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\python\PythonObject.cpp">
+      <Filter>acdk\python</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\python\PythonProxy.cpp">
+      <Filter>acdk\python</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

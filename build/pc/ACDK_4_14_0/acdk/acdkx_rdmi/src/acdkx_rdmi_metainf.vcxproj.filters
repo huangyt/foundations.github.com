@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{0ec6cfb3-f260-46e4-817b-a0e9bcfaa71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\rdmi">
+      <UniqueIdentifier>{dd2c7cfc-8f04-470b-b9f6-f71576054b46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\rdmi\rdmi_metainf">
+      <UniqueIdentifier>{213de852-f834-434f-9fd7-ffd6a1c5fb0f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx\rdmi\rdmi_metainf\rdmi_metainf_ext.cpp">
+      <Filter>acdkx\rdmi\rdmi_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

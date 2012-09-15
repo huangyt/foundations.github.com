@@ -1,0 +1,84 @@
+%id: acdk_python_install
+%title: Install acdk_python
+%shorttitle: Compile acdk_python
+%seealso: acdk_general_install
+%keywords: acdk_python, Install
+%body:
+<htmlauto/>
+<pageintro>
+Describe how to compile/install <m>acdk_python</m>
+</pageintro>
+
+<jumptable/>
+
+<jump1>Download and compile Python</jump1>
+To compile and rund acdkperl you need the Python 2.1 (or later) package
+
+%ref[ftp://ftp.python.org/pub/python, ftp://ftp.python.org/pub/python]
+<jump2>On Unix:</jump2>
+
+<pre>
+- [g]tar zxf Python-2.1.1.tgz
+- cd Python-2.1.1
+- ./configure 
+- make
+- su 
+- make install
+</pre>
+Optional you may have to specifiy following options to <c>./configure</c>
+<fl>
+  <f> --prefix=/artefaktur/extsrc (where to install python)
+  <f> --enable-shared
+  <f> --enable-unicode=ucs2
+</fl>
+
+
+<jump2>On Windows:</jump2>
+<pre>
+- use gtar or winzip to extract Python-2.1.1.tgz
+- Open the workspace .\Python-2.1.1\PCbuild\pcbuild.dsw
+- Compile Debug and Release target.
+- You may have to copy the python DLL's somewhere into the
+  path or expand the path to python DLL's directory.
+</pre>
+
+If you have already installed a runtime version of Python
+it may work to this, but there may missing includes/libs.
+
+<jump1>Configure ACDK</jump1>
+After compiling Python you probably have to ajust some
+configuration in acdk:
+<fl>
+  <f> Unix: open <c>acdk_globals.[your platform]</c> in the ACDK root directory and 
+      ajust the <c>ACDK_PYTHON_*</c> values to point
+      to the correct directories and library names.
+      
+  <f> Windows: open the <c>acdkenv.cmd</c> ACDK root directory and ajust the 
+      <c>ACDK_PYTHON*</c> values.
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <c>startvstudio6.cmd</c>).
+      Alternately you can also add these environment variables into your global
+      environment. 
+</fl>
+
+<jump1>Compile acdk_python</jump1>
+If the environment variables are set correctly <m>acdk_python</m> can be compiled.
+
+<jump1>Running executables using acdk_python</jump1>
+To run an executble using <m>acdk_python</m> you may have set
+environment variables (<c>PATH</c> on Windows and <c>LD_LIBRARY_PATH</c>)
+to point to ACDK <c>bin</c> directory and the directory of the shared libraries
+of Python.
+
+On windows you can use the <c>acdkenv.cmd</c> for this purpose.
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <c>acdkenv.[platform]</c> before executing the application.
+
+
+
+.
+
+
+

@@ -1,0 +1,112 @@
+%id: acdk_core_man_config
+%title: Runtime Configuration of ACDK
+%shorttitle: Runtime Configuration
+%body:
+<pageintro>
+How to use runtime configure in ACDK applications.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Over all description of runtime configuration</jump1>
+Different to configuration at compile time, the runtime configuration
+is used to control ACDK functionality at runtime.
+The runtime configuration can also be used for user defined configuration values
+of applications.
+
+<jump1>Dependencies</jump1>
+Configuration using the System properties (see %cref[acdk::lang::System] for <c> System::getProperty(), setProperty()</c>)
+of an ACDK application is done on multiple steps:
+<fl>
+<f> Read the operation system environment into the System properties.
+<f> Read the configuration file <c>$ACDKTOOLSHOME/cfg/acdk.cfg</c> if exists.
+<f> Read the configuration file <c>myexecutable.cfg</c> in the same directory 
+		as the executable if exists.
+<f> Parse the command line options (especially the <c>-D</c> options.
+</fl>
+
+Each step will overwrite the values, which are configured previous steps.
+
+<jump1>Command Line options</jump1>
+
+<code>acdk::lang::System::main()</code>
+understands following flags:
+<ul>
+<li> <b>-acdk-st</b>: run in single thread modus. Object::lock() will have no effect.
+<li> <b>-acdk-home=[homedir]</b> set internally this as ACDK_HOME env variable.
+     This variable often used when a ACDK application looks for its configuration
+     files. The standard ClassLoader also try to find ACDK libraries in the 
+     ACDK_HOME/bin directory.
+<li> <b>-acdk-tools-home=[homedir]</b> set internally this as ACDK_TOOLS_HOME env variable.
+     Has same usage as -acdk-home but overwrite -acdk-home. This is used if acdk tools
+     are used which are stored in a directory not equal to ACDKHOME.
+     If ACDK_TOOLS_HOME is not set, the parent directory of the executable 
+     will be used (executable=acdk/bin/myexe, ACDK_TOOLS_HOME=acdk ).
+<li> <b>-acdk-path=[pathlist]</b> set internally ACDKPATH env variable.
+     Variable will be used by the ClassLoader to locate additionally ACDK libraries.
+     Multiple path should be devided by the path seperator (':' on unix and ';' on windows
+     platform). The argument -acdk-path=path can also specified multiple times on the command line.
+<li> <b>-Dkey=value</b>: Define a system property.
+			<note> Command line options, starting with <c>-D</c> are reserved to ACDK.</note>
+<li> <b>-acdk-st</b>: Run the executable in single thread mode. No synchronization
+      will be done. This option can improve performance in single threaded application, 
+      but may be crash in multithreaded applications.
+<li> <b>-acdk-sp</b>: The application run on a single cpu machine.
+      On some platforms this option speed up executation about a factor of 0.10 - 0.20.
+      But on other platform - which have no native support for atomic integer operation
+      - the executable will be speed up by a factor up to 2.
+<li> <b>-acdk-enc [char enc]</b>: This option set the "user.encoding" property. This string value
+     will be used as default encoding for all CharReader/Writer.
+     See also %ref[acdk_core_locale_encoding] for valid values.
+<li> <b>-loglevel [loglevel]</b>: Set the threshold value for all logging. 
+     All log message with a lower log level will discarged. By default the threshold
+     is 'Warn'.
+     loglevel can be either a integer between 0 (all log message will print) and
+     65535 (no log message will print) or a string value: 
+     All, Trace, Debug, Info, Note, Warn, Error, Fatal, None.
+<li> <b>-acdk-pa</b>: Use the PagedHeap-Allocator.
+<li> <b>-acdk-rc</b>: Use only Reference Counting. No debugging information about the heaps
+     is availabe.
+<li> <b>-acdk-rcgc</b>: Use Reference Counting + Mark/Sweep collection. 
+<li> <b>-acdk-gc</b>: Use the Boehm Conservative Collector.
+      Only available if compiled and linked with the the Boehm Conservative Collector.
+      <b><i>-acdk-gc is Experimental and may not work.</i></b>
+<li> <b>-acdk-maxmem [maxmem]</b>: Limit usage of process to memory in megabyte.
+			if maxmem is -1 process memory usage is unlimited.
+			By default memory usage is limited to 1000 MB.
+					
+</ul>
+These flags will striped from the command line and the applications main function will
+not see it.
+
+<jump1>Property files</jump1>
+<jump2>Global acdk configuration</jump2>
+Global configuration (for all users and ACDK applications) can be done in the
+<c>$ACDKHOME/cfg/acdk.cfg</c>. The orignal file can be found in <c>acdk_core/cfg/acdk.cfg</c>.
+
+Here the default <c>acdk.cfg</c> provided by the ACDK distribution:
+
+<include type="pre" src="acdk_core/cfg/acdk.cfg"/>
+
+<jump2>Application specific configuration</jump2>
+On startup ACDK looks for a file name
+with the same file name of the executable (excluding
+'.exe' on Windows) and a <c>.cfg</c>.
+ACDK expects that this file is a property file. 
+ACDK will  load this property file at startup and in case of re-initialization.
+ 
+<jump1>Further configuation</jump1>
+<jump2>User defined properties files</jump2>
+Applications can define their own properties files and load them with the
+%cref[acdk::util::Properties] <c>load()</c> method.
+
+<jump2>Enhanced configuration</jump2>
+With the %ref[CfgScript, acdk_cfgscript_hb] language more advanced 
+configuration can be done: not only setting passive strings, which 
+has to be evaluated in the applications code, but real glue code to connect
+C++ and CfgScript classes.
+
+
+.

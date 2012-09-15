@@ -1,0 +1,1757 @@
+<html><body>
+<h1>Unit Test 2004-11-28T20:31:54</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="red">TEST FAILED</td></tr></table>
+Tests: 9; Failures: 0; Errors: 5<br>
+<table border=0 width="100%"><tr><td bgcolor="FF8080"> <a href="#Asd_Test.standard">Asd_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="FF8080"> <a href="#Asd_Test.single">Asd_Test.single</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DClazzInfo_Test.standard">DClazzInfo_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DClazzInfo_Test.persistence">DClazzInfo_Test.persistence</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="FF8080"> <a href="#Sasm_Test.standard">Sasm_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#SyntaxParseNode_Test.standard">SyntaxParseNode_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="FF8080"> <a href="#SyntaxParseNode_Test.orSyntaxNodes">SyntaxParseNode_Test.orSyntaxNodes</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#SyntaxParseNode_Test.errorHandling">SyntaxParseNode_Test.errorHandling</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="FF8080"> <a href="#SyntaxParseNode_Test.aalSyntax">SyntaxParseNode_Test.aalSyntax</a> <br>
+</td></tr></table>
+<h2><a id="Asd_Test.standard">Asd_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="red">Test FAILED </td></tr></table>
+Errors:<br>
+<ul>
+<li> parsing overflow: 0<br>Called in:<br><pre>  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::Throwable::Throwable (acdk_core_d.dll)
+  called in acdk::lang::Exception::Exception (acdk_core_d.dll)
+  called in acdk::lang::RuntimeException::RuntimeException (acdk_core_d.dll)
+  called in acdk::lang::IllegalArgumentException::IllegalArgumentException (acdk_core_d.dll)
+  called in acdk::lang::NumberFormatException::NumberFormatException (acdk_core_d.dll)
+  called in acdk::lang::Number::parseIntegerNumber (acdk_core_d.dll)
+  called in acdk::lang::Long::parseLong (acdk_core_d.dll)
+  called in acdk::lang::Long::parseLong (acdk_core_d.dll)
+  called in acdk::aci::parser::DecimalLiteralParseNode::createTerminal (acdk_aci_d.dll)
+  called in acdk::aci::parser::RegScanParseNode::scanNextFromSource (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::_scanNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::_readNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::getNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::ScannerTokenStack::getNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::TerminalParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxKeyword::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode_DmiProxy::parse (acdk_aci_dmiproxy_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxZeroOrMore::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseComplete (acdk_aci_d.dll)
+  called in tests::acdk::aci::execute (acdk_aci_Test_d.exe)
+  called in tests::acdk::aci::Asd_Test::standard (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::aci::Asd_Test>::runTest (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_aci_Test_d.exe)
+  called in mainCRTStartup (acdk_aci_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+</pre></li>
+</ul>
+<br>Error output:<hr><pre>[AUNIT:STRT][Asd_Test.standard] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addParseNode: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addTerminal: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addTerminal: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+Eval code: 
+class aal.IfStatementParseNode
+extends SyntaxParseNode
+{
+  IfStatementParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new IfStatement(Nil, this, getNodeName()); }
+}
+
+Eval code: 
+class aal.EqualityExprParseNode
+extends SyntaxParseNode
+{
+  EqualityExprParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new EqualityExpr(Nil, this, getNodeName()); }
+}
+
+Eval code: 
+class aal.LiteralExprParseNode
+extends SyntaxParseNode
+{
+  LiteralExprParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new LiteralExpr(Nil, this, getNodeName()); }
+}
+
+D: ParseEnv::addParseNode: "RuleName"=[Literal]; "Syntax"=[ BOOLEAN_LITERAL | DEC_LITERAL | SIGNED_DEC_LITERAL | HEX_LITERAL | FLOAT_LITERAL | OCTAL_LITERAL| STRING_LITERAL ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[true]; "Syntax"=[^(true)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[true]; "Syntax"=[^(true)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[false]; "Syntax"=[^(false)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[false]; "Syntax"=[^(false)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[nil]; "Syntax"=[^(nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[nil]; "Syntax"=[^(nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[Nil]; "Syntax"=[^(Nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[Nil]; "Syntax"=[^(Nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[BOOLEAN_LITERAL]; "Syntax"=[ 'true' $ | 'false' $ | 'nil' | 'Nil' $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[CodeText]; "Syntax"=[ Statements;]; 
+D: ParseEnv::addParseNode: "RuleName"=[TypeDecl]; "Syntax"=[ ClassDeclDef | InterfaceDeclDef | FunctionDeclDef;]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarDecl]; "Syntax"=[ LVarDecl;]; 
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LVarDecl]; "Syntax"=[ FqTypeName VarName ( ';'& | VarInitializer ';'& ) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[=]; "Syntax"=[^\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[=]; "Syntax"=[^\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarInitializer]; "Syntax"=[ '='& ( AssignmentExpr | ConditionalExpr ) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[{]; "Syntax"=[^\{]; 
+D: ParseEnv::addParseNode: "RuleName"=[{]; "Syntax"=[^\{]; 
+D: ParseEnv::addTerminal: "RuleName"=[}]; "Syntax"=[^\}]; 
+D: ParseEnv::addParseNode: "RuleName"=[}]; "Syntax"=[^\}]; 
+D: ParseEnv::addParseNode: "RuleName"=[Block]; "Syntax"=[ '{'& Statements '}'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[[]; "Syntax"=[^\[]; 
+D: ParseEnv::addParseNode: "RuleName"=[[]; "Syntax"=[^\[]; 
+D: ParseEnv::addTerminal: "RuleName"=[]]; "Syntax"=[^\]]; 
+D: ParseEnv::addParseNode: "RuleName"=[]]; "Syntax"=[^\]]; 
+D: ParseEnv::addParseNode: "RuleName"=[EvalBlock]; "Syntax"=[ '['& CodeText ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Statements]; "Syntax"=[ ( Statement )*;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Statement]; "Syntax"=[ EvalBlock  
+| Block  
+| ReturnStatement  
+| IfStatement  
+| ContinueStatement  
+| BreakStatement  
+| DoStatement  
+| WhileStatement  
+| ForStatement  
+| GotoStatement  
+| ThrowStatement  
+| TryCatchStatement  
+| LabeledStatement 
+| SwitchStatement  
+| DefunDecl  
+| ExtendStatement 
+| VarDecl  
+| TypeDecl  
+| NamespaceDecl  
+| UsingDecl  
+| ExprStatement  
+| EmptyStatement
+;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ExprStatement]; "Syntax"=[ Expression ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[namespace]; "Syntax"=[^(namespace)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[namespace]; "Syntax"=[^(namespace)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[NamespaceDecl]; "Syntax"=[ 'namespace'& TypeName '{'& Statements '}'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[using]; "Syntax"=[^(using)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[using]; "Syntax"=[^(using)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[UsingDecl]; "Syntax"=[ 'using'& FqTypeName ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[class]; "Syntax"=[^(class)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[class]; "Syntax"=[^(class)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclDef]; "Syntax"=[ 'class'& ! TypeName (ClassDef | ';'&) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[interface]; "Syntax"=[^(interface)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[interface]; "Syntax"=[^(interface)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[InterfaceDeclDef]; "Syntax"=[ 'interface'& ! TypeName (InterfaceDef | ';'&) $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDef]; "Syntax"=[ DerivedDef ClassDeclBody;]; 
+D: ParseEnv::addParseNode: "RuleName"=[InterfaceDef]; "Syntax"=[ InterfaceDerivedDef ClassDeclBody;]; 
+D: ParseEnv::addParseNode: "RuleName"=[DerivedDef]; "Syntax"=[ [ DerivedSuperDef ] [ DerivedInterfaceDef ] $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[InterfaceDerivedDef]; "Syntax"=[ [ DerivedInterfaceDef ] $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[extends]; "Syntax"=[^(extends)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[extends]; "Syntax"=[^(extends)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[DerivedSuperDef]; "Syntax"=[ 'extends'& ! FqTypeName $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[implements]; "Syntax"=[^(implements)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[implements]; "Syntax"=[^(implements)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[,]; "Syntax"=[^\,]; 
+D: ParseEnv::addParseNode: "RuleName"=[,]; "Syntax"=[^\,]; 
+D: ParseEnv::addParseNode: "RuleName"=[DerivedInterfaceDef]; "Syntax"=[ 'implements'& ! FqTypeName ( ','& FqTypeName )* $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclBody]; "Syntax"=[ '{'& ( ClassDeclElement )* '}'& ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclElement]; "Syntax"=[ ClassDeclMember | ClassDeclMethod | ClassDeclConstructor | ClassDeclOperator;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclMember]; "Syntax"=[ ClassMemberAttr FqTypeName VarName ( ';'& | VarInitializer ';'& ) $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclMethod]; "Syntax"=[ ClassMemberAttr ReturnType MethodName  FunctionParamsDecl !  ( ';' | FunctionBlock ) $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclConstructor]; "Syntax"=[ ClassMemberAttr MethodName FunctionParamsDecl ClassDeclConstructorInitializerList  ( ';' | FunctionBlock ) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[operator]; "Syntax"=[^(operator)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[operator]; "Syntax"=[^(operator)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclOperator]; "Syntax"=[ ClassMemberAttr ReturnType 'operator'&  Operator FunctionParamsDecl !  ( ';' | FunctionBlock ) $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[defun]; "Syntax"=[^(defun)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[defun]; "Syntax"=[^(defun)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[DefunDecl]; "Syntax"=[ 'defun'& TypeName ClassMemberAttr ReturnType FunctionParamsDecl ';'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ReturnType]; "Syntax"=[ FqTypeName $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[MethodName]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclConstructorInitializerList]; "Syntax"=[  [ ':'& ClassDeclConstructorInitializer ( ','& ClassDeclConstructorInitializer )* ] $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclConstructorInitializer]; "Syntax"=[ FqTypeName Arguments $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[public]; "Syntax"=[^(public)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[public]; "Syntax"=[^(public)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[protected]; "Syntax"=[^(protected)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[protected]; "Syntax"=[^(protected)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[private]; "Syntax"=[^(private)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[private]; "Syntax"=[^(private)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[foreign]; "Syntax"=[^(foreign)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[foreign]; "Syntax"=[^(foreign)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[static]; "Syntax"=[^(static)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[static]; "Syntax"=[^(static)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassMemberAttr]; "Syntax"=[ ( 'public' | 'protected' | 'private' | 'foreign' | 'static' )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionDeclDef]; "Syntax"=[ FunctionDecl ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionDecl]; "Syntax"=[ ClassDeclMethod $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[(]; "Syntax"=[^\(]; 
+D: ParseEnv::addParseNode: "RuleName"=[(]; "Syntax"=[^\(]; 
+D: ParseEnv::addTerminal: "RuleName"=[)]; "Syntax"=[^\)]; 
+D: ParseEnv::addParseNode: "RuleName"=[)]; "Syntax"=[^\)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionParamsDecl]; "Syntax"=[ '('& ')'& $ |  '('& Parameter ( ','& Parameter )* ')'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionBlock]; "Syntax"=[ Block $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Arguments]; "Syntax"=[ '('& ')'& $ | '('& ArgumentList ')'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArgumentList]; "Syntax"=[ Argument ( ','& Argument )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Argument]; "Syntax"=[ [ Label ':'& ] Expression $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[.]; "Syntax"=[^\.]; 
+D: ParseEnv::addParseNode: "RuleName"=[.]; "Syntax"=[^\.]; 
+D: ParseEnv::addParseNode: "RuleName"=[FqTypeName]; "Syntax"=[ TypeName ( '.'& FqTypeName )* ArrayDims  $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArrayDims]; "Syntax"=[ ( ArrayDim )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArrayDim]; "Syntax"=[ '['& ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Expression]; "Syntax"=[ AssignmentExpr;]; 
+D: ParseEnv::addParseNode: "RuleName"=[EmptyExpression]; "Syntax"=[  $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[BaseExpr]; "Syntax"=[ AssignmentExpr ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[AssignmentExpr]; "Syntax"=[ ConditionalExpr [ AssignmentOp AssignmentExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[*=]; "Syntax"=[^\*\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[*=]; "Syntax"=[^\*\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[/=]; "Syntax"=[^\/\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[/=]; "Syntax"=[^\/\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[%=]; "Syntax"=[^\%\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[%=]; "Syntax"=[^\%\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[+=]; "Syntax"=[^\+\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[+=]; "Syntax"=[^\+\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[-=]; "Syntax"=[^\-\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[-=]; "Syntax"=[^\-\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[<<=]; "Syntax"=[^\<\<\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[<<=]; "Syntax"=[^\<\<\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[>>=]; "Syntax"=[^\>\>\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[>>=]; "Syntax"=[^\>\>\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[&=]; "Syntax"=[^\&\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[&=]; "Syntax"=[^\&\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[^=]; "Syntax"=[^\^\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[^=]; "Syntax"=[^\^\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[|=]; "Syntax"=[^\|\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[|=]; "Syntax"=[^\|\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[AssignmentOp]; "Syntax"=[ '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|=';]; 
+D: ParseEnv::addTerminal: "RuleName"=[?]; "Syntax"=[^\?]; 
+D: ParseEnv::addParseNode: "RuleName"=[?]; "Syntax"=[^\?]; 
+D: ParseEnv::addParseNode: "RuleName"=[ConditionalExpr]; "Syntax"=[ LogicalORExpr [ '?'& AssignmentExpr ':'& AssignmentExpr ] %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalORExpr]; "Syntax"=[ LogicalANDExpr [ LogicalOROp  LogicalORExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[||]; "Syntax"=[^\|\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[||]; "Syntax"=[^\|\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalOROp]; "Syntax"=[ '||';]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalANDExpr]; "Syntax"=[ BitwiseORExpr [ LogicalANDOp  LogicalANDExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[&&]; "Syntax"=[^\&\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[&&]; "Syntax"=[^\&\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalANDOp]; "Syntax"=[ '&&';]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseORExpr]; "Syntax"=[ BitwiseXORExpr [ BitwiseOROp BitwiseORExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[|]; "Syntax"=[^\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[|]; "Syntax"=[^\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseOROp]; "Syntax"=[ '|';]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseXORExpr]; "Syntax"=[ BitwiseANDExpr [ BitwiseXOROp BitwiseXORExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[^]; "Syntax"=[^\^]; 
+D: ParseEnv::addParseNode: "RuleName"=[^]; "Syntax"=[^\^]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseXOROp]; "Syntax"=[ '^';]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseANDExpr]; "Syntax"=[ EqualityExpr [ BitwiseANDOp BitwiseANDExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[&]; "Syntax"=[^\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[&]; "Syntax"=[^\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseANDOp]; "Syntax"=[ '&';]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualityExpr]; "Syntax"=[ EqualsExpr [ EqualityOp EqualityExpr ] %
+;]; 
+D: ParseEnv::addTerminal: "RuleName"=[==]; "Syntax"=[^\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[==]; "Syntax"=[^\=\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[!=]; "Syntax"=[^\!\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[!=]; "Syntax"=[^\!\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualityOp]; "Syntax"=[ '==' | '!=';]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualsExpr]; "Syntax"=[ RelationalExpr [ EqualsOp EqualsExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[===]; "Syntax"=[^\=\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[===]; "Syntax"=[^\=\=\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[!==]; "Syntax"=[^\!\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[!==]; "Syntax"=[^\!\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualsOp]; "Syntax"=[ '===' | '!==';]; 
+D: ParseEnv::addParseNode: "RuleName"=[RelationalExpr]; "Syntax"=[ ShiftExpr [ RelationalOp RelationalExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[<]; "Syntax"=[^\<]; 
+D: ParseEnv::addParseNode: "RuleName"=[<]; "Syntax"=[^\<]; 
+D: ParseEnv::addTerminal: "RuleName"=[>]; "Syntax"=[^\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[>]; "Syntax"=[^\>]; 
+D: ParseEnv::addTerminal: "RuleName"=[<=]; "Syntax"=[^\<\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[<=]; "Syntax"=[^\<\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[>=]; "Syntax"=[^\>\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[>=]; "Syntax"=[^\>\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[RelationalOp]; "Syntax"=[ '<' | '>' | '<=' | '>=';]; 
+D: ParseEnv::addParseNode: "RuleName"=[ShiftExpr]; "Syntax"=[ AdditiveExpr [ ShiftOp ShiftExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[>>]; "Syntax"=[^\>\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[>>]; "Syntax"=[^\>\>]; 
+D: ParseEnv::addTerminal: "RuleName"=[>>>]; "Syntax"=[^\>\>\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[>>>]; "Syntax"=[^\>\>\>]; 
+D: ParseEnv::addTerminal: "RuleName"=[<<]; "Syntax"=[^\<\<]; 
+D: ParseEnv::addParseNode: "RuleName"=[<<]; "Syntax"=[^\<\<]; 
+D: ParseEnv::addParseNode: "RuleName"=[ShiftOp]; "Syntax"=[ '>>' | '>>>' | '<<';]; 
+D: ParseEnv::addParseNode: "RuleName"=[AdditiveExpr]; "Syntax"=[ MultiplicativeExpr [ AdditiveOp AdditiveExpr ]  %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[+]; "Syntax"=[^\+]; 
+D: ParseEnv::addParseNode: "RuleName"=[+]; "Syntax"=[^\+]; 
+D: ParseEnv::addTerminal: "RuleName"=[-]; "Syntax"=[^\-]; 
+D: ParseEnv::addParseNode: "RuleName"=[-]; "Syntax"=[^\-]; 
+D: ParseEnv::addParseNode: "RuleName"=[AdditiveOp]; "Syntax"=[ '+' | '-';]; 
+D: ParseEnv::addParseNode: "RuleName"=[MultiplicativeExpr]; "Syntax"=[ CastExpr [ MultiplicativeOp MultiplicativeExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[*]; "Syntax"=[^\*]; 
+D: ParseEnv::addParseNode: "RuleName"=[*]; "Syntax"=[^\*]; 
+D: ParseEnv::addTerminal: "RuleName"=[%]; "Syntax"=[^\%]; 
+D: ParseEnv::addParseNode: "RuleName"=[%]; "Syntax"=[^\%]; 
+D: ParseEnv::addTerminal: "RuleName"=[/]; "Syntax"=[^\/]; 
+D: ParseEnv::addParseNode: "RuleName"=[/]; "Syntax"=[^\/]; 
+D: ParseEnv::addParseNode: "RuleName"=[MultiplicativeOp]; "Syntax"=[ '*' | '%' | '/' ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[CastExpr]; "Syntax"=[ '('& FqTypeName ')'&  CastExpr $ | PrefixExpr;]; 
+D: ParseEnv::addParseNode: "RuleName"=[PrefixExpr]; "Syntax"=[ NewExpr | ClosureExpr | [ PrefixOp ] % PostfixExpr;]; 
+D: ParseEnv::addTerminal: "RuleName"=[++]; "Syntax"=[^\+\+]; 
+D: ParseEnv::addParseNode: "RuleName"=[++]; "Syntax"=[^\+\+]; 
+D: ParseEnv::addTerminal: "RuleName"=[--]; "Syntax"=[^\-\-]; 
+D: ParseEnv::addParseNode: "RuleName"=[--]; "Syntax"=[^\-\-]; 
+D: ParseEnv::addTerminal: "RuleName"=[~]; "Syntax"=[^\~]; 
+D: ParseEnv::addParseNode: "RuleName"=[~]; "Syntax"=[^\~]; 
+D: ParseEnv::addTerminal: "RuleName"=[!]; "Syntax"=[^\!]; 
+D: ParseEnv::addParseNode: "RuleName"=[!]; "Syntax"=[^\!]; 
+D: ParseEnv::addParseNode: "RuleName"=[PrefixOp]; "Syntax"=[ '++' | '--' | '-' | '+' | '~' | '!';]; 
+D: ParseEnv::addTerminal: "RuleName"=[new]; "Syntax"=[^(new)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[new]; "Syntax"=[^(new)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[NewExpr]; "Syntax"=[ 'new'& FqTypeName ( Arguments ) $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClosureExpr]; "Syntax"=[ 'new'& ClosureArguments ClassDef $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClosureArguments]; "Syntax"=[ '('& ')'& $ | '('& ClosureArgumentList ')'&  $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClosureArgumentList]; "Syntax"=[ VarName ( ','& VarName )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[NewArrayArguments]; "Syntax"=[ ( NewArrayArgument )+ $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[NewArrayArgument]; "Syntax"=[ '['& [ Expression ] ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[PostfixExpr]; "Syntax"=[ SubscribeExpr [ PostfixOp ] % [ PostfixExpr ] ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[PostfixOp]; "Syntax"=[ '++' | '--' $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[SubscribeExpr]; "Syntax"=[ PrimaryExpr ( ArraySubscribeExpr | MemberSubscribeExpr | FuncSubscribeExpr  )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FuncSubscribeExpr]; "Syntax"=[ Arguments $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArraySubscribeExpr]; "Syntax"=[ '['& Expression ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[MemberSubscribeExpr]; "Syntax"=[ MemberSubscribeOp SubscribeExpr $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[->]; "Syntax"=[^\-\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[->]; "Syntax"=[^\-\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[MemberSubscribeOp]; "Syntax"=[ '.' | '->';]; 
+D: ParseEnv::addParseNode: "RuleName"=[PrimaryExpr]; "Syntax"=[ '('& Expression ')'& | 'operator'&  Operator | VarNameExpr | LiteralExpr;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LiteralExpr]; "Syntax"=[ Literal $
+;]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarNameExpr]; "Syntax"=[ VarName $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[return]; "Syntax"=[^(return)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[return]; "Syntax"=[^(return)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ReturnStatement]; "Syntax"=[ 'return'& [ Expression ]';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[continue]; "Syntax"=[^(continue)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[continue]; "Syntax"=[^(continue)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ContinueStatement]; "Syntax"=[ 'continue' ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[break]; "Syntax"=[^(break)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[break]; "Syntax"=[^(break)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[BreakStatement]; "Syntax"=[ 'break' ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[if]; "Syntax"=[^(if)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[if]; "Syntax"=[^(if)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[IfStatement]; "Syntax"=[ 'if'& ! '('& Expression ')'& Statement [ ElseStatement ]  $
+;]; 
+D: ParseEnv::addTerminal: "RuleName"=[else]; "Syntax"=[^(else)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[else]; "Syntax"=[^(else)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ElseStatement]; "Syntax"=[ 'else'& ! Statement $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[do]; "Syntax"=[^(do)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[do]; "Syntax"=[^(do)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[while]; "Syntax"=[^(while)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[while]; "Syntax"=[^(while)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[DoStatement]; "Syntax"=[ 'do'& ! Statement 'while'& '('& Expression ')'& ';'& $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[WhileStatement]; "Syntax"=[ 'while'& '('& Expression ')'& Statement $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[goto]; "Syntax"=[^(goto)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[goto]; "Syntax"=[^(goto)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[GotoStatement]; "Syntax"=[ 'goto'& Label ';'& $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LabeledStatement]; "Syntax"=[ Label ':'& [ Statement ] $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[EmptyStatement]; "Syntax"=[ ';'& $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[for]; "Syntax"=[^(for)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[for]; "Syntax"=[^(for)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ForStatement]; "Syntax"=[ 'for'& ! '('& ( EmptyStatement| VarDecl | ExprStatement ) ( Expression | EmptyExpression) ';'& ( Expression | EmptyExpression ) ')'& Statement $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[switch]; "Syntax"=[^(switch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[switch]; "Syntax"=[^(switch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[SwitchStatement]; "Syntax"=[ 'switch'& '('& Expression ')'& '{'& ( CaseClause )* '}'& $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[case]; "Syntax"=[^(case)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[case]; "Syntax"=[^(case)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[default]; "Syntax"=[^(default)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[default]; "Syntax"=[^(default)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[CaseClause]; "Syntax"=[ ( 'case' Expression | 'default' ) ':'& ( Statement )* $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[throw]; "Syntax"=[^(throw)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[throw]; "Syntax"=[^(throw)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ThrowStatement]; "Syntax"=[ 'throw'& [ Expression ] ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[try]; "Syntax"=[^(try)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[try]; "Syntax"=[^(try)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[TryCatchStatement]; "Syntax"=[ 'try'& Statement ( CatchBlock )* [ FinallyBlock ] $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[catch]; "Syntax"=[^(catch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[catch]; "Syntax"=[^(catch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[CatchBlock]; "Syntax"=[ 'catch'& '('& FqTypeName VarName ')'& Statement $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[finally]; "Syntax"=[^(finally)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[finally]; "Syntax"=[^(finally)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FinallyBlock]; "Syntax"=[ 'finally'& Statement $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[extend]; "Syntax"=[^(extend)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[extend]; "Syntax"=[^(extend)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ExtendStatement]; "Syntax"=[ 'extend' ClassMemberAttr ReturnType FqTypeName FunctionParamsDecl FunctionBlock $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[TypeName]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarName]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Label]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LeftHandVariable]; "Syntax"=[ Identifier $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Variable]; "Syntax"=[ Identifier $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Identifier]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Parameter]; "Syntax"=[ FqTypeName VarName $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Operator]; "Syntax"=[ ( '+' | '-' | '*' | '/' | '.' | 
+                              '<<=' | '>>=' | '<<' | '>>' | ',' | '!' | '~' | 
+                              '==' | '=' | '+=' | '-=' | '<' | '>' | '<=' | '>=' | '==' | '!=' | 
+                              '[' ']' | '(' ')' ) $;]; 
+T: Compiler::parse:-> CodeText
+T: Compiler::parse: -> Statements
+T: Compiler::parse:  -> Statement
+T: Compiler::parse:   -> EvalBlock
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= EvalBlock
+T: Compiler::parse:   -> Block
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= Block
+T: Compiler::parse:   -> ReturnStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= ReturnStatement
+T: Compiler::parse:   -> IfStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= IfStatement
+T: Compiler::parse:   -> ContinueStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= ContinueStatement
+T: Compiler::parse:   -> BreakStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= BreakStatement
+T: Compiler::parse:   -> DoStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= DoStatement
+T: Compiler::parse:   -> WhileStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= WhileStatement
+T: Compiler::parse:   -> ForStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= ForStatement
+T: Compiler::parse:   -> GotoStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= GotoStatement
+T: Compiler::parse:   -> ThrowStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= ThrowStatement
+T: Compiler::parse:   -> TryCatchStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= TryCatchStatement
+T: Compiler::parse:   -> LabeledStatement
+T: Compiler::parse:    -> Label
+T: Compiler::parse:     -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:      <= IDENTIFIER
+T: Compiler::parse:     <= Label
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:1;CL:63]; "Value"=[Identifier: i]; 
+T: Compiler::parse:   /= LabeledStatement
+T: Compiler::parse:   -> SwitchStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= SwitchStatement
+T: Compiler::parse:   -> DefunDecl
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= DefunDecl
+T: Compiler::parse:   -> ExtendStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:   /= ExtendStatement
+T: Compiler::parse:   -> VarDecl
+T: Compiler::parse:    -> LVarDecl
+T: Compiler::parse:     -> FqTypeName
+T: Compiler::parse:      -> TypeName
+T: Compiler::parse:       -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:1;CL:18]; "Value"=[Identifier: int]; 
+T: Compiler::parse:        <= IDENTIFIER
+T: Compiler::parse:       <= TypeName
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:1;CL:63]; "Value"=[Identifier: i]; 
+T: Compiler::parse:      -> ArrayDims
+T: Compiler::parse:       -> ArrayDim
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:1;CL:63]; "Value"=[Identifier: i]; 
+T: Compiler::parse:       /= ArrayDim
+T: Compiler::parse:       <= ArrayDims
+T: Compiler::parse:      <= FqTypeName
+T: Compiler::parse:     -> VarName
+T: Compiler::parse:      -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:1;CL:63]; "Value"=[Identifier: i]; 
+T: Compiler::parse:       <= IDENTIFIER
+T: Compiler::parse:      <= VarName
+D: Scanner::getNext: "top"=[t:6;cl: SC:25;EC:26;LN:1;CL:112]; "Value"=[Keyword: =]; 
+T: Compiler::parse:     -> VarInitializer
+D: Scanner::getNext: "top"=[t:6;cl: SC:25;EC:26;LN:1;CL:112]; "Value"=[Keyword: =]; 
+T: Compiler::parse:      -> AssignmentExpr
+T: Compiler::parse:       -> ConditionalExpr
+T: Compiler::parse:        -> LogicalORExpr
+T: Compiler::parse:         -> LogicalANDExpr
+T: Compiler::parse:          -> BitwiseORExpr
+T: Compiler::parse:           -> BitwiseXORExpr
+T: Compiler::parse:            -> BitwiseANDExpr
+T: Compiler::parse:             -> EqualityExpr
+T: Compiler::parse:              -> EqualsExpr
+T: Compiler::parse:               -> RelationalExpr
+T: Compiler::parse:                -> ShiftExpr
+T: Compiler::parse:                 -> AdditiveExpr
+T: Compiler::parse:                  -> MultiplicativeExpr
+T: Compiler::parse:                   -> CastExpr
+[AUNIT:ERRR][Asd_Test.standard] Error in Test: Asd_Test.standard: parsing overflow: 0
+</pre>
+<h2><a id="Asd_Test.single">Asd_Test.single</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="red">Test FAILED </td></tr></table>
+Errors:<br>
+<ul>
+<li> parsing overflow: 0<br>Called in:<br><pre>  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::Throwable::Throwable (acdk_core_d.dll)
+  called in acdk::lang::Exception::Exception (acdk_core_d.dll)
+  called in acdk::lang::RuntimeException::RuntimeException (acdk_core_d.dll)
+  called in acdk::lang::IllegalArgumentException::IllegalArgumentException (acdk_core_d.dll)
+  called in acdk::lang::NumberFormatException::NumberFormatException (acdk_core_d.dll)
+  called in acdk::lang::Number::parseIntegerNumber (acdk_core_d.dll)
+  called in acdk::lang::Long::parseLong (acdk_core_d.dll)
+  called in acdk::lang::Long::parseLong (acdk_core_d.dll)
+  called in acdk::aci::parser::DecimalLiteralParseNode::createTerminal (acdk_aci_d.dll)
+  called in acdk::aci::parser::RegScanParseNode::scanNextFromSource (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::_scanNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::_readNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::getNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::ScannerTokenStack::getNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::TerminalParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxKeyword::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode_DmiProxy::parse (acdk_aci_dmiproxy_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOr::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxZeroOrMore::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseComplete (acdk_aci_d.dll)
+  called in tests::acdk::aci::execute (acdk_aci_Test_d.exe)
+  called in tests::acdk::aci::Asd_Test::single (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::aci::Asd_Test>::runTest (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_aci_Test_d.exe)
+  called in mainCRTStartup (acdk_aci_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+</pre></li>
+</ul>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Asd_Test.standard] End Test
+[AUNIT:STRT][Asd_Test.single] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addParseNode: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addTerminal: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addTerminal: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+Eval code: 
+class aal.IfStatementParseNode
+extends SyntaxParseNode
+{
+  IfStatementParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new IfStatement(Nil, this, getNodeName()); }
+}
+
+Eval code: 
+class aal.EqualityExprParseNode
+extends SyntaxParseNode
+{
+  EqualityExprParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new EqualityExpr(Nil, this, getNodeName()); }
+}
+
+Eval code: 
+class aal.LiteralExprParseNode
+extends SyntaxParseNode
+{
+  LiteralExprParseNode(String nodeName, SyntaxNode sn, String syntax, String help = "")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new LiteralExpr(Nil, this, getNodeName()); }
+}
+
+D: ParseEnv::addParseNode: "RuleName"=[Literal]; "Syntax"=[ BOOLEAN_LITERAL | DEC_LITERAL | SIGNED_DEC_LITERAL | HEX_LITERAL | FLOAT_LITERAL | OCTAL_LITERAL| STRING_LITERAL ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[true]; "Syntax"=[^(true)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[true]; "Syntax"=[^(true)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[false]; "Syntax"=[^(false)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[false]; "Syntax"=[^(false)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[nil]; "Syntax"=[^(nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[nil]; "Syntax"=[^(nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[Nil]; "Syntax"=[^(Nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[Nil]; "Syntax"=[^(Nil)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[BOOLEAN_LITERAL]; "Syntax"=[ 'true' $ | 'false' $ | 'nil' | 'Nil' $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[CodeText]; "Syntax"=[ Statements;]; 
+D: ParseEnv::addParseNode: "RuleName"=[TypeDecl]; "Syntax"=[ ClassDeclDef | InterfaceDeclDef | FunctionDeclDef;]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarDecl]; "Syntax"=[ LVarDecl;]; 
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LVarDecl]; "Syntax"=[ FqTypeName VarName ( ';'& | VarInitializer ';'& ) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[=]; "Syntax"=[^\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[=]; "Syntax"=[^\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarInitializer]; "Syntax"=[ '='& ( AssignmentExpr | ConditionalExpr ) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[{]; "Syntax"=[^\{]; 
+D: ParseEnv::addParseNode: "RuleName"=[{]; "Syntax"=[^\{]; 
+D: ParseEnv::addTerminal: "RuleName"=[}]; "Syntax"=[^\}]; 
+D: ParseEnv::addParseNode: "RuleName"=[}]; "Syntax"=[^\}]; 
+D: ParseEnv::addParseNode: "RuleName"=[Block]; "Syntax"=[ '{'& Statements '}'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[[]; "Syntax"=[^\[]; 
+D: ParseEnv::addParseNode: "RuleName"=[[]; "Syntax"=[^\[]; 
+D: ParseEnv::addTerminal: "RuleName"=[]]; "Syntax"=[^\]]; 
+D: ParseEnv::addParseNode: "RuleName"=[]]; "Syntax"=[^\]]; 
+D: ParseEnv::addParseNode: "RuleName"=[EvalBlock]; "Syntax"=[ '['& CodeText ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Statements]; "Syntax"=[ ( Statement )*;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Statement]; "Syntax"=[ EvalBlock  
+| Block  
+| ReturnStatement  
+| IfStatement  
+| ContinueStatement  
+| BreakStatement  
+| DoStatement  
+| WhileStatement  
+| ForStatement  
+| GotoStatement  
+| ThrowStatement  
+| TryCatchStatement  
+| LabeledStatement 
+| SwitchStatement  
+| DefunDecl  
+| ExtendStatement 
+| VarDecl  
+| TypeDecl  
+| NamespaceDecl  
+| UsingDecl  
+| ExprStatement  
+| EmptyStatement
+;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ExprStatement]; "Syntax"=[ Expression ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[namespace]; "Syntax"=[^(namespace)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[namespace]; "Syntax"=[^(namespace)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[NamespaceDecl]; "Syntax"=[ 'namespace'& TypeName '{'& Statements '}'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[using]; "Syntax"=[^(using)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[using]; "Syntax"=[^(using)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[UsingDecl]; "Syntax"=[ 'using'& FqTypeName ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[class]; "Syntax"=[^(class)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[class]; "Syntax"=[^(class)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclDef]; "Syntax"=[ 'class'& ! TypeName (ClassDef | ';'&) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[interface]; "Syntax"=[^(interface)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[interface]; "Syntax"=[^(interface)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[InterfaceDeclDef]; "Syntax"=[ 'interface'& ! TypeName (InterfaceDef | ';'&) $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDef]; "Syntax"=[ DerivedDef ClassDeclBody;]; 
+D: ParseEnv::addParseNode: "RuleName"=[InterfaceDef]; "Syntax"=[ InterfaceDerivedDef ClassDeclBody;]; 
+D: ParseEnv::addParseNode: "RuleName"=[DerivedDef]; "Syntax"=[ [ DerivedSuperDef ] [ DerivedInterfaceDef ] $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[InterfaceDerivedDef]; "Syntax"=[ [ DerivedInterfaceDef ] $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[extends]; "Syntax"=[^(extends)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[extends]; "Syntax"=[^(extends)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[DerivedSuperDef]; "Syntax"=[ 'extends'& ! FqTypeName $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[implements]; "Syntax"=[^(implements)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[implements]; "Syntax"=[^(implements)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[,]; "Syntax"=[^\,]; 
+D: ParseEnv::addParseNode: "RuleName"=[,]; "Syntax"=[^\,]; 
+D: ParseEnv::addParseNode: "RuleName"=[DerivedInterfaceDef]; "Syntax"=[ 'implements'& ! FqTypeName ( ','& FqTypeName )* $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclBody]; "Syntax"=[ '{'& ( ClassDeclElement )* '}'& ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclElement]; "Syntax"=[ ClassDeclMember | ClassDeclMethod | ClassDeclConstructor | ClassDeclOperator;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclMember]; "Syntax"=[ ClassMemberAttr FqTypeName VarName ( ';'& | VarInitializer ';'& ) $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclMethod]; "Syntax"=[ ClassMemberAttr ReturnType MethodName  FunctionParamsDecl !  ( ';' | FunctionBlock ) $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclConstructor]; "Syntax"=[ ClassMemberAttr MethodName FunctionParamsDecl ClassDeclConstructorInitializerList  ( ';' | FunctionBlock ) $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[operator]; "Syntax"=[^(operator)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[operator]; "Syntax"=[^(operator)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclOperator]; "Syntax"=[ ClassMemberAttr ReturnType 'operator'&  Operator FunctionParamsDecl !  ( ';' | FunctionBlock ) $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[defun]; "Syntax"=[^(defun)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[defun]; "Syntax"=[^(defun)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[DefunDecl]; "Syntax"=[ 'defun'& TypeName ClassMemberAttr ReturnType FunctionParamsDecl ';'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ReturnType]; "Syntax"=[ FqTypeName $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[MethodName]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclConstructorInitializerList]; "Syntax"=[  [ ':'& ClassDeclConstructorInitializer ( ','& ClassDeclConstructorInitializer )* ] $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassDeclConstructorInitializer]; "Syntax"=[ FqTypeName Arguments $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[public]; "Syntax"=[^(public)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[public]; "Syntax"=[^(public)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[protected]; "Syntax"=[^(protected)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[protected]; "Syntax"=[^(protected)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[private]; "Syntax"=[^(private)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[private]; "Syntax"=[^(private)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[foreign]; "Syntax"=[^(foreign)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[foreign]; "Syntax"=[^(foreign)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[static]; "Syntax"=[^(static)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[static]; "Syntax"=[^(static)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClassMemberAttr]; "Syntax"=[ ( 'public' | 'protected' | 'private' | 'foreign' | 'static' )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionDeclDef]; "Syntax"=[ FunctionDecl ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionDecl]; "Syntax"=[ ClassDeclMethod $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[(]; "Syntax"=[^\(]; 
+D: ParseEnv::addParseNode: "RuleName"=[(]; "Syntax"=[^\(]; 
+D: ParseEnv::addTerminal: "RuleName"=[)]; "Syntax"=[^\)]; 
+D: ParseEnv::addParseNode: "RuleName"=[)]; "Syntax"=[^\)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionParamsDecl]; "Syntax"=[ '('& ')'& $ |  '('& Parameter ( ','& Parameter )* ')'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FunctionBlock]; "Syntax"=[ Block $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Arguments]; "Syntax"=[ '('& ')'& $ | '('& ArgumentList ')'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArgumentList]; "Syntax"=[ Argument ( ','& Argument )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Argument]; "Syntax"=[ [ Label ':'& ] Expression $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[.]; "Syntax"=[^\.]; 
+D: ParseEnv::addParseNode: "RuleName"=[.]; "Syntax"=[^\.]; 
+D: ParseEnv::addParseNode: "RuleName"=[FqTypeName]; "Syntax"=[ TypeName ( '.'& FqTypeName )* ArrayDims  $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArrayDims]; "Syntax"=[ ( ArrayDim )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArrayDim]; "Syntax"=[ '['& ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Expression]; "Syntax"=[ AssignmentExpr;]; 
+D: ParseEnv::addParseNode: "RuleName"=[EmptyExpression]; "Syntax"=[  $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[BaseExpr]; "Syntax"=[ AssignmentExpr ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[AssignmentExpr]; "Syntax"=[ ConditionalExpr [ AssignmentOp AssignmentExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[*=]; "Syntax"=[^\*\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[*=]; "Syntax"=[^\*\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[/=]; "Syntax"=[^\/\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[/=]; "Syntax"=[^\/\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[%=]; "Syntax"=[^\%\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[%=]; "Syntax"=[^\%\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[+=]; "Syntax"=[^\+\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[+=]; "Syntax"=[^\+\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[-=]; "Syntax"=[^\-\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[-=]; "Syntax"=[^\-\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[<<=]; "Syntax"=[^\<\<\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[<<=]; "Syntax"=[^\<\<\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[>>=]; "Syntax"=[^\>\>\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[>>=]; "Syntax"=[^\>\>\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[&=]; "Syntax"=[^\&\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[&=]; "Syntax"=[^\&\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[^=]; "Syntax"=[^\^\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[^=]; "Syntax"=[^\^\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[|=]; "Syntax"=[^\|\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[|=]; "Syntax"=[^\|\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[AssignmentOp]; "Syntax"=[ '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|=';]; 
+D: ParseEnv::addTerminal: "RuleName"=[?]; "Syntax"=[^\?]; 
+D: ParseEnv::addParseNode: "RuleName"=[?]; "Syntax"=[^\?]; 
+D: ParseEnv::addParseNode: "RuleName"=[ConditionalExpr]; "Syntax"=[ LogicalORExpr [ '?'& AssignmentExpr ':'& AssignmentExpr ] %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalORExpr]; "Syntax"=[ LogicalANDExpr [ LogicalOROp  LogicalORExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[||]; "Syntax"=[^\|\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[||]; "Syntax"=[^\|\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalOROp]; "Syntax"=[ '||';]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalANDExpr]; "Syntax"=[ BitwiseORExpr [ LogicalANDOp  LogicalANDExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[&&]; "Syntax"=[^\&\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[&&]; "Syntax"=[^\&\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[LogicalANDOp]; "Syntax"=[ '&&';]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseORExpr]; "Syntax"=[ BitwiseXORExpr [ BitwiseOROp BitwiseORExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[|]; "Syntax"=[^\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[|]; "Syntax"=[^\|]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseOROp]; "Syntax"=[ '|';]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseXORExpr]; "Syntax"=[ BitwiseANDExpr [ BitwiseXOROp BitwiseXORExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[^]; "Syntax"=[^\^]; 
+D: ParseEnv::addParseNode: "RuleName"=[^]; "Syntax"=[^\^]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseXOROp]; "Syntax"=[ '^';]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseANDExpr]; "Syntax"=[ EqualityExpr [ BitwiseANDOp BitwiseANDExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[&]; "Syntax"=[^\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[&]; "Syntax"=[^\&]; 
+D: ParseEnv::addParseNode: "RuleName"=[BitwiseANDOp]; "Syntax"=[ '&';]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualityExpr]; "Syntax"=[ EqualsExpr [ EqualityOp EqualityExpr ] %
+;]; 
+D: ParseEnv::addTerminal: "RuleName"=[==]; "Syntax"=[^\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[==]; "Syntax"=[^\=\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[!=]; "Syntax"=[^\!\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[!=]; "Syntax"=[^\!\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualityOp]; "Syntax"=[ '==' | '!=';]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualsExpr]; "Syntax"=[ RelationalExpr [ EqualsOp EqualsExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[===]; "Syntax"=[^\=\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[===]; "Syntax"=[^\=\=\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[!==]; "Syntax"=[^\!\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[!==]; "Syntax"=[^\!\=\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[EqualsOp]; "Syntax"=[ '===' | '!==';]; 
+D: ParseEnv::addParseNode: "RuleName"=[RelationalExpr]; "Syntax"=[ ShiftExpr [ RelationalOp RelationalExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[<]; "Syntax"=[^\<]; 
+D: ParseEnv::addParseNode: "RuleName"=[<]; "Syntax"=[^\<]; 
+D: ParseEnv::addTerminal: "RuleName"=[>]; "Syntax"=[^\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[>]; "Syntax"=[^\>]; 
+D: ParseEnv::addTerminal: "RuleName"=[<=]; "Syntax"=[^\<\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[<=]; "Syntax"=[^\<\=]; 
+D: ParseEnv::addTerminal: "RuleName"=[>=]; "Syntax"=[^\>\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[>=]; "Syntax"=[^\>\=]; 
+D: ParseEnv::addParseNode: "RuleName"=[RelationalOp]; "Syntax"=[ '<' | '>' | '<=' | '>=';]; 
+D: ParseEnv::addParseNode: "RuleName"=[ShiftExpr]; "Syntax"=[ AdditiveExpr [ ShiftOp ShiftExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[>>]; "Syntax"=[^\>\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[>>]; "Syntax"=[^\>\>]; 
+D: ParseEnv::addTerminal: "RuleName"=[>>>]; "Syntax"=[^\>\>\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[>>>]; "Syntax"=[^\>\>\>]; 
+D: ParseEnv::addTerminal: "RuleName"=[<<]; "Syntax"=[^\<\<]; 
+D: ParseEnv::addParseNode: "RuleName"=[<<]; "Syntax"=[^\<\<]; 
+D: ParseEnv::addParseNode: "RuleName"=[ShiftOp]; "Syntax"=[ '>>' | '>>>' | '<<';]; 
+D: ParseEnv::addParseNode: "RuleName"=[AdditiveExpr]; "Syntax"=[ MultiplicativeExpr [ AdditiveOp AdditiveExpr ]  %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[+]; "Syntax"=[^\+]; 
+D: ParseEnv::addParseNode: "RuleName"=[+]; "Syntax"=[^\+]; 
+D: ParseEnv::addTerminal: "RuleName"=[-]; "Syntax"=[^\-]; 
+D: ParseEnv::addParseNode: "RuleName"=[-]; "Syntax"=[^\-]; 
+D: ParseEnv::addParseNode: "RuleName"=[AdditiveOp]; "Syntax"=[ '+' | '-';]; 
+D: ParseEnv::addParseNode: "RuleName"=[MultiplicativeExpr]; "Syntax"=[ CastExpr [ MultiplicativeOp MultiplicativeExpr ] %;]; 
+D: ParseEnv::addTerminal: "RuleName"=[*]; "Syntax"=[^\*]; 
+D: ParseEnv::addParseNode: "RuleName"=[*]; "Syntax"=[^\*]; 
+D: ParseEnv::addTerminal: "RuleName"=[%]; "Syntax"=[^\%]; 
+D: ParseEnv::addParseNode: "RuleName"=[%]; "Syntax"=[^\%]; 
+D: ParseEnv::addTerminal: "RuleName"=[/]; "Syntax"=[^\/]; 
+D: ParseEnv::addParseNode: "RuleName"=[/]; "Syntax"=[^\/]; 
+D: ParseEnv::addParseNode: "RuleName"=[MultiplicativeOp]; "Syntax"=[ '*' | '%' | '/' ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[CastExpr]; "Syntax"=[ '('& FqTypeName ')'&  CastExpr $ | PrefixExpr;]; 
+D: ParseEnv::addParseNode: "RuleName"=[PrefixExpr]; "Syntax"=[ NewExpr | ClosureExpr | [ PrefixOp ] % PostfixExpr;]; 
+D: ParseEnv::addTerminal: "RuleName"=[++]; "Syntax"=[^\+\+]; 
+D: ParseEnv::addParseNode: "RuleName"=[++]; "Syntax"=[^\+\+]; 
+D: ParseEnv::addTerminal: "RuleName"=[--]; "Syntax"=[^\-\-]; 
+D: ParseEnv::addParseNode: "RuleName"=[--]; "Syntax"=[^\-\-]; 
+D: ParseEnv::addTerminal: "RuleName"=[~]; "Syntax"=[^\~]; 
+D: ParseEnv::addParseNode: "RuleName"=[~]; "Syntax"=[^\~]; 
+D: ParseEnv::addTerminal: "RuleName"=[!]; "Syntax"=[^\!]; 
+D: ParseEnv::addParseNode: "RuleName"=[!]; "Syntax"=[^\!]; 
+D: ParseEnv::addParseNode: "RuleName"=[PrefixOp]; "Syntax"=[ '++' | '--' | '-' | '+' | '~' | '!';]; 
+D: ParseEnv::addTerminal: "RuleName"=[new]; "Syntax"=[^(new)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[new]; "Syntax"=[^(new)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[NewExpr]; "Syntax"=[ 'new'& FqTypeName ( Arguments ) $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClosureExpr]; "Syntax"=[ 'new'& ClosureArguments ClassDef $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClosureArguments]; "Syntax"=[ '('& ')'& $ | '('& ClosureArgumentList ')'&  $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ClosureArgumentList]; "Syntax"=[ VarName ( ','& VarName )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[NewArrayArguments]; "Syntax"=[ ( NewArrayArgument )+ $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[NewArrayArgument]; "Syntax"=[ '['& [ Expression ] ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[PostfixExpr]; "Syntax"=[ SubscribeExpr [ PostfixOp ] % [ PostfixExpr ] ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[PostfixOp]; "Syntax"=[ '++' | '--' $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[SubscribeExpr]; "Syntax"=[ PrimaryExpr ( ArraySubscribeExpr | MemberSubscribeExpr | FuncSubscribeExpr  )* %;]; 
+D: ParseEnv::addParseNode: "RuleName"=[FuncSubscribeExpr]; "Syntax"=[ Arguments $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[ArraySubscribeExpr]; "Syntax"=[ '['& Expression ']'& $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[MemberSubscribeExpr]; "Syntax"=[ MemberSubscribeOp SubscribeExpr $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[->]; "Syntax"=[^\-\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[->]; "Syntax"=[^\-\>]; 
+D: ParseEnv::addParseNode: "RuleName"=[MemberSubscribeOp]; "Syntax"=[ '.' | '->';]; 
+D: ParseEnv::addParseNode: "RuleName"=[PrimaryExpr]; "Syntax"=[ '('& Expression ')'& | 'operator'&  Operator | VarNameExpr | LiteralExpr;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LiteralExpr]; "Syntax"=[ Literal $
+;]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarNameExpr]; "Syntax"=[ VarName $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[return]; "Syntax"=[^(return)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[return]; "Syntax"=[^(return)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ReturnStatement]; "Syntax"=[ 'return'& [ Expression ]';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[continue]; "Syntax"=[^(continue)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[continue]; "Syntax"=[^(continue)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ContinueStatement]; "Syntax"=[ 'continue' ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[break]; "Syntax"=[^(break)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[break]; "Syntax"=[^(break)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[BreakStatement]; "Syntax"=[ 'break' ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[if]; "Syntax"=[^(if)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[if]; "Syntax"=[^(if)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[IfStatement]; "Syntax"=[ 'if'& ! '('& Expression ')'& Statement [ ElseStatement ]  $
+;]; 
+D: ParseEnv::addTerminal: "RuleName"=[else]; "Syntax"=[^(else)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[else]; "Syntax"=[^(else)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ElseStatement]; "Syntax"=[ 'else'& ! Statement $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[do]; "Syntax"=[^(do)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[do]; "Syntax"=[^(do)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[while]; "Syntax"=[^(while)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[while]; "Syntax"=[^(while)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[DoStatement]; "Syntax"=[ 'do'& ! Statement 'while'& '('& Expression ')'& ';'& $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[WhileStatement]; "Syntax"=[ 'while'& '('& Expression ')'& Statement $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[goto]; "Syntax"=[^(goto)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[goto]; "Syntax"=[^(goto)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[GotoStatement]; "Syntax"=[ 'goto'& Label ';'& $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LabeledStatement]; "Syntax"=[ Label ':'& [ Statement ] $ ;]; 
+D: ParseEnv::addParseNode: "RuleName"=[EmptyStatement]; "Syntax"=[ ';'& $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[for]; "Syntax"=[^(for)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[for]; "Syntax"=[^(for)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ForStatement]; "Syntax"=[ 'for'& ! '('& ( EmptyStatement| VarDecl | ExprStatement ) ( Expression | EmptyExpression) ';'& ( Expression | EmptyExpression ) ')'& Statement $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[switch]; "Syntax"=[^(switch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[switch]; "Syntax"=[^(switch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[SwitchStatement]; "Syntax"=[ 'switch'& '('& Expression ')'& '{'& ( CaseClause )* '}'& $ ;]; 
+D: ParseEnv::addTerminal: "RuleName"=[case]; "Syntax"=[^(case)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[case]; "Syntax"=[^(case)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[default]; "Syntax"=[^(default)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[default]; "Syntax"=[^(default)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[CaseClause]; "Syntax"=[ ( 'case' Expression | 'default' ) ':'& ( Statement )* $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[throw]; "Syntax"=[^(throw)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[throw]; "Syntax"=[^(throw)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ThrowStatement]; "Syntax"=[ 'throw'& [ Expression ] ';'& $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[try]; "Syntax"=[^(try)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[try]; "Syntax"=[^(try)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[TryCatchStatement]; "Syntax"=[ 'try'& Statement ( CatchBlock )* [ FinallyBlock ] $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[catch]; "Syntax"=[^(catch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[catch]; "Syntax"=[^(catch)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[CatchBlock]; "Syntax"=[ 'catch'& '('& FqTypeName VarName ')'& Statement $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[finally]; "Syntax"=[^(finally)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[finally]; "Syntax"=[^(finally)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FinallyBlock]; "Syntax"=[ 'finally'& Statement $;]; 
+D: ParseEnv::addTerminal: "RuleName"=[extend]; "Syntax"=[^(extend)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[extend]; "Syntax"=[^(extend)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ExtendStatement]; "Syntax"=[ 'extend' ClassMemberAttr ReturnType FqTypeName FunctionParamsDecl FunctionBlock $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[TypeName]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[VarName]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Label]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[LeftHandVariable]; "Syntax"=[ Identifier $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Variable]; "Syntax"=[ Identifier $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Identifier]; "Syntax"=[ IDENTIFIER $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Parameter]; "Syntax"=[ FqTypeName VarName $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[Operator]; "Syntax"=[ ( '+' | '-' | '*' | '/' | '.' | 
+                              '<<=' | '>>=' | '<<' | '>>' | ',' | '!' | '~' | 
+                              '==' | '=' | '+=' | '-=' | '<' | '>' | '<=' | '>=' | '==' | '!=' | 
+                              '[' ']' | '(' ')' ) $;]; 
+T: Compiler::parse:                    -> CodeText
+T: Compiler::parse:                     -> Statements
+T: Compiler::parse:                      -> Statement
+T: Compiler::parse:                       -> EvalBlock
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= EvalBlock
+T: Compiler::parse:                       -> Block
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= Block
+T: Compiler::parse:                       -> ReturnStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= ReturnStatement
+T: Compiler::parse:                       -> IfStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= IfStatement
+T: Compiler::parse:                       -> ContinueStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= ContinueStatement
+T: Compiler::parse:                       -> BreakStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= BreakStatement
+T: Compiler::parse:                       -> DoStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= DoStatement
+T: Compiler::parse:                       -> WhileStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= WhileStatement
+T: Compiler::parse:                       -> ForStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= ForStatement
+T: Compiler::parse:                       -> GotoStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= GotoStatement
+T: Compiler::parse:                       -> ThrowStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= ThrowStatement
+T: Compiler::parse:                       -> TryCatchStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= TryCatchStatement
+T: Compiler::parse:                       -> LabeledStatement
+T: Compiler::parse:                        -> Label
+T: Compiler::parse:                         -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                          <= IDENTIFIER
+T: Compiler::parse:                         <= Label
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:5;CL:1]; "Value"=[Identifier: i]; 
+T: Compiler::parse:                       /= LabeledStatement
+T: Compiler::parse:                       -> SwitchStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= SwitchStatement
+T: Compiler::parse:                       -> DefunDecl
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= DefunDecl
+T: Compiler::parse:                       -> ExtendStatement
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                       /= ExtendStatement
+T: Compiler::parse:                       -> VarDecl
+T: Compiler::parse:                        -> LVarDecl
+T: Compiler::parse:                         -> FqTypeName
+T: Compiler::parse:                          -> TypeName
+T: Compiler::parse:                           -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:2;cl: SC:19;EC:22;LN:2;CL:6]; "Value"=[Identifier: int]; 
+T: Compiler::parse:                            <= IDENTIFIER
+T: Compiler::parse:                           <= TypeName
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:5;CL:1]; "Value"=[Identifier: i]; 
+T: Compiler::parse:                          -> ArrayDims
+T: Compiler::parse:                           -> ArrayDim
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:5;CL:1]; "Value"=[Identifier: i]; 
+T: Compiler::parse:                           /= ArrayDim
+T: Compiler::parse:                           <= ArrayDims
+T: Compiler::parse:                          <= FqTypeName
+T: Compiler::parse:                         -> VarName
+T: Compiler::parse:                          -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:4;cl: SC:23;EC:24;LN:5;CL:1]; "Value"=[Identifier: i]; 
+T: Compiler::parse:                           <= IDENTIFIER
+T: Compiler::parse:                          <= VarName
+D: Scanner::getNext: "top"=[t:6;cl: SC:25;EC:26;LN:11;CL:2]; "Value"=[Keyword: =]; 
+T: Compiler::parse:                         -> VarInitializer
+D: Scanner::getNext: "top"=[t:6;cl: SC:25;EC:26;LN:11;CL:2]; "Value"=[Keyword: =]; 
+T: Compiler::parse:                          -> AssignmentExpr
+T: Compiler::parse:                           -> ConditionalExpr
+T: Compiler::parse:                            -> LogicalORExpr
+T: Compiler::parse:                             -> LogicalANDExpr
+T: Compiler::parse:                              -> BitwiseORExpr
+T: Compiler::parse:                               -> BitwiseXORExpr
+T: Compiler::parse:                                -> BitwiseANDExpr
+T: Compiler::parse:                                 -> EqualityExpr
+T: Compiler::parse:                                  -> EqualsExpr
+T: Compiler::parse:                                   -> RelationalExpr
+T: Compiler::parse:                                    -> ShiftExpr
+T: Compiler::parse:                                     -> AdditiveExpr
+T: Compiler::parse:                                      -> MultiplicativeExpr
+T: Compiler::parse:                                       -> CastExpr
+[AUNIT:ERRR][Asd_Test.single] Error in Test: Asd_Test.single: parsing overflow: 0
+</pre>
+<h2><a id="DClazzInfo_Test.standard">DClazzInfo_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Asd_Test.single] End Test
+[AUNIT:STRT][DClazzInfo_Test.standard] Start Test
+</pre>
+<h2><a id="DClazzInfo_Test.persistence">DClazzInfo_Test.persistence</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DClazzInfo_Test.standard] End Test
+[AUNIT:STRT][DClazzInfo_Test.persistence] Start Test
+</pre>
+<h2><a id="Sasm_Test.standard">Sasm_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="red">Test FAILED </td></tr></table>
+Errors:<br>
+<ul>
+<li> parsing overflow: 2<br>Called in:<br><pre>  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::Throwable::Throwable (acdk_core_d.dll)
+  called in acdk::lang::Exception::Exception (acdk_core_d.dll)
+  called in acdk::lang::RuntimeException::RuntimeException (acdk_core_d.dll)
+  called in acdk::lang::IllegalArgumentException::IllegalArgumentException (acdk_core_d.dll)
+  called in acdk::lang::NumberFormatException::NumberFormatException (acdk_core_d.dll)
+  called in acdk::lang::Number::parseIntegerNumber (acdk_core_d.dll)
+  called in acdk::lang::Long::parseLong (acdk_core_d.dll)
+  called in acdk::lang::Long::parseLong (acdk_core_d.dll)
+  called in acdk::aci::parser::DecimalLiteralParseNode::createTerminal (acdk_aci_d.dll)
+  called in acdk::aci::parser::RegScanParseNode::scanNextFromSource (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::_scanNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::_readNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::Scanner::getNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::ScannerTokenStack::getNext (acdk_aci_d.dll)
+  called in acdk::aci::parser::TerminalParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxKeyword::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOptional::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::sasm::AsmParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxRule::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxOneOrMore::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxFollow::scan (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntax (acdk_aci_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parse (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseRule (acdk_aci_d.dll)
+  called in acdk::aci::Compiler::parseComplete (acdk_aci_d.dll)
+  called in tests::acdk::aci::Sasm_Test::standard (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::aci::Sasm_Test>::runTest (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_aci_Test_d.exe)
+  called in mainCRTStartup (acdk_aci_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+</pre></li>
+</ul>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DClazzInfo_Test.persistence] End Test
+[AUNIT:STRT][Sasm_Test.standard] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmParseNode]; "Syntax"=[[ AsmGotoLabel ] ! IDENTIFIER [ AsmLiteral | IDENTIFIER ] ';' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmParseNode]; "Syntax"=[[ AsmGotoLabel ] ! IDENTIFIER [ AsmLiteral | IDENTIFIER ] ';' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmIdentifier]; "Syntax"=[!{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmIdentifier]; "Syntax"=[!{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmGotoLabel]; "Syntax"=[AsmIdentifier ':' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmGotoLabel]; "Syntax"=[AsmIdentifier ':' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmLiteral]; "Syntax"=[DEC_LITERAL]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmLiteral]; "Syntax"=[DEC_LITERAL]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmPrelude]; "Syntax"=[!{ acdk.aci.parser.WhiteSpaceParseNode.registerParseNode(compiler);
+   compiler.getParseEnv().addIgnoreToken(compiler.getParseNode("WS").getScannerTokenId());
+}!]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmPrelude]; "Syntax"=[!{ acdk.aci.parser.WhiteSpaceParseNode.registerParseNode(compiler);
+   compiler.getParseEnv().addIgnoreToken(compiler.getParseNode("WS").getScannerTokenId());
+}!]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmText]; "Syntax"=[AsmPrelude (AsmParseNode)+]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmText]; "Syntax"=[AsmPrelude (AsmParseNode)+]; 
+T: Compiler::parse:                                        -> AsmText
+T: Compiler::parse:                                        -> AsmText
+T: Compiler::parse:                                         -> AsmPrelude
+T: Compiler::parse:                                         -> AsmPrelude
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+Nil=(acdk/lang/dmi/DmiObject)[Nil]
+PARSENODE=(acdk/lang/dmi/DmiObject)[AsmPrelude: !{ acdk.aci.parser.WhiteSpaceParseNode.registerParseNode(compiler);
+   compiler.getParseEnv().addIgnoreToken(compiler.getParseNode("WS").getScannerTokenId());
+}!]
+PN=(acdk/lang/dmi/DmiObject)[AsmPrelude]
+RET=(acdk/lang/dmi/DmiObject)[Nil]
+_ignore_token=(acdk/lang/dmi/DmiObject)[[4]]
+compiler=(acdk/lang/dmi/DmiObject)[acdk/aci/Compiler]
+curParseNode=(acdk/lang/dmi/DmiObject)[Nil]
+curTopAstNode=(acdk/lang/dmi/DmiObject)[Nil]
+err=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+false=(acdk/lang/dmi/DmiObject)[false]
+nil=(acdk/lang/dmi/DmiObject)[Nil]
+null=(acdk/lang/dmi/DmiObject)[Nil]
+out=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+true=(acdk/lang/dmi/DmiObject)[true]
+T: Compiler::parse:                                          <= AsmPrelude
+T: Compiler::parse:                                          <= AsmPrelude
+T: Compiler::parse:                                         -> AsmParseNode
+T: Compiler::parse:                                         -> AsmParseNode
+T: Compiler::parse:                                          -> AsmGotoLabel
+T: Compiler::parse:                                          -> AsmGotoLabel
+T: Compiler::parse:                                           -> AsmIdentifier
+T: Compiler::parse:                                           -> AsmIdentifier
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+Nil=(acdk/lang/dmi/DmiObject)[Nil]
+PARSENODE=(acdk/lang/dmi/DmiObject)[AsmIdentifier: !{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]
+PN=(acdk/lang/dmi/DmiObject)[AsmIdentifier]
+RET=(acdk/lang/dmi/DmiObject)[Nil]
+_ignore_token=(acdk/lang/dmi/DmiObject)[[4]]
+compiler=(acdk/lang/dmi/DmiObject)[acdk/aci/Compiler]
+curParseNode=(acdk/lang/dmi/DmiObject)[Nil]
+curTopAstNode=(acdk/lang/dmi/DmiObject)[Nil]
+err=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+false=(acdk/lang/dmi/DmiObject)[false]
+nil=(acdk/lang/dmi/DmiObject)[Nil]
+null=(acdk/lang/dmi/DmiObject)[Nil]
+out=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+true=(acdk/lang/dmi/DmiObject)[true]
+T: Compiler::parse:                                            -> IDENTIFIER
+T: Compiler::parse:                                            -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:3;LN:0;CL:0]; "Value"=[Identifier: nop]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:3;LN:0;CL:0]; "Value"=[Identifier: nop]; 
+T: Compiler::parse:                                             <= IDENTIFIER
+T: Compiler::parse:                                             <= IDENTIFIER
+T: Compiler::parse:                                            <= AsmIdentifier
+T: Compiler::parse:                                            <= AsmIdentifier
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+T: Compiler::parse:                                          /= AsmGotoLabel
+T: Compiler::parse:                                          /= AsmGotoLabel
+T: Compiler::parse:                                          -> IDENTIFIER
+T: Compiler::parse:                                          -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:3;LN:0;CL:0]; "Value"=[Identifier: nop]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:3;LN:0;CL:0]; "Value"=[Identifier: nop]; 
+T: Compiler::parse:                                           <= IDENTIFIER
+T: Compiler::parse:                                           <= IDENTIFIER
+T: Compiler::parse:                                          -> AsmLiteral
+T: Compiler::parse:                                          -> AsmLiteral
+T: Compiler::parse:                                           -> DEC_LITERAL
+T: Compiler::parse:                                           -> DEC_LITERAL
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+T: Compiler::parse:                                           /= DEC_LITERAL
+T: Compiler::parse:                                           /= DEC_LITERAL
+T: Compiler::parse:                                          /= AsmLiteral
+T: Compiler::parse:                                          /= AsmLiteral
+T: Compiler::parse:                                          -> IDENTIFIER
+T: Compiler::parse:                                          -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+T: Compiler::parse:                                          /= IDENTIFIER
+T: Compiler::parse:                                          /= IDENTIFIER
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+D: Scanner::getNext: "top"=[t:1;cl: SC:3;EC:4;LN:0;CL:3]; "Value"=[Keyword: ;]; 
+T: Compiler::parse:                                          <= AsmParseNode
+T: Compiler::parse:                                          <= AsmParseNode
+T: Compiler::parse:                                         -> AsmParseNode
+T: Compiler::parse:                                         -> AsmParseNode
+T: Compiler::parse:                                          -> AsmGotoLabel
+T: Compiler::parse:                                          -> AsmGotoLabel
+T: Compiler::parse:                                           -> AsmIdentifier
+T: Compiler::parse:                                           -> AsmIdentifier
+Nil=(acdk/lang/dmi/DmiObject)[Nil]
+PARSENODE=(acdk/lang/dmi/DmiObject)[AsmIdentifier: !{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]
+PN=(acdk/lang/dmi/DmiObject)[AsmIdentifier]
+RET=(acdk/lang/dmi/DmiObject)[Nil]
+_ignore_token=(acdk/lang/dmi/DmiObject)[[4]]
+compiler=(acdk/lang/dmi/DmiObject)[acdk/aci/Compiler]
+curParseNode=(acdk/lang/dmi/DmiObject)[Nil]
+curTopAstNode=(acdk/lang/dmi/DmiObject)[Nil]
+err=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+false=(acdk/lang/dmi/DmiObject)[false]
+nil=(acdk/lang/dmi/DmiObject)[Nil]
+null=(acdk/lang/dmi/DmiObject)[Nil]
+out=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+true=(acdk/lang/dmi/DmiObject)[true]
+T: Compiler::parse:                                            -> IDENTIFIER
+T: Compiler::parse:                                            -> IDENTIFIER
+D: Scanner::getNext: "top"=[t:3;cl: SC:5;EC:9;LN:2;CL:4]; "Value"=[Identifier: push]; 
+D: Scanner::getNext: "top"=[t:3;cl: SC:5;EC:9;LN:2;CL:4]; "Value"=[Identifier: push]; 
+T: Compiler::parse:                                             <= IDENTIFIER
+T: Compiler::parse:                                             <= IDENTIFIER
+T: Compiler::parse:                                            <= AsmIdentifier
+T: Compiler::parse:                                            <= AsmIdentifier
+[AUNIT:ERRR][Sasm_Test.standard] Error in Test: Sasm_Test.standard: parsing overflow: 2
+</pre>
+<h2><a id="SyntaxParseNode_Test.standard">SyntaxParseNode_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Sasm_Test.standard] End Test
+[AUNIT:STRT][SyntaxParseNode_Test.standard] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addTerminal: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[;]; "Syntax"=[^\;]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmParseNode]; "Syntax"=[[ AsmGotoLabel ] ! IDENTIFIER [ AsmLiteral | IDENTIFIER ] ';' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmParseNode]; "Syntax"=[[ AsmGotoLabel ] ! IDENTIFIER [ AsmLiteral | IDENTIFIER ] ';' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmParseNode]; "Syntax"=[[ AsmGotoLabel ] ! IDENTIFIER [ AsmLiteral | IDENTIFIER ] ';' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmIdentifier]; "Syntax"=[!{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmIdentifier]; "Syntax"=[!{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmIdentifier]; "Syntax"=[!{ acdk.aci.parser.IdentifierParseNode.registerParseNode(compiler); }!IDENTIFIER $]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addTerminal: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[:]; "Syntax"=[^\:]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmGotoLabel]; "Syntax"=[AsmIdentifier ':' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmGotoLabel]; "Syntax"=[AsmIdentifier ':' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmGotoLabel]; "Syntax"=[AsmIdentifier ':' $]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmLiteral]; "Syntax"=[DEC_LITERAL]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmLiteral]; "Syntax"=[DEC_LITERAL]; 
+D: ParseEnv::addParseNode: "RuleName"=[AsmLiteral]; "Syntax"=[DEC_LITERAL]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestB]; "Syntax"=['b']; 
+D: ParseEnv::addParseNode: "RuleName"=[TestB]; "Syntax"=['b']; 
+D: ParseEnv::addParseNode: "RuleName"=[TestB]; "Syntax"=['b']; 
+D: ParseEnv::addTerminal: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[Test]; "Syntax"=['a' | !{ acdk.lang.System.out.println("Cannot Parse a"); }!]; 
+D: ParseEnv::addParseNode: "RuleName"=[Test]; "Syntax"=['a' | !{ acdk.lang.System.out.println("Cannot Parse a"); }!]; 
+D: ParseEnv::addParseNode: "RuleName"=[Test]; "Syntax"=['a' | !{ acdk.lang.System.out.println("Cannot Parse a"); }!]; 
+T: Compiler::parse:                                           -> Test
+T: Compiler::parse:                                           -> Test
+T: Compiler::parse:                                           -> Test
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+Cannot Parse a
+Nil=(acdk/lang/dmi/DmiObject)[Nil]
+PARSENODE=(acdk/lang/dmi/DmiObject)[Test: 'a' | !{ acdk.lang.System.out.println("Cannot Parse a"); }!]
+PN=(acdk/lang/dmi/DmiObject)[Test]
+RET=(acdk/lang/dmi/DmiObject)[Nil]
+_ignore_token=(acdk/lang/dmi/DmiObject)[[]]
+compiler=(acdk/lang/dmi/DmiObject)[acdk/aci/Compiler]
+curParseNode=(acdk/lang/dmi/DmiObject)[Nil]
+curTopAstNode=(acdk/lang/dmi/DmiObject)[Nil]
+err=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+false=(acdk/lang/dmi/DmiObject)[false]
+nil=(acdk/lang/dmi/DmiObject)[Nil]
+null=(acdk/lang/dmi/DmiObject)[Nil]
+out=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+true=(acdk/lang/dmi/DmiObject)[true]
+T: Compiler::parse:                                            <= Test
+T: Compiler::parse:                                            <= Test
+T: Compiler::parse:                                            <= Test
+Test
+
+Test
+
+Test
+
+</pre>
+<h2><a id="SyntaxParseNode_Test.orSyntaxNodes">SyntaxParseNode_Test.orSyntaxNodes</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="red">Test FAILED </td></tr></table>
+Errors:<br>
+<ul>
+<li> NullPointerException<br>Called in:<br><pre>  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::Throwable::Throwable (acdk_core_d.dll)
+  called in acdk::lang::Exception::Exception (acdk_core_d.dll)
+  called in acdk::lang::RuntimeException::RuntimeException (acdk_core_d.dll)
+  called in acdk::lang::NullPointerException::NullPointerException (acdk_core_d.dll)
+  called in acdk::lang::ObjectBase::_throwNullPointerException (acdk_core_d.dll)
+  called in RefHolder<acdk::aci::ast::AstNode>::operator-> (acdk_aci_Test_d.exe)
+  called in tests::acdk::aci::`anonymous namespace'::renderTree (acdk_aci_Test_d.exe)
+  called in tests::acdk::aci::SyntaxParseNode_Test::orSyntaxNodes (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::aci::SyntaxParseNode_Test>::runTest (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_aci_Test_d.exe)
+  called in mainCRTStartup (acdk_aci_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+</pre></li>
+</ul>
+<br>Error output:<hr><pre>[AUNIT:ENDT][SyntaxParseNode_Test.standard] End Test
+[AUNIT:STRT][SyntaxParseNode_Test.orSyntaxNodes] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[d]; "Syntax"=[^(d)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[d]; "Syntax"=[^(d)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[d]; "Syntax"=[^(d)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[d]; "Syntax"=[^(d)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[d]; "Syntax"=[^(d)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[d]; "Syntax"=[^(d)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[e]; "Syntax"=[^(e)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[e]; "Syntax"=[^(e)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[e]; "Syntax"=[^(e)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[e]; "Syntax"=[^(e)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[e]; "Syntax"=[^(e)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[e]; "Syntax"=[^(e)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[ef]; "Syntax"=[^(ef)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[ef]; "Syntax"=[^(ef)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[ef]; "Syntax"=[^(ef)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ef]; "Syntax"=[^(ef)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ef]; "Syntax"=[^(ef)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[ef]; "Syntax"=[^(ef)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[Test]; "Syntax"=[ 'c' | 'b' | 'c' | 'd' | 'e' | 'ef';]; 
+D: ParseEnv::addParseNode: "RuleName"=[Test]; "Syntax"=[ 'c' | 'b' | 'c' | 'd' | 'e' | 'ef';]; 
+D: ParseEnv::addParseNode: "RuleName"=[Test]; "Syntax"=[ 'c' | 'b' | 'c' | 'd' | 'e' | 'ef';]; 
+T: Compiler::parse:                                           -> TestAOrB
+T: Compiler::parse:                                           -> TestAOrB
+T: Compiler::parse:                                           -> TestAOrB
+[AUNIT:ERRR][SyntaxParseNode_Test.orSyntaxNodes] Error in Test: SyntaxParseNode_Test.orSyntaxNodes: NullPointerException
+</pre>
+<h2><a id="SyntaxParseNode_Test.errorHandling">SyntaxParseNode_Test.errorHandling</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][SyntaxParseNode_Test.orSyntaxNodes] End Test
+[AUNIT:STRT][SyntaxParseNode_Test.errorHandling] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[c]; "Syntax"=[^(c)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestC]; "Syntax"=[ 'c';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestC]; "Syntax"=[ 'c';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestC]; "Syntax"=[ 'c';]; 
+D: ParseEnv::addTerminal: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[a]; "Syntax"=[^(a)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestA]; "Syntax"=[ 'a';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestA]; "Syntax"=[ 'a';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestA]; "Syntax"=[ 'a';]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addTerminal: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[b]; "Syntax"=[^(b)([^0-9A-Za-z_]|$)]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestB]; "Syntax"=[ 'b';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestB]; "Syntax"=[ 'b';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestB]; "Syntax"=[ 'b';]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestAOrB]; "Syntax"=[ (TestA | TestB) { RET = new acdk.aci.ast.Keyword(Nil, compiler.getCodeLocation(), "bla", "bla"); } $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestAOrB]; "Syntax"=[ (TestA | TestB) { RET = new acdk.aci.ast.Keyword(Nil, compiler.getCodeLocation(), "bla", "bla"); } $;]; 
+D: ParseEnv::addParseNode: "RuleName"=[TestAOrB]; "Syntax"=[ (TestA | TestB) { RET = new acdk.aci.ast.Keyword(Nil, compiler.getCodeLocation(), "bla", "bla"); } $;]; 
+T: Compiler::parse:                                           -> TestAOrB
+T: Compiler::parse:                                           -> TestAOrB
+T: Compiler::parse:                                           -> TestAOrB
+T: Compiler::parse:                                            -> TestA
+T: Compiler::parse:                                            -> TestA
+T: Compiler::parse:                                            -> TestA
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+T: Compiler::parse:                                            /= TestA
+T: Compiler::parse:                                            /= TestA
+T: Compiler::parse:                                            /= TestA
+T: Compiler::parse:                                            -> TestB
+T: Compiler::parse:                                            -> TestB
+T: Compiler::parse:                                            -> TestB
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+D: Scanner::getNext: "top"=[t:0;cl: SC:0;EC:1;LN:0;CL:0]; "Value"=[Keyword: b]; 
+T: Compiler::parse:                                             <= TestB
+T: Compiler::parse:                                             <= TestB
+T: Compiler::parse:                                             <= TestB
+AN1=(acdk/lang/dmi/DmiObject)[Keyword: b]
+Nil=(acdk/lang/dmi/DmiObject)[Nil]
+PARSENODE=(acdk/lang/dmi/DmiObject)[TestAOrB:  (TestA | TestB) { RET = new acdk.aci.ast.Keyword(Nil, compiler.getCodeLocation(), "bla", "bla"); } $;]
+PN=(acdk/lang/dmi/DmiObject)[TestAOrB]
+RET=(acdk/lang/dmi/DmiObject)[Keyword: bla]
+_ignore_token=(acdk/lang/dmi/DmiObject)[[]]
+compiler=(acdk/lang/dmi/DmiObject)[acdk/aci/Compiler]
+curParseNode=(acdk/lang/dmi/DmiObject)[Nil]
+curTopAstNode=(acdk/lang/dmi/DmiObject)[Nil]
+err=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+false=(acdk/lang/dmi/DmiObject)[false]
+nil=(acdk/lang/dmi/DmiObject)[Nil]
+null=(acdk/lang/dmi/DmiObject)[Nil]
+out=(acdk/lang/dmi/DmiObject)[acdk/io/PrintWriter]
+true=(acdk/lang/dmi/DmiObject)[true]
+T: Compiler::parse:                                            <= TestAOrB
+T: Compiler::parse:                                            <= TestAOrB
+T: Compiler::parse:                                            <= TestAOrB
+</pre>
+<h2><a id="SyntaxParseNode_Test.aalSyntax">SyntaxParseNode_Test.aalSyntax</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="red">Test FAILED </td></tr></table>
+Errors:<br>
+<ul>
+<li> (20,11): : Including file failed: AalHelper.csf<br>Called in:<br><pre>  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::Throwable::Throwable (acdk_core_d.dll)
+  called in acdk::lang::Exception::Exception (acdk_core_d.dll)
+  called in acdk::lang::RuntimeException::RuntimeException (acdk_core_d.dll)
+  called in acdk::lang::DmiException::DmiException (acdk_core_d.dll)
+  called in acdk::cfgscript::ScriptException::ScriptException (acdk_cfgscript_d.dll)
+  called in acdk::cfgscript::PreProcParseNode::parseExecute (acdk_cfgscript_d.dll)
+  called in acdk::cfgscript::StatementOrPreProc::parseExecute (acdk_cfgscript_d.dll)
+  called in acdk::cfgscript::Script::_readEval2 (acdk_cfgscript_d.dll)
+  called in acdk::cfgscript::Script::_readEval (acdk_cfgscript_d.dll)
+  called in acdk::cfgscript::Script::eval (acdk_cfgscript_d.dll)
+  called in acdk::cfgscript::Props::execScript (acdk_cfgscript_d.dll)
+  called in acdk::aci::parser::SyntaxParseNode::parseSyntaxText (acdk_aci_d.dll)
+  called in tests::acdk::aci::SyntaxParseNode_Test::aalSyntax (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::aci::SyntaxParseNode_Test>::runTest (acdk_aci_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_aci_Test_d.exe)
+  called in mainCRTStartup (acdk_aci_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+</pre></li>
+</ul>
+<br>Error output:<hr><pre>[AUNIT:ENDT][SyntaxParseNode_Test.errorHandling] End Test
+[AUNIT:STRT][SyntaxParseNode_Test.aalSyntax] Start Test
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[WS]; "Syntax"=[^[ \t\n\r]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addTerminal: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addTerminal: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addParseNode: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addParseNode: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addParseNode: "RuleName"=[LINECOMMENT]; "Syntax"=[^\/\/(.*?)\n]; 
+D: ParseEnv::addTerminal: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[BLOCKCOMMENT]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addTerminal: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addParseNode: "RuleName"=[IDENTIFIER]; "Syntax"=[^[a-zA-Z_][a-zA-Z_0-9]*]; 
+D: ParseEnv::addTerminal: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addParseNode: "RuleName"=[STRING_LITERAL]; "Syntax"=[]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[DEC_LITERAL]; "Syntax"=[^([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[SIGNED_DEC_LITERAL]; "Syntax"=[^([\+\-])?([0-9])+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addParseNode: "RuleName"=[HEX_LITERAL]; "Syntax"=[^0[xX][0-9a-fA-F]+[LISB]?]; 
+D: ParseEnv::addTerminal: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addParseNode: "RuleName"=[OCTAL_LITERAL]; "Syntax"=[^0[0-7]+]; 
+D: ParseEnv::addTerminal: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addTerminal: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addTerminal: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+D: ParseEnv::addParseNode: "RuleName"=[FLOAT_LITERAL]; "Syntax"=[^([\+\-])?([0-9]+)\.([0-9]+)]; 
+[AUNIT:ERRR][SyntaxParseNode_Test.aalSyntax] Error in Test: SyntaxParseNode_Test.aalSyntax: (20,11): : Including file failed: AalHelper.csf
+</pre>
+</body></html>

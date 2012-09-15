@@ -1,0 +1,31 @@
+%layout: newpage
+%id: acdk_sql_sqlite
+%title: ACDK SQLite
+%chapter: ifnid[acdk_handbook: acdk_sql_sqlite_readme], \
+          acdk_sql_sqlite_man, sqlite3, \
+          ifnid[acdk_handbook: acdk_general_install], ifnid[acdk_handbook: acdk_license], \
+          ifnid[acdk_handbook: sqlite_license]
+%keywords: SQL, SQLite, Desktop Database, Database
+%body:
+<htmlauto/>
+<pageintro>
+<greptag fname="./docs/package.xml" tag="shortdescription"/>
+</pageintro>
+
+<p></p>
+<greptag fname="./docs/package.xml" tag="description"/>
+<p></p>
+<p></p>
+
+<subschapterstable/>
+
+Please refer also to:
+<fl>
+<f> %ref[http://acdk.sourceforge.net/, http://acdk.sourceforge.net/] (Web at Sourceforge).
+<f> %ref[http://www.artefaktur.com/, http://www.artefaktur.com/] (Home of Artefaktur).
+<f> %ref[http://www.artefaktur.ch/, http://www.artefaktur.ch/] (Mirror)
+<f> %ref[http://sourceforge.net/projects/acdk/, http://sourceforge.net/projects/acdk/] (Support at Sourceforge).
+<f> %ref[http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__sql__sqlite.html, http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__sql__sqlite.html] (Online reference).
+<f> %ref[Roger Rene Kommer, mailto:kommer@artefaktur.com] (Mail Author).
+</fl>
+.

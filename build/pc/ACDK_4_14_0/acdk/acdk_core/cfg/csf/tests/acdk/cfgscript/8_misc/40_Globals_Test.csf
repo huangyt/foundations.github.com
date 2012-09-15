@@ -1,0 +1,18 @@
+
+#include "TestIncludeGlobals.csf"
+#pragma strict
+
+tests.CfgScriptTest tc = new tests.CfgScriptTest(42);
+
+out.println("Global Var: " + GlobalVar);
+//out.println(localVar);
+//out.println("Scoped Var: " + scopedVar);
+try {
+  // try to access ScriptTestModulVar variable defined in tests/CfgScriptTest.csf
+  out.println("module var ScriptTestModulVar loaded via class loader:  " + ScriptTestModulVar); // will throw an exception
+  out.println("TEST FAILED");
+} catch (acdk.cfgscript.ScriptException ex) {
+  out.println("caught ScriptException: " + ex.getMessage());
+  out.println("TEST OK");
+}
+//out.println("module var tests.ScriptTestModulVar loaded via class loader:  " + tests.ScriptTestModulVar);

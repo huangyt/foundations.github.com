@@ -1,0 +1,132 @@
+<package>
+
+<name>acdk_lisp</name>
+
+<title>
+ACDK Lisp (acdk_lisp)
+</title>
+
+
+<shortdescription>
+<m>acdk_lisp</m> contains a lisp interpreter, which can be used
+to control all ACDK objects.
+</shortdescription>
+
+<description>
+Lisp has many talents for an embedded scripting language: 
+It is simple in concepts, lean in implementation, flexible
+and dynamic. Popular applications embedding Lisp as macro
+language is for example Emacs or AutoCAD.
+
+%ref[<m>acdk_lisp</m>, acdk_lisp_man] provides a free standing Lisp implementation
+with most common constructs, inluding %ref[macros, acdk_lisp_lang_macros]
+and %ref[Object Oriented extension, acdk_lisp_lang_class] following
+the Common Lisp modell.
+
+<m>acdk_lisp</m> is seamless integrated with ACDK C++. 
+From inside the Lisp code any ACDK Class (implemented in C++, CfgScript
+or other DMI Implementations) can be accessed:
+
+<source lang="lisp">
+(defun foo (string1 string2)
+  (setf sb (new 'acdk.lang.StringBuffer string1)) ; this is the ordinary C++ class
+  (sb 'append string2)
+)
+((peek-static 'acdk.lang.System 'out) 'println (foo "Hello " "ACDK"))
+</source>
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+%ref[ACDK Free Edition Licens, acdk_license].
+</license>
+
+<dependencies>
+  %ref[acdk_core, acdk_core].
+  %ref[acdk_text, acdk_text].
+</dependencies>
+
+<namespaces>
+  acdk::lisp;  
+</namespaces>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- nothing important
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+acdk_lisp 4.00.1
+- Ajustments to Unicode and revised metainfo
+
+===========================================================
+acdk_lisp 2.00.1
+- implemented defmacro 
+- implemented backquote, comma and comma-at operators. 
+- Lisp can act as DMI Server. You can implement ACDK Interfaces with Lisp. 
+- Object oriented features similar (but not equal) to CLOS (defclass, make-instance). 
+- alternative syntax for (invoke sb 'append "asdf") -> (sb 'append "asdf") 
+- implemented (lambda) 
+- Ajustements to the new DMI interfaces.
+- new make target test for regression tests
+- new make target makemake for generating target make files
+- new make target metamakemake for generating target project files
+- Various bugs fixed.
+
+See also %ref[../ChangeLog].
+
+===========================================================
+acdk_lisp 1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved configurations.
+
+===========================================================
+acdk_lisp 1.00.2 
+Configuration Management fixed.
+-----------------------------------------------------------
+acdk-pmake
+added acdkmake support for projectfiles, which can 
+contains sub-projects.
+
+
+===========================================================
+1.00.1 2000-11-29 Minor fixes 
+
+- wrong comments in .lsp files makes them unusable. Fixed it.
+- Some documentation errors.
+
+===========================================================
+1.00 Initial version
+</changes>
+<notes>
+</notes>
+<fm-changes>
+Implemented lambda, defmacro, backquote, comma and comma-at operators. Lisp can act as DMI Server.  Added Object oriented features similar (but not equal) to CLOS (defclass, make-instance).
+Ajustements to the ACDK 2. Wrote some regression tests and Various bugs fixed.
+</fm-changes>
+</package>

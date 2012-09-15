@@ -1,0 +1,74 @@
+%id: acdk_java_man_intro
+%title: acdk_java Intro
+%shorttitle: Intro
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+With the module acdk_java you can access ACDK objects from Java and
+Java objects from ACDK.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Java Objects as generic ACDK DMI Server</jump1>
+
+Here is a simple sample, which shows how to use Java classes and objects
+in ACDK code:
+
+<source lang="cpp">
+
+  // create a new java object
+  ::acdk::java::RJavaObject jo = new ::acdk::java::JavaObject("java/lang/StringBuffer", (const char*)"Hello");
+  
+  // call the method append of the the java object
+  jo->invoke("append", (const char*)" Java from ACDK");
+  
+  // call the method toString of the Java object
+  RObject str = (RString)jo->invoke("toString");
+  
+  // get the static public member of the java object
+  RObject jout = ::acdk::java::JavaObject::peek_static("java/lang/System", "out");
+  
+  // call the invoke method of the ::acdk::langObject
+  // The DMI automatically dispatches the call to the 
+  // corresponding Java Object
+  jout->invoke("println", str);
+  
+  RObject aout = System::out;
+  // Same interface works also with ACDK objects.
+  aout->invoke("println", str);
+</source>
+
+
+<jump1>Java generic ACDK DMI Client</jump1>
+
+In the same way you can control in Java every other DMI Server, 
+like ACDK Objects, COM or CORBA objects:
+
+<source lang="java">
+
+import acdk.java.AcdkObject;
+
+class ACDK_Test
+{
+  public static void main(String[] args)
+  {
+    // get the ACDK version of StringBuffer
+    AcdkObject asb = AcdkObject.New("acdk/lang/StringBuffer", "Hello");
+    // call the method append of the ACDK StringBuffer
+    asb.invoke("append", " ACDK from Java");
+    
+    // Get the Standard output writer from ACDK System class
+    AcdkObject aout = (AcdkObject)AcdkObject.peek_static("acdk/lang/System", "out");
+    
+    // print the Hello message using ACDK
+    aout.invoke("println", asb.invoke("toString"));
+  }
+}
+
+</source>
+.
+
+
+

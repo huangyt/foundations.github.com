@@ -1,0 +1,50 @@
+
+<package>
+<name>acdk_core</name>
+
+<title>
+  ACDK Core Library
+</title>
+
+<shortdescription>
+The core library contains the basic classes of the ACDK system.
+</shortdescription>
+
+<description>
+
+</description>
+
+<license>
+ACDK Free Edition License.
+</license>
+
+<dependencies>
+
+</dependencies>
+
+<namespaces>
+acdk::lang;
+acdk::lang::sys;
+acdk::lang::ref;
+acdk::lang::reflect;
+acdk::io;
+acdk::util;
+acdk::locale;
+</namespaces>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+Nothing at the moment.
+</todo>
+
+<changes>
+Plase refer to package changes.
+</changes>
+
+<notes>
+None.
+</notes>
+</package>

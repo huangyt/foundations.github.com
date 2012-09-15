@@ -1,0 +1,1619 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_core/bsd
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDK_CORE_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) 
+
+
+SOURCES= 	acdk/lang/acdk_lang_Package.cpp \
+	acdk/lang/BasicArray.cpp \
+	acdk/lang/Boolean.cpp \
+	acdk/lang/Byte.cpp \
+	acdk/lang/ByteBuffer.cpp \
+	acdk/lang/Character.cpp \
+	acdk/lang/Class.cpp \
+	acdk/lang/ClassCastException.cpp \
+	acdk/lang/ClassLoader.cpp \
+	acdk/lang/CmdLineOption.cpp \
+	acdk/lang/CmdLineParser.cpp \
+	acdk/lang/Double.cpp \
+	acdk/lang/Float.cpp \
+	acdk/lang/Integer.cpp \
+	acdk/lang/lang_metainf_base.cpp \
+	acdk/lang/Long.cpp \
+	acdk/lang/Math.cpp \
+	acdk/lang/Number.cpp \
+	acdk/lang/Object.cpp \
+	acdk/lang/ObjectArrayBase.cpp \
+	acdk/lang/ObjectArrayImpl.cpp \
+	acdk/lang/ObjectDebug.cpp \
+	acdk/lang/Package.cpp \
+	acdk/lang/Process.cpp \
+	acdk/lang/Runtime.cpp \
+	acdk/lang/SharedLibrary.cpp \
+	acdk/lang/Short.cpp \
+	acdk/lang/StackFrame.cpp \
+	acdk/lang/String.cpp \
+	acdk/lang/StringBuffer.cpp \
+	acdk/lang/StringOld.cpp \
+	acdk/lang/StringUtf8Utils.cpp \
+	acdk/lang/System.cpp \
+	acdk/lang/SystemError.cpp \
+	acdk/lang/Thread.cpp \
+	acdk/lang/ThreadGroup.cpp \
+	acdk/lang/Throwable.cpp \
+	acdk/lang/UnicodeCharacter.cpp \
+	acdk/lang/Void.cpp \
+	acdk/lang/dmi/AcdkDmiClient.cpp \
+	acdk/lang/dmi/AcdkStdWeakTypeDmiClient.cpp \
+	acdk/lang/dmi/ClazzInfo.cpp \
+	acdk/lang/dmi/DmiClient.cpp \
+	acdk/lang/dmi/DmiDelegate.cpp \
+	acdk/lang/dmi/DmiObject.cpp \
+	acdk/lang/dmi/DmiProxy.cpp \
+	acdk/lang/dmi/dmi_metainf_base.cpp \
+	acdk/lang/dmi/Marshaler.cpp \
+	acdk/lang/dmi/MetaAttribute.cpp \
+	acdk/lang/dmi/MetaInfo.cpp \
+	acdk/lang/dmi/MetaObject.cpp \
+	acdk/lang/dmi/ScriptVar.cpp \
+	acdk/lang/dmi/ScriptVar2.cpp \
+	acdk/lang/dmi/StdDispatch.cpp \
+	acdk/lang/dmi/SysFields.cpp \
+	acdk/lang/sys/Allocator.cpp \
+	acdk/lang/sys/BackTrace.cpp \
+	acdk/lang/sys/BitmapPagedAllocator.cpp \
+	acdk/lang/sys/BoehmGC.cpp \
+	acdk/lang/sys/BoehmGCAllocator.cpp \
+	acdk/lang/sys/core_condition.cpp \
+	acdk/lang/sys/core_fastmutex.cpp \
+	acdk/lang/sys/core_memcheck.cpp \
+	acdk/lang/sys/core_memtrace.cpp \
+	acdk/lang/sys/core_mutex.cpp \
+	acdk/lang/sys/core_recursivemutex.cpp \
+	acdk/lang/sys/core_semaphore.cpp \
+	acdk/lang/sys/core_specific.cpp \
+	acdk/lang/sys/core_system.cpp \
+	acdk/lang/sys/core_winimage.cpp \
+	acdk/lang/sys/Garbage_Heap.cpp \
+	acdk/lang/sys/LocalGcHeap.cpp \
+	acdk/lang/sys/MarkSweepGc.cpp \
+	acdk/lang/sys/ObjectHeap.cpp \
+	acdk/lang/sys/ObjectLockPool.cpp \
+	acdk/lang/sys/PagedAllocator.cpp \
+	acdk/lang/sys/PagedHeap.cpp \
+	acdk/lang/sys/RC_GC_Heap.cpp \
+	acdk/lang/sys/RC_Heap.cpp \
+	acdk/lang/sys/StackAllocator.cpp \
+	acdk/lang/sys/StackHeap.cpp \
+	acdk/lang/sys/TracedRawAllocator.cpp \
+	acdk/lang/ref/acdk_lang_ref_Package.cpp \
+	acdk/lang/ref/NotifyObjectEvent.cpp \
+	acdk/lang/ref/Reference.cpp \
+	acdk/lang/ref/ReferenceQueue.cpp \
+	acdk/lang/ref/ref_metainf_base.cpp \
+	acdk/lang/ref/SharedOwning.cpp \
+	acdk/lang/reflect/Constructor.cpp \
+	acdk/lang/reflect/Enumeration.cpp \
+	acdk/lang/reflect/Field.cpp \
+	acdk/lang/reflect/Method.cpp \
+	acdk/lang/reflect/Modifier.cpp \
+	acdk/lang/reflect/Parameter.cpp \
+	acdk/lang/reflect/reflect_metainf_base.cpp \
+	acdk/lang/reflect/Unit.cpp \
+	acdk/io/AbstractCharFilterReader.cpp \
+	acdk/io/AbstractCharReader.cpp \
+	acdk/io/AbstractCharWriter.cpp \
+	acdk/io/AbstractFilterWriter.cpp \
+	acdk/io/AbstractObjectReader.cpp \
+	acdk/io/AbstractObjectWriter.cpp \
+	acdk/io/AbstractReader.cpp \
+	acdk/io/acdk_io_Package.cpp \
+	acdk/io/ASCIIDataReader.cpp \
+	acdk/io/ASCIIDataWriter.cpp \
+	acdk/io/BinaryDataReader.cpp \
+	acdk/io/BinaryDataWriter.cpp \
+	acdk/io/BinaryObjectReader.cpp \
+	acdk/io/BinaryObjectWriter.cpp \
+	acdk/io/BufferedReader.cpp \
+	acdk/io/BufferedWriter.cpp \
+	acdk/io/ByteBufferReader.cpp \
+	acdk/io/ByteBufferWriter.cpp \
+	acdk/io/ByteToCharReader.cpp \
+	acdk/io/CharArrayReader.cpp \
+	acdk/io/CharArrayWriter.cpp \
+	acdk/io/CharReader.cpp \
+	acdk/io/CharToByteWriter.cpp \
+	acdk/io/ConsoleCharReader.cpp \
+	acdk/io/ConsoleCharWriter.cpp \
+	acdk/io/ConsoleReader.cpp \
+	acdk/io/ConsoleWriter.cpp \
+	acdk/io/File.cpp \
+	acdk/io/FileAbstractImpl.cpp \
+	acdk/io/FileDescriptor.cpp \
+	acdk/io/FileImpl.cpp \
+	acdk/io/FileInfo.cpp \
+	acdk/io/FileReader.cpp \
+	acdk/io/FileReaderWriterImpl.cpp \
+	acdk/io/FileStandardImpl.cpp \
+	acdk/io/FileStatus.cpp \
+	acdk/io/FileSystem.cpp \
+	acdk/io/FileWriter.cpp \
+	acdk/io/GlobFilenameFilter.cpp \
+	acdk/io/InputReader.cpp \
+	acdk/io/IOException.cpp \
+	acdk/io/io_metainf_base.cpp \
+	acdk/io/JoinedReader.cpp \
+	acdk/io/LineNumberCharReader.cpp \
+	acdk/io/LineNumberReader.cpp \
+	acdk/io/MemoryMappedFile.cpp \
+	acdk/io/MemReader.cpp \
+	acdk/io/MemWriter.cpp \
+	acdk/io/PipedReader.cpp \
+	acdk/io/PipedWriter.cpp \
+	acdk/io/PrintWriter.cpp \
+	acdk/io/PushbackCharReader.cpp \
+	acdk/io/PushbackReader.cpp \
+	acdk/io/RandomAccessFile.cpp \
+	acdk/io/Reader.cpp \
+	acdk/io/RessourceFileSystem.cpp \
+	acdk/io/StandardFileSystem.cpp \
+	acdk/io/StreamTokenizer.cpp \
+	acdk/io/SubReader.cpp \
+	acdk/io/Writer.cpp \
+	acdk/util/AbstractCollection.cpp \
+	acdk/util/AbstractList.cpp \
+	acdk/util/AbstractListSubList.cpp \
+	acdk/util/AbstractMap.cpp \
+	acdk/util/AbstractSequentialList.cpp \
+	acdk/util/AbstractSet.cpp \
+	acdk/util/acdk_util_Package.cpp \
+	acdk/util/ArrayList.cpp \
+	acdk/util/Arrays.cpp \
+	acdk/util/BitSet.cpp \
+	acdk/util/Bucket.cpp \
+	acdk/util/Calendar.cpp \
+	acdk/util/Collections.cpp \
+	acdk/util/Date.cpp \
+	acdk/util/GregorianCalendar.cpp \
+	acdk/util/HashMap.cpp \
+	acdk/util/HashSet.cpp \
+	acdk/util/Hashtable.cpp \
+	acdk/util/LinkedList.cpp \
+	acdk/util/ListResourceBundle.cpp \
+	acdk/util/Locale.cpp \
+	acdk/util/Properties.cpp \
+	acdk/util/PropertiesListener.cpp \
+	acdk/util/PropertyResourceBundle.cpp \
+	acdk/util/Random.cpp \
+	acdk/util/ResourceBundle.cpp \
+	acdk/util/SimpleCalendar.cpp \
+	acdk/util/SimpleListResourceBundle.cpp \
+	acdk/util/SimpleTimeZone.cpp \
+	acdk/util/StringTokenizer.cpp \
+	acdk/util/SysDate.cpp \
+	acdk/util/TimeZone.cpp \
+	acdk/util/TreeMap.cpp \
+	acdk/util/TreeSet.cpp \
+	acdk/util/util_metainf_base.cpp \
+	acdk/util/Vector.cpp \
+	acdk/util/WeakHashMap.cpp \
+	acdk/util/logging/AbstractLogConsumer.cpp \
+	acdk/util/logging/FileConsumer.cpp \
+	acdk/util/logging/Level.cpp \
+	acdk/util/logging/Logger.cpp \
+	acdk/util/logging/logging_metainf_base.cpp \
+	acdk/util/logging/LogManager.cpp \
+	acdk/util/logging/RollingFileConsumer.cpp \
+	acdk/util/logging/SimpleFormatter.cpp \
+	acdk/util/logging/StdFormatter.cpp \
+	acdk/util/logging/TransactionConsumer.cpp \
+	acdk/util/logging/Win32DbgConsumer.cpp \
+	acdk/locale/AsciiEncoding.cpp \
+	acdk/locale/AsciiUtfEncoding.cpp \
+	acdk/locale/ByteAsciiEncoding.cpp \
+	acdk/locale/CEscapeEncoding.cpp \
+	acdk/locale/Encoding.cpp \
+	acdk/locale/IsoEncoding.cpp \
+	acdk/locale/IsoTables.cpp \
+	acdk/locale/locale_metainf_base.cpp \
+	acdk/locale/UCS2Encoding.cpp \
+	acdk/locale/UnicodeTable.cpp \
+	acdk/locale/UTF8Encoding.cpp \
+
+HEADER= 	acdk/acdk.h \
+	acdk/AcdkCoreConfig.h \
+	acdk/acdk_all.h \
+	acdk/Compiler.h \
+	acdk/Config.h \
+	acdk/Platform.h \
+	acdk/Version.h \
+	acdk/lang/ArithmeticException.h \
+	acdk/lang/ArrayIndexOutOfBoundsException.h \
+	acdk/lang/BasicArray.h \
+	acdk/lang/BasicArrayInl.h \
+	acdk/lang/Boolean.h \
+	acdk/lang/Byte.h \
+	acdk/lang/ByteBuffer.h \
+	acdk/lang/Character.h \
+	acdk/lang/Class.h \
+	acdk/lang/ClassCastException.h \
+	acdk/lang/ClassLoader.h \
+	acdk/lang/ClassNotFoundException.h \
+	acdk/lang/Cloneable.h \
+	acdk/lang/CloneNotSupportedException.h \
+	acdk/lang/CmdLineOption.h \
+	acdk/lang/CmdLineParseException.h \
+	acdk/lang/CmdLineParser.h \
+	acdk/lang/Comparable.h \
+	acdk/lang/DmiException.h \
+	acdk/lang/DmiTypeConversionException.h \
+	acdk/lang/Double.h \
+	acdk/lang/Error.h \
+	acdk/lang/Exception.h \
+	acdk/lang/ExceptionDeclarations.h \
+	acdk/lang/ExtObject.h \
+	acdk/lang/Float.h \
+	acdk/lang/IllegalAccessException.h \
+	acdk/lang/IllegalArgumentException.h \
+	acdk/lang/IllegalMonitorStateException.h \
+	acdk/lang/IllegalStateException.h \
+	acdk/lang/IllegalThreadStateException.h \
+	acdk/lang/IndexOutOfBoundsException.h \
+	acdk/lang/InOutPreDeclaration.h \
+	acdk/lang/InstantiationException.h \
+	acdk/lang/Integer.h \
+	acdk/lang/InterfaceBase.h \
+	acdk/lang/InterruptedException.h \
+	acdk/lang/lang.h \
+	acdk/lang/lang_all.h \
+	acdk/lang/Long.h \
+	acdk/lang/Math.h \
+	acdk/lang/NoSuchDmiElementException.h \
+	acdk/lang/NoSuchElementException.h \
+	acdk/lang/NoSuchFieldException.h \
+	acdk/lang/NoSuchMethodException.h \
+	acdk/lang/NullPointerException.h \
+	acdk/lang/Number.h \
+	acdk/lang/NumberFormatException.h \
+	acdk/lang/Object.h \
+	acdk/lang/ObjectArrayBase.h \
+	acdk/lang/ObjectArrayBaseInl.h \
+	acdk/lang/ObjectArrayImpl.h \
+	acdk/lang/ObjectBase.h \
+	acdk/lang/ObjectDebug.h \
+	acdk/lang/ObjectImpl.h \
+	acdk/lang/ObjectInline.h \
+	acdk/lang/OutOfMemoryError.h \
+	acdk/lang/Package.h \
+	acdk/lang/ParamsMismatchException.h \
+	acdk/lang/Process.h \
+	acdk/lang/Runnable.h \
+	acdk/lang/Runtime.h \
+	acdk/lang/RuntimeException.h \
+	acdk/lang/SharedLibrary.h \
+	acdk/lang/Short.h \
+	acdk/lang/StackFrame.h \
+	acdk/lang/StackOverflowError.h \
+	acdk/lang/String.h \
+	acdk/lang/StringBuffer.h \
+	acdk/lang/StringConcenator.h \
+	acdk/lang/StringIndexOutOfBoundsException.h \
+	acdk/lang/StringInline.h \
+	acdk/lang/StringInternals.h \
+	acdk/lang/StringUtf8Utils.h \
+	acdk/lang/System.h \
+	acdk/lang/SystemError.h \
+	acdk/lang/SystemInline.h \
+	acdk/lang/SystemIntern.h \
+	acdk/lang/Thread.h \
+	acdk/lang/ThreadDeath.h \
+	acdk/lang/ThreadGroup.h \
+	acdk/lang/ThreadImpl.h \
+	acdk/lang/ThreadLocal.h \
+	acdk/lang/ThreadLocalImpl.h \
+	acdk/lang/Throwable.h \
+	acdk/lang/UnicodeCharacter.h \
+	acdk/lang/UnsupportedOperationException.h \
+	acdk/lang/Void.h \
+	acdk/lang/dmi/AcdkDmiClient.h \
+	acdk/lang/dmi/AcdkStdWeakTypeDmiClient.h \
+	acdk/lang/dmi/ClazzAttributesRes.h \
+	acdk/lang/dmi/ClazzInfo.h \
+	acdk/lang/dmi/ClazzInfoInternals.h \
+	acdk/lang/dmi/dmi.h \
+	acdk/lang/dmi/DmiClient.h \
+	acdk/lang/dmi/DmiDelegate.h \
+	acdk/lang/dmi/DmiNamedArg.h \
+	acdk/lang/dmi/DmiObject.h \
+	acdk/lang/dmi/DmiObjectArray.h \
+	acdk/lang/dmi/DmiProxy.h \
+	acdk/lang/dmi/Marshaler.h \
+	acdk/lang/dmi/MetaAttribute.h \
+	acdk/lang/dmi/MetaInfo.h \
+	acdk/lang/dmi/MetaInfoChildsArray.h \
+	acdk/lang/dmi/MetaInfoFlags.h \
+	acdk/lang/dmi/MetaObject.h \
+	acdk/lang/dmi/NamedArgs.h \
+	acdk/lang/dmi/ScriptInterpreter.h \
+	acdk/lang/dmi/ScriptVar.h \
+	acdk/lang/dmi/ScriptVarInl.h \
+	acdk/lang/dmi/StdDispatch.h \
+	acdk/lang/dmi/SysFields.h \
+	acdk/lang/sys/Allocator.h \
+	acdk/lang/sys/AllocatorInternals.h \
+	acdk/lang/sys/BackTrace.h \
+	acdk/lang/sys/BitmapPagedAllocator.h \
+	acdk/lang/sys/BoehmGC.h \
+	acdk/lang/sys/BoehmGCAllocator.h \
+	acdk/lang/sys/ControlPushPopOnStack.h \
+	acdk/lang/sys/core_alloca.h \
+	acdk/lang/sys/core_atomicop.h \
+	acdk/lang/sys/core_atomicop_linux.h \
+	acdk/lang/sys/core_condition.h \
+	acdk/lang/sys/core_fastmutex.h \
+	acdk/lang/sys/core_guard.h \
+	acdk/lang/sys/core_hashmap.h \
+	acdk/lang/sys/core_memcheck.h \
+	acdk/lang/sys/core_memtrace.h \
+	acdk/lang/sys/core_mutex.h \
+	acdk/lang/sys/core_pair.h \
+	acdk/lang/sys/core_prim.h \
+	acdk/lang/sys/core_ptherror.h \
+	acdk/lang/sys/core_recursivemutex.h \
+	acdk/lang/sys/core_semaphore.h \
+	acdk/lang/sys/core_sharedlib.h \
+	acdk/lang/sys/core_smartptr.h \
+	acdk/lang/sys/core_specific.h \
+	acdk/lang/sys/core_static_vector.h \
+	acdk/lang/sys/core_string.h \
+	acdk/lang/sys/core_substring.h \
+	acdk/lang/sys/core_syslocal.h \
+	acdk/lang/sys/core_system.h \
+	acdk/lang/sys/core_sys_static_mutex.h \
+	acdk/lang/sys/core_threadsys.h \
+	acdk/lang/sys/core_thread_id.h \
+	acdk/lang/sys/core_tick.h \
+	acdk/lang/sys/core_value_scope.h \
+	acdk/lang/sys/core_vector.h \
+	acdk/lang/sys/core_winimage.h \
+	acdk/lang/sys/default_vc_warnings.h \
+	acdk/lang/sys/disable_vc_warnings.h \
+	acdk/lang/sys/Garbage_Heap.h \
+	acdk/lang/sys/HeapFrame.h \
+	acdk/lang/sys/LocalGcHeap.h \
+	acdk/lang/sys/ObjectHeap.h \
+	acdk/lang/sys/ObjectLockPool.h \
+	acdk/lang/sys/PagedAllocator.h \
+	acdk/lang/sys/PagedHeap.h \
+	acdk/lang/sys/RC_GC_Heap.h \
+	acdk/lang/sys/RC_Heap.h \
+	acdk/lang/sys/RefHeap.h \
+	acdk/lang/sys/RefHolder.h \
+	acdk/lang/sys/RefHolder1.h \
+	acdk/lang/sys/RefHolder2.h \
+	acdk/lang/sys/RefHolder3.h \
+	acdk/lang/sys/RefHolder3Inl.h \
+	acdk/lang/sys/RefHolder4.h \
+	acdk/lang/sys/RefHolder5.h \
+	acdk/lang/sys/RefHolderExt.h \
+	acdk/lang/sys/RefHolderX.h \
+	acdk/lang/sys/StackAllocator.h \
+	acdk/lang/sys/StackHeap.h \
+	acdk/lang/sys/StaticObjectWrapper.h \
+	acdk/lang/sys/sys.h \
+	acdk/lang/sys/SysRefHolder.h \
+	acdk/lang/sys/TracedRawAllocator.h \
+	acdk/lang/ref/NotifyObjectEvent.h \
+	acdk/lang/ref/PhantomReference.h \
+	acdk/lang/ref/ref.h \
+	acdk/lang/ref/Reference.h \
+	acdk/lang/ref/ReferenceQueue.h \
+	acdk/lang/ref/SharedOwning.h \
+	acdk/lang/ref/SoftReference.h \
+	acdk/lang/ref/WeakReference.h \
+	acdk/lang/reflect/AccessibleObject.h \
+	acdk/lang/reflect/Constructor.h \
+	acdk/lang/reflect/Enumeration.h \
+	acdk/lang/reflect/Field.h \
+	acdk/lang/reflect/InvocationTargetException.h \
+	acdk/lang/reflect/Member.h \
+	acdk/lang/reflect/Method.h \
+	acdk/lang/reflect/Modifier.h \
+	acdk/lang/reflect/Parameter.h \
+	acdk/lang/reflect/reflect.h \
+	acdk/lang/reflect/Unit.h \
+	acdk/io/AbstractCharFilterReader.h \
+	acdk/io/AbstractCharFilterWriter.h \
+	acdk/io/AbstractCharReader.h \
+	acdk/io/AbstractCharWriter.h \
+	acdk/io/AbstractFilterReader.h \
+	acdk/io/AbstractFilterWriter.h \
+	acdk/io/AbstractObjectReader.h \
+	acdk/io/AbstractObjectWriter.h \
+	acdk/io/AbstractReader.h \
+	acdk/io/AbstractStorageReader.h \
+	acdk/io/AbstractStorageWriter.h \
+	acdk/io/AbstractWriter.h \
+	acdk/io/ASCIIDataReader.h \
+	acdk/io/ASCIIDataWriter.h \
+	acdk/io/BinaryDataReader.h \
+	acdk/io/BinaryDataWriter.h \
+	acdk/io/BinaryObjectReader.h \
+	acdk/io/BinaryObjectWriter.h \
+	acdk/io/BufferedReader.h \
+	acdk/io/BufferedWriter.h \
+	acdk/io/ByteBufferReader.h \
+	acdk/io/ByteBufferWriter.h \
+	acdk/io/BytePtrReader.h \
+	acdk/io/ByteToCharReader.h \
+	acdk/io/ByteToCharWriter.h \
+	acdk/io/CharArrayReader.h \
+	acdk/io/CharArrayWriter.h \
+	acdk/io/CharReader.h \
+	acdk/io/CharToByteReader.h \
+	acdk/io/CharToByteWriter.h \
+	acdk/io/CharWriter.h \
+	acdk/io/ConsoleCharReader.h \
+	acdk/io/ConsoleCharWriter.h \
+	acdk/io/ConsoleReader.h \
+	acdk/io/ConsoleWriter.h \
+	acdk/io/DataReader.h \
+	acdk/io/DataWriter.h \
+	acdk/io/EOFException.h \
+	acdk/io/File.h \
+	acdk/io/FileAbstractImpl.h \
+	acdk/io/FileDescriptor.h \
+	acdk/io/FileFilter.h \
+	acdk/io/FileImpl.h \
+	acdk/io/FileInfo.h \
+	acdk/io/FilenameFilter.h \
+	acdk/io/FileNotFoundException.h \
+	acdk/io/FileReader.h \
+	acdk/io/FileReaderWriterImpl.h \
+	acdk/io/FileStandardImpl.h \
+	acdk/io/FileStatus.h \
+	acdk/io/FileSystem.h \
+	acdk/io/FileSystemFactory.h \
+	acdk/io/FileWriter.h \
+	acdk/io/FilterReader.h \
+	acdk/io/FilterWriter.h \
+	acdk/io/GlobFilenameFilter.h \
+	acdk/io/InputReader.h \
+	acdk/io/io.h \
+	acdk/io/IOException.h \
+	acdk/io/io_all.h \
+	acdk/io/JoinedReader.h \
+	acdk/io/LineNumberCharReader.h \
+	acdk/io/LineNumberReader.h \
+	acdk/io/MemoryMappedFile.h \
+	acdk/io/MemReader.h \
+	acdk/io/MemWriter.h \
+	acdk/io/NullWriter.h \
+	acdk/io/ObjectReader.h \
+	acdk/io/ObjectStreamException.h \
+	acdk/io/ObjectWriter.h \
+	acdk/io/OutputDebugStringWriter.h \
+	acdk/io/PipedReader.h \
+	acdk/io/PipedWriter.h \
+	acdk/io/PrintWriter.h \
+	acdk/io/PushbackCharReader.h \
+	acdk/io/PushbackReader.h \
+	acdk/io/RandomAccessFile.h \
+	acdk/io/Reader.h \
+	acdk/io/RessourceFileImpl.h \
+	acdk/io/RessourceFileSystem.h \
+	acdk/io/Serializable.h \
+	acdk/io/SerializedObjectDescriptor.h \
+	acdk/io/StandardFileSystem.h \
+	acdk/io/Storage.h \
+	acdk/io/StreamTokenizer.h \
+	acdk/io/StringReader.h \
+	acdk/io/StringWriter.h \
+	acdk/io/SubReader.h \
+	acdk/io/TeeCharWriter.h \
+	acdk/io/TeeReader.h \
+	acdk/io/TeeWriter.h \
+	acdk/io/Writer.h \
+	acdk/util/AbstractCollection.h \
+	acdk/util/AbstractList.h \
+	acdk/util/AbstractListIterator.h \
+	acdk/util/AbstractListListIterator.h \
+	acdk/util/AbstractListSubList.h \
+	acdk/util/AbstractMap.h \
+	acdk/util/AbstractSequentialList.h \
+	acdk/util/AbstractSet.h \
+	acdk/util/acdk_util_classes.h \
+	acdk/util/ArrayIterator.h \
+	acdk/util/ArrayList.h \
+	acdk/util/Arrays.h \
+	acdk/util/BasicMapEntry.h \
+	acdk/util/BitSet.h \
+	acdk/util/Bucket.h \
+	acdk/util/Calendar.h \
+	acdk/util/Collection.h \
+	acdk/util/Collections.h \
+	acdk/util/Comparator.h \
+	acdk/util/ConcurrentModificationException.h \
+	acdk/util/Date.h \
+	acdk/util/Dictionary.h \
+	acdk/util/DoubleIterator.h \
+	acdk/util/EmptyCollectionIterator.h \
+	acdk/util/Enumeration.h \
+	acdk/util/EventListener.h \
+	acdk/util/EventListenerProxy.h \
+	acdk/util/EventObject.h \
+	acdk/util/GregorianCalendar.h \
+	acdk/util/HashMap.h \
+	acdk/util/HashSet.h \
+	acdk/util/Hashtable.h \
+	acdk/util/IdentityHashMap.h \
+	acdk/util/Iterator.h \
+	acdk/util/LinkedList.h \
+	acdk/util/List.h \
+	acdk/util/ListIterator.h \
+	acdk/util/ListResourceBundle.h \
+	acdk/util/Locale.h \
+	acdk/util/Map.h \
+	acdk/util/MissingResourceException.h \
+	acdk/util/NoSuchElementException.h \
+	acdk/util/Properties.h \
+	acdk/util/PropertiesListener.h \
+	acdk/util/PropertyResourceBundle.h \
+	acdk/util/Random.h \
+	acdk/util/ResourceBundle.h \
+	acdk/util/Set.h \
+	acdk/util/SimpleCalendar.h \
+	acdk/util/SimpleListResourceBundle.h \
+	acdk/util/SimpleTimeZone.h \
+	acdk/util/SingleObjectIterator.h \
+	acdk/util/SortedMap.h \
+	acdk/util/SortedSet.h \
+	acdk/util/StringTokenizer.h \
+	acdk/util/SynchronizedCollections.h \
+	acdk/util/SysDate.h \
+	acdk/util/TAbstractCollection.h \
+	acdk/util/TAbstractList.h \
+	acdk/util/TAbstractListIterator.h \
+	acdk/util/TAbstractListListIterator.h \
+	acdk/util/TAbstractListSubList.h \
+	acdk/util/TAbstractMap.h \
+	acdk/util/TAbstractSet.h \
+	acdk/util/TArrayList.h \
+	acdk/util/TBasicMapEntry.h \
+	acdk/util/TBucket.h \
+	acdk/util/TCollection.h \
+	acdk/util/TComparator.h \
+	acdk/util/TDoubleIterator.h \
+	acdk/util/THashMap.h \
+	acdk/util/THashSet.h \
+	acdk/util/TimeZone.h \
+	acdk/util/TIterator.h \
+	acdk/util/TList.h \
+	acdk/util/TListIterator.h \
+	acdk/util/TMap.h \
+	acdk/util/TreeMap.h \
+	acdk/util/TreeSet.h \
+	acdk/util/TSet.h \
+	acdk/util/TSortedMap.h \
+	acdk/util/TTreeMap.h \
+	acdk/util/util.h \
+	acdk/util/util_all.h \
+	acdk/util/Vector.h \
+	acdk/util/WeakHashMap.h \
+	acdk/util/logging/AbstractLogConsumer.h \
+	acdk/util/logging/ConsoleConsumer.h \
+	acdk/util/logging/FileConsumer.h \
+	acdk/util/logging/Formatter.h \
+	acdk/util/logging/Level.h \
+	acdk/util/logging/Log.h \
+	acdk/util/logging/LogConsumer.h \
+	acdk/util/logging/Logger.h \
+	acdk/util/logging/logging.h \
+	acdk/util/logging/LogManager.h \
+	acdk/util/logging/LogRecord.h \
+	acdk/util/logging/MsgBoxConsumer.h \
+	acdk/util/logging/NamedLogArgs.h \
+	acdk/util/logging/RollingFileConsumer.h \
+	acdk/util/logging/SimpleFormatter.h \
+	acdk/util/logging/StdFormatter.h \
+	acdk/util/logging/TransactionConsumer.h \
+	acdk/util/logging/Win32DbgConsumer.h \
+	acdk/util/logging/WriterConsumer.h \
+	acdk/locale/8859-10_mapping.h \
+	acdk/locale/8859-13_mapping.h \
+	acdk/locale/8859-14_mapping.h \
+	acdk/locale/8859-15_mapping.h \
+	acdk/locale/8859-16_mapping.h \
+	acdk/locale/8859-1_mapping.h \
+	acdk/locale/8859-2_mapping.h \
+	acdk/locale/8859-3_mapping.h \
+	acdk/locale/8859-4_mapping.h \
+	acdk/locale/8859-5_mapping.h \
+	acdk/locale/8859-6_mapping.h \
+	acdk/locale/8859-7_mapping.h \
+	acdk/locale/8859-8_mapping.h \
+	acdk/locale/8859-9_mapping.h \
+	acdk/locale/AsciiEncoding.h \
+	acdk/locale/AsciiUtfEncoding.h \
+	acdk/locale/ByteAsciiEncoding.h \
+	acdk/locale/CEscapeEncoding.h \
+	acdk/locale/CharacterCodingException.h \
+	acdk/locale/CodingErrorAction.h \
+	acdk/locale/CP1250_mapping.h \
+	acdk/locale/CP1251_mapping.h \
+	acdk/locale/CP1252_mapping.h \
+	acdk/locale/CP1253_mapping.h \
+	acdk/locale/CP1254_mapping.h \
+	acdk/locale/CP1255_mapping.h \
+	acdk/locale/CP1256_mapping.h \
+	acdk/locale/CP1257_mapping.h \
+	acdk/locale/CP1258_mapping.h \
+	acdk/locale/Decoder.h \
+	acdk/locale/Encoder.h \
+	acdk/locale/Encoding.h \
+	acdk/locale/IBM-850_mapping.h \
+	acdk/locale/IllegalCharsetNameException.h \
+	acdk/locale/IsoEncoding.h \
+	acdk/locale/locale.h \
+	acdk/locale/UCS2Encoding.h \
+	acdk/locale/UnicodeTable.h \
+	acdk/locale/UnmappableCharacterException.h \
+	acdk/locale/UTF8Encoding.h \
+
+OBJECTS= 	../tobj/acdk_core/bsd/acdk_lang_Package.o \
+	../tobj/acdk_core/bsd/BasicArray.o \
+	../tobj/acdk_core/bsd/Boolean.o \
+	../tobj/acdk_core/bsd/Byte.o \
+	../tobj/acdk_core/bsd/ByteBuffer.o \
+	../tobj/acdk_core/bsd/Character.o \
+	../tobj/acdk_core/bsd/Class.o \
+	../tobj/acdk_core/bsd/ClassCastException.o \
+	../tobj/acdk_core/bsd/ClassLoader.o \
+	../tobj/acdk_core/bsd/CmdLineOption.o \
+	../tobj/acdk_core/bsd/CmdLineParser.o \
+	../tobj/acdk_core/bsd/Double.o \
+	../tobj/acdk_core/bsd/Float.o \
+	../tobj/acdk_core/bsd/Integer.o \
+	../tobj/acdk_core/bsd/lang_metainf_base.o \
+	../tobj/acdk_core/bsd/Long.o \
+	../tobj/acdk_core/bsd/Math.o \
+	../tobj/acdk_core/bsd/Number.o \
+	../tobj/acdk_core/bsd/Object.o \
+	../tobj/acdk_core/bsd/ObjectArrayBase.o \
+	../tobj/acdk_core/bsd/ObjectArrayImpl.o \
+	../tobj/acdk_core/bsd/ObjectDebug.o \
+	../tobj/acdk_core/bsd/Package.o \
+	../tobj/acdk_core/bsd/Process.o \
+	../tobj/acdk_core/bsd/Runtime.o \
+	../tobj/acdk_core/bsd/SharedLibrary.o \
+	../tobj/acdk_core/bsd/Short.o \
+	../tobj/acdk_core/bsd/StackFrame.o \
+	../tobj/acdk_core/bsd/String.o \
+	../tobj/acdk_core/bsd/StringBuffer.o \
+	../tobj/acdk_core/bsd/StringOld.o \
+	../tobj/acdk_core/bsd/StringUtf8Utils.o \
+	../tobj/acdk_core/bsd/System.o \
+	../tobj/acdk_core/bsd/SystemError.o \
+	../tobj/acdk_core/bsd/Thread.o \
+	../tobj/acdk_core/bsd/ThreadGroup.o \
+	../tobj/acdk_core/bsd/Throwable.o \
+	../tobj/acdk_core/bsd/UnicodeCharacter.o \
+	../tobj/acdk_core/bsd/Void.o \
+	../tobj/acdk_core/bsd/AcdkDmiClient.o \
+	../tobj/acdk_core/bsd/AcdkStdWeakTypeDmiClient.o \
+	../tobj/acdk_core/bsd/ClazzInfo.o \
+	../tobj/acdk_core/bsd/DmiClient.o \
+	../tobj/acdk_core/bsd/DmiDelegate.o \
+	../tobj/acdk_core/bsd/DmiObject.o \
+	../tobj/acdk_core/bsd/DmiProxy.o \
+	../tobj/acdk_core/bsd/dmi_metainf_base.o \
+	../tobj/acdk_core/bsd/Marshaler.o \
+	../tobj/acdk_core/bsd/MetaAttribute.o \
+	../tobj/acdk_core/bsd/MetaInfo.o \
+	../tobj/acdk_core/bsd/MetaObject.o \
+	../tobj/acdk_core/bsd/ScriptVar.o \
+	../tobj/acdk_core/bsd/ScriptVar2.o \
+	../tobj/acdk_core/bsd/StdDispatch.o \
+	../tobj/acdk_core/bsd/SysFields.o \
+	../tobj/acdk_core/bsd/Allocator.o \
+	../tobj/acdk_core/bsd/BackTrace.o \
+	../tobj/acdk_core/bsd/BitmapPagedAllocator.o \
+	../tobj/acdk_core/bsd/BoehmGC.o \
+	../tobj/acdk_core/bsd/BoehmGCAllocator.o \
+	../tobj/acdk_core/bsd/core_condition.o \
+	../tobj/acdk_core/bsd/core_fastmutex.o \
+	../tobj/acdk_core/bsd/core_memcheck.o \
+	../tobj/acdk_core/bsd/core_memtrace.o \
+	../tobj/acdk_core/bsd/core_mutex.o \
+	../tobj/acdk_core/bsd/core_recursivemutex.o \
+	../tobj/acdk_core/bsd/core_semaphore.o \
+	../tobj/acdk_core/bsd/core_specific.o \
+	../tobj/acdk_core/bsd/core_system.o \
+	../tobj/acdk_core/bsd/core_winimage.o \
+	../tobj/acdk_core/bsd/Garbage_Heap.o \
+	../tobj/acdk_core/bsd/LocalGcHeap.o \
+	../tobj/acdk_core/bsd/MarkSweepGc.o \
+	../tobj/acdk_core/bsd/ObjectHeap.o \
+	../tobj/acdk_core/bsd/ObjectLockPool.o \
+	../tobj/acdk_core/bsd/PagedAllocator.o \
+	../tobj/acdk_core/bsd/PagedHeap.o \
+	../tobj/acdk_core/bsd/RC_GC_Heap.o \
+	../tobj/acdk_core/bsd/RC_Heap.o \
+	../tobj/acdk_core/bsd/StackAllocator.o \
+	../tobj/acdk_core/bsd/StackHeap.o \
+	../tobj/acdk_core/bsd/TracedRawAllocator.o \
+	../tobj/acdk_core/bsd/acdk_lang_ref_Package.o \
+	../tobj/acdk_core/bsd/NotifyObjectEvent.o \
+	../tobj/acdk_core/bsd/Reference.o \
+	../tobj/acdk_core/bsd/ReferenceQueue.o \
+	../tobj/acdk_core/bsd/ref_metainf_base.o \
+	../tobj/acdk_core/bsd/SharedOwning.o \
+	../tobj/acdk_core/bsd/Constructor.o \
+	../tobj/acdk_core/bsd/Enumeration.o \
+	../tobj/acdk_core/bsd/Field.o \
+	../tobj/acdk_core/bsd/Method.o \
+	../tobj/acdk_core/bsd/Modifier.o \
+	../tobj/acdk_core/bsd/Parameter.o \
+	../tobj/acdk_core/bsd/reflect_metainf_base.o \
+	../tobj/acdk_core/bsd/Unit.o \
+	../tobj/acdk_core/bsd/AbstractCharFilterReader.o \
+	../tobj/acdk_core/bsd/AbstractCharReader.o \
+	../tobj/acdk_core/bsd/AbstractCharWriter.o \
+	../tobj/acdk_core/bsd/AbstractFilterWriter.o \
+	../tobj/acdk_core/bsd/AbstractObjectReader.o \
+	../tobj/acdk_core/bsd/AbstractObjectWriter.o \
+	../tobj/acdk_core/bsd/AbstractReader.o \
+	../tobj/acdk_core/bsd/acdk_io_Package.o \
+	../tobj/acdk_core/bsd/ASCIIDataReader.o \
+	../tobj/acdk_core/bsd/ASCIIDataWriter.o \
+	../tobj/acdk_core/bsd/BinaryDataReader.o \
+	../tobj/acdk_core/bsd/BinaryDataWriter.o \
+	../tobj/acdk_core/bsd/BinaryObjectReader.o \
+	../tobj/acdk_core/bsd/BinaryObjectWriter.o \
+	../tobj/acdk_core/bsd/BufferedReader.o \
+	../tobj/acdk_core/bsd/BufferedWriter.o \
+	../tobj/acdk_core/bsd/ByteBufferReader.o \
+	../tobj/acdk_core/bsd/ByteBufferWriter.o \
+	../tobj/acdk_core/bsd/ByteToCharReader.o \
+	../tobj/acdk_core/bsd/CharArrayReader.o \
+	../tobj/acdk_core/bsd/CharArrayWriter.o \
+	../tobj/acdk_core/bsd/CharReader.o \
+	../tobj/acdk_core/bsd/CharToByteWriter.o \
+	../tobj/acdk_core/bsd/ConsoleCharReader.o \
+	../tobj/acdk_core/bsd/ConsoleCharWriter.o \
+	../tobj/acdk_core/bsd/ConsoleReader.o \
+	../tobj/acdk_core/bsd/ConsoleWriter.o \
+	../tobj/acdk_core/bsd/File.o \
+	../tobj/acdk_core/bsd/FileAbstractImpl.o \
+	../tobj/acdk_core/bsd/FileDescriptor.o \
+	../tobj/acdk_core/bsd/FileImpl.o \
+	../tobj/acdk_core/bsd/FileInfo.o \
+	../tobj/acdk_core/bsd/FileReader.o \
+	../tobj/acdk_core/bsd/FileReaderWriterImpl.o \
+	../tobj/acdk_core/bsd/FileStandardImpl.o \
+	../tobj/acdk_core/bsd/FileStatus.o \
+	../tobj/acdk_core/bsd/FileSystem.o \
+	../tobj/acdk_core/bsd/FileWriter.o \
+	../tobj/acdk_core/bsd/GlobFilenameFilter.o \
+	../tobj/acdk_core/bsd/InputReader.o \
+	../tobj/acdk_core/bsd/IOException.o \
+	../tobj/acdk_core/bsd/io_metainf_base.o \
+	../tobj/acdk_core/bsd/JoinedReader.o \
+	../tobj/acdk_core/bsd/LineNumberCharReader.o \
+	../tobj/acdk_core/bsd/LineNumberReader.o \
+	../tobj/acdk_core/bsd/MemoryMappedFile.o \
+	../tobj/acdk_core/bsd/MemReader.o \
+	../tobj/acdk_core/bsd/MemWriter.o \
+	../tobj/acdk_core/bsd/PipedReader.o \
+	../tobj/acdk_core/bsd/PipedWriter.o \
+	../tobj/acdk_core/bsd/PrintWriter.o \
+	../tobj/acdk_core/bsd/PushbackCharReader.o \
+	../tobj/acdk_core/bsd/PushbackReader.o \
+	../tobj/acdk_core/bsd/RandomAccessFile.o \
+	../tobj/acdk_core/bsd/Reader.o \
+	../tobj/acdk_core/bsd/RessourceFileSystem.o \
+	../tobj/acdk_core/bsd/StandardFileSystem.o \
+	../tobj/acdk_core/bsd/StreamTokenizer.o \
+	../tobj/acdk_core/bsd/SubReader.o \
+	../tobj/acdk_core/bsd/Writer.o \
+	../tobj/acdk_core/bsd/AbstractCollection.o \
+	../tobj/acdk_core/bsd/AbstractList.o \
+	../tobj/acdk_core/bsd/AbstractListSubList.o \
+	../tobj/acdk_core/bsd/AbstractMap.o \
+	../tobj/acdk_core/bsd/AbstractSequentialList.o \
+	../tobj/acdk_core/bsd/AbstractSet.o \
+	../tobj/acdk_core/bsd/acdk_util_Package.o \
+	../tobj/acdk_core/bsd/ArrayList.o \
+	../tobj/acdk_core/bsd/Arrays.o \
+	../tobj/acdk_core/bsd/BitSet.o \
+	../tobj/acdk_core/bsd/Bucket.o \
+	../tobj/acdk_core/bsd/Calendar.o \
+	../tobj/acdk_core/bsd/Collections.o \
+	../tobj/acdk_core/bsd/Date.o \
+	../tobj/acdk_core/bsd/GregorianCalendar.o \
+	../tobj/acdk_core/bsd/HashMap.o \
+	../tobj/acdk_core/bsd/HashSet.o \
+	../tobj/acdk_core/bsd/Hashtable.o \
+	../tobj/acdk_core/bsd/LinkedList.o \
+	../tobj/acdk_core/bsd/ListResourceBundle.o \
+	../tobj/acdk_core/bsd/Locale.o \
+	../tobj/acdk_core/bsd/Properties.o \
+	../tobj/acdk_core/bsd/PropertiesListener.o \
+	../tobj/acdk_core/bsd/PropertyResourceBundle.o \
+	../tobj/acdk_core/bsd/Random.o \
+	../tobj/acdk_core/bsd/ResourceBundle.o \
+	../tobj/acdk_core/bsd/SimpleCalendar.o \
+	../tobj/acdk_core/bsd/SimpleListResourceBundle.o \
+	../tobj/acdk_core/bsd/SimpleTimeZone.o \
+	../tobj/acdk_core/bsd/StringTokenizer.o \
+	../tobj/acdk_core/bsd/SysDate.o \
+	../tobj/acdk_core/bsd/TimeZone.o \
+	../tobj/acdk_core/bsd/TreeMap.o \
+	../tobj/acdk_core/bsd/TreeSet.o \
+	../tobj/acdk_core/bsd/util_metainf_base.o \
+	../tobj/acdk_core/bsd/Vector.o \
+	../tobj/acdk_core/bsd/WeakHashMap.o \
+	../tobj/acdk_core/bsd/AbstractLogConsumer.o \
+	../tobj/acdk_core/bsd/FileConsumer.o \
+	../tobj/acdk_core/bsd/Level.o \
+	../tobj/acdk_core/bsd/Logger.o \
+	../tobj/acdk_core/bsd/logging_metainf_base.o \
+	../tobj/acdk_core/bsd/LogManager.o \
+	../tobj/acdk_core/bsd/RollingFileConsumer.o \
+	../tobj/acdk_core/bsd/SimpleFormatter.o \
+	../tobj/acdk_core/bsd/StdFormatter.o \
+	../tobj/acdk_core/bsd/TransactionConsumer.o \
+	../tobj/acdk_core/bsd/Win32DbgConsumer.o \
+	../tobj/acdk_core/bsd/AsciiEncoding.o \
+	../tobj/acdk_core/bsd/AsciiUtfEncoding.o \
+	../tobj/acdk_core/bsd/ByteAsciiEncoding.o \
+	../tobj/acdk_core/bsd/CEscapeEncoding.o \
+	../tobj/acdk_core/bsd/Encoding.o \
+	../tobj/acdk_core/bsd/IsoEncoding.o \
+	../tobj/acdk_core/bsd/IsoTables.o \
+	../tobj/acdk_core/bsd/locale_metainf_base.o \
+	../tobj/acdk_core/bsd/UCS2Encoding.o \
+	../tobj/acdk_core/bsd/UnicodeTable.o \
+	../tobj/acdk_core/bsd/UTF8Encoding.o \
+
+
+FINALTARGET=../../bin/libacdk_core.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_core.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_core.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_core.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdk_core/bsd/acdk_lang_Package.o: acdk/lang/acdk_lang_Package.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/acdk_lang_Package.o -c acdk/lang/acdk_lang_Package.cpp
+
+../tobj/acdk_core/bsd/BasicArray.o: acdk/lang/BasicArray.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BasicArray.o -c acdk/lang/BasicArray.cpp
+
+../tobj/acdk_core/bsd/Boolean.o: acdk/lang/Boolean.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Boolean.o -c acdk/lang/Boolean.cpp
+
+../tobj/acdk_core/bsd/Byte.o: acdk/lang/Byte.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Byte.o -c acdk/lang/Byte.cpp
+
+../tobj/acdk_core/bsd/ByteBuffer.o: acdk/lang/ByteBuffer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ByteBuffer.o -c acdk/lang/ByteBuffer.cpp
+
+../tobj/acdk_core/bsd/Character.o: acdk/lang/Character.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Character.o -c acdk/lang/Character.cpp
+
+../tobj/acdk_core/bsd/Class.o: acdk/lang/Class.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Class.o -c acdk/lang/Class.cpp
+
+../tobj/acdk_core/bsd/ClassCastException.o: acdk/lang/ClassCastException.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ClassCastException.o -c acdk/lang/ClassCastException.cpp
+
+../tobj/acdk_core/bsd/ClassLoader.o: acdk/lang/ClassLoader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ClassLoader.o -c acdk/lang/ClassLoader.cpp
+
+../tobj/acdk_core/bsd/CmdLineOption.o: acdk/lang/CmdLineOption.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CmdLineOption.o -c acdk/lang/CmdLineOption.cpp
+
+../tobj/acdk_core/bsd/CmdLineParser.o: acdk/lang/CmdLineParser.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CmdLineParser.o -c acdk/lang/CmdLineParser.cpp
+
+../tobj/acdk_core/bsd/Double.o: acdk/lang/Double.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Double.o -c acdk/lang/Double.cpp
+
+../tobj/acdk_core/bsd/Float.o: acdk/lang/Float.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Float.o -c acdk/lang/Float.cpp
+
+../tobj/acdk_core/bsd/Integer.o: acdk/lang/Integer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Integer.o -c acdk/lang/Integer.cpp
+
+../tobj/acdk_core/bsd/lang_metainf_base.o: acdk/lang/lang_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/lang_metainf_base.o -c acdk/lang/lang_metainf_base.cpp
+
+../tobj/acdk_core/bsd/Long.o: acdk/lang/Long.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Long.o -c acdk/lang/Long.cpp
+
+../tobj/acdk_core/bsd/Math.o: acdk/lang/Math.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Math.o -c acdk/lang/Math.cpp
+
+../tobj/acdk_core/bsd/Number.o: acdk/lang/Number.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Number.o -c acdk/lang/Number.cpp
+
+../tobj/acdk_core/bsd/Object.o: acdk/lang/Object.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Object.o -c acdk/lang/Object.cpp
+
+../tobj/acdk_core/bsd/ObjectArrayBase.o: acdk/lang/ObjectArrayBase.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ObjectArrayBase.o -c acdk/lang/ObjectArrayBase.cpp
+
+../tobj/acdk_core/bsd/ObjectArrayImpl.o: acdk/lang/ObjectArrayImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ObjectArrayImpl.o -c acdk/lang/ObjectArrayImpl.cpp
+
+../tobj/acdk_core/bsd/ObjectDebug.o: acdk/lang/ObjectDebug.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ObjectDebug.o -c acdk/lang/ObjectDebug.cpp
+
+../tobj/acdk_core/bsd/Package.o: acdk/lang/Package.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Package.o -c acdk/lang/Package.cpp
+
+../tobj/acdk_core/bsd/Process.o: acdk/lang/Process.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Process.o -c acdk/lang/Process.cpp
+
+../tobj/acdk_core/bsd/Runtime.o: acdk/lang/Runtime.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Runtime.o -c acdk/lang/Runtime.cpp
+
+../tobj/acdk_core/bsd/SharedLibrary.o: acdk/lang/SharedLibrary.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SharedLibrary.o -c acdk/lang/SharedLibrary.cpp
+
+../tobj/acdk_core/bsd/Short.o: acdk/lang/Short.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Short.o -c acdk/lang/Short.cpp
+
+../tobj/acdk_core/bsd/StackFrame.o: acdk/lang/StackFrame.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StackFrame.o -c acdk/lang/StackFrame.cpp
+
+../tobj/acdk_core/bsd/String.o: acdk/lang/String.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/String.o -c acdk/lang/String.cpp
+
+../tobj/acdk_core/bsd/StringBuffer.o: acdk/lang/StringBuffer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StringBuffer.o -c acdk/lang/StringBuffer.cpp
+
+../tobj/acdk_core/bsd/StringOld.o: acdk/lang/StringOld.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StringOld.o -c acdk/lang/StringOld.cpp
+
+../tobj/acdk_core/bsd/StringUtf8Utils.o: acdk/lang/StringUtf8Utils.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StringUtf8Utils.o -c acdk/lang/StringUtf8Utils.cpp
+
+../tobj/acdk_core/bsd/System.o: acdk/lang/System.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/System.o -c acdk/lang/System.cpp
+
+../tobj/acdk_core/bsd/SystemError.o: acdk/lang/SystemError.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SystemError.o -c acdk/lang/SystemError.cpp
+
+../tobj/acdk_core/bsd/Thread.o: acdk/lang/Thread.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Thread.o -c acdk/lang/Thread.cpp
+
+../tobj/acdk_core/bsd/ThreadGroup.o: acdk/lang/ThreadGroup.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ThreadGroup.o -c acdk/lang/ThreadGroup.cpp
+
+../tobj/acdk_core/bsd/Throwable.o: acdk/lang/Throwable.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Throwable.o -c acdk/lang/Throwable.cpp
+
+../tobj/acdk_core/bsd/UnicodeCharacter.o: acdk/lang/UnicodeCharacter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/UnicodeCharacter.o -c acdk/lang/UnicodeCharacter.cpp
+
+../tobj/acdk_core/bsd/Void.o: acdk/lang/Void.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Void.o -c acdk/lang/Void.cpp
+
+../tobj/acdk_core/bsd/AcdkDmiClient.o: acdk/lang/dmi/AcdkDmiClient.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AcdkDmiClient.o -c acdk/lang/dmi/AcdkDmiClient.cpp
+
+../tobj/acdk_core/bsd/AcdkStdWeakTypeDmiClient.o: acdk/lang/dmi/AcdkStdWeakTypeDmiClient.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AcdkStdWeakTypeDmiClient.o -c acdk/lang/dmi/AcdkStdWeakTypeDmiClient.cpp
+
+../tobj/acdk_core/bsd/ClazzInfo.o: acdk/lang/dmi/ClazzInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ClazzInfo.o -c acdk/lang/dmi/ClazzInfo.cpp
+
+../tobj/acdk_core/bsd/DmiClient.o: acdk/lang/dmi/DmiClient.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/DmiClient.o -c acdk/lang/dmi/DmiClient.cpp
+
+../tobj/acdk_core/bsd/DmiDelegate.o: acdk/lang/dmi/DmiDelegate.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/DmiDelegate.o -c acdk/lang/dmi/DmiDelegate.cpp
+
+../tobj/acdk_core/bsd/DmiObject.o: acdk/lang/dmi/DmiObject.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/DmiObject.o -c acdk/lang/dmi/DmiObject.cpp
+
+../tobj/acdk_core/bsd/DmiProxy.o: acdk/lang/dmi/DmiProxy.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/DmiProxy.o -c acdk/lang/dmi/DmiProxy.cpp
+
+../tobj/acdk_core/bsd/dmi_metainf_base.o: acdk/lang/dmi/dmi_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/dmi_metainf_base.o -c acdk/lang/dmi/dmi_metainf_base.cpp
+
+../tobj/acdk_core/bsd/Marshaler.o: acdk/lang/dmi/Marshaler.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Marshaler.o -c acdk/lang/dmi/Marshaler.cpp
+
+../tobj/acdk_core/bsd/MetaAttribute.o: acdk/lang/dmi/MetaAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MetaAttribute.o -c acdk/lang/dmi/MetaAttribute.cpp
+
+../tobj/acdk_core/bsd/MetaInfo.o: acdk/lang/dmi/MetaInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MetaInfo.o -c acdk/lang/dmi/MetaInfo.cpp
+
+../tobj/acdk_core/bsd/MetaObject.o: acdk/lang/dmi/MetaObject.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MetaObject.o -c acdk/lang/dmi/MetaObject.cpp
+
+../tobj/acdk_core/bsd/ScriptVar.o: acdk/lang/dmi/ScriptVar.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ScriptVar.o -c acdk/lang/dmi/ScriptVar.cpp
+
+../tobj/acdk_core/bsd/ScriptVar2.o: acdk/lang/dmi/ScriptVar2.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ScriptVar2.o -c acdk/lang/dmi/ScriptVar2.cpp
+
+../tobj/acdk_core/bsd/StdDispatch.o: acdk/lang/dmi/StdDispatch.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StdDispatch.o -c acdk/lang/dmi/StdDispatch.cpp
+
+../tobj/acdk_core/bsd/SysFields.o: acdk/lang/dmi/SysFields.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SysFields.o -c acdk/lang/dmi/SysFields.cpp
+
+../tobj/acdk_core/bsd/Allocator.o: acdk/lang/sys/Allocator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Allocator.o -c acdk/lang/sys/Allocator.cpp
+
+../tobj/acdk_core/bsd/BackTrace.o: acdk/lang/sys/BackTrace.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BackTrace.o -c acdk/lang/sys/BackTrace.cpp
+
+../tobj/acdk_core/bsd/BitmapPagedAllocator.o: acdk/lang/sys/BitmapPagedAllocator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BitmapPagedAllocator.o -c acdk/lang/sys/BitmapPagedAllocator.cpp
+
+../tobj/acdk_core/bsd/BoehmGC.o: acdk/lang/sys/BoehmGC.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BoehmGC.o -c acdk/lang/sys/BoehmGC.cpp
+
+../tobj/acdk_core/bsd/BoehmGCAllocator.o: acdk/lang/sys/BoehmGCAllocator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BoehmGCAllocator.o -c acdk/lang/sys/BoehmGCAllocator.cpp
+
+../tobj/acdk_core/bsd/core_condition.o: acdk/lang/sys/core_condition.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_condition.o -c acdk/lang/sys/core_condition.cpp
+
+../tobj/acdk_core/bsd/core_fastmutex.o: acdk/lang/sys/core_fastmutex.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_fastmutex.o -c acdk/lang/sys/core_fastmutex.cpp
+
+../tobj/acdk_core/bsd/core_memcheck.o: acdk/lang/sys/core_memcheck.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_memcheck.o -c acdk/lang/sys/core_memcheck.cpp
+
+../tobj/acdk_core/bsd/core_memtrace.o: acdk/lang/sys/core_memtrace.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_memtrace.o -c acdk/lang/sys/core_memtrace.cpp
+
+../tobj/acdk_core/bsd/core_mutex.o: acdk/lang/sys/core_mutex.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_mutex.o -c acdk/lang/sys/core_mutex.cpp
+
+../tobj/acdk_core/bsd/core_recursivemutex.o: acdk/lang/sys/core_recursivemutex.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_recursivemutex.o -c acdk/lang/sys/core_recursivemutex.cpp
+
+../tobj/acdk_core/bsd/core_semaphore.o: acdk/lang/sys/core_semaphore.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_semaphore.o -c acdk/lang/sys/core_semaphore.cpp
+
+../tobj/acdk_core/bsd/core_specific.o: acdk/lang/sys/core_specific.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_specific.o -c acdk/lang/sys/core_specific.cpp
+
+../tobj/acdk_core/bsd/core_system.o: acdk/lang/sys/core_system.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_system.o -c acdk/lang/sys/core_system.cpp
+
+../tobj/acdk_core/bsd/core_winimage.o: acdk/lang/sys/core_winimage.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/core_winimage.o -c acdk/lang/sys/core_winimage.cpp
+
+../tobj/acdk_core/bsd/Garbage_Heap.o: acdk/lang/sys/Garbage_Heap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Garbage_Heap.o -c acdk/lang/sys/Garbage_Heap.cpp
+
+../tobj/acdk_core/bsd/LocalGcHeap.o: acdk/lang/sys/LocalGcHeap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/LocalGcHeap.o -c acdk/lang/sys/LocalGcHeap.cpp
+
+../tobj/acdk_core/bsd/MarkSweepGc.o: acdk/lang/sys/MarkSweepGc.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MarkSweepGc.o -c acdk/lang/sys/MarkSweepGc.cpp
+
+../tobj/acdk_core/bsd/ObjectHeap.o: acdk/lang/sys/ObjectHeap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ObjectHeap.o -c acdk/lang/sys/ObjectHeap.cpp
+
+../tobj/acdk_core/bsd/ObjectLockPool.o: acdk/lang/sys/ObjectLockPool.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ObjectLockPool.o -c acdk/lang/sys/ObjectLockPool.cpp
+
+../tobj/acdk_core/bsd/PagedAllocator.o: acdk/lang/sys/PagedAllocator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PagedAllocator.o -c acdk/lang/sys/PagedAllocator.cpp
+
+../tobj/acdk_core/bsd/PagedHeap.o: acdk/lang/sys/PagedHeap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PagedHeap.o -c acdk/lang/sys/PagedHeap.cpp
+
+../tobj/acdk_core/bsd/RC_GC_Heap.o: acdk/lang/sys/RC_GC_Heap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/RC_GC_Heap.o -c acdk/lang/sys/RC_GC_Heap.cpp
+
+../tobj/acdk_core/bsd/RC_Heap.o: acdk/lang/sys/RC_Heap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/RC_Heap.o -c acdk/lang/sys/RC_Heap.cpp
+
+../tobj/acdk_core/bsd/StackAllocator.o: acdk/lang/sys/StackAllocator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StackAllocator.o -c acdk/lang/sys/StackAllocator.cpp
+
+../tobj/acdk_core/bsd/StackHeap.o: acdk/lang/sys/StackHeap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StackHeap.o -c acdk/lang/sys/StackHeap.cpp
+
+../tobj/acdk_core/bsd/TracedRawAllocator.o: acdk/lang/sys/TracedRawAllocator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/TracedRawAllocator.o -c acdk/lang/sys/TracedRawAllocator.cpp
+
+../tobj/acdk_core/bsd/acdk_lang_ref_Package.o: acdk/lang/ref/acdk_lang_ref_Package.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/acdk_lang_ref_Package.o -c acdk/lang/ref/acdk_lang_ref_Package.cpp
+
+../tobj/acdk_core/bsd/NotifyObjectEvent.o: acdk/lang/ref/NotifyObjectEvent.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/NotifyObjectEvent.o -c acdk/lang/ref/NotifyObjectEvent.cpp
+
+../tobj/acdk_core/bsd/Reference.o: acdk/lang/ref/Reference.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Reference.o -c acdk/lang/ref/Reference.cpp
+
+../tobj/acdk_core/bsd/ReferenceQueue.o: acdk/lang/ref/ReferenceQueue.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ReferenceQueue.o -c acdk/lang/ref/ReferenceQueue.cpp
+
+../tobj/acdk_core/bsd/ref_metainf_base.o: acdk/lang/ref/ref_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ref_metainf_base.o -c acdk/lang/ref/ref_metainf_base.cpp
+
+../tobj/acdk_core/bsd/SharedOwning.o: acdk/lang/ref/SharedOwning.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SharedOwning.o -c acdk/lang/ref/SharedOwning.cpp
+
+../tobj/acdk_core/bsd/Constructor.o: acdk/lang/reflect/Constructor.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Constructor.o -c acdk/lang/reflect/Constructor.cpp
+
+../tobj/acdk_core/bsd/Enumeration.o: acdk/lang/reflect/Enumeration.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Enumeration.o -c acdk/lang/reflect/Enumeration.cpp
+
+../tobj/acdk_core/bsd/Field.o: acdk/lang/reflect/Field.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Field.o -c acdk/lang/reflect/Field.cpp
+
+../tobj/acdk_core/bsd/Method.o: acdk/lang/reflect/Method.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Method.o -c acdk/lang/reflect/Method.cpp
+
+../tobj/acdk_core/bsd/Modifier.o: acdk/lang/reflect/Modifier.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Modifier.o -c acdk/lang/reflect/Modifier.cpp
+
+../tobj/acdk_core/bsd/Parameter.o: acdk/lang/reflect/Parameter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Parameter.o -c acdk/lang/reflect/Parameter.cpp
+
+../tobj/acdk_core/bsd/reflect_metainf_base.o: acdk/lang/reflect/reflect_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/reflect_metainf_base.o -c acdk/lang/reflect/reflect_metainf_base.cpp
+
+../tobj/acdk_core/bsd/Unit.o: acdk/lang/reflect/Unit.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Unit.o -c acdk/lang/reflect/Unit.cpp
+
+../tobj/acdk_core/bsd/AbstractCharFilterReader.o: acdk/io/AbstractCharFilterReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractCharFilterReader.o -c acdk/io/AbstractCharFilterReader.cpp
+
+../tobj/acdk_core/bsd/AbstractCharReader.o: acdk/io/AbstractCharReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractCharReader.o -c acdk/io/AbstractCharReader.cpp
+
+../tobj/acdk_core/bsd/AbstractCharWriter.o: acdk/io/AbstractCharWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractCharWriter.o -c acdk/io/AbstractCharWriter.cpp
+
+../tobj/acdk_core/bsd/AbstractFilterWriter.o: acdk/io/AbstractFilterWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractFilterWriter.o -c acdk/io/AbstractFilterWriter.cpp
+
+../tobj/acdk_core/bsd/AbstractObjectReader.o: acdk/io/AbstractObjectReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractObjectReader.o -c acdk/io/AbstractObjectReader.cpp
+
+../tobj/acdk_core/bsd/AbstractObjectWriter.o: acdk/io/AbstractObjectWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractObjectWriter.o -c acdk/io/AbstractObjectWriter.cpp
+
+../tobj/acdk_core/bsd/AbstractReader.o: acdk/io/AbstractReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractReader.o -c acdk/io/AbstractReader.cpp
+
+../tobj/acdk_core/bsd/acdk_io_Package.o: acdk/io/acdk_io_Package.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/acdk_io_Package.o -c acdk/io/acdk_io_Package.cpp
+
+../tobj/acdk_core/bsd/ASCIIDataReader.o: acdk/io/ASCIIDataReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ASCIIDataReader.o -c acdk/io/ASCIIDataReader.cpp
+
+../tobj/acdk_core/bsd/ASCIIDataWriter.o: acdk/io/ASCIIDataWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ASCIIDataWriter.o -c acdk/io/ASCIIDataWriter.cpp
+
+../tobj/acdk_core/bsd/BinaryDataReader.o: acdk/io/BinaryDataReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BinaryDataReader.o -c acdk/io/BinaryDataReader.cpp
+
+../tobj/acdk_core/bsd/BinaryDataWriter.o: acdk/io/BinaryDataWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BinaryDataWriter.o -c acdk/io/BinaryDataWriter.cpp
+
+../tobj/acdk_core/bsd/BinaryObjectReader.o: acdk/io/BinaryObjectReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BinaryObjectReader.o -c acdk/io/BinaryObjectReader.cpp
+
+../tobj/acdk_core/bsd/BinaryObjectWriter.o: acdk/io/BinaryObjectWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BinaryObjectWriter.o -c acdk/io/BinaryObjectWriter.cpp
+
+../tobj/acdk_core/bsd/BufferedReader.o: acdk/io/BufferedReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BufferedReader.o -c acdk/io/BufferedReader.cpp
+
+../tobj/acdk_core/bsd/BufferedWriter.o: acdk/io/BufferedWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BufferedWriter.o -c acdk/io/BufferedWriter.cpp
+
+../tobj/acdk_core/bsd/ByteBufferReader.o: acdk/io/ByteBufferReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ByteBufferReader.o -c acdk/io/ByteBufferReader.cpp
+
+../tobj/acdk_core/bsd/ByteBufferWriter.o: acdk/io/ByteBufferWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ByteBufferWriter.o -c acdk/io/ByteBufferWriter.cpp
+
+../tobj/acdk_core/bsd/ByteToCharReader.o: acdk/io/ByteToCharReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ByteToCharReader.o -c acdk/io/ByteToCharReader.cpp
+
+../tobj/acdk_core/bsd/CharArrayReader.o: acdk/io/CharArrayReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CharArrayReader.o -c acdk/io/CharArrayReader.cpp
+
+../tobj/acdk_core/bsd/CharArrayWriter.o: acdk/io/CharArrayWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CharArrayWriter.o -c acdk/io/CharArrayWriter.cpp
+
+../tobj/acdk_core/bsd/CharReader.o: acdk/io/CharReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CharReader.o -c acdk/io/CharReader.cpp
+
+../tobj/acdk_core/bsd/CharToByteWriter.o: acdk/io/CharToByteWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CharToByteWriter.o -c acdk/io/CharToByteWriter.cpp
+
+../tobj/acdk_core/bsd/ConsoleCharReader.o: acdk/io/ConsoleCharReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ConsoleCharReader.o -c acdk/io/ConsoleCharReader.cpp
+
+../tobj/acdk_core/bsd/ConsoleCharWriter.o: acdk/io/ConsoleCharWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ConsoleCharWriter.o -c acdk/io/ConsoleCharWriter.cpp
+
+../tobj/acdk_core/bsd/ConsoleReader.o: acdk/io/ConsoleReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ConsoleReader.o -c acdk/io/ConsoleReader.cpp
+
+../tobj/acdk_core/bsd/ConsoleWriter.o: acdk/io/ConsoleWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ConsoleWriter.o -c acdk/io/ConsoleWriter.cpp
+
+../tobj/acdk_core/bsd/File.o: acdk/io/File.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/File.o -c acdk/io/File.cpp
+
+../tobj/acdk_core/bsd/FileAbstractImpl.o: acdk/io/FileAbstractImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileAbstractImpl.o -c acdk/io/FileAbstractImpl.cpp
+
+../tobj/acdk_core/bsd/FileDescriptor.o: acdk/io/FileDescriptor.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileDescriptor.o -c acdk/io/FileDescriptor.cpp
+
+../tobj/acdk_core/bsd/FileImpl.o: acdk/io/FileImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileImpl.o -c acdk/io/FileImpl.cpp
+
+../tobj/acdk_core/bsd/FileInfo.o: acdk/io/FileInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileInfo.o -c acdk/io/FileInfo.cpp
+
+../tobj/acdk_core/bsd/FileReader.o: acdk/io/FileReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileReader.o -c acdk/io/FileReader.cpp
+
+../tobj/acdk_core/bsd/FileReaderWriterImpl.o: acdk/io/FileReaderWriterImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileReaderWriterImpl.o -c acdk/io/FileReaderWriterImpl.cpp
+
+../tobj/acdk_core/bsd/FileStandardImpl.o: acdk/io/FileStandardImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileStandardImpl.o -c acdk/io/FileStandardImpl.cpp
+
+../tobj/acdk_core/bsd/FileStatus.o: acdk/io/FileStatus.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileStatus.o -c acdk/io/FileStatus.cpp
+
+../tobj/acdk_core/bsd/FileSystem.o: acdk/io/FileSystem.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileSystem.o -c acdk/io/FileSystem.cpp
+
+../tobj/acdk_core/bsd/FileWriter.o: acdk/io/FileWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileWriter.o -c acdk/io/FileWriter.cpp
+
+../tobj/acdk_core/bsd/GlobFilenameFilter.o: acdk/io/GlobFilenameFilter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/GlobFilenameFilter.o -c acdk/io/GlobFilenameFilter.cpp
+
+../tobj/acdk_core/bsd/InputReader.o: acdk/io/InputReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/InputReader.o -c acdk/io/InputReader.cpp
+
+../tobj/acdk_core/bsd/IOException.o: acdk/io/IOException.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/IOException.o -c acdk/io/IOException.cpp
+
+../tobj/acdk_core/bsd/io_metainf_base.o: acdk/io/io_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/io_metainf_base.o -c acdk/io/io_metainf_base.cpp
+
+../tobj/acdk_core/bsd/JoinedReader.o: acdk/io/JoinedReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/JoinedReader.o -c acdk/io/JoinedReader.cpp
+
+../tobj/acdk_core/bsd/LineNumberCharReader.o: acdk/io/LineNumberCharReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/LineNumberCharReader.o -c acdk/io/LineNumberCharReader.cpp
+
+../tobj/acdk_core/bsd/LineNumberReader.o: acdk/io/LineNumberReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/LineNumberReader.o -c acdk/io/LineNumberReader.cpp
+
+../tobj/acdk_core/bsd/MemoryMappedFile.o: acdk/io/MemoryMappedFile.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MemoryMappedFile.o -c acdk/io/MemoryMappedFile.cpp
+
+../tobj/acdk_core/bsd/MemReader.o: acdk/io/MemReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MemReader.o -c acdk/io/MemReader.cpp
+
+../tobj/acdk_core/bsd/MemWriter.o: acdk/io/MemWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/MemWriter.o -c acdk/io/MemWriter.cpp
+
+../tobj/acdk_core/bsd/PipedReader.o: acdk/io/PipedReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PipedReader.o -c acdk/io/PipedReader.cpp
+
+../tobj/acdk_core/bsd/PipedWriter.o: acdk/io/PipedWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PipedWriter.o -c acdk/io/PipedWriter.cpp
+
+../tobj/acdk_core/bsd/PrintWriter.o: acdk/io/PrintWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PrintWriter.o -c acdk/io/PrintWriter.cpp
+
+../tobj/acdk_core/bsd/PushbackCharReader.o: acdk/io/PushbackCharReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PushbackCharReader.o -c acdk/io/PushbackCharReader.cpp
+
+../tobj/acdk_core/bsd/PushbackReader.o: acdk/io/PushbackReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PushbackReader.o -c acdk/io/PushbackReader.cpp
+
+../tobj/acdk_core/bsd/RandomAccessFile.o: acdk/io/RandomAccessFile.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/RandomAccessFile.o -c acdk/io/RandomAccessFile.cpp
+
+../tobj/acdk_core/bsd/Reader.o: acdk/io/Reader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Reader.o -c acdk/io/Reader.cpp
+
+../tobj/acdk_core/bsd/RessourceFileSystem.o: acdk/io/RessourceFileSystem.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/RessourceFileSystem.o -c acdk/io/RessourceFileSystem.cpp
+
+../tobj/acdk_core/bsd/StandardFileSystem.o: acdk/io/StandardFileSystem.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StandardFileSystem.o -c acdk/io/StandardFileSystem.cpp
+
+../tobj/acdk_core/bsd/StreamTokenizer.o: acdk/io/StreamTokenizer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StreamTokenizer.o -c acdk/io/StreamTokenizer.cpp
+
+../tobj/acdk_core/bsd/SubReader.o: acdk/io/SubReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SubReader.o -c acdk/io/SubReader.cpp
+
+../tobj/acdk_core/bsd/Writer.o: acdk/io/Writer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Writer.o -c acdk/io/Writer.cpp
+
+../tobj/acdk_core/bsd/AbstractCollection.o: acdk/util/AbstractCollection.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractCollection.o -c acdk/util/AbstractCollection.cpp
+
+../tobj/acdk_core/bsd/AbstractList.o: acdk/util/AbstractList.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractList.o -c acdk/util/AbstractList.cpp
+
+../tobj/acdk_core/bsd/AbstractListSubList.o: acdk/util/AbstractListSubList.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractListSubList.o -c acdk/util/AbstractListSubList.cpp
+
+../tobj/acdk_core/bsd/AbstractMap.o: acdk/util/AbstractMap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractMap.o -c acdk/util/AbstractMap.cpp
+
+../tobj/acdk_core/bsd/AbstractSequentialList.o: acdk/util/AbstractSequentialList.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractSequentialList.o -c acdk/util/AbstractSequentialList.cpp
+
+../tobj/acdk_core/bsd/AbstractSet.o: acdk/util/AbstractSet.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractSet.o -c acdk/util/AbstractSet.cpp
+
+../tobj/acdk_core/bsd/acdk_util_Package.o: acdk/util/acdk_util_Package.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/acdk_util_Package.o -c acdk/util/acdk_util_Package.cpp
+
+../tobj/acdk_core/bsd/ArrayList.o: acdk/util/ArrayList.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ArrayList.o -c acdk/util/ArrayList.cpp
+
+../tobj/acdk_core/bsd/Arrays.o: acdk/util/Arrays.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Arrays.o -c acdk/util/Arrays.cpp
+
+../tobj/acdk_core/bsd/BitSet.o: acdk/util/BitSet.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/BitSet.o -c acdk/util/BitSet.cpp
+
+../tobj/acdk_core/bsd/Bucket.o: acdk/util/Bucket.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Bucket.o -c acdk/util/Bucket.cpp
+
+../tobj/acdk_core/bsd/Calendar.o: acdk/util/Calendar.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Calendar.o -c acdk/util/Calendar.cpp
+
+../tobj/acdk_core/bsd/Collections.o: acdk/util/Collections.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Collections.o -c acdk/util/Collections.cpp
+
+../tobj/acdk_core/bsd/Date.o: acdk/util/Date.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Date.o -c acdk/util/Date.cpp
+
+../tobj/acdk_core/bsd/GregorianCalendar.o: acdk/util/GregorianCalendar.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/GregorianCalendar.o -c acdk/util/GregorianCalendar.cpp
+
+../tobj/acdk_core/bsd/HashMap.o: acdk/util/HashMap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/HashMap.o -c acdk/util/HashMap.cpp
+
+../tobj/acdk_core/bsd/HashSet.o: acdk/util/HashSet.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/HashSet.o -c acdk/util/HashSet.cpp
+
+../tobj/acdk_core/bsd/Hashtable.o: acdk/util/Hashtable.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Hashtable.o -c acdk/util/Hashtable.cpp
+
+../tobj/acdk_core/bsd/LinkedList.o: acdk/util/LinkedList.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/LinkedList.o -c acdk/util/LinkedList.cpp
+
+../tobj/acdk_core/bsd/ListResourceBundle.o: acdk/util/ListResourceBundle.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ListResourceBundle.o -c acdk/util/ListResourceBundle.cpp
+
+../tobj/acdk_core/bsd/Locale.o: acdk/util/Locale.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Locale.o -c acdk/util/Locale.cpp
+
+../tobj/acdk_core/bsd/Properties.o: acdk/util/Properties.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Properties.o -c acdk/util/Properties.cpp
+
+../tobj/acdk_core/bsd/PropertiesListener.o: acdk/util/PropertiesListener.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PropertiesListener.o -c acdk/util/PropertiesListener.cpp
+
+../tobj/acdk_core/bsd/PropertyResourceBundle.o: acdk/util/PropertyResourceBundle.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/PropertyResourceBundle.o -c acdk/util/PropertyResourceBundle.cpp
+
+../tobj/acdk_core/bsd/Random.o: acdk/util/Random.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Random.o -c acdk/util/Random.cpp
+
+../tobj/acdk_core/bsd/ResourceBundle.o: acdk/util/ResourceBundle.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ResourceBundle.o -c acdk/util/ResourceBundle.cpp
+
+../tobj/acdk_core/bsd/SimpleCalendar.o: acdk/util/SimpleCalendar.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SimpleCalendar.o -c acdk/util/SimpleCalendar.cpp
+
+../tobj/acdk_core/bsd/SimpleListResourceBundle.o: acdk/util/SimpleListResourceBundle.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SimpleListResourceBundle.o -c acdk/util/SimpleListResourceBundle.cpp
+
+../tobj/acdk_core/bsd/SimpleTimeZone.o: acdk/util/SimpleTimeZone.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SimpleTimeZone.o -c acdk/util/SimpleTimeZone.cpp
+
+../tobj/acdk_core/bsd/StringTokenizer.o: acdk/util/StringTokenizer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StringTokenizer.o -c acdk/util/StringTokenizer.cpp
+
+../tobj/acdk_core/bsd/SysDate.o: acdk/util/SysDate.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SysDate.o -c acdk/util/SysDate.cpp
+
+../tobj/acdk_core/bsd/TimeZone.o: acdk/util/TimeZone.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/TimeZone.o -c acdk/util/TimeZone.cpp
+
+../tobj/acdk_core/bsd/TreeMap.o: acdk/util/TreeMap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/TreeMap.o -c acdk/util/TreeMap.cpp
+
+../tobj/acdk_core/bsd/TreeSet.o: acdk/util/TreeSet.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/TreeSet.o -c acdk/util/TreeSet.cpp
+
+../tobj/acdk_core/bsd/util_metainf_base.o: acdk/util/util_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/util_metainf_base.o -c acdk/util/util_metainf_base.cpp
+
+../tobj/acdk_core/bsd/Vector.o: acdk/util/Vector.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Vector.o -c acdk/util/Vector.cpp
+
+../tobj/acdk_core/bsd/WeakHashMap.o: acdk/util/WeakHashMap.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/WeakHashMap.o -c acdk/util/WeakHashMap.cpp
+
+../tobj/acdk_core/bsd/AbstractLogConsumer.o: acdk/util/logging/AbstractLogConsumer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AbstractLogConsumer.o -c acdk/util/logging/AbstractLogConsumer.cpp
+
+../tobj/acdk_core/bsd/FileConsumer.o: acdk/util/logging/FileConsumer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/FileConsumer.o -c acdk/util/logging/FileConsumer.cpp
+
+../tobj/acdk_core/bsd/Level.o: acdk/util/logging/Level.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Level.o -c acdk/util/logging/Level.cpp
+
+../tobj/acdk_core/bsd/Logger.o: acdk/util/logging/Logger.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Logger.o -c acdk/util/logging/Logger.cpp
+
+../tobj/acdk_core/bsd/logging_metainf_base.o: acdk/util/logging/logging_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/logging_metainf_base.o -c acdk/util/logging/logging_metainf_base.cpp
+
+../tobj/acdk_core/bsd/LogManager.o: acdk/util/logging/LogManager.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/LogManager.o -c acdk/util/logging/LogManager.cpp
+
+../tobj/acdk_core/bsd/RollingFileConsumer.o: acdk/util/logging/RollingFileConsumer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/RollingFileConsumer.o -c acdk/util/logging/RollingFileConsumer.cpp
+
+../tobj/acdk_core/bsd/SimpleFormatter.o: acdk/util/logging/SimpleFormatter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/SimpleFormatter.o -c acdk/util/logging/SimpleFormatter.cpp
+
+../tobj/acdk_core/bsd/StdFormatter.o: acdk/util/logging/StdFormatter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/StdFormatter.o -c acdk/util/logging/StdFormatter.cpp
+
+../tobj/acdk_core/bsd/TransactionConsumer.o: acdk/util/logging/TransactionConsumer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/TransactionConsumer.o -c acdk/util/logging/TransactionConsumer.cpp
+
+../tobj/acdk_core/bsd/Win32DbgConsumer.o: acdk/util/logging/Win32DbgConsumer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Win32DbgConsumer.o -c acdk/util/logging/Win32DbgConsumer.cpp
+
+../tobj/acdk_core/bsd/AsciiEncoding.o: acdk/locale/AsciiEncoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AsciiEncoding.o -c acdk/locale/AsciiEncoding.cpp
+
+../tobj/acdk_core/bsd/AsciiUtfEncoding.o: acdk/locale/AsciiUtfEncoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/AsciiUtfEncoding.o -c acdk/locale/AsciiUtfEncoding.cpp
+
+../tobj/acdk_core/bsd/ByteAsciiEncoding.o: acdk/locale/ByteAsciiEncoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/ByteAsciiEncoding.o -c acdk/locale/ByteAsciiEncoding.cpp
+
+../tobj/acdk_core/bsd/CEscapeEncoding.o: acdk/locale/CEscapeEncoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/CEscapeEncoding.o -c acdk/locale/CEscapeEncoding.cpp
+
+../tobj/acdk_core/bsd/Encoding.o: acdk/locale/Encoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/Encoding.o -c acdk/locale/Encoding.cpp
+
+../tobj/acdk_core/bsd/IsoEncoding.o: acdk/locale/IsoEncoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/IsoEncoding.o -c acdk/locale/IsoEncoding.cpp
+
+../tobj/acdk_core/bsd/IsoTables.o: acdk/locale/IsoTables.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/IsoTables.o -c acdk/locale/IsoTables.cpp
+
+../tobj/acdk_core/bsd/locale_metainf_base.o: acdk/locale/locale_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/locale_metainf_base.o -c acdk/locale/locale_metainf_base.cpp
+
+../tobj/acdk_core/bsd/UCS2Encoding.o: acdk/locale/UCS2Encoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/UCS2Encoding.o -c acdk/locale/UCS2Encoding.cpp
+
+../tobj/acdk_core/bsd/UnicodeTable.o: acdk/locale/UnicodeTable.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/UnicodeTable.o -c acdk/locale/UnicodeTable.cpp
+
+../tobj/acdk_core/bsd/UTF8Encoding.o: acdk/locale/UTF8Encoding.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core/bsd/UTF8Encoding.o -c acdk/locale/UTF8Encoding.cpp
+
+
+
+metainfo:
+	cd ${.CURDIR}; $(ACDKMC) acdk/lang;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/lang/dmi;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/lang/ref;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/lang/reflect;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/io;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/util;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/util/logging;\
+	cd ${.CURDIR}; $(ACDKMC) acdk/locale;\
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_core.so $(OBJECTS)
+
+  

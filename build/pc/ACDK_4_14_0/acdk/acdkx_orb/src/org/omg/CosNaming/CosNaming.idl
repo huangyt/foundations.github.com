@@ -1,0 +1,43 @@
+
+module org { 
+module omg { 
+module CosNaming { 
+
+
+
+interface BindingIterator
+{
+  void destroy();
+  bool next_n(long how_many, out BindingSeq bl);
+  bool next_one(out Binding b);
+};
+
+}; // module org
+}; // module omg
+}; // module CosNaming
+
+
+module org { 
+module omg { 
+module CosNaming { 
+
+
+
+interface NamingContext
+{
+  void bind(in NameComponentSeq n, in Object obj);
+  void bind_context(in NameComponentSeq n, in NamingContext nc);
+  NamingContext bind_new_context(in NameComponentSeq n);
+  void destroy();
+  void list(long how_many, out BindingSeq bl, out BindingIterator bi);
+  NamingContext new_context();
+  void rebind(in NameComponentSeq n, in Object obj);
+  void rebind_context(in NameComponentSeq n, in NamingContext nc);
+  Object resolve(in NameComponentSeq n);
+  void unbind(in NameComponentSeq n);
+};
+
+}; // module org
+}; // module omg
+}; // module CosNaming
+

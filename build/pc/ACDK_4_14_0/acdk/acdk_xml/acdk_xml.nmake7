@@ -1,0 +1,85 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_xml
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_xml_XMLObjectReaderWriter_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_xml_XMLObjectReaderWriter_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_xml_sax_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_xml_sax_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_xml_dom_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_xml_dom_Test failed; exit 1; 
+
+
+
+org_xml-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src bcc
+
+acdk_xml-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src bcc
+
+acdk_xml_XMLObjectReaderWriter_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml bcc
+
+acdk_xml_sax_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax bcc
+
+acdk_xml_dom_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom bcc
+
+
+makemake:: org_xml-makemake acdk_xml-makemake acdk_xml_XMLObjectReaderWriter_Test-makemake acdk_xml_sax_Test-makemake acdk_xml_dom_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_xml.lsp
+
+

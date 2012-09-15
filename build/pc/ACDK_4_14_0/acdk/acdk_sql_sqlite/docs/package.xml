@@ -1,0 +1,79 @@
+<package>
+<name>acdk_sql_sqlite</name>
+
+<title>
+ACDK SQLite (acdk_sql_sqlite)
+</title>
+
+<shortdescription>
+<m>acdk_sql_sqlite</m> provides a easy to use desktop database
+accessible via standard JDBC-like ACDK SQL interfaces.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2005 by Roger Rene Kommer, artefaktur
+SQLite C library is in the Public Domain.
+see also: %ref[sqlite_license]
+</copyright>
+<description>
+<m>acdk_sql_sqlite</m> is a ACDK wrapper for the SQLite database -
+a small but powerfull file based desktop database.
+
+It supports most of the SQL92 features (including views, triggers).
+
+With <m>acdk_sql_sqlite</m> it is also possible to define own SQL
+function as (not) stored procedures defined in C++ or CfgScript.
+
+</description>
+
+<license>
+ACDK Free Edition License. (%ref[acdk_license]).
+SQLite License (%ref[sqlite_license]).
+</license>
+
+<dependencies>
+%ref[acdk_core]
+%ref[acdk_sql]
+</dependencies>
+
+<namespaces>
+%nsref[acdk::sql::sqlite]
+</namespaces>
+
+<plattforms>
+All.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+Public domain (SQLite)
+</authors>
+
+<todo>
+- Better support for LiteDatabaseMetaData
+- Support for embedded functions using CfgScript
+- Test multithreading
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+- First version with included SQLite version 3.2.1.
+
+Please refer also to %ref[../ChangeLog].
+
+
+</changes>
+
+<notes>
+Note: 
+For all files in the directory:
+./src/sqlitesrc<br>
+are released under the public domain.
+Please refer also to %ref[sqlite_license].
+
+</notes>
+</package>

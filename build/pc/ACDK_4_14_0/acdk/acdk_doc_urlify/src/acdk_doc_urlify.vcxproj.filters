@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{453a271c-bd15-4377-9c56-d176d1602294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\doc">
+      <UniqueIdentifier>{0d6dfe26-826e-4050-94a4-13c87d7428c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\doc\urlify">
+      <UniqueIdentifier>{9bcee7a4-6be5-40c7-a1fc-045a9e3dba41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\doc\urlify\HTMLStreamTokenizer.cpp">
+      <Filter>acdk\doc\urlify</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\doc\urlify\urlifiy_acdk_doc.cpp">
+      <Filter>acdk\doc\urlify</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\doc\urlify\HTMLStreamTokenizer.h">
+      <Filter>acdk\doc\urlify</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

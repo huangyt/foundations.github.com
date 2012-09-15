@@ -1,0 +1,195 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Make concepts</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Make</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_make_man.html">ACDK Make manual</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Make concepts
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_make_features.html">acdkmake features</a> | <a  href="acdk_make_targets.html">ACDK Make targets</a> | <a  href="acdk_make_tasks.html">Tasks</a> | ACDK Make concepts |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Make concepts</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Make concepts</h1> -->
+
+<br>
+<p class="PageIntro">
+Description of the internal concepts of acdkmake.<br>
+</p>
+<br>
+<br>
+<a name="jumptable80"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Props hierarchy"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Props hierarchy</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General C++ Task"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General C++ Task</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Tasks and Tools"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Tasks and Tools</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Tool-Classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Tool-Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Selection, Input"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Selection, Input</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ToolOutputFilter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ToolOutputFilter</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable80"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Props hierarchy">Props hierarchy</a></h2>
+<pre>
+Root
+  [Enviromnent]
+  <- acdkmake globals
+    <- build props (passed to Task.execute())
+      <- Target specific Props (held by Task)
+
+</pre>
+<h2><a href="#jumptable80"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General C++ Task">General C++ Task</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Build options
+  <ul class="SubFeatureList">
+    <li class="Feature"> Load other configuration .csf before starting build.csf.<br>
+    <li class="Feature"> Use generated project files (f.e. msdev.exe) instead of own builder
+    <li class="Feature"> Plugin for eclipse
+  </ul>
+<li class="Feature"> Compile options
+  <li class="Feature"> Support for compiling <code>c</code> Sources.<br>
+  <ul class="SubFeatureList">
+  <li class="Feature"> optional use <code>libtool</code> to compile
+  <li class="Feature"> C++ options for rtti, exception support
+  <li class="Feature"> console/windows options
+  <li class="Feature"> Support for static libraries
+  <li class="Feature"> Support for mingw.<br>
+  <li class="Feature"> support for ressource compiler (vc, borland)
+  <li class="Feature"> flag for threaded applications (set compiler and linker settings)
+  <li class="Feature"> Parser for compiler to unify compiler output (warnings, errors).<br>
+  </ul>
+<li class="Feature"> Generation options
+  <ul class="SubFeatureList">
+    <li class="Feature"> Build make and project files  
+  </ul>
+</ul>
+<br>
+<h2><a href="#jumptable80"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Tasks and Tools">Tasks and Tools</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Tool
+  <ul class="SubFeatureList">
+  <li class="Feature"> Class (like CCompiler)
+  <li class="Feature"> Tribe (like vc6, posix-gnuc, dos, unix)
+  </ul>
+</ul>
+<br>
+<h3><a href="#jumptable80"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Tool-Classes">Tool-Classes</a></h3>
+Tools are identified by ToolClass (CCompiler) and ToolTribe.<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> FileTranslater. Has Input and Output files and additionally log output
+<li class="Feature"> CCompiler (FileTranslater):  compiles .c -> .o/.obj
+<li class="Feature"> CCCompiler (FileTranslater): compiles .c -> .o/.obj
+<li class="Feature"> JavaCompiler (FileTranslater): JC_
+<li class="Feature"> Linker (FileTranslater): CCC_
+<li class="Feature"> Builder uses tools like amake, make, devenv, ant
+<li class="Feature"> ExeBuilder, LibBuilder, StaticLibBuilder, SharedLibBuilder:<br>
+    Can use Compiler/Linker or make/project files
+<li class="Feature"> ProjectGenerator, ProjectGroupGenerator, ProjectTargetGenerator
+<li class="Feature"> VersionControl
+<li class="Feature"> Shell
+<li class="Feature"> FileCopy, FileMove, FileRemove, FileMakeDir
+<li class="Feature"> Install
+<li class="Feature"> acdkmc
+<li class="Feature"> ResourceCompiler
+</ul>
+<br>
+<pre>
+ProjectBuilder:
+
+  CppExeBuilder: SharedLibBuilder
+    FileDependTask
+    CCCompiler
+    LINKER(EXE)  
+  CppSharedLibBuilder
+      CCCompiler
+      Linker(SHARED)
+  
+ProjectBuilder:
+  CppExeBuilder:
+    make -f xxx target
+
+</pre>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// pseudo code</FONT></I>
+  
+<B><FONT COLOR="#228B22">class</FONT></B> Tool extends Task
+{
+  String getToolClass();
+  String getToolTribe();
+  
+  Tool initTool(Props props);
+  <B><FONT COLOR="#228B22">static</FONT></B> Tool getTool(String toolClass, String toolTribe = Nil);
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> FileTranslater extends Tool
+{
+  <B><FONT COLOR="#228B22">bool</FONT></B> translates(String fileExt);
+  String translatesTo(String file);
+}
+
+
+RCCompiler cc = (RCCompiler)Tools::getTool(<B><FONT COLOR="#BC8F8F">&quot;CCompiler&quot;</FONT></B>);
+RCCompiler cc = (RCCompiler)Tools::getTool(<B><FONT COLOR="#BC8F8F">&quot;CCompiler&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;vc&quot;</FONT></B>);
+
+
+Props p = <B><FONT COLOR="#A020F0">new</FONT></B> Props(
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable80"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Selection, Input">Selection, Input</a></h3>
+If more than one or none ToolTribe was found, may interact with
+user to select the tool.<br>
+<br>
+<h3><a href="#jumptable80"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ToolOutputFilter">ToolOutputFilter</a></h3>
+The ToolOutputFilter filters the output of 
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_make_features.html">acdkmake features</a> | <a  href="acdk_make_targets.html">ACDK Make targets</a> | <a  href="acdk_make_tasks.html">Tasks</a> | ACDK Make concepts |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

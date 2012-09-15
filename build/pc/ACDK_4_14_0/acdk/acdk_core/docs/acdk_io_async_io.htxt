@@ -1,0 +1,537 @@
+%id: acdk_io_async_io
+%title: asynchron, non blocking IO
+%body:
+<pageintro>
+  Scribble for non blocking / asynchroun IO
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Interface</jump1>
+
+Non-blocking and asynchronous Reader/Writer should be 
+one interface.
+
+
+
+<source>
+class AsyncReader
+: extends Reader
+{
+  int poll();
+  /** 
+    non blocking read. return at least after ms
+    return -2 if no data where read
+  */
+  int tryRead(int ms);
+  /**
+    non blocking read. return at least after ms
+    return -2 if no data where read
+  */
+  int tryRead(int ms, int maxCount, IN(RbyteArray) ba);
+  
+  
+  RAsyncResult asyncRead(int maxCount, IN(RbyteArray) ba, IN(RAsyncOpCallback) cb = Nil, IN(RObject) userData = 0)
+  void asyncRead(int maxCount, IN(RbyteArray) ba);
+  void asynRead(int maxCount, IN(RWriter) out);
+  int getAsyncResult(int timeoutMs);
+};
+</source>
+<jump1>Implementation</jump1>
+
+<fl>
+<f> For the framework it is important, that longer operations
+    can be interrupted. Therefore a long running/blocking operation
+    has to register a MonitorInterface* into the current thread.
+    
+<f> Win32 is simple to use. MonitorInterface* can implemented with waitForMultiple.
+<f> Unix. poll itself is not interruptable (or sending a signal).
+</fl>
+<source>
+
+
+class Storage
+{
+  // hints
+  bool mayBlockRead() = 0;
+  bool mayBlockWrite() = 0;
+}
+
+enum ArrayStorageType
+{
+  Normal,
+  Const,
+  SharedOwns,
+  Shared
+};
+
+enum StorageType
+{
+  Normal,
+  Const,
+  StringContentCopy,
+  StringContentShadow,
+  SliceShadow,
+  SliceCopy,
+};
+
+template <typename T>
+class Buffer
+{
+  virtual int length() const  = 0;
+};
+
+
+template <typename T>
+class ReadBuffer
+: implements Buffer
+{
+  virtual T get(int idx) const = 0;
+}
+
+template <typename T>
+class WriteBuffer
+: implements Buffer
+{
+  virtual void set(int idx, T t) = 0;
+}
+
+template <typename T>
+class ReadWriteBuffer
+: implements ReadBufer<T>
+, implements WriteBufer<T>
+{
+};
+
+class Buffers
+{
+  /**
+    make a copy (String or Const: copy on write)
+  */
+  static RBuffer<T> sliceCopy(int start, int end);
+  /**
+    just make shadow slice. Both arrays still full writable
+  */
+  static RBuffer<T> sliceShadow(int start, int end);
+  /**
+    create a slice. The returned array must not be modified
+    but this array can still append
+  */
+  static RBuffer<T> sliceShared(int start, int end);
+}
+
+
+template <typename T>
+class FlexBuffer
+: extends ReadWriteBuffer<T>
+{
+  virtual void append(T t) = 0;
+  virtual void deleteAt(int idx) = 0;
+  virtual void insertAt(int idx, T t) = 0;
+  virtual void push(T t) { return append(t); }
+  virtual T pop() { return deleteAt(length() - 1); }
+};  
+
+template <typename T>
+class SlicedReadBuffer
+: extends Object
+, implements ReadBuffer
+{
+  int _start;
+  int _end;
+  RReadBuffer _parent;
+  SliceReadBuffer(IN(RReadBufer) buf, int start, int end)
+  : _parent(buf)
+  , _start(start)
+  , _end(end)
+  {
+  }
+  virtual int length() const { return _end - _start; }
+  virtual T get(int idx) const { return _parent->get(idx + _start; }
+  virtual void set(int idx, T t) { return _parent->set(idx + _start; }
+};
+
+template <typename T>
+class SlicedReadWriteBuffer
+: extends Object
+, implements ReadWriteBuffer
+{
+  int _start;
+  int _end;
+  RReadWriteBuffer _parent;
+  SliceReadBuffer(IN(RReadWriteBufer) buf, int start, int end)
+  : _parent(buf)
+  , _start(start)
+  , _end(end)
+  {
+  }
+  virtual int length() const { return _end - _start; }
+  virtual T get(int idx) const { return _parent->get(idx + _start; }
+};
+
+template <typename T>
+class FlexStaticBuffer
+: extends Object
+, implements FlexBuffer<T>
+{
+  RReadWriteBuffer<T> _buffer;
+  int _idx;
+  FlexStaticBuffer(IN(RReadWriteBuffer<T>) buffer)
+  : _buffer(buffer)
+  , _idx(0)
+  {
+  }
+  virtual void append(T t)
+  {
+    _buffer->set(_idx++, t);
+  }
+  virtual void deleteAt(int idx)
+  {
+    // not supported?
+  }
+  virtual void insertAt(int idx, T t)
+  {
+    // not supported?
+  }
+};
+
+template <typename T>
+class SimplePtrItBuffer
+: implements ReadWriteBuffer<T>
+{
+  T* _begin; //  holds Data, other BasicArray or String
+  T* _end;
+  SimplePtrItBuffer(T* begin, T* end)
+  : _begin(begin)
+  , _end(end)
+  {
+  }
+  int length() const { return data_end() - data_begin(); }
+  int capacity() const { return length(); }
+  
+  virtual T get(int idx) const
+  {
+    return *(data_begin() + idx);
+  }
+  virtual void set(int idx, T t)
+  {
+    *(data_begin() + idx) = t;
+  }
+  T* data_begin() { return _begin; }
+  T* data_end() { return _end; }
+}; 
+ 
+template <typename T>
+class SlicedPtrBuffer
+: class SimplePtrItBuffer<T>
+{
+  RBuffer<T> _parent;
+  SlicedBuffer(IN(SimplePtrItBuffer<T>) parent, int start, int end)
+  : SimplePtrItBuffer<T>(parent->data_begin() + start, parent->data_begin() + end)
+  , _parent(parent)
+  {
+  }
+};
+
+
+ 
+template <typename T>
+class BasicArrayBuffer
+: extends SlicedPtrBuffer<T>
+{
+  RBasicArray<T> _ba;
+  BasicArrayBuffer(IN(RBasicArray<T>) ba)
+  : SlicedPtrBuffer(ba->begin(), ba->end())
+  {
+  }
+  virtual void push(T t) 
+  {
+    T* oldData = _ba->begin(); 
+    _ba->append(t); 
+    if (oldData != _ba->begin())
+    {
+      _begin = _ba->begin();
+      _end = _ba->end();
+    }
+  }
+  virtual T pop() { return _ba->pop(); }
+};
+
+class BasicByteArrayBuffer
+: extends BasicArrayBuffer<T>
+{
+  
+};
+
+template <typename T>
+class BasicStringBuffer
+: extends SimplePtrItBuffer<T>
+{
+  RString _ba;
+  BasicArrayBuffer(IN(RString) ba)
+  : SimplePtrItBuffer(ba->begin(), ba->end())
+  {
+  }
+};
+
+
+
+
+template <typename T>
+class CopyOnWriteBuffer
+: extends SimplePtrItBuffer<T>
+{
+  RSharedBuffer _parent;
+  bool _normalized;
+  CopyOnWriteBuffer(IN(RSharedBuffer) parent, int start, int end)
+  : SimplePtrItBuffer(parent->data_begin() + start, parent->data_begin() + end)
+  , _parent(parent)
+  , _normalized(false)
+  {
+    _parent->addChild(this);
+  }
+  void onModifyElement()
+  {
+    _normalize();
+  }
+  void onModifyStorage()
+  {
+    _normalize();
+  }
+  void onModifiedStorage(T* oldData)
+  {
+    _begin = _parent->data_begin() + (_begin - oldData);
+    _end = _parent->data_begin() + (_end - oldData);
+  }
+  
+};
+
+class SharedBuffer
+{
+  typedef core_vector<BasicArray*> ChildContainer;
+  typedef ChildContainer::iterator child_iterator;
+  StorageType _storage;
+  int _startIdx;
+  int _endIdx;
+  
+  union {
+    SharedBuffer *_parent;
+    T* _data; //  holds Data, other BasicArray or String
+  };
+
+  ChildContainer _childs;
+  
+  BasicArray(Normal, size, cap)
+  : _data(new byte[cap])
+  , _start(0)
+  , _end(size)
+  {
+  }
+  inline void _checkModElement()
+  {
+    if (_type == Normal)
+      return;
+    _checkModElementThis();
+    _checkModElementChilds()
+  }
+  void _checkModElementThis()
+  {
+    if (_type == SliceCopy || _type == StringContentCopy || _type == Const)
+      _convertToNormal();
+  }
+  void _checkModElementChild()
+  {
+    if (_type == SliceCopy)
+      _convertToNormal();
+  }
+  void _checkModElementChilds()
+  {
+    for (child_iterator it = _childs.begin(); it != _childs.end(); ++it)
+    {
+      (*it)._checkModElementChild();
+    }
+  }
+  
+  const T& get(int idx) 
+  {
+    return _data + _startIdx + idx;
+  }
+  void put(int idx, const T& t)
+  {
+    _checkModElement();
+  }
+  void append(const T& t)
+  {
+    _checkModContainer();
+    _ensureCap();
+    appendit(t); 
+  }
+  void erase(array_iterator begin, array_iterator end)
+  {
+    if (_sharedCount > 0)
+      THROW0(InvalidArrayOperation);
+    _checkModElementContainer();
+    doErase(begin, end);
+  }
+  /**
+    make a copy (String or Const: copy on write)
+  */
+  RBasicArray sliceCopy(int start, int end)
+  {
+    if (end == -1)
+      end = _endIdx;
+    if (_storage == StringContent || _storage == Const)
+      return new BasicArray(_storage, _data, _startIdx + start, end);
+    else 
+    {
+      return new BasicArray(Normal, _data + _startIdx, _data + end);
+    }
+  }
+  /**
+    just make shadow slice. Both arrays still full writable
+  */
+  RBasicArray sliceShadow(int start, int end);
+  /**
+    create a slice. The returned array must not be modified
+    but this array can still append
+  */
+  RBasicArray sliceShared(int start, int end);
+  
+  void addChild(SharedBuffer* buffer)
+  {
+    _childs.append(buffer);
+  }
+  void releaseChild(SharedBuffer* buffer)
+  {
+    _childs.erase(_childs.find(buffer));
+  }
+  void onModifyElement()
+  {
+    
+  }
+  void onModifyStorage()
+  {
+    
+  }
+}
+
+class Buffer
+{
+  void* _data;
+  T* _begin;
+  T* _end;
+  int _extSliceCount;
+  RBuffer _sliceParent;
+  Buffer slice(int start, int end = -1)
+  {
+    if (end == -1)
+      end = length();
+    if (_type == Normal)
+    _type = SharedOwns;
+    return new ArrayExtImpl(Shared, this, _begin + start, _begin + end);
+  }
+  int 
+  void append(T& t)
+  {
+    
+  }
+  
+};
+
+
+class ReadWriteBuffer
+{
+  RbyteArray _buffer;
+  int _curReadPos;
+  int _curWritePos
+  /**
+    maxSize == INFINIT
+  */
+  
+  ReadWriteBuffer(int maxSize = -1)
+  {
+  
+  }
+  void write(int c)
+  {
+    SYNCHRONIZETHIS();
+    if (_buffer->length() < _curWritePos)
+      _buffer[_curWritePos++] = c;
+    else if (_buffer->length() + 1 > _maxSize)
+    {
+      wait();
+      write(c);
+      return;
+    }
+    else
+      _buffer->append(c);
+  }
+  void write(IN(RbyteArray) ba)
+  {
+    SYNCHRONIZETHIS();
+    
+  }
+  int read()
+  {
+    
+  }
+  int readAvailable(IN(RbyteArray) ba)
+  {
+    int buf2read = _curWritePos - _curReadPos;
+    // check capacity
+    // copy _curReadPos to ba
+    _curReadPos = _curWritePos = 0;
+    return buf2read;
+  }
+  RbyteArray 
+};
+
+
+class AsyncOperation
+{
+  virtual bool isComplete() const = 0;
+  /** same as from object */
+  virtual void wait(int timeoutMs) = 0;
+  virtual RObject getUserObject() = 0
+};
+
+class AsyncOpCallback
+{
+  virtual void asyncCallback(IN(RAsyncOperation) op) = 0;
+};
+
+class AbstractAsyncReader
+{
+  RReaderThread _readerThread;
+  int tryRead(int ms)
+  {
+    int result = NoData;
+    if (result == NoData)
+    {
+      result = poll();
+      if (result != NoData)
+        return result;
+      Thread::sleep(50); // is interruptable
+    }
+    return result;
+  }
+  int tryRead(int ms, int maxCount, IN(RbyteArray) ba)
+  {
+    
+  }
+  RAsyncResult asyncRead(int maxCount, IN(RbyteArray) ba, IN(RAsyncOpCallback) cb = Nil, IN(RObject) userData)
+  {
+    _readerThread = new ReaderThread(this, maxCount, ba, userData);
+    _readerThread->start();
+    return new ThreadAsyncResult(_readerThread);
+  }
+  int getAsyncResult(int timeoutMs)
+  {
+    SYNCHRONIZE(_readerThread);
+    _readerThread->join(timeoutMs);
+    return _readerThread->getResult();
+  }
+};
+</source>
+.

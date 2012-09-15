@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-05-01T03:29:48</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 4; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#SaxBasic_Test.standard">SaxBasic_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#SaxBasic_Test.inputSource">SaxBasic_Test.inputSource</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#SaxBasic_Test.error">SaxBasic_Test.error</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#SaxBasic_Test.latinText">SaxBasic_Test.latinText</a> <br>
+</td></tr></table>
+<h2><a id="SaxBasic_Test.standard">SaxBasic_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][SaxBasic_Test.standard] Start Test
+[AUNIT:STRT] Start Test: SaxBasic_Test.standard
+SE: [hello]
+C: [World]
+EE: [hello]
+</pre>
+<h2><a id="SaxBasic_Test.inputSource">SaxBasic_Test.inputSource</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][SaxBasic_Test.standard] End Test
+[AUNIT:ENDT] End Test: SaxBasic_Test.standard
+[AUNIT:STRT][SaxBasic_Test.inputSource] Start Test
+[AUNIT:STRT] Start Test: SaxBasic_Test.inputSource
+SE: [hello]
+C: [
+]
+C: [World]
+C: [
+]
+EE: [hello]
+</pre>
+<h2><a id="SaxBasic_Test.error">SaxBasic_Test.error</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][SaxBasic_Test.inputSource] End Test
+[AUNIT:ENDT] End Test: SaxBasic_Test.inputSource
+[AUNIT:STRT][SaxBasic_Test.error] Start Test
+[AUNIT:STRT] Start Test: SaxBasic_Test.error
+error: [] at 1,6: not well-formed (invalid token)]
+</pre>
+<h2><a id="SaxBasic_Test.latinText">SaxBasic_Test.latinText</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][SaxBasic_Test.error] End Test
+[AUNIT:ENDT] End Test: SaxBasic_Test.error
+[AUNIT:STRT][SaxBasic_Test.latinText] Start Test
+[AUNIT:STRT] Start Test: SaxBasic_Test.latinText
+SE: [hello]
+C: [Ähnliche Straßenbahnen auf dem Dörnberg]
+EE: [hello]
+[AUNIT:SUCC]: SaxBasic_Test.latinText:
+acdk_xml_sax_Basic.cpp(185): th.character.length() == 1
+Ähnliche Straßenbahnen auf dem Dörnberg
+[196=Ä][104=h][110=n][108=l][105=i][99=c][104=h][101=e][32= ][83=S][116=t][114=r][97=a][223=ß][101=e][110=n][98=b][97=a][104=h][110=n][101=e][110=n][32= ][97=a][117=u][102=f][32= ][100=d][101=e][109=m][32= ][68=D][246=ö][114=r][110=n][98=b][101=e][114=r][103=g]
+Ähnliche Straßenbahnen auf dem Dörnberg
+[196=Ä][104=h][110=n][108=l][105=i][99=c][104=h][101=e][32= ][83=S][116=t][114=r][97=a][223=ß][101=e][110=n][98=b][97=a][104=h][110=n][101=e][110=n][32= ][97=a][117=u][102=f][32= ][100=d][101=e][109=m][32= ][68=D][246=ö][114=r][110=n][98=b][101=e][114=r][103=g]
+[AUNIT:SUCC]: SaxBasic_Test.latinText:
+acdk_xml_sax_Basic.cpp(192): t->equals(ot) == true
+</pre>
+</body></html>

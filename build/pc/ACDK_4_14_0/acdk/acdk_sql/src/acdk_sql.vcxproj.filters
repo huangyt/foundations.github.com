@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{7c21beb9-4806-4d7f-80d7-e8a6203cd4b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql">
+      <UniqueIdentifier>{80c31611-9fda-42b8-b42c-eaca45e1572e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\sql\Array.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Blob.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\CallableStatement.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Config.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Connection.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\DatabaseMetaData.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Driver.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\DriverManager.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\DriverPropertyInfo.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\PreparedStatement.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\ResultSet.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\ResultSetMetaData.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sql.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\SQLConfig.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\SQLException.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\SQLWarning.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sql_all.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Statement.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Time.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Timestamp.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\Types.h">
+      <Filter>acdk\sql</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\sql\Connection.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\DatabaseMetaData.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\DriverManager.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\ResultSet.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sql_metainf_base.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\Time.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\Timestamp.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\Types.cpp">
+      <Filter>acdk\sql</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

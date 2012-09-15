@@ -1,0 +1,161 @@
+%id: acdk_aal_concept_objects
+%title: AAL Object Representation
+%shorttitle: Object Representation
+%body:
+<chapterline/>
+<pageintro>
+How to build AAL Objects.
+</pageintro>
+
+
+
+<jumptable/>
+<note>
+This page is outdated.
+</note>
+
+<jump1>Open Questions</jump1>
+<jump2>Diverent callings</jump2>
+At compile time it should be branch between
+different calling conventions. 
+
+<jump3>Weak calling</jump3>
+Resolution at runtime. Callee interpret the arguments.
+Standard DMI.
+
+<jump3>AAL internal calls</jump3>
+
+<jump4>virtual calls</jump4>
+Virtual calls must be dispatched. 
+One way is to use DMI mechanism, which is probably not
+the fasted way.
+Alternativelly AalObjects provides a vtable, which makes it 
+necesarry to manage a hash table for each method entry.
+
+<jump4>non-virtual calls</jump4>
+non-virtual callers can remember ClazzMethodInfo after the first call and call it
+directly.
+
+<jump3>AAL to C++ ACDK calls</jump3>
+
+
+<jump2>virtual calls for derived Objects</jump2>
+ACDK DMI doesn't support currently the non-virtual 
+call flag. This may be necessary.
+
+
+<jump1>Basics</jump1>
+<jump2>ClazzInfo</jump2>
+ClazzInfo for internal AAL Objects.
+The class DClazzInfo is a dynamic compatible version of ClazzInfo.
+
+
+
+<jump2>DMI</jump2>
+Using ACDK DMI interface also for internal AAL Objects.
+Overload the standard implementation functions of DMI.
+
+<jump1>Elements</jump1>
+<jump2>Units</jump2>
+Problem: In the current definituion of
+ClazzInfo, there is no possibility to have 
+nested ClazzInfo.
+
+On the other side, Units are just wrapper to namespaces
+and cannot contain functions, members and so on.
+
+Originally the idea to resolve componed type names
+was to recursivally resolve names.
+<rs>
+acdk.lang.Object o = new acdk.lang.Object();
+// whould be resolved
+globlal.getType("acdk").getType("lang").getType("Object");
+</rs>
+
+Alternativally (actually the way it is implemented)
+a compositive name will be resolved at ones:
+global.getType("acdk/lang/Object")
+
+<jump2>Functions</jump2>
+
+Function may be also a ACDK Object, which have a 
+standard method 'call'.
+
+<jump1>Binding</jump1>
+Calling methods can have static or dynamic binding.
+
+<jump2>Static Binding</jump2>
+On static binding at compile time the signature of the 
+called function is known. The mapping of the parameters
+(default parameter, named parameter, pass attributes (in, out)
+rest paramters) will be done at compile time. 
+The polymorphic function will be resolved (The Code holds
+a ClazzMethodInfo).
+
+The caller pushes all parameter on the stack and calls the 
+function.
+
+
+<jump2>Dynamic Binding</jump2>
+If the called type is unknown, a dynamic call will be invoked.
+Instead of just pushing the parameters on the stack, a invocation frame
+has to be build on the stack, which describes the parameters:
+<fl>
+<f> Number of unnamed parameters.
+<f> pass attributes of each parameter.
+<f> Number of named parameters.
+<f> Name of parameter, Value of parameter.
+</fl>
+If used external Classes, for which no Metainfo at compile time is available,
+dynamic binding is the only solution.
+
+<jump2>Discussion</jump2>
+Whenever possible, static binding should be prefered, because
+of performance.
+
+Another important issue is the support of extended argument attributes
+like in, out.
+By default the value (or the value of the reference of an Object) will
+be pushed onto the stack before invoking the function.
+This will not work with out parameters.
+Alternativally each argument has to be casted by the caller:
+<rs>
+void foo(out int i) { i = 42; }
+
+int i;
+foo(outOf i);
+</rs>
+
+<fl>
+<f> Static binding has no dynamic resolution of polymorphic functions:
+<rs>
+void foo(Object o);
+void foo(String o);
+Object o = new String("asdf");
+foo(o); // will call foo(Object o) on static binding
+        // will call foo(String o) on dynamic binding
+</rs>
+</fl>
+
+<jump2>Implementation</jump2>
+A problem for static binding is to figure out the formal type of the 
+arguments at compile time:
+<rs>
+void foo(String s);
+void foo(int i);
+String s = new String("asdf");
+foo(s + 2);
+   // what is the formal type of 's + 2'?
+foo(Integer.parseInt("1")); // same question
+</rs>
+
+The postParse step has to resolve the types of an expression.
+
+Static binding will be implemented later and will be available
+via an unit attribute similar to the Perl strict statement.
+
+In case of NamedArguments the static binding resolves the 
+named arguments into the order of the normal argument position.
+The dynamic binding has to pass the named arguments to the 
+invoke interface.
+.

@@ -1,0 +1,175 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_tools_aunit/bsd
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDK_TOOLS_TESTUNIT_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core 
+
+
+SOURCES= 	acdk/tools/aunit/aunit_metainf_base.cpp \
+	acdk/tools/aunit/CfgScriptTestSuite.cpp \
+	acdk/tools/aunit/DmiTestClass.cpp \
+	acdk/tools/aunit/ProcessTestSuite.cpp \
+	acdk/tools/aunit/TestConsoleListener.cpp \
+	acdk/tools/aunit/TestDebuggerListener.cpp \
+	acdk/tools/aunit/TestHtmlReport.cpp \
+	acdk/tools/aunit/TestResult.cpp \
+	acdk/tools/aunit/TestRunner.cpp \
+	acdk/tools/aunit/TestTextReport.cpp \
+	acdk/tools/aunit/TestUnit.cpp \
+
+HEADER= 	acdk/tools/aunit/aunit.h \
+	acdk/tools/aunit/CfgScriptTestSuite.h \
+	acdk/tools/aunit/Config.h \
+	acdk/tools/aunit/core_test.h \
+	acdk/tools/aunit/DmiTestClass.h \
+	acdk/tools/aunit/DmiTestException.h \
+	acdk/tools/aunit/DmiTestInterface.h \
+	acdk/tools/aunit/McConfigTest.h \
+	acdk/tools/aunit/ProcessTestSuite.h \
+	acdk/tools/aunit/SayHelloInterface.h \
+	acdk/tools/aunit/Test.h \
+	acdk/tools/aunit/TestCollectorListener.h \
+	acdk/tools/aunit/TestConsoleListener.h \
+	acdk/tools/aunit/TestDebuggerListener.h \
+	acdk/tools/aunit/TestException.h \
+	acdk/tools/aunit/TestFailure.h \
+	acdk/tools/aunit/TestHtmlReport.h \
+	acdk/tools/aunit/TestListener.h \
+	acdk/tools/aunit/TestReport.h \
+	acdk/tools/aunit/TestResult.h \
+	acdk/tools/aunit/TestRunner.h \
+	acdk/tools/aunit/TestTextReport.h \
+	acdk/tools/aunit/TestUnit.h \
+
+OBJECTS= 	../tobj/acdk_tools_aunit/bsd/aunit_metainf_base.o \
+	../tobj/acdk_tools_aunit/bsd/CfgScriptTestSuite.o \
+	../tobj/acdk_tools_aunit/bsd/DmiTestClass.o \
+	../tobj/acdk_tools_aunit/bsd/ProcessTestSuite.o \
+	../tobj/acdk_tools_aunit/bsd/TestConsoleListener.o \
+	../tobj/acdk_tools_aunit/bsd/TestDebuggerListener.o \
+	../tobj/acdk_tools_aunit/bsd/TestHtmlReport.o \
+	../tobj/acdk_tools_aunit/bsd/TestResult.o \
+	../tobj/acdk_tools_aunit/bsd/TestRunner.o \
+	../tobj/acdk_tools_aunit/bsd/TestTextReport.o \
+	../tobj/acdk_tools_aunit/bsd/TestUnit.o \
+
+
+FINALTARGET=../../bin/libacdk_tools_aunit.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_tools_aunit.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_tools_aunit.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_tools_aunit.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdk_tools_aunit/bsd/aunit_metainf_base.o: acdk/tools/aunit/aunit_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/aunit_metainf_base.o -c acdk/tools/aunit/aunit_metainf_base.cpp
+
+../tobj/acdk_tools_aunit/bsd/CfgScriptTestSuite.o: acdk/tools/aunit/CfgScriptTestSuite.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/CfgScriptTestSuite.o -c acdk/tools/aunit/CfgScriptTestSuite.cpp
+
+../tobj/acdk_tools_aunit/bsd/DmiTestClass.o: acdk/tools/aunit/DmiTestClass.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/DmiTestClass.o -c acdk/tools/aunit/DmiTestClass.cpp
+
+../tobj/acdk_tools_aunit/bsd/ProcessTestSuite.o: acdk/tools/aunit/ProcessTestSuite.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/ProcessTestSuite.o -c acdk/tools/aunit/ProcessTestSuite.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestConsoleListener.o: acdk/tools/aunit/TestConsoleListener.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestConsoleListener.o -c acdk/tools/aunit/TestConsoleListener.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestDebuggerListener.o: acdk/tools/aunit/TestDebuggerListener.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestDebuggerListener.o -c acdk/tools/aunit/TestDebuggerListener.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestHtmlReport.o: acdk/tools/aunit/TestHtmlReport.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestHtmlReport.o -c acdk/tools/aunit/TestHtmlReport.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestResult.o: acdk/tools/aunit/TestResult.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestResult.o -c acdk/tools/aunit/TestResult.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestRunner.o: acdk/tools/aunit/TestRunner.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestRunner.o -c acdk/tools/aunit/TestRunner.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestTextReport.o: acdk/tools/aunit/TestTextReport.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestTextReport.o -c acdk/tools/aunit/TestTextReport.cpp
+
+../tobj/acdk_tools_aunit/bsd/TestUnit.o: acdk/tools/aunit/TestUnit.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/bsd/TestUnit.o -c acdk/tools/aunit/TestUnit.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_tools_aunit.so $(OBJECTS)
+
+  

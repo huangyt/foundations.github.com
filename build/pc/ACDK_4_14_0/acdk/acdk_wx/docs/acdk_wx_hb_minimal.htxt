@@ -1,0 +1,49 @@
+%id: acdk_wx_hb_minimal
+%title: acdk_wx Minimal Sample
+%shorttitle: Minimal Sample
+%body:
+<pageintro>
+A minimal sample creating GUI application.
+</pageintro>
+<htmlauto/>
+
+A minimal sample in %ref[CfgScript, acdk_cfgscript_hb]:
+<source>
+using acdk.wx;
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new Frame()).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);
+</source>
+
+A minimal sample in ACDK C++:
+<source>
+class Main 
+: extends App
+{
+public:
+  bool onInit()
+  {
+    (new Frame("Hello Wx"))->show(true);
+    return true;
+  }
+};
+
+int
+main(int argc, char* argv[], char** envptr)
+{
+  RStringArray args = new StringArray(0);
+  return App::createGui(new MyApp(), args);
+} 
+</source>
+.

@@ -1,0 +1,7 @@
+*.deps
+*.o
+*.obj
+*.sbr
+*.tmp
+acdk_text.plg
+acdk_text_dll.plg

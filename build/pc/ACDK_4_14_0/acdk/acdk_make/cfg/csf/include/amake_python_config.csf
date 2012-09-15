@@ -1,0 +1,81 @@
+
+// python Header ===============================================================================
+lf = new acdk.make.LookupFileTask("Python.h", acdk.make.Header);
+lf.addLookupPath("unix", "/usr/include/python2.1");
+lf.addLookupPath("unix", "/usr/include/python2.2");
+lf.addLookupPath("unix", "/usr/include/python2.3");
+lf.addLookupPath("windows", "D:\\programr\\lang\\python\\Python21\\include");
+lf.addLookupPath("windows", "C:\\programr\\lang\\python\\Python21\\include");
+
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate python header. Add path to the file $ACDKHOME/amake_python_config.cfg");
+__props.appendStringArrayVal("CCC_EXT_INCLUDE_LIST", lf.foundParentDir());
+
+
+  
+
+
+// python library ===============================================================================
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  pythonlibname = "python21_d";
+  lf = new acdk.make.LookupFileTask(pythonlibname, acdk.make.ImportLibrary);
+  lf.addFileName("windows", pythonlibname);
+  lf.addLookupPath("windows", "D:\\programr\\lang\\python\\Python-2.1.1\\PCbuild");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\python\\Python-2.1.1\\PCbuild");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\python\\Python21\\libs");
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", pythonlibname);
+} 
+else 
+{ 
+  lf = new acdk.make.LookupFileTask(acdk.make.ImportLibrary);
+  lf.addFileName("unix", "python2.1");
+  lf.addFileName("unix", "python2.2");
+  lf.addFileName("unix", "python2.3");
+  lf.addLookupPath("unix", "/usr/lib/python2.1/config");
+  lf.addLookupPath("unix", "/usr/lib/python2.2/config");
+  lf.addLookupPath("unix", "/usr/lib/python/config");
+  if (lf.execute("",  buildprops) == false) 
+  {
+    lf = new acdk.make.LookupFileTask(acdk.make.StaticLibrary);
+    lf.addFileName("unix", "python2.1");
+    lf.addFileName("unix", "python2.2");
+    lf.addFileName("unix", "python2.3");
+    lf.addLookupPath("unix", "/usr/lib/python2.1/config");
+    lf.addLookupPath("unix", "/usr/lib/python2.2/config");
+    lf.addLookupPath("unix", "/usr/lib/python/config");
+  }
+}
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate python library. Add path to the file $ACDKHOME/amake_python_config.cfg");
+__props.appendStringArrayVal("CCC_EXT_LIBPATH_LIST", lf.foundParentDir());   
+pythonlibname = lf.foundFile();
+__props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", pythonlibname);
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  
+  // for test purpose append path
+  lf = new acdk.make.LookupFileTask(pythonlibname, 3);
+  lf.addLookupPath("windows", "D:\\programr\\lang\\python\\Python-2.1.1\\PCbuild");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\python\\Python-2.1.1\\PCbuild");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\python\\Python21\\libs");
+  
+  __script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate python DLL. Add path to the file $ACDKHOME/amake_python_config.cfg");
+                        
+  __props.appendStringVal("Path", lf.foundParentDir(), File_pathSeparator, 4); // 4 = insert at front
+  __props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "Path");
+} 
+else 
+{ 
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "util");
+}
+
+
+
+                        
+out.println("Configuration of python OK");
+acdkhome = __props.getStringVal("ACDKHOME");
+acdbin =  acdkhome + File_separator + "bin";
+

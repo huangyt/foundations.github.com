@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{43571b5d-e9d1-4375-bff1-3e8a6957edfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java">
+      <UniqueIdentifier>{2736f8dd-2abf-4f89-82c0-6968cabd82b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java\rmi">
+      <UniqueIdentifier>{22b78e56-5fff-49f5-9fbe-b59caf4c824c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java\rmi\rmi_metainf">
+      <UniqueIdentifier>{390e1b31-0411-4bab-8027-c72b379d752e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java\rmi\registry">
+      <UniqueIdentifier>{705c4f88-b2a8-4d2a-bb13-801c10c771de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\java\rmi\Config.h">
+      <Filter>acdk\java\rmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\rmi\Naming.h">
+      <Filter>acdk\java\rmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\rmi\Remote.h">
+      <Filter>acdk\java\rmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\rmi\rmi.h">
+      <Filter>acdk\java\rmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\rmi\registry\registry.h">
+      <Filter>acdk\java\rmi\registry</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\java\rmi\Naming.cpp">
+      <Filter>acdk\java\rmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\rmi\rmi_metainf_base.cpp">
+      <Filter>acdk\java\rmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\rmi\rmi_metainf\rmi_metainf_ext.cpp">
+      <Filter>acdk\java\rmi\rmi_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,580 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Remote DMI, DMI, rdmi">
+<title>Remote Dynamic Method Invocation Handbook</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Remote DMI</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;RDMI Handbook
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK RDMI Readme</a> | RDMI Handbook | <a  href="acdkx_rdmi_concept.html">Concept about Remote DMI</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Remote Dynamic Method Invocation Handbook</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Remote Dynamic Method Invocation Handbook</h1> -->
+<br>
+<p class="PageIntro">
+RDMI or Remote DMI is a remoting interfacing
+for ACDK similar to Java RMI.<br>
+</p>
+<br>
+<a name="jumptable123"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Introduction"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Introduction</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#First look"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;First look</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Principles"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Principles</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Which classes can be used remote"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Which classes can be used remote</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#How to access Remote Objects"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;How to access Remote Objects</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Client Object Proxies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Client Object Proxies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Weak Types/Invocation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Weak Types/Invocation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Strong Types/Invocation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Strong Types/Invocation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Comparing Strong and Weak Types/Invocation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Comparing Strong and Weak Types/Invocation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Parameters and Return Values"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Parameters and Return Values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Serialized values"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Serialized values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Remote References"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Remote References</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Selection when to transfer by value or by reference"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Selection when to transfer by value or by reference</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Parameter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#IN, OUT, INOUT"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;IN, OUT, INOUT</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Selection by the parameter types of the method declararation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Selection by the parameter types of the method declararation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Selection by the parameter attributes of the method declararation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Selection by the parameter attributes of the method declararation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Selection by the the caller in case of weak invocation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Selection by the the caller in case of weak invocation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Return values"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Return values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Exceptions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Exceptions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Call models"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call models</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Parameters and Return Values"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Parameters and Return Values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Remote Garbage Collection"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Remote Garbage Collection</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Introduction">Introduction</a></h2>
+<br>
+<h3><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="First look">First look</a></h3>
+acdkx_rdmi is a simple solution for object oriented remote calls.<br>
+<br>
+The client and the server communicates over network (by default).<br>
+<br>
+Here the sample code for a Remote DMI Server written in CfgScript.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// create a RDMI server using binary protocol and TCP as transport protocol
+</FONT></I>RemoteDmiServer server = <B><FONT COLOR="#A020F0">new</FONT></B> RemoteDmiServer(<B><FONT COLOR="#A020F0">new</FONT></B> TcpServer(1111), <B><FONT COLOR="#A020F0">new</FONT></B> BinaryProtocol());
+<I><FONT COLOR="#B22222">// starts the server in a background thread
+</FONT></I>server.startInBackground();
+
+out.println(<B><FONT COLOR="#BC8F8F">&quot;RemoteDmiServer started on port 1111&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// wait for finishing server
+</FONT></I><I><FONT COLOR="#B22222">// this only happens if a client request for shuting down the server
+</FONT></I>server.join();
+
+out.println(<B><FONT COLOR="#BC8F8F">&quot;RemoteDmiServer terminates&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// create a client connecting to server
+</FONT></I>RemoteDmiServer client = <B><FONT COLOR="#A020F0">new</FONT></B> RemoteDmiServer(<B><FONT COLOR="#A020F0">new</FONT></B> TcpServer(InetAddress::getLocalHost(), 1111), <B><FONT COLOR="#A020F0">new</FONT></B> BinaryProtocol());
+<I><FONT COLOR="#B22222">// create an object with 'new acdk.lang.StringBuffer(&quot;hello&quot;)' on 
+</FONT></I><I><FONT COLOR="#B22222">// the server and return the object as remote object
+</FONT></I>Object o = client.createRemote(<B><FONT COLOR="#BC8F8F">&quot;acdk.lang.StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;hello&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// call the append function on the remote object
+</FONT></I>o.append(<B><FONT COLOR="#BC8F8F">&quot; from remote&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// call the toString method on the remote object
+</FONT></I>out.println(o.toString());
+</PRE></td></tr></table>
+<br>
+Similar client code for C++
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  RRemoteDmiServer client = <B><FONT COLOR="#A020F0">new</FONT></B> RemoteDmiServer(<B><FONT COLOR="#A020F0">new</FONT></B> TcpServer(::acdk::net::InetAddress::getLocalHost(), 1111), <B><FONT COLOR="#A020F0">new</FONT></B> BinaryProtocol());
+  RObject remSb = client-&gt;createRemoteObject(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/Object&quot;</FONT></B>, inOf(<B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>));
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println((RString)remSb-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;toString&quot;</FONT></B>));
+</PRE></td></tr></table>
+See <a  href="acdkx_rdmi_concept.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Concept about Remote DMI</a>.<br>
+<br>
+<h3><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Principles">Principles</a></h3>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Which classes can be used remote">Which classes can be used remote</a></h4>
+Every class, which is loaded via ClassLoader and supports MetaInfo can be used
+as a remote object. This inludes f.e. nearly every C++ ACDK class and all CfgScript classes.<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+  In a later version of RDMI, the classes available as remote object, may be restricted
+  by the server.<br>
+</td></tr></table>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="How to access Remote Objects">How to access Remote Objects</a></h4>
+Basically RDMI using the standard DMI (dynamic method invocation) mechanism of ACDK. 
+DMI is used to interconnect the different object worlds of C++, CfgScript, CORBA, 
+Java, Perl, Python, Tcl, Lisp, COM, ...).<br>
+All these different implementation of the DMI protocoll are also enabled to work remote
+using RDMI.<br>
+<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Client Object Proxies">Client Object Proxies</a></h5>
+<br>
+If an object will be created remote:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Object o = client.createRemote(<B><FONT COLOR="#BC8F8F">&quot;acdk.lang.StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;hello&quot;</FONT></B>);
+</PRE></td></tr></table>
+not the real object will be returned, but a proxy for the object. The object
+itself will life on the server.<br>
+<br>
+All calls to the proxy object will be forwarded to the remote object, so
+that the code of the method will be executed on the server.<br>
+<br>
+<br>
+There are two different ways to retrive remote objects and invoke theire methods.<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Weak Types/Invocation">Weak Types/Invocation</a></h5>
+Weak objects are opaque. Basically opaque objects are from a generic Type, like acdk::lang::Object
+and does not provide futher metainfo (reflection). 
+<br>
+The connection of calling a method with the corresponding method code will not be done by
+a compiler and linker, but will be evaluated at runtime.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// C++
+</FONT></I><I><FONT COLOR="#B22222">// Weak object
+</FONT></I>RObject object = client.createRemote(<B><FONT COLOR="#BC8F8F">&quot;acdk.lang.StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;hello&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// make a weak call.
+</FONT></I><I><FONT COLOR="#B22222">// If the object doesn't provide the toString method
+</FONT></I><I><FONT COLOR="#B22222">// an exception will be thrown
+</FONT></I>RString erg = (RString)object-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;toString&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+Some scripting languages solely relies on weak invokation.<br>
+CfgScript support both (strong and weak) objects/invokations, but
+hides the details behind the scene:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// o is a weak object
+</FONT></I>Object o = client.createRemote(<B><FONT COLOR="#BC8F8F">&quot;acdk.lang.StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;hello&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// CfgScript knowns, that o is a weak type
+</FONT></I><I><FONT COLOR="#B22222">// so the method call append will be tranformed to a weak call
+</FONT></I>o.append(<B><FONT COLOR="#BC8F8F">&quot; from remote&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Strong Types/Invocation">Strong Types/Invocation</a></h5>
+Strong types are interesting in languages, which itself relies
+on strong types, like C++.<br>
+The remote object is not an opaque type, but a typed interface:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// C++
+</FONT></I><I><FONT COLOR="#B22222">// constructor are still called via the weak interface
+</FONT></I>acdk::io::RPrintWriter rout = 
+  (acdk::io::RPrintWriter)client-&gt;peekStaticAs(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;acdk/io/PrintWriter&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;out&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// as result a native interface can be used with no difference in the call syntax to
+</FONT></I><I><FONT COLOR="#B22222">// local object invocations
+</FONT></I>rout-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>);
+
+</PRE></td></tr></table>
+Because all calls to the (remote) typed object has to be forwarded to the remote object
+there are some limitation:<br>
+<ul class="FeatureList">
+<li class="Feature"> Remote types can only be interfaces.<br>
+<li class="Feature"> It does not work with non virtual methods
+<li class="Feature"> The dmiproxy metainfo has to be generated with acdkmc.<br>
+</ul>
+<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Comparing Strong and Weak Types/Invocation">Comparing Strong and Weak Types/Invocation</a></h5>
+<br>
+Weak types/invocation has following advantages:<br>
+<ul class="FeatureList">
+<li class="Feature"> works directly with objects, not only via interfaces
+<li class="Feature"> All methods - including static and non-virtual methods
+    can be invoked remotly.<br>
+<li class="Feature"> Fields can be read and written.<br>
+<li class="Feature"> Do explictly DmiProxy has to be generated for usage in C++.<br>
+<li class="Feature"> transparent in scripting langauges like CfgScript
+</ul>
+<br>
+The advantages of types/invocation can be found in using them
+in C++:<br>
+<ul class="FeatureList">
+<li class="Feature"> Strong typed remote proxies can be used in C++ transparent
+    to local object. Neither server nor client code doesn't directly
+    recognise, that the object is a remote object.<br>
+<li class="Feature"> No casting of return types with inOf() for parameters is needed for
+    C++.<br>
+<li class="Feature"> Having the advantages of strong typed languages. Misstyping/use (for example
+    wrong function name or parameter type) will be recognise by the C++ compiler
+    and not later at runtime.<br>
+</ul>
+If you use strong types on client side, you still can use weak invocation:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// C++ sample
+</FONT></I>RComparable cmp = (RComparable)client-&gt;createRemoteAs(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/Comparable&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;hello&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// the interface Comparable only support the compareTo method
+</FONT></I><I><FONT COLOR="#B22222">// with weak invocation the other methods of the real remote object
+</FONT></I><I><FONT COLOR="#B22222">// can be addressed
+</FONT></I>cmp-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;append&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot; to remote&quot;</FONT></B>);
+
+</PRE></td></tr></table>
+<br>
+<br>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parameters and Return Values">Parameters and Return Values</a></h4>
+Parameters and return values can be tranfered on two ways:<br>
+<ul class="FeatureList">
+<li class="Feature"> By value: The complete object will be serialized and transfered
+    to the other side. 
+<li class="Feature"> By (remote) reference: A weak or strong proxy identifier
+</ul>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Serialized values">Serialized values</a></h5>
+All basic types - like int, char, float, etc. are transfered
+by value.<br>
+By default also all classes which directly or indirectly implements
+the acdk::io::Serializable interface are transfered by value.<br>
+The classes are serialized with the standard ACDK serialization mechanism
+and transported as (more or less structured) stream to the server
+<br>
+On the server side this stream is deserialized to a local real instance
+of the serialized class.<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Remote References">Remote References</a></h5>
+A remote reference contains following information:<br>
+<ul class="FeatureList">
+<li class="Feature"> The server signature, where this object lifes.<br>
+    For example: "inet:/192.168.0.95:1111"
+<li class="Feature"> An opaque object identifier as integer. 
+    This enables the server to associate the remote reference to
+    a real object.<br>
+<li class="Feature"> Optionally a class name like "acdk/io/PrintWriter" identifies an interface.<br>
+    This is used by the client to create an strong typed (C++) Proxy for 
+    this interface.<br>
+</ul>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Selection when to transfer by value or by reference">Selection when to transfer by value or by reference</a></h4>
+<br>
+There are multiple answers to the question wether a parameter or return type
+will be transfered by value or by reference.<br>
+The anwer also depends on whether the remote object is held as strong or weak
+type by the client.<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> In case of weak invocation (or CfgScript) using an argument modifier (byVal, byRef, byRefAs, etc.)
+<li class="Feature"> In case of strong typed invocation selection made by argument modifier in the method signature (byval, byref, etc.).<br>
+<li class="Feature"> In case of weak invocation by the real type of the argument: Basic and serializable types will be transfered
+    as value, all other as remote reference.<br>
+<li class="Feature"> In case of strong typed invocation by the declared type of the argument: Basic and serializable types will be transfered
+    as value, all other by remote reference.<br>
+</ul>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parameter">Parameter</a></h4>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="IN, OUT, INOUT">IN, OUT, INOUT</a></h5>
+<m>acdkx_rdmi</m> supports also the IN, OUT, INOUT (in, out, inout in CfgScript) 
+parameter attributes in the method signature.<br>
+<ul class="FeatureList">
+<li class="Feature"> Parameter with the IN attribute (parameter without any directional are also IN parameters)
+    are send from caller (client) to callee (server).<br>
+<li class="Feature"> Parameter with the OUT attribute are only send from the callee back to the caller.<br>
+    These parameter works like additionally return values.<br>
+<li class="Feature"> Parameter with the INOUT attribute are transfered from the caller to the callee
+    and while returning from callee also back to caller.<br>
+</ul>
+<br>
+IN, OUT and INOUT parameter can be transfered either by value or by (remote) reference.<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Selection by the parameter types of the method declararation">Selection by the parameter types of the method declararation</a></h5>
+Given method signature
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// C++
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> XY
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> callFoo(IN(RStringBuffer) sb, OUT(RComparable) cmp)
+  {
+    cmp = (RComparable)sb;
+    <B><FONT COLOR="#A020F0">return</FONT></B> sb-&gt;length();
+  }
+  <I><FONT COLOR="#B22222">// ...
+</FONT></I>  <I><FONT COLOR="#B22222">// or CfgScript
+</FONT></I>  <B><FONT COLOR="#228B22">int</FONT></B> callFoo(StringBuffer sb, out Comparable cmp)
+  {
+    cmp = sb;
+    <B><FONT COLOR="#A020F0">return</FONT></B> sb.length();
+  }
+  <I><FONT COLOR="#B22222">// ...
+</FONT></I>  
+<I><FONT COLOR="#B22222">// client code
+</FONT></I>RStringBuffer sb1 = <B><FONT COLOR="#A020F0">new</FONT></B> StringBuffer();
+RComparable cmp;
+<B><FONT COLOR="#228B22">int</FONT></B> i = remoteObject-&gt;callFoo(sb1, cmp);
+</PRE></td></tr></table>
+<ul class="FeatureList">
+<li class="Feature"> StringBuffer implements the Serializable interface, 
+    so the sb parameter is tranfered from caller (client) to callee (server) by value.<br>
+<li class="Feature"> Comparable is not derived from Serializable, so this parameter will be
+    tranfered from callee to caller (because it has the OUT attribute) as remote references.<br>
+<li class="Feature"> int is a basic type, so this value is tranfered from calle to caller by value.<br>
+<li class="Feature"> After the call the client holds an remote object reference to a a copy of the StringBuffer
+    held by the server.<br>
+</ul>
+<br>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Selection by the parameter attributes of the method declararation">Selection by the parameter attributes of the method declararation</a></h5>
+<br>
+It is also possible to add an attribute in the method signature to signal
+if a parameter shell be tranfered by reference or by value.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// C++
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> XY
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> callFoo(INBYVAL(RStringBuffer) sb, OUTREF(RStringBuffer) sb2)
+  {
+    sb2 = sb;
+    <B><FONT COLOR="#A020F0">return</FONT></B> sb-&gt;length();
+  }
+  <I><FONT COLOR="#B22222">// ...
+</FONT></I>  <I><FONT COLOR="#B22222">// or CfgScript
+</FONT></I>  <B><FONT COLOR="#228B22">int</FONT></B> callFoo(StringBuffer sb, out byref StringBuffer sb2)
+  {
+    sb2 = sb;
+    <B><FONT COLOR="#A020F0">return</FONT></B> sb.length();
+  }
+  <I><FONT COLOR="#B22222">// ...
+</FONT></I></PRE></td></tr></table>
+Athough the second parameter also is serializable the method attribute tells that
+the parameter should be tranfered by reference.<br>
+<br>
+Note 1:<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+  These additionally attributes has only limited use in C++
+  <ul class="FeatureList">
+    <li class="Feature"> The returned byref StringBuffer may be casted to StringBuffer, but
+        all calls of non virtual methods are not dispatched to remote object.<br>
+    <li class="Feature"> Forcing serialization of objects, which doesn't implement the Serializable
+        interface may result in errors either rised by the remoting protocol or
+        results in incorrectly initialized objects.<br>
+  </ul>
+</td></tr></table>
+Note 2:<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+  Local calls of methods with the byval attribute will not serialize/deserialize its
+  parameters and so the the local call does not really pass its parameter by value.<br>
+</td></tr></table>
+<br>
+<h5><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Selection by the the caller in case of weak invocation">Selection by the the caller in case of weak invocation</a></h5>
+<br>
+In case of weak objects - where the client only holds a opaque object type with no 
+further knowledge about methods and parameter the in, out, inout and byval, byref 
+attributes can be given in the object call:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// C++ &amp; CfgScript
+</FONT></I>  RStringBuffer sb  = <B><FONT COLOR="#A020F0">new</FONT></B> StringBuffer(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+  RObject objremote;
+  <I><FONT COLOR="#B22222">// C++
+</FONT></I>  sb-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;callFoo&quot;</FONT></B>, inOf(sb), byRef(outOf(objremote)));
+  <I><FONT COLOR="#B22222">// CfgScript
+</FONT></I>  sb.callFoo(inOf(sb), byRef(outOf(objremote)));
+</PRE></td></tr></table>
+<br>
+In many cases it is also important, that the types matched:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// C++
+</FONT></I>  sb-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;callFoo&quot;</FONT></B>, byValAs(inOf(sb), StringBuffer::getClass()), byRefAs(outOf(objremote), Comparable::GetClass()));
+  <I><FONT COLOR="#B22222">// CfgScript
+</FONT></I>  using acdk.cfgscript.ScriptGlobals;
+  sb.callFoo(byValAs(inOf(sb), StringBuffer.getClass()), byRefAs(outOf(objremote), Comparable.GetClass()));
+</PRE></td></tr></table>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Return values">Return values</a></h4>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// CfgScript
+</FONT></I>Object o = ...;
+o.toString__byRefAs(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/Comparable&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// C++
+</FONT></I>RObject o = ...;
+RComparable rcomp = o-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;toString__byRefAs&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/Comparable&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Exceptions">Exceptions</a></h4>
+<m>acdkx_rdmi</m> supports Exceptions in a transparent way equally to local calls.<br>
+Important for exception types is, that metainfo is available for the thrown exceptions.<br>
+<br>
+Here a sample in CfgScript:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Object o = client.createRemote(<B><FONT COLOR="#BC8F8F">&quot;acdk.lang.StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;hello&quot;</FONT></B>);
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+  String s = o.substring(-2, 2004); <I><FONT COLOR="#B22222">// misuse: the server throws IndexOutOfBoundsException
+</FONT></I>                                    <I><FONT COLOR="#B22222">// The exception will be transfered serialized to client
+</FONT></I>                                    <I><FONT COLOR="#B22222">// and will (re-)thrown in the client
+</FONT></I>} <B><FONT COLOR="#A020F0">catch</FONT></B> (IndexOutOfBoundsException ex) {
+  out.println(ex.getMessage());
+}
+</PRE></td></tr></table>
+<br>
+<br>
+<br>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call models">Call models</a></h4>
+In the first release of acdkx_rdmi only the synchronous call convention is supported.<br>
+<br>
+A remote method call returns, if the server returned from the call.<br>
+<br>
+Different to other remoting protocoll acdkx_rdmi also supports reentrant calls.<br>
+<br>
+To illustrate this following sample in CfgScript:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// common source, known by server and client
+</FONT></I>interface Callback 
+{
+  <B><FONT COLOR="#228B22">void</FONT></B> callIt(String s) = 0;
+}
+interface CallCallback 
+{
+  <B><FONT COLOR="#228B22">void</FONT></B> callForEach(Callback cb) = 0;
+}
+
+<I><FONT COLOR="#B22222">// A server object
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> MyServerObject
+  implements CallCallback
+{
+  StringArray sa = [ <B><FONT COLOR="#BC8F8F">&quot;a&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;b&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;c&quot;</FONT></B> ];
+  MyServerObject() {}
+  <B><FONT COLOR="#228B22">void</FONT></B> callForEach(Callback cb)
+  {
+    foreach (String s in sa)
+    {
+      cb.callIt(s);
+    }
+  }
+}
+
+<I><FONT COLOR="#B22222">// use it in client
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> MyCallback
+  implements Callback
+{
+  MyCallback() {}
+  <B><FONT COLOR="#228B22">void</FONT></B> callIt(String s)
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;MyCallback.callIt: &quot;</FONT></B> + s);
+  }
+}
+MyCallback mycb = <B><FONT COLOR="#A020F0">new</FONT></B> MyCallback();
+
+CallCallback cb =  client.createRemoteAs(<B><FONT COLOR="#BC8F8F">&quot;MyServerObject&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;CallCallback&quot;</FONT></B>);
+cb.callForEach(mycb);
+</PRE></td></tr></table>
+What happens here?<br>
+<br>
+<code>cb.callForEach(mycb);</code> make a remote call to MyServerObject.<br>
+Inside the <code>callForEach</code> on the server remote calls back to the client
+will be done for each element in sa.<br>
+After this the remove call <code>cb.callForEach(mycb);</code> returns back to client.<br>
+<br>
+Resume:<br>
+<ul class="FeatureList">
+<li class="Feature"> an RDMI Server can also invoke remote objects from client.<br>
+    In this case the client automatically also works as RDMI Server.<br>
+<li class="Feature"> The control flow in calling a remote method is the same, like normal
+    local method calls.<br>
+</ul>
+<br>
+<h4><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parameters and Return Values">Parameters and Return Values</a></h4>
+Parameters and return values can be tranfered on two ways:<br>
+<ul class="FeatureList">
+<li class="Feature"> By value: The complete object will be serialized and transfered
+    to the other side. 
+<li class="Feature"> By (remote) reference: A weak or strong proxy identifier
+</ul>
+<br>
+<h3><a href="#jumptable123"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Remote Garbage Collection">Remote Garbage Collection</a></h3>
+The remote garbace collection depends on concret protocoll. By
+default a statefull TCP/IP connection between client and server
+is used (in contrast to stateless HTTP connections).<br>
+<br>
+<image descr="" src="./rdmi_rgc_protocol.gif">
+<br>
+<ol>
+<li> A remote construction of a object creates the object instance on the server side.<br>
+<li> This server object instance will be registered in pool connected with its connection.<br>
+<li> The remote reference will be returned to client. The client creates a local proxy.<br>
+<li> On the client the garbage collection will work the normal way on client side.<br>
+<li> If the local proxy will be deleted, the client sends a message to the server, which
+     owns the object, that the object can be released.<br>
+<li> On the server side the object will be released from the pool.<br>
+<li> In case the connection between client and server will be closed (f.e. because
+     client dies) 
+<li> all objects in the server object pool connected with this connection
+     will be released.<br>
+</ol>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK RDMI Readme</a> | RDMI Handbook | <a  href="acdkx_rdmi_concept.html">Concept about Remote DMI</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

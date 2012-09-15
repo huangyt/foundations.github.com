@@ -1,0 +1,404 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acdkx_orb/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fPIC $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT -DIN_ACDKX_ORB_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-G -Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_net -lacdk_text -lorg_xml -lacdk_xml 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	org/omg/CORBA/Any.cpp \
+	org/omg/CORBA/Contained.cpp \
+	org/omg/CORBA/Container.cpp \
+	org/omg/CORBA/CORBA_metainf_base.cpp \
+	org/omg/CORBA/InterfaceDef.cpp \
+	org/omg/CORBA/ORB.cpp \
+	org/omg/CORBA/OrbExceptions.cpp \
+	org/omg/CORBA/CORBA_metainf/CORBA_metainf_ext.cpp \
+	org/omg/CORBA/CORBA_metainf/CORBA_metainf_ext1.cpp \
+	org/omg/CORBA/GIOP/GIOP.cpp \
+	org/omg/CORBA/portable/ObjectImpl.cpp \
+	org/omg/CORBA/portable/portable_metainf_base.cpp \
+	org/omg/CORBA/portable/portable_metainf/portable_metainf_ext.cpp \
+	org/omg/CosNaming/CosNaming_metainf_base.cpp \
+	org/omg/CosNaming/CosNaming_metainf/CosNaming_metainf_ext.cpp \
+	org/omg/PortableServer/PortableServer_metainf_base.cpp \
+	org/omg/PortableServer/PortableServer_metainf/PortableServer_metainf_ext.cpp \
+	acdkx/orb/acdk2orb.cpp \
+	acdkx/orb/AcdkObject.cpp \
+	acdkx/orb/AcdkObject_clazzInfo.cpp \
+	acdkx/orb/AORB.cpp \
+	acdkx/orb/AServerRequestImpl.cpp \
+	acdkx/orb/CDRObjectReader.cpp \
+	acdkx/orb/CDRObjectWriter.cpp \
+	acdkx/orb/CorObject.cpp \
+	acdkx/orb/CorObject_clazzInfo.cpp \
+	acdkx/orb/GIOPMessage.cpp \
+	acdkx/orb/ObjectKey.cpp \
+	acdkx/orb/OrbConnection.cpp \
+	acdkx/orb/OrbConnectionMgr.cpp \
+	acdkx/orb/OrbOutputStream.cpp \
+	acdkx/orb/orb_metainf_base.cpp \
+	acdkx/orb/ReplyInputStream.cpp \
+	acdkx/orb/ReplyOutputStream.cpp \
+	acdkx/orb/RequestOutputStream.cpp \
+	acdkx/orb/ServerDelegate.cpp \
+	acdkx/orb/orb_metainf/orb_metainf_ext.cpp \
+	acdkx/orb/selftests/selftests_metainf_base.cpp \
+	acdkx/orb/selftests/selftests_metainf/selftests_metainf_ext.cpp \
+	acdkx/arb/AObjectImpl.cpp \
+	acdkx/arb/arb.cpp \
+	acdkx/arb/arb_metainf_base.cpp \
+	acdkx/arb/XMLDelegate.cpp \
+	acdkx/arb/arb_metainf/arb_metainf_ext.cpp \
+
+HEADER= 	org/omg/CORBA/Any.h \
+	org/omg/CORBA/AttributeDef.h \
+	org/omg/CORBA/Contained.h \
+	org/omg/CORBA/Container.h \
+	org/omg/CORBA/Context.h \
+	org/omg/CORBA/CORBA.h \
+	org/omg/CORBA/ExceptionDef.h \
+	org/omg/CORBA/IDLType.h \
+	org/omg/CORBA/InterfaceDef.h \
+	org/omg/CORBA/IRObject.h \
+	org/omg/CORBA/ModuleDef.h \
+	org/omg/CORBA/Object.h \
+	org/omg/CORBA/OperationDef.h \
+	org/omg/CORBA/ORB.h \
+	org/omg/CORBA/OrbExceptions.h \
+	org/omg/CORBA/PrimitiveDef.h \
+	org/omg/CORBA/Repository.h \
+	org/omg/CORBA/SequenceDef.h \
+	org/omg/CORBA/ServerRequest.h \
+	org/omg/CORBA/StringDef.h \
+	org/omg/CORBA/StructDef.h \
+	org/omg/CORBA/TypeCode.h \
+	org/omg/CORBA/GIOP/GIOP.h \
+	org/omg/CORBA/IIOP/IIOP.h \
+	org/omg/CORBA/IOP/IOP.h \
+	org/omg/CORBA/portable/ApplicationException.h \
+	org/omg/CORBA/portable/Delegate.h \
+	org/omg/CORBA/portable/InputStream.h \
+	org/omg/CORBA/portable/InvokeHandler.h \
+	org/omg/CORBA/portable/ObjectImpl.h \
+	org/omg/CORBA/portable/OutputStream.h \
+	org/omg/CORBA/portable/portable.h \
+	org/omg/CORBA/portable/RemarshalException.h \
+	org/omg/CORBA/portable/ResponseHandler.h \
+	org/omg/CosNaming/Config.h \
+	org/omg/CosNaming/CosNaming.h \
+	org/omg/PortableServer/POA.h \
+	org/omg/PortableServer/POAManager.h \
+	org/omg/PortableServer/PortableServer.h \
+	acdkx/orb/acdk2orb.h \
+	acdkx/orb/AcdkObject.h \
+	acdkx/orb/AcdkObjectInterface.h \
+	acdkx/orb/AContextImpl.h \
+	acdkx/orb/AORB.h \
+	acdkx/orb/AServerRequestImpl.h \
+	acdkx/orb/CDRObjectReader.h \
+	acdkx/orb/CDRObjectWriter.h \
+	acdkx/orb/Config.h \
+	acdkx/orb/CorObject.h \
+	acdkx/orb/GIOPMessage.h \
+	acdkx/orb/ObjectKey.h \
+	acdkx/orb/orb.h \
+	acdkx/orb/OrbConnection.h \
+	acdkx/orb/OrbConnectionMgr.h \
+	acdkx/orb/OrbInputStream.h \
+	acdkx/orb/OrbOutputStream.h \
+	acdkx/orb/ReplyInputStream.h \
+	acdkx/orb/ReplyOutputStream.h \
+	acdkx/orb/RequestOutputStream.h \
+	acdkx/orb/ServerDelegate.h \
+	acdkx/orb/std_orb.h \
+	acdkx/orb/selftests/selftests.h \
+	acdkx/orb/selftests/TestInterface.h \
+	acdkx/orb/selftests/TestInterfaceImpl.h \
+	acdkx/arb/ADelegate.h \
+	acdkx/arb/AObjectImpl.h \
+	acdkx/arb/arb.h \
+	acdkx/arb/Config.h \
+	acdkx/arb/XMLDelegate.h \
+
+OBJECTS= 	../tobj/acdkx_orb/sunos-gcc/Any.o \
+	../tobj/acdkx_orb/sunos-gcc/Contained.o \
+	../tobj/acdkx_orb/sunos-gcc/Container.o \
+	../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/InterfaceDef.o \
+	../tobj/acdkx_orb/sunos-gcc/ORB.o \
+	../tobj/acdkx_orb/sunos-gcc/OrbExceptions.o \
+	../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_ext.o \
+	../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_ext1.o \
+	../tobj/acdkx_orb/sunos-gcc/GIOP.o \
+	../tobj/acdkx_orb/sunos-gcc/ObjectImpl.o \
+	../tobj/acdkx_orb/sunos-gcc/portable_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/portable_metainf_ext.o \
+	../tobj/acdkx_orb/sunos-gcc/CosNaming_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/CosNaming_metainf_ext.o \
+	../tobj/acdkx_orb/sunos-gcc/PortableServer_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/PortableServer_metainf_ext.o \
+	../tobj/acdkx_orb/sunos-gcc/acdk2orb.o \
+	../tobj/acdkx_orb/sunos-gcc/AcdkObject.o \
+	../tobj/acdkx_orb/sunos-gcc/AcdkObject_clazzInfo.o \
+	../tobj/acdkx_orb/sunos-gcc/AORB.o \
+	../tobj/acdkx_orb/sunos-gcc/AServerRequestImpl.o \
+	../tobj/acdkx_orb/sunos-gcc/CDRObjectReader.o \
+	../tobj/acdkx_orb/sunos-gcc/CDRObjectWriter.o \
+	../tobj/acdkx_orb/sunos-gcc/CorObject.o \
+	../tobj/acdkx_orb/sunos-gcc/CorObject_clazzInfo.o \
+	../tobj/acdkx_orb/sunos-gcc/GIOPMessage.o \
+	../tobj/acdkx_orb/sunos-gcc/ObjectKey.o \
+	../tobj/acdkx_orb/sunos-gcc/OrbConnection.o \
+	../tobj/acdkx_orb/sunos-gcc/OrbConnectionMgr.o \
+	../tobj/acdkx_orb/sunos-gcc/OrbOutputStream.o \
+	../tobj/acdkx_orb/sunos-gcc/orb_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/ReplyInputStream.o \
+	../tobj/acdkx_orb/sunos-gcc/ReplyOutputStream.o \
+	../tobj/acdkx_orb/sunos-gcc/RequestOutputStream.o \
+	../tobj/acdkx_orb/sunos-gcc/ServerDelegate.o \
+	../tobj/acdkx_orb/sunos-gcc/orb_metainf_ext.o \
+	../tobj/acdkx_orb/sunos-gcc/selftests_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/selftests_metainf_ext.o \
+	../tobj/acdkx_orb/sunos-gcc/AObjectImpl.o \
+	../tobj/acdkx_orb/sunos-gcc/arb.o \
+	../tobj/acdkx_orb/sunos-gcc/arb_metainf_base.o \
+	../tobj/acdkx_orb/sunos-gcc/XMLDelegate.o \
+	../tobj/acdkx_orb/sunos-gcc/arb_metainf_ext.o \
+
+
+FINALTARGET=../../bin/libacdkx_orb.so
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/libacdkx_orb.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdkx_orb.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdkx_orb.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdkx_orb/sunos-gcc/Any.o: org/omg/CORBA/Any.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/Any.o -c org/omg/CORBA/Any.cpp
+
+../tobj/acdkx_orb/sunos-gcc/Contained.o: org/omg/CORBA/Contained.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/Contained.o -c org/omg/CORBA/Contained.cpp
+
+../tobj/acdkx_orb/sunos-gcc/Container.o: org/omg/CORBA/Container.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/Container.o -c org/omg/CORBA/Container.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_base.o: org/omg/CORBA/CORBA_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_base.o -c org/omg/CORBA/CORBA_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/InterfaceDef.o: org/omg/CORBA/InterfaceDef.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/InterfaceDef.o -c org/omg/CORBA/InterfaceDef.cpp
+
+../tobj/acdkx_orb/sunos-gcc/ORB.o: org/omg/CORBA/ORB.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/ORB.o -c org/omg/CORBA/ORB.cpp
+
+../tobj/acdkx_orb/sunos-gcc/OrbExceptions.o: org/omg/CORBA/OrbExceptions.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/OrbExceptions.o -c org/omg/CORBA/OrbExceptions.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_ext.o: org/omg/CORBA/CORBA_metainf/CORBA_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_ext.o -c org/omg/CORBA/CORBA_metainf/CORBA_metainf_ext.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_ext1.o: org/omg/CORBA/CORBA_metainf/CORBA_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CORBA_metainf_ext1.o -c org/omg/CORBA/CORBA_metainf/CORBA_metainf_ext1.cpp
+
+../tobj/acdkx_orb/sunos-gcc/GIOP.o: org/omg/CORBA/GIOP/GIOP.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/GIOP.o -c org/omg/CORBA/GIOP/GIOP.cpp
+
+../tobj/acdkx_orb/sunos-gcc/ObjectImpl.o: org/omg/CORBA/portable/ObjectImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/ObjectImpl.o -c org/omg/CORBA/portable/ObjectImpl.cpp
+
+../tobj/acdkx_orb/sunos-gcc/portable_metainf_base.o: org/omg/CORBA/portable/portable_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/portable_metainf_base.o -c org/omg/CORBA/portable/portable_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/portable_metainf_ext.o: org/omg/CORBA/portable/portable_metainf/portable_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/portable_metainf_ext.o -c org/omg/CORBA/portable/portable_metainf/portable_metainf_ext.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CosNaming_metainf_base.o: org/omg/CosNaming/CosNaming_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CosNaming_metainf_base.o -c org/omg/CosNaming/CosNaming_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CosNaming_metainf_ext.o: org/omg/CosNaming/CosNaming_metainf/CosNaming_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CosNaming_metainf_ext.o -c org/omg/CosNaming/CosNaming_metainf/CosNaming_metainf_ext.cpp
+
+../tobj/acdkx_orb/sunos-gcc/PortableServer_metainf_base.o: org/omg/PortableServer/PortableServer_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/PortableServer_metainf_base.o -c org/omg/PortableServer/PortableServer_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/PortableServer_metainf_ext.o: org/omg/PortableServer/PortableServer_metainf/PortableServer_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/PortableServer_metainf_ext.o -c org/omg/PortableServer/PortableServer_metainf/PortableServer_metainf_ext.cpp
+
+../tobj/acdkx_orb/sunos-gcc/acdk2orb.o: acdkx/orb/acdk2orb.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/acdk2orb.o -c acdkx/orb/acdk2orb.cpp
+
+../tobj/acdkx_orb/sunos-gcc/AcdkObject.o: acdkx/orb/AcdkObject.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/AcdkObject.o -c acdkx/orb/AcdkObject.cpp
+
+../tobj/acdkx_orb/sunos-gcc/AcdkObject_clazzInfo.o: acdkx/orb/AcdkObject_clazzInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/AcdkObject_clazzInfo.o -c acdkx/orb/AcdkObject_clazzInfo.cpp
+
+../tobj/acdkx_orb/sunos-gcc/AORB.o: acdkx/orb/AORB.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/AORB.o -c acdkx/orb/AORB.cpp
+
+../tobj/acdkx_orb/sunos-gcc/AServerRequestImpl.o: acdkx/orb/AServerRequestImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/AServerRequestImpl.o -c acdkx/orb/AServerRequestImpl.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CDRObjectReader.o: acdkx/orb/CDRObjectReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CDRObjectReader.o -c acdkx/orb/CDRObjectReader.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CDRObjectWriter.o: acdkx/orb/CDRObjectWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CDRObjectWriter.o -c acdkx/orb/CDRObjectWriter.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CorObject.o: acdkx/orb/CorObject.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CorObject.o -c acdkx/orb/CorObject.cpp
+
+../tobj/acdkx_orb/sunos-gcc/CorObject_clazzInfo.o: acdkx/orb/CorObject_clazzInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/CorObject_clazzInfo.o -c acdkx/orb/CorObject_clazzInfo.cpp
+
+../tobj/acdkx_orb/sunos-gcc/GIOPMessage.o: acdkx/orb/GIOPMessage.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/GIOPMessage.o -c acdkx/orb/GIOPMessage.cpp
+
+../tobj/acdkx_orb/sunos-gcc/ObjectKey.o: acdkx/orb/ObjectKey.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/ObjectKey.o -c acdkx/orb/ObjectKey.cpp
+
+../tobj/acdkx_orb/sunos-gcc/OrbConnection.o: acdkx/orb/OrbConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/OrbConnection.o -c acdkx/orb/OrbConnection.cpp
+
+../tobj/acdkx_orb/sunos-gcc/OrbConnectionMgr.o: acdkx/orb/OrbConnectionMgr.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/OrbConnectionMgr.o -c acdkx/orb/OrbConnectionMgr.cpp
+
+../tobj/acdkx_orb/sunos-gcc/OrbOutputStream.o: acdkx/orb/OrbOutputStream.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/OrbOutputStream.o -c acdkx/orb/OrbOutputStream.cpp
+
+../tobj/acdkx_orb/sunos-gcc/orb_metainf_base.o: acdkx/orb/orb_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/orb_metainf_base.o -c acdkx/orb/orb_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/ReplyInputStream.o: acdkx/orb/ReplyInputStream.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/ReplyInputStream.o -c acdkx/orb/ReplyInputStream.cpp
+
+../tobj/acdkx_orb/sunos-gcc/ReplyOutputStream.o: acdkx/orb/ReplyOutputStream.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/ReplyOutputStream.o -c acdkx/orb/ReplyOutputStream.cpp
+
+../tobj/acdkx_orb/sunos-gcc/RequestOutputStream.o: acdkx/orb/RequestOutputStream.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/RequestOutputStream.o -c acdkx/orb/RequestOutputStream.cpp
+
+../tobj/acdkx_orb/sunos-gcc/ServerDelegate.o: acdkx/orb/ServerDelegate.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/ServerDelegate.o -c acdkx/orb/ServerDelegate.cpp
+
+../tobj/acdkx_orb/sunos-gcc/orb_metainf_ext.o: acdkx/orb/orb_metainf/orb_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/orb_metainf_ext.o -c acdkx/orb/orb_metainf/orb_metainf_ext.cpp
+
+../tobj/acdkx_orb/sunos-gcc/selftests_metainf_base.o: acdkx/orb/selftests/selftests_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/selftests_metainf_base.o -c acdkx/orb/selftests/selftests_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/selftests_metainf_ext.o: acdkx/orb/selftests/selftests_metainf/selftests_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/selftests_metainf_ext.o -c acdkx/orb/selftests/selftests_metainf/selftests_metainf_ext.cpp
+
+../tobj/acdkx_orb/sunos-gcc/AObjectImpl.o: acdkx/arb/AObjectImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/AObjectImpl.o -c acdkx/arb/AObjectImpl.cpp
+
+../tobj/acdkx_orb/sunos-gcc/arb.o: acdkx/arb/arb.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/arb.o -c acdkx/arb/arb.cpp
+
+../tobj/acdkx_orb/sunos-gcc/arb_metainf_base.o: acdkx/arb/arb_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/arb_metainf_base.o -c acdkx/arb/arb_metainf_base.cpp
+
+../tobj/acdkx_orb/sunos-gcc/XMLDelegate.o: acdkx/arb/XMLDelegate.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/XMLDelegate.o -c acdkx/arb/XMLDelegate.cpp
+
+../tobj/acdkx_orb/sunos-gcc/arb_metainf_ext.o: acdkx/arb/arb_metainf/arb_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_orb/sunos-gcc/arb_metainf_ext.o -c acdkx/arb/arb_metainf/arb_metainf_ext.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdkx_orb.so $(OBJECTS)
+
+  

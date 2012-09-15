@@ -1,0 +1,187 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL OpCode DMI Interface</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode.html">OpCode</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;DMI Interface
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_aal_concept_opcode_expression.html">Expressions</a> | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | <a  href="acdk_aal_concept_opcode_class.html">Class</a> | DMI Interface |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL OpCode DMI Interface</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL OpCode DMI Interface</h1> -->
+<p class="curchapterline"> | <a  href="acdk_aal_concept_opcode_expression.html">Expressions</a> | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | <a  href="acdk_aal_concept_opcode_class.html">Class</a> | DMI Interface |</p>
+<p class="PageIntro">
+Intermediate OpCode for AAL.
+</p>
+
+
+<a name="jumptable141"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Basics"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Basics</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#DMI Client"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;DMI Client</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#invoke"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;invoke</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#peek"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;peek</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#peek_static"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;peek_static</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#DMI Server"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;DMI Server</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+<h2><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basics">Basics</a></h2>
+
+In connection with the StandardDispatch DMI interface
+an connector as DMI Server and DMI client should be used.
+
+In the first implementation of internal AAL objects this 
+interface should also be used for internal object invocation.
+
+<h2><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h2>
+A ClazzInfo can have an Attribute 
+__acdk_cls_rtext which holds static
+extension of the class.
+ClazzInfo->attributeRes[instd_acdk_dmi][objaddrs] == attributeRes
+
+and
+__acdk_obj_rtext which holds instance
+related extensions:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+<br>
+class&nbsp;InstanceAttributeData<br>
+:&nbsp;acdk::lang::Object<br>
+{<br>
+&nbsp;&nbsp;typedef&nbsp;core_vector&lt;KeyValue&lt;Object*,&nbsp;ClazzAttributesRes&gt;&nbsp;InstanceAttrMap;<br>
+&nbsp;&nbsp;InstanceAttrMap&nbsp;_data;<br>
+&nbsp;&nbsp;~InstanceAttributeData()<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;KeyValue&lt;StringRes,&nbsp;ClazzAttributeResValue&gt;&nbsp;getAttribute(MetaInfo*&nbsp;mi,&nbsp;Object*&nbsp;o,&nbsp;IN(RString)&nbsp;key)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;void&nbsp;releaseObject(Object*&nbsp;o)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;InstanceAttrMap::iterator&nbsp;it&nbsp;=&nbsp;find(o);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(it&nbsp;==&nbsp;_data.end())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_data.erase(it,&nbsp;it);<br>
+&nbsp;&nbsp;}<br>
+};<br>
+<br>
+class&nbsp;DmiRuntimeExt&nbsp;<br>
+{<br>
+&nbsp;&nbsp;RObject&nbsp;_dmiServer;<br>
+&nbsp;&nbsp;RDClazzInfo&nbsp;_clazzInfo;<br>
+&nbsp;&nbsp;core_vector&lt;pair&lt;name,&nbsp;ScriptVar&gt;&nbsp;&gt;&nbsp;_static_fields;<br>
+}<br></font>
+</td></tr></table>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+extend&nbsp;acdk.lang.Object&nbsp;with&nbsp;String&nbsp;foo(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i;&nbsp;}<br>
+//will&nbsp;add&nbsp;the&nbsp;method&nbsp;to&nbsp;the&nbsp;acdk.lang.Object&nbsp;class<br>
+acdk.lang.Object&nbsp;o&nbsp;=&nbsp;new&nbsp;acdk.lang.Object();<br>
+extend&nbsp;o&nbsp;with&nbsp;String&nbsp;foo(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i;&nbsp;}<br>
+//&nbsp;will&nbsp;add&nbsp;the&nbsp;method&nbsp;to&nbsp;object&nbsp;instance&nbsp;o&nbsp;only.<br>
+<br></font>
+</td></tr></table>
+
+
+
+<h2><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DMI Client">DMI Client</a></h2>
+<h3><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="invoke">invoke</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Top&nbsp;of&nbsp;Stack&nbsp;before&nbsp;call<br>
+----------------------------<br>
+int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invocation&nbsp;flags<br>
+obj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target&nbsp;Object&nbsp;to&nbsp;call<br>
+method&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;of&nbsp;Method&nbsp;name<br>
+arg&nbsp;n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;Argument<br>
+arg&nbsp;n-1<br>
+arg&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First&nbsp;Argument<br>
+<br>
+Top&nbsp;of&nbsp;Stack&nbsp;after&nbsp;call<br>
+----------------------------<br>
+any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;value&nbsp;of&nbsp;method&nbsp;(can&nbsp;be&nbsp;void)<br></font>
+</td></tr></table>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;method&nbsp;with&nbsp;2&nbsp;arguments<br>
+str.substr(0,&nbsp;1);<br>
+<br>
+push&nbsp;1<br>
+push&nbsp;0<br>
+push&nbsp;"substr"<br>
+push&nbsp;Var(str)<br>
+push&nbsp;2&nbsp;//&nbsp;count&nbsp;of&nbsp;arguments&nbsp;and&nbsp;flags<br>
+invoke<br>
+pop&nbsp;//&nbsp;return&nbsp;value<br></font>
+</td></tr></table>
+<h3><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="peek">peek</a></h3>
+<h3><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="peek_static">peek_static</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Top&nbsp;of&nbsp;Stack&nbsp;before&nbsp;call<br>
+----------------------------<br>
+int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invocation&nbsp;flags<br>
+str&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClassName<br>
+str&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MemberName<br>
+<br>
+Top&nbsp;of&nbsp;Stack&nbsp;after&nbsp;call<br>
+----------------------------<br>
+any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;value&nbsp;of&nbsp;member<br></font>
+</td></tr></table>
+<h2><a href="#jumptable141"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DMI Server">DMI Server</a></h2>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_aal_concept_opcode_expression.html">Expressions</a> | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | <a  href="acdk_aal_concept_opcode_class.html">Class</a> | DMI Interface |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,34 @@
+
+bool isSet = false;
+
+true || false && (isSet = true);
+if (isSet == true)
+  out.println("TEST Failed");
+  
+isSet = false;
+false || true && true && (isSet = true);
+if (isSet == false)
+  out.println("TEST Failed");
+  
+isSet = false;
+false && (isSet = true);
+true || (isSet = true);
+if (isSet == true)
+  out.println("TEST Failed");
+isSet = false;
+false || (isSet = true);
+if (isSet == false)
+  out.println("TEST Failed");
+
+
+
+String str;
+
+if (str != Nil && str.length() > 0)
+  ;
+else
+  out.println("OK");
+  
+if (str == Nil || str.length() == 0)
+  out.println("OK");
+  

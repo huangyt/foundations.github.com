@@ -1,0 +1,488 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+
+
+###############################################################################
+Project: "acdk_core"=src\acdk_core.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_core_metainf"=src\acdk_core_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_core_dmiproxy"=src\acdk_core_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_security"=src\acdk_security.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_security_metainf"=src\acdk_security_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_security
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_security_dmiproxy"=src\acdk_security_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_security
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_cfgscript"=src\acdk_cfgscript.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkcfgscript"=src\acdkcfgscript.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_cfgscript
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_tools_mc"=src\acdk_tools_mc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_cfgscript
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkmc"=src\acdkmc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_security
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_mc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_tools_aunit"=src\acdk_tools_aunit.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_tools_aunit_metainf"=src\acdk_tools_aunit_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_core_metainf
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_tools_aunit_dmiproxy"=src\acdk_tools_aunit_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_sys_RefHolder_Test"=tests/acdk/lang/sys\acdk_lang_sys_RefHolder_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_sys_Test"=tests/acdk/lang/sys\acdk_lang_sys_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_tools_aunit_TestSuite_Test"=tests/acdk/tools/aunit\acdk_tools_aunit_TestSuite_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_Object_Test"=tests/acdk/lang\acdk_lang_Object_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_Test"=tests/acdk/lang\acdk_lang_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_dmi_Test"=tests/acdk/lang/dmi\acdk_lang_dmi_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_ref_Test"=tests/acdk/lang/ref\acdk_lang_ref_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_lang_reflect_Test"=tests/acdk/lang/reflect\acdk_lang_reflect_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_io_Test"=tests/acdk/io\acdk_io_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_util_Test"=tests/acdk/util\acdk_util_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_util_logging_Test"=tests/acdk/util/logging\acdk_util_logging_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_tools_mc_Test"=tests/acdk/tools/mc\acdk_tools_mc_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_mc
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_locale_Test"=tests/acdk/locale\acdk_locale_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_cfgscript_Test"=tests/acdk/cfgscript\acdk_cfgscript_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_cfgscript
+    End Project Dependency
+}}}
+
+
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

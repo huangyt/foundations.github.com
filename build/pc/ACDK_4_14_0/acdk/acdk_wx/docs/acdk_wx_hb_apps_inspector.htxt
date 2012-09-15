@@ -1,0 +1,44 @@
+%id: acdk_wx_hb_apps_inspector
+%title: acdk_wx Inspector
+%shorttitle: Inspector
+%body:
+<pageintro>
+Inspector is is type explorer/class browser, a heap/object explorer and 
+a interactive CfgScript console.
+Inspector is written using a mixture of C++ and CfgScript.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+<jump1>Start Inspector</jump1>
+The main Inspector application is written in CfgScript. 
+You have to start it with acdkcfgscript interpreter:
+<c>acdk/bin/acdkcfgscript[_d] acdk/acdk_core/cfg/csf/lib/inspect/Inspector.csf</c>
+
+<jump1>Construction</jump1>
+Inspector is written with a combination of ACDK C++ and CfgScript.
+The GUI components ClassTreeCtrl, ObjectTreeCtrl and CfgScriptConsole are
+written in ACDK C++.
+These controls are used and controled in the CfgScript frame
+<c>acdk/acdk_core/cfg/csf/lib/inspect/Inspector.csf</c>.
+
+<jump2>Class View</jump2>
+The Class view (%cref[acdk::wx::inspector::ClassTreeCtrl]) is a traditional class browser. 
+
+All available type information can be viewed.
+Via File / Load DLL/SO additionally ACDK libraries with type information can be 
+loaded.
+<image src="inspector_classview.gif"/>
+
+<jump2>Object View</jump2>
+
+The Object view (%cref[acdk::wx::inspector::ObjectTreeCtrl]) display all root objects (Objects, which are not itself member
+of another Object). 
+
+<image src="inspector_objectview.gif"/>
+
+<jump2>CfgScript Console</jump2>
+The CfgScript Console (%cref[acdk::wx::inspector::CfgScriptConsole]) can invoke the the garbage collector or
+invoke fragments of CfgScript code.
+
+.

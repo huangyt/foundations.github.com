@@ -1,0 +1,117 @@
+%id: acdk_cfgscript_hb_lang_stmt_vardecl
+%title: CfgScript Variable Declaration Statements
+%shorttitle: Variable Declaration
+%seealso: acdk_cfgscript_hb_lang_types
+%body:
+<chapterline/>
+<pageintro>
+Type declarations introduces new Variable in a Script
+</pageintro>
+
+<htmlauto/>
+See also: %ref[acdk_cfgscript_hb_lang_types].
+
+<jumptable/>
+
+
+<jump1>VarDecl</jump1>
+<pre>
+VarDecl
+: [ %ref[TypeName, acdk_cfgscript_hb_lang_syntax#TypeName] ] VarName [ '=' %ref[Expression, acdk_cfgscript_hb_lang_expr] ] ';'
+;
+</pre>
+
+A component type name identifies a enumeration
+or class name with optional namespace/package name.
+
+<jump2>Class Name Resolution</jump2>
+The class name resolution works in following steps:
+
+<jump3>Search in TypeAlias</jump3>
+CfgScript first looks in the TypeAlias tables if there is
+any alias for given TypeName.
+If an alias was found the type name will replaced with the 
+original type name.
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_typealias].
+
+<jump3>Search in Usings</jump3>
+Next step is to search in the declared using
+in the scope.
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_using].
+
+<jump3>Search in Namespace</jump3>
+If the type was not found in the further steps
+the type are searched in the list of loaded 
+classes.
+
+If no namespace name is given it search through
+all namespaces to find the given class.
+
+If the same namespace exists in different namespaces
+the first found class will be choosen (no warning, no error!).
+
+If it the class cannot be found it uses 
+the ClassLoader to try to load the class.
+
+For more information about ClassLoader please refer to %ref[acdk_cfgscript_hb_lib].
+
+
+<jump2>Scoped Variables</jump2>
+The scope of variables are limited by their block:
+
+<source>
+int i = 42; // is global scope
+
+{ // Block, introduce new scope
+  
+  int i = 1; // overwrite variable for this scope
+  int j = 2; // j is only valid in this scope
+  i == 1;
+  j == 2;
+} // leaving scope 
+i == 42; // i is now global scope
+j == 2; // invalid because j is not longer valid
+</source>
+
+<jump2>Typed Variable Declarations</jump2>
+Typed variables has a defined type
+<source>
+int i; // i is an int
+acdk.lang.StringBuffer sb; // sb is StringBuffer
+i = 3; // OK
+i = 4.3; // OK, convert automatically
+i = "A Text"; // throws ClassCastException
+sb = new acdk.lang.StringBuffer(""); // OK
+sb = new Integer(2); // throws ClassCastException
+</source>
+
+
+<jump2>Untyped Variable Declarations</jump2>
+In the default mode ad hoc variables usage, without 
+a defined type of the variable is also possible:
+<source>
+i = 2; // i is a any-type (DmiObject) containing a byte
+i = "Text"; // now i contains a string
+Any j = 2; // Explicit Any type
+</source>
+
+See also: %ref[PragmaStatement, acdk_cfgscript_hb_lang_source#PragmaStatement].
+See also: %ref[acdk_cfgscript_hb_lang_types_any].
+
+<jump1>Global variables</jump1>
+The Script Environment contains following global variables.
+
+<fl>
+<f> 
+<f> interpreter: instance of current %cref[acdk::cfgscript::Script].
+<f> false: Boolean(false)
+<f> true: Boolean(true)
+<f> Nil, nil, null: Nil object
+<f> out: acdk.lang.System.out
+<f> err: acdk.lang.System.err
+<f> File_separator: acdk.io.File.separator
+<f> File_pathSeparator: acdk.io.File.pathSeparator
+</fl>
+.

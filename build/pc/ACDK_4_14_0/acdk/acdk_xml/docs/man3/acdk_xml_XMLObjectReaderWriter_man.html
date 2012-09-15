@@ -1,0 +1,249 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>XMLObject[Reader|Writer]</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK XML</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../acdk_xml_man.html">ACDK XML</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;XMLObject[Reader|Writer]
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | XMLObject[Reader|Writer] |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>XMLObject[Reader|Writer]</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>XMLObject[Reader|Writer]</h1> -->
+<p class="PageIntro">
+  With the XMLObject[Reader|Writer] class you can write and read
+  ACDK objects to a XML stream.
+</p>
+<br>
+<br>
+With the XMLObject[Reader|Writer] class you can write and read
+ACDK objects to a XML stream.<br>
+Therefore the Serialization-feature will be used.<br>
+<br>
+<a name="jumptable60"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Sample"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Sample</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable60"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample">Sample</a></h2>
+<br>
+On given class:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_CLASS</FONT></B>(TestClass);
+
+<B><FONT COLOR="#228B22">class</FONT></B> ACDK_XML_PUBLIC TestClass 
+: extends ::acdk::lang::Object
+{
+  <I><FONT COLOR="#B22222">// need meta information for serialisation
+</FONT></I>  ACDK_WITH_METAINFO
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <I><FONT COLOR="#B22222">/// just a few dummy data elements
+</FONT></I>  RString _astring;
+  <I><FONT COLOR="#B22222">/// ACDK-containes can be serialized
+</FONT></I>  RHashMap _map;
+  <B><FONT COLOR="#228B22">int</FONT></B> _ival;
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <I><FONT COLOR="#B22222">/** needed for de-serialisation */</FONT></I>
+  <B><FONT COLOR="#228B22">static</FONT></B> RObject create_instance() { <B><FONT COLOR="#A020F0">return</FONT></B> <B><FONT COLOR="#A020F0">new</FONT></B> TestClass(); }
+  TestClass()
+  : Object(),
+    _astring(<B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;Hallo&quot;</FONT></B>)),
+    _map(<B><FONT COLOR="#A020F0">new</FONT></B> HashMap()),
+    _ival(42)
+  {
+    _map-&gt;put(<B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;Kommer&quot;</FONT></B>), <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;Roger Rene&quot;</FONT></B>));
+    _map-&gt;put(<B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;Reinhard&quot;</FONT></B>), <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;Kai&quot;</FONT></B>));
+  }
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> equals(RObject o)
+  {
+    <B><FONT COLOR="#A020F0">if</FONT></B> (instanceof(o, TestClass) == false)
+      <B><FONT COLOR="#A020F0">return</FONT></B> false;
+    RTestClass other = (RTestClass)o;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (_astring-&gt;equals(other-&gt;_astring) == false)
+      <B><FONT COLOR="#A020F0">return</FONT></B> false;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (_map-&gt;equals(other-&gt;_map) == false)
+      <B><FONT COLOR="#A020F0">return</FONT></B> false;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (_ival != other-&gt;_ival)
+      <B><FONT COLOR="#A020F0">return</FONT></B> false;
+    <B><FONT COLOR="#A020F0">return</FONT></B> true;
+  }
+};
+</PRE></td></tr></table>
+<br>
+You can serialize the Class with:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+ <I><FONT COLOR="#B22222">// create an instance to serialize
+</FONT></I>  RTestClass object = <B><FONT COLOR="#A020F0">new</FONT></B> TestClass();
+  RString fname = <B><FONT COLOR="#BC8F8F">&quot;./TestClass.xml&quot;</FONT></B>;
+  {
+    RFileWriter fout = <B><FONT COLOR="#A020F0">new</FONT></B> FileWriter(fname);
+    <I><FONT COLOR="#B22222">// the XMLObjectWriter 
+</FONT></I>    RXMLObjectWriter xmlout = <B><FONT COLOR="#A020F0">new</FONT></B> XMLObjectWriter(fout);
+    <I><FONT COLOR="#B22222">// dump out with field information
+</FONT></I>    xmlout-&gt;withFieldInfo(true); 
+    xmlout-&gt;writeObject(object);
+  }
+  <I><FONT COLOR="#B22222">// and now read in (deserialize) the object from XML-Stream
+</FONT></I>  
+  RFileReader fin = <B><FONT COLOR="#A020F0">new</FONT></B> FileReader(fname);
+  RXMLObjectReader xmlin = <B><FONT COLOR="#A020F0">new</FONT></B> XMLObjectReader(fin);
+  RObject readedObject = xmlin-&gt;readObject();
+  <B><FONT COLOR="#A020F0">if</FONT></B> (readedObject-&gt;equals(object) == false)
+    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Test failed&quot;</FONT></B>);
+  <B><FONT COLOR="#A020F0">else</FONT></B>
+    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Test OK&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+The content of ./TestClass.xml:<br>
+<br>
+<pre>
+&nbsp;&lt;object&nbsp;name="acdk/xml/TestClass"&nbsp;lref="1"&gt;
+&nbsp;&nbsp;&lt;field&nbsp;name="_astring"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="2"&gt;Hallo&lt;/object&gt;
+&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&lt;field&nbsp;name="_ival"&gt;
+&nbsp;&nbsp;&nbsp;&lt;int&gt;42&lt;/int&gt;
+&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&lt;field&nbsp;name="_map"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/HashMap"&nbsp;lref="3"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_buckets"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="[acdk/util/Bucket"&nbsp;lref="4"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_length"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;11&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/Bucket"&nbsp;lref="5"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_first"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/BucketNode"&nbsp;lref="6"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_key"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="7"&gt;Kommer&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_value"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="8"&gt;Roger&nbsp;Rene&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_next"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/Bucket"&nbsp;lref="9"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_first"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/BucketNode"&nbsp;lref="10"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_key"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="11"&gt;Reinhard&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_value"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="12"&gt;Kai&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_next"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_capacity"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;11&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_loadFactor"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;float&gt;0.750000&lt;/float&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_modCount"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;2&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_size"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;2&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_threshold"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;8&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&lt;/object&gt;
+</pre>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | XMLObject[Reader|Writer] |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

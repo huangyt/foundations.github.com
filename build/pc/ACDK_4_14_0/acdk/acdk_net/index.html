@@ -1,0 +1,133 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk::net, networking, TCP/IP">
+<title>ACDK Net</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../docs/packages.html">Packages</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Net<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/readme.html">ACDK NET Readme</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_net_dll.html">acdk_net manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdkx_net_ssl.html">acdkx_net_ssl</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_net_srfsys.html">acdk_net_srfsys manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/acdk_general_install.html">Installation</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/ACDK-FreeLicense.html">License</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | ACDK Net | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Net</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Net</h1> -->
+<br>
+<p class="PageIntro">
+acdk_net contains the basic functions for network communication.</p>
+<br>
+<p></p>
+<m>acdk_net</m> corresponds to the java.net packages with 
+TCP and UDP Sockets and URLConnection (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__net__HttpURLConnection"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::net::HttpURLConnection</a> and
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__net__FileURLConnection"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::net::FileURLConnection</a>.<br>
+<br>
+The package <a  href="docs/acdkx_net_ssl.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdkx_net_ssl</m></a> provides a 
+simple <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdkx__net__ssl__SSLSocket"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdkx::net::ssl::SSLSocket</a> and HTTPSURLConnection.<br>
+Later can be used to access https URLs.<br>
+<br>
+The Socket networking classes fits into the ACDK IO framework.<br>
+<br>
+<m>acdk_net_ftp</m> provides a <a  href="../acdk_core/docs/acdk_io_FileSystem.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;virtual file systems</a> plugin 
+for the <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__File"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::io::File</a> fassade to access FTP Urls with ordinary file access. Please refer to the
+the unit tests <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=tests_acdk_net_ftp_acdk_net_ftp_FTPFileSystem_Test_cpp"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk_net_ftp_FTPFileSystem_Test.cpp</a>
+and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=tests_acdk_net_ftp_acdk_net_ftp_FTPClient_Test_cpp"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk_net_ftp_FTPClient_Test.cpp</a> for samples
+how to use transparent ftp server access.<br>
+<br>
+<br>
+It also contains an expermental (Simple Remote File System)
+in the package <m>acdk_net_srfsys</m> and (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__net__srfsys"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::net::srfsys</a>)
+and the server/client acdk_net_srsync to synchronize two computers.<br>
+It is not so sophisticated as f.e. rsync, but used in practise 
+to synchronize > 150 GB over modem lines.<br>
+<m>acdk_net_srfsys</m> is implemented as remote file system plugin
+for the <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__File"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::io::File</a> fassade.<p></p>
+<p></p>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="docs/readme.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK NET Readme</a></p><p class="pagesummary">
+ACDK NET (acdk_net)acdk_net contains the basic functions for network communication.</p><p class="subchapterlink"><a  href="docs/acdk_net_dll.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_net manual</a></p><p class="pagesummary">
+    </p><p class="subchapterlink"><a  href="docs/acdkx_net_ssl.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdkx_net_ssl manual</a></p><p class="pagesummary">
+  <m>acdkx_net_ssl</m> provides an implementation for
+  SSLSocket and a client URLConnection for the <c>https</c>  
+  protocol.
+</p><p class="subchapterlink"><a  href="docs/acdk_net_srfsys.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_net_srfsys manual</a></p><p class="pagesummary">
+  Simple Remote file system using standard acdk::io::File plugin 
+  interface.
+</p><p class="subchapterlink"><a  href="../docs/acdk_general_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK General installation notice</a></p><p class="pagesummary">
+How to install and compile ACDK.
+And how to create your own executable/library to make use of ACDK.
+</p><p class="subchapterlink"><a  href="../docs/ACDK-FreeLicense.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;The ACDK License Terms, LGPL</a></p><p class="pagesummary">
+ACDK is available under the LGPL license.
+</p></td></tr></table><!-- subchaptersframe -->
+
+<br>
+<br>
+Please refer also to:<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/</a> (Web at Sourceforge).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.com/</a> (Home of Artefaktur).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.ch/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.ch/</a> (Mirror)
+<li class="Feature"> <a  href="http://sourceforge.net/projects/acdk/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/projects/acdk/</a> (Support at Sourceforge).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/net/</a> (Home of this project).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__net.html"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__net.html</a> (Online reference).<br>
+<li class="Feature"> <a  href="mailto:kommer@artefaktur.com"><img border="0" src="./../docs\images/url_mailto.gif" alt="mailto">&nbsp;Roger Rene Kommer</a> (Mail Author).<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | ACDK Net | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,392 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK/Java serialization Sample</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Java</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_java_serialization_man.html">acdk_java_serialization</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Sample
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Sample |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK/Java serialization Sample</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK/Java serialization Sample</h1> -->
+<br>
+<br>
+<p class="PageIntro">
+Step by step sample how to use Java/ACDK compatible serialization.<br>
+</p>
+<br>
+The corresponding files can be found in
+ACDKHOME/acdk_java/tests/acdk/java/serialization/sample
+<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> 
+Create an java class, which should be serialized:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">public</FONT></B>
+<B><FONT COLOR="#228B22">class</FONT></B> JavaSerSample
+implements java.io.Serializable
+{
+  <B><FONT COLOR="#228B22">private</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> _x;
+  <B><FONT COLOR="#228B22">private</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> _y;
+  transient String privateData;
+  <B><FONT COLOR="#228B22">public</FONT></B> JavaSerSample(<B><FONT COLOR="#228B22">int</FONT></B> x, <B><FONT COLOR="#228B22">int</FONT></B> y)
+  {
+    _x = x;
+    _y = y;
+  }
+  <B><FONT COLOR="#228B22">public</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> getX() { <B><FONT COLOR="#A020F0">return</FONT></B> _x; }
+  <B><FONT COLOR="#228B22">public</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> getY() { <B><FONT COLOR="#A020F0">return</FONT></B> _y; }
+  String toString()
+  {
+    <B><FONT COLOR="#A020F0">return</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;x=&quot;</FONT></B> + _x + <B><FONT COLOR="#BC8F8F">&quot;, y=&quot;</FONT></B> + _y;
+  }
+}
+</PRE></td></tr></table>
+<br>
+<li class="Feature"> 
+Compile the JavaSerSample.java -> JavaSerSample.class
+<code>javac JavaSerSample.java</code>
+<br>
+<li class="Feature">
+Use JavaClassDeclToAcdkSer to generate type mapping:<br>
+<br>
+<code>java -classpath "$ACDKHOME/acdk_java/src/java:$ACDKHOME/acdk_java/tests/acdk/java/serialization/sample" JavaClassDeclToAcdkSer JavaSerSample > a2jser_JavaSerSample.cpp</code>
+Replace $ACDKHOME/acdk_java/tests/acdk/java/serialization/sample with your working dir.<br>
+<br>
+<li class="Feature">
+Add the generated file a2jser_JavaSerSample.cpp to your project:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/java/serialization/ClassDescription.h&gt;</FONT></B>
+
+
+
+::acdk::java::serialization::MemberTypeMapping a2jser_JavaSerSample_field__x = 
+{
+  <B><FONT COLOR="#BC8F8F">&quot;_x&quot;</FONT></B>, <I><FONT COLOR="#B22222">// acdk_name
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;int&quot;</FONT></B>, <I><FONT COLOR="#B22222">// acdk_type
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;_x&quot;</FONT></B>, <I><FONT COLOR="#B22222">// java_name
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;I&quot;</FONT></B> <I><FONT COLOR="#B22222">// java_type
+</FONT></I>};
+
+::acdk::java::serialization::MemberTypeMapping a2jser_JavaSerSample_field__y = 
+{
+  <B><FONT COLOR="#BC8F8F">&quot;_y&quot;</FONT></B>, <I><FONT COLOR="#B22222">// acdk_name
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;int&quot;</FONT></B>, <I><FONT COLOR="#B22222">// acdk_type
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;_y&quot;</FONT></B>, <I><FONT COLOR="#B22222">// java_name
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;I&quot;</FONT></B> <I><FONT COLOR="#B22222">// java_type
+</FONT></I>};
+
+::acdk::java::serialization::MemberTypeMapping* a2jser_JavaSerSample_fields[] = 
+{
+  &amp;a2jser_JavaSerSample_field__x,
+  &amp;a2jser_JavaSerSample_field__y,
+  0
+};
+
+::acdk::java::serialization::ClassTypeMapping a2jser_JavaSerSample = 
+{
+  <B><FONT COLOR="#BC8F8F">&quot;JavaSerSample&quot;</FONT></B>, <I><FONT COLOR="#B22222">// acdk_name
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;JavaSerSample&quot;</FONT></B>, <I><FONT COLOR="#B22222">// java_name
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>, <I><FONT COLOR="#B22222">// acdk_super
+</FONT></I>  <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>, <I><FONT COLOR="#B22222">// java_super
+</FONT></I>  ::acdk::java::serialization::SC_SERIALIZABLE, <I><FONT COLOR="#B22222">// flags
+</FONT></I>  JLONG_CONSTANT(0x8ec745aeeeefa3b0), <I><FONT COLOR="#B22222">// UID
+</FONT></I>  JLONG_CONSTANT(0xd02f4135bf6de609), <I><FONT COLOR="#B22222">//[] UID
+</FONT></I>  a2jser_JavaSerSample_fields, <I><FONT COLOR="#B22222">// Fields
+</FONT></I>  0, <I><FONT COLOR="#B22222">// read_func
+</FONT></I>  0, <I><FONT COLOR="#B22222">// write_func
+</FONT></I>  0 <I><FONT COLOR="#B22222">// used for internal linked list
+</FONT></I>};
+
+::acdk::java::serialization::RegisterTypeMapping register_a2jser_JavaSerSample(&amp;a2jser_JavaSerSample);
+
+</PRE></td></tr></table>
+<br>
+<br>
+<li class="Feature"> Create the corresponding ACDK class source:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+#<B><FONT COLOR="#5F9EA0">ifndef</FONT></B> <FONT COLOR="#B8860B">tests_acdk_java_serialization_JavaSerSample_h</FONT>
+#<B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">tests_acdk_java_serialization_JavaSerSample_h</FONT>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/Serializable.h&gt;</FONT></B>
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_CLASS</FONT></B>(JavaSerSample);
+
+<B><FONT COLOR="#228B22">class</FONT></B> JavaSerSample
+: extends ::acdk::lang::Object
+, implements ::acdk::io::Serializable
+{
+  <I><FONT COLOR="#B22222">// need meta info for serialization
+</FONT></I>  ACDK_WITH_METAINFO(JavaSerSample)
+<B><FONT COLOR="#228B22">private</FONT></B>:
+  <B><FONT COLOR="#228B22">int</FONT></B> _x;
+  <B><FONT COLOR="#228B22">int</FONT></B> _y;
+  <I><FONT COLOR="#B22222">// don't use this in serialization
+</FONT></I>  mutable RString _privateString;
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  JavaSerSample(<B><FONT COLOR="#228B22">int</FONT></B> x, <B><FONT COLOR="#228B22">int</FONT></B> y) 
+  : _x(x)
+  , _y(y)
+  {
+  }
+  <B><FONT COLOR="#228B22">int</FONT></B> getX() { <B><FONT COLOR="#A020F0">return</FONT></B> _x; }
+  <B><FONT COLOR="#228B22">int</FONT></B> getY() { <B><FONT COLOR="#A020F0">return</FONT></B> _y; }
+  RString toString() 
+  { 
+    StringBuffer sb;
+    sb &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;x=&quot;</FONT></B> &lt;&lt; _x &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, y=&quot;</FONT></B> &lt;&lt; _y;
+    <B><FONT COLOR="#A020F0">return</FONT></B> sb.toString();
+  }
+};
+
+#<B><FONT COLOR="#5F9EA0">endif</FONT></B> //<FONT COLOR="#B8860B">tests_acdk_java_serialization_JavaSerSample_h</FONT>
+
+</PRE></td></tr></table>
+<br>
+<li class="Feature"> Use acdkmc to generate meta info for ACKD class JavaSerSample.<br>
+    This is needed for serialization.<br>
+<code> $ACDKHOME/bin/acdmc $ACDKHOME/acdk_java/tests/acdk/java/serialization/sample</code>
+This will generate the files
+  <code>sample_metainf_base.cpp</code> and <code>sample_metainf/sample_metainf_ext.cpp</code>.<br>
+  Add these file to the project.<br>
+  
+<li class="Feature"> 
+create an empty sample.h.<br>
+<br>
+<li class="Feature"> 
+The main program source reads/write java serialized instances to/from file:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// Main.cpp</FONT></I>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/lang/System.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/FileReader.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/FileWriter.h&gt;</FONT></B>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/java/serialization/JavaObjectReader.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/java/serialization/JavaObjectWriter.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;JavaSerSample.h&quot;</FONT></B>
+
+namespace acdk {
+namespace java {
+namespace serialization {
+namespace sample {
+
+<B><FONT COLOR="#228B22">class</FONT></B> Main
+: extends acdk::lang::Object
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <I><FONT COLOR="#B22222">/**
+    write JavaSerSample and JavaSerSampleArray to be read by Java
+  */</FONT></I>
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> writeJavaSerSample()
+  {
+    RString acdkhome = System::getProperties()-&gt;getProperty(<B><FONT COLOR="#BC8F8F">&quot;ACDKHOME&quot;</FONT></B>);
+    {
+      RString rfname = acdkhome + <B><FONT COLOR="#BC8F8F">&quot;/acdk_java/tests/acdk/java/serialization/sample/JavaSerSample_a2j.dat&quot;</FONT></B>;
+      ::acdk::io::FileWriter fout(rfname);
+      ::acdk::java::serialization::JavaObjectWriter jout(&amp;fout);
+      RJavaSerSample sample = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample(44, 45);
+      jout.writeObject(&amp;sample);
+    }
+    {
+      RString rfname = acdkhome + <B><FONT COLOR="#BC8F8F">&quot;/acdk_java/tests/acdk/java/serialization/sample/JavaSerSampleArray_a2j.dat&quot;</FONT></B>;
+      ::acdk::io::FileWriter fout(rfname);
+      ::acdk::java::serialization::JavaObjectWriter jout(&amp;fout);
+      RJavaSerSampleArray sampleArray = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSampleArray(2);
+      sampleArray[0] = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample(50, 51);
+      sampleArray[1] = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample(52, 53);
+      jout.writeObject(&amp;sampleArray);
+    }
+  }
+  <I><FONT COLOR="#B22222">/**
+    read JavaSerSample and JavaSerSampleArray wrote by Java
+  */</FONT></I>
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> readJavaSerSample()
+  {
+    RString acdkhome = System::getProperties()-&gt;getProperty(<B><FONT COLOR="#BC8F8F">&quot;ACDKHOME&quot;</FONT></B>);
+    {
+      RString rfname = acdkhome + <B><FONT COLOR="#BC8F8F">&quot;/acdk_java/tests/acdk/java/serialization/sample/JavaSerSample_j2a.dat&quot;</FONT></B>;
+      ::acdk::io::FileReader fin(rfname);
+      ::acdk::java::serialization::JavaObjectReader jin(&amp;fin);
+      RObject obj = jin.readObject();
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;JavaSerSample readed: &quot;</FONT></B> + obj-&gt;getClass()-&gt;getName() + <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B> + obj-&gt;toString());
+      
+      RJavaSerSample sample = (RJavaSerSample)obj;
+
+    }
+    {
+      RString rfname = acdkhome + <B><FONT COLOR="#BC8F8F">&quot;/acdk_java/tests/acdk/java/serialization/sample/JavaSerSampleArray_j2a.dat&quot;</FONT></B>;
+      ::acdk::io::FileReader fin(rfname);
+      ::acdk::java::serialization::JavaObjectReader jin(&amp;fin);
+      RObject obj = jin.readObject();
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;JavaSerSample Array readed: &quot;</FONT></B> + obj-&gt;getClass()-&gt;getName() + <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B> + obj-&gt;toString());
+      RJavaSerSampleArray samplearray = (RJavaSerSampleArray)obj;
+    }
+  }
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> acdkmain(RStringArray args)
+  {
+    <B><FONT COLOR="#A020F0">try</FONT></B> {
+      writeJavaSerSample();
+      readJavaSerSample();
+    } <B><FONT COLOR="#A020F0">catch</FONT></B> (::acdk::io::RIOException ex) {
+      ex-&gt;printStackTrace();
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;IOException caught: &quot;</FONT></B> + ex-&gt;getMessage());
+    }
+    <B><FONT COLOR="#A020F0">return</FONT></B> 0;
+  }
+
+};
+
+}
+}
+}
+}
+
+<B><FONT COLOR="#228B22">int</FONT></B>
+<B><FONT COLOR="#0000FF">main</FONT></B>(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>* argv[], <B><FONT COLOR="#228B22">char</FONT></B>** envptr)
+{
+  <B><FONT COLOR="#A020F0">return</FONT></B> ::acdk::lang::System::main(acdk::java::serialization::sample::Main::acdkmain, argc, argv, envptr);
+} 
+</PRE></td></tr></table>
+<br>
+Add these files to your project.<br>
+<br>
+<li class="Feature"> Create a sample java program, which writes and reads an instance of JavaSerSample.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// ReadWriteJavaSerSample.java
+</FONT></I>import java.io.*;
+
+<B><FONT COLOR="#228B22">public</FONT></B> <B><FONT COLOR="#228B22">class</FONT></B> ReadWriteJavaSerSample
+{
+  <I><FONT COLOR="#B22222">/**
+    write JavaSerSample and JavaSerSample[] to be read by ACDK
+  */</FONT></I>
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> writeJavaSerSample() throws java.io.IOException
+  {
+    {
+      <I><FONT COLOR="#B22222">// write single object
+</FONT></I>      JavaSerSample obj = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample(41, 42);
+      FileOutputStream ostream = <B><FONT COLOR="#A020F0">new</FONT></B> FileOutputStream(<B><FONT COLOR="#BC8F8F">&quot;JavaSerSample_j2a.dat&quot;</FONT></B>);
+	    ObjectOutputStream p = <B><FONT COLOR="#A020F0">new</FONT></B> ObjectOutputStream(ostream);
+	    p.writeObject(obj);
+      p.flush();
+	    ostream.close();
+	  }
+	  {
+	    <I><FONT COLOR="#B22222">// write array of objects
+</FONT></I>      JavaSerSample[] obj = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample[2];
+      obj[0] = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample(41, 42);
+      obj[1] = <B><FONT COLOR="#A020F0">new</FONT></B> JavaSerSample(43, 44);
+      FileOutputStream ostream = <B><FONT COLOR="#A020F0">new</FONT></B> FileOutputStream(<B><FONT COLOR="#BC8F8F">&quot;JavaSerSampleArray_j2a.dat&quot;</FONT></B>);
+	    ObjectOutputStream p = <B><FONT COLOR="#A020F0">new</FONT></B> ObjectOutputStream(ostream);
+	    p.writeObject(obj);
+      p.flush();
+	    ostream.close();
+	  }
+  }
+  <I><FONT COLOR="#B22222">/**
+    read JavaSerSample and JavaSerSample[] written by ACDK
+  */</FONT></I>
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> readJavaSerSample() throws java.io.IOException, ClassNotFoundException
+  {
+    {
+      FileInputStream fin = <B><FONT COLOR="#A020F0">new</FONT></B> FileInputStream(<B><FONT COLOR="#BC8F8F">&quot;JavaSerSample_a2j.dat&quot;</FONT></B>);
+      ObjectInputStream oin = <B><FONT COLOR="#A020F0">new</FONT></B> ObjectInputStream(fin);
+      Object obj = oin.readObject();
+      System.out.println(<B><FONT COLOR="#BC8F8F">&quot;Read Java Object written by ACDK serialization: &quot;</FONT></B> + obj.toString());
+      JavaSerSample sample = (JavaSerSample)obj;
+      sample.getX();
+    }
+	  {
+      FileInputStream fin = <B><FONT COLOR="#A020F0">new</FONT></B> FileInputStream(<B><FONT COLOR="#BC8F8F">&quot;JavaSerSampleArray_a2j.dat&quot;</FONT></B>);
+      ObjectInputStream oin = <B><FONT COLOR="#A020F0">new</FONT></B> ObjectInputStream(fin);
+      Object obj = oin.readObject();
+      System.out.println(<B><FONT COLOR="#BC8F8F">&quot;Read Java Object Array written by ACDK serialization: &quot;</FONT></B> + obj.toString());
+      JavaSerSample[] sample = (JavaSerSample[])obj;
+      sample[0].getX();
+    }
+  }
+  <B><FONT COLOR="#228B22">public</FONT></B> <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> main(String[] args)
+  {
+   <B><FONT COLOR="#A020F0">try</FONT></B> {
+    writeJavaSerSample();
+    readJavaSerSample();
+  } <B><FONT COLOR="#A020F0">catch</FONT></B> (Throwable ex) {
+    System.out.println(<B><FONT COLOR="#BC8F8F">&quot;Exception in serialization: &quot;</FONT></B> + ex.getMessage());
+  }
+  }
+</PRE></td></tr></table>
+<li class="Feature"> 
+Run ACDK and Java executable.<br>
+In case the .dat files doesn't already exists, the executable will throw
+exceptions the first time running.<br>
+<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Sample |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

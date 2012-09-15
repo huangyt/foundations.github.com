@@ -1,0 +1,148 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_TOOLS_TESTUNIT_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_tools_aunit.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_tools_aunit\bcc"
+SOURCES= 	"acdk\tools\aunit\aunit_metainf_base.cpp" \
+	"acdk\tools\aunit\CfgScriptTestSuite.cpp" \
+	"acdk\tools\aunit\DmiTestClass.cpp" \
+	"acdk\tools\aunit\ProcessTestSuite.cpp" \
+	"acdk\tools\aunit\TestConsoleListener.cpp" \
+	"acdk\tools\aunit\TestDebuggerListener.cpp" \
+	"acdk\tools\aunit\TestHtmlReport.cpp" \
+	"acdk\tools\aunit\TestResult.cpp" \
+	"acdk\tools\aunit\TestRunner.cpp" \
+	"acdk\tools\aunit\TestTextReport.cpp" \
+	"acdk\tools\aunit\TestUnit.cpp" \
+
+HEADER= 	"acdk\tools\aunit\aunit.h" \
+	"acdk\tools\aunit\CfgScriptTestSuite.h" \
+	"acdk\tools\aunit\Config.h" \
+	"acdk\tools\aunit\core_test.h" \
+	"acdk\tools\aunit\DmiTestClass.h" \
+	"acdk\tools\aunit\DmiTestException.h" \
+	"acdk\tools\aunit\DmiTestInterface.h" \
+	"acdk\tools\aunit\McConfigTest.h" \
+	"acdk\tools\aunit\ProcessTestSuite.h" \
+	"acdk\tools\aunit\SayHelloInterface.h" \
+	"acdk\tools\aunit\Test.h" \
+	"acdk\tools\aunit\TestCollectorListener.h" \
+	"acdk\tools\aunit\TestConsoleListener.h" \
+	"acdk\tools\aunit\TestDebuggerListener.h" \
+	"acdk\tools\aunit\TestException.h" \
+	"acdk\tools\aunit\TestFailure.h" \
+	"acdk\tools\aunit\TestHtmlReport.h" \
+	"acdk\tools\aunit\TestListener.h" \
+	"acdk\tools\aunit\TestReport.h" \
+	"acdk\tools\aunit\TestResult.h" \
+	"acdk\tools\aunit\TestRunner.h" \
+	"acdk\tools\aunit\TestTextReport.h" \
+	"acdk\tools\aunit\TestUnit.h" \
+
+OBJECTS= 	"..\tobj\acdk_tools_aunit\bcc\aunit_metainf_base.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\CfgScriptTestSuite.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\DmiTestClass.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\ProcessTestSuite.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestConsoleListener.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestDebuggerListener.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestHtmlReport.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestResult.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestRunner.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestTextReport.obj" \
+	"..\tobj\acdk_tools_aunit\bcc\TestUnit.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_tools_aunit\bcc\aunit_metainf_base.obj": "acdk\tools\aunit\aunit_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\aunit_metainf_base.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\CfgScriptTestSuite.obj": "acdk\tools\aunit\CfgScriptTestSuite.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\CfgScriptTestSuite.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\DmiTestClass.obj": "acdk\tools\aunit\DmiTestClass.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\DmiTestClass.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\ProcessTestSuite.obj": "acdk\tools\aunit\ProcessTestSuite.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\ProcessTestSuite.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestConsoleListener.obj": "acdk\tools\aunit\TestConsoleListener.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestConsoleListener.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestDebuggerListener.obj": "acdk\tools\aunit\TestDebuggerListener.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestDebuggerListener.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestHtmlReport.obj": "acdk\tools\aunit\TestHtmlReport.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestHtmlReport.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestResult.obj": "acdk\tools\aunit\TestResult.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestResult.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestRunner.obj": "acdk\tools\aunit\TestRunner.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestRunner.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestTextReport.obj": "acdk\tools\aunit\TestTextReport.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestTextReport.cpp"
+
+"..\tobj\acdk_tools_aunit\bcc\TestUnit.obj": "acdk\tools\aunit\TestUnit.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_tools_aunit\bcc" "acdk\tools\aunit\TestUnit.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_tools_aunit.dll"
+	del "..\tobj\acdk_tools_aunit\bcc\aunit_metainf_base.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\CfgScriptTestSuite.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\DmiTestClass.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\ProcessTestSuite.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestConsoleListener.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestDebuggerListener.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestHtmlReport.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestResult.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestRunner.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestTextReport.obj"
+	del "..\tobj\acdk_tools_aunit\bcc\TestUnit.obj"
+
+

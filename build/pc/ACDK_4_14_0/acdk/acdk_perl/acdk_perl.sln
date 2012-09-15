@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_perl", "src\acdk_perl.vcxproj", "{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdkperl", "src\acdkperl.vcxproj", "{475FFB3C-FD40-9403-F3C4-683131C7D8EB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9} = {AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_perl_Test", "tests\acdk\perl\acdk_perl_Test.vcxproj", "{761CE284-698F-A680-B2D8-AA6274E7A188}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9} = {AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}.Debug|Win32.Build.0 = Debug|Win32
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}.Release|Win32.ActiveCfg = Release|Win32
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}.Release|Win32.Build.0 = Release|Win32
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}.Template|Win32.ActiveCfg = Release|Win32
+		{AA929F20-8D3C-7220-32ED-8B9E91A3B0A9}.Template|Win32.Build.0 = Release|Win32
+		{475FFB3C-FD40-9403-F3C4-683131C7D8EB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{475FFB3C-FD40-9403-F3C4-683131C7D8EB}.Debug|Win32.Build.0 = Debug|Win32
+		{475FFB3C-FD40-9403-F3C4-683131C7D8EB}.Release|Win32.ActiveCfg = Release|Win32
+		{475FFB3C-FD40-9403-F3C4-683131C7D8EB}.Release|Win32.Build.0 = Release|Win32
+		{475FFB3C-FD40-9403-F3C4-683131C7D8EB}.Template|Win32.ActiveCfg = Template|Win32
+		{475FFB3C-FD40-9403-F3C4-683131C7D8EB}.Template|Win32.Build.0 = Template|Win32
+		{761CE284-698F-A680-B2D8-AA6274E7A188}.Debug|Win32.ActiveCfg = Debug|Win32
+		{761CE284-698F-A680-B2D8-AA6274E7A188}.Debug|Win32.Build.0 = Debug|Win32
+		{761CE284-698F-A680-B2D8-AA6274E7A188}.Release|Win32.ActiveCfg = Release|Win32
+		{761CE284-698F-A680-B2D8-AA6274E7A188}.Release|Win32.Build.0 = Release|Win32
+		{761CE284-698F-A680-B2D8-AA6274E7A188}.Template|Win32.ActiveCfg = Template|Win32
+		{761CE284-698F-A680-B2D8-AA6274E7A188}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1336 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+#MWPATH="C:\Programme\CodeWarrior\Other Metrowerks Tools\Command Line Tools"
+MWPATH=C:\Programme\CodeWarrior\cmdl
+CC=$(MWPATH)\mwcc.exe
+CCOPTS=
+#SELFINCLUDE = -Iacdk\util acdk\locale;acdk\io;acdk\lang;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi
+CCINCLUDE= -gccinc -I../src  -I../../include -o ../tobj/acdk_core/mcw
+DEFINES= -DOS_WIN32 -DACDK_IN_ACDK_LIB
+
+LDFLAGS=-L$(OUTDIR) -shared
+LINK=$(MWPATH)\mwld.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES) 
+
+OUTFILE="..\..\bin\acdk_core.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_core\mcw"
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) $(LDFLAGS)  -commandfile acdk_core.mcw.ldcmd -o $(OUTFILE)
+
+
+SOURCES= 	"acdk\lang\acdk_lang_Package.cpp" \
+	"acdk\lang\BasicArray.cpp" \
+	"acdk\lang\Boolean.cpp" \
+	"acdk\lang\Byte.cpp" \
+	"acdk\lang\Character.cpp" \
+	"acdk\lang\Class.cpp" \
+	"acdk\lang\ClassCastException.cpp" \
+	"acdk\lang\ClassLoader.cpp" \
+	"acdk\lang\CmdLineOption.cpp" \
+	"acdk\lang\CmdLineParser.cpp" \
+	"acdk\lang\Double.cpp" \
+	"acdk\lang\Float.cpp" \
+	"acdk\lang\Integer.cpp" \
+	"acdk\lang\Lang.cpp" \
+	"acdk\lang\lang_clazzinfo.cpp" \
+	"acdk\lang\lang_clazzinfo1.cpp" \
+	"acdk\lang\lang_clazzinfo2.cpp" \
+	"acdk\lang\Long.cpp" \
+	"acdk\lang\Math.cpp" \
+	"acdk\lang\Object.cpp" \
+	"acdk\lang\ObjectArrayImpl.cpp" \
+	"acdk\lang\ObjectDebug.cpp" \
+	"acdk\lang\Package.cpp" \
+	"acdk\lang\Process.cpp" \
+	"acdk\lang\Runtime.cpp" \
+	"acdk\lang\SharedLibrary.cpp" \
+	"acdk\lang\Short.cpp" \
+	"acdk\lang\String.cpp" \
+	"acdk\lang\StringBuffer.cpp" \
+	"acdk\lang\StringOld.cpp" \
+	"acdk\lang\System.cpp" \
+	"acdk\lang\SystemError.cpp" \
+	"acdk\lang\Thread.cpp" \
+	"acdk\lang\ThreadGroup.cpp" \
+	"acdk\lang\Throwable.cpp" \
+	"acdk\lang\Void.cpp" \
+	"acdk\lang\dmi\AcdkDmiClient.cpp" \
+	"acdk\lang\dmi\AcdkStdWeakTypeDmiClient.cpp" \
+	"acdk\lang\dmi\ClazzInfo.cpp" \
+	"acdk\lang\dmi\DmiClient.cpp" \
+	"acdk\lang\dmi\dmi_clazzinfo.cpp" \
+	"acdk\lang\dmi\Marshaler.cpp" \
+	"acdk\lang\dmi\ScriptVar.cpp" \
+	"acdk\lang\dmi\ScriptVar2.cpp" \
+	"acdk\lang\dmi\StdDispatch.cpp" \
+	"acdk\lang\dmi\SysFields.cpp" \
+	"acdk\lang\sys\Allocator.cpp" \
+	"acdk\lang\sys\BackTrace.cpp" \
+	"acdk\lang\sys\BitmapPagedAllocator.cpp" \
+	"acdk\lang\sys\core_condition.cpp" \
+	"acdk\lang\sys\core_fastmutex.cpp" \
+	"acdk\lang\sys\core_mutex.cpp" \
+	"acdk\lang\sys\core_recursivemutex.cpp" \
+	"acdk\lang\sys\core_semaphore.cpp" \
+	"acdk\lang\sys\core_specific.cpp" \
+	"acdk\lang\sys\core_system.cpp" \
+	"acdk\lang\sys\core_winimage.cpp" \
+	"acdk\lang\sys\Garbage_Heap.cpp" \
+	"acdk\lang\sys\ObjectHeap.cpp" \
+	"acdk\lang\sys\ObjectLockPool.cpp" \
+	"acdk\lang\sys\PagedAllocator.cpp" \
+	"acdk\lang\sys\PagedHeap.cpp" \
+	"acdk\lang\sys\RC_GC_Heap.cpp" \
+	"acdk\lang\sys\RC_Heap.cpp" \
+	"acdk\lang\sys\StackAllocator.cpp" \
+	"acdk\lang\sys\sys_clazzinfo.cpp" \
+	"acdk\lang\sys\TraceCallStack.cpp" \
+	"acdk\lang\sys\TracedRawAllocator.cpp" \
+	"acdk\lang\ref\acdk_lang_ref_Package.cpp" \
+	"acdk\lang\ref\NotifyObjectEvent.cpp" \
+	"acdk\lang\ref\Reference.cpp" \
+	"acdk\lang\ref\ReferenceQueue.cpp" \
+	"acdk\lang\ref\ref_clazzinfo.cpp" \
+	"acdk\lang\reflect\Constructor.cpp" \
+	"acdk\lang\reflect\Field.cpp" \
+	"acdk\lang\reflect\Method.cpp" \
+	"acdk\lang\reflect\Modifier.cpp" \
+	"acdk\lang\reflect\reflect_clazzinfo.cpp" \
+	"acdk\io\AbstractFilterWriter.cpp" \
+	"acdk\io\AbstractObjectReader.cpp" \
+	"acdk\io\AbstractObjectWriter.cpp" \
+	"acdk\io\AbstractReader.cpp" \
+	"acdk\io\acdk_io_Package.cpp" \
+	"acdk\io\ASCIIDataReader.cpp" \
+	"acdk\io\ASCIIDataWriter.cpp" \
+	"acdk\io\BinaryDataReader.cpp" \
+	"acdk\io\BinaryDataWriter.cpp" \
+	"acdk\io\BinaryObjectReader.cpp" \
+	"acdk\io\BinaryObjectWriter.cpp" \
+	"acdk\io\BufferedReader.cpp" \
+	"acdk\io\BufferedWriter.cpp" \
+	"acdk\io\CharArrayReader.cpp" \
+	"acdk\io\CharArrayWriter.cpp" \
+	"acdk\io\ConsoleReader.cpp" \
+	"acdk\io\ConsoleWriter.cpp" \
+	"acdk\io\File.cpp" \
+	"acdk\io\FileAbstractImpl.cpp" \
+	"acdk\io\FileDescriptor.cpp" \
+	"acdk\io\FileImpl.cpp" \
+	"acdk\io\FileReader.cpp" \
+	"acdk\io\FileReaderWriterImpl.cpp" \
+	"acdk\io\FileStandardImpl.cpp" \
+	"acdk\io\FileSystem.cpp" \
+	"acdk\io\FileWriter.cpp" \
+	"acdk\io\GlobFilenameFilter.cpp" \
+	"acdk\io\InputReader.cpp" \
+	"acdk\io\IOException.cpp" \
+	"acdk\io\io_clazzinfo.cpp" \
+	"acdk\io\io_clazzinfo1.cpp" \
+	"acdk\io\JoinedReader.cpp" \
+	"acdk\io\LineNumberReader.cpp" \
+	"acdk\io\MemoryMappedFile.cpp" \
+	"acdk\io\MemReader.cpp" \
+	"acdk\io\MemWriter.cpp" \
+	"acdk\io\ObjectReader.cpp" \
+	"acdk\io\ObjectWriter.cpp" \
+	"acdk\io\PipedReader.cpp" \
+	"acdk\io\PipedWriter.cpp" \
+	"acdk\io\PrintWriter.cpp" \
+	"acdk\io\PushbackReader.cpp" \
+	"acdk\io\RandomAccessFile.cpp" \
+	"acdk\io\Reader.cpp" \
+	"acdk\io\RessourceFileSystem.cpp" \
+	"acdk\io\StreamTokenizer.cpp" \
+	"acdk\io\SubReader.cpp" \
+	"acdk\io\Writer.cpp" \
+	"acdk\util\AbstractCollection.cpp" \
+	"acdk\util\AbstractList.cpp" \
+	"acdk\util\AbstractListSubList.cpp" \
+	"acdk\util\AbstractMap.cpp" \
+	"acdk\util\AbstractSequentialList.cpp" \
+	"acdk\util\AbstractSet.cpp" \
+	"acdk\util\acdk_util_Package.cpp" \
+	"acdk\util\ArrayList.cpp" \
+	"acdk\util\Arrays.cpp" \
+	"acdk\util\BitSet.cpp" \
+	"acdk\util\Bucket.cpp" \
+	"acdk\util\Calendar.cpp" \
+	"acdk\util\Collections.cpp" \
+	"acdk\util\Date.cpp" \
+	"acdk\util\GregorianCalendar.cpp" \
+	"acdk\util\HashMap.cpp" \
+	"acdk\util\HashSet.cpp" \
+	"acdk\util\Hashtable.cpp" \
+	"acdk\util\LinkedList.cpp" \
+	"acdk\util\ListResourceBundle.cpp" \
+	"acdk\util\Locale.cpp" \
+	"acdk\util\Properties.cpp" \
+	"acdk\util\PropertyResourceBundle.cpp" \
+	"acdk\util\Random.cpp" \
+	"acdk\util\ResourceBundle.cpp" \
+	"acdk\util\SimpleCalendar.cpp" \
+	"acdk\util\SimpleListResourceBundle.cpp" \
+	"acdk\util\SimpleTimeZone.cpp" \
+	"acdk\util\StringTokenizer.cpp" \
+	"acdk\util\SysDate.cpp" \
+	"acdk\util\TimeZone.cpp" \
+	"acdk\util\TreeMap.cpp" \
+	"acdk\util\TreeSet.cpp" \
+	"acdk\util\util_clazzinfo.cpp" \
+	"acdk\util\util_clazzinfo1.cpp" \
+	"acdk\util\util_clazzinfo2.cpp" \
+	"acdk\util\Vector.cpp" \
+	"acdk\util\WeakHashMap.cpp" \
+	"acdk\locale\LocaleInfo.cpp" \
+	"acdk\locale\LocaleInfo_de.cpp" \
+	"acdk\locale\locale_clazzinfo.cpp" \
+
+HEADER= 	"acdk\acdk.h" \
+	"acdk\acdk_all.h" \
+	"acdk\Compiler.h" \
+	"acdk\Config.h" \
+	"acdk\Platform.h" \
+	"acdk\lang\ArrayIndexOutOfBoundsException.h" \
+	"acdk\lang\BasicArray.h" \
+	"acdk\lang\Boolean.h" \
+	"acdk\lang\Byte.h" \
+	"acdk\lang\Character.h" \
+	"acdk\lang\Class.h" \
+	"acdk\lang\ClassCastException.h" \
+	"acdk\lang\ClassLoader.h" \
+	"acdk\lang\ClassNotFoundException.h" \
+	"acdk\lang\Cloneable.h" \
+	"acdk\lang\CloneNotSupportedException.h" \
+	"acdk\lang\CmdLineOption.h" \
+	"acdk\lang\CmdLineParseException.h" \
+	"acdk\lang\CmdLineParser.h" \
+	"acdk\lang\Comparable.h" \
+	"acdk\lang\DmiException.h" \
+	"acdk\lang\DmiTypeConversionException.h" \
+	"acdk\lang\Double.h" \
+	"acdk\lang\Error.h" \
+	"acdk\lang\Exception.h" \
+	"acdk\lang\ExceptionDeclarations.h" \
+	"acdk\lang\Float.h" \
+	"acdk\lang\IllegalAccessException.h" \
+	"acdk\lang\IllegalArgumentException.h" \
+	"acdk\lang\IllegalMonitorStateException.h" \
+	"acdk\lang\IllegalStateException.h" \
+	"acdk\lang\IllegalThreadStateException.h" \
+	"acdk\lang\IndexOutOfBoundsException.h" \
+	"acdk\lang\InOutPreDeclaration.h" \
+	"acdk\lang\InstantiationException.h" \
+	"acdk\lang\Integer.h" \
+	"acdk\lang\InterfaceBase.h" \
+	"acdk\lang\InterruptedException.h" \
+	"acdk\lang\lang.h" \
+	"acdk\lang\lang_all.h" \
+	"acdk\lang\Logger.h" \
+	"acdk\lang\Long.h" \
+	"acdk\lang\Math.h" \
+	"acdk\lang\NoSuchDmiElementException.h" \
+	"acdk\lang\NoSuchElementException.h" \
+	"acdk\lang\NoSuchFieldException.h" \
+	"acdk\lang\NoSuchMethodException.h" \
+	"acdk\lang\NullPointerException.h" \
+	"acdk\lang\Number.h" \
+	"acdk\lang\NumberFormatException.h" \
+	"acdk\lang\Object.h" \
+	"acdk\lang\ObjectArrayImpl.h" \
+	"acdk\lang\ObjectBase.h" \
+	"acdk\lang\ObjectDebug.h" \
+	"acdk\lang\ObjectImpl.h" \
+	"acdk\lang\ObjectInline.h" \
+	"acdk\lang\Package.h" \
+	"acdk\lang\ParamsMismatchException.h" \
+	"acdk\lang\Process.h" \
+	"acdk\lang\Runnable.h" \
+	"acdk\lang\Runtime.h" \
+	"acdk\lang\RuntimeException.h" \
+	"acdk\lang\SharedLibrary.h" \
+	"acdk\lang\Short.h" \
+	"acdk\lang\String.h" \
+	"acdk\lang\StringBuffer.h" \
+	"acdk\lang\StringConcenator.h" \
+	"acdk\lang\StringIndexOutOfBoundsException.h" \
+	"acdk\lang\StringInline.h" \
+	"acdk\lang\StringOld.h" \
+	"acdk\lang\System.h" \
+	"acdk\lang\SystemError.h" \
+	"acdk\lang\SystemInline.h" \
+	"acdk\lang\Thread.h" \
+	"acdk\lang\ThreadGroup.h" \
+	"acdk\lang\ThreadImpl.h" \
+	"acdk\lang\ThreadLocal.h" \
+	"acdk\lang\ThreadLocalImpl.h" \
+	"acdk\lang\Throwable.h" \
+	"acdk\lang\UnsupportedOperationException.h" \
+	"acdk\lang\Void.h" \
+	"acdk\lang\dmi\AcdkDmiClient.h" \
+	"acdk\lang\dmi\AcdkStdWeakTypeDmiClient.h" \
+	"acdk\lang\dmi\ClazzInfo.h" \
+	"acdk\lang\dmi\dmi.h" \
+	"acdk\lang\dmi\DmiClient.h" \
+	"acdk\lang\dmi\Marshaler.h" \
+	"acdk\lang\dmi\ScriptInterpreter.h" \
+	"acdk\lang\dmi\ScriptVar.h" \
+	"acdk\lang\dmi\StdDispatch.h" \
+	"acdk\lang\dmi\SysFields.h" \
+	"acdk\lang\sys\Allocator.h" \
+	"acdk\lang\sys\BackTrace.h" \
+	"acdk\lang\sys\BitmapPagedAllocator.h" \
+	"acdk\lang\sys\BoehmGCAllocator.h" \
+	"acdk\lang\sys\ControlPushPopOnStack.h" \
+	"acdk\lang\sys\core_atomicop.h" \
+	"acdk\lang\sys\core_condition.h" \
+	"acdk\lang\sys\core_fastmutex.h" \
+	"acdk\lang\sys\core_guard.h" \
+	"acdk\lang\sys\core_hashmap.h" \
+	"acdk\lang\sys\core_mutex.h" \
+	"acdk\lang\sys\core_ptherror.h" \
+	"acdk\lang\sys\core_recursivemutex.h" \
+	"acdk\lang\sys\core_semaphore.h" \
+	"acdk\lang\sys\core_smartptr.h" \
+	"acdk\lang\sys\core_specific.h" \
+	"acdk\lang\sys\core_static_vector.h" \
+	"acdk\lang\sys\core_string.h" \
+	"acdk\lang\sys\core_system.h" \
+	"acdk\lang\sys\core_threadsys.h" \
+	"acdk\lang\sys\core_thread_id.h" \
+	"acdk\lang\sys\core_tick.h" \
+	"acdk\lang\sys\core_vector-new.h" \
+	"acdk\lang\sys\core_vector.h" \
+	"acdk\lang\sys\core_winimage.h" \
+	"acdk\lang\sys\default_vc_warnings.h" \
+	"acdk\lang\sys\disable_vc_warnings.h" \
+	"acdk\lang\sys\Garbage_Heap.h" \
+	"acdk\lang\sys\HeapFrame.h" \
+	"acdk\lang\sys\ObjectHeap.h" \
+	"acdk\lang\sys\ObjectLockPool.h" \
+	"acdk\lang\sys\PagedAllocator.h" \
+	"acdk\lang\sys\PagedHeap.h" \
+	"acdk\lang\sys\RC_GC_Heap.h" \
+	"acdk\lang\sys\RC_Heap.h" \
+	"acdk\lang\sys\RefHeap.h" \
+	"acdk\lang\sys\RefHolder.h" \
+	"acdk\lang\sys\RefHolder1.h" \
+	"acdk\lang\sys\RefHolder2.h" \
+	"acdk\lang\sys\RefHolder3.h" \
+	"acdk\lang\sys\RefHolder4.h" \
+	"acdk\lang\sys\RefHolder5.h" \
+	"acdk\lang\sys\RefHolderExt.h" \
+	"acdk\lang\sys\RefHolderX.h" \
+	"acdk\lang\sys\StackAllocator.h" \
+	"acdk\lang\sys\stdio.h" \
+	"acdk\lang\sys\sys.h" \
+	"acdk\lang\sys\SysRefHolder.h" \
+	"acdk\lang\sys\TraceCallStack.h" \
+	"acdk\lang\sys\TracedRawAllocator.h" \
+	"acdk\lang\ref\NotifyObjectEvent.h" \
+	"acdk\lang\ref\PhantomReference.h" \
+	"acdk\lang\ref\ref.h" \
+	"acdk\lang\ref\Reference.h" \
+	"acdk\lang\ref\ReferenceQueue.h" \
+	"acdk\lang\ref\SoftReference.h" \
+	"acdk\lang\ref\WeakReference.h" \
+	"acdk\lang\reflect\AccessibleObject.h" \
+	"acdk\lang\reflect\Constructor.h" \
+	"acdk\lang\reflect\Field.h" \
+	"acdk\lang\reflect\InvocationTargetException.h" \
+	"acdk\lang\reflect\Member.h" \
+	"acdk\lang\reflect\Method.h" \
+	"acdk\lang\reflect\Modifier.h" \
+	"acdk\lang\reflect\reflect.h" \
+	"acdk\io\AbstractFilterReader.h" \
+	"acdk\io\AbstractFilterWriter.h" \
+	"acdk\io\AbstractObjectReader.h" \
+	"acdk\io\AbstractObjectWriter.h" \
+	"acdk\io\AbstractReader.h" \
+	"acdk\io\AbstractStorageReader.h" \
+	"acdk\io\AbstractStorageWriter.h" \
+	"acdk\io\AbstractWriter.h" \
+	"acdk\io\ASCIIDataReader.h" \
+	"acdk\io\ASCIIDataWriter.h" \
+	"acdk\io\BinaryDataReader.h" \
+	"acdk\io\BinaryDataWriter.h" \
+	"acdk\io\BinaryObjectReader.h" \
+	"acdk\io\BinaryObjectWriter.h" \
+	"acdk\io\BufferedReader.h" \
+	"acdk\io\BufferedWriter.h" \
+	"acdk\io\CharArrayReader.h" \
+	"acdk\io\CharArrayWriter.h" \
+	"acdk\io\ConsoleReader.h" \
+	"acdk\io\ConsoleWriter.h" \
+	"acdk\io\DataReader.h" \
+	"acdk\io\DataWriter.h" \
+	"acdk\io\EOFException.h" \
+	"acdk\io\File.h" \
+	"acdk\io\FileAbstractImpl.h" \
+	"acdk\io\FileDescriptor.h" \
+	"acdk\io\FileFilter.h" \
+	"acdk\io\FileImpl.h" \
+	"acdk\io\FilenameFilter.h" \
+	"acdk\io\FileNotFoundException.h" \
+	"acdk\io\FileReader.h" \
+	"acdk\io\FileReaderWriterImpl.h" \
+	"acdk\io\FileStandardImpl.h" \
+	"acdk\io\FileStatus.h" \
+	"acdk\io\FileSystem.h" \
+	"acdk\io\FileWriter.h" \
+	"acdk\io\FilterReader.h" \
+	"acdk\io\FilterWriter.h" \
+	"acdk\io\GlobFilenameFilter.h" \
+	"acdk\io\InputReader.h" \
+	"acdk\io\io.h" \
+	"acdk\io\IOException.h" \
+	"acdk\io\io_all.h" \
+	"acdk\io\JoinedReader.h" \
+	"acdk\io\LineNumberReader.h" \
+	"acdk\io\MemoryMappedFile.h" \
+	"acdk\io\MemReader.h" \
+	"acdk\io\MemWriter.h" \
+	"acdk\io\NullWriter.h" \
+	"acdk\io\ObjectReader.h" \
+	"acdk\io\ObjectStreamException.h" \
+	"acdk\io\ObjectWriter.h" \
+	"acdk\io\PipedReader.h" \
+	"acdk\io\PipedWriter.h" \
+	"acdk\io\PrintWriter.h" \
+	"acdk\io\PushbackReader.h" \
+	"acdk\io\RandomAccessFile.h" \
+	"acdk\io\Reader.h" \
+	"acdk\io\RessourceFileImpl.h" \
+	"acdk\io\RessourceFileSystem.h" \
+	"acdk\io\Serializable.h" \
+	"acdk\io\Storage.h" \
+	"acdk\io\StreamTokenizer.h" \
+	"acdk\io\SubReader.h" \
+	"acdk\io\TeeReader.h" \
+	"acdk\io\TeeWriter.h" \
+	"acdk\io\Writer.h" \
+	"acdk\util\AbstractCollection.h" \
+	"acdk\util\AbstractList.h" \
+	"acdk\util\AbstractListIterator.h" \
+	"acdk\util\AbstractListListIterator.h" \
+	"acdk\util\AbstractListSubList.h" \
+	"acdk\util\AbstractMap.h" \
+	"acdk\util\AbstractSequentialList.h" \
+	"acdk\util\AbstractSet.h" \
+	"acdk\util\acdk_util_classes.h" \
+	"acdk\util\ArrayList.h" \
+	"acdk\util\Arrays.h" \
+	"acdk\util\BasicMapEntry.h" \
+	"acdk\util\BitSet.h" \
+	"acdk\util\Bucket.h" \
+	"acdk\util\Calendar.h" \
+	"acdk\util\Collection.h" \
+	"acdk\util\Collections.h" \
+	"acdk\util\Comparator.h" \
+	"acdk\util\ConcurrentModificationException.h" \
+	"acdk\util\Date.h" \
+	"acdk\util\Dictionary.h" \
+	"acdk\util\DoubleIterator.h" \
+	"acdk\util\Enumeration.h" \
+	"acdk\util\GregorianCalendar.h" \
+	"acdk\util\HashMap.h" \
+	"acdk\util\HashSet.h" \
+	"acdk\util\Hashtable.h" \
+	"acdk\util\Iterator.h" \
+	"acdk\util\LinkedList.h" \
+	"acdk\util\List.h" \
+	"acdk\util\ListIterator.h" \
+	"acdk\util\ListResourceBundle.h" \
+	"acdk\util\Locale.h" \
+	"acdk\util\Map.h" \
+	"acdk\util\MissingResourceException.h" \
+	"acdk\util\NoSuchElementException.h" \
+	"acdk\util\Properties.h" \
+	"acdk\util\PropertyResourceBundle.h" \
+	"acdk\util\Random.h" \
+	"acdk\util\ResourceBundle.h" \
+	"acdk\util\Set.h" \
+	"acdk\util\SimpleCalendar.h" \
+	"acdk\util\SimpleListResourceBundle.h" \
+	"acdk\util\SimpleTimeZone.h" \
+	"acdk\util\SortedMap.h" \
+	"acdk\util\SortedSet.h" \
+	"acdk\util\StringTokenizer.h" \
+	"acdk\util\SynchronizedCollections.h" \
+	"acdk\util\SysDate.h" \
+	"acdk\util\TimeZone.h" \
+	"acdk\util\TreeMap.h" \
+	"acdk\util\TreeSet.h" \
+	"acdk\util\util.h" \
+	"acdk\util\util_all.h" \
+	"acdk\util\Vector.h" \
+	"acdk\util\WeakHashMap.h" \
+	"acdk\locale\locale.h" \
+	"acdk\locale\LocaleInfo.h" \
+	"acdk\locale\LocaleInfo_de.h" \
+	"acdk\locale\LocaleInfo_en.h" \
+
+OBJECTS= 	"..\tobj\acdk_core\mcw\acdk_lang_Package.obj" \
+	"..\tobj\acdk_core\mcw\BasicArray.obj" \
+	"..\tobj\acdk_core\mcw\Boolean.obj" \
+	"..\tobj\acdk_core\mcw\Byte.obj" \
+	"..\tobj\acdk_core\mcw\Character.obj" \
+	"..\tobj\acdk_core\mcw\Class.obj" \
+	"..\tobj\acdk_core\mcw\ClassCastException.obj" \
+	"..\tobj\acdk_core\mcw\ClassLoader.obj" \
+	"..\tobj\acdk_core\mcw\CmdLineOption.obj" \
+	"..\tobj\acdk_core\mcw\CmdLineParser.obj" \
+	"..\tobj\acdk_core\mcw\Double.obj" \
+	"..\tobj\acdk_core\mcw\Float.obj" \
+	"..\tobj\acdk_core\mcw\Integer.obj" \
+	"..\tobj\acdk_core\mcw\Lang.obj" \
+	"..\tobj\acdk_core\mcw\lang_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\lang_clazzinfo1.obj" \
+	"..\tobj\acdk_core\mcw\lang_clazzinfo2.obj" \
+	"..\tobj\acdk_core\mcw\Long.obj" \
+	"..\tobj\acdk_core\mcw\Math.obj" \
+	"..\tobj\acdk_core\mcw\Object.obj" \
+	"..\tobj\acdk_core\mcw\ObjectArrayImpl.obj" \
+	"..\tobj\acdk_core\mcw\ObjectDebug.obj" \
+	"..\tobj\acdk_core\mcw\Package.obj" \
+	"..\tobj\acdk_core\mcw\Process.obj" \
+	"..\tobj\acdk_core\mcw\Runtime.obj" \
+	"..\tobj\acdk_core\mcw\SharedLibrary.obj" \
+	"..\tobj\acdk_core\mcw\Short.obj" \
+	"..\tobj\acdk_core\mcw\String.obj" \
+	"..\tobj\acdk_core\mcw\StringBuffer.obj" \
+	"..\tobj\acdk_core\mcw\StringOld.obj" \
+	"..\tobj\acdk_core\mcw\System.obj" \
+	"..\tobj\acdk_core\mcw\SystemError.obj" \
+	"..\tobj\acdk_core\mcw\Thread.obj" \
+	"..\tobj\acdk_core\mcw\ThreadGroup.obj" \
+	"..\tobj\acdk_core\mcw\Throwable.obj" \
+	"..\tobj\acdk_core\mcw\Void.obj" \
+	"..\tobj\acdk_core\mcw\AcdkDmiClient.obj" \
+	"..\tobj\acdk_core\mcw\AcdkStdWeakTypeDmiClient.obj" \
+	"..\tobj\acdk_core\mcw\ClazzInfo.obj" \
+	"..\tobj\acdk_core\mcw\DmiClient.obj" \
+	"..\tobj\acdk_core\mcw\dmi_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\Marshaler.obj" \
+	"..\tobj\acdk_core\mcw\ScriptVar.obj" \
+	"..\tobj\acdk_core\mcw\ScriptVar2.obj" \
+	"..\tobj\acdk_core\mcw\StdDispatch.obj" \
+	"..\tobj\acdk_core\mcw\SysFields.obj" \
+	"..\tobj\acdk_core\mcw\Allocator.obj" \
+	"..\tobj\acdk_core\mcw\BackTrace.obj" \
+	"..\tobj\acdk_core\mcw\BitmapPagedAllocator.obj" \
+	"..\tobj\acdk_core\mcw\core_condition.obj" \
+	"..\tobj\acdk_core\mcw\core_fastmutex.obj" \
+	"..\tobj\acdk_core\mcw\core_mutex.obj" \
+	"..\tobj\acdk_core\mcw\core_recursivemutex.obj" \
+	"..\tobj\acdk_core\mcw\core_semaphore.obj" \
+	"..\tobj\acdk_core\mcw\core_specific.obj" \
+	"..\tobj\acdk_core\mcw\core_system.obj" \
+	"..\tobj\acdk_core\mcw\core_winimage.obj" \
+	"..\tobj\acdk_core\mcw\Garbage_Heap.obj" \
+	"..\tobj\acdk_core\mcw\ObjectHeap.obj" \
+	"..\tobj\acdk_core\mcw\ObjectLockPool.obj" \
+	"..\tobj\acdk_core\mcw\PagedAllocator.obj" \
+	"..\tobj\acdk_core\mcw\PagedHeap.obj" \
+	"..\tobj\acdk_core\mcw\RC_GC_Heap.obj" \
+	"..\tobj\acdk_core\mcw\RC_Heap.obj" \
+	"..\tobj\acdk_core\mcw\StackAllocator.obj" \
+	"..\tobj\acdk_core\mcw\sys_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\TraceCallStack.obj" \
+	"..\tobj\acdk_core\mcw\TracedRawAllocator.obj" \
+	"..\tobj\acdk_core\mcw\acdk_lang_ref_Package.obj" \
+	"..\tobj\acdk_core\mcw\NotifyObjectEvent.obj" \
+	"..\tobj\acdk_core\mcw\Reference.obj" \
+	"..\tobj\acdk_core\mcw\ReferenceQueue.obj" \
+	"..\tobj\acdk_core\mcw\ref_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\Constructor.obj" \
+	"..\tobj\acdk_core\mcw\Field.obj" \
+	"..\tobj\acdk_core\mcw\Method.obj" \
+	"..\tobj\acdk_core\mcw\Modifier.obj" \
+	"..\tobj\acdk_core\mcw\reflect_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\AbstractFilterWriter.obj" \
+	"..\tobj\acdk_core\mcw\AbstractObjectReader.obj" \
+	"..\tobj\acdk_core\mcw\AbstractObjectWriter.obj" \
+	"..\tobj\acdk_core\mcw\AbstractReader.obj" \
+	"..\tobj\acdk_core\mcw\acdk_io_Package.obj" \
+	"..\tobj\acdk_core\mcw\ASCIIDataReader.obj" \
+	"..\tobj\acdk_core\mcw\ASCIIDataWriter.obj" \
+	"..\tobj\acdk_core\mcw\BinaryDataReader.obj" \
+	"..\tobj\acdk_core\mcw\BinaryDataWriter.obj" \
+	"..\tobj\acdk_core\mcw\BinaryObjectReader.obj" \
+	"..\tobj\acdk_core\mcw\BinaryObjectWriter.obj" \
+	"..\tobj\acdk_core\mcw\BufferedReader.obj" \
+	"..\tobj\acdk_core\mcw\BufferedWriter.obj" \
+	"..\tobj\acdk_core\mcw\CharArrayReader.obj" \
+	"..\tobj\acdk_core\mcw\CharArrayWriter.obj" \
+	"..\tobj\acdk_core\mcw\ConsoleReader.obj" \
+	"..\tobj\acdk_core\mcw\ConsoleWriter.obj" \
+	"..\tobj\acdk_core\mcw\File.obj" \
+	"..\tobj\acdk_core\mcw\FileAbstractImpl.obj" \
+	"..\tobj\acdk_core\mcw\FileDescriptor.obj" \
+	"..\tobj\acdk_core\mcw\FileImpl.obj" \
+	"..\tobj\acdk_core\mcw\FileReader.obj" \
+	"..\tobj\acdk_core\mcw\FileReaderWriterImpl.obj" \
+	"..\tobj\acdk_core\mcw\FileStandardImpl.obj" \
+	"..\tobj\acdk_core\mcw\FileSystem.obj" \
+	"..\tobj\acdk_core\mcw\FileWriter.obj" \
+	"..\tobj\acdk_core\mcw\GlobFilenameFilter.obj" \
+	"..\tobj\acdk_core\mcw\InputReader.obj" \
+	"..\tobj\acdk_core\mcw\IOException.obj" \
+	"..\tobj\acdk_core\mcw\io_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\io_clazzinfo1.obj" \
+	"..\tobj\acdk_core\mcw\JoinedReader.obj" \
+	"..\tobj\acdk_core\mcw\LineNumberReader.obj" \
+	"..\tobj\acdk_core\mcw\MemoryMappedFile.obj" \
+	"..\tobj\acdk_core\mcw\MemReader.obj" \
+	"..\tobj\acdk_core\mcw\MemWriter.obj" \
+	"..\tobj\acdk_core\mcw\ObjectReader.obj" \
+	"..\tobj\acdk_core\mcw\ObjectWriter.obj" \
+	"..\tobj\acdk_core\mcw\PipedReader.obj" \
+	"..\tobj\acdk_core\mcw\PipedWriter.obj" \
+	"..\tobj\acdk_core\mcw\PrintWriter.obj" \
+	"..\tobj\acdk_core\mcw\PushbackReader.obj" \
+	"..\tobj\acdk_core\mcw\RandomAccessFile.obj" \
+	"..\tobj\acdk_core\mcw\Reader.obj" \
+	"..\tobj\acdk_core\mcw\RessourceFileSystem.obj" \
+	"..\tobj\acdk_core\mcw\StreamTokenizer.obj" \
+	"..\tobj\acdk_core\mcw\SubReader.obj" \
+	"..\tobj\acdk_core\mcw\Writer.obj" \
+	"..\tobj\acdk_core\mcw\AbstractCollection.obj" \
+	"..\tobj\acdk_core\mcw\AbstractList.obj" \
+	"..\tobj\acdk_core\mcw\AbstractListSubList.obj" \
+	"..\tobj\acdk_core\mcw\AbstractMap.obj" \
+	"..\tobj\acdk_core\mcw\AbstractSequentialList.obj" \
+	"..\tobj\acdk_core\mcw\AbstractSet.obj" \
+	"..\tobj\acdk_core\mcw\acdk_util_Package.obj" \
+	"..\tobj\acdk_core\mcw\ArrayList.obj" \
+	"..\tobj\acdk_core\mcw\Arrays.obj" \
+	"..\tobj\acdk_core\mcw\BitSet.obj" \
+	"..\tobj\acdk_core\mcw\Bucket.obj" \
+	"..\tobj\acdk_core\mcw\Calendar.obj" \
+	"..\tobj\acdk_core\mcw\Collections.obj" \
+	"..\tobj\acdk_core\mcw\Date.obj" \
+	"..\tobj\acdk_core\mcw\GregorianCalendar.obj" \
+	"..\tobj\acdk_core\mcw\HashMap.obj" \
+	"..\tobj\acdk_core\mcw\HashSet.obj" \
+	"..\tobj\acdk_core\mcw\Hashtable.obj" \
+	"..\tobj\acdk_core\mcw\LinkedList.obj" \
+	"..\tobj\acdk_core\mcw\ListResourceBundle.obj" \
+	"..\tobj\acdk_core\mcw\Locale.obj" \
+	"..\tobj\acdk_core\mcw\Properties.obj" \
+	"..\tobj\acdk_core\mcw\PropertyResourceBundle.obj" \
+	"..\tobj\acdk_core\mcw\Random.obj" \
+	"..\tobj\acdk_core\mcw\ResourceBundle.obj" \
+	"..\tobj\acdk_core\mcw\SimpleCalendar.obj" \
+	"..\tobj\acdk_core\mcw\SimpleListResourceBundle.obj" \
+	"..\tobj\acdk_core\mcw\SimpleTimeZone.obj" \
+	"..\tobj\acdk_core\mcw\StringTokenizer.obj" \
+	"..\tobj\acdk_core\mcw\SysDate.obj" \
+	"..\tobj\acdk_core\mcw\TimeZone.obj" \
+	"..\tobj\acdk_core\mcw\TreeMap.obj" \
+	"..\tobj\acdk_core\mcw\TreeSet.obj" \
+	"..\tobj\acdk_core\mcw\util_clazzinfo.obj" \
+	"..\tobj\acdk_core\mcw\util_clazzinfo1.obj" \
+	"..\tobj\acdk_core\mcw\util_clazzinfo2.obj" \
+	"..\tobj\acdk_core\mcw\Vector.obj" \
+	"..\tobj\acdk_core\mcw\WeakHashMap.obj" \
+	"..\tobj\acdk_core\mcw\LocaleInfo.obj" \
+	"..\tobj\acdk_core\mcw\LocaleInfo_de.obj" \
+	"..\tobj\acdk_core\mcw\locale_clazzinfo.obj" \
+
+
+
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_core\mcw\acdk_lang_Package.obj": "acdk\lang\acdk_lang_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\acdk_lang_Package.cpp"
+
+"..\tobj\acdk_core\mcw\BasicArray.obj": "acdk\lang\BasicArray.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\BasicArray.cpp"
+
+"..\tobj\acdk_core\mcw\Boolean.obj": "acdk\lang\Boolean.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Boolean.cpp"
+
+"..\tobj\acdk_core\mcw\Byte.obj": "acdk\lang\Byte.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Byte.cpp"
+
+"..\tobj\acdk_core\mcw\Character.obj": "acdk\lang\Character.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Character.cpp"
+
+"..\tobj\acdk_core\mcw\Class.obj": "acdk\lang\Class.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Class.cpp"
+
+"..\tobj\acdk_core\mcw\ClassCastException.obj": "acdk\lang\ClassCastException.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ClassCastException.cpp"
+
+"..\tobj\acdk_core\mcw\ClassLoader.obj": "acdk\lang\ClassLoader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ClassLoader.cpp"
+
+"..\tobj\acdk_core\mcw\CmdLineOption.obj": "acdk\lang\CmdLineOption.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\CmdLineOption.cpp"
+
+"..\tobj\acdk_core\mcw\CmdLineParser.obj": "acdk\lang\CmdLineParser.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\CmdLineParser.cpp"
+
+"..\tobj\acdk_core\mcw\Double.obj": "acdk\lang\Double.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Double.cpp"
+
+"..\tobj\acdk_core\mcw\Float.obj": "acdk\lang\Float.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Float.cpp"
+
+"..\tobj\acdk_core\mcw\Integer.obj": "acdk\lang\Integer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Integer.cpp"
+
+"..\tobj\acdk_core\mcw\Lang.obj": "acdk\lang\Lang.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Lang.cpp"
+
+"..\tobj\acdk_core\mcw\lang_clazzinfo.obj": "acdk\lang\lang_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\lang_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\lang_clazzinfo1.obj": "acdk\lang\lang_clazzinfo1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\lang_clazzinfo1.cpp"
+
+"..\tobj\acdk_core\mcw\lang_clazzinfo2.obj": "acdk\lang\lang_clazzinfo2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\lang_clazzinfo2.cpp"
+
+"..\tobj\acdk_core\mcw\Long.obj": "acdk\lang\Long.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Long.cpp"
+
+"..\tobj\acdk_core\mcw\Math.obj": "acdk\lang\Math.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Math.cpp"
+
+"..\tobj\acdk_core\mcw\Object.obj": "acdk\lang\Object.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Object.cpp"
+
+"..\tobj\acdk_core\mcw\ObjectArrayImpl.obj": "acdk\lang\ObjectArrayImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ObjectArrayImpl.cpp"
+
+"..\tobj\acdk_core\mcw\ObjectDebug.obj": "acdk\lang\ObjectDebug.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ObjectDebug.cpp"
+
+"..\tobj\acdk_core\mcw\Package.obj": "acdk\lang\Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Package.cpp"
+
+"..\tobj\acdk_core\mcw\Process.obj": "acdk\lang\Process.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Process.cpp"
+
+"..\tobj\acdk_core\mcw\Runtime.obj": "acdk\lang\Runtime.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Runtime.cpp"
+
+"..\tobj\acdk_core\mcw\SharedLibrary.obj": "acdk\lang\SharedLibrary.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\SharedLibrary.cpp"
+
+"..\tobj\acdk_core\mcw\Short.obj": "acdk\lang\Short.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Short.cpp"
+
+"..\tobj\acdk_core\mcw\String.obj": "acdk\lang\String.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\String.cpp"
+
+"..\tobj\acdk_core\mcw\StringBuffer.obj": "acdk\lang\StringBuffer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\StringBuffer.cpp"
+
+"..\tobj\acdk_core\mcw\StringOld.obj": "acdk\lang\StringOld.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\StringOld.cpp"
+
+"..\tobj\acdk_core\mcw\System.obj": "acdk\lang\System.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\System.cpp"
+
+"..\tobj\acdk_core\mcw\SystemError.obj": "acdk\lang\SystemError.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\SystemError.cpp"
+
+"..\tobj\acdk_core\mcw\Thread.obj": "acdk\lang\Thread.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Thread.cpp"
+
+"..\tobj\acdk_core\mcw\ThreadGroup.obj": "acdk\lang\ThreadGroup.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ThreadGroup.cpp"
+
+"..\tobj\acdk_core\mcw\Throwable.obj": "acdk\lang\Throwable.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Throwable.cpp"
+
+"..\tobj\acdk_core\mcw\Void.obj": "acdk\lang\Void.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\Void.cpp"
+
+"..\tobj\acdk_core\mcw\AcdkDmiClient.obj": "acdk\lang\dmi\AcdkDmiClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\AcdkDmiClient.cpp"
+
+"..\tobj\acdk_core\mcw\AcdkStdWeakTypeDmiClient.obj": "acdk\lang\dmi\AcdkStdWeakTypeDmiClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\AcdkStdWeakTypeDmiClient.cpp"
+
+"..\tobj\acdk_core\mcw\ClazzInfo.obj": "acdk\lang\dmi\ClazzInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\ClazzInfo.cpp"
+
+"..\tobj\acdk_core\mcw\DmiClient.obj": "acdk\lang\dmi\DmiClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\DmiClient.cpp"
+
+"..\tobj\acdk_core\mcw\dmi_clazzinfo.obj": "acdk\lang\dmi\dmi_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\dmi_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\Marshaler.obj": "acdk\lang\dmi\Marshaler.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\Marshaler.cpp"
+
+"..\tobj\acdk_core\mcw\ScriptVar.obj": "acdk\lang\dmi\ScriptVar.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\ScriptVar.cpp"
+
+"..\tobj\acdk_core\mcw\ScriptVar2.obj": "acdk\lang\dmi\ScriptVar2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\ScriptVar2.cpp"
+
+"..\tobj\acdk_core\mcw\StdDispatch.obj": "acdk\lang\dmi\StdDispatch.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\StdDispatch.cpp"
+
+"..\tobj\acdk_core\mcw\SysFields.obj": "acdk\lang\dmi\SysFields.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\dmi\SysFields.cpp"
+
+"..\tobj\acdk_core\mcw\Allocator.obj": "acdk\lang\sys\Allocator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\Allocator.cpp"
+
+"..\tobj\acdk_core\mcw\BackTrace.obj": "acdk\lang\sys\BackTrace.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\BackTrace.cpp"
+
+"..\tobj\acdk_core\mcw\BitmapPagedAllocator.obj": "acdk\lang\sys\BitmapPagedAllocator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\BitmapPagedAllocator.cpp"
+
+"..\tobj\acdk_core\mcw\core_condition.obj": "acdk\lang\sys\core_condition.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_condition.cpp"
+
+"..\tobj\acdk_core\mcw\core_fastmutex.obj": "acdk\lang\sys\core_fastmutex.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_fastmutex.cpp"
+
+"..\tobj\acdk_core\mcw\core_mutex.obj": "acdk\lang\sys\core_mutex.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_mutex.cpp"
+
+"..\tobj\acdk_core\mcw\core_recursivemutex.obj": "acdk\lang\sys\core_recursivemutex.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_recursivemutex.cpp"
+
+"..\tobj\acdk_core\mcw\core_semaphore.obj": "acdk\lang\sys\core_semaphore.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_semaphore.cpp"
+
+"..\tobj\acdk_core\mcw\core_specific.obj": "acdk\lang\sys\core_specific.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_specific.cpp"
+
+"..\tobj\acdk_core\mcw\core_system.obj": "acdk\lang\sys\core_system.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_system.cpp"
+
+"..\tobj\acdk_core\mcw\core_winimage.obj": "acdk\lang\sys\core_winimage.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\core_winimage.cpp"
+
+"..\tobj\acdk_core\mcw\Garbage_Heap.obj": "acdk\lang\sys\Garbage_Heap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\Garbage_Heap.cpp"
+
+"..\tobj\acdk_core\mcw\ObjectHeap.obj": "acdk\lang\sys\ObjectHeap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\ObjectHeap.cpp"
+
+"..\tobj\acdk_core\mcw\ObjectLockPool.obj": "acdk\lang\sys\ObjectLockPool.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\ObjectLockPool.cpp"
+
+"..\tobj\acdk_core\mcw\PagedAllocator.obj": "acdk\lang\sys\PagedAllocator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\PagedAllocator.cpp"
+
+"..\tobj\acdk_core\mcw\PagedHeap.obj": "acdk\lang\sys\PagedHeap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\PagedHeap.cpp"
+
+"..\tobj\acdk_core\mcw\RC_GC_Heap.obj": "acdk\lang\sys\RC_GC_Heap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\RC_GC_Heap.cpp"
+
+"..\tobj\acdk_core\mcw\RC_Heap.obj": "acdk\lang\sys\RC_Heap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\RC_Heap.cpp"
+
+"..\tobj\acdk_core\mcw\StackAllocator.obj": "acdk\lang\sys\StackAllocator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\StackAllocator.cpp"
+
+"..\tobj\acdk_core\mcw\sys_clazzinfo.obj": "acdk\lang\sys\sys_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\sys_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\TraceCallStack.obj": "acdk\lang\sys\TraceCallStack.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\TraceCallStack.cpp"
+
+"..\tobj\acdk_core\mcw\TracedRawAllocator.obj": "acdk\lang\sys\TracedRawAllocator.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\sys\TracedRawAllocator.cpp"
+
+"..\tobj\acdk_core\mcw\acdk_lang_ref_Package.obj": "acdk\lang\ref\acdk_lang_ref_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ref\acdk_lang_ref_Package.cpp"
+
+"..\tobj\acdk_core\mcw\NotifyObjectEvent.obj": "acdk\lang\ref\NotifyObjectEvent.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ref\NotifyObjectEvent.cpp"
+
+"..\tobj\acdk_core\mcw\Reference.obj": "acdk\lang\ref\Reference.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ref\Reference.cpp"
+
+"..\tobj\acdk_core\mcw\ReferenceQueue.obj": "acdk\lang\ref\ReferenceQueue.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ref\ReferenceQueue.cpp"
+
+"..\tobj\acdk_core\mcw\ref_clazzinfo.obj": "acdk\lang\ref\ref_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\ref\ref_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\Constructor.obj": "acdk\lang\reflect\Constructor.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\reflect\Constructor.cpp"
+
+"..\tobj\acdk_core\mcw\Field.obj": "acdk\lang\reflect\Field.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\reflect\Field.cpp"
+
+"..\tobj\acdk_core\mcw\Method.obj": "acdk\lang\reflect\Method.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\reflect\Method.cpp"
+
+"..\tobj\acdk_core\mcw\Modifier.obj": "acdk\lang\reflect\Modifier.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\reflect\Modifier.cpp"
+
+"..\tobj\acdk_core\mcw\reflect_clazzinfo.obj": "acdk\lang\reflect\reflect_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\lang\reflect\reflect_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractFilterWriter.obj": "acdk\io\AbstractFilterWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\AbstractFilterWriter.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractObjectReader.obj": "acdk\io\AbstractObjectReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\AbstractObjectReader.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractObjectWriter.obj": "acdk\io\AbstractObjectWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\AbstractObjectWriter.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractReader.obj": "acdk\io\AbstractReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\AbstractReader.cpp"
+
+"..\tobj\acdk_core\mcw\acdk_io_Package.obj": "acdk\io\acdk_io_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\acdk_io_Package.cpp"
+
+"..\tobj\acdk_core\mcw\ASCIIDataReader.obj": "acdk\io\ASCIIDataReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\ASCIIDataReader.cpp"
+
+"..\tobj\acdk_core\mcw\ASCIIDataWriter.obj": "acdk\io\ASCIIDataWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\ASCIIDataWriter.cpp"
+
+"..\tobj\acdk_core\mcw\BinaryDataReader.obj": "acdk\io\BinaryDataReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\BinaryDataReader.cpp"
+
+"..\tobj\acdk_core\mcw\BinaryDataWriter.obj": "acdk\io\BinaryDataWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\BinaryDataWriter.cpp"
+
+"..\tobj\acdk_core\mcw\BinaryObjectReader.obj": "acdk\io\BinaryObjectReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\BinaryObjectReader.cpp"
+
+"..\tobj\acdk_core\mcw\BinaryObjectWriter.obj": "acdk\io\BinaryObjectWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\BinaryObjectWriter.cpp"
+
+"..\tobj\acdk_core\mcw\BufferedReader.obj": "acdk\io\BufferedReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\BufferedReader.cpp"
+
+"..\tobj\acdk_core\mcw\BufferedWriter.obj": "acdk\io\BufferedWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\BufferedWriter.cpp"
+
+"..\tobj\acdk_core\mcw\CharArrayReader.obj": "acdk\io\CharArrayReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\CharArrayReader.cpp"
+
+"..\tobj\acdk_core\mcw\CharArrayWriter.obj": "acdk\io\CharArrayWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\CharArrayWriter.cpp"
+
+"..\tobj\acdk_core\mcw\ConsoleReader.obj": "acdk\io\ConsoleReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\ConsoleReader.cpp"
+
+"..\tobj\acdk_core\mcw\ConsoleWriter.obj": "acdk\io\ConsoleWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\ConsoleWriter.cpp"
+
+"..\tobj\acdk_core\mcw\File.obj": "acdk\io\File.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\File.cpp"
+
+"..\tobj\acdk_core\mcw\FileAbstractImpl.obj": "acdk\io\FileAbstractImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileAbstractImpl.cpp"
+
+"..\tobj\acdk_core\mcw\FileDescriptor.obj": "acdk\io\FileDescriptor.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileDescriptor.cpp"
+
+"..\tobj\acdk_core\mcw\FileImpl.obj": "acdk\io\FileImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileImpl.cpp"
+
+"..\tobj\acdk_core\mcw\FileReader.obj": "acdk\io\FileReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileReader.cpp"
+
+"..\tobj\acdk_core\mcw\FileReaderWriterImpl.obj": "acdk\io\FileReaderWriterImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileReaderWriterImpl.cpp"
+
+"..\tobj\acdk_core\mcw\FileStandardImpl.obj": "acdk\io\FileStandardImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileStandardImpl.cpp"
+
+"..\tobj\acdk_core\mcw\FileSystem.obj": "acdk\io\FileSystem.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileSystem.cpp"
+
+"..\tobj\acdk_core\mcw\FileWriter.obj": "acdk\io\FileWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\FileWriter.cpp"
+
+"..\tobj\acdk_core\mcw\GlobFilenameFilter.obj": "acdk\io\GlobFilenameFilter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\GlobFilenameFilter.cpp"
+
+"..\tobj\acdk_core\mcw\InputReader.obj": "acdk\io\InputReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\InputReader.cpp"
+
+"..\tobj\acdk_core\mcw\IOException.obj": "acdk\io\IOException.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\IOException.cpp"
+
+"..\tobj\acdk_core\mcw\io_clazzinfo.obj": "acdk\io\io_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\io_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\io_clazzinfo1.obj": "acdk\io\io_clazzinfo1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\io_clazzinfo1.cpp"
+
+"..\tobj\acdk_core\mcw\JoinedReader.obj": "acdk\io\JoinedReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\JoinedReader.cpp"
+
+"..\tobj\acdk_core\mcw\LineNumberReader.obj": "acdk\io\LineNumberReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\LineNumberReader.cpp"
+
+"..\tobj\acdk_core\mcw\MemoryMappedFile.obj": "acdk\io\MemoryMappedFile.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\MemoryMappedFile.cpp"
+
+"..\tobj\acdk_core\mcw\MemReader.obj": "acdk\io\MemReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\MemReader.cpp"
+
+"..\tobj\acdk_core\mcw\MemWriter.obj": "acdk\io\MemWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\MemWriter.cpp"
+
+"..\tobj\acdk_core\mcw\ObjectReader.obj": "acdk\io\ObjectReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\ObjectReader.cpp"
+
+"..\tobj\acdk_core\mcw\ObjectWriter.obj": "acdk\io\ObjectWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\ObjectWriter.cpp"
+
+"..\tobj\acdk_core\mcw\PipedReader.obj": "acdk\io\PipedReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\PipedReader.cpp"
+
+"..\tobj\acdk_core\mcw\PipedWriter.obj": "acdk\io\PipedWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\PipedWriter.cpp"
+
+"..\tobj\acdk_core\mcw\PrintWriter.obj": "acdk\io\PrintWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\PrintWriter.cpp"
+
+"..\tobj\acdk_core\mcw\PushbackReader.obj": "acdk\io\PushbackReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\PushbackReader.cpp"
+
+"..\tobj\acdk_core\mcw\RandomAccessFile.obj": "acdk\io\RandomAccessFile.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\RandomAccessFile.cpp"
+
+"..\tobj\acdk_core\mcw\Reader.obj": "acdk\io\Reader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\Reader.cpp"
+
+"..\tobj\acdk_core\mcw\RessourceFileSystem.obj": "acdk\io\RessourceFileSystem.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\RessourceFileSystem.cpp"
+
+"..\tobj\acdk_core\mcw\StreamTokenizer.obj": "acdk\io\StreamTokenizer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\StreamTokenizer.cpp"
+
+"..\tobj\acdk_core\mcw\SubReader.obj": "acdk\io\SubReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\SubReader.cpp"
+
+"..\tobj\acdk_core\mcw\Writer.obj": "acdk\io\Writer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\io\Writer.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractCollection.obj": "acdk\util\AbstractCollection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\AbstractCollection.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractList.obj": "acdk\util\AbstractList.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\AbstractList.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractListSubList.obj": "acdk\util\AbstractListSubList.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\AbstractListSubList.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractMap.obj": "acdk\util\AbstractMap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\AbstractMap.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractSequentialList.obj": "acdk\util\AbstractSequentialList.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\AbstractSequentialList.cpp"
+
+"..\tobj\acdk_core\mcw\AbstractSet.obj": "acdk\util\AbstractSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\AbstractSet.cpp"
+
+"..\tobj\acdk_core\mcw\acdk_util_Package.obj": "acdk\util\acdk_util_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\acdk_util_Package.cpp"
+
+"..\tobj\acdk_core\mcw\ArrayList.obj": "acdk\util\ArrayList.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\ArrayList.cpp"
+
+"..\tobj\acdk_core\mcw\Arrays.obj": "acdk\util\Arrays.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Arrays.cpp"
+
+"..\tobj\acdk_core\mcw\BitSet.obj": "acdk\util\BitSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\BitSet.cpp"
+
+"..\tobj\acdk_core\mcw\Bucket.obj": "acdk\util\Bucket.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Bucket.cpp"
+
+"..\tobj\acdk_core\mcw\Calendar.obj": "acdk\util\Calendar.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Calendar.cpp"
+
+"..\tobj\acdk_core\mcw\Collections.obj": "acdk\util\Collections.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Collections.cpp"
+
+"..\tobj\acdk_core\mcw\Date.obj": "acdk\util\Date.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Date.cpp"
+
+"..\tobj\acdk_core\mcw\GregorianCalendar.obj": "acdk\util\GregorianCalendar.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\GregorianCalendar.cpp"
+
+"..\tobj\acdk_core\mcw\HashMap.obj": "acdk\util\HashMap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\HashMap.cpp"
+
+"..\tobj\acdk_core\mcw\HashSet.obj": "acdk\util\HashSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\HashSet.cpp"
+
+"..\tobj\acdk_core\mcw\Hashtable.obj": "acdk\util\Hashtable.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Hashtable.cpp"
+
+"..\tobj\acdk_core\mcw\LinkedList.obj": "acdk\util\LinkedList.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\LinkedList.cpp"
+
+"..\tobj\acdk_core\mcw\ListResourceBundle.obj": "acdk\util\ListResourceBundle.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\ListResourceBundle.cpp"
+
+"..\tobj\acdk_core\mcw\Locale.obj": "acdk\util\Locale.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Locale.cpp"
+
+"..\tobj\acdk_core\mcw\Properties.obj": "acdk\util\Properties.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Properties.cpp"
+
+"..\tobj\acdk_core\mcw\PropertyResourceBundle.obj": "acdk\util\PropertyResourceBundle.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\PropertyResourceBundle.cpp"
+
+"..\tobj\acdk_core\mcw\Random.obj": "acdk\util\Random.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Random.cpp"
+
+"..\tobj\acdk_core\mcw\ResourceBundle.obj": "acdk\util\ResourceBundle.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\ResourceBundle.cpp"
+
+"..\tobj\acdk_core\mcw\SimpleCalendar.obj": "acdk\util\SimpleCalendar.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\SimpleCalendar.cpp"
+
+"..\tobj\acdk_core\mcw\SimpleListResourceBundle.obj": "acdk\util\SimpleListResourceBundle.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\SimpleListResourceBundle.cpp"
+
+"..\tobj\acdk_core\mcw\SimpleTimeZone.obj": "acdk\util\SimpleTimeZone.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\SimpleTimeZone.cpp"
+
+"..\tobj\acdk_core\mcw\StringTokenizer.obj": "acdk\util\StringTokenizer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\StringTokenizer.cpp"
+
+"..\tobj\acdk_core\mcw\SysDate.obj": "acdk\util\SysDate.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\SysDate.cpp"
+
+"..\tobj\acdk_core\mcw\TimeZone.obj": "acdk\util\TimeZone.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\TimeZone.cpp"
+
+"..\tobj\acdk_core\mcw\TreeMap.obj": "acdk\util\TreeMap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\TreeMap.cpp"
+
+"..\tobj\acdk_core\mcw\TreeSet.obj": "acdk\util\TreeSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\TreeSet.cpp"
+
+"..\tobj\acdk_core\mcw\util_clazzinfo.obj": "acdk\util\util_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\util_clazzinfo.cpp"
+
+"..\tobj\acdk_core\mcw\util_clazzinfo1.obj": "acdk\util\util_clazzinfo1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\util_clazzinfo1.cpp"
+
+"..\tobj\acdk_core\mcw\util_clazzinfo2.obj": "acdk\util\util_clazzinfo2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\util_clazzinfo2.cpp"
+
+"..\tobj\acdk_core\mcw\Vector.obj": "acdk\util\Vector.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\Vector.cpp"
+
+"..\tobj\acdk_core\mcw\WeakHashMap.obj": "acdk\util\WeakHashMap.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\util\WeakHashMap.cpp"
+
+"..\tobj\acdk_core\mcw\LocaleInfo.obj": "acdk\locale\LocaleInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\locale\LocaleInfo.cpp"
+
+"..\tobj\acdk_core\mcw\LocaleInfo_de.obj": "acdk\locale\LocaleInfo_de.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\locale\LocaleInfo_de.cpp"
+
+"..\tobj\acdk_core\mcw\locale_clazzinfo.obj": "acdk\locale\locale_clazzinfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) "acdk\locale\locale_clazzinfo.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_core.dll"
+	del "..\tobj\acdk_core\mcw\acdk_lang_Package.obj"
+	del "..\tobj\acdk_core\mcw\BasicArray.obj"
+	del "..\tobj\acdk_core\mcw\Boolean.obj"
+	del "..\tobj\acdk_core\mcw\Byte.obj"
+	del "..\tobj\acdk_core\mcw\Character.obj"
+	del "..\tobj\acdk_core\mcw\Class.obj"
+	del "..\tobj\acdk_core\mcw\ClassCastException.obj"
+	del "..\tobj\acdk_core\mcw\ClassLoader.obj"
+	del "..\tobj\acdk_core\mcw\CmdLineOption.obj"
+	del "..\tobj\acdk_core\mcw\CmdLineParser.obj"
+	del "..\tobj\acdk_core\mcw\Double.obj"
+	del "..\tobj\acdk_core\mcw\Float.obj"
+	del "..\tobj\acdk_core\mcw\Integer.obj"
+	del "..\tobj\acdk_core\mcw\Lang.obj"
+	del "..\tobj\acdk_core\mcw\lang_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\lang_clazzinfo1.obj"
+	del "..\tobj\acdk_core\mcw\lang_clazzinfo2.obj"
+	del "..\tobj\acdk_core\mcw\Long.obj"
+	del "..\tobj\acdk_core\mcw\Math.obj"
+	del "..\tobj\acdk_core\mcw\Object.obj"
+	del "..\tobj\acdk_core\mcw\ObjectArrayImpl.obj"
+	del "..\tobj\acdk_core\mcw\ObjectDebug.obj"
+	del "..\tobj\acdk_core\mcw\Package.obj"
+	del "..\tobj\acdk_core\mcw\Process.obj"
+	del "..\tobj\acdk_core\mcw\Runtime.obj"
+	del "..\tobj\acdk_core\mcw\SharedLibrary.obj"
+	del "..\tobj\acdk_core\mcw\Short.obj"
+	del "..\tobj\acdk_core\mcw\String.obj"
+	del "..\tobj\acdk_core\mcw\StringBuffer.obj"
+	del "..\tobj\acdk_core\mcw\StringOld.obj"
+	del "..\tobj\acdk_core\mcw\System.obj"
+	del "..\tobj\acdk_core\mcw\SystemError.obj"
+	del "..\tobj\acdk_core\mcw\Thread.obj"
+	del "..\tobj\acdk_core\mcw\ThreadGroup.obj"
+	del "..\tobj\acdk_core\mcw\Throwable.obj"
+	del "..\tobj\acdk_core\mcw\Void.obj"
+	del "..\tobj\acdk_core\mcw\AcdkDmiClient.obj"
+	del "..\tobj\acdk_core\mcw\AcdkStdWeakTypeDmiClient.obj"
+	del "..\tobj\acdk_core\mcw\ClazzInfo.obj"
+	del "..\tobj\acdk_core\mcw\DmiClient.obj"
+	del "..\tobj\acdk_core\mcw\dmi_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\Marshaler.obj"
+	del "..\tobj\acdk_core\mcw\ScriptVar.obj"
+	del "..\tobj\acdk_core\mcw\ScriptVar2.obj"
+	del "..\tobj\acdk_core\mcw\StdDispatch.obj"
+	del "..\tobj\acdk_core\mcw\SysFields.obj"
+	del "..\tobj\acdk_core\mcw\Allocator.obj"
+	del "..\tobj\acdk_core\mcw\BackTrace.obj"
+	del "..\tobj\acdk_core\mcw\BitmapPagedAllocator.obj"
+	del "..\tobj\acdk_core\mcw\core_condition.obj"
+	del "..\tobj\acdk_core\mcw\core_fastmutex.obj"
+	del "..\tobj\acdk_core\mcw\core_mutex.obj"
+	del "..\tobj\acdk_core\mcw\core_recursivemutex.obj"
+	del "..\tobj\acdk_core\mcw\core_semaphore.obj"
+	del "..\tobj\acdk_core\mcw\core_specific.obj"
+	del "..\tobj\acdk_core\mcw\core_system.obj"
+	del "..\tobj\acdk_core\mcw\core_winimage.obj"
+	del "..\tobj\acdk_core\mcw\Garbage_Heap.obj"
+	del "..\tobj\acdk_core\mcw\ObjectHeap.obj"
+	del "..\tobj\acdk_core\mcw\ObjectLockPool.obj"
+	del "..\tobj\acdk_core\mcw\PagedAllocator.obj"
+	del "..\tobj\acdk_core\mcw\PagedHeap.obj"
+	del "..\tobj\acdk_core\mcw\RC_GC_Heap.obj"
+	del "..\tobj\acdk_core\mcw\RC_Heap.obj"
+	del "..\tobj\acdk_core\mcw\StackAllocator.obj"
+	del "..\tobj\acdk_core\mcw\sys_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\TraceCallStack.obj"
+	del "..\tobj\acdk_core\mcw\TracedRawAllocator.obj"
+	del "..\tobj\acdk_core\mcw\acdk_lang_ref_Package.obj"
+	del "..\tobj\acdk_core\mcw\NotifyObjectEvent.obj"
+	del "..\tobj\acdk_core\mcw\Reference.obj"
+	del "..\tobj\acdk_core\mcw\ReferenceQueue.obj"
+	del "..\tobj\acdk_core\mcw\ref_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\Constructor.obj"
+	del "..\tobj\acdk_core\mcw\Field.obj"
+	del "..\tobj\acdk_core\mcw\Method.obj"
+	del "..\tobj\acdk_core\mcw\Modifier.obj"
+	del "..\tobj\acdk_core\mcw\reflect_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\AbstractFilterWriter.obj"
+	del "..\tobj\acdk_core\mcw\AbstractObjectReader.obj"
+	del "..\tobj\acdk_core\mcw\AbstractObjectWriter.obj"
+	del "..\tobj\acdk_core\mcw\AbstractReader.obj"
+	del "..\tobj\acdk_core\mcw\acdk_io_Package.obj"
+	del "..\tobj\acdk_core\mcw\ASCIIDataReader.obj"
+	del "..\tobj\acdk_core\mcw\ASCIIDataWriter.obj"
+	del "..\tobj\acdk_core\mcw\BinaryDataReader.obj"
+	del "..\tobj\acdk_core\mcw\BinaryDataWriter.obj"
+	del "..\tobj\acdk_core\mcw\BinaryObjectReader.obj"
+	del "..\tobj\acdk_core\mcw\BinaryObjectWriter.obj"
+	del "..\tobj\acdk_core\mcw\BufferedReader.obj"
+	del "..\tobj\acdk_core\mcw\BufferedWriter.obj"
+	del "..\tobj\acdk_core\mcw\CharArrayReader.obj"
+	del "..\tobj\acdk_core\mcw\CharArrayWriter.obj"
+	del "..\tobj\acdk_core\mcw\ConsoleReader.obj"
+	del "..\tobj\acdk_core\mcw\ConsoleWriter.obj"
+	del "..\tobj\acdk_core\mcw\File.obj"
+	del "..\tobj\acdk_core\mcw\FileAbstractImpl.obj"
+	del "..\tobj\acdk_core\mcw\FileDescriptor.obj"
+	del "..\tobj\acdk_core\mcw\FileImpl.obj"
+	del "..\tobj\acdk_core\mcw\FileReader.obj"
+	del "..\tobj\acdk_core\mcw\FileReaderWriterImpl.obj"
+	del "..\tobj\acdk_core\mcw\FileStandardImpl.obj"
+	del "..\tobj\acdk_core\mcw\FileSystem.obj"
+	del "..\tobj\acdk_core\mcw\FileWriter.obj"
+	del "..\tobj\acdk_core\mcw\GlobFilenameFilter.obj"
+	del "..\tobj\acdk_core\mcw\InputReader.obj"
+	del "..\tobj\acdk_core\mcw\IOException.obj"
+	del "..\tobj\acdk_core\mcw\io_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\io_clazzinfo1.obj"
+	del "..\tobj\acdk_core\mcw\JoinedReader.obj"
+	del "..\tobj\acdk_core\mcw\LineNumberReader.obj"
+	del "..\tobj\acdk_core\mcw\MemoryMappedFile.obj"
+	del "..\tobj\acdk_core\mcw\MemReader.obj"
+	del "..\tobj\acdk_core\mcw\MemWriter.obj"
+	del "..\tobj\acdk_core\mcw\ObjectReader.obj"
+	del "..\tobj\acdk_core\mcw\ObjectWriter.obj"
+	del "..\tobj\acdk_core\mcw\PipedReader.obj"
+	del "..\tobj\acdk_core\mcw\PipedWriter.obj"
+	del "..\tobj\acdk_core\mcw\PrintWriter.obj"
+	del "..\tobj\acdk_core\mcw\PushbackReader.obj"
+	del "..\tobj\acdk_core\mcw\RandomAccessFile.obj"
+	del "..\tobj\acdk_core\mcw\Reader.obj"
+	del "..\tobj\acdk_core\mcw\RessourceFileSystem.obj"
+	del "..\tobj\acdk_core\mcw\StreamTokenizer.obj"
+	del "..\tobj\acdk_core\mcw\SubReader.obj"
+	del "..\tobj\acdk_core\mcw\Writer.obj"
+	del "..\tobj\acdk_core\mcw\AbstractCollection.obj"
+	del "..\tobj\acdk_core\mcw\AbstractList.obj"
+	del "..\tobj\acdk_core\mcw\AbstractListSubList.obj"
+	del "..\tobj\acdk_core\mcw\AbstractMap.obj"
+	del "..\tobj\acdk_core\mcw\AbstractSequentialList.obj"
+	del "..\tobj\acdk_core\mcw\AbstractSet.obj"
+	del "..\tobj\acdk_core\mcw\acdk_util_Package.obj"
+	del "..\tobj\acdk_core\mcw\ArrayList.obj"
+	del "..\tobj\acdk_core\mcw\Arrays.obj"
+	del "..\tobj\acdk_core\mcw\BitSet.obj"
+	del "..\tobj\acdk_core\mcw\Bucket.obj"
+	del "..\tobj\acdk_core\mcw\Calendar.obj"
+	del "..\tobj\acdk_core\mcw\Collections.obj"
+	del "..\tobj\acdk_core\mcw\Date.obj"
+	del "..\tobj\acdk_core\mcw\GregorianCalendar.obj"
+	del "..\tobj\acdk_core\mcw\HashMap.obj"
+	del "..\tobj\acdk_core\mcw\HashSet.obj"
+	del "..\tobj\acdk_core\mcw\Hashtable.obj"
+	del "..\tobj\acdk_core\mcw\LinkedList.obj"
+	del "..\tobj\acdk_core\mcw\ListResourceBundle.obj"
+	del "..\tobj\acdk_core\mcw\Locale.obj"
+	del "..\tobj\acdk_core\mcw\Properties.obj"
+	del "..\tobj\acdk_core\mcw\PropertyResourceBundle.obj"
+	del "..\tobj\acdk_core\mcw\Random.obj"
+	del "..\tobj\acdk_core\mcw\ResourceBundle.obj"
+	del "..\tobj\acdk_core\mcw\SimpleCalendar.obj"
+	del "..\tobj\acdk_core\mcw\SimpleListResourceBundle.obj"
+	del "..\tobj\acdk_core\mcw\SimpleTimeZone.obj"
+	del "..\tobj\acdk_core\mcw\StringTokenizer.obj"
+	del "..\tobj\acdk_core\mcw\SysDate.obj"
+	del "..\tobj\acdk_core\mcw\TimeZone.obj"
+	del "..\tobj\acdk_core\mcw\TreeMap.obj"
+	del "..\tobj\acdk_core\mcw\TreeSet.obj"
+	del "..\tobj\acdk_core\mcw\util_clazzinfo.obj"
+	del "..\tobj\acdk_core\mcw\util_clazzinfo1.obj"
+	del "..\tobj\acdk_core\mcw\util_clazzinfo2.obj"
+	del "..\tobj\acdk_core\mcw\Vector.obj"
+	del "..\tobj\acdk_core\mcw\WeakHashMap.obj"
+	del "..\tobj\acdk_core\mcw\LocaleInfo.obj"
+	del "..\tobj\acdk_core\mcw\LocaleInfo_de.obj"
+	del "..\tobj\acdk_core\mcw\locale_clazzinfo.obj"
+
+

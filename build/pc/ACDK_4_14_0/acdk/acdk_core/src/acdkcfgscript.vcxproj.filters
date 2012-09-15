@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{794ab8f3-fe7e-4912-b673-4c0566631d81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\cfgscript">
+      <UniqueIdentifier>{3f45858a-9ee0-4141-9dbf-d84c5aef2c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\cfgscript\acdkcfgscript">
+      <UniqueIdentifier>{fcdb0255-c039-4d86-a569-e683c8fe1f35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\cfgscript\acdkcfgscript\Main.cpp">
+      <Filter>acdk\cfgscript\acdkcfgscript</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\cfgscript\acdkcfgscript\Main.h">
+      <Filter>acdk\cfgscript\acdkcfgscript</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

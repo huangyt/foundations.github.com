@@ -1,0 +1,161 @@
+2005-04-15 16:50  kommer
+
+	* acdk_sql_sqlite.lsp: added testcases
+
+2005-04-12 18:24  kommer
+
+	* src/sqlitesrc/os_unix.c: missing argument type
+
+2005-04-10 14:52  kommer
+
+	* docs/acdk_sql_sqlite_man.htxt, docs/package.xml,
+	src/acdk/sql/sqlite/LiteConnection.h,
+	src/acdk/sql/sqlite/LiteDatabaseMetaData.h,
+	src/acdk/sql/sqlite/LiteDriver.h,
+	src/acdk/sql/sqlite/LitePreparedStatement.h,
+	src/acdk/sql/sqlite/LiteResultSet.h,
+	src/acdk/sql/sqlite/LiteStatement.h,
+	src/acdk/sql/sqlite/LiteTable.h: documentation
+
+2005-04-10 10:04  kommer
+
+	* cfg/csf/tests/acdk/sql/sqlite/SQLiteDb_ScriptMethods.csf: initial
+	revision
+
+2005-04-06 12:28  kommer
+
+	* src/acdk/sql/sqlite/sqlite_metainf/sqlite_metainf_ext2.cpp,
+	src/acdk/sql/sqlite/LiteDatabaseMetaData.cpp,
+	cfg/csf/tests/acdk/sql/sqlite/SQLiteTable_Blob_Test.csf,
+	cfg/csf/tests/acdk/sql/sqlite/SQLiteTable_Test.csf,
+	cfg/csf/tests/acdk/sql/sqlite/acdk_sqlite_Standard_Test.csf:
+	initial revision
+
+2005-04-06 01:22  kommer
+
+	* acdk_sql_sqlite.dsw, docs/acdk_sql_sqlite_man.htxt,
+	docs/package.xml, src/acdk_sql_sqlite.dsp,
+	src/acdk/sql/sqlite/LiteDatabaseMetaData.h,
+	src/acdk/sql/sqlite/LitePreparedStatement.h,
+	src/acdk/sql/sqlite/LiteResultSet.h,
+	src/acdk/sql/sqlite/LiteStatement.h,
+	src/acdk/sql/sqlite/LiteTable.cpp, src/acdk/sql/sqlite/LiteTable.h,
+	src/acdk/sql/sqlite/sqlite_metainf/sqlite_metainf_ext.cpp,
+	src/acdk/sql/sqlite/sqlite_metainf/sqlite_metainf_ext1.cpp: added
+	Blob
+
+2005-04-05 15:33  kommer
+
+	* src/acdk_sql_sqlite_metainf.bcc, src/acdk_sql_sqlite_metainf.bsd,
+	src/acdk_sql_sqlite_metainf.cbx, src/acdk_sql_sqlite_metainf.dsp,
+	src/acdk_sql_sqlite_metainf.linux, src/acdk_sql_sqlite_metainf.lsp,
+	src/acdk_sql_sqlite_metainf.mingw,
+	src/acdk_sql_sqlite_metainf.sunos-gcc,
+	src/acdk/sql/sqlite/sqlite.h,
+	src/acdk/sql/sqlite/sqlite_metainf_base.cpp,
+	tests/acdk/sql/sqlite/.cvsignore, .cvsignore, src/.cvsignore,
+	src/acdk/sql/sqlite/sqlite_metainf/sqlite_metainf_ext.cpp,
+	src/acdk/sql/sqlite/sqlite_metainf/sqlite_metainf_ext1.cpp: initial
+	revision
+
+2005-04-05 15:31  kommer
+
+	* src/acdk/sql/sqlite/LiteDatabaseMetaData.h: gcc compat
+
+2005-04-05 15:11  kommer
+
+	* docs/: acdk_sql_sqlite_man.htxt, sqlite3.htxt: initial revision
+
+2005-04-05 14:32  kommer
+
+	* src/: sqlite3.bcc, sqlite3.bsd, sqlite3.cbx, sqlite3.dsp,
+	sqlite3.linux, sqlite3.lsp, sqlite3.mingw, sqlite3.sunos-gcc,
+	acdk/sql/sqlite/LiteDatabaseMetaData.h: initial revision
+
+2005-04-05 01:48  kommer
+
+	* Makefile: initial revision
+
+2005-04-05 01:46  kommer
+
+	* src/sqlitesrc/: opcodes.c, parse.c, vdbeInt.h, vdbeaux.c: typos
+	in original source
+
+2005-04-05 01:33  kommer
+
+	* src/sqlitesrc/: attach.c, btree.c, build.c, expr.c: c compat
+
+2005-04-05 01:26  kommer
+
+	* src/sqlitesrc/: alter.c, attach.c, btree.c, build.c, date.c,
+	expr.c, func.c, hash.c, hash.h, legacy.c, main.c, os_unix.c,
+	pager.c, parse.c, pragma.c, printf.c, random.c, select.c, shell.c,
+	sqliteInt.h, table.c, tokenize.c, trigger.c, update.c, utf.c,
+	util.c, vacuum.c, vdbe.c, vdbeInt.h, vdbeapi.c, vdbeaux.c,
+	vdbemem.c, where.c: countless casting fixes for compiling it with a
+	c++ compiler
+
+2005-04-05 00:44  kommer
+
+	* src/sqlitesrc/parse.c: removed line pragmas, renamed invalid name
+	not to nott
+
+2005-04-04 18:03  kommer
+
+	* tests/acdk/sql/sqlite/acdk_sql_sqlite_PreparedStatement.cpp,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Select.cpp,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.bcc,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.bsd,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.cbx,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.cpp,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.dsp,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.linux,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.lsp,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.mingw,
+	tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.sunos-gcc,
+	docs/package.xml, docs/readme.htxt, docs/sqlite_license.htxt,
+	acdk_sql_sqlite.bpgr: initial revision
+
+2005-04-04 17:59  kommer
+
+	* src/: sqlitesrc/alter.c, sqlitesrc/attach.c, sqlitesrc/auth.c,
+	sqlitesrc/btree.c, sqlitesrc/btree.h, sqlitesrc/build.c,
+	sqlitesrc/config.h, sqlitesrc/date.c, sqlitesrc/delete.c,
+	sqlitesrc/expr.c, sqlitesrc/func.c, sqlitesrc/hash.c,
+	sqlitesrc/hash.h, sqlitesrc/insert.c, sqlitesrc/keywordhash.h,
+	sqlitesrc/legacy.c, sqlitesrc/main.c, sqlitesrc/opcodes.c,
+	sqlitesrc/opcodes.h, sqlitesrc/os.h, sqlitesrc/os_common.h,
+	sqlitesrc/os_unix.c, sqlitesrc/os_unix.h, sqlitesrc/os_win.c,
+	sqlitesrc/os_win.h, sqlitesrc/pager.c, sqlitesrc/pager.h,
+	sqlitesrc/parse.c, sqlitesrc/parse.h, sqlitesrc/pragma.c,
+	sqlitesrc/printf.c, sqlitesrc/random.c, sqlitesrc/select.c,
+	sqlitesrc/shell.c, sqlitesrc/sqlite3.h, sqlitesrc/sqliteInt.h,
+	sqlitesrc/table.c, sqlitesrc/tokenize.c, sqlitesrc/trigger.c,
+	sqlitesrc/update.c, sqlitesrc/utf.c, sqlitesrc/util.c,
+	sqlitesrc/vacuum.c, sqlitesrc/vdbe.c, sqlitesrc/vdbe.h,
+	sqlitesrc/vdbeInt.h, sqlitesrc/vdbeapi.c, sqlitesrc/vdbeaux.c,
+	sqlitesrc/vdbemem.c, sqlitesrc/where.c, acdk/sql/sqlite/Config.h,
+	acdk/sql/sqlite/LiteConnection.h, acdk/sql/sqlite/LiteDriver.h,
+	acdk/sql/sqlite/LitePreparedStatement.h,
+	acdk/sql/sqlite/LiteResultSet.h,
+	acdk/sql/sqlite/LiteConnection.cpp,
+	acdk/sql/sqlite/LiteResultSet.cpp,
+	acdk/sql/sqlite/LiteResultSetMetaData.h,
+	acdk/sql/sqlite/LiteStatement.cpp, acdk/sql/sqlite/LiteStatement.h,
+	acdk/sql/sqlite/LiteTable.cpp, acdk/sql/sqlite/LiteTable.h: initial
+	revision
+
+2005-04-04 17:56  kommer
+
+	* src/: acdk_sql_sqlite.bcc, acdk_sql_sqlite.bsd,
+	acdk_sql_sqlite.cbx, acdk_sql_sqlite.dsp, acdk_sql_sqlite.linux,
+	acdk_sql_sqlite.lsp, acdk_sql_sqlite.mingw,
+	acdk_sql_sqlite.sunos-gcc: initial revision
+
+2005-04-04 17:49  kommer
+
+	* acdk_sql_sqlite.bcc, acdk_sql_sqlite.bsd, acdk_sql_sqlite.dsw,
+	acdk_sql_sqlite.linux, acdk_sql_sqlite.lsp, acdk_sql_sqlite.mingw,
+	acdk_sql_sqlite.nmake, acdk_sql_sqlite.sunos-gcc, index.htxt:
+	initial revision
+

@@ -1,0 +1,65 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_boot
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_boot_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_boot_Test failed; exit 1; 
+
+
+
+acdk_boot-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_boot.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_boot.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_boot.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_boot.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_boot.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_boot.lsp -pdir src bcc
+
+HelloWorld-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\HelloWorld.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\HelloWorld.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\HelloWorld.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\HelloWorld.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\HelloWorld.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\HelloWorld.lsp -pdir src bcc
+
+acdk_boot_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/boot\acdk_boot_Test.lsp -pdir tests/acdk/boot dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/boot\acdk_boot_Test.lsp -pdir tests/acdk/boot linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/boot\acdk_boot_Test.lsp -pdir tests/acdk/boot sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/boot\acdk_boot_Test.lsp -pdir tests/acdk/boot bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/boot\acdk_boot_Test.lsp -pdir tests/acdk/boot mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/boot\acdk_boot_Test.lsp -pdir tests/acdk/boot bcc
+
+
+makemake:: acdk_boot-makemake HelloWorld-makemake acdk_boot_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_boot.lsp
+
+

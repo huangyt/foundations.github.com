@@ -1,0 +1,78 @@
+<html><body>
+<h1>Unit Test 2004-11-28T20:30:55</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 6; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.standard">Logging_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.parameters">Logging_Test.parameters</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.hierarchical">Logging_Test.hierarchical</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#RollingFileAppender_Test.standard">RollingFileAppender_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#TransactionConsumer_Test.standard">TransactionConsumer_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#TransactionConsumer_Test.exception">TransactionConsumer_Test.exception</a> <br>
+</td></tr></table>
+<h2><a id="Logging_Test.standard">Logging_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Logging_Test.standard] Start Test
+F: Bla
+2004-11-28T20:30:55|F|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:84|Bla
+F: Blub
+2004-11-28T20:30:55|F|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:85|Blub
+</pre>
+<h2><a id="Logging_Test.parameters">Logging_Test.parameters</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Logging_Test.standard] End Test
+[AUNIT:STRT][Logging_Test.parameters] Start Test
+E: A Message with 1 parameters: String=[<string value>]; 
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:97|A Message with 1 parameters: String=[<string value>]; 
+E: A Message with 1 parameters: int=[42]; 
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:98|A Message with 1 parameters: int=[42]; 
+E: A Message with 1 parameters: Comparable=[42]; 
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:99|A Message with 1 parameters: Comparable=[42]; 
+E: A Message with 1 parameters: boolean=[true]; 
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:100|A Message with 1 parameters: boolean=[true]; 
+E: A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:103|A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+E: A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:105|A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+</pre>
+<h2><a id="Logging_Test.hierarchical">Logging_Test.hierarchical</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Logging_Test.parameters] End Test
+[AUNIT:STRT][Logging_Test.hierarchical] Start Test
+E: Should appear
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:112|Should appear
+E: Should appear also
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:113|Should appear also
+E: Should appear also
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_Basics_Test.cpp:114|Should appear also
+E: Should not appear
+E: Should not appear
+</pre>
+<h2><a id="RollingFileAppender_Test.standard">RollingFileAppender_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Logging_Test.hierarchical] End Test
+[AUNIT:STRT][RollingFileAppender_Test.standard] Start Test
+</pre>
+<h2><a id="TransactionConsumer_Test.standard">TransactionConsumer_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][RollingFileAppender_Test.standard] End Test
+[AUNIT:STRT][TransactionConsumer_Test.standard] Start Test
+2004-11-28T20:30:55|I|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_TransactionConsumer_Test.cpp:85|Blub3
+2004-11-28T20:30:55|I|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_TransactionConsumer_Test.cpp:86|Blub4
+2004-11-28T20:30:55|E|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_TransactionConsumer_Test.cpp:87|An error
+</pre>
+<h2><a id="TransactionConsumer_Test.exception">TransactionConsumer_Test.exception</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][TransactionConsumer_Test.standard] End Test
+[AUNIT:STRT][TransactionConsumer_Test.exception] Start Test
+2004-11-28T20:30:55|[|424|780|C:\d\artefaktur\acdk\acdk_core\src\acdk\util\logging\TransactionConsumer.cpp:67|Start LogTrans: Transact 2
+2004-11-28T20:30:55|I|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_TransactionConsumer_Test.cpp:109|Blub3
+2004-11-28T20:30:55|I|424|780|C:\d\artefaktur\acdk\acdk_core\tests\acdk\util\logging\acdk_util_logging_TransactionConsumer_Test.cpp:110|Blub4
+2004-11-28T20:30:55|~|424|780|C:\d\artefaktur\acdk\acdk_core\src\acdk\util\logging\TransactionConsumer.cpp:83|Failed LogTrans (140 ms):Transact 2
+</pre>
+</body></html>

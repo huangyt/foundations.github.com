@@ -1,0 +1,52 @@
+
+
+acdk_net = new acdk.make.AcdkLibTask("acdk_net");
+acdk_net.addModule("src/acdk/net");
+acdk_net.addAcdkLib("acdk_core");
+
+// create metainfo library for acdk_net
+acdk_net_metainf = new acdk.make.AcdkMetainfLibTask("acdk_net_metainf", acdk_net);
+
+
+acdk_net_srfsys = new acdk.make.AcdkLibTask("acdk_net_srfsys");
+acdk_net_srfsys.addModule("src/acdk/net/srfsys");
+acdk_net_srfsys.addSource("src/acdk/net/srfsys/srfsys_metainf");
+acdk_net_srfsys.addAcdkLib("acdk_core");
+acdk_net_srfsys.addAcdkLib("acdk_net");
+acdk_net_srfsys.addSubTask("acdk_net");
+
+acdk_net_Test = new acdk.make.AcdkTestExeTask("acdk_net_Test");
+acdk_net_Test.setBaseDir("tests/acdk/net");
+acdk_net_Test.addSource("tests/acdk/net/acdk_net_SendReceive.cpp");
+acdk_net_Test.addSource("tests/acdk/net/acdk_net_Test.cpp");
+acdk_net_Test.addSource("tests/acdk/net/acdk_net_TransReaderWriter_Test.cpp");
+acdk_net_Test.addSource("tests/acdk/net/acdk_net_URL_Test.cpp");
+acdk_net_Test.addAcdkLib("acdk_core");
+acdk_net_Test.addAcdkLib("acdk_net");
+acdk_net_Test.addAcdkLib("acdk_tools_aunit");
+
+acdk_net_srfsys_Test = new acdk.make.AcdkTestExeTask("acdk_net_srfsys_Test");
+acdk_net_srfsys_Test.addSource("tests/acdk/net/srfsys");
+acdk_net_srfsys_Test.setBaseDir("tests/acdk/net/srfsys");
+acdk_net_srfsys_Test.addAcdkLib("acdk_core");
+acdk_net_srfsys_Test.addAcdkLib("acdk_tools_aunit");
+acdk_net_srfsys_Test.addAcdkLib("acdk_net");
+acdk_net_srfsys_Test.addAcdkLib("acdk_net_srfsys");
+acdk_net_srfsys_Test.addSubTask("acdk_net_srfsys");
+
+acdk_net_srsync = new acdk.make.AcdkExeTask("acdk_net_srsync");
+acdk_net_srsync.addSource("src/acdk/net/srsync");
+acdk_net_srsync.addAcdkLib("acdk_core");
+acdk_net_srsync.addAcdkLib("acdk_tools_aunit");
+acdk_net_srsync.addAcdkLib("acdk_net");
+acdk_net_srsync.addAcdkLib("acdk_net_srfsys");
+acdk_net_srsync.addSubTask("acdk_net_srfsys");
+
+
+default = new acdk.make.AcdkProjectTask("default");
+default.registerTask("acdk_net_prj");
+default.addSubTask("acdk_net");
+default.addSubTask("acdk_net_metainf");
+default.addSubTask("acdk_net_srfsys");
+default.addSubTask("acdk_net_Test");
+default.addSubTask("acdk_net_srfsys_Test");

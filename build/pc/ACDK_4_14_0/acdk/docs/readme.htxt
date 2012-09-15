@@ -1,0 +1,59 @@
+%id: acdk_readme
+%title: ACDK Readme
+%body:
+<pageintro>
+<greptag fname="./package.xml" tag="title"/>
+<greptag fname="./package.xml" tag="shortdescription"/>
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>General</jump1>
+  <jump2>Title</jump2>
+    <greptag fname="./package.xml" tag="title"/>
+  <jump2>Version</jump2>
+    Distribution version: <perleval> return acdk::getversion("./package.xml", "distribution"); </perleval>.<br>
+    Package version: <perleval> return acdk::getversion("./package.xml", "package"); </perleval>.
+   
+  <jump2>Short Description</jump2>
+    <quoted>
+<greptag fname="./package.xml" tag="shortdescription"/>
+    </quoted>
+    
+  <jump2>Documentation</jump2>
+Please refer to the documentation inside %ref[acdk_packages].
+
+Only a part of the documentation is enclosed in this package.
+A complete documentation, including a handbook and API documentation
+is available at %ref[acdk.sourceforge.net, acdk.sourceforge.net].
+You can also download the documentation at 
+%ref[Download@sourceforge, http://sourceforge.net/project/showfiles.php?group_id=15364].
+<jump2>Download</jump2>
+Current version are available at:
+%ref[Download@sourceforge, http://sourceforge.net/project/showfiles.php?group_id=15364].
+
+  <jump2>Dependencies</jump2>
+    <quoted>
+<perleval> return acdk::getDependencies("./package.xml"); </perleval>
+    </quoted>
+  <jump2>Authors</jump2>
+    <quoted>
+<greptag fname="./package.xml" tag="authors"/>
+    </quoted>
+   <jump2>License</jump2>
+    <quoted>
+<greptag fname="./package.xml" tag="license"/>
+    </quoted>
+<jump1>Description</jump1>
+  <quoted>
+<greptag fname="./package.xml" tag="description"/>
+  </quoted>
+ 
+<jump1>Changes</jump1>
+  <quoted>
+<greptag fname="./package.xml" tag="changes"/>
+  </quoted>
+
+
+.

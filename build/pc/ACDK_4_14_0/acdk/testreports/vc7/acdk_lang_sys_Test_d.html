@@ -1,0 +1,408 @@
+<html><body>
+<h1>Unit Test 2004-11-28T19:17:36</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 22; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#BackTrace_Test.standard">BackTrace_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_hashmap_Test.standard">core_hashmap_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_specific_Test.standard">core_specific_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_specific_Test.globalThread">core_specific_Test.globalThread</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_newvector_Test.intVector">core_newvector_Test.intVector</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#core_newvector_Test.structVector">core_newvector_Test.structVector</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.standard">Heap_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.gc">Heap_Test.gc</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.lowMemTest">Heap_Test.lowMemTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.lowMemWithGcTest">Heap_Test.lowMemWithGcTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.lowMemWithGcThreadedTest">Heap_Test.lowMemWithGcThreadedTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.getRoots">Heap_Test.getRoots</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Heap_Test.internal">Heap_Test.internal</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.rawAllocator">StackAlloc_Test.rawAllocator</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.nullAllocator">StackAlloc_Test.nullAllocator</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.standard">StackAlloc_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.perfTest">StackAlloc_Test.perfTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.heap">StackAlloc_Test.heap</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.reporting">StackAlloc_Test.reporting</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.threadedTest">StackAlloc_Test.threadedTest</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.copyConstructor">StackAlloc_Test.copyConstructor</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StackAlloc_Test.core_system_isPtrInStack">StackAlloc_Test.core_system_isPtrInStack</a> <br>
+</td></tr></table>
+<h2><a id="BackTrace_Test.standard">BackTrace_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in <0x0>
+  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::System::printStackTrace (acdk_core_d.dll)
+  called in tests::acdk::lang::sys::foo (acdk_lang_sys_Test_d.exe)
+  called in tests::acdk::lang::sys::baz (acdk_lang_sys_Test_d.exe)
+  called in tests::acdk::lang::sys::BackTrace_Test::standard (acdk_lang_sys_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::lang::sys::BackTrace_Test>::runTest (acdk_lang_sys_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_lang_sys_Test_d.exe)
+  called in mainCRTStartup (acdk_lang_sys_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+  called in acdk::lang::sys::BackTrace::_save_pcs (acdk_core_d.dll)
+  called in acdk::lang::sys::BackTrace::BackTrace (acdk_core_d.dll)
+  called in acdk::lang::Throwable::Throwable (acdk_core_d.dll)
+  called in acdk::lang::Exception::Exception (acdk_core_d.dll)
+  called in acdk::lang::ObjectBase::_throwArrayIndexOutOfBoundsException (acdk_core_d.dll)
+  called in BasicArray<char>::operator[] (acdk_core_d.dll)
+  called in RBasicArray<char>::operator[] (acdk_lang_sys_Test_d.exe)
+  called in tests::acdk::lang::sys::tryThrowableEx (acdk_lang_sys_Test_d.exe)
+  called in tests::acdk::lang::sys::BackTrace_Test::standard (acdk_lang_sys_Test_d.exe)
+  called in acdk::tools::aunit::TestCaller<tests::acdk::lang::sys::BackTrace_Test>::runTest (acdk_lang_sys_Test_d.exe)
+  called in acdk::tools::aunit::TestCase::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestSuite::run (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTest (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::executeTests (acdk_tools_aunit_d.dll)
+  called in acdk::tools::aunit::TestRunner::testmain (acdk_tools_aunit_d.dll)
+  called in acdk::lang::System::main (acdk_core_d.dll)
+  called in main (acdk_lang_sys_Test_d.exe)
+  called in mainCRTStartup (acdk_lang_sys_Test_d.exe)
+  called in RegisterWaitForInputIdle (kernel32.dll)
+</pre>
+<br>Error output:<hr><pre>[AUNIT:STRT][BackTrace_Test.standard] Start Test
+</pre>
+<h2><a id="core_hashmap_Test.standard">core_hashmap_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 100  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][BackTrace_Test.standard] End Test
+[AUNIT:STRT][core_hashmap_Test.standard] Start Test
+</pre>
+<h2><a id="core_specific_Test.standard">core_specific_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][core_hashmap_Test.standard] End Test
+[AUNIT:STRT][core_specific_Test.standard] Start Test
+</pre>
+<h2><a id="core_specific_Test.globalThread">core_specific_Test.globalThread</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][core_specific_Test.standard] End Test
+[AUNIT:STRT][core_specific_Test.globalThread] Start Test
+</pre>
+<h2><a id="core_newvector_Test.intVector">core_newvector_Test.intVector</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 15  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][core_specific_Test.globalThread] End Test
+[AUNIT:STRT][core_newvector_Test.intVector] Start Test
+</pre>
+<h2><a id="core_newvector_Test.structVector">core_newvector_Test.structVector</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 20  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][core_newvector_Test.intVector] End Test
+[AUNIT:STRT][core_newvector_Test.structVector] Start Test
+</pre>
+<h2><a id="Heap_Test.standard">Heap_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][core_newvector_Test.structVector] End Test
+[AUNIT:STRT][Heap_Test.standard] Start Test
+</pre>
+<h2><a id="Heap_Test.gc">Heap_Test.gc</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.standard] End Test
+[AUNIT:STRT][Heap_Test.gc] Start Test
+</pre>
+<h2><a id="Heap_Test.lowMemTest">Heap_Test.lowMemTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.gc] End Test
+[AUNIT:STRT][Heap_Test.lowMemTest] Start Test
+Expected Exception: OutOfMemory. MaxGlobalSpace: 2346688; MaxtThreadSpace: 2346688; CurGlobalUsage: 2346497; CurThreadUsage: 2322497; Tried to allocate: 4096
+</pre>
+<h2><a id="Heap_Test.lowMemWithGcTest">Heap_Test.lowMemWithGcTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.lowMemTest] End Test
+[AUNIT:STRT][Heap_Test.lowMemWithGcTest] Start Test
+</pre>
+<h2><a id="Heap_Test.lowMemWithGcThreadedTest">Heap_Test.lowMemWithGcThreadedTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.lowMemWithGcTest] End Test
+[AUNIT:STRT][Heap_Test.lowMemWithGcThreadedTest] Start Test
+Start 8 Thread which does automatically gc on low memory situation
+s: GC Released objects: Elements=[4077]; Bytes=[16878780]; 
+s: GC Released objects: Elements=[102]; Bytes=[422280]; 
+s: GC Released objects: Elements=[102]; Bytes=[422280]; 
+s: GC Released objects: Elements=[103]; Bytes=[426420]; 
+s: GC Released objects: Elements=[103]; Bytes=[426420]; 
+s: GC Released objects: Elements=[102]; Bytes=[422280]; 
+s: GC Released objects: Elements=[102]; Bytes=[422280]; 
+s: GC Released objects: Elements=[8]; Bytes=[33120]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[14]; Bytes=[57960]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[11]; Bytes=[45540]; 
+s: GC Released objects: Elements=[10]; Bytes=[41400]; 
+s: GC Released objects: Elements=[31]; Bytes=[128340]; 
+s: GC Released objects: Elements=[8]; Bytes=[33120]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[9]; Bytes=[37260]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[10]; Bytes=[41400]; 
+s: GC Released objects: Elements=[31]; Bytes=[128340]; 
+s: GC Released objects: Elements=[8]; Bytes=[33120]; 
+s: GC Released objects: Elements=[8]; Bytes=[33120]; 
+s: GC Released objects: Elements=[12]; Bytes=[49680]; 
+s: GC Released objects: Elements=[13]; Bytes=[53820]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[30]; Bytes=[124200]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[30]; Bytes=[124200]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[42]; Bytes=[173880]; 
+s: GC Released objects: Elements=[24]; Bytes=[99360]; 
+s: GC Released objects: Elements=[26]; Bytes=[107640]; 
+s: GC Released objects: Elements=[36]; Bytes=[149040]; 
+s: GC Released objects: Elements=[55]; Bytes=[227700]; 
+s: GC Released objects: Elements=[15]; Bytes=[62100]; 
+s: GC Released objects: Elements=[31]; Bytes=[128340]; 
+s: GC Released objects: Elements=[47]; Bytes=[194580]; 
+s: GC Released objects: Elements=[14]; Bytes=[57960]; 
+s: GC Released objects: Elements=[63]; Bytes=[260820]; 
+s: GC Released objects: Elements=[31]; Bytes=[128340]; 
+s: GC Released objects: Elements=[31]; Bytes=[128340]; 
+s: GC Released objects: Elements=[41]; Bytes=[169740]; 
+s: GC Released objects: Elements=[142]; Bytes=[587880]; 
+s: GC Released objects: Elements=[109]; Bytes=[451260]; 
+s: GC Released objects: Elements=[118]; Bytes=[488520]; 
+s: GC Released objects: Elements=[103]; Bytes=[426420]; 
+s: GC Released objects: Elements=[110]; Bytes=[455400]; 
+s: GC Released objects: Elements=[111]; Bytes=[459540]; 
+s: GC Released objects: Elements=[120]; Bytes=[496800]; 
+s: GC Released objects: Elements=[145]; Bytes=[600300]; 
+s: GC Released objects: Elements=[126]; Bytes=[521640]; 
+s: GC Released objects: Elements=[110]; Bytes=[455400]; 
+s: GC Released objects: Elements=[118]; Bytes=[488520]; 
+s: GC Released objects: Elements=[143]; Bytes=[592020]; 
+s: GC Released objects: Elements=[111]; Bytes=[459540]; 
+s: GC Released objects: Elements=[104]; Bytes=[430560]; 
+s: GC Released objects: Elements=[119]; Bytes=[492660]; 
+s: GC Released objects: Elements=[166]; Bytes=[687240]; 
+s: GC Released objects: Elements=[113]; Bytes=[467820]; 
+s: GC Released objects: Elements=[103]; Bytes=[426420]; 
+s: GC Released objects: Elements=[119]; Bytes=[492660]; 
+s: GC Released objects: Elements=[40]; Bytes=[165600]; 
+s: GC Released objects: Elements=[48]; Bytes=[198720]; 
+s: GC Released objects: Elements=[24]; Bytes=[99360]; 
+s: GC Released objects: Elements=[4]; Bytes=[16560]; 
+s: GC Released objects: Elements=[2]; Bytes=[8280]; 
+s: GC Released objects: Elements=[1]; Bytes=[4140]; 
+s: GC Released objects: Elements=[1]; Bytes=[4140]; 
+s: GC released no objects
+s: GC released no objects
+</pre>
+<h2><a id="Heap_Test.getRoots">Heap_Test.getRoots</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.lowMemWithGcThreadedTest] End Test
+[AUNIT:STRT][Heap_Test.getRoots] Start Test
+Root Object: (9f570c): acdk/lang/String: acdk/lang
+Root Object: (9f577c): acdk/lang/String: acdk/io
+Root Object: (9f57ec): acdk/lang/String: acdk/lang/dmi
+Root Object: (9f585c): acdk/lang/String: acdk/lang/ref
+Root Object: (9f58cc): acdk/lang/String: acdk/lang/reflect
+Root Object: (9f593c): acdk/lang/String: acdk/util
+Root Object: (9f59ac): acdk/lang/String: acdk/util/logging
+Root Object: (9f5a1c): acdk/lang/String: US-ASCII
+Root Object: (9f5a8c): acdk/lang/String: AsciiUtf
+Root Object: (9f5afc): acdk/lang/String: ByteAscii
+Root Object: (9f5b6c): acdk/lang/String: C-Literal
+Root Object: (9f5bdc): acdk/lang/String: C-Escape
+Root Object: (9f5ca0): acdk/lang/String: 8859-1
+Root Object: (9f5d88): acdk/lang/String: LATIN-1
+Root Object: (9f5df8): acdk/lang/String: 8859-2
+Root Object: (9f5e68): acdk/lang/String: 8859-3
+Root Object: (9f5ed8): acdk/lang/String: 8859-4
+Root Object: (9f5f48): acdk/lang/String: 8859-5
+Root Object: (9f5fb8): acdk/lang/String: 8859-6
+Root Object: (9f6028): acdk/lang/String: 8859-7
+Root Object: (9f6098): acdk/lang/String: 8859-8
+Root Object: (9f6108): acdk/lang/String: 8859-9
+Root Object: (9f6178): acdk/lang/String: 8859-10
+Root Object: (9f62b0): acdk/lang/String: 8859-13
+Root Object: (9f6320): acdk/lang/String: 8859-14
+Root Object: (9f6390): acdk/lang/String: 8859-15
+Root Object: (9f6400): acdk/lang/String: 8859-16
+Root Object: (9f6470): acdk/lang/String: CP1250
+Root Object: (9f64e0): acdk/lang/String: CP1251
+Root Object: (9f6550): acdk/lang/String: CP1252
+Root Object: (9f65c0): acdk/lang/String: CP1253
+Root Object: (9f8914): acdk/lang/String: CP1254
+Root Object: (9f8984): acdk/lang/String: CP1255
+Root Object: (9f8b5c): acdk/lang/String: CP1256
+Root Object: (9f8bcc): acdk/lang/String: CP1257
+Root Object: (9f8c3c): acdk/lang/String: CP1258
+Root Object: (9f8cac): acdk/lang/String: IBM-850
+Root Object: (9f8d1c): acdk/lang/String: acdk/locale
+Root Object: (9f8d8c): acdk/lang/String: UCS2
+Root Object: (9f8dfc): acdk/lang/String: UCS2-LE
+Root Object: (9f8e6c): acdk/lang/String: UCS2-BE
+Root Object: (9f8edc): acdk/lang/String: UTF8
+Root Object: (9f8f4c): acdk/lang/String: acdk/tools/aunit
+Root Object: (9f90cb): acdk/lang/String: нннннннннн
+Root Object: (9f913b): acdk/lang/String: privStaticString
+Root Object: (9f91ab): acdk/lang/Integer: 1
+Root Object: (9f920b): acdk/lang/String: pubStaticString
+Root Object: (9f927b): acdk/lang/Integer: 2
+Root Object: (9f9407): [acdk/tools/aunit/Test: [BackTrace_Test, core_hashmap_Test, core_specific_Test, core_newvector_Test, Heap_Test, StackAlloc_Test]
+Root Object: (9f9eb4): acdk/lang/SystemImpl: acdk/lang/SystemImpl
+Root Object: (9fa80d): acdk/lang/ThreadLocal: acdk/lang/ThreadLocal
+Root Object: (9fa885): acdk/lang/String: ACDKHOME=..
+Root Object: (9fb060): acdk/lang/String: ALLUSERSPROFILE=C:\Dokumente und Einstellungen\All Users
+Root Object: (9fb485): acdk/lang/String: APPDATA=C:\Dokumente und Einstellungen\roger\Anwendungsdaten
+Root Object: (9fb8ae): acdk/lang/String: CLIENTNAME=ROGLAB
+Root Object: (9fbcac): acdk/lang/String: CommonProgramFiles=C:\Programme\Gemeinsame Dateien
+Root Object: (9fc168): acdk/lang/String: COMPUTERNAME=ROGCOMP
+Root Object: (9fc569): acdk/lang/String: ComSpec=C:\WINDOWS\system32\cmd.exe
+Root Object: (9fc979): acdk/lang/String: FP_NO_HOST_CHECK=NO
+Root Object: (9fcd79): acdk/lang/String: HOMEDRIVE=C:
+Root Object: (9fe1a8): acdk/lang/String: HOMEPATH=\Dokumente und Einstellungen\roger
+Root Object: (9fe5c0): acdk/lang/String: INCLUDE=C:\Programme\VisualStudio.NET2003\Vc7\include;C:\Programme\VisualStudio.NET2003\Vc7\PlatformSDK\Include;C:\Programme\VisualStudio.NET2003\Vc7\FrameworkSDK\include
+Root Object: (9fea57): acdk/lang/String: INFORMIXDIR=C:\Programme\Informix94
+Root Object: (9fee67): acdk/lang/String: IShieldDir=__IShieldDir
+Root Object: (9ff214): acdk/lang/String: J2D_D3D=false
+Root Object: (9ff60e): acdk/lang/String: LIB=C:\Programme\VisualStudio.NET2003\Vc7\lib;C:\Programme\VisualStudio.NET2003\Vc7\PlatformSDK\lib;C:\VStudio.NET\FrameworkSDK\Lib
+Root Object: (9ff9ce): acdk/lang/String: LOGONSERVER=\\ROGCOMP
+Root Object: (9ffd20): acdk/lang/String: MAKEFLAGS=                  
+Root Object: (a1026c): acdk/lang/String: MSDevDir=C:\Programme\VStudio98\Common\MSDev98
+Root Object: (a12390): acdk/lang/String: NUMBER_OF_PROCESSORS=2
+Root Object: (a126e3): acdk/lang/String: OS=Windows_NT
+Root Object: (a12add): acdk/lang/String: Path=C:\Programme\VisualStudio.NET2003\Vc7\bin;C:\Programme\VisualStudio.NET2003\Common7\IDE;C:\programme\CBuilderX\bin;c:\cygwin\bin;C:\Programme\Gemeinsame Dateien\Sonic Shared;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Programme\ATI Technologies\ATI Control Panel;C:\Programme\tools\UltraEdit;C:\Programme\Rational\common;C:\Programme\Informix94\bin;C:\Programme\Gemeinsame Dateien\Autodesk Shared\;C:\programme\CBuilderX\bin;C:\Programme\VStudio98\Common\Tools\WinNT;C:\Programme\VStudio98\Common\MSDev98\Bin;C:\Programme\VStudio98\Common\Tools;C:\Programme\VStudio98\VC98\bin
+Root Object: (a131c0): acdk/lang/String: PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+Root Object: (a135e5): acdk/lang/String: PROCESSOR_ARCHITECTURE=x86
+Root Object: (a139ec): acdk/lang/String: PROCESSOR_IDENTIFIER=x86 Family 15 Model 2 Stepping 9, GenuineIntel
+Root Object: (a13d6c): acdk/lang/String: PROCESSOR_LEVEL=15
+Root Object: (a141e8): acdk/lang/String: PROCESSOR_REVISION=0209
+Root Object: (a1453c): acdk/lang/String: ProgramFiles=C:\Programme
+Root Object: (a14942): acdk/lang/String: PROMPT=$P$G
+Root Object: (a14c8a): acdk/lang/String: SESSIONNAME=RDP-Tcp#1
+Root Object: (a150f0): acdk/lang/String: SystemDrive=C:
+Root Object: (a1543b): acdk/lang/String: SystemRoot=C:\WINDOWS
+Root Object: (a1583d): acdk/lang/String: TEMP=C:\DOKUME~1\roger\LOKALE~1\Temp
+Root Object: (a15c4e): acdk/lang/String: TMP=C:\DOKUME~1\roger\LOKALE~1\Temp
+Root Object: (a16068): acdk/lang/String: USERDOMAIN=ROGCOMP
+Root Object: (a163b7): acdk/lang/String: USERNAME=roger
+Root Object: (a16702): acdk/lang/String: USERPROFILE=C:\Dokumente und Einstellungen\roger
+Root Object: (a1a628): acdk/lang/String: VS71COMNTOOLS=c:\Programme\VisualStudio.NET2003\Common7\Tools\
+Root Object: (a1aa53): acdk/lang/String: VS80COMNTOOLS=C:\Programme\MicrosoftVisualStudio8\Common7\Tools\
+Root Object: (a1aeec): acdk/lang/String: windir=C:\WINDOWS
+Root Object: (a1b46e): [acdk/util/Bucket: [Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil]
+Root Object: (a1be64): acdk/locale/UCS2Encoding: UCS2
+Root Object: (a1c64c): acdk/lang/String: C:\d\artefaktur\vc7acdk\bin\acdk_lang_sys_Test_d
+Root Object: (a1c71e): [acdk/lang/String: [..\bin\acdk_lang_sys_Test_d]
+Root Object: (a1c7ea): acdk/io/InputReader: acdk/io/InputReader
+Root Object: (a1cb72): acdk/io/PrintWriter: acdk/io/PrintWriter
+Root Object: (a1ce98): acdk/util/HashMap: AbstractMap< -test-print-summary -> acdk/lang/CmdLineOption, -test-quiet -> acdk/lang/CmdLineOption, -test-verbose -> acdk/lang/CmdLineOption, -test-htmlreport -> acdk/lang/CmdLineOption, -test-err -> acdk/lang/CmdLineOption, -test-list -> acdk/lang/CmdLineOption, -test-out -> acdk/lang/CmdLineOption, -test-interactive -> acdk/lang/CmdLineOption, -test-abortonfail -> acdk/lang/CmdLineOption,  >
+Root Object: (a1fbcc): acdk/tools/aunit/TestSuite: BackTrace_Test.standard
+Root Object: (a20716): acdk/locale/AsciiEncoding: US-ASCII
+Root Object: (a30b68): acdk/tools/aunit/TestSuite: core_hashmap_Test.standard
+Root Object: (a3a130): acdk/tools/aunit/TestSuite: core_specific_Test.standard
+Root Object: (a3132c): acdk/tools/aunit/TestSuite: core_specific_Test.globalThread
+Root Object: (a3ae98): acdk/tools/aunit/TestSuite: core_newvector_Test.intVector
+Root Object: (a3b124): acdk/tools/aunit/TestSuite: core_newvector_Test.structVector
+Root Object: (a3f2ac): acdk/tools/aunit/TestSuite: Heap_Test
+Root Object: (a3f450): acdk/tools/aunit/TestSuite: Heap_Test.standard
+Root Object: (a3f6dc): acdk/tools/aunit/TestSuite: Heap_Test.gc
+Root Object: (a3f8f0): acdk/tools/aunit/TestSuite: Heap_Test.lowMemTest
+Root Object: (a3fb04): acdk/tools/aunit/TestSuite: Heap_Test.lowMemWithGcTest
+Root Object: (a3fd18): acdk/tools/aunit/TestSuite: Heap_Test.lowMemWithGcThreadedTest
+Root Object: (a3ff2c): acdk/tools/aunit/TestSuite: Heap_Test.getRoots
+Root Object: (a40140): acdk/tools/aunit/TestSuite: Heap_Test.internal
+Root Object: (a40490): acdk/lang/Class: class acdk.lang.Object
+Root Object: (a40554): acdk/lang/Class: class acdk.lang.String
+Root Object: (a40674): acdk/lang/Class: class acdk.lang.[
+Root Object: (a40824): acdk/lang/Class: class acdk.util.HashMap
+Root Object: (a8fea4): acdk/util/logging/Logger: acdk.lang.gc
+Root Object: (a8ffcc): acdk/lang/String: Root
+Root Object: (2415c70): acdk/lang/Object: AbstractMap<  >
+Root Object: (2415cf4): [acdk/lang/Object: [Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil]
+Root Object: (2415e9c): acdk/lang/Object: AbstractMap< acdk.lang.gc -> acdk.lang.gc,  >
+Root Object: (2415f20): [acdk/lang/Object: [Nil, Nil, Nil, Nil, Nil, Nil, Nil, Nil, acdk/lang/Object, Nil, Nil]
+Root Object: (2416064): acdk/util/logging/Logger: Root
+Root Object: (241618c): acdk/lang/Object: acdk.lang.gc=acdk.lang.gc
+Root Object: (3bc9040): acdk/lang/Integer: 12345678
+Root Object: (3bc9100): [acdk/lang/Object: 1
+  RootArray Object: (3bc90a0): acdk/lang/Integer: 8765432
+</pre>
+<h2><a id="Heap_Test.internal">Heap_Test.internal</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.getRoots] End Test
+[AUNIT:STRT][Heap_Test.internal] Start Test
+</pre>
+<h2><a id="StackAlloc_Test.rawAllocator">StackAlloc_Test.rawAllocator</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Heap_Test.internal] End Test
+[AUNIT:STRT][StackAlloc_Test.rawAllocator] Start Test
+</pre>
+<h2><a id="StackAlloc_Test.nullAllocator">StackAlloc_Test.nullAllocator</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.rawAllocator] End Test
+[AUNIT:STRT][StackAlloc_Test.nullAllocator] Start Test
+</pre>
+<h2><a id="StackAlloc_Test.standard">StackAlloc_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.nullAllocator] End Test
+[AUNIT:STRT][StackAlloc_Test.standard] Start Test
+</pre>
+<h2><a id="StackAlloc_Test.perfTest">StackAlloc_Test.perfTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.standard] End Test
+[AUNIT:STRT][StackAlloc_Test.perfTest] Start Test
+Allocator 0: 4109; Allocator stackalloc: 1750
+</pre>
+<h2><a id="StackAlloc_Test.heap">StackAlloc_Test.heap</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.perfTest] End Test
+[AUNIT:STRT][StackAlloc_Test.heap] Start Test
+StackHeap currently not working
+</pre>
+<h2><a id="StackAlloc_Test.reporting">StackAlloc_Test.reporting</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.heap] End Test
+[AUNIT:STRT][StackAlloc_Test.reporting] Start Test
+StackAlloc_Test::reporting not implemented yet
+</pre>
+<h2><a id="StackAlloc_Test.threadedTest">StackAlloc_Test.threadedTest</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.reporting] End Test
+[AUNIT:STRT][StackAlloc_Test.threadedTest] Start Test
+StackAlloc_Test::threadedTest not implemented yet
+</pre>
+<h2><a id="StackAlloc_Test.copyConstructor">StackAlloc_Test.copyConstructor</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.threadedTest] End Test
+[AUNIT:STRT][StackAlloc_Test.copyConstructor] Start Test
+</pre>
+<h2><a id="StackAlloc_Test.core_system_isPtrInStack">StackAlloc_Test.core_system_isPtrInStack</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StackAlloc_Test.copyConstructor] End Test
+[AUNIT:STRT][StackAlloc_Test.core_system_isPtrInStack] Start Test
+</pre>
+</body></html>

@@ -1,0 +1,144 @@
+%id: acdk_cfgscript_hb_lang_expr_backtick
+%title: CfgScript Backtick Expressions
+%shorttitle: Backtick Expressions
+%keywords: operator, backtick
+%seealso: acdk_cfgscript_templates
+%body:
+<chapterline/>
+<pageintro>
+A very powerful feature of scripting language - like unix shell or perl -
+is the ability of inline evaluation of strings.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+
+<jump1>BacktickOperator</jump1>
+<pre>
+GroupOperator
+: '`' %ref[StringLiteral, acdk_cfgscript_hb_lang_expr_literal#StringLiteral] '`'
+;
+</pre>
+
+The backtick enables inline expression evaluation in string literals, similar to Perl or sh
+evaulation.
+
+<jump3>Identifier replacement with ${id}</jump3>
+Single identifier, wrapped with <c>${}</c> will be resolved in current scope:
+<source>
+int i = 42;
+String s = `"i is ${i}"`;
+out.println(s);
+</source>
+This code prints:
+<c>i is 42</c>.
+
+<jump3>Expression replacement with $(expression)</jump3>
+If the string between <c>${}</c> is not a single identifier it will be 
+evaluated as expression:
+
+<source>
+int i = 42;
+String s = `"i is ${i + 1}"`;
+out.println(s);
+</source>
+This code prints:
+<c>i is 43</c>.
+
+<jump3>Script replacement with !{scriptcode}!</jump3>
+The string between <c>!{}!</c> will be evaluated as normal
+script. This part will be replaced with the content written to
+out.
+
+<source>
+int i = 42;
+String s = `"i is !{ out.print(i + 1); }!"`;
+out.println(s);
+</source>
+This code prints:
+<c>i is 43</c>.
+Note: writing to <c>err</c> is also possible, but this goes to 
+the standard err object.
+
+<jump2>StringArray replacement with @{identifier}</jump2>
+The string between <c>@{}</c> has to be a identifier to
+a StringArray. 
+
+<source>
+String args = [ "a", "b" ];
+String s = `"args is @{args}"`;
+out.println(s):
+</source>
+<c>i is a b</c>.
+
+<jump2>Quoting with #{ text }#</jump2>
+If you want to quote parts of the string, to avoid unwanted evaluation you can quote parts with
+#{}#.
+<source>
+String hello = "hallo";
+out.println(`"#{${hello}}# is ${hello}"`);
+</source>
+The first <c>${hello}</c> is quoted, so the output is:
+<c>${hello} is hallo</c>
+
+<jump2>Execute external program with `{ command }`</jump2>
+With <c>`{ }`</c> the enclosing command will be executed by the 
+operation system.
+
+The command can contain itself contain string replacements.
+Here an example:
+<source>
+String cdir = System.getAcdkHome();
+String lsOutput = "";
+String dirCmd = "";
+
+if (System.getPlatformFlags() & acdk.lang.PfWin32)
+  dirCmd = "dir";
+else
+  dirCmd = "ls";
+  
+lsOutput = `"`{${dirCmd} ${cdir}}`"`;
+</source>
+
+You can control more options for execution the external command with
+variables declared in the current scope.
+<fl>
+<f> <c>int SHELLEXECUTE_TIMEOUT</c>: only wait given milliseconds  for finish
+   process execution. If the process was not finished after given milliseconds
+   the process will be killed. 
+   The default is <c>-1</c>, which means calling script waits for ever.
+<f> <c>bool SHELLEXECUTE_USEFILEREDIRECT</c>: Use temporary files to capture
+    output of process.
+    Default is <c>false</c>.
+<f> <c>bool SHELLEXECUTE_USESHELL</c>: Don't execute the given executable directly
+    by underlying operation system, but use the system shell.
+    Default is <c>false</c>.
+<f> <c>String SHELLEXECUTE_SHELL</c>: If SHELLEXECUTE_USESHELL is <c>true</c>
+    define the shell executable, which should execute the command.
+    Default is <c>"cmd"</c> on Windows and <c>"sh"</c> on unix platforms.
+<f> <c>String SHELLEXECUTE_EXECUTE_OPTION</c>: Option given to the shell 
+    (<c>SHELLEXECUTE_SHELL</c>). 
+    Default is <c>"/C"</c> on Windows and <c>"-c"</c> on unix platforms.
+<f> <c>bool SHELLEXECUTE_ISSHELLSCRIPT</c>: The command passed to shell
+    (<c>SHELLEXECUTE_SHELL</c>) is not a native command, but itself a script.
+
+</fl>
+
+Here a sample to use the shell:
+<source>
+SHELLEXECUTE_USESHELL = true;
+String path;
+if (System.getPlatformFlags() & acdk.lang.PfWin32) 
+  path = `"`{echo #{%PATH%}#}`"`;
+else
+  path = `"`{echo #{${PATH}}#}`"`;
+out.println("PATH from shell is: " + path);
+</source>
+
+<jump1>Samples</jump1>
+<fl>
+<f> %srcref[csf_tests_acdk_cfgscript_1_expressions_87_BacktickExpression_Test_csf]
+<f> %srcref[csf_tests_acdk_cfgscript_1_expressions_88_BacktickShellExpression_Test_csf]
+</fl>
+.

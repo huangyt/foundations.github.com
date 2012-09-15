@@ -1,0 +1,27 @@
+%id: aal
+%title: AAL
+%chapter: acdk_aal_readme, aal_aci, aal_reference, acdk_aal_concept, acdk_license
+%keywords: AAL, Artefaktur Aspekt Language
+%body:
+<pageintro>
+<greptag fname="./docs/package.xml" tag="shortdescription"/>
+</pageintro>
+<p></p>
+<greptag fname="./docs/package.xml" tag="copyright"/>
+
+<htmlauto>
+Please refer also to:
+<fl>
+<f> %ref[http://acdk.sourceforge.net/, http://acdk.sourceforge.net/] (Web at Sourceforge).
+<f> %ref[http://www.artefaktur.com/, http://www.artefaktur.com/] (Home of Artefaktur).
+<f> %ref[http://www.artefaktur.ch/, http://www.artefaktur.ch/] (Mirror)
+<f> %ref[http://sourceforge.net/projects/acdk/, http://sourceforge.net/projects/acdk/] (Support at Sourceforge).
+<f> %ref[http://acdk.sourceforge.net/acdk/modules/aal, http://acdk.sourceforge.net/acdk/modules/aal/index.html] (Home of this project).
+<f> %ref[http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__aal.html, http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__aal.html] (Online reference).
+<f> %ref[Roger Rene Kommer, mailto:kommer@artefaktur.com] (Mail Author).
+</fl>
+</htmlauto>
+<hr>
+<subschapterstable/>
+
+.

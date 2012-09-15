@@ -1,0 +1,94 @@
+
+using acdk.wx;
+
+class MyFileDropTarget
+extends FileDropTarget
+{
+  TextCtrl logtext;
+  MyFileDropTarget(TextCtrl lt) { logtext = lt; }
+  DragResult onEnter(int x, int y, DragResult def) 
+  { 
+    logtext.appendText("onEnter\n"); 
+    return DragCopy;
+  }
+  
+  DragResult onDragOver(int x, int y, DragResult def) 
+  { 
+    logtext.appendText("onDragOver\n"); 
+    return DragCopy;
+  }
+  void onLeave() 
+  { 
+    logtext.appendText("onLeave\n"); 
+  }
+  bool onDropFiles(int x, int y, StringArray filenames) 
+  {
+    logtext.appendText("onDropFiles: " + filenames.toString() + "\n"); 
+    return true;
+  }
+}
+
+class MyTextDropTarget
+extends TextDropTarget
+{
+  TextCtrl logtext;
+  MyTextDropTarget(TextCtrl lt) { logtext = lt; }
+  DragResult onEnter(int x, int y, DragResult def) 
+  { 
+    logtext.appendText("onEnter\n"); 
+    return DragCopy;
+  }
+  
+  DragResult onDragOver(int x, int y, DragResult def) 
+  { 
+    logtext.appendText("onDragOver\n"); 
+    return DragCopy;
+  }
+  void onLeave() 
+  { 
+    logtext.appendText("onLeave\n"); 
+  }
+  bool onDropText(int x, int y, String text)
+  {
+    logtext.appendText("onDropText: " + text + "\n"); 
+    return true;
+  }
+}
+
+class MyFrame
+extends Frame
+{
+  MyFileDropTarget mfdt;
+  MyTextDropTarget mtdt;
+  TextCtrl logtext;
+  MyFrame()
+  {
+    SplitterWindow msplitter = new SplitterWindow(this);
+    SplitterWindow splitter = new SplitterWindow(msplitter);
+    logtext = new TextCtrl(msplitter, -1, "", Point.defaultPosition(), Size.defaultSize(), TeMultiline);
+    Window btn1 = new Button(splitter, -1, "Drop Files Here");
+    Button btn2 = new Button(splitter, -1, "Drop Text Here");
+    msplitter.splitHorizontally(splitter, logtext);
+    splitter.splitVertically( btn1, btn2 );
+    mfdt = new MyFileDropTarget(logtext);
+    btn1.setDropTarget(mfdt);
+    mtdt = new MyTextDropTarget(logtext);
+    btn2.setDropTarget(mtdt);
+  }
+}
+
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    MyFrame win = new MyFrame();
+    win.show(true);
+    return true;
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

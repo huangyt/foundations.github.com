@@ -1,0 +1,138 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Python, acdk::python">
+<title>ACDK Python</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../docs/packages.html">Packages</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Python<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/readme.html">ACDK Python Readme</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_python_install.html">Compile acdk_python</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_python_man.html">acdk_python Manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdkpython_man.html">acdkpython Manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/acdk_general_install.html">Installation</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/ACDK-FreeLicense.html">License</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | ACDK Python | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Python</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Python</h1> -->
+<br>
+<p class="PageIntro">
+With acdk_python, you can instrument a Python interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your Python environment.</p>
+<br>
+<p></p>
+Beside other interpreter environments (<a  href="../acdk_lisp/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;Lisp</a>, <a  href="../acdk_perl/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;Perl</a>, <a  href="../acdk_tcl/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;Tcl</a>
+and <a  href="../acdk_core/docs/acdk_cfgscript_hb.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a>) ACDK also
+supports Python with its Dynamic Method Invokation (DMI) interface.<br>
+<br>
+With the <a  href="docs/acdk_python_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_python</m></a> library you can integrate a Python 
+interpreter into ACDK application.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+RPythonInterpreter pi = <B><FONT COLOR="#A020F0">new</FONT></B> PythonInterpreter();
+pi-&gt;parse(<B><FONT COLOR="#BC8F8F">&quot;print \&quot;Hello World\&quot;\n&quot;</FONT></B>);
+</PRE></td></tr></table>
+From inside the Python language all ACDK objects can be easely be accessed
+without generating any futher glue code:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">def</FONT></B> <B><FONT COLOR="#0000FF">foo</FONT></B>(string1, string2):
+  sb = acdk.Object(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, string1)
+  sb.append(string2)
+  <B><FONT COLOR="#A020F0">return</FONT></B> sb.toString()
+  
+acdk.peek_static(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;out&quot;</FONT></B>).println(foo(<B><FONT COLOR="#BC8F8F">&quot;Hello Python&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot; from ACDK&quot;</FONT></B>))
+</PRE></td></tr></table>
+<p>
+The executable <a  href="docs/acdkpython_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;acdkpython</a> provides a simple command line Python interpreter.<p></p>
+<p></p>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="docs/readme.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Python Readme</a></p><p class="pagesummary">
+ACDK Python (acdk_python)With acdk_python, you can instrument a Python interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your Python environment.</p><p class="subchapterlink"><a  href="docs/acdk_python_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;Install acdk_python</a></p><p class="pagesummary">
+Describe how to compile/install <m>acdk_python</m>
+</p><p class="subchapterlink"><a  href="docs/acdk_python_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_python Manual</a></p><p class="pagesummary">
+acdk_python contains an interface to an Pyton interperter
+and the DMI code to script ACDK objects from Python code.
+</p><p class="subchapterlink"><a  href="docs/acdkpython_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdkpython Manual</a></p><p class="pagesummary">
+acdkpython is a small wrapper to the commanline Python interpreter
+bind to ACDK.
+</p><p class="subchapterlink"><a  href="../docs/acdk_general_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK General installation notice</a></p><p class="pagesummary">
+How to install and compile ACDK.
+And how to create your own executable/library to make use of ACDK.
+</p><p class="subchapterlink"><a  href="../docs/ACDK-FreeLicense.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;The ACDK License Terms, LGPL</a></p><p class="pagesummary">
+ACDK is available under the LGPL license.
+</p></td></tr></table><!-- subchaptersframe -->
+
+<br>
+<br>
+Please refer also to:<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/</a> (Web at Sourceforge).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.com/</a> (Home of Artefaktur).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.ch/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.ch/</a> (Mirror)
+<li class="Feature"> <a  href="http://sourceforge.net/projects/acdk/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/projects/acdk/</a> (Support at Sourceforge).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/python/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/python/</a> (Home of this project).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__python.html"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__python.html</a> (Online reference).<br>
+<li class="Feature"> <a  href="mailto:kommer@artefaktur.com"><img border="0" src="./../docs\images/url_mailto.gif" alt="mailto">&nbsp;Roger Rene Kommer</a> (Mail Author).<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | ACDK Python | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

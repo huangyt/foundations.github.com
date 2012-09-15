@@ -1,0 +1,176 @@
+<html><body>
+<h1>Unit Test 2004-03-20T09:24:08</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 11; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Binary_Test.standard">Binary_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Dmi_Test.standard">Dmi_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Dmi_Test.implementInterface">Dmi_Test.implementInterface</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.standard">StdLisp_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.misc">StdLisp_Test.misc</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.lamda">StdLisp_Test.lamda</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.quote">StdLisp_Test.quote</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.comma">StdLisp_Test.comma</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.defmacro">StdLisp_Test.defmacro</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.parseCode">StdLisp_Test.parseCode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.defclass">StdLisp_Test.defclass</a> <br>
+</td></tr></table>
+<h2><a id="Binary_Test.standard">Binary_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Binary_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Binary_Test.standard
+[AUNIT:SUCC]: Binary_Test.standard:
+acdk_lisp_BinaryLisp.cpp(73): ival == 3
+</pre>
+<h2><a id="Dmi_Test.standard">Dmi_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Binary_Test.standard] End Test
+[AUNIT:ENDT] End Test: Binary_Test.standard
+[AUNIT:STRT][Dmi_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Dmi_Test.standard
+Load image: autoload.limg
+init finished
+Parsed code [(setf t (make-instance 'EMyClass :bar 3))(t 'foo 2 5)] to [LispObject]
+[AUNIT:SUCC]: Dmi_Test.standard:
+acdk_lisp_Dmi.cpp(79): erg == 10
+</pre>
+<h2><a id="Dmi_Test.implementInterface">Dmi_Test.implementInterface</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Dmi_Test.standard] End Test
+[AUNIT:ENDT] End Test: Dmi_Test.standard
+[AUNIT:STRT][Dmi_Test.implementInterface] Start Test
+[AUNIT:STRT] Start Test: Dmi_Test.implementInterface
+**  Dmi_Test for Lisp currently not working
+</pre>
+<h2><a id="StdLisp_Test.standard">StdLisp_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Dmi_Test.implementInterface] End Test
+[AUNIT:ENDT] End Test: Dmi_Test.implementInterface
+[AUNIT:STRT][StdLisp_Test.standard] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.standard
+Load image: autoload.limg
+init finished
+evaluate: (= (+ 1.000000 2.000000) 3.000000)
+evaluate: (= (- 1.000000 2.000000) -1.000000)
+evaluate: (= (+ 0.250000 0.750000) 1.000000)
+evaluate: (= (- 0.750000 0.250000) 0.500000)
+evaluate: (= (/ 20.000000 5.000000) 4.000000)
+evaluate: (= (* 20.000000 5.000000) 100.000000)
+evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")
+</pre>
+<h2><a id="StdLisp_Test.misc">StdLisp_Test.misc</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.standard] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.standard
+[AUNIT:STRT][StdLisp_Test.misc] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.misc
+Load image: autoload.limg
+init finished
+</pre>
+<h2><a id="StdLisp_Test.lamda">StdLisp_Test.lamda</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.misc] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.misc
+[AUNIT:STRT][StdLisp_Test.lamda] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.lamda
+Load image: autoload.limg
+init finished
+Parsed code [(setf x (lambda (a b) (+ a b)))(x 3 4)] to [7.000000]
+</pre>
+<h2><a id="StdLisp_Test.quote">StdLisp_Test.quote</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.lamda] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.lamda
+[AUNIT:STRT][StdLisp_Test.quote] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.quote
+Load image: autoload.limg
+init finished
+Parsed code [(setf x '(a (1 c)))] to [(a (1.000000 c))]
+Parsed code ['a] to [a]
+</pre>
+<h2><a id="StdLisp_Test.comma">StdLisp_Test.comma</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.quote] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.quote
+[AUNIT:STRT][StdLisp_Test.comma] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.comma
+Load image: autoload.limg
+init finished
+Parsed code [`(a is ,a and b is ,b)] to [(a is 1.000000 and b is (2.000000 3.000000))]
+Parsed code [(setf a 1)(setf b '(2 3))`(a is ,a and b is ,@b inserted)] to [(a is 1.000000 and b is 2.000000 3.000000 inserted)]
+</pre>
+<h2><a id="StdLisp_Test.defmacro">StdLisp_Test.defmacro</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.comma] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.comma
+[AUNIT:STRT][StdLisp_Test.defmacro] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.defmacro
+Load image: autoload.limg
+init finished
+  Evaluated [acdk/lisp/LispList::(defmacro doaddition (&rest doaddition_args) (backquote (+ (commaat doaddition_args))))] 
+  to [acdk/lisp/LispFunction::(defmacro doaddition (&rest doaddition_args) (backquote (+ (commaat doaddition_args))))]
+Parsed code [(trace 1)(defmacro doaddition (&rest doaddition_args)  `(+ ,@doaddition_args))] to [(defmacro doaddition (&rest doaddition_args) (backquote (+ (commaat doaddition_args))))]
+  Eval Macro [(doaddition 1.000000 a 4.000000)]
+bindLocal: [ $1105938328::doaddition_args]=[(1.000000 a 4.000000)]
+bindLocal: [ $1105938328::doaddition_args]=[(1.000000 a 4.000000)]
+    Evaluated [acdk/lisp/LispSymbol::doaddition_args] 
+    to [acdk/lisp/LispList::(1.000000 a 4.000000)]
+  to [(+ 1.000000 a 4.000000)]
+  Evaluated [acdk/lisp/LispList::(setf a 3.000000)] 
+    Evaluated [acdk/lisp/LispAtom::3.000000] 
+    to [acdk/lisp/LispAtom::3.000000]
+bindLocal: [ $1105910048::a]=[3.000000]
+bindLocal: [ $1105910048::a]=[3.000000]
+  to [acdk/lisp/LispAtom::3.000000]
+  Evaluated [acdk/lisp/LispList::(+ 1.000000 a 4.000000)] 
+    Evaluated [acdk/lisp/LispSymbol::+] 
+    to [acdk/lisp/LispBuildInFunction::((NIL NIL (NIL NIL NIL)))]
+    Evaluated [acdk/lisp/LispAtom::1.000000] 
+    to [acdk/lisp/LispAtom::1.000000]
+    Evaluated [acdk/lisp/LispSymbol::a] 
+    to [acdk/lisp/LispAtom::3.000000]
+    Evaluated [acdk/lisp/LispAtom::4.000000] 
+    to [acdk/lisp/LispAtom::4.000000]
+  to [acdk/lisp/LispAtom::8.000000]
+Parsed code [(setf a 3)(doaddition 1 a 4)] to [8.000000]
+</pre>
+<h2><a id="StdLisp_Test.parseCode">StdLisp_Test.parseCode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.defmacro] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.defmacro
+[AUNIT:STRT][StdLisp_Test.parseCode] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.parseCode
+Load image: autoload.limg
+init finished
+Parsed code [(- 4 1)(+ 1 2)] to [3.000000]
+</pre>
+<h2><a id="StdLisp_Test.defclass">StdLisp_Test.defclass</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.parseCode] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.parseCode
+[AUNIT:STRT][StdLisp_Test.defclass] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.defclass
+Load image: autoload.limg
+init finished
+Parsed code [(setf x 3)(defclass AMyClass () ((slot-a :initform x) slot-b))] to [LispClass AMyClass]
+Parsed class definition [(defclass BMyClass () ((slot-a :initarg :a :initform "Hallo")(slot-b :initform "ACDK" :allocation :class)))] to [LispClass BMyClass]
+Parsed code [(defclass CMyClass (BMyClass) ((slot-c :initarg :c)))] to [LispClass CMyClass]
+Parsed code [(setf obj (make-instance 'CMyClass))] to [LispObject]
+Parsed code [(setf obj (make-instance 'CMyClass :a "Hello" :c " Lisp"))] to [LispObject]
+Parsed code [(defun methodA (self arg1)(self 'slot-b (self 'slot-a))(self 'slot-b))] to [methodA]
+Parsed code [(defclass DMyClass (CMyClass)((methodA :initform methodA) (methodB :initform methodA)))] to [LispClass DMyClass]
+Parsed code [(setf obj (make-instance 'DMyClass :a "Hello" :c " Lisp"))(obj 'methodB " from Test")] to [Hello]
+Parsed code [(defclass EMyClass () (  (mBar :initarg :bar)  (foo :initform (lambda (self firstint secondint) (+ firstint secondint (self 'mBar))))))] to [LispClass EMyClass]
+Parsed code [((make-instance 'EMyClass :bar 3) 'foo 2 5)] to [10.000000]
+</pre>
+</body></html>

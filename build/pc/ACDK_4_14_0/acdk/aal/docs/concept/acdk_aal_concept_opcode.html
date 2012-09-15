@@ -1,0 +1,689 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL OpCode</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;OpCode<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode_expression.html">Expressions</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode_statements.html">Statements</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode_class.html">Class</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | OpCode | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL OpCode</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL OpCode</h1> -->
+<p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | OpCode | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p>
+<p class="PageIntro">
+Intermediate OpCode for AAL.
+</p>
+
+
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="acdk_aal_concept_opcode_expression.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL OpCode Expressions</a></p><p class="pagesummary">
+Intermediate OpCode for AAL.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_opcode_statements.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL OpCode Statements</a></p><p class="pagesummary">
+Intermediate OpCode for AAL.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_opcode_class.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL OpCode Class</a></p><p class="pagesummary">
+Intermediate OpCode for AAL.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_opcode_dmi.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL OpCode DMI Interface</a></p><p class="pagesummary">
+Intermediate OpCode for AAL.
+</p></td></tr></table><!-- subchaptersframe -->
+
+
+<a name="jumptable137"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Basics"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Basics</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Aspects"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Aspects</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Integrate in the ParseTree"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Integrate in the ParseTree</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Stack based Byte Code"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Stack based Byte Code</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ByteCode as Sub-Nodes"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;ByteCode as Sub-Nodes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Basic Types"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Basic Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Local Variables"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Local Variables</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#DMI mapping"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;DMI mapping</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Static Resolution"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Static Resolution</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Function Call"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Function Call</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Build-In-Functions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Build-In-Functions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Named parameter"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Named parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Member Access"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Member Access</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Type definitions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Type definitions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Persistence"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Persistence</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#String Ressource"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;String Ressource</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Codes"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Codes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#SymbolTables"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;SymbolTables</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Script"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Script</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ActivationFrame"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;ActivationFrame</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#General"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Function ActivationFrame"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Function ActivationFrame</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Exceptions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Exceptions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#Script"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Script</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ClazzInfo Ressource"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;ClazzInfo Ressource</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#OpStatements"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;OpStatements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Optimizations"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Optimizations</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Elimination of local temp vars"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Elimination of local temp vars</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Op Codes"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Op Codes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Stack"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Stack</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Arithmetik and Logical Ops"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Arithmetik and Logical Ops</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Branches"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Branches</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Invocation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Invocation</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+<h2><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basics">Basics</a></h2>
+Using an OpCode for execution and maybe transpile to Java ByteCode or
+.NET CIL.
+For both languages an assembler language should be used.
+
+<h2><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Aspects">Aspects</a></h2>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Integrate in the ParseTree">Integrate in the ParseTree</a></h3>
+OpCodes are nodes below the Code nodes.
+Code::executes() delegates the call to 
+OpCodes.
+
+Maybe translation can be done on the fly.
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Stack based Byte Code">Stack based Byte Code</a></h3>
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ByteCode as Sub-Nodes">ByteCode as Sub-Nodes</a></h4>
+On each CodeNode the Byte Code of the construct will
+be attached. 
+The ByteCode contains an ObjectArray. The Elements can be
+either a OpCode statement (like 'push 1') or a
+Link to another ByteCode.
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basic Types">Basic Types</a></h3>
+
+Use ScriptVar as basic type. 
+
+All OpCodes operates on ScriptVar, so they don't
+make a difference to i2, i4, r4, Object etc.
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Local Variables">Local Variables</a></h4>
+<ul class="FeatureList">
+<li class="Feature"> Use Instance variable name in Byte-Code?
+<li class="Feature"> Use .data section (StackFrame)?
+</ul>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+int&nbsp;i&nbsp;=&nbsp;1&nbsp;+&nbsp;2;<br>
+<br>
+//&nbsp;will&nbsp;be:&nbsp;<br>
+.data&nbsp;i&nbsp;int<br>
+push&nbsp;1<br>
+push&nbsp;2<br>
+add<br>
+pushlval&nbsp;.data[0]<br>
+assign<br>
+<br>
+i&nbsp;=&nbsp;1;<br>
+//&nbsp;maybe&nbsp;also<br>
+push&nbsp;1<br>
+assign&nbsp;i<br>
+<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DMI mapping">DMI mapping</a></h3>
+
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Static Resolution">Static Resolution</a></h4>
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Function Call">Function Call</a></h5>
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Build-In-Functions">Build-In-Functions</a></h5>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;Minimal&nbsp;sample<br>
+<br>
+void&nbsp;foo()&nbsp;{&nbsp;}<br>
+//&nbsp;Callee<br>
+push&nbsp;Nil<br>
+ret<br>
+<br>
+foo();<br>
+<br>
+//&nbsp;Caller<br>
+push&nbsp;"foo"&nbsp;//&nbsp;class&nbsp;name<br>
+push&nbsp;"operator_popc"<br>
+push&nbsp;0&nbsp;//&nbsp;argcount&nbsp;|&nbsp;flags<br>
+invoke_static<br>
+pop<br></font>
+</td></tr></table>
+
+
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Named parameter">Named parameter</a></h5>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(int&nbsp;i&nbsp;=&nbsp;0,&nbsp;String&nbsp;s&nbsp;=&nbsp;Nil);<br>
+foo(s:&nbsp;"AAL",&nbsp;i:&nbsp;2);<br>
+<br>
+push&nbsp;2<br>
+push&nbsp;"i"<br>
+push&nbsp;"AAL"<br>
+push&nbsp;"s"<br>
+push&nbsp;2&nbsp;//&nbsp;number&nbsp;of&nbsp;named&nbsp;params<br>
+push&nbsp;0&nbsp;&nbsp;//&nbsp;number&nbsp;of&nbsp;unnamed&nbsp;params<br>
+push&nbsp;"foo"<br>
+callnp<br></font>
+</td></tr></table>
+
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Member Access">Member Access</a></h5>
+<jump5>Write access</jump5>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+public:&nbsp;int&nbsp;foo;<br>
+};<br>
+<br>
+//&nbsp;AClass&nbsp;cls<br>
+acls.foo&nbsp;=&nbsp;2;<br>
+<br>
+push&nbsp;acls<br>
+push&nbsp;2<br>
+poke&nbsp;'foo'<br>
+<br>
+//&nbsp;or<br>
+push&nbsp;2<br>
+push&nbsp;acdk<br>
+push&nbsp;'foo'<br>
+getmemberlval<br>
+assign<br>
+<br>
+//&nbsp;or<br>
+push&nbsp;acls<br>
+push&nbsp;'foo'<br>
+push&nbsp;2<br>
+invoke&nbsp;<br></font>
+</td></tr></table>
+
+// or
+implement operator=() on the object reference.
+which may be most general approach.
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+acdk.lang.System.out.println("asdf");<br>
+push&nbsp;"acdk/lang/System"<br>
+push&nbsp;"out"<br>
+peek_static&nbsp;&nbsp;&nbsp;//&nbsp;top&nbsp;on&nbsp;stack&nbsp;is&nbsp;out<br>
+push&nbsp;"println"&nbsp;<br>
+push&nbsp;"asdf"<br>
+push&nbsp;1<br>
+invoke<br>
+<br></font>
+</td></tr></table>
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Type definitions">Type definitions</a></h3>
+To define Types, special Opcodes should
+be used.
+
+<ol>
+<li> Don't use OpCodes for Class Definition but use the 
+    Code nodes and the Environment to define classes.
+    Pro: Easy to implement.
+<li> Use structured declarative statement (.defclass) in the opcode.
+    Con: Has to established a Parser for OpCode.
+    
+<li> Use basic stack based op codes to create type.
+    Con: Hard to understand, not portable to other ByteCode languages.
+<li> Use serialized ClazzInfo to define Classes.
+     The classes can be loaded via a ClassLoader
+     Pro: easy to implement.
+     Pro: Fast execution
+     
+</ol>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;void&nbsp;foo(int&nbsp;i);<br>
+};<br>
+//&nbsp;Case&nbsp;1&nbsp;has&nbsp;no&nbsp;OpCode<br>
+<br>
+//&nbsp;Case&nbsp;2&nbsp;<br>
+.defclass&nbsp;AClass&nbsp;extends&nbsp;BClass<br>
+&nbsp;&nbsp;.defmethod&nbsp;void&nbsp;foo&nbsp;(int&nbsp;i)&nbsp;<br>
+.endclass<br>
+<br>
+//&nbsp;Case&nbsp;3<br>
+push&nbsp;"AClass"<br>
+clsdef&nbsp;//&nbsp;class&nbsp;AClass&nbsp;is&nbsp;on&nbsp;top<br>
+push&nbsp;"BClass"<br>
+clsextends<br>
+push&nbsp;"void"&nbsp;//&nbsp;return&nbsp;type<br>
+push&nbsp;"foo"&nbsp;//&nbsp;method&nbsp;name<br>
+push&nbsp;"int"<br>
+push&nbsp;"i"<br>
+push&nbsp;1&nbsp;//&nbsp;argument&nbsp;count,&nbsp;method&nbsp;flags<br>
+defmethod<br>
+pop&nbsp;//&nbsp;removes&nbsp;the&nbsp;class&nbsp;defintion<br>
+<br>
+//&nbsp;Case&nbsp;4<br>
+<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Persistence">Persistence</a></h3>
+The a compiled unit should be stored
+into a binary file:
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="String Ressource">String Ressource</a></h4>
+Maybe a string dictionary similar to the Java Class format.
+
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Codes">Codes</a></h4>
+For debugging purpose may also include 
+the original AST with all Codes.
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="SymbolTables">SymbolTables</a></h4>
+Symboltable holds defined ClazzInfo ressources
+and tries to resolves external type definitions.
+
+
+After postParse() the SymbolTable is build.
+The SymbolTable is a mapping from String (VarName) to Type.
+
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Script">Script</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AalClassFile<br>
+{<br>
+&nbsp;&nbsp;&nbsp;short&nbsp;magic;&nbsp;//&nbsp;0xaacf<br>
+&nbsp;&nbsp;&nbsp;int&nbsp;version_mayor;<br>
+&nbsp;&nbsp;&nbsp;int&nbsp;version_minor;<br>
+&nbsp;&nbsp;&nbsp;SymbolTableArray&nbsp;symbols;<br>
+&nbsp;&nbsp;&nbsp;OpCodeArray&nbsp;symbols;<br>
+&nbsp;&nbsp;&nbsp;CodeArray&nbsp;codes;&nbsp;//&nbsp;debug&nbsp;information<br>
+};<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ActivationFrame">ActivationFrame</a></h3>
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h4>
+For runtime the names should be resolved to simple index into
+an ActivationFrame. The ActivationFrame holds all local
+variables of the current block. 
+
+The ActivationFrame creates two OpCodes blocks:
+Push all local variables on the stack before emitting the
+childCodes of the ActivateFrame.
+After emmitting the the childCodes, save last value on the stack
+if needed, pop all local variables.
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;AFS&nbsp;=&nbsp;ActivationFrameStack<br>
+int&nbsp;foo(int&nbsp;i)&nbsp;//&nbsp;AFS[0]<br>
+{<br>
+&nbsp;&nbsp;int&nbsp;j;&nbsp;//&nbsp;AFS[1]<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;//&nbsp;AFS[2]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;i;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+AFS[1]:&nbsp;pop&nbsp;ScriptVar(int(0));<br>
+ret&nbsp;AFS[0][0].&nbsp;//&nbsp;save&nbsp;AFS[0][0]&nbsp;value&nbsp;and&nbsp;unwind&nbsp;AFS&nbsp;until&nbsp;function&nbsp;will&nbsp;be&nbsp;leaved.<br></font>
+</td></tr></table>
+
+To enable returning from everywhere in the ActivationFrame Stack
+(and exceptions too) the ret operation has to call a method unwind
+to pop all local variables.
+The ret value must not saved on the local variable stack, otherwise it
+will be also discarged at the unwind operation.
+
+Positive index values address the values from the bottom (0)
+Negativ values (beginning with -1, which is the last pushed value) 
+addresses the values from top of the stack.
+
+<jump5>Variable declarations in a ActivationFrame</jump5>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo()<br>
+{<br>
+&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;42;<br>
+&nbsp;&nbsp;i&nbsp;=&nbsp;i&nbsp;+&nbsp;1;<br>
+&nbsp;&nbsp;if&nbsp;(i&nbsp;==&nbsp;42)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;int&nbsp;j&nbsp;=&nbsp;i;<br>
+&nbsp;&nbsp;return&nbsp;j;<br>
+}<br></font>
+</td></tr></table>
+The example defines a variable i, uses this variable and 
+than defines another variable j. 
+In C both variables i and j will be created at beginning of the 
+function block. In C++ only the first variable i will be created.
+
+If using the C++ creation manner of local variables, the 
+AF must be managed dynamically:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+lvar&nbsp;int<br>
+push&nbsp;42<br>
+store&nbsp;0<br>
+...<br>
+lval&nbsp;int<br>
+load&nbsp;0<br>
+store&nbsp;1<br>
+load&nbsp;1<br>
+ret<br></font>
+</td></tr></table>
+
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Function ActivationFrame">Function ActivationFrame</a></h5>
+<jump5>Parameter passing</jump5>
+Functions ActivationFrame are specialized ActivationFrame.
+
+Question: 
+Caller should push arguments on stack. But should also the 
+caller pop the arguments to avoid stack under/overflow?
+
+The advantage of the case, that the callee pops the arguments
+is, that less OpCodes are generated (a function normally calls
+many functions).
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+foo(42,&nbsp;41);<br>
+push&nbsp;41<br>
+push&nbsp;42<br>
+push&nbsp;2&nbsp;//&nbsp;2&nbsp;arguments,&nbsp;0&nbsp;unnamed,&nbsp;standard&nbsp;call<br>
+call&nbsp;foo<br>
+<br>
+int&nbsp;foo(int&nbsp;i,&nbsp;int&nbsp;j)<br>
+{<br>
+&nbsp;&nbsp;//Stack:&nbsp;&nbsp;i,&nbsp;j,&nbsp;Number&nbsp;of&nbsp;arguments&nbsp;(2)<br>
+&nbsp;&nbsp;return&nbsp;i&nbsp;+&nbsp;j;<br>
+&nbsp;&nbsp;pop&nbsp;AFS[0][2]<br>
+&nbsp;&nbsp;pop&nbsp;AFS[0][1]<br>
+&nbsp;&nbsp;add&nbsp;<br>
+&nbsp;&nbsp;ret&nbsp;AFS[0][0]<br>
+}&nbsp;//&nbsp;<br></font>
+</td></tr></table>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+invokation&nbsp;flags&nbsp;=&nbsp;number&nbsp;of&nbsp;arguments&nbsp;(byte)&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;named&nbsp;arguments&nbsp;(byte)&nbsp;&lt;&lt;&nbsp;8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unused&nbsp;&lt;&lt;&nbsp;16<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flags&nbsp;&lt;&lt;&nbsp;24&nbsp;<br>
+flags:<br>
+enum&nbsp;InvokationFlags<br>
+{<br>
+&nbsp;&nbsp;StandardFrame&nbsp;=&nbsp;0x00,<br>
+&nbsp;&nbsp;<br>
+};<br></font>
+</td></tr></table>
+
+
+<jump5>Parameter attributes</jump5>
+
+<jump6>in attributes</jump6>
+In case a parameter will be passed with the 'in' attribute
+it will be possible just to reuse parents AF slot.
+An flag of the ScriptVar has to ensure, that the value must not
+be changed.
+
+<jump6>out/inout attributes</jump6>
+In case a parameter will be passed with the 'out' or 'inout' attribute
+it will be possible just to reuse parents AF slot.
+Otherwise the ScriptVar must be a reference type.
+
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Exceptions">Exceptions</a></h5>
+Exceptions has to be hold by the ActivationFrame and
+delegate to parent ActivationFrame.
+
+Java handles this with ExceptionsTables, which markes
+an OpCodeBlock internally and the target PC in case 
+of an active Exception.
+
+<h5><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Script">Script</a></h5>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+<br>
+//&nbsp;function&nbsp;and&nbsp;global&nbsp;ActivationFrame<br>
+class&nbsp;ActivationFrame<br>
+:&nbsp;implements&nbsp;OpCode<br>
+{&nbsp;<br>
+&nbsp;&nbsp;ScriptVar&nbsp;_returnValue;<br>
+&nbsp;&nbsp;RThrowable&nbsp;_activeException;<br>
+&nbsp;&nbsp;ActivationFrame(ActivationFrame*&nbsp;parent&nbsp;=&nbsp;0);<br>
+&nbsp;&nbsp;void&nbsp;execute();<br>
+&nbsp;&nbsp;void&nbsp;unwind();<br>
+}<br>
+<br>
+//&nbsp;a&nbsp;block<br>
+class&nbsp;ActivationFrameScope<br>
+{<br>
+&nbsp;&nbsp;ActivationFrame&amp;&nbsp;_af;<br>
+&nbsp;&nbsp;int&nbsp;_top;<br>
+&nbsp;&nbsp;void&nbsp;unwind();<br>
+}<br></font>
+</td></tr></table>
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+&nbsp;&nbsp;createaf<br>
+&nbsp;&nbsp;clvar&nbsp;int<br>
+void&nbsp;foo(int&nbsp;i)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;createafscope<br>
+&nbsp;&nbsp;int&nbsp;j&nbsp;=&nbsp;1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;clval&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;push&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;store&nbsp;AF[1]<br>
+&nbsp;&nbsp;{&nbsp;//&nbsp;createafscope<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;j&nbsp;=&nbsp;i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;clval&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;load&nbsp;AF[0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;store&nbsp;AF[2]&nbsp;<br>
+&nbsp;&nbsp;}&nbsp;//&nbsp;destroyafscope<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;j&nbsp;=&nbsp;2;<br>
+&nbsp;&nbsp;//&nbsp;push&nbsp;2<br>
+&nbsp;&nbsp;//&nbsp;store&nbsp;AF[1]<br>
+&nbsp;&nbsp;int&nbsp;k&nbsp;=&nbsp;1;<br>
+&nbsp;&nbsp;&nbsp;//&nbsp;clval&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;//&nbsp;push&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;//&nbsp;store&nbsp;AF[2]<br>
+&nbsp;&nbsp;&nbsp;<br>
+}&nbsp;//&nbsp;destroyafscope<br>
+//&nbsp;destroyaf<br></font>
+</td></tr></table>
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+int&nbsp;i;<br>
+while&nbsp;(i&nbsp;&lt;&nbsp;3)<br>
+&nbsp;&nbsp;i&nbsp;=&nbsp;i&nbsp;+&nbsp;1;<br>
+<br>
+&nbsp;&nbsp;clval&nbsp;int&nbsp;//&nbsp;asume&nbsp;on&nbsp;AF[1]<br>
+loopentry:<br>
+&nbsp;&nbsp;load&nbsp;1<br>
+&nbsp;&nbsp;push&nbsp;3<br>
+&nbsp;&nbsp;lt<br>
+&nbsp;&nbsp;brnull&nbsp;loopexit<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;load&nbsp;1<br>
+&nbsp;&nbsp;push&nbsp;1<br>
+&nbsp;&nbsp;add<br>
+&nbsp;&nbsp;store&nbsp;1<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;br&nbsp;loopentry<br>
+loopexit:<br></font>
+</td></tr></table>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+<br>
+Same&nbsp;now&nbsp;with&nbsp;block:<br>
+<br>
+while&nbsp;(i&nbsp;&lt;&nbsp;3)<br>
+{<br>
+&nbsp;&nbsp;i&nbsp;=&nbsp;i&nbsp;+&nbsp;1;<br>
+}<br>
+<br>
+&nbsp;clval&nbsp;int&nbsp;//&nbsp;asume&nbsp;on&nbsp;AF[1]<br>
+loopentry:<br>
+&nbsp;&nbsp;oopentry:<br>
+&nbsp;&nbsp;load&nbsp;1<br>
+&nbsp;&nbsp;push&nbsp;3<br>
+&nbsp;&nbsp;lt<br>
+&nbsp;&nbsp;brnull&nbsp;loopexit<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;createafscope<br>
+&nbsp;&nbsp;load&nbsp;1<br>
+&nbsp;&nbsp;push&nbsp;1<br>
+&nbsp;&nbsp;add<br>
+&nbsp;&nbsp;store&nbsp;1<br>
+&nbsp;&nbsp;destroyafscope<br>
+&nbsp;&nbsp;br&nbsp;loopentry<br>
+&nbsp;&nbsp;<br>
+loopexit:<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<br></font>
+</td></tr></table>
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ClazzInfo Ressource">ClazzInfo Ressource</a></h4>
+Store the DClazzInfo as binary, compatible with
+ClazzInfo C-structures to make loading an ClazzInfo
+a simple task.
+Maybe use a type of memory mapped file.
+Link from a ClazzMethodInfo to the starting OPStatement
+of these function.
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OpStatements">OpStatements</a></h4>
+Binary, as stream.
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Optimizations">Optimizations</a></h3>
+
+<h4><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Elimination of local temp vars">Elimination of local temp vars</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+0:&nbsp;clvr&nbsp;0<br>
+1:&nbsp;push&nbsp;""Hello&nbsp;""<br>
+2:&nbsp;push&nbsp;"acdk/lang/StringBuffer"<br>
+3:&nbsp;push&nbsp;1<br>
+4:&nbsp;new<br>
+5:&nbsp;store&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lvar&nbsp;0&nbsp;will&nbsp;only&nbsp;used&nbsp;in&nbsp;next&nbsp;line&nbsp;(pop&nbsp;stack&nbsp;and&nbsp;store&nbsp;at&nbsp;0)<br>
+6:&nbsp;load&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(load&nbsp;0&nbsp;and&nbsp;push&nbsp;on&nbsp;stack<br>
+7:&nbsp;clvr&nbsp;1<br>
+8:&nbsp;store&nbsp;1<br>
+9:&nbsp;push&nbsp;""ACDK""<br>
+10:&nbsp;push&nbsp;"append"<br>
+11:&nbsp;load&nbsp;1<br>
+12:&nbsp;push&nbsp;1<br>
+13:&nbsp;invoke<br>
+14:&nbsp;pop<br>
+<br>
+Can&nbsp;be:<br>
+<br>
+0:&nbsp;&lt;deleted&gt;<br>
+1:&nbsp;push&nbsp;""Hello&nbsp;""<br>
+2:&nbsp;push&nbsp;"acdk/lang/StringBuffer"<br>
+3:&nbsp;push&nbsp;1<br>
+4:&nbsp;new<br>
+5:&nbsp;&lt;deleted&gt;<br>
+6:&nbsp;&lt;deleted&gt;<br>
+7:&nbsp;clvr&nbsp;0<br>
+8:&nbsp;store&nbsp;0<br>
+9:&nbsp;push&nbsp;""ACDK""<br>
+10:&nbsp;push&nbsp;"append"<br>
+11:&nbsp;load&nbsp;0<br>
+12:&nbsp;push&nbsp;1<br>
+13:&nbsp;invoke<br>
+14:&nbsp;pop<br>
+<br></font>
+</td></tr></table>
+
+
+<h2><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Op Codes">Op Codes</a></h2>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Stack">Stack</a></h3>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>nop</td>  <td>?</td>     <td>nop</td>  <td>No operation</td></tr>
+<tr><td>ldc</td>  <td>loadx</td>     <td>ldc</td>  <td>Load constant on stack</td></tr>
+<tr><td>dup</td>  <td>?</td>     <td>dup</td>  <td>Duplicates the top most element</td></tr>
+</table>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Arithmetik and Logical Ops">Arithmetik and Logical Ops</a></h3>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>add</td>  <td>?</td>     <td>add</td>  <td>Add both values on top</td></tr>
+
+</table>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Branches">Branches</a></h3>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>br</td>  <td>?</td>     <td>br</td>  <td>Branch (goto) to label</td></tr>
+<tr><td>brtrue</td>  <td>?</td>     <td>brtrue</td>  <td>Branch (goto) to label if true</td></tr>
+<tr><td>brfalse</td>  <td>?</td>     <td>brtrue</td>  <td>Branch (goto) to label if false</td></tr>
+</table>
+
+<h3><a href="#jumptable137"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Invocation">Invocation</a></h3>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>inv</td>  <td>?</td>     <td>callvirt</td>  <td>Call the virtual method</td></tr>
+<tr><td>invs</td>  <td>?</td>     <td>?</td>  <td>Invoke Static</td></tr>
+<tr><td>inve</td>  <td>?</td>     <td>?</td>  <td>Invoke with extended Invocation Frame</td></tr>
+<tr><td>invse</td>  <td>?</td>     <td>?</td>  <td>Invoke static with extended Invocation Frame</td></tr>
+<tr><td>new</td>  <td>?</td>     <td>?</td>  <td>create new Object.<br> Also pass allocator</td></tr>
+<tr><td>newe</td>  <td>?</td>     <td>?</td>  <td>create new Object with extended Invocation Frame</td></tr>
+</table>
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | OpCode | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,66 @@
+
+int classCounter = 0;
+class AClass
+{
+	AClass()
+	{
+		out.println("AClass::AClass");
+	}
+	void finalize()
+	{
+		out.println("AClass::finalize");
+	}
+	int getAClassNum() { return 42; }
+}
+AClass aclass;
+/*
+aclass = new AClass();
+aclass = Nil;
+*/
+
+class BClass 
+extends AClass 
+{
+	BClass()
+	{
+		out.println("BClass::BClass");
+		if (getAClassNum() != 42)
+		  throw new Exception("TEST FAILED");
+	}
+	void finalize()
+	{
+		out.println("BClass::finalize");
+	}
+}
+BClass bclass;
+/*
+bclass = new BClass();
+bclass = Nil;
+*/
+class CClass
+extends BClass
+{
+	CClass()
+	{
+		out.println("CClass::CClass");
+		if (getAClassNum() != 42)
+		  throw new Exception("TEST FAILED");
+	}
+	void finalize()
+	{
+		out.println("CClass::finalize");
+	}
+}
+
+CClass cclass;
+/*
+cclass = new CClass();
+cclass = Nil;
+*/
+cclass = new CClass();
+bclass = cclass;
+cclass = Nil;
+out.println("before release");
+bclass = Nil;
+out.println("released");
+

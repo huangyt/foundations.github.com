@@ -1,0 +1,124 @@
+%id: acdk_general_compile_own_executable
+%title: How create own Executable
+%shorttitle: Create own Executable
+%seealso: acdk_general_install
+%body:
+
+<htmlauto>
+<pageintro>
+How to create your own executable using the ACDK libraries.
+</pageintro>
+
+
+<jump1>How to create own Executable/Library Project</jump1>
+Currently there are multiple ways to create your own Project
+using the ACDK libraries.
+
+<jumptable/>
+
+
+<jump1>Minimal Makefile sample for Unix</jump1>
+In an empty directory create the file <c>minacdksample.cpp</c>
+<source>
+#include <acdk.h>
+#include <acdk/lang/System.h>
+
+using namespace acdk::lang;
+
+// minimal example, which just says hello
+class MiniAcdkSample
+{
+public:
+  static int acdkmain(RStringArray args)
+  {
+    System::out->println("Hello from miniacdksample");
+    return 0;
+  }
+};
+
+int
+main(int argc, char* argv[], char** envptr)
+{
+  return acdk::lang::System::main(MiniAcdkSample::acdkmain, argc, argv, envptr);
+}
+</source>
+
+Create the corresponding <c>Makefile</c> for unix/gcc:
+
+<source>
+# where is your ACDK installed
+ACDKHOME=/artefaktur/acdk
+
+CCOMPILER=g++ -Wall -Wno-unused -g -D_REENTRANT -I .  -I $(ACDKHOME)/include
+
+# system libraries. These are needed by ACDK at least
+SYSLIBRARIES=-lpthread -lm -ldl
+ACDKLIBS=-lacdk_core
+
+# all libs together
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(ACDKHOME)/bin $(ACDKLIBS)
+
+# want maybe to debug
+SYSLDFLAGS=-g
+
+
+OBJECTS = minacdksample.o
+
+# builds the executable itself
+# don't forget to export LD_LIBRARY_PATH=/artefaktur/acdk/bin before execute the binary
+minacdksample: $(OBJECTS)
+	g++ $(SYSLDFLAGS)  $(OBJECTS) -o minacdksample $(LIBS)
+
+%.o: %.cpp
+	$(CCOMPILER) -c $< -o $@
+
+clean:
+	rm *.o minacdksample
+</source>
+
+That is all. Just make.
+
+<jump1>Minimal build.csf sample for all platforms</jump1>
+%ref[acdk_make] is a platform independ make substitution.
+Currently it is in experimental state. 
+
+Create a <c>build.csf</c> in our directory:
+<source>
+
+/*
+  Just execute acdkmake in this directory
+*/
+
+// needed for base definitions
+#include "amake_config.csf"
+
+// Create a standard ACDK console executable 
+minacdksample = new acdk.make.AcdkExeTask("minacdksample");
+
+//  add a single source. This also excepts pattern
+//  like "src/acdk/bla/*.cpp" 
+//  or   "src/acdk/blub/**/*.cpp"
+minacdksample.addSource("minacdksample.cpp");
+
+// this uses acdk_core library
+minacdksample.addAcdkLib("acdk_core");
+
+// make a project
+default = new acdk.make.AcdkProjectTask("default");
+default.addSubTask("minacdksample");
+</source>
+
+Execute acdkmake in the directory.
+
+<jump1>Use acdk_boot as sample</jump1>
+The package %ref[acdk_boot] is small sample project which, which can be used
+as a template for creating own projects.
+
+<jump1>Generate own Makefiles/Project using acdklisp</jump1>
+
+Currently ACDK uses a lisp files to generate platform make files.
+In the future this will replaced with acdkmake.
+
+Please refer to %ref[acdk_general_install].
+
+.

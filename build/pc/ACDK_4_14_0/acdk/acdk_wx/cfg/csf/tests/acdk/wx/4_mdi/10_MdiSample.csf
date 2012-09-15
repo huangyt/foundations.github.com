@@ -1,0 +1,53 @@
+using acdk.wx;
+
+enum MyEvents
+{
+  // menu items
+  Event_New = 1,
+  Event_Quit,
+  Event_About
+}
+
+class MyFrame
+extends MDIParentFrame
+{
+  MyFrame() 
+  {
+    super(Nil, -1, "Event Sample", new Point(0, 0), new Size(800, 500));
+    
+    (new MDIChildFrame(this, -1, "Sub Window 1", new Point(0, 0), new Size(600, 400))).show(true);
+    (new MDIChildFrame(this, -1, "Sub Window 2", new Point(0, 0), new Size(600, 400))).show(true);
+    (new MDIChildFrame(this, -1, "Sub Window 3", new Point(0, 0), new Size(600, 400))).show(true);
+    //new TextCtrl(cf, -1, "Text only");
+    Menu menuFile = new Menu();
+    menuFile.append(Event_About, "&About...\tCtrl-A", "Show about dialog");
+    menuFile.append(Event_New, "&New\tCtrl-N", "New Window");
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, "E&xit\tAlt-X", "Quit this program");
+    MenuBar menuBar = new MenuBar();
+    menuBar.append(menuFile, "&File");
+    setMenuBar(menuBar);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, 
+        lambda[this] { close(true); });
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, 
+        lambda[this] { messageBox("MDI Sample\n"); } );
+    connect(CommandEvent.EvtCommandMenuSelected, Event_New, 
+        lambda[this] { (new MDIChildFrame(this, -1, "Sub Window n")).show(true); } );
+    // does not work menuFile.append("Test", lambda[this] {  messageBox("MDI Sample\n"); } );
+    cascade();
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame()).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

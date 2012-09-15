@@ -1,0 +1,227 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+
+-include $(ACDK_HOME)/acdk_globals.darwin
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_core_metainf/darwin
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=CC -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fPIC $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_DARWIN -D_REENTRANT  $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=CC -dynamic -dynamiclib
+endif
+
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fPIC
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-L/sw/lib -lpthread -lm -ldl -lstdc++ -lcc_dynamic
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -L$(BINDIR)  -lacdk_core
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/lang/lang_metainf/lang_metainf_ext.cpp \
+	acdk/lang/lang_metainf/lang_metainf_ext1.cpp \
+	acdk/lang/lang_metainf/lang_metainf_ext2.cpp \
+	acdk/lang/lang_metainf/lang_metainf_ext3.cpp \
+	acdk/lang/lang_metainf/lang_metainf_ext4.cpp \
+	acdk/lang/lang_metainf/lang_metainf_ext5.cpp \
+	acdk/lang/dmi/dmi_metainf/dmi_metainf_ext.cpp \
+	acdk/lang/dmi/dmi_metainf/dmi_metainf_ext1.cpp \
+	acdk/lang/ref/ref_metainf/ref_metainf_ext.cpp \
+	acdk/lang/reflect/reflect_metainf/reflect_metainf_ext.cpp \
+	acdk/io/io_metainf/io_metainf_ext.cpp \
+	acdk/io/io_metainf/io_metainf_ext1.cpp \
+	acdk/io/io_metainf/io_metainf_ext2.cpp \
+	acdk/io/io_metainf/io_metainf_ext3.cpp \
+	acdk/io/io_metainf/io_metainf_ext4.cpp \
+	acdk/util/util_metainf/util_metainf_ext.cpp \
+	acdk/util/util_metainf/util_metainf_ext1.cpp \
+	acdk/util/util_metainf/util_metainf_ext2.cpp \
+	acdk/util/util_metainf/util_metainf_ext3.cpp \
+	acdk/util/util_metainf/util_metainf_ext4.cpp \
+	acdk/util/logging/logging_metainf/logging_metainf_ext.cpp \
+	acdk/locale/locale_metainf/locale_metainf_ext.cpp \
+
+HEADER= 
+OBJECTS= 	../tobj/acdk_core_metainf/darwin/lang_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/lang_metainf_ext1.o \
+	../tobj/acdk_core_metainf/darwin/lang_metainf_ext2.o \
+	../tobj/acdk_core_metainf/darwin/lang_metainf_ext3.o \
+	../tobj/acdk_core_metainf/darwin/lang_metainf_ext4.o \
+	../tobj/acdk_core_metainf/darwin/lang_metainf_ext5.o \
+	../tobj/acdk_core_metainf/darwin/dmi_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/dmi_metainf_ext1.o \
+	../tobj/acdk_core_metainf/darwin/ref_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/reflect_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/io_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/io_metainf_ext1.o \
+	../tobj/acdk_core_metainf/darwin/io_metainf_ext2.o \
+	../tobj/acdk_core_metainf/darwin/io_metainf_ext3.o \
+	../tobj/acdk_core_metainf/darwin/io_metainf_ext4.o \
+	../tobj/acdk_core_metainf/darwin/util_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/util_metainf_ext1.o \
+	../tobj/acdk_core_metainf/darwin/util_metainf_ext2.o \
+	../tobj/acdk_core_metainf/darwin/util_metainf_ext3.o \
+	../tobj/acdk_core_metainf/darwin/util_metainf_ext4.o \
+	../tobj/acdk_core_metainf/darwin/logging_metainf_ext.o \
+	../tobj/acdk_core_metainf/darwin/locale_metainf_ext.o \
+
+
+FINALTARGET=../../bin/libacdk_core_metainf.dylib
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_core_metainf.dylib: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_core_metainf.dylib $(OBJECTS) $(LIBS) $(LDFLAGSX) -install_name @executable_path/libacdk_core_metainf.dylib
+
+DEPSFILE=acdk_core_metainf.darwin.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_core_metainf/darwin/lang_metainf_ext.o: acdk/lang/lang_metainf/lang_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/lang_metainf_ext.o -c acdk/lang/lang_metainf/lang_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/lang_metainf_ext1.o: acdk/lang/lang_metainf/lang_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/lang_metainf_ext1.o -c acdk/lang/lang_metainf/lang_metainf_ext1.cpp
+
+../tobj/acdk_core_metainf/darwin/lang_metainf_ext2.o: acdk/lang/lang_metainf/lang_metainf_ext2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/lang_metainf_ext2.o -c acdk/lang/lang_metainf/lang_metainf_ext2.cpp
+
+../tobj/acdk_core_metainf/darwin/lang_metainf_ext3.o: acdk/lang/lang_metainf/lang_metainf_ext3.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/lang_metainf_ext3.o -c acdk/lang/lang_metainf/lang_metainf_ext3.cpp
+
+../tobj/acdk_core_metainf/darwin/lang_metainf_ext4.o: acdk/lang/lang_metainf/lang_metainf_ext4.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/lang_metainf_ext4.o -c acdk/lang/lang_metainf/lang_metainf_ext4.cpp
+
+../tobj/acdk_core_metainf/darwin/lang_metainf_ext5.o: acdk/lang/lang_metainf/lang_metainf_ext5.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/lang_metainf_ext5.o -c acdk/lang/lang_metainf/lang_metainf_ext5.cpp
+
+../tobj/acdk_core_metainf/darwin/dmi_metainf_ext.o: acdk/lang/dmi/dmi_metainf/dmi_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/dmi_metainf_ext.o -c acdk/lang/dmi/dmi_metainf/dmi_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/dmi_metainf_ext1.o: acdk/lang/dmi/dmi_metainf/dmi_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/dmi_metainf_ext1.o -c acdk/lang/dmi/dmi_metainf/dmi_metainf_ext1.cpp
+
+../tobj/acdk_core_metainf/darwin/ref_metainf_ext.o: acdk/lang/ref/ref_metainf/ref_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/ref_metainf_ext.o -c acdk/lang/ref/ref_metainf/ref_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/reflect_metainf_ext.o: acdk/lang/reflect/reflect_metainf/reflect_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/reflect_metainf_ext.o -c acdk/lang/reflect/reflect_metainf/reflect_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/io_metainf_ext.o: acdk/io/io_metainf/io_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/io_metainf_ext.o -c acdk/io/io_metainf/io_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/io_metainf_ext1.o: acdk/io/io_metainf/io_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/io_metainf_ext1.o -c acdk/io/io_metainf/io_metainf_ext1.cpp
+
+../tobj/acdk_core_metainf/darwin/io_metainf_ext2.o: acdk/io/io_metainf/io_metainf_ext2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/io_metainf_ext2.o -c acdk/io/io_metainf/io_metainf_ext2.cpp
+
+../tobj/acdk_core_metainf/darwin/io_metainf_ext3.o: acdk/io/io_metainf/io_metainf_ext3.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/io_metainf_ext3.o -c acdk/io/io_metainf/io_metainf_ext3.cpp
+
+../tobj/acdk_core_metainf/darwin/io_metainf_ext4.o: acdk/io/io_metainf/io_metainf_ext4.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/io_metainf_ext4.o -c acdk/io/io_metainf/io_metainf_ext4.cpp
+
+../tobj/acdk_core_metainf/darwin/util_metainf_ext.o: acdk/util/util_metainf/util_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/util_metainf_ext.o -c acdk/util/util_metainf/util_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/util_metainf_ext1.o: acdk/util/util_metainf/util_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/util_metainf_ext1.o -c acdk/util/util_metainf/util_metainf_ext1.cpp
+
+../tobj/acdk_core_metainf/darwin/util_metainf_ext2.o: acdk/util/util_metainf/util_metainf_ext2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/util_metainf_ext2.o -c acdk/util/util_metainf/util_metainf_ext2.cpp
+
+../tobj/acdk_core_metainf/darwin/util_metainf_ext3.o: acdk/util/util_metainf/util_metainf_ext3.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/util_metainf_ext3.o -c acdk/util/util_metainf/util_metainf_ext3.cpp
+
+../tobj/acdk_core_metainf/darwin/util_metainf_ext4.o: acdk/util/util_metainf/util_metainf_ext4.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/util_metainf_ext4.o -c acdk/util/util_metainf/util_metainf_ext4.cpp
+
+../tobj/acdk_core_metainf/darwin/logging_metainf_ext.o: acdk/util/logging/logging_metainf/logging_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/logging_metainf_ext.o -c acdk/util/logging/logging_metainf/logging_metainf_ext.cpp
+
+../tobj/acdk_core_metainf/darwin/locale_metainf_ext.o: acdk/locale/locale_metainf/locale_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_metainf/darwin/locale_metainf_ext.o -c acdk/locale/locale_metainf/locale_metainf_ext.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_core_metainf.dylib $(OBJECTS)
+
+  

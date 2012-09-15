@@ -1,0 +1,17 @@
+
+String ScriptTestModulVar = "module var: ScriptTestModulVar";
+//String tests.ScriptTestModulVar = "module var: tests.ScriptTestModulVar";
+
+class tests.CfgScriptTest
+extends acdk.lang.Object
+{
+  int _ival;
+  CfgScriptTest(int ival) 
+  { 
+    _ival = ival; 
+  }
+  int getIVal() 
+  { 
+    return _ival; 
+  }
+}

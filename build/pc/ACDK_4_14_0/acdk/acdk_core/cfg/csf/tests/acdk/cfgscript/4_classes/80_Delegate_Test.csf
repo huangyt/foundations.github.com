@@ -1,0 +1,69 @@
+
+
+class AClass 
+{
+  String prefix;
+  AClass(String pref)
+  {
+      prefix = pref;
+  }
+  // callback function
+  static RString GetGerText(String name) 
+  { 
+    return "Hallo " + name; 
+  }
+  // other callback function
+  static RString GetEngText(String name) 
+  { 
+    return "Hello " + name; 
+  }
+  // non static method callback function
+  String getEngText(String name)
+  {
+    return "Hello " + prefix + " " + name;
+  }
+  // this method uses a delegate:
+  static void useDelegate(Delegate del) 
+  {
+    out.println(del.call("ACDK"));
+  }
+  static void DelegateInsideClass()
+  {
+    // inside a class method with 'delegate' methods can be used directly
+    useDelegate(delegate GetEngText);
+  }
+  void delegateInsideClass()
+  {
+    // inside a class method with 'delegate' methods can be used directly
+    useDelegate(delegate getEngText);
+  }
+}
+
+AClass.useDelegate(delegate (new AClass("superb")).getEngText);
+
+// use a static method (german)
+AClass.useDelegate(delegate AClass.GetGerText);
+// now use english text
+AClass.useDelegate(delegate AClass.GetEngText);
+
+AClass cls = new AClass("finest");
+
+// Delegates works also with non-static methods
+AClass.useDelegate(delegate cls.getEngText);
+
+// using expression
+AClass.useDelegate(delegate (new AClass("superb")).getEngText);
+
+// see AClass.DelegateInsideClass
+AClass.DelegateInsideClass();
+
+// see AClass.delegateInsideClass
+cls.delegateInsideClass();
+
+
+// what the implementation of the delegate does:
+AClass.useDelegate(new StdDmiDelegate(AClass.GetClass(), "GetGerText"));
+
+out.println("TEST OK");
+
+

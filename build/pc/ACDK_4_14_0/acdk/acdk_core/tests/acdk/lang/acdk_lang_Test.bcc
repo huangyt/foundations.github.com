@@ -1,0 +1,179 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_lang_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_lang_Test\bcc"
+SOURCES= 	"acdk_lang_Test.cpp" \
+	"acdk_lang_ObjectBase_Test.cpp" \
+	"acdk_lang_ObjectArray_Test.cpp" \
+	"acdk_lang_Character_Test.cpp" \
+	"acdk_lang_String_Test.cpp" \
+	"acdk_lang_String2_Test.cpp" \
+	"acdk_lang_StringBuffer_Test.cpp" \
+	"acdk_lang_Throwable_Test.cpp" \
+	"acdk_lang_Thread_Test.cpp" \
+	"acdk_lang_Thread_Test2.cpp" \
+	"acdk_lang_ThreadLocal_Test.cpp" \
+	"acdk_lang_ClassLoader_Test.cpp" \
+	"acdk_lang_Integer_Test.cpp" \
+	"acdk_lang_Double_Test.cpp" \
+	"acdk_lang_Float_Test.cpp" \
+	"acdk_lang_Number_Test.cpp" \
+	"acdk_lang_Runtime_Test.cpp" \
+	"acdk_lang_ExtObject_Test.cpp" \
+	"acdk_lang_CmdLineParser_Test.cpp" \
+	"acdk_lang_System_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_lang_Test\bcc\acdk_lang_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_ObjectBase_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_ObjectArray_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Character_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_String_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_String2_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_StringBuffer_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Throwable_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test2.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_ThreadLocal_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_ClassLoader_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Integer_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Double_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Float_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Number_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_Runtime_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_ExtObject_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_CmdLineParser_Test.obj" \
+	".\tobj\acdk_lang_Test\bcc\acdk_lang_System_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Test.obj": "acdk_lang_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_ObjectBase_Test.obj": "acdk_lang_ObjectBase_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_ObjectBase_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_ObjectArray_Test.obj": "acdk_lang_ObjectArray_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_ObjectArray_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Character_Test.obj": "acdk_lang_Character_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Character_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_String_Test.obj": "acdk_lang_String_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_String_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_String2_Test.obj": "acdk_lang_String2_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_String2_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_StringBuffer_Test.obj": "acdk_lang_StringBuffer_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_StringBuffer_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Throwable_Test.obj": "acdk_lang_Throwable_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Throwable_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test.obj": "acdk_lang_Thread_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Thread_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test2.obj": "acdk_lang_Thread_Test2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Thread_Test2.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_ThreadLocal_Test.obj": "acdk_lang_ThreadLocal_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_ThreadLocal_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_ClassLoader_Test.obj": "acdk_lang_ClassLoader_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_ClassLoader_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Integer_Test.obj": "acdk_lang_Integer_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Integer_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Double_Test.obj": "acdk_lang_Double_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Double_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Float_Test.obj": "acdk_lang_Float_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Float_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Number_Test.obj": "acdk_lang_Number_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Number_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_Runtime_Test.obj": "acdk_lang_Runtime_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_Runtime_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_ExtObject_Test.obj": "acdk_lang_ExtObject_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_ExtObject_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_CmdLineParser_Test.obj": "acdk_lang_CmdLineParser_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_CmdLineParser_Test.cpp"
+
+".\tobj\acdk_lang_Test\bcc\acdk_lang_System_Test.obj": "acdk_lang_System_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lang_Test\bcc" "acdk_lang_System_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_lang_Test.exe"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_ObjectBase_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_ObjectArray_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Character_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_String_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_String2_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_StringBuffer_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Throwable_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Thread_Test2.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_ThreadLocal_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_ClassLoader_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Integer_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Double_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Float_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Number_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_Runtime_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_ExtObject_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_CmdLineParser_Test.obj"
+	del ".\tobj\acdk_lang_Test\bcc\acdk_lang_System_Test.obj"
+
+

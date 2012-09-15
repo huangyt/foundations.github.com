@@ -1,0 +1,17 @@
+#ifndef acdk_base_idl
+#define acdk_base_idl
+
+// typedef long long longlong;
+typedef unsigned long longlong;
+typedef sequence<boolean> booleanArray;
+typedef sequence<octet> octetArray;
+typedef sequence<char> charArray;
+typedef sequence<short> shortArray;
+typedef sequence<long> longArray;
+typedef sequence<longlong> longlongArray;
+typedef sequence<float> floatArray;
+typedef sequence<double> doubleArray;
+typedef sequence<string> stringArray;
+typedef sequence<stringArray> stringArrayArray;
+
+#endif //acdk_base_idl

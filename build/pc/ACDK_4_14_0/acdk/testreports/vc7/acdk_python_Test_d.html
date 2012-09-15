@@ -1,0 +1,161 @@
+<html><body>
+<h1>Unit Test 2004-11-28T19:19:04</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 12; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ComObject_Test.helloWord">ComObject_Test.helloWord</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.standard">Interpreter_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.acdkObject">Interpreter_Test.acdkObject</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.opaqueAcdkObject">Interpreter_Test.opaqueAcdkObject</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.invoke_static">Interpreter_Test.invoke_static</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.peek">Interpreter_Test.peek</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.peek_static">Interpreter_Test.peek_static</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.poke">Interpreter_Test.poke</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.poke_static">Interpreter_Test.poke_static</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.handledError">Interpreter_Test.handledError</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.unhandledError">Interpreter_Test.unhandledError</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.unhandledInternalError">Interpreter_Test.unhandledInternalError</a> <br>
+</td></tr></table>
+<h2><a id="ComObject_Test.helloWord">ComObject_Test.helloWord</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][ComObject_Test.helloWord] Start Test
+Executing: [
+import acdk
+classloader = acdk.Object("acdk/lang/ClassLoader")
+classloader.findClass("acdkx/com/ComObject")
+word = acdk.invoke_static("acdkx/com/ComObject", "New", "Word.Application")
+word.poke("Visible", 1)
+doc = word.peek("Documents").Add()
+sel = word.peek("ActiveWindow").peek("Selection")
+sel.TypeText("This is ")
+sel.peek("Font").poke("Bold", 1)
+sel.TypeText("ACDK")
+sel.peek("Font").poke("Bold", 0)
+sel.TypeText(" instrumenting Word through acdk_python")
+acdk.invoke_static("acdk/lang/Thread", "sleep", 3000)
+word.Quit(0)
+]
+> </pre>
+<h2><a id="Interpreter_Test.standard">Interpreter_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ComObject_Test.helloWord] End Test
+[AUNIT:STRT][Interpreter_Test.standard] Start Test
+Executing: [
+print "Hello World"
+]
+> </pre>
+<h2><a id="Interpreter_Test.acdkObject">Interpreter_Test.acdkObject</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.standard] End Test
+[AUNIT:STRT][Interpreter_Test.acdkObject] Start Test
+Executing: [
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+sb.append("World")
+sb.append("!")
+print sb.toString()
+]
+> </pre>
+<h2><a id="Interpreter_Test.opaqueAcdkObject">Interpreter_Test.opaqueAcdkObject</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.acdkObject] End Test
+[AUNIT:STRT][Interpreter_Test.opaqueAcdkObject] Start Test
+Executing: [
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+isequal = sb.equals(sb)
+print isequal
+]
+> </pre>
+<h2><a id="Interpreter_Test.invoke_static">Interpreter_Test.invoke_static</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.opaqueAcdkObject] End Test
+[AUNIT:STRT][Interpreter_Test.invoke_static] Start Test
+Executing: [
+import acdk
+out = acdk.invoke_static("acdk/lang/Integer", "toString", 42)
+if out != "42": raise RuntimeError, "Test failed"]
+> </pre>
+<h2><a id="Interpreter_Test.peek">Interpreter_Test.peek</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.invoke_static] End Test
+[AUNIT:STRT][Interpreter_Test.peek] Start Test
+Executing: [
+import acdk
+tc = acdk.Object("acdk/tools/aunit/DmiTestClass")
+print tc.peek("pubString")]
+> </pre>
+<h2><a id="Interpreter_Test.peek_static">Interpreter_Test.peek_static</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.peek] End Test
+[AUNIT:STRT][Interpreter_Test.peek_static] Start Test
+Executing: [
+import acdk
+out = acdk.peek_static("acdk/lang/System", "out")
+out.println("Hallo World")
+]
+> Hallo World
+</pre>
+<h2><a id="Interpreter_Test.poke">Interpreter_Test.poke</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.peek_static] End Test
+[AUNIT:STRT][Interpreter_Test.poke] Start Test
+Executing: [
+import acdk
+tc = acdk.Object("acdk/tools/aunit/DmiTestClass")
+tc.poke("pubString", "Hello")
+print tc.peek("pubString")
+]
+> </pre>
+<h2><a id="Interpreter_Test.poke_static">Interpreter_Test.poke_static</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.poke] End Test
+[AUNIT:STRT][Interpreter_Test.poke_static] Start Test
+Executing: [
+import acdk
+acdk.poke_static("acdk/tools/aunit/DmiTestClass", "pubStaticInt", 42)
+print acdk.peek_static("acdk/tools/aunit/DmiTestClass", "pubStaticInt")
+]
+> </pre>
+<h2><a id="Interpreter_Test.handledError">Interpreter_Test.handledError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.poke_static] End Test
+[AUNIT:STRT][Interpreter_Test.handledError] Start Test
+Executing: [
+import acdk
+try:
+	out = acdk.peek_static("acdk/lang/System", "there_is_no_such_field")
+	raise RuntimeError, "Should never reached here"
+except RuntimeError, e:
+	print e
+]
+> </pre>
+<h2><a id="Interpreter_Test.unhandledError">Interpreter_Test.unhandledError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.handledError] End Test
+[AUNIT:STRT][Interpreter_Test.unhandledError] Start Test
+Executing: [
+raise RuntimeError, "forced Exception"
+]
+> </pre>
+<h2><a id="Interpreter_Test.unhandledInternalError">Interpreter_Test.unhandledInternalError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.unhandledError] End Test
+[AUNIT:STRT][Interpreter_Test.unhandledInternalError] Start Test
+Executing: [
+import acdk
+out = acdk.peek_static("acdk/lang/System", "there_is_no_such_field")
+]
+> </pre>
+</body></html>

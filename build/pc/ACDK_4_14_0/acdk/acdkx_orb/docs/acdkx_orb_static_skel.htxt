@@ -1,0 +1,112 @@
+%id: acdkx_orb_static_skel
+%title: Static ORB Proxy and Skeleton for ACDK
+%shorttitle: Static Proxy and Skeleton
+%body:
+<pageintro>
+With th acdkmc plugin static skeleton/proxies
+can be created from ACDK classes.
+</pageintro>
+<htmlauto/>
+
+
+Please refer to the AddressServer and AddressClient project
+in the acdkx_orb package.
+
+<jumptable/>
+
+<jump1>Generate static skeletons and proxy</jump1>
+The project acdkx_orb_mc project contains a 
+acdkmc plugin to generate static proxies for CORBA.
+
+Sample:
+<source>
+
+ACDK_DECL_INTERFACE(AdressBook);
+
+/** 
+  call the acdk plugin OrbDispatchAttribute to
+  generate the static CORBA proxy
+*/
+ACDK_CLASSATTRIBUTE(acdkx.orb.mc.OrbDispatchAttribute())
+class AdressBook 
+: implements ::org::omg::CORBA::portable::InvokeHandler
+{
+  ACDK_WITH_METAINFO(AdressBook)
+public:
+  ACDK_CORBA_INTERFACE(AdressBook)
+public:
+  virtual void ping() = 0;
+  virtual void testArray(IN(RintArray) longs, OUT(RStringArray) strings) = 0;
+  virtual RAdressInfo getAddressInfoA(RString name) = 0;
+  virtual void getAddressInfoB(RString name, OUT(RAdressInfo) adressinfo) = 0;
+  virtual void setAddressInfo(RString name, IN(RAdressInfo) adressinfo) = 0;
+  virtual RAdressInfoArray getAllAdressInfos() = 0;
+  virtual void setOtherAdressBook(IN(RAdressBook) other) = 0;
+  virtual void getOtherAdressBook(OUT(RAdressBook) other) = 0;
+};
+</source>
+
+This will generate AdressBook_Skel class and the AdressBook::_invoke() 
+in the *_metainf_ext.cpp file.
+
+<jump1>Implement the server object</jump1>
+<source>
+class AdressBookImpl
+: extends ::acdkx::orb::ServerDelegate,
+  implements AdressBook
+{
+  // implementation of the interface
+};
+</source>
+
+<jump1>start the server</jump1>
+<source>
+    RORB orb = ORB::init();
+    RAdressBookImpl adressimpl = new AdressBookImpl();
+    orb->impl_is_ready((::acdk::lang::RObject)adressimpl);
+
+    RString ostr = orb->object_to_string((::org::omg::CORBA::RObject)adressimpl);
+    {
+      RString fname = "./AdressBook.ref";
+      ::acdk::io::FileWriter f(fname);
+      f.write(ostr->getBytes());
+      System::out->println(ostr);
+    }
+    orb->run();
+</source>
+
+<jump1>Implement the client</jump1>
+
+<source>
+RString refid;
+RString fname = "./AdressBook.ref";
+::acdk::io::InputReader f(new ::acdk::io::FileReader(fname));
+refid = f.readString();
+System::out->println("Calling refid: " + refid);
+RAdressBook obj = (RAdressBook)orb->string_to_object(refid); // get the object
+obj->ping(); // call the server object.
+</source>
+
+<jump1>Using ACDK as CORBA value type</jump1>
+
+ACDK_DECL_CLASS(AdressInfo);
+// next attribute gives a hint, that AdressInfo should be uses
+// as structure, which will be transfered as value
+ACDK_CLASSATTRIBUTE(acdk.tools.mc.StringTagAttribute("acdkx_orb_StructType"))
+class AdressInfo
+: extends ::acdk::lang::Object
+{
+  ACDK_WITH_METAINFO(AdressInfo)
+public:
+  AdressInfo() : Object() { }
+  RString name;
+  RString street;
+  int streetnumber;
+  RString toString()
+  {
+    return "name=[" + name + "]; street=[" + street + RString("]; streetnumber=[") + streetnumber + "];";
+  }
+};
+</source>
+
+.

@@ -1,0 +1,31 @@
+%id: acdktcl_man
+%title: acdktcl - manual
+%seealso: acdk_tcl_dll_man
+%keywords: Tcl interpreter
+%body:
+<htmlauto/>
+<pageintro>
+<greptag fname="./acdktcl.xml" tag="shortdescription"/>
+</pageintro>
+
+<jumptable/>
+
+<jump1>Description</jump1>
+<greptag fname="./acdktcl.xml" tag="description"/>
+
+<jump1>SYNOPSIS</jump1>
+<code>
+      acdktcl [-acdk-options] [tclscript]
+</code>
+
+<jump1>OPTIONS</jump1>
+<fl>
+<f> -acdk-options<br>
+    Option parsed by the ACDK-Library (see %ref[acdk_core_man])
+<f>tclscript<br>
+        If an file is given as argument, this will be evaluated as
+        Tcl-Script.
+        Otherwise in the interactive mode with Tcl-shell will be 
+        started.
+</fl>  
+.

@@ -1,0 +1,25 @@
+
+
+//#include "amake_config.csf"
+
+with (tmakexecutable = new acdk.make.c.ExeCProject("tmakexecutable"))
+{
+  .addSource(".");
+  with (.getTaskProps())
+  {
+    .C_BINOUTDIR = "./bin";
+    .C_OBJDIR = "./tobj";
+    .C_WITHRTTI = true;
+    .C_WITHDEBUG = true;
+  }
+}
+
+/*
+  make a project 
+*/
+with (default = new acdk.make.ProjectTask("default"))
+{
+  .addSubTask(tmakexecutable);
+}
+
+//acdk_make.execute("build", __props);

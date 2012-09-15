@@ -1,0 +1,282 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="if, switch, return, break, continue, throw, catch, finally">
+<title>CfgScript Branch Statements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Branch Statements
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | Branch Statements | <a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Branch Statements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Branch Statements</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | Branch Statements | <a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p>
+<p class="PageIntro">
+Branches are conditional or unconditinal
+</p>
+
+<br>
+<a name="jumptable34"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#BranchStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;BranchStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ConditinalBranchStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ConditinalBranchStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#IfStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;IfStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#SwitchStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;SwitchStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#UnconditionalBranchStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;UnconditionalBranchStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ReturnStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ReturnStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#BreakStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;BreakStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ContinueStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ContinueStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#GotoStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;GotoStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ThrowStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ThrowStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#TryCatchStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;TryCatchStatement</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="BranchStatement">BranchStatement</a></h2>
+<pre>
+UnconditionalBranchStatement
+: <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#ConditinalBranchStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ConditinalBranchStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#UnconditionalBranchStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;UnconditionalBranchStatement</a>
+;
+</pre>
+<br>
+<h3><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ConditinalBranchStatement">ConditinalBranchStatement</a></h3>
+<pre>
+ConditinalBranchStatement
+: <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#IfStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;IfStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#SwitchStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;SwitchStatement</a>
+;
+</pre>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="IfStatement">IfStatement</a></h4>
+<pre>
+IfStatement
+: 'if' '(' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ')' Statement [ 'else' Statement ]
+</pre>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="SwitchStatement">SwitchStatement</a></h4>
+<pre>
+SwitchStatement
+: 'switch' '(' Expression ')' 
+  '{'
+    CaseStatement*
+    [ DefaultCaseStatement ]
+   '}'
+;
+
+CaseStatement
+: 'case' ExpressionList ':' Statement*
+;
+
+ExpressionList
+: Expression [ ',' ExpressionList ]
+;
+
+DefaultCaseStatement 
+: 'default' ':' Statement*
+;
+</pre>
+<br>
+The <code>switch</code> statement is a little bit different to
+C++:<br>
+<ul class="FeatureList">
+<li class="Feature"> The <code>case</code> branches will be tested from top to down.<br>
+    The first <code>case</code> branch matches will be executed.<br>
+<li class="Feature"> Exceptional to this <code>default</code> branches will be executed
+    only if no other <code>case</code> branch match, independent to
+    its location.<br>
+<li class="Feature"> The <code>case</code> expressions are normal expressions, not
+    constant expressions. 
+<li class="Feature"> a <code>case</code> branch can have multiple expressions, separated
+    by a ','.<br>
+<li class="Feature"> If a <code>case</code> expression itself contains a ',' which is 
+    not surrounded by '( )' has to be bracket with '( )'.<br>
+<li class="Feature"> A <code>case</code> expression starting with an non-postfix operator 
+    the expression will be evaluated as operator expression with
+    the <code>case</code> expression as left site argument.<br>
+    If the <code>case</code> expression want to access a global variable
+    or an <code>with</code> statement, the expression has to be bracket
+    with '( )'.<br>
+<li class="Feature"> <code>case</code> branches will be fall through next <code>case</code> branch
+    if it is not terminated by <code>break;</code>.<br>
+</ul>
+<br>
+Sample using expression:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">bool</FONT></B> switchOk = false;
+
+<B><FONT COLOR="#0000FF">switch</FONT></B>(42)
+{
+  <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">1</FONT></B>, 2, 3: <I><FONT COLOR="#B22222">// test for 1 or 2 or 3
+</FONT></I>    <B><FONT COLOR="#A020F0">break</FONT></B>;
+  <B><FONT COLOR="#A020F0">case</FONT></B> .toString().equals(<B><FONT COLOR="#BC8F8F">&quot;41&quot;</FONT></B>): <I><FONT COLOR="#B22222">// calls 42.toString().equals(&quot;41&quot;)
+</FONT></I>    switchOk = false;
+    <B><FONT COLOR="#A020F0">break</FONT></B>;
+  <B><FONT COLOR="#A020F0">case</FONT></B> &gt;= 41: <I><FONT COLOR="#B22222">// calls 42 &gt;= 41
+</FONT></I>    switchOk = true;
+    <B><FONT COLOR="#A020F0">break</FONT></B>;
+  <B><FONT COLOR="#5F9EA0">default</FONT></B>:
+    switchOk = false;
+    <B><FONT COLOR="#A020F0">break</FONT></B>;
+}
+</PRE></td></tr></table>
+Sample: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_2_statements_70_Switch_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_2_statements_70_Switch_Test_csf</a>.<br>
+<br>
+<h3><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="UnconditionalBranchStatement">UnconditionalBranchStatement</a></h3>
+<pre>
+UnconditionalBranchStatement
+: <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#ReturnStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ReturnStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#BreakStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BreakStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#ContinueStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ContinueStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#GotoStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;GotoStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#ThrowStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ThrowStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#TryCatchStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;TryCatchStatement</a>
+;
+</pre>
+<br>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ReturnStatement">ReturnStatement</a></h4>
+<pre>
+ReturnStatement
+: 'return' [ <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ] ';'
+</pre>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="BreakStatement">BreakStatement</a></h4>
+<pre>
+BreakStatement
+: 'break' ';'
+</pre>
+<br>
+See also: <a  href="acdk_cfgscript_hb_lang_stmt_loop.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Loop Statements</a>.<br>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ContinueStatement">ContinueStatement</a></h4>
+<pre>
+ContinueStatement
+: 'continue' ';'
+</pre>
+<br>
+See also: <a  href="acdk_cfgscript_hb_lang_stmt_loop.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Loop Statements</a>.<br>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="GotoStatement">GotoStatement</a></h4>
+goto is not implemented.<br>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ThrowStatement">ThrowStatement</a></h4>
+<pre>
+ThrowStatement
+: 'throw' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ';'
+;
+</pre>
+The throw statement throws an exception.<br>
+Exception can be caught by the try catch statement.<br>
+Because the implementation of exceptions in CfgScript uses native C++ exceptions, it
+is possible to catch exceptions thrown in C++ in CfgScript and vice versa.<br>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+  StringArray sa = <B><FONT COLOR="#A020F0">new</FONT></B> StringArray(0);
+  String s = sa[1];
+} <B><FONT COLOR="#A020F0">catch</FONT></B> (acdk.lang.IndexOutOfBoundsException ex) {
+  out.println(ex.getMessage());
+}
+</PRE></td></tr></table>
+A side effect of the construction of the CfgScript interpreter you also can catch
+exceptions caused by interpreter failures. See also <a  href="acdk_cfgscript_hb_debug.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Debugging</a>.<br>
+<br>
+<h4><a href="#jumptable34"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="TryCatchStatement">TryCatchStatement</a></h4>
+<pre>
+TryCatchStatement
+: 'try' Statement ( 'catch' '(' TypeName VarName ')' Statement )* [ 'finally' Statement ]
+;
+</pre>
+<br>
+The try catch statement works the same way like in Java.<br>
+<br>
+Different to C++ and Java the <code>catch</code> will be tested in the same order 
+as they declared:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <B><FONT COLOR="#A020F0">try</FONT></B> {
+    <B><FONT COLOR="#A020F0">throw</FONT></B> <B><FONT COLOR="#A020F0">new</FONT></B> RuntimeError(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>); 
+  } <B><FONT COLOR="#A020F0">catch</FONT></B> (Throwable ex) {
+    <I><FONT COLOR="#B22222">// this catch branch will be executed
+</FONT></I>  } <B><FONT COLOR="#A020F0">catch</FONT></B> (RuntimeException ex) {
+    <I><FONT COLOR="#B22222">// never reach here
+</FONT></I>  }
+</PRE></td></tr></table>
+<br>
+The <li class="Feature">finally</li> block will be executed unrelated if an exception was
+thrown in the <code>try</code> block and independed if the exception was handled
+by a <code>catch</code> block.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <B><FONT COLOR="#A020F0">try</FONT></B> {
+    
+  } <B><FONT COLOR="#A020F0">catch</FONT></B> (RuntimeException ex) {
+  } finally {
+    <I><FONT COLOR="#B22222">// this code block will be executed independ if inside try block an exception
+</FONT></I>    <I><FONT COLOR="#B22222">// was thrown or the the exception was handled in a catch block
+</FONT></I>  }
+</PRE></td></tr></table>
+<br>
+If an exception should be re-thrown in a catch Exception block <code>throw ex;</code> should
+be used (<code>throw;</code> doesn't work).<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | Branch Statements | <a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

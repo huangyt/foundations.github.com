@@ -1,0 +1,42 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+#pragma strict
+
+class AClass 
+extends acdk.lang.Object
+{
+  AClass() { }
+  int foo(String str) { out.println("called foo(String str)"); return 1; }
+  void foo(Object obj) { out.println("called foo(Object str)");  return 2; }
+  void foo(int i) { out.println("called foo(int i)"); return 3; }
+  void foo(short i) { out.println("called foo(short i)"); return 4; }
+}
+
+out.println(
+"===================================
+Test for calling polymorphic functions
+");
+
+AClass cls = new AClass();
+
+acdk.lang.String s = new String("AString");
+out.println("call a.foo(s == String)");
+cls.foo(s);
+
+Object o = new Object();
+out.println("call a.foo(o == Object)");
+cls.foo(o);
+
+Object ostr = s;
+out.println("call a.foo(ostr == Object/String)");
+cls.foo(ostr);
+
+int i = 42;
+out.println("call a.foo(int)");
+cls.foo(i);
+
+out.println("call a.foo(42)");
+cls.foo(42);

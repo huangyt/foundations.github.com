@@ -1,0 +1,23 @@
+%id: aal_reference
+%chapter:  aal_reference_sourcecode, \
+  aal_reference_praeprocessor, \
+  aal_reference_comments, \
+  aal_reference_literal, \
+  aal_reference_classes, \
+  aal_reference_closures, \
+  aal_reference_functions, \
+  aal_reference_defun
+%title: AAL Reference
+%shorttitle: Reference
+%body:
+<pageintro>
+Reference to the Artefaktur Aspect Language.
+</pageintro>
+
+
+<perleval>
+  return wm::getContent('aal_reference');
+</perleval>
+
+
+.

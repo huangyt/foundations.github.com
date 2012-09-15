@@ -1,0 +1,34 @@
+# acdk_globals.linux
+
+PERL=perl
+SRC2HTML=src2html
+WEBHOME=/home/roger/artefaktur/wweb/products/acdk/modules
+GENWEBHOME=../../genweb
+
+INSTALL=/usr/bin/install -c
+INSTALL_PROGRAM=${INSTALL}
+INSTALL_SCRIPT=${INSTALL_PROGRAM}
+INSTALL_DATA=${INSTALL} -m 644
+MAN_PATH=/usr/local/man
+ACDKLISP=$(ACDKHOME)/bin/acdklisp
+
+# if set, will overwritten
+ifeq ($(BUILD), release)
+CCOPTS=-fpic -O2
+SYSLDFLAGS= -fpic
+else
+CCOPTS=-fpic -ggdb
+SYSLDFLAGS=-g -fpic
+endif
+
+
+# will be before to the default CCOPTS
+XCCOPTS=
+
+# will be after the default CCOPTS
+CCOPTSX= 
+
+XDEFINES=-DACDK_NO_NULLPOINTER_CHECKING -DACDK_NO_TRACE_CALLS 
+#-DACDK_USE_EXT_REFERER
+
+AUNIT_TESTOPTS=-test-htmlreport

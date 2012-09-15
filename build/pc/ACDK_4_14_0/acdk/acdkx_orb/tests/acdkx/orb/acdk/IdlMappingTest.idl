@@ -1,0 +1,14 @@
+
+
+
+
+interface AdressBook
+{
+  AdressInfo getAddressInfoA(string name);
+  void getAddressInfoB(string name, out AdressInfo adressinfo);
+  void ping();
+  void setAddressInfo(string name, in AdressInfo adressinfo);
+  void testArray(in longSeq longs, out stringSeq strings);
+};
+
+

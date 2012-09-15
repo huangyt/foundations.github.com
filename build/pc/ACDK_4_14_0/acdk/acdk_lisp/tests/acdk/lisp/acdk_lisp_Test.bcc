@@ -1,0 +1,83 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../../../src  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\bin\acdk_text.lib" "..\..\..\..\bin\acdk_lisp.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_lisp_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_lisp_Test\bcc"
+SOURCES= 	"acdk_lisp_Test.cpp" \
+	"acdk_lisp_StdLisp.cpp" \
+	"acdk_lisp_Dmi.cpp" \
+	"acdk_lisp_BinaryLisp.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_lisp_Test\bcc\acdk_lisp_Test.obj" \
+	".\tobj\acdk_lisp_Test\bcc\acdk_lisp_StdLisp.obj" \
+	".\tobj\acdk_lisp_Test\bcc\acdk_lisp_Dmi.obj" \
+	".\tobj\acdk_lisp_Test\bcc\acdk_lisp_BinaryLisp.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_lisp_Test\bcc\acdk_lisp_Test.obj": "acdk_lisp_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lisp_Test\bcc" "acdk_lisp_Test.cpp"
+
+".\tobj\acdk_lisp_Test\bcc\acdk_lisp_StdLisp.obj": "acdk_lisp_StdLisp.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lisp_Test\bcc" "acdk_lisp_StdLisp.cpp"
+
+".\tobj\acdk_lisp_Test\bcc\acdk_lisp_Dmi.obj": "acdk_lisp_Dmi.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lisp_Test\bcc" "acdk_lisp_Dmi.cpp"
+
+".\tobj\acdk_lisp_Test\bcc\acdk_lisp_BinaryLisp.obj": "acdk_lisp_BinaryLisp.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_lisp_Test\bcc" "acdk_lisp_BinaryLisp.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_lisp_Test.exe"
+	del ".\tobj\acdk_lisp_Test\bcc\acdk_lisp_Test.obj"
+	del ".\tobj\acdk_lisp_Test\bcc\acdk_lisp_StdLisp.obj"
+	del ".\tobj\acdk_lisp_Test\bcc\acdk_lisp_Dmi.obj"
+	del ".\tobj\acdk_lisp_Test\bcc\acdk_lisp_BinaryLisp.obj"
+
+

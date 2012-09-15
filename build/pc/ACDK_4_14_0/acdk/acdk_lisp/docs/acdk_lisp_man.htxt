@@ -1,0 +1,130 @@
+%id: acdk_lisp_man
+%title: acdk_lisp Manual
+%shorttitle: acdk_lisp Man
+%keywords: acdk_lisp, Lisp, DMI Client Lisp
+%chapter: acdk_lisp_lang_class, acdk_lisp_lang_macros
+%body:
+<htmlauto/>
+<pageintro>
+acdk_lisp is a simple lisp interpreter which uses ACDK
+as underlying object implementation.
+
+</pageintro>
+
+<jumptable/>
+
+<jump1>Syntax</jump1>
+<code>acdklisp [-acdk-home=youracdkhome] [lispfile]</code>
+You must have defined the envirnment varialbe ACDK_HOME or declare 
+it in the command line with -acdk-home=. The Lisp interpreter needs
+this, because it looks at the lisp files in $ACDK_HOME/cfg/lib/acdk/lisp/
+
+
+<jump1>Description</jump1>
+The lisp interpreter is a quick and dirty solutions and concept study which means:
+<ul>
+<li> it is not complete (only implemented parts of CLOS I needed)
+<li> it is not fast
+<li> it is not (probably) bug free
+<li> it is not well documented
+</ul>
+But ...
+<ul>
+<li> it demonstrates how DMI works
+<li> it is used to generate Makefiles and project files.
+<li> will be supported in the future
+</ul>
+
+Some basic constructs in lisp are implemented, for example car, cdr of course.
+Some other constructs are not implemented, like cond.
+<jump1>Hello World</jump1>
+<source lang="lisp">
+(defun foo (string1 string2)
+  (setf sb (new 'acdk.lang.StringBuffer string1))
+  (invoke sb 'append string2)
+  (sb 'toString) ;alternative syntax to invoke a method
+)
+(invoke (peek-static 'acdk.lang.System 'out) 'println (foo "Hello " "ACDK"))
+
+</source>
+
+<jump1>ACDK DMI Interface</jump1>
+There are following special commands to use DMI:
+
+<code>
+<ul>
+  <li> (new 'classname &rest args) ; creates a new acdk-object on given class name
+  <li> (invoke-static 'classname 'methodname &rest args) ; call a static method
+  <li> (invoke object 'methodname &rest args) ; calls a nonstatic method<br>
+       alternativelly:
+       (object 'methodname &rest args) ; calls a nonstatic method
+  <li> (peek-static 'classname 'membername) ; get a static member of given class
+  <li> (explore object) ; 'poor mans intelitype' shows all members of given objects
+</ul>
+</code>
+
+Sample:
+<pre><code>
+
+> (setf sb (new 'acdk.lang.StringBuffer "Hello "))
+Hello 
+> (explore sb)
+"Methods of Class acdk/lang/StringBuffer
+  public static class acdk.lang.Class class acdk.lang.StringBuffer.GetClass()
+  public class acdk.lang.StringBuffer class acdk.lang.StringBuffer.StringBuffer()
+  public class acdk.lang.StringBuffer class acdk.lang.StringBuffer.StringBuffer(class acdk.lang.String)
+  public class acdk.lang.StringBuffer class acdk.lang.StringBuffer.append(class acdk.lang.String)
+  public class acdk.lang.StringBuffer class acdk.lang.StringBuffer.append(char)
+  public class acdk.lang.StringBuffer class acdk.lang.StringBuffer.append(bool)
+  public class acdk.lang.StringBuffer class acdk.lang.StringBuffer.append(int)
+[ many many other function ]
+> (invoke sb 'append " World")
+Hello  World
+> (println (invoke sb 'toString))
+Hello  World
+""
+> 
+</code></pre>
+The output on the screen is the last evaluated expression.
+
+
+<jump1>Interactive mode</jump1>
+You can print all internal and loaded function with:
+<code>
+> (help)<br>
+try (help command) with following commands:<br>
+internal apply defun defmacro isdef peek-static eq cond and not dump cdr car cons if while % length setf or setg instanceof * + progn - / set getv zerop atomp setq trace list setv equal unpack truep = > quote setnth let dolist eql invoke throw poke-static invoke-static append explore listp do peek dp poke create-array symbolp try internalp return new include eval sleep newlist atomp oldfgets set-array indexof <= println isFile errno listremovelist acdkmake-get-target-compile help-commands printwarn caddr getargs acdkmake-target-get-clean make-string slash pop parseopts isNilorEmpty fgets acdkmake-get-libs acdkmake-get-locallib list-defuns require empty call-funcV objectfromsources yesno printerr shell genObjectList glob asPrintable parentdir fprintln listremove progress acdkmake-get-outputdir collectImplementations call-func acdkmake-load-sources fclose cadr flush asArray getenv substr stderr < fopenW collectFileTypes acdkmake-get-target-spec acdkmake-get-target-binext ltoa make-string1 fopenR strempty cddr >= stdin set-atom acdkmake-target-binext acdkmake-get-defines clearerrno acdkmake-convert-file-if-needed acdkmake-project-is-type consp set-list curdir join2string acdk-make-test-args2 chkvar-err stdout errmsg _setv acdkmake-main acdkmake-get-includes acdkmake-load-eval-template chkwsp acdkmake-project-get-object-dir collectHeader toString strcmp help toCode strlen 0.000000 symbolp print-full-filename listp writeFile objectfromsource stripExtension join2list chkvar-warn parsedefsline lindex unify concatpath != lexpand atol acdkmake-project-get-acdk-home getCanonicalPath clone acdkmake-target-get-makesuffix chdir cleanjoin isDirectory asList glob-array exit split basename acdkmake-get-target-link printc acdk-make-test-args nth isNil grep unifyV pathjoin lookup-var streql print s+ acdkmake-get-target-cflags gets fprint acdkmake-get-target-ldflags acdkmake-target-getfilelist convert-path-if-needed lookup-func mkdirs push isAbsoluteFile break getAbsolutePath lcleanup eval-if-needed
+""<br>
+> (help instanceof)<br>
+"((defun instanceof (object classtype)))(instanceof object 'classtype) or (instanceof object 'classname)<br>
+return t if given instance of [object] is type of [classtype], otherwise Nil"<br>
+> <br>
+</code>
+
+An online help for a given command can be retrived:
+<code>
+> (help commandname)
+</code>
+
+<jump1>Debugging</jump1>
+
+If you call the lisp interpreter in the interactive mode, or the interpreters breaks
+because it has deteded an error or <code>(break)</code> statement, you have also access 
+to following functions:
+
+<code>
+<ul>
+  <li> (dump var) ; dump out the variable
+  <li> (dump 'cs) ; dump call stack
+  <li> (dump 'sf[x|number]) ; dump stack frame[s]
+  <li> c continue
+  <li> n next
+  <li> s step
+</ul>
+</code>
+
+
+.
+
+
+

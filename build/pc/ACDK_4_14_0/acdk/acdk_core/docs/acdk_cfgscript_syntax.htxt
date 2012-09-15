@@ -1,0 +1,258 @@
+%id: acdk_cfgscript_syntax
+%title: CfgScript Syntax
+%keywords: Script, CfgScript, Syntax
+%body:
+<htmlauto/>
+<pageintro>
+CfgScript is a simple programming language with a syntax
+something between Java an JavaScript
+</pageintro>
+
+
+<jumptable/>
+<jump1>Comments</jump1>
+CfgScript support the standard Java/C++ comments:
+<source>
+// One line comment
+/*
+  Multiline 
+  comments
+*/
+</source>
+
+<jump1>Types</jump1>
+CfgScript understand the standard types of ACDK.
+
+<jump2>Basic Types</jump2>
+<pre>
+BasicType
+: 'bool'
+| 'char'
+| 'byte'
+| 'short'
+| 'int'
+| 'jlong'
+| 'float'
+| 'double'
+;
+</pre>
+
+Sample:
+<source>
+// declaration and initialization of an int variable:
+int i = 42;
+j = "asdf";
+</source>
+Different to native C++-code the basic types are handled in CfgScript as
+objects too. ACDK uses the class %cref[acdk::lang::dmi::DmiObject] to
+manage basic types.
+
+<source>
+"AB".length() == 2;
+42.toString().length() == 2;
+</source>
+
+<jump2>Object Types</jump2>
+CfgScript Objects are also ACDK classes an vice versa.
+<source>
+acdk.lang.StringBuffer sb = new acdk.lang.StringBuffer("asdf");
+</source>
+<jump2>Array Types</jump2>
+
+<jump1>User defined Types</jump1>
+<jump2>Class Types</jump2>
+<jump2>Enumeration Types</jump2>
+
+<jump1>Expressions</jump1>
+<pre>
+Expression
+: LiteralExpression
+| OperatorExpression
+| NewExpression
+;
+</pre>
+
+<jump2>Literal Expression</jump2>
+LiteralExpression
+: NumberLiteral
+| StringLiteral
+| ArrayLiteral
+| DictionaryLiteral
+;
+
+<jump3>Numbers</jump3>
+<jump3>Strings</jump3>
+
+<jump3>Arrays</jump3>
+<source>
+StringArray sa = ["a", "b"];
+ObjectArray oa = ["a", 42, [ 1, 2 ] ];
+
+</source>
+<jump3>Dictionaries</jump3>
+
+<jump2>Operator Expression</jump2>
+
+<jump2>User defined Operator Expression</jump2>
+
+
+<jump2>new Expression</jump2>
+<pre>
+NewExpression
+: 'new' TypeName 
+;
+
+
+<jump1>Statements</jump1>
+<pre>
+Statement
+: '{' Statement* '}'
+| BrachStatement
+| LoopStatement
+| UnconditionalBranchStatement
+| TypeDecl
+| VarDecl
+| UsingStatement
+| SynchronizeStatement
+| Expression ';'
+;
+</pre>
+<jump2>Branch Statements</jump2>
+<pre>
+BranchStatement
+: IfStatement 
+| SwitchStatement
+;
+</pre>
+<jump3>if Statement</jump3>
+<pre>
+IfStatement
+: 'if' '(' Expression ')' Statement [ 'else' Statement ]
+</pre>
+
+<jump3>switch Statement</jump3>
+switch statement is currently not implemented.
+
+<jump2>Unconditional Branch</jump2>
+<pre>
+UnconditionalBranchStatement
+: ReturnStatement
+| BreakStatement
+| ContinueStatement
+| GotoStatement
+| ThrowStatement
+| CatchStatement
+;
+</pre>
+
+<jump3>return Statement</jump3>
+<pre>
+ReturnStatement
+: 'return' Expression ';'
+</pre>
+
+<jump3>break Statement</jump3>
+<pre>
+BreakStatement
+: 'break' ';'
+</pre>
+
+<jump3>continue Statement</jump3>
+<pre>
+ContinueStatement
+: 'continue' ';'
+</pre>
+<jump3>goto Statement</jump3>
+goto is not implemented.
+
+<jump3>throw Statement</jump3>
+<pre>
+ThrowStatement
+: 'throw' Expression ';'
+;
+</pre>
+The throw statement throws an exception.
+Exception can be catched by the try catch statement.
+
+<jump3>try catch Statement</jump3>
+<pre>
+TryCatchStatement
+: 'try' Statement ( 'catch' '(' TypeName VarName ')' Statement )* [ 'finally' Statement ]
+;
+</pre>
+The try catch statement works the same way like in Java.
+If an exception should be rethrown in a catch Exception <code>throw ex;</code> should
+be used.
+
+<jump2>Loop Statements</jump2>
+<pre>
+LoopStatement
+: ForStatement
+| DoStatement
+| WhileStatement
+| ForEachStatement
+;
+</pre>
+
+<jump3>while Statement</jump3>
+<pre>
+WhileStatement
+: 'while' '(' Expression ')' Statement
+</pre>
+<jump3>do while Statement</jump3>
+<pre>
+DoWhileStatement
+: 'do' Statement 'while' '(' Expression ')' ';'
+</pre>
+
+<jump3>for Statement</jump3>
+<pre>
+ForStatement
+: 'for' '(' (VarDecl | Expression) ';' Expression ';' Expression ')' Statement
+</pre>
+
+<jump3>foreach Statement</jump3>
+<pre>
+ForStatement
+: 'foreach' '(' VarDecl 'in' Expression ')' Statement
+</pre>
+
+<include type="src" src="acdk_core/cfg/csf/tests/acdk/cfgscript/2_statements/1_ForEach_Test.csf"/>
+
+<jump2>using Statement</jump2>
+<pre>
+UsingStatement
+: 'using' FqIdentifier ';'
+;
+</pre>
+The using operator introduces a short access to namespace, classes and class/object members.
+<source>
+{
+  // using namespace
+  using acdk.lang;
+  System.out.println("asdf");
+}
+{
+  // using namespace
+  using acdk.lang.System;
+  out.println("asdf");
+}
+{
+  // using member
+  using acdk.lang.System.out;
+  println("asdf");
+}
+</source>
+the using clause on member only works if the underlying class (here acdk.lang.System) is
+not a weak class (for example a COM-Class) but owns typed information, like
+ACDK classes or CfgScript classes.
+
+<jump2>synchronized statement</jump2>
+<pre>
+synchronized Statement
+;
+</pre>
+
+
+
+.

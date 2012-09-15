@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_make\dsp_r\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_make\dsp_d\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_MAKE_LIB;WIN32;NDEBUG;_WINDOWS;_MT;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_make\dsp_r\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_make\dsp_r\acdk_make.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_make\dsp_r\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_make\dsp_r\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_make.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_make.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_make_r.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_make_r.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_r.lib;..\..\bin\acdk_cfgscript_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_MAKE_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_make\dsp_d\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_make\dsp_d\acdk_make.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_make\dsp_d\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_make\dsp_d\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_make.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_make.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_make_d.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_make_d.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_d.lib;..\..\bin\acdk_cfgscript_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\make\AbstractCppTask.h" />
+    <ClInclude Include="acdk\make\AbstractTask.h" />
+    <ClInclude Include="acdk\make\AcdkBinaryTask.h" />
+    <ClInclude Include="acdk\make\AcdkExeTask.h" />
+    <ClInclude Include="acdk\make\AcdkLibTask.h" />
+    <ClInclude Include="acdk\make\AcdkMetainfLibTask.h" />
+    <ClInclude Include="acdk\make\AcdkProjectTask.h" />
+    <ClInclude Include="acdk\make\AcdkTestExeTask.h" />
+    <ClInclude Include="acdk\make\AcdkUnitConfigTask.h" />
+    <ClInclude Include="acdk\make\ChDir.h" />
+    <ClInclude Include="acdk\make\CommandLineCompilerTool.h" />
+    <ClInclude Include="acdk\make\CompileTask.h" />
+    <ClInclude Include="acdk\make\Config.h" />
+    <ClInclude Include="acdk\make\CppSourceDependTask.h" />
+    <ClInclude Include="acdk\make\DirExistsTask.h" />
+    <ClInclude Include="acdk\make\FileCopyTask.h" />
+    <ClInclude Include="acdk\make\FileDeleteTask.h" />
+    <ClInclude Include="acdk\make\FileDependTask.h" />
+    <ClInclude Include="acdk\make\FileOpTask.h" />
+    <ClInclude Include="acdk\make\FileSet.h" />
+    <ClInclude Include="acdk\make\JavaCompileTask.h" />
+    <ClInclude Include="acdk\make\JobExecuterTask.h" />
+    <ClInclude Include="acdk\make\JobTask.h" />
+    <ClInclude Include="acdk\make\LookupFileTask.h" />
+    <ClInclude Include="acdk\make\make.h" />
+    <ClInclude Include="acdk\make\MakeProps.h" />
+    <ClInclude Include="acdk\make\PlattformSelectTask.h" />
+    <ClInclude Include="acdk\make\ProjectTask.h" />
+    <ClInclude Include="acdk\make\ScriptExecuteTask.h" />
+    <ClInclude Include="acdk\make\ShellExecuteTask.h" />
+    <ClInclude Include="acdk\make\Task.h" />
+    <ClInclude Include="acdk\make\TaskCfgFile.h" />
+    <ClInclude Include="acdk\make\TaskInfo.h" />
+    <ClInclude Include="acdk\make\TaskManager.h" />
+    <ClInclude Include="acdk\make\TestTask.h" />
+    <ClInclude Include="acdk\make\ThreadPool.h" />
+    <ClInclude Include="acdk\make\Tool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\make\AbstractCppTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AbstractTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkBinaryTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkExeTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkLibTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkMetainfLibTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkProjectTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkTestExeTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkUnitConfigTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\CommandLineCompilerTool.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\CompileTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\CppSourceDependTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileCopyTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileDeleteTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileDependTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileOpTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileSet.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\JavaCompileTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\JobExecuterTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\JobTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\LookupFileTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\MakeProps.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\PlattformSelectTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ProjectTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ScriptExecuteTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ShellExecuteTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\Task.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\TaskCfgFile.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\TaskManager.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\TestTask.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ThreadPool.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\Tool.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_metainf\make_metainf_ext.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_metainf\make_metainf_ext1.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

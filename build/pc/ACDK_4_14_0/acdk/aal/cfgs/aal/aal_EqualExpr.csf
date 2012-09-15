@@ -1,0 +1,32 @@
+
+using acdk.aci.ast;
+using acdk.aci.parser;
+using acdk.aci.vm;
+
+class aal.EqualityExpr
+extends AstNodeWithChilds
+{
+  EqualityExpr(AstNode parent, ParseNode pn, String nodeName)
+  {
+    super(parent, pn, nodeName);
+  }
+  void genOpCode(Compiler comp) 
+  {
+    RString op = getChild(1)->getCodeString();
+    getChild(0)->genOpCode(comp);
+    getChild(2)->genOpCode(comp);
+    OpCodeOp opc = OCO_NOP;
+    if (op->equals("==") == true)
+      opc = OCO_EQ;
+    else if (op->equals("!=") == true)
+      opc = OCO_NE;
+    else
+    {
+      throw new CodeException("Unknown Equalityity operator: " + op, this);
+    }
+    //addChild(new OpCodeStm(opc, this, Nil));
+     addChild(new BranchOp(this, opc, Nil), true);
+  }
+}
+
+AalHelper.defineParseNode("EqualityExpr");

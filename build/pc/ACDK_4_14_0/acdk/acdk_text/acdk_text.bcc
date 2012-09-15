@@ -1,0 +1,163 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_text
+
+default: all
+all:: install compile
+
+compile:: acdk_text acdk_text_metainf acdk_text_Test 
+clean:: acdk_text-clean acdk_text_metainf-clean acdk_text_Test-clean 
+metainfo:: acdk_text-metainfo acdk_text_metainf-metainfo acdk_text_Test-metainfo 
+acdk_text:  
+	cd src
+	$(MAKE) -f acdk_text.bcc
+	cd ..
+
+
+acdk_text-clean:
+	cd src
+	$(MAKE) -f acdk_text.bcc clean
+	cd ..
+
+
+acdk_text-metainfo:
+	cd src
+	$(MAKE) -f acdk_text.bcc metainfo
+	cd ..
+
+
+acdk_text_metainf:  acdk_text
+	cd src
+	$(MAKE) -f acdk_text_metainf.bcc
+	cd ..
+
+
+acdk_text_metainf-clean:
+	cd src
+	$(MAKE) -f acdk_text_metainf.bcc clean
+	cd ..
+
+
+acdk_text_metainf-metainfo:
+	cd src
+	$(MAKE) -f acdk_text_metainf.bcc metainfo
+	cd ..
+
+
+acdk_text_Test:  acdk_text
+	cd tests/acdk/text
+	$(MAKE) -f acdk_text_Test.bcc
+	cd ../../..
+
+
+acdk_text_Test-clean:
+	cd tests/acdk/text
+	$(MAKE) -f acdk_text_Test.bcc clean
+	cd ../../..
+
+
+acdk_text_Test-metainfo:
+	cd tests/acdk/text
+	$(MAKE) -f acdk_text_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_text_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_text-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src cbx
+
+acdk_text_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src cbx
+
+acdk_text_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text cbx
+
+
+makemake:: acdk_text-makemake acdk_text_metainf-makemake acdk_text_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_text_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/text\acdk_text_Test.lsp -pdir tests/acdk/text cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_text.lsp
+
+

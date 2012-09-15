@@ -1,0 +1,84 @@
+%id: acdk_perl_install
+%title: Compile acdk_perl
+%shorttitle: Compile acdk_perl
+%keywords: install
+%body:
+<htmlauto/>
+<pageintro>
+Instruction how to compile and run acdk_perl.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Download and compile Perl</jump1>
+To compile and rund acdkperl you need the Perl 5.6/5.8 package
+from ActiveState or from www.perl.org:
+%ref[http://www.activestate.com/Products/ActivePerl/Download.html].
+
+
+In your Project you need to add following libraries:
+Include path: [your perl-5.6 location>\lib\CORE.
+
+Windows:
+Library [your perl-5.6 location>\lib\CORE\perl56.lib.
+
+Windows:
+Finally you have to copy perl56.dll in the ACDK executable path.
+
+<jump1>Configure ACDK</jump1>
+After installing Perl you probably have to ajust some
+configuration in acdk:
+<fl>
+  <f> Unix: If the perl executable is in the path, normally
+      no ajustment has to be made to compile <m>acdk_perl</m>.
+      
+  <f> Windows: open the <c>acdkenv.cmd</c> ACDK root directory and ajust the 
+      <c>ACDK_PERL_*</c> values.
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <c>startvstudio6.cmd</c>).
+      Alternately you can also add these environment variables into your global
+      environment.      
+</fl>
+
+<jump1>Compile acdk_perl</jump1>
+If the environment variables are set correctly <m>acdk_perl</m> can be compiled.
+
+<jump1>Running executables using acdk_perl</jump1>
+To run an executble using <m>acdk_perl</m> you may have set
+environment variables (<c>PATH</c> on Windows and <c>LD_LIBRARY_PATH</c>)
+to point to ACDK <c>bin</c> directory and the directory of the shared libraries
+of Perl.
+
+On windows you can use the <c>acdkenv.cmd</c> for this purpose.
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <c>acdkenv.[platform]</c> before executing the application.
+
+<jump1>Compatibility Notes</jump1>
+<note>
+On unix version of the original perl 5.6 and 5.8 the XS wrapper
+of the acdk::AUTOLOAD doesn't work like it is documented.
+It seems to be a bug of Perl.
+To solve the problem, not the <c>acdk</c> package should be used,
+but the <c>pacdk</c> perl package, which is is wrapper pm script in
+cfg/acdk/perl/pacdk.pm.
+</note>
+
+<jump2>acdkperl</jump2>
+To compile the sample interpreter acdkperl, you have to adjust 
+the include path:
+Include path: [your perl-5.6 location>\lib\CORE.
+In your project settings.
+
+
+
+For more information please refer to:
+%ref[acdkperl_man].
+
+
+
+.
+
+
+

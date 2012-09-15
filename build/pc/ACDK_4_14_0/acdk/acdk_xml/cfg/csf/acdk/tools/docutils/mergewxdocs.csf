@@ -1,0 +1,495 @@
+
+using acdk.xml.libxmldom;
+using org.xml; 
+using org.w3c.dom;
+using acdk.io;
+	
+
+
+org.xml.sax.InputSource input = new org.xml.sax.InputSource(); // force loading metainfo from org.xml too
+
+
+
+
+class Local
+{
+	static String wxSourceDir = "C:\\d\\artefaktur\\acdk_doc\\docs\\wxWidgets\\html\\wx\\";
+	static String acdkSourceDir = "C:\\d\\artefaktur\\acdk_doc\\docs\\ref\\doxygen\\html";
+	static String outputDir = "C:\\d\\artefaktur\\acdk_doc\\docs\\ref";
+	static String wxUrl = "http://www.wxwidgets.org/manuals/2.5.3/";
+	static String curWxFile = "";
+	static acdk.util.HashMap replaceStrings = Nil;
+	static acdk.util.HashMap getReplaces()
+	{
+		if (Local.replaceStrings != Nil)
+			return Local.replaceStrings;
+		acdk.util.HashMap map = new acdk.util.HashMap();
+		map.put("wxHORIZONTAL", "OrientHorizontal");
+		map.put("wxVERTICAL", "OrientVertical");
+		
+		return Local.replaceStrings = map;
+	}	
+	static String patchwxReplacements(String s)
+	{
+		//out.println("replace: " + s);
+		acdk.util.HashMap map = getReplaces();
+		foreach (String k in map.keySet().iterator())
+		{
+			s = s.replace(k, map.get(k));
+		}
+		return s;
+	}
+static void printDomNodes(IN(acdk::io::RPrintWriter) out, IN(org::w3c::dom::RNode) node, IN(RString) ident)
+{
+  out->println(ident + node->toString());
+  if (node->hasChildNodes() == false)
+    return;
+  org::w3c::dom::RNodeList nl = node->getChildNodes();
+  int count = nl->getLength();
+  for (int i = 0; i < count; ++i)
+  {
+    printDomNodes(out, nl->item(i), ident + " ");
+  }
+}
+	static String acdkf2wxf(String acdkn)
+	{
+		String wxn = acdkn.substr(0, acdkn.indexOf('.'));
+		if (wxn.lastIndexOf("__") != -1)
+		{
+			wxn = wxn.substr(wxn.lastIndexOf("__") + 2);
+		}
+	
+		wxn = "wx_wx" + wxn.toLowerCase() + ".html";
+		out.println("acdkn: " + acdkn + "; wxn: " + wxn);
+		return wxn;
+	}
+	static String wxFuncName2AcdkName(String name)
+	{
+		if (name.startsWith("wx") == true)
+			return name.substr(2);
+		if (Character.isUpperCase(name.charAt(0)) == true)
+		{
+			return String.valueOf(Character.toLowerCase(name.charAt(0))) + name.substr(1);
+		}
+		return name;
+	}
+	
+	static String funcFromComponent(String name)
+	{
+		int idx = name.lastIndexOf("::");
+		if (idx == -1)
+			return name;
+		return name.substr(idx + 2);
+	}
+	static void patchwxLink(Element e)
+	{
+		String href = e.getAttribute("href");
+		Node t = e.selectNode("text()");
+		out.println("LINK: " + t.getData() + "=" + href);
+		int loclalRefIdx = href.indexOf('#');
+		String localRef = Nil;
+		String globalRef = href;
+		if (loclalRefIdx != -1)
+		{
+			localRef = href.substr(loclalRefIdx + 1);
+			href = href.substr(0, loclalRefIdx);
+		}
+		if (Local.curWxFile.equals(href) == true)
+		//if (href.startsWith("#") == true)
+		{
+			Document doc = e.getOwnerDocument();
+			Node ino = doc.createElement("i");
+			ino.appendChild(doc.createTextNode(wxFuncName2AcdkName(t.getData())));
+			e.getParentNode().insertBefore(ino, e);
+			e.detach();
+		}
+		/*else if (href.startsWith("wx_wx") == true)
+		{
+			
+		}*/
+		else
+		{
+			e.setAttribute("href", Local.wxUrl + globalRef);
+		}
+		//	href = href.substr(5);
+		//return Local.wxUrl + href;
+	}
+	
+	static Node reworkWxNodes(Node n)
+	{
+		
+		NodeList nl = n->selectNodes("a");
+		if (nl != Nil)
+		{
+			foreach (Element e in nl.iterator())
+			{ 
+				patchwxLink(e);
+			}
+		}
+		nl = n.selectNodes("text()");
+		if (nl != Nil)
+		{
+			foreach (Node e in nl.iterator())
+			{
+				if (e instanceof CharacterData)
+				{
+					e.setData(patchwxReplacements(e.getData()));	
+				}
+			}
+		}
+		return n;
+	}
+	static bool ignoreWxTitleNode(String title)
+	{
+		out.println("title: " + title);
+		switch(title)
+		{
+		case .equals("Include files"), 
+				 .equals("Derived from"),
+				 .equals("Members"),
+				 .startsWith("wxPython"),
+				 .startsWith("wxPerl"):
+						 return true;
+				case .equals("Windows styles"), 
+						 .equals("See also"),
+						 .equals("Parameters"):
+						 return false;
+				default:
+						out.println("unhandled Title: " + title);
+						return true;
+		}
+	}
+		/**
+		return 0 if insert this node
+					 1 if skip
+	*/
+	static int insertState(Node n, int state)
+	{
+		// ### remove this
+		return 0;
+	}
+	
+	static void globalPatchWxDoc(Node body)
+	{
+		NodeList titleNodes = body.selectNodes("//p[b/font/@color='#FF0000' or b/font/@color='#0000C8']");
+		
+		NodeArray toDelete = new NodeArray(0);
+		if (titleNodes != Nil)
+		{
+			int nl = titleNodes.getLength();
+			for (int i = 0; i < nl; ++i)
+			{
+				Node sn = titleNodes.item(i);
+				String title = sn.selectNode("b/font/text()").getData();
+				if (ignoreWxTitleNode(title) == true)
+				{
+					
+					Node nextTitle = titleNodes.item(i + 1);
+					Node sibl = sn;
+					while (sibl != Nil && sibl.isEqualNode(nextTitle) == false)
+					{
+						Node backup = sibl;
+						sibl = sibl.getNextSibling();
+						toDelete.append(backup);
+					}
+				}
+			}
+		}
+		//throw new Exception("shortcut");
+		//return toDelete;
+		titleNodes = Nil;
+		foreach (Node n in toDelete)
+		{
+			out.println("remove: " + n.toXML());
+			n.getParentNode().removeChild(n);
+		}
+	}
+	
+	
+	// contains map with member to NodeArray
+	static acdk.util.HashMap parseWxDoc(LibXMLDocument doc)
+	{
+		acdk.util.HashMap map = new acdk.util.HashMap();
+		Node body = doc->selectNode("/html/body");
+		globalPatchWxDoc(body);
+		Node n = body->selectNode("h2");
+		if (n == Nil)
+		{
+			out.println("h2 not found");
+			return;
+		}
+		n = n.getNextSibling();
+		NodeArray nodes = new NodeArray(0);
+		int state = 0; // seek, 1 = remove
+		while (n != Nil)
+		{
+			state = insertState(n, state);
+			
+			//n.write(out.getWriter());
+			if (n.getNodeName().equals("hr") == true)
+				break;
+			if (state == 0)
+			{
+				
+				Node s = reworkWxNodes(n);
+				if (s != Nil)
+					nodes.append(s);
+			}
+			n = n.getNextSibling();
+		}
+		map.put("__class", nodes);
+		NodeList h3s = body->selectNodes("h3");
+		foreach (Node h3 in h3s.iterator())
+		{
+			String memberName = h3->selectNode("text()").getData();
+			memberName = funcFromComponent(memberName);
+			memberName = wxFuncName2AcdkName(memberName);
+			h3 = h3.getNextSibling().getNextSibling();
+			while (h3 != Nil)
+			{
+				if (h3 instanceof Element)
+				{
+					if (h3.getNodeName().equals("b") == false)
+						break;
+				}
+				h3 = h3.getNextSibling();
+			}
+			//out.println("h3: " + memberName);
+			Node s = h3;
+			nodes = new NodeArray(0);
+			for (int i = 0; s != Nil && i < 4; ++i)
+			{
+				//s->write(out.getWriter());
+				s = reworkWxNodes(s);
+				if (s != Nil)
+					nodes.append(s);
+				s = s.getNextSibling();
+			}
+			map.put(memberName, nodes);
+		}
+		return map;
+	}
+
+	static void insertWxDoc(Node n, NodeArray inserNodes, String wxName)
+	{
+		Document doc = n.getOwnerDocument();
+		Element i = doc.createElement("i");
+		n.appendChild(i);
+		i.appendChild(doc.createTextNode("This documentation is from "));
+		Element a = doc.createElement("a");
+		a.setAttribute("href", Local.wxUrl + wxName);
+		n.appendChild(a);
+		a.appendChild(doc.createTextNode(Local.wxUrl + wxName));
+		n.appendChild(doc.createTextNode(":"));
+		n.appendChild(doc.createElement("br"));
+		int state = 0;
+		foreach (Node toins in inserNodes)
+		{
+			if (toins == Nil)
+				continue;
+			state = insertState(n, state);
+			if (state == 0)
+				n.appendChild(toins.cloneNode(true));
+		}
+	}
+	static void insertGeneralDoc(Node acdkBody, NodeArray inserNodes, String wxName)
+	{
+		if (acdkBody == Nil || inserNodes == Nil)
+			return;
+		//<a name="_details">
+		Node n = acdkBody.selectNode("a[@name='_details']");
+		if (n == Nil)
+		{
+			out.println("header node not found");
+			return;
+		}
+		n = n.getNextSibling().getNextSibling();
+		insertWxDoc(n, inserNodes, wxName);
+	}
+	
+	static void patch(LibXMLDocument acdkDoc, LibXMLDocument wxDoc, String wxName)
+	{
+		acdk.util.HashMap wxMap = parseWxDoc(wxDoc);
+		if (wxMap == Nil)
+			return;
+		Node body = acdkDoc.selectNode("/html/body");
+		insertGeneralDoc(body, wxMap.get("__class"), wxName);
+		NodeList as = body.selectNodes("a");
+		foreach (Node a in as.iterator())
+		{
+			Element e = a;
+			Attr attr = e.getAttributeNode("doxytag");
+			if (attr == Nil)
+				continue;
+			String name = attr.getValue();
+			name = funcFromComponent(name);
+			if (wxMap.containsKey(name) == false)
+			{
+				out.println("no wxDoc found: " + name);
+			}
+			//out.println("h2 found: " + name);
+			Node s = a.selectNode("following-sibling::*[position() = 3]");
+			if (s == Nil)
+			{
+				ACDK_LOG(Warn, "No sibling found after h2: " + name);
+				continue;
+			}
+			Node ins = s.selectNode("tr/td/p");//.item(1).;
+			if (ins == Nil)
+				continue;
+			NodeArray insertNodes = wxMap.get(name);
+			if (insertNodes != Nil && insertNodes.length() > 0)
+				insertWxDoc(ins, insertNodes, wxName);
+			/*
+			foreach (Node toins in inserNodes)
+			{
+				if (toins != Nil)
+					ins.appendChild(toins.cloneNode(true));
+			}*/
+		}
+	}
+static void patch(File acdkF)
+{
+	String acdkName = acdkF.getName();
+	if (acdkName.endsWith("-members.html") == true)
+		return;
+
+	String wxName = acdkf2wxf(acdkName);
+	File ts = new File(Local.wxSourceDir + wxName);
+	if (ts.exists() == false)
+	{
+		out.println("File does not exists: " + ts.getCanonicalPath());
+		return;
+	}
+	out.println("FILE Exists: " + ts.getCanonicalPath());
+	
+  LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+
+  int flags = acdk.xml.sax.XMLRF_PARSE_HTML_FLAGS;
+  //flags = acdk.xml.sax.XMLRF_PARSE_HTML;
+  docBuilder->setExtendedFlags(flags);
+	
+	acdk.io.RReader in = acdkF.getReader();
+  LibXMLDocument acdkdoc = docBuilder.parse(in, acdk::net::URL::fileAsUrlName(acdkF));
+	in = ts.getReader();
+	Local.curWxFile = ts.getName();
+	LibXMLDocument wxdoc = docBuilder.parse(in, acdk::net::URL::fileAsUrlName(ts));
+	patch(acdkdoc, wxdoc, wxName);
+	File outFile = new File(Local.outputDir + "/" + acdkF.getName());
+	acdkdoc.write(outFile.getWriter(), org.w3c.dom.NWFWithIndent, 0, "HTML");
+}	
+	static void insertWxLink(Node n, String wxName, String funcName = "")
+	{
+		Document doc = n.getOwnerDocument();
+		Element a = doc.createElement("a");
+		String url = Local.wxUrl + "wx_" + wxName + ".html";
+		if (funcName.length() > 0)
+			url = url + "#" + wxName.toLowerCase() + funcName;
+		a.setAttribute("href", url);
+		a.setAttribute("target", "_new");
+		a.appendChild(doc.createTextNode("See also documentation from wxWidgets"));
+		n.appendChild(a);
+		
+	}
+	static String acdkFuncName2WxARelLink(String name)
+	{
+		return name.toLowerCase();
+	}
+	static void insertGeneralDoc2(Node acdkBody, String wxName)
+	{
+		if (acdkBody == Nil)
+			return;
+		//<a name="_details">
+		Node n = acdkBody.selectNode("a[@name='_details']");
+		if (n == Nil)
+		{
+			out.println("header node not found");
+			return;
+		}
+		n = n.getNextSibling().getNextSibling();
+		insertWxLink(n, wxName);
+		
+	}
+	static void patch2(LibXMLDocument acdkDoc, LibXMLDocument wxDoc, String wxName)
+	{
+		Node body = acdkDoc.selectNode("/html/body");
+		insertGeneralDoc2(body, wxName);
+		NodeList nl = acdkDoc.selectNodes("//a[@doxytag]");
+		foreach (Node n in nl.iterator())
+		{
+			//out.println("NL: " + n.toXML());
+			String dox = n.getAttribute("doxytag");
+			int idx = dox.lastIndexOf("::");
+			String id = dox.substr(idx + 2);
+			Node ins = n.selectNode("following-sibling::*[position() = 3]")
+								 .selectNode("tr/td/p");
+			if (ins == Nil)
+				continue;
+			
+			out.println("ID: " + id + "=" + id.toLowerCase());
+			
+			insertWxLink(ins, wxName, id.toLowerCase());
+		}
+	}
+	static void patch2(File acdkF)
+	{
+		String acdkName = acdkF.getName();
+		if (acdkName.endsWith("-members.html") == true)
+			return;
+
+		String wxName = acdkf2wxf(acdkName);
+		File ts = new File(Local.wxSourceDir + wxName);
+		if (ts.exists() == false)
+		{
+			out.println("File does not exists: " + ts.getCanonicalPath());
+			return;
+		}
+		out.println("FILE Exists: " + ts.getCanonicalPath());
+	  LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+	  int flags = acdk.xml.sax.XMLRF_PARSE_HTML_FLAGS;
+  	//flags = acdk.xml.sax.XMLRF_PARSE_HTML;
+  	docBuilder->setExtendedFlags(flags);
+		acdk.io.RReader in = acdkF.getReader();
+  	LibXMLDocument acdkdoc = docBuilder.parse(in, acdk::net::URL::fileAsUrlName(acdkF));
+		in = ts.getReader();
+		Local.curWxFile = ts.getName();
+		LibXMLDocument wxdoc = docBuilder.parse(in, acdk::net::URL::fileAsUrlName(ts));
+		wxName = wxName.substr(0, wxName.length() - ".html".length()).substr(3);
+		patch2(acdkdoc, wxdoc, wxName);
+		File outFile = new File(Local.outputDir + "/" + acdkF.getName());
+		acdkdoc.write(outFile.getWriter(), org.w3c.dom.NWFWithIndent, 0, "HTML");
+	}
+static void go()
+{
+	File acdkSD = new File(Local.acdkSourceDir);
+	FilesArray files = acdkSD.listFiles(new acdk::io::GlobFilenameFilter("class_acdk__wx__*.html"));
+	foreach (File f in files)
+	{
+		patch(f);
+	}
+}
+}
+Local.patch2(new File(Local.acdkSourceDir + "\\class_acdk__wx__TreeCtrl.html"));
+//Local.go();
+
+/*
+acdk.io.File file = new acdk.io.File("C:\\d\\artefaktur\\acdk_doc\\docs\\wxWidgets\\html\\wx\\wx_wxwindow.html");
+LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+docBuilder->setExtendedFlags(acdk.xml.sax.XMLRF_PARSE_HTML_FLAGS);
+acdk.io.RReader in = file.getReader();
+LibXMLDocument doc = docBuilder.parse(in, acdk::net::URL::fileAsUrlName(file));
+Node body = doc->selectNode("/html/body");
+out.println("h2: " + body->selectNode("h2/text()").getData());
+NodeList h3s = body->selectNodes("h3");
+foreach (Node h3 in h3s.iterator())
+{
+	out.println("\nh3: " + h3->selectNode("text()").getData());
+	Node s = h3.getNextSibling();
+	for (int i = 0; s != Nil && i < 4; ++i)
+	{
+		s->write(out.getWriter());
+		s = s.getNextSibling();
+	}
+}
+*/
+//Local.printDomNodes(out, el, "");

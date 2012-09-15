@@ -1,0 +1,19 @@
+
+
+class MyClass
+{
+  static void variableArgsFunc(int flags, Rest rest)
+  {
+    out.println("Function called with " + String.valueOf(rest.length()) + " rest parameters");
+    foreach (v in rest)
+    {
+      out.println("  " + v.getClass().toString() + ": " + v.toString());
+    }
+  }
+}
+
+// call foo with default 
+MyClass.variableArgsFunc(42);
+MyClass.variableArgsFunc(42, 1, "asdf", new File("testFile"));
+
+

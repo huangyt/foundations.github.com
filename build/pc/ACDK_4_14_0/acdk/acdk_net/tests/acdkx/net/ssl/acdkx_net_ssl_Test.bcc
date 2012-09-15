@@ -1,0 +1,71 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../../../../src  -I../../../../../include  -I../../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=-L"$(ACDK_OPENSSL_LIBPATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\..\bin\acdk_core.lib" "..\..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\..\bin\acdk_text.lib" "..\..\..\..\..\bin\acdk_net.lib" "..\..\..\..\..\bin\acdkx_net_ssl.lib" $(ACDK_OPENSSL_LIBS)
+
+OUTFILE="..\..\..\..\..\bin\acdkx_net_ssl_Test.exe"
+OUTDIR = "..\..\..\..\..\bin"
+INTDIR = ".\tobj\acdkx_net_ssl_Test\bcc"
+SOURCES= 	"acdkx_net_ssl_Test.cpp" \
+	"acdkx_net_ssl_SSLConnection_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdkx_net_ssl_Test\bcc\acdkx_net_ssl_Test.obj" \
+	".\tobj\acdkx_net_ssl_Test\bcc\acdkx_net_ssl_SSLConnection_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdkx_net_ssl_Test\bcc\acdkx_net_ssl_Test.obj": "acdkx_net_ssl_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdkx_net_ssl_Test\bcc" "acdkx_net_ssl_Test.cpp"
+
+".\tobj\acdkx_net_ssl_Test\bcc\acdkx_net_ssl_SSLConnection_Test.obj": "acdkx_net_ssl_SSLConnection_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdkx_net_ssl_Test\bcc" "acdkx_net_ssl_SSLConnection_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\..\bin\acdkx_net_ssl_Test.exe"
+	del ".\tobj\acdkx_net_ssl_Test\bcc\acdkx_net_ssl_Test.obj"
+	del ".\tobj\acdkx_net_ssl_Test\bcc\acdkx_net_ssl_SSLConnection_Test.obj"
+
+

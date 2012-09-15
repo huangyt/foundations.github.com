@@ -1,0 +1,143 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_core_dmiproxy.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_core_dmiproxy\bcc"
+SOURCES= 	"acdk\lang\lang_dmiproxy\lang_dmiproxy.cpp" \
+	"acdk\lang\lang_dmiproxy\lang_dmiproxy1.cpp" \
+	"acdk\lang\lang_dmiproxy\lang_dmiproxy2.cpp" \
+	"acdk\lang\dmi\dmi_dmiproxy\dmi_dmiproxy.cpp" \
+	"acdk\lang\ref\ref_dmiproxy\ref_dmiproxy.cpp" \
+	"acdk\lang\reflect\reflect_dmiproxy\reflect_dmiproxy.cpp" \
+	"acdk\io\io_dmiproxy\io_dmiproxy.cpp" \
+	"acdk\io\io_dmiproxy\io_dmiproxy1.cpp" \
+	"acdk\io\io_dmiproxy\io_dmiproxy2.cpp" \
+	"acdk\util\util_dmiproxy\util_dmiproxy.cpp" \
+	"acdk\util\util_dmiproxy\util_dmiproxy1.cpp" \
+	"acdk\util\util_dmiproxy\util_dmiproxy2.cpp" \
+	"acdk\util\logging\logging_dmiproxy\logging_dmiproxy.cpp" \
+	"acdk\locale\locale_dmiproxy\locale_dmiproxy.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy1.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy2.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\dmi_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\ref_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\reflect_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy1.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy2.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy1.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy2.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\logging_dmiproxy.obj" \
+	"..\tobj\acdk_core_dmiproxy\bcc\locale_dmiproxy.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy.obj": "acdk\lang\lang_dmiproxy\lang_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\lang\lang_dmiproxy\lang_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy1.obj": "acdk\lang\lang_dmiproxy\lang_dmiproxy1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\lang\lang_dmiproxy\lang_dmiproxy1.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy2.obj": "acdk\lang\lang_dmiproxy\lang_dmiproxy2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\lang\lang_dmiproxy\lang_dmiproxy2.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\dmi_dmiproxy.obj": "acdk\lang\dmi\dmi_dmiproxy\dmi_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\lang\dmi\dmi_dmiproxy\dmi_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\ref_dmiproxy.obj": "acdk\lang\ref\ref_dmiproxy\ref_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\lang\ref\ref_dmiproxy\ref_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\reflect_dmiproxy.obj": "acdk\lang\reflect\reflect_dmiproxy\reflect_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\lang\reflect\reflect_dmiproxy\reflect_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy.obj": "acdk\io\io_dmiproxy\io_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\io\io_dmiproxy\io_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy1.obj": "acdk\io\io_dmiproxy\io_dmiproxy1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\io\io_dmiproxy\io_dmiproxy1.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy2.obj": "acdk\io\io_dmiproxy\io_dmiproxy2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\io\io_dmiproxy\io_dmiproxy2.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy.obj": "acdk\util\util_dmiproxy\util_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\util\util_dmiproxy\util_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy1.obj": "acdk\util\util_dmiproxy\util_dmiproxy1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\util\util_dmiproxy\util_dmiproxy1.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy2.obj": "acdk\util\util_dmiproxy\util_dmiproxy2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\util\util_dmiproxy\util_dmiproxy2.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\logging_dmiproxy.obj": "acdk\util\logging\logging_dmiproxy\logging_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\util\logging\logging_dmiproxy\logging_dmiproxy.cpp"
+
+"..\tobj\acdk_core_dmiproxy\bcc\locale_dmiproxy.obj": "acdk\locale\locale_dmiproxy\locale_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_core_dmiproxy\bcc" "acdk\locale\locale_dmiproxy\locale_dmiproxy.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_core_dmiproxy.dll"
+	del "..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy1.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\lang_dmiproxy2.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\dmi_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\ref_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\reflect_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy1.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\io_dmiproxy2.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy1.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\util_dmiproxy2.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\logging_dmiproxy.obj"
+	del "..\tobj\acdk_core_dmiproxy\bcc\locale_dmiproxy.obj"
+
+

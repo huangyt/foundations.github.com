@@ -1,0 +1,89 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_SECURITY_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_security.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_security\bcc"
+SOURCES= 	"acdk\security\acdk_security_Package.cpp" \
+	"acdk\security\MessageDigest.cpp" \
+	"acdk\security\security_metainf_base.cpp" \
+	"acdk\security\SHAMessageDigest.cpp" \
+
+HEADER= 	"acdk\security\GeneralSecurityException.h" \
+	"acdk\security\MessageDigest.h" \
+	"acdk\security\MessageDigestSpi.h" \
+	"acdk\security\NoSuchAlgorithmException.h" \
+	"acdk\security\security.h" \
+	"acdk\security\SHAMessageDigest.h" \
+
+OBJECTS= 	"..\tobj\acdk_security\bcc\acdk_security_Package.obj" \
+	"..\tobj\acdk_security\bcc\MessageDigest.obj" \
+	"..\tobj\acdk_security\bcc\security_metainf_base.obj" \
+	"..\tobj\acdk_security\bcc\SHAMessageDigest.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_security\bcc\acdk_security_Package.obj": "acdk\security\acdk_security_Package.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_security\bcc" "acdk\security\acdk_security_Package.cpp"
+
+"..\tobj\acdk_security\bcc\MessageDigest.obj": "acdk\security\MessageDigest.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_security\bcc" "acdk\security\MessageDigest.cpp"
+
+"..\tobj\acdk_security\bcc\security_metainf_base.obj": "acdk\security\security_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_security\bcc" "acdk\security\security_metainf_base.cpp"
+
+"..\tobj\acdk_security\bcc\SHAMessageDigest.obj": "acdk\security\SHAMessageDigest.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_security\bcc" "acdk\security\SHAMessageDigest.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_security.dll"
+	del "..\tobj\acdk_security\bcc\acdk_security_Package.obj"
+	del "..\tobj\acdk_security\bcc\MessageDigest.obj"
+	del "..\tobj\acdk_security\bcc\security_metainf_base.obj"
+	del "..\tobj\acdk_security\bcc\SHAMessageDigest.obj"
+
+

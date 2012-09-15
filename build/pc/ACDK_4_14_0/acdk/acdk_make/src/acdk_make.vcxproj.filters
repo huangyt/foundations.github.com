@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{36fcded7-f591-4e11-b5f2-087b168c0bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\make">
+      <UniqueIdentifier>{a36c3110-95f3-44fd-b8b0-06f0069e69b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\make\make_metainf">
+      <UniqueIdentifier>{f2939dbc-b2da-4ffa-8d47-9bdcb3b08d1c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\make\AbstractCppTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AbstractTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkBinaryTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkExeTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkLibTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkMetainfLibTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkProjectTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkTestExeTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\AcdkUnitConfigTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\ChDir.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\CommandLineCompilerTool.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\CompileTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\Config.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\CppSourceDependTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\DirExistsTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\FileCopyTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\FileDeleteTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\FileDependTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\FileOpTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\FileSet.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\JavaCompileTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\JobExecuterTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\JobTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\LookupFileTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\make.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\MakeProps.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\PlattformSelectTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\ProjectTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\ScriptExecuteTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\ShellExecuteTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\Task.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\TaskCfgFile.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\TaskInfo.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\TaskManager.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\TestTask.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\ThreadPool.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\make\Tool.h">
+      <Filter>acdk\make</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\make\AbstractCppTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AbstractTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkBinaryTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkExeTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkLibTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkMetainfLibTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkProjectTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkTestExeTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\AcdkUnitConfigTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\CommandLineCompilerTool.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\CompileTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\CppSourceDependTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileCopyTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileDeleteTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileDependTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileOpTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\FileSet.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\JavaCompileTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\JobExecuterTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\JobTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\LookupFileTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\MakeProps.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_metainf_base.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\PlattformSelectTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ProjectTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ScriptExecuteTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ShellExecuteTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\Task.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\TaskCfgFile.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\TaskManager.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\TestTask.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\ThreadPool.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\Tool.cpp">
+      <Filter>acdk\make</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_metainf\make_metainf_ext.cpp">
+      <Filter>acdk\make\make_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_metainf\make_metainf_ext1.cpp">
+      <Filter>acdk\make\make_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

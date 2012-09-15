@@ -1,0 +1,11 @@
+
+out.println("Local function not supported");
+return 1;
+/*
+// out << "before foo called\n";
+void foo()
+{
+  out.println("foo called");
+}
+foo();
+*/

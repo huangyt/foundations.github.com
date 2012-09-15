@@ -1,0 +1,85 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="CfgScript Logging">
+<title>CfgScript Logging</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Logging
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | Logging |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Logging</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Logging</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | Logging |</p>
+<p class="PageIntro">
+CfgScript has a build in logging functionality, which is based on the <code>acdk::util::logging</code> framework.
+</p>
+
+You can use the <code>ACDK_LOG()</code> for unnamed or root logging or <code>ACDK_NLOG()</code> for named logging.
+
+Sample:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#0000FF">ACDK_LOG</FONT></B>(Trace, <B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>);
+<B><FONT COLOR="#0000FF">ACDK_NLOG</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;my.scope&quot;</FONT></B>, Info, <B><FONT COLOR="#BC8F8F">&quot;This is the current environment: &quot;</FONT></B> + __props.toString());
+</PRE></td></tr></table>
+The reason to make logging a part of the language is simply performance. 
+The interpreter checks after parsing <code>ACDK_NLOG("my.scope", Info,</code> if the there is a logger 
+in the given loglevel. If There is no logger, the interpreter simple skip the rest of the statement.
+
+For more information about the ACDK Logging please refer to <a  href="acdk_util_logging.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Logging framework</a>.
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | Logging |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

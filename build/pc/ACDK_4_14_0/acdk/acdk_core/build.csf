@@ -1,0 +1,217 @@
+
+#include "amake_config.csf"
+
+// ----------        acdk_core  ---------------------------
+acdk_core = new acdk.make.AcdkLibTask("acdk_core");
+acdk_core.addModule("src/acdk/lang");
+acdk_core.addModule("src/acdk/lang/dmi");
+acdk_core.addModule("src/acdk/lang/ref");
+acdk_core.addModule("src/acdk/lang/reflect");
+acdk_core.addModule("src/acdk/io");
+acdk_core.addModule("src/acdk/util");
+acdk_core.addModule("src/acdk/util/logging");
+acdk_core.addModule("src/acdk/locale");
+acdk_core.addSource("src/acdk/lang/sys");
+acdk_core.addSource("src/acdk");
+acdk_core.addSource("src");
+
+
+// ----------        acdk_core_metainf  ---------------------------
+acdk_core_metainf = new acdk.make.AcdkMetainfLibTask("acdk_core_metainf", acdk_core);
+
+// ----------        acdk_security  ---------------------------
+acdk_security = new acdk.make.AcdkLibTask("acdk_security");
+acdk_security.addModule("src/acdk/security");
+acdk_security.addAcdkLib("acdk_core");
+
+// ----------        acdk_security_metainf  ---------------------------
+acdk_security_metainf = new acdk.make.AcdkMetainfLibTask("acdk_security_metainf", acdk_security);
+
+// ----------        acdk_tools_aunit  ---------------------------
+acdk_tools_aunit = new acdk.make.AcdkLibTask("acdk_tools_aunit");
+acdk_tools_aunit.addModule("src/acdk/tools/aunit");
+acdk_tools_aunit.addAcdkLib("acdk_core");
+
+// ----------        acdk_tools_aunit_metainf  ---------------------------
+acdk_tools_aunit_metainf = new acdk.make.AcdkMetainfLibTask("acdk_tools_aunit_metainf", acdk_tools_aunit);
+
+// ----------        acdk_cfgscript  ---------------------------
+acdk_cfgscript = new acdk.make.AcdkLibTask("acdk_cfgscript");
+acdk_cfgscript.addModule("src/acdk/cfgscript");
+acdk_cfgscript.addSource("src/acdk/cfgscript/cfgscript_metainf");
+acdk_cfgscript.addAcdkLib("acdk_core");
+
+// ----------        acdk_tools_mc  ---------------------------
+acdk_tools_mc = new acdk.make.AcdkLibTask("acdk_tools_mc");
+acdk_tools_mc.addModule("src/acdk/tools/mc");
+acdk_tools_mc.addAcdkLib("acdk_core");
+acdk_tools_mc.addAcdkLib("acdk_cfgscript");
+
+// ----------        acdk_tools_mc_metainf  ---------------------------
+acdk_tools_mc_metainf = new acdk.make.AcdkMetainfLibTask("acdk_tools_mc_metainf", acdk_tools_mc);
+
+
+// ----------        acdk_lang_Test  ---------------------------
+acdk_lang_Test = new acdk.make.AcdkTestExeTask("acdk_lang_Test");
+acdk_lang_Test.setBaseDir("tests/acdk/lang");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_ObjectBase_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_ObjectArray_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_String_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_StringBuffer_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Throwable_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Thread_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Thread_Test2.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_ThreadLocal_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_ClassLoader_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Integer_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Double_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Float_Test.cpp");
+acdk_lang_Test.addSource("tests/acdk/lang/acdk_lang_Runtime_Test.cpp");
+acdk_lang_Test.addAcdkLib("acdk_core");
+acdk_lang_Test.addAcdkLib("acdk_tools_aunit");
+acdk_lang_Test.addDependingTask(acdk_core_metainf);
+acdk_lang_Test.addDependingTask(acdk_tools_aunit_metainf);
+
+
+// ----------        acdk_lang_sys_Test  ---------------------------
+acdk_lang_sys_Test = new acdk.make.AcdkTestExeTask("acdk_lang_sys_Test");
+acdk_lang_sys_Test.setBaseDir("tests/acdk/lang/sys");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_BackTrace_Test.cpp");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_core_hashmap_Test.cpp");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_core_specific_test.cpp");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_core_vector_Test.cpp");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_HeapTest.cpp");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_StackAlloc_Test.cpp");
+acdk_lang_sys_Test.addSource("tests/acdk/lang/sys/acdk_lang_sys_Test.cpp");
+acdk_lang_sys_Test.addAcdkLib("acdk_core");
+acdk_lang_sys_Test.addAcdkLib("acdk_tools_aunit");
+
+// ----------        acdk_lang_dmi_Test  ---------------------------
+acdk_lang_dmi_Test = new acdk.make.AcdkTestExeTask("acdk_lang_dmi_Test");
+acdk_lang_dmi_Test.setBaseDir("tests/acdk/lang/dmi");
+acdk_lang_dmi_Test.addSource("tests/acdk/lang/dmi");
+acdk_lang_dmi_Test.addAcdkLib("acdk_core");
+acdk_lang_dmi_Test.addAcdkLib("acdk_tools_aunit");
+acdk_lang_dmi_Test.addDependingTask(acdk_core_metainf);
+acdk_lang_dmi_Test.addDependingTask(acdk_tools_aunit_metainf);
+
+// ----------        acdk_lang_ref_Test  ---------------------------
+acdk_lang_ref_Test = new acdk.make.AcdkTestExeTask("acdk_lang_ref_Test");
+acdk_lang_ref_Test.setBaseDir("tests/acdk/lang/ref");
+acdk_lang_ref_Test.addSource("tests/acdk/lang/ref");
+acdk_lang_ref_Test.addAcdkLib("acdk_core");
+acdk_lang_ref_Test.addAcdkLib("acdk_tools_aunit");
+acdk_lang_ref_Test.addDependingTask(acdk_core_metainf);
+acdk_lang_ref_Test.addDependingTask(acdk_tools_aunit_metainf);
+
+// ----------        acdk_lang_reflect_Test  ---------------------------
+acdk_lang_reflect_Test = new acdk.make.AcdkTestExeTask("acdk_lang_reflect_Test");
+acdk_lang_reflect_Test.setBaseDir("tests/acdk/lang/reflect");
+acdk_lang_reflect_Test.addSource("tests/acdk/lang/reflect");
+acdk_lang_reflect_Test.addAcdkLib("acdk_core");
+acdk_lang_reflect_Test.addAcdkLib("acdk_tools_aunit");
+acdk_lang_reflect_Test.addDependingTask(acdk_core_metainf);
+acdk_lang_reflect_Test.addDependingTask(acdk_tools_aunit_metainf);
+
+// ----------        acdk_io_Test  ---------------------------
+acdk_io_Test = new acdk.make.AcdkTestExeTask("acdk_io_Test");
+acdk_io_Test.setBaseDir("tests/acdk/io");
+acdk_io_Test.addSource("tests/acdk/io");
+acdk_io_Test.addAcdkLib("acdk_core");
+acdk_io_Test.addAcdkLib("acdk_tools_aunit");
+acdk_io_Test.addDependingTask(acdk_core_metainf);
+
+// ----------        acdk_util_Test  ---------------------------
+acdk_util_Test = new acdk.make.AcdkTestExeTask("acdk_util_Test");
+acdk_util_Test.setBaseDir("tests/acdk/util");
+acdk_util_Test.addSource("tests/acdk/util");
+acdk_util_Test.addAcdkLib("acdk_core");
+acdk_util_Test.addAcdkLib("acdk_tools_aunit");
+acdk_util_Test.addDependingTask(acdk_core_metainf);
+
+// ----------        acdk_util_logging_Test  ---------------------------
+acdk_util_logging_Test = new acdk.make.AcdkTestExeTask("acdk_util_logging_Test");
+acdk_util_logging_Test.setBaseDir("tests/acdk/util/logging");
+acdk_util_logging_Test.addSource("tests/acdk/util/logging");
+acdk_util_logging_Test.addAcdkLib("acdk_core");
+acdk_util_logging_Test.addAcdkLib("acdk_tools_aunit");
+
+// ----------        acdk_lang_reflect_Test  ---------------------------
+acdk_locale_Test = new acdk.make.AcdkTestExeTask("acdk_locale_Test");
+acdk_locale_Test.setBaseDir("tests/acdk/locale");
+acdk_locale_Test.addSource("tests/acdk/locale");
+acdk_locale_Test.addAcdkLib("acdk_core");
+acdk_locale_Test.addAcdkLib("acdk_tools_aunit");
+
+
+// ----------        acdk_cfgscript_Test  ---------------------------
+acdk_cfgscript_Test = new acdk.make.AcdkTestExeTask("acdk_cfgscript_Test");
+acdk_cfgscript_Test.setBaseDir("tests/acdk/cfgscript");
+acdk_cfgscript_Test.addSource("tests/acdk/cfgscript");
+acdk_cfgscript_Test.addAcdkLib("acdk_core");
+acdk_cfgscript_Test.addAcdkLib("acdk_tools_aunit");
+acdk_cfgscript_Test.addAcdkLib("acdk_cfgscript");
+
+// ----------        acdk_tools_mc_Test  ---------------------------
+acdk_tools_mc_Test = new acdk.make.AcdkTestExeTask("acdk_tools_mc_Test");
+acdk_tools_mc_Test.setBaseDir("tests/acdk/tools/mc");
+acdk_tools_mc_Test.addSource("tests/acdk/tools/mc");
+acdk_tools_mc_Test.addAcdkLib("acdk_core");
+acdk_tools_mc_Test.addAcdkLib("acdk_tools_aunit");
+acdk_tools_mc_Test.addAcdkLib("acdk_tools_mc");
+
+acdkmc = new acdk.make.AcdkExeTask("acdkmc");
+acdkmc.addSource("src/acdk/tools/acdkmc");
+acdkmc.addAcdkLib("acdk_core");
+acdkmc.addDependingTask(acdk_core_metainf);
+acdkmc.addAcdkLib("acdk_cfgscript");
+acdkmc.addAcdkLib("acdk_security");
+acdkmc.addAcdkLib("acdk_tools_mc");
+  
+acdkcfgscript = new acdk.make.AcdkExeTask("acdkcfgscript");
+acdkcfgscript.addSource("src/acdk/cfgscript/acdkcfgscript");
+acdkcfgscript.addAcdkLib("acdk_core");
+acdkcfgscript.addAcdkLib("acdk_cfgscript");
+acdkcfgscript.addDependingTask(acdk_core_metainf);
+
+  
+default = new acdk.make.AcdkProjectTask("default");
+default.addSubTask("acdk_core");
+default.addSubTask("acdk_core_metainf");
+default.addSubTask("acdk_tools_aunit");
+default.addSubTask("acdk_tools_aunit_metainf");
+default.addSubTask("acdk_cfgscript");
+default.addSubTask("acdk_tools_mc");
+default.addSubTask("acdk_tools_mc_metainf");
+default.addSubTask("acdk_security");
+default.addSubTask("acdk_security_metainf");
+default.addSubTask("acdkmc");
+default.addSubTask("acdkcfgscript");
+default.addSubTask("acdk_lang_sys_Test");
+default.addSubTask("acdk_lang_Test");
+default.addSubTask("acdk_lang_dmi_Test");
+default.addSubTask("acdk_lang_ref_Test");
+default.addSubTask("acdk_lang_reflect_Test");
+default.addSubTask("acdk_io_Test");
+default.addSubTask("acdk_util_Test");
+default.addSubTask("acdk_util_logging_Test");
+default.addSubTask("acdk_locale_Test");
+default.addSubTask("acdk_cfgscript_Test");
+default.addSubTask("acdk_tools_mc_Test");
+
+default.registerTask("acdk_core_prj");
+
+/* not needed, is done by AcdkTestExeTask
+test = new acdk.make.TestTask("test");
+test.addTest("acdk_lang_Test");
+test.addTest("acdk_lang_dmi_Test");
+test.addTest("acdk_lang_ref_Test");
+test.addTest("acdk_lang_reflect_Test");
+test.addTest("acdk_io_Test");
+test.addTest("acdk_util_Test");
+test.addTest("acdk_util_logging_Test");
+test.addTest("acdk_cfgscript_Test");
+test.addTest("acdk_tools_mc_Test");
+*/
+

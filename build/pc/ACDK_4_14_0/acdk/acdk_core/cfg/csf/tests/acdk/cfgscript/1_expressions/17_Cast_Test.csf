@@ -1,0 +1,165 @@
+
+using acdk.cfgscript.ScriptGlobals;
+
+
+
+{
+	#pragma cast a2s true
+	String s;
+	s = 1;
+	out.println("stringified bool true is: " + s);
+}
+
+{
+	#pragma cast s2n true
+	int i = "32";
+}
+{
+	try {
+		int i = "32";
+		__script.testAssertComment(false, "exception should be thrown");
+	} catch (DmiTypeConversionException ex) {
+	
+	}
+}
+
+{
+	#pragma cast checkoverflow true
+	#pragma cast s2n true
+	try {
+		short sval = "0xf234567a";
+		__script.testAssertComment(false, "exception should be thrown");
+	} catch (ArithmeticOverflowException ex) {
+		__script.testAssertComment(true, "expected exception: " + ex.getMessage());
+	}
+}
+{
+	#pragma cast s2n true
+	try { 
+		int i = "ba32";
+	}
+	catch (NumberFormatException ex) {
+	}
+}
+{
+	#pragma cast checkoverflow true
+	short sval = Short.MAX_VALUE - 1;
+	try {
+		for (int i = 0; i < 10; ++i)
+			sval = sval + 1;
+	} catch (ArithmeticOverflowException ex) {
+		out.println("last sval was: " + sval);
+	}
+}
+
+{
+	Integer num = 42;
+	castTo(num, int.GetClass()) + 1;
+}
+
+
+#pragma strict
+
+
+{
+	#pragma cast checkoverflow true
+try {
+	short sval = 0x1234567;
+	__script.testAssertComment(false, "exception should be thrown");
+} catch (ArithmeticOverflowException ex) {
+	__script.testAssertComment(true, "expected exception: " + ex.getMessage());
+}
+}
+
+ucchar c = 'A';
+
+{
+	int i = castTo(c, int.GetClass());
+	Number n = i;
+	n.toString();
+}
+
+
+
+try {
+	int i = c;
+	__script.testAssertComment(false, "expected throwing DmiTypeConversionException");
+} catch (DmiTypeConversionException ex) {
+	__script.testAssertComment(true, "expected exception: " + ex.getMessage());
+	
+}
+
+{
+	#pragma cast c2i2c true
+	int i = c;
+}
+
+
+{
+	Integer num = 42;
+	castTo(num, int.GetClass()) + 1;
+}
+{
+#pragma cast autobox false
+try {
+	Number nun = 42;
+	__script.testAssertComment(false, "expected throwing DmiTypeConversionException");
+} catch (DmiTypeConversionException ex) {
+	//out.println(ex.getMessage());
+}
+}
+
+
+int i = 42;
+if (i) // cast to boolean
+{
+	; //all ok
+}
+{
+	#pragma cast n2b false
+	try {
+		if (i) {}
+		__script.testAssertComment(false, "expected throwing DmiTypeConversionException");
+	} catch (DmiTypeConversionException ex) {
+		//out.println(ex.getMessage());
+	}
+}
+
+
+
+
+try {
+	int i = 0;
+	i = true;
+	__script.testAssertComment(false, "expected throwing DmiTypeConversionException");
+} catch (DmiTypeConversionException ex) {
+	//out.println(ex.getMessage());
+}
+
+{
+	#pragma cast b2n true
+	int i = 0;
+	i = true;
+}
+
+{
+	float f = 2.342;
+	int i = f;
+	out.println("i is: " + i);
+}
+
+{
+	try {
+		String s;
+		s = true;
+		__script.testAssertComment(false, "expected throwing DmiTypeConversionException");
+	} catch (DmiException ex) {
+		//out.println(ex.getMessage());
+	}
+}
+{
+	#pragma cast a2s true
+	String s;
+	s = 1;
+	out.println("stringified bool true is: " + s);
+}

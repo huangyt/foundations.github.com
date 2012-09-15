@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{1a3b2f8b-6610-4ac4-87e8-806649eb6ca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\net">
+      <UniqueIdentifier>{334fc2b6-454d-4dbb-8f12-71ac97428a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\net\ssl">
+      <UniqueIdentifier>{a16db575-275f-47a3-b3a9-9b50fe1f32ff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdkx\net\ssl\Config.h">
+      <Filter>acdkx\net\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\net\ssl\HTTPSUrlStreamHandler.h">
+      <Filter>acdkx\net\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\net\ssl\ssl.h">
+      <Filter>acdkx\net\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\net\ssl\SSLSocket.h">
+      <Filter>acdkx\net\ssl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx\net\ssl\SSLSocket.cpp">
+      <Filter>acdkx\net\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\net\ssl\ssl_metainf_base.cpp">
+      <Filter>acdkx\net\ssl</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,164 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_perl, Perl, DMI Client Perl">
+<title>acdk_perl Manual</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Perl</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk_perl Manual<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_perl_install.html">Compile acdk_perl</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdkperl_man.html">acdkperl Manual</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Perl Readme</a> | <a  href="acdk_perl_install.html">Compile acdk_perl</a> | <a  href="acdkperl_man.html">acdkperl Manual</a> | acdk_perl Manual | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_perl Manual</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_perl Manual</h1> -->
+<br>
+<p class="PageIntro">
+acdk_perl_man contains an interface to an perl interperter
+and the DMI code to script ACDK objects from perl code.<br>
+</p>
+<br>
+<a name="jumptable91"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ACDK / Perl"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ACDK / Perl</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Type mapping"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Type mapping</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::new($;) / pacdk::new($;)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::new($;) / pacdk::new($;)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::invoke($$;) / pacdk::invoke($$;)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::invoke($$;) / pacdk::invoke($$;)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::peek($$) / pacdk::peek($$)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::peek($$) / pacdk::peek($$)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::poke($$$) / pacdk::poke($$$)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::poke($$$) / pacdk::poke($$$)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::invoke_static($$;) / pacdk::invoke_static($$;)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::invoke_static($$;) / pacdk::invoke_static($$;)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::peek_static($$) / pacdk::peek_static($$)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::peek_static($$) / pacdk::peek_static($$)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::perl2acdk($) / pacdk::perl2acdk($)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::perl2acdk($) / pacdk::perl2acdk($)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk::acdk2perl($) / pacdk::acdk2perl($)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk::acdk2perl($) / pacdk::acdk2perl($)</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK / Perl">ACDK / Perl</a></h2>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Type mapping">Type mapping</a></h3>
+Perl: number <-> ACDK: int/Integer.<br>
+Perl: double <-> ACDK: double/Double.<br>
+Perl: string <-> ACDK: String.<br>
+Perl: array <-> ACDK: ObjectArray.<br>
+Perl: hash <-> ACDK: HashMap.<br>
+<br>
+Note: The mapping of array and hash may change
+later.<br>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::new($;) / pacdk::new($;)">command: sub acdk::new($;) / pacdk::new($;)</a></h3>
+acdk::new creates a new ACDK-Object.<br>
+argument 1: The fully qualified ACDK-Class name like "acdk/lang/StringBuffer".<br>
+argument 2 - n: Arguments for the class constructor.<br>
+return: a new Object , wich is a blessed scalar.<br>
+Usage:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">## perl
+</FONT></I><B><FONT COLOR="#A020F0">my</FONT></B> </FONT></B>$sb = pacdk::<B><FONT COLOR="#A020F0">new</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Hallo &quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::invoke($$;) / pacdk::invoke($$;)">command: sub acdk::invoke($$;) / pacdk::invoke($$;)</a></h3>
+acdk::invoke invokes a method. 
+argument 1: the ACDK Object pointer of the class. 
+argument 2: the name of the method.<br>
+argument 3-n: arguments of the method.<br>
+return: returns the result of the method.<br>
+<br>
+Instead of using invoke, you can also use the '->' 
+operator to call a function:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">## perl
+</FONT></I><B><FONT COLOR="#A020F0">my</FONT></B> </FONT></B>$sb = pacdk::<B><FONT COLOR="#A020F0">new</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Hallo &quot;</FONT></B>);
+
+<B><FONT COLOR="#A020F0">my</FONT></B> </FONT></B>$erg = pacdk::invoke(</FONT></B>$sb, <B><FONT COLOR="#BC8F8F">&quot;toString&quot;</FONT></B>);
+<I><FONT COLOR="#B22222"># the same as 
+</FONT></I><B><FONT COLOR="#A020F0">my</FONT></B> </FONT></B>$erg = </FONT></B>$sb-&gt;toString();
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::peek($$) / pacdk::peek($$)">command: sub acdk::peek($$) / pacdk::peek($$)</a></h3>
+acdk::peek reads a named attribute (member) of the class.<br>
+argument 1: the ACDK Object pointer of the class. 
+argument 2: name of the member
+return: the value of the member
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::poke($$$) / pacdk::poke($$$)">command: sub acdk::poke($$$) / pacdk::poke($$$)</a></h3>
+acdk::peek sets a named attribute (member) of the class with new new value
+argument 1: the ACDK Object pointer of the class. 
+argument 2: name of the member
+argument 3: the new value of the member
+return: nothing
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::invoke_static($$;) / pacdk::invoke_static($$;)">command: sub acdk::invoke_static($$;) / pacdk::invoke_static($$;)</a></h3>
+acdk::invoke_static calls a static method.<br>
+argument 1: name of the class as string.<br>
+argument 2: name of the method as string.<br>
+arguments 3-n: arguments of the method.<br>
+return: returns the result of the method.<br>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::peek_static($$) / pacdk::peek_static($$)">command: sub acdk::peek_static($$) / pacdk::peek_static($$)</a></h3>
+reads a static member of an ACDK class.<br>
+argument 1: name of the class as string.<br>
+argument 2: name of the member as string.<br>
+<br>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::perl2acdk($) / pacdk::perl2acdk($)">command: sub acdk::perl2acdk($) / pacdk::perl2acdk($)</a></h3>
+sub acdk::perl2acdk($) converts a perl variable to a 
+ACDK object.<br>
+<br>
+<h3><a href="#jumptable91"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk::acdk2perl($) / pacdk::acdk2perl($)">command: sub acdk::acdk2perl($) / pacdk::acdk2perl($)</a></h3>
+sub acdk::acdk2perl($) converts a acdk object to a 
+perl variable.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Perl Readme</a> | <a  href="acdk_perl_install.html">Compile acdk_perl</a> | <a  href="acdkperl_man.html">acdkperl Manual</a> | acdk_perl Manual | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

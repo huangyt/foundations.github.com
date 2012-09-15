@@ -1,0 +1,220 @@
+###
+### This file is part of ACDK
+### Copyrighted (c) 2000-2005 by Roger Rene Kommer - artefaktur
+### 
+
+
+ACDKHOME = ..
+
+
+PACKAGE = acdk_wx
+
+all: install compile 
+
+!include "$(ACDKHOME)\acdk_globals.nmake"
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_wx_Test_d $(AUNIT_TESTOPTS)
+	$(ACDKHOME)\bin\acdk_wx_ide_Test_d $(AUNIT_TESTOPTS)
+
+
+
+acdk_wx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src cbx
+
+acdk_wx_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src cbx
+
+acdk_wx_dmiproxy-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src cbx
+
+acdk_wx_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx cbx
+
+guitestrunner-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src cbx
+
+HelloWxWorld-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld cbx
+
+HelloWorld-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld cbx
+
+acdk_wx_ide-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src cbx
+
+acdkcsfide-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src cbx
+
+acdk_wx_ide_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide cbx
+
+
+makemake:: acdk_wx-makemake acdk_wx_metainf-makemake acdk_wx_dmiproxy-makemake acdk_wx_Test-makemake guitestrunner-makemake HelloWxWorld-makemake HelloWorld-makemake acdk_wx_ide-makemake acdkcsfide-makemake acdk_wx_ide_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_dmiproxy.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx\acdk_wx_Test.lsp -pdir tests/acdk/wx cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\guitestrunner.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWxWorld\HelloWxWorld.lsp -pdir tests/acdk/wx/HelloWxWorld cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/HelloWorld\HelloWorld.lsp -pdir tests/acdk/wx/HelloWorld cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_wx_ide.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkcsfide.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/wx/ide\acdk_wx_ide_Test.lsp -pdir tests/acdk/wx/ide cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_wx.lsp
+
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type='text/css' href='person.css'?>
+<!DOCTYPE person SYSTEM "person.dtd">
+<person xmlns="http://xml.oreilly.com/person">
+  <name:name xmlns:name="http://xml.oreilly.com/name">
+    <name:first>Sydney</name:first>
+    <name:last>Lee</name:last>
+  </name:name>
+  <assignment project_id="p2"/>
+</person>

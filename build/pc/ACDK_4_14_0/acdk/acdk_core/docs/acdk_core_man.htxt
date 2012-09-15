@@ -1,0 +1,20 @@
+%id: acdk_core_man
+%title: acdk_core - Manual
+%shorttitle: man acdk_core
+%keywords: acdk_core, ACDKHOME, Thread; Single, Heap Allocator
+%chapter: acdk_core_man_config, acdk_core_io_reader_writer, acdk_io_FileSystem, acdk_core_locale_encoding, acdk_util_logging
+%seealso: ACDK Handbook=acdk_hb
+%body:
+<pageintro>
+Basic documentation for the acdk_core package.
+</pageintro>
+
+<htmlauto/>
+
+<p></p>
+
+For overview of ACDK please refer to %ref[ACDK Handbook, acdk_hb].
+
+<subschapterstable/>
+
+.

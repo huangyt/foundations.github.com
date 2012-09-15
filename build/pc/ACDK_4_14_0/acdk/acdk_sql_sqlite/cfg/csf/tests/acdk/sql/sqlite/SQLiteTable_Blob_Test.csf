@@ -1,0 +1,45 @@
+
+using acdk.sql.sqlite;
+using acdk.io;
+/**
+  this file dump all files from a directory into the database
+*/
+File f = new File(__script.getScriptPath() + "acdk_sql_sqlite_testblob.sqlite3");
+if (f.exists() == true)
+  f.deleteFile();
+
+String dbUrl = "jdbc:sqlite:/" + f.getCanonicalPath();
+Driver driver = DriverManager::getDriver(dbUrl);
+Connection con = driver->connect(dbUrl, Nil);
+
+con
+  ->createStatement()
+  ->executeUpdate(
+    "CREATE TABLE ttable (intcol INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, data BLOB)");
+    
+PreparedStatement stm = con->prepareStatement("INSERT INTO ttable (name, data) VALUES(?, ?)"); 
+File d = new File(System.getAcdkHome() + "/cfg/acdk/locale");
+out.println("writing files as blobs into DB: " + dbUrl);
+
+foreach (File f in d.listFiles())
+{
+  //out.println(f.getName());
+  StandardMemBlob b = new StandardMemBlob();
+  f.getReader().trans(b.getWriter());
+  stm.setString(1, f.getName());
+  stm.setBlob(2, b);
+  stm.executeUpdate();
+  stm.clearParameters(); // for next loop
+}
+
+RStatement qstm = con->createStatement();
+RResultSet rset = qstm->executeQuery("SELECT * from ttable"); 
+while (rset->next() == true) 
+{
+  RString sval = rset.getString("name");
+  Blob b = rset.getBlob("data");
+  out.println(sval + " has " + b.length() + " bytes");
+}
+
+
+  

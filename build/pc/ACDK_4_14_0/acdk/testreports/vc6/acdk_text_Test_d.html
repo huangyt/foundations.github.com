@@ -1,0 +1,87 @@
+<html><body>
+<h1>Unit Test 2004-11-28T20:31:05</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 9; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DateFormat_Test.standard">DateFormat_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DateFormat_Test.simple">DateFormat_Test.simple</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DecimalFormatSymbols_Test.standard">DecimalFormatSymbols_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DecimalFormat_Test.standard">DecimalFormat_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#RegExp_Test.standard">RegExp_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#RegExp_Test.replace">RegExp_Test.replace</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#RegExp_Test.unicode">RegExp_Test.unicode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Template_Test.standard">Template_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Template_Test.simple">Template_Test.simple</a> <br>
+</td></tr></table>
+<h2><a id="DateFormat_Test.standard">DateFormat_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][DateFormat_Test.standard] Start Test
+1966-09-20T06:20:00:0
+20-September-66 7:20:00 AM
+20-September-66 7:20:00 AM
+</pre>
+<h2><a id="DateFormat_Test.simple">DateFormat_Test.simple</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DateFormat_Test.standard] End Test
+[AUNIT:STRT][DateFormat_Test.simple] Start Test
+1966-09-20T05:55:45:000
+1966-09-20T05:55:45:000
+</pre>
+<h2><a id="DecimalFormatSymbols_Test.standard">DecimalFormatSymbols_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DateFormat_Test.simple] End Test
+[AUNIT:STRT][DecimalFormatSymbols_Test.standard] Start Test
+</pre>
+<h2><a id="DecimalFormat_Test.standard">DecimalFormat_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DecimalFormatSymbols_Test.standard] End Test
+[AUNIT:STRT][DecimalFormat_Test.standard] Start Test
+1234] + [###00.00] -> [1234.00]
+123456] + [##,#00.00] -> [123,456.00]
+-123456] + [##,#00.00] -> [-123,456.00]
+123.456000] + [###00.00] -> [123.45]
+Should be 123.45: 123.45
+123.456000] + [###00.00] -> [123.45]
+123.456000] + [###00.0000000] -> [123.4560000]
+1.#QNAN0] + [###00.0000000] -> [NAN]
+-0.012345] + [%###,###.00] -> [-%1.23]
+-0.012345] + [###,###.00%] -> [-1.23%]
+</pre>
+<h2><a id="RegExp_Test.standard">RegExp_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DecimalFormat_Test.standard] End Test
+[AUNIT:STRT][RegExp_Test.standard] Start Test
+[abc/defg/hij, abc, defg/hij]
+</pre>
+<h2><a id="RegExp_Test.replace">RegExp_Test.replace</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][RegExp_Test.standard] End Test
+[AUNIT:STRT][RegExp_Test.replace] Start Test
+</pre>
+<h2><a id="RegExp_Test.unicode">RegExp_Test.unicode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][RegExp_Test.replace] End Test
+[AUNIT:STRT][RegExp_Test.unicode] Start Test
+Straﬂe
+[Straﬂe, Straﬂe]
+[ﬂe, ﬂe]
+</pre>
+<h2><a id="Template_Test.standard">Template_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][RegExp_Test.unicode] End Test
+[AUNIT:STRT][Template_Test.standard] Start Test
+</pre>
+<h2><a id="Template_Test.simple">Template_Test.simple</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Template_Test.standard] End Test
+[AUNIT:STRT][Template_Test.simple] Start Test
+</pre>
+</body></html>

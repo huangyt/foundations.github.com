@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{aef16e6b-5407-4db3-a0db-7ab67f34bd91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\net">
+      <UniqueIdentifier>{cd9dc6fd-5bbb-48ef-916d-8e86978daa39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\net\ssl">
+      <UniqueIdentifier>{a6fa97a5-55b9-4fc0-a9a8-0c64e4883579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\net\ssl\ssl_metainf">
+      <UniqueIdentifier>{b8c3af5a-09a0-4c5d-8026-29e71935c017}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx\net\ssl\ssl_metainf\ssl_metainf_ext.cpp">
+      <Filter>acdkx\net\ssl\ssl_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

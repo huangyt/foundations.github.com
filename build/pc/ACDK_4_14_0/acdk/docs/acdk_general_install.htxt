@@ -1,0 +1,17 @@
+%id: acdk_general_install
+%title: ACDK General installation notice
+%shorttitle: Installation
+%keywords: installation, setup
+%chapter: acdk_general_compile_acdk, acdk_general_install_upgrade, acdk_general_compile_own_executable, acdk_general_compile_own_lib
+%body:
+
+<htmlauto>
+
+<pageintro>
+How to install and compile ACDK.
+And how to create your own executable/library to make use of ACDK.
+</pageintro>
+
+<subschapterstable/>
+
+.

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<entries>
+  <entry strval="asdf" intval="12345" floatval="0.4"/>
+  <entry>
+    asdf
+  </entry>
+  <entry type="stringval">asdf</entry>
+  <entry type="intval">12345</entry>
+  <entry type="floatval">12.123</entry>
+  <entry type="boolval">true</entry>
+</entries>

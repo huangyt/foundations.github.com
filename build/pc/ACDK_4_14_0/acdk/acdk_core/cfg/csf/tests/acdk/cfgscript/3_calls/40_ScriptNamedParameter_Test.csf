@@ -1,0 +1,42 @@
+
+// currently doesn't work:
+//String erg = acdk.tools.aunit.DmiTestClass.methodWithDefaults(Nil, "Hello",  wildCard: "*.txt", style: 10);
+//out.println(erg);
+
+class MyClass
+{
+  static void posRect(int xpos = 0, int ypos = 0, int xsize = 20, int ysize = 30)
+  {
+    out.println("foo called with xpos = " + xpos + ", ypos = " + ypos + ", xsize = " + xsize + ", ysize = " + ysize);
+  }
+  static String another(Object obj, String message, 
+                                  String defaultDir = "",
+                                  String defaultFile = "",
+                                  String wildCard = "*.*",
+                                  int style = 0,
+                                  StringBuffer pos = new StringBuffer(""))
+  {
+    StringBuffer sb = new StringBuffer();
+    sb << "another called with defaultDir: " << defaultDir 
+       << "; defaultFile: " << defaultFile 
+       << "; widlCard: " << wildCard 
+       << "; style: " << style;
+    out.println(sb.toString());
+    return sb.toString();
+  }
+}
+
+// currently return doesn't work:
+//MyClass.another(Nil, "Hello", wildCard: "*.txt", style: 10);
+// call foo with default 
+MyClass.posRect();
+// call with positional parameter using the default size
+MyClass.posRect(10, 10);
+// call with positional parameter using the default size
+MyClass.posRect(10, 10, 12, 14);
+// currently not working
+//MyClass.posRect(xsize: 40, ysize: 50);
+// old syntax
+MyClass.posRect(:ypos = 10, :xpos = 50);
+
+

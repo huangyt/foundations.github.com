@@ -1,0 +1,14 @@
+%id: aal_reference_praeprocessor
+%title: AAL Preprocessor
+%shorttitle: Preprocessor
+%body:
+<chapterline/>
+<pageintro>
+While parsing a AAL source code, with the preprocessor
+conditional code generation can be controled.
+</pageintro>
+
+
+
+
+.

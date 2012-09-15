@@ -1,0 +1,95 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_net.lib" "..\..\bin\org_xml.lib" "..\..\bin\org_xml_metainf.lib" "..\..\bin\acdk_xml.lib"
+
+OUTFILE="..\..\bin\acdk_xml_metainf.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_xml_metainf"
+SOURCES= 	"acdk\xml\xml_metainf\xml_metainf_ext.cpp" \
+	"acdk\xml\sax\sax_metainf\sax_metainf_ext.cpp" \
+	"acdk\xml\dom\dom_metainf\dom_metainf_ext.cpp" \
+	"acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext.cpp" \
+	"acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext1.cpp" \
+	"acdk\xml\parsers\parsers_metainf\parsers_metainf_ext.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_xml_metainf\xml_metainf_ext.obj" \
+	"..\tobj\acdk_xml_metainf\sax_metainf_ext.obj" \
+	"..\tobj\acdk_xml_metainf\dom_metainf_ext.obj" \
+	"..\tobj\acdk_xml_metainf\libxmldom_metainf_ext.obj" \
+	"..\tobj\acdk_xml_metainf\libxmldom_metainf_ext1.obj" \
+	"..\tobj\acdk_xml_metainf\parsers_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_xml_metainf\xml_metainf_ext.obj": "acdk\xml\xml_metainf\xml_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_xml_metainf" "acdk\xml\xml_metainf\xml_metainf_ext.cpp"
+
+"..\tobj\acdk_xml_metainf\sax_metainf_ext.obj": "acdk\xml\sax\sax_metainf\sax_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_xml_metainf" "acdk\xml\sax\sax_metainf\sax_metainf_ext.cpp"
+
+"..\tobj\acdk_xml_metainf\dom_metainf_ext.obj": "acdk\xml\dom\dom_metainf\dom_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_xml_metainf" "acdk\xml\dom\dom_metainf\dom_metainf_ext.cpp"
+
+"..\tobj\acdk_xml_metainf\libxmldom_metainf_ext.obj": "acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_xml_metainf" "acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext.cpp"
+
+"..\tobj\acdk_xml_metainf\libxmldom_metainf_ext1.obj": "acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_xml_metainf" "acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext1.cpp"
+
+"..\tobj\acdk_xml_metainf\parsers_metainf_ext.obj": "acdk\xml\parsers\parsers_metainf\parsers_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_xml_metainf" "acdk\xml\parsers\parsers_metainf\parsers_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_xml_metainf.dll"
+	del "..\tobj\acdk_xml_metainf\xml_metainf_ext.obj"
+	del "..\tobj\acdk_xml_metainf\sax_metainf_ext.obj"
+	del "..\tobj\acdk_xml_metainf\dom_metainf_ext.obj"
+	del "..\tobj\acdk_xml_metainf\libxmldom_metainf_ext.obj"
+	del "..\tobj\acdk_xml_metainf\libxmldom_metainf_ext1.obj"
+	del "..\tobj\acdk_xml_metainf\parsers_metainf_ext.obj"
+
+

@@ -1,0 +1,33 @@
+
+#pragma strict
+
+class AClass 
+extends acdk.lang.Object
+{
+  static String svar;
+  int ivar;
+  AClass(int i = 3) { ivar = i; }
+  String foo() { return svar; }
+  int bar() { return ivar; }
+}
+
+Class cls = Class.forName("AClass");
+out.println("Class name for class is: " + cls.toString());
+
+out.println("Class has following Contructors:");
+foreach(Constructor con in cls.getDeclaredConstructors())
+{
+  out.println(con.toString());  
+}
+
+out.println("Class has following Members:");
+foreach(Field field in cls.getDeclaredFields())
+{
+  out.println(field.toString());  
+}
+
+out.println("Class has following Methods:");
+foreach(Method method in cls.getDeclaredMethods())
+{
+  out.println(method.toString());  
+}

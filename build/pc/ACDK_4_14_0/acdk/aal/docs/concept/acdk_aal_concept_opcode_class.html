@@ -1,0 +1,256 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL OpCode Class</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode.html">OpCode</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Class
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_aal_concept_opcode_expression.html">Expressions</a> | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | Class | <a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL OpCode Class</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL OpCode Class</h1> -->
+<p class="curchapterline"> | <a  href="acdk_aal_concept_opcode_expression.html">Expressions</a> | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | Class | <a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a> |</p>
+<p class="PageIntro">
+Intermediate OpCode for AAL.
+</p>
+
+
+<a name="jumptable140"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Class definitions and DMI"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Class definitions and DMI</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Activation Frame"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Activation Frame</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Format"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Format</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sample"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Sample</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#invoke"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;invoke</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Caller"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Caller</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Callee"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Callee</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#peek"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;peek</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Constructor"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Constructor</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#new"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;new</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Caller"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Caller</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Callee"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Callee</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Destructor"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Destructor</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Class definitions and DMI">Class definitions and DMI</a></h2>
+In the first implementation a class invocation should
+be handled via DMI.
+Later it may be usefull to implement a native OpCode interface.
+
+See also: <a  href="acdk_aal_concept_opcode_dmi.html"><img border="0" src="./../../../docs\images/url_rhtm.gif" alt="">&nbsp;DMI Interface</a>.
+
+<h2><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Activation Frame">Activation Frame</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Safe PC
+<li class="Feature"> Pop Arguments and load them into 
+    current frame.
+<li class="Feature"> Jump to first PC of frunction
+</ul>
+<h3><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Format">Format</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+<br></font>
+</td></tr></table>
+<h3><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample">Sample</a></h3>
+This is a very simple Activation Frame.
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+cls.foo("a",&nbsp;42);<br>
+<br>
+//&nbsp;Caller<br>
+push&nbsp;42<br>
+push&nbsp;"a"<br>
+load&nbsp;[cls]<br>
+push&nbsp;"foo"<br>
+push&nbsp;3&nbsp;//&nbsp;flags&nbsp;=&nbsp;2&nbsp;arguments&nbsp;+&nbsp;this<br>
+invoke<br>
+pop&nbsp;//&nbsp;return&nbsp;value<br>
+<br>
+//&nbsp;Callee<br>
+//&nbsp;Activation&nbsp;Frame<br>
+//&nbsp;"foo"&nbsp;and&nbsp;flags&nbsp;(2)&nbsp;will&nbsp;be&nbsp;consumed&nbsp;by&nbsp;invoke<br>
+clvr&nbsp;0<br>
+store&nbsp;0&nbsp;//&nbsp;this&nbsp;=&nbsp;cls<br>
+clvr&nbsp;1<br>
+store&nbsp;1&nbsp;//&nbsp;"a"<br>
+clvr&nbsp;2<br>
+store&nbsp;2&nbsp;//&nbsp;42<br>
+<br>
+<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="invoke">invoke</a></h2>
+<h3><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Caller">Caller</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass&nbsp;<br>
+{&nbsp;<br>
+&nbsp;&nbsp;String&nbsp;foo(int&nbsp;i)&nbsp;<br>
+&nbsp;&nbsp;{&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;acdk.lang.Integer.toString(i)&nbsp;}&nbsp;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+s&nbsp;=&nbsp;acls.foo(42);<br>
+<br>
+push&nbsp;42<br>
+load&nbsp;[acls]<br>
+push&nbsp;"foo"<br>
+push&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;2&nbsp;arguments<br>
+invoke<br>
+store&nbsp;[s]<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Callee">Callee</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;code&nbsp;sample&nbsp;see&nbsp;above<br>
+ActivateFrame[0]&nbsp;=&nbsp;this<br>
+ActivateFrame[1]&nbsp;=&nbsp;int&nbsp;i<br>
+<br></font>
+</td></tr></table>
+<h2><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="peek">peek</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+AClass&nbsp;acls&nbsp;=&nbsp;new&nbsp;AClass(42);<br>
+int&nbsp;i&nbsp;=&nbsp;acls._ivar;<br>
+clvr&nbsp;[x]<br>
+load&nbsp;[acls]<br>
+push&nbsp;"_ivar"<br>
+push&nbsp;0&nbsp;//&nbsp;flags<br>
+peekr<br>
+store&nbsp;[i]<br>
+<br></font>
+</td></tr></table>
+<h2><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Constructor">Constructor</a></h2>
+<h3><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="new">new</a></h3>
+
+<h4><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Caller">Caller</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Top&nbsp;of&nbsp;Stack&nbsp;before&nbsp;call<br>
+----------------------------<br>
+int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invocation&nbsp;flags<br>
+str&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClassName<br>
+arg&nbsp;n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;Argument<br>
+arg&nbsp;n-1<br>
+arg&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First&nbsp;Argument<br>
+<br>
+Top&nbsp;of&nbsp;Stack&nbsp;after&nbsp;call<br>
+----------------------------<br>
+obj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;created&nbsp;Object<br></font>
+</td></tr></table>
+
+
+<h4><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Callee">Callee</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;AClass()&nbsp;{}<br>
+}<br>
+<br>
+//&nbsp;static&nbsp;AClass.AClass<br>
+load&nbsp;0&nbsp;//&nbsp;load&nbsp;this<br>
+push&nbsp;"_init_AClass"<br>
+push&nbsp;0&nbsp;//&nbsp;args+flags<br>
+invoke<br>
+ret<br>
+<br>
+//&nbsp;__init_AClass<br>
+load&nbsp;0<br>
+ret<br>
+<br>
+&lt;rs&gt;<br>
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;int&nbsp;_var;<br>
+&nbsp;&nbsp;AClass(int&nbsp;v)<br>
+&nbsp;&nbsp;:&nbsp;_var(v)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+class&nbsp;BClass&nbsp;extends&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;BClass(int&nbsp;var)<br>
+&nbsp;&nbsp;:&nbsp;AClass(var)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+The&nbsp;new&nbsp;already&nbsp;created&nbsp;an&nbsp;Object&nbsp;is&nbsp;in&nbsp;ActivationFrame&nbsp;at&nbsp;index&nbsp;0<br>
+//&nbsp;__init_Bclass(int&nbsp;var)<br>
+load&nbsp;1&nbsp;//&nbsp;argument<br>
+push&nbsp;"__init_AClass"<br>
+load&nbsp;0&nbsp;//&nbsp;this<br>
+push&nbsp;1<br>
+invoke<br>
+pop&nbsp;//&nbsp;remove&nbsp;this&nbsp;from&nbsp;stack&nbsp;leaved&nbsp;by&nbsp;__init_AClass<br>
+push&nbsp;0&nbsp;//&nbsp;push&nbsp;this<br>
+ret<br>
+<br>
+//&nbsp;__init_AClass<br>
+load&nbsp;1<br>
+push&nbsp;"_var"<br>
+load&nbsp;0&nbsp;//&nbsp;this<br>
+push&nbsp;0&nbsp;//&nbsp;flags<br>
+poke&nbsp;<br>
+push&nbsp;0<br>
+ret<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable140"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Destructor">Destructor</a></h2>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_aal_concept_opcode_expression.html">Expressions</a> | <a  href="acdk_aal_concept_opcode_statements.html">Statements</a> | Class | <a  href="acdk_aal_concept_opcode_dmi.html">DMI Interface</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

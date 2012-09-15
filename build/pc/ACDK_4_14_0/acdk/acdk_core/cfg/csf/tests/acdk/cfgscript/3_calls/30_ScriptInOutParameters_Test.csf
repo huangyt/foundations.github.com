@@ -1,0 +1,46 @@
+
+#pragma strict
+
+class AClass 
+{
+  static void foo2(IN(RString) s)
+  {
+  }
+  static int foo(in String inS, inout String inoutS, out String erg)
+  {
+    erg = inS + inoutS;
+    inoutS = inS;
+    inS = "X";
+    return erg.length();
+  }
+  static void foo2(in ArrayList alarg)
+  {
+  }
+  static void foo(inout ArrayList alarg, bool setNew)
+  {
+    //Object tobj;
+    //tobj = alarg;
+    foo2(alarg);
+    alarg.size();
+    if (setNew == true)
+      alarg = new ArrayList();
+  }
+  
+}
+
+/*
+ArrayList al = new ArrayList();
+AClass.foo(al, false);
+AClass.foo(al, true);
+*/
+String inS = "A";
+String inoutS = new String("B");
+String outS;
+int erg = AClass.foo(inS, inoutS, outS);
+out.println("inS: " + inS + "; inoutS: " + inoutS + "; outS: " + outS);
+
+if (inS.equals("A") && inoutS.equals("A") && outS.equals("AB"))
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+

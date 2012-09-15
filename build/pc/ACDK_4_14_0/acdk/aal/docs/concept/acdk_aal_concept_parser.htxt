@@ -1,0 +1,297 @@
+%id: acdk_aal_concept_parser
+%title: AAL parser
+%body:
+<chapterline/>
+<pageintro>
+Design of the AAL extensible Parser.
+</pageintro>
+<htmlauto>
+
+<jumptable/>
+
+<jump1>Overview</jump1>
+<fl>
+<f> Parser should be extensible at runtime.
+<f> Parser will be defined by Code-Fragments. These Code-Fragments 
+    defines the syntax-grammar, the connection to the SymbolTable,
+    the execution in a interpreter environment, the translation to 
+    intermediate code.
+    The Code implementation can be reused with a different Grammar.
+    For example, the standard implementation of AdditiveExpr expects
+    3 sub Code-Fragments, with first argument as Expression, operator (+ or -) and
+    second argument as Expression. The same Code instance can be used for interpretation
+    and intermediate code generation with different language syntax. 
+    So most code for a new language can be reused.
+</fl>
+
+<jump1>Scanner</jump1>
+<fl>
+<f> Lookahead, stacked
+<f> Scanner is not independ, but part of the parser (ParseNode)
+</fl>
+
+<jump1>Symbol Table, Type Library and Type Scope</jump1>
+<jump2>SymbolTable</jump2>
+For each declarative element (types, functions)
+an element will be inserted into the Symbol Table.
+
+<rs>
+// global static dictionary
+namespace acdk { 
+  // acdk.foo_0
+  void foo()
+  {
+    // dictionary acdk.foo_0.X
+    class X {}
+    
+  }
+}
+
+</rs>
+
+Variables may be declared in the same SymbolTable:
+<rs>
+void foo(int i)
+{
+  int j = i;
+}
+may be:
+SymbolTable.foo_i[0].i
+SymbolTable.foo_i[1].j
+</rs>
+
+Sub-Blocks will have a link to the parent scope
+<rs>
+void foo()
+{
+  int i = i;
+  {
+    int j = i;
+    {
+      int i = j;
+    }
+  }
+}
+</rs>
+
+Basic Structure of SymbolTable:
+<rs>
+class TypeDefinition { RString name; RDClazzInfo clazzInfo };
+class VarDefinition { RString name; RTypeDefinition typeDef; };
+
+class SymbolTable
+{
+  // String -> TypeDefinition | VarDefinition 
+  HashMap _typeMap;
+  HashMap _varMap;
+  RSymbolTableArray _seealso;
+};
+</rs>
+
+Dynamic dictionary may also be a static Dictionary link.
+<rs>
+namespace acdk {
+  class X {}
+}
+namespace other {
+  // implicit block, which add 
+  // an entry in the SeeAlso list of the block
+  use acdk;
+}
+</rs>
+
+<jump2>Unresolved TypeDefinitions</jump2>
+To enable soft typing of VarDefintions, an TypeDefinition may
+not resolved. This means, in current compiler state, the TypeDefinition
+is currently not known. 
+
+<jump2>Correlation between SymbolTable and Interpreter Env</jump2>
+Each Code can have an associated SymbolTable, which will setup in 
+the postParse() step of compilation.
+
+The EvalScope Holds Vars, which contains a VarDefinition and a ScriptVar
+which holds the Value.
+
+<jump1>Parser</jump1>
+Using a LL(n) parser:
+<b>Pro:</b>
+<fl>
+<f> Extending the parser at runtime probably difficult for an LR parser.
+<f> Rules for an LR parser are more difficult to understand.
+</fl>
+<b>Con:</b>
+<fl>
+<f> Left recursion is not allowed.
+<f> Less Performance.
+</fl>
+
+
+<jump2>BNF</jump2>
+
+The %cref[acdk::aci::parser::SyntaxParser] uses BNF sytax:
+</htmlauto>
+
+<rs>
+# Rulename is the NodeName of the SyntaxParser, the right size of the
+# rule defintion is the syntax of the rule
+RuleName : RuleDef
+
+# RuleDef is true if 'text' (terminal token) can find in input stream
+RuleName: 'text'
+
+# RuleDef is true if RulDef1 and following RulDef2 is true
+RuleDef: RulDef1 RulDef2
+
+# RuleDef is true if RulDef1 or RulDef2 is true
+# if first RuleDef1 is true, RuleDef2 will not be 
+# evaluated
+RuleDef: RuleDef1 | RuleDef2
+
+
+# Rules can be grouped
+RuleDef: ( RulDef1 )
+
+ 
+# Rules in [ ] are optional
+RuleDef: RuleDef1 [ RulDef1 ]
+
+
+# Rules in ( )* can occours 0 - n times
+RuleDef: RuleDef1 ( RulDef1 )*
+
+
+# Rules in ( )* can occours 1 - n times
+RuleDef: RuleDef1 ( RulDef1 )+
+</rs>
+
+<jump2>Sample: Lisp Core</jump2>
+<rs>
+LispText : ( List | Element )
+List : '(' ( Element )* ')'
+Element : [ '\'' ] ( List | Atom )
+Atom : Identifier | Constant
+</rs>
+
+Some extension controls generating the Syntax Tree:
+
+<rs>
+
+# the $ saves the RuleDef as node
+# note RuleDef will only saved if RuleDef2 matches
+RuleDef: RuleDef1 | RuleDef2 $
+# If you want to save the rule if 
+RuleDef: RuleDef1 $ | RuleDef2 $ 
+#save if RuleDef1 or RuleDef2 matches or alternativ:
+RuleDef: ( RuleDef1 | RuleDef2) $
+
+# % saves RuleDef if last evaluated group (here RuleDef2)
+# will return a Node
+RuleDef: RuleDef1 [ RuleDef2 ] %
+
+
+# Same as above
+RuleDef: RuleDef1 ( RuleDef2 )* %
+</rs>
+
+
+
+<jump2>Problem left recursion</jump2>
+Left recursion results in not terminating loops:
+<rs>
+A: A [ '+' B ] // not working
+
+A: B [ '+' A ] // terminates
+</rs>
+
+<jump2>Terminals</jump2>
+To enable lookahead in the syntax, the rules which represents terminals
+should have a rule name (nodeName) with only capital letters should be derived
+from %cref[acdk::aci::parser::TerminalParseNode].
+
+<jump2>Regular Expression</jump2>
+A syntax can also use regular expression for matching
+<rs>
+Rule : /matchExpr/
+</rs>
+<todo>
+What should the parsed content of the Rule?
+</todo>
+
+<jump2>Classloading of Rules</jump2>
+If a rule cannot be found, the compiler tries to load the Rule via
+ClassLoader.
+
+<rs>
+Rule : acdk.aci.parser.IdentifierParseNode
+</rs>
+<todo>
+Currently not implemented
+</todo>
+
+<jump2>Embedding Code in Syntax</jump2>
+The text quoted with back ticks will be evaluated
+with the CfgScript language.
+
+<rs>
+Rule: RuleA !{ CfgScript Code }!
+</rs>
+Inside the code following variables are defined:
+<fl>
+<f> compiler: %cref[acdk::aci::Compiler], the current compiler
+<f> thisnode: %cref[acdk::aci::parser::ParseNode], the current parse node.
+<f> ...
+</fl>
+Note: The code "CfgScript Code" will only be executed, if RuleA is already parsed successfully.
+<todo>
+This is not implemented yet.
+</todo>
+
+<jump1>Interpreter and Generator</jump1>
+The interpreter executes the Code at evaluation time.
+The Generator(s) generates OpCodes for the given Code.
+The interpreter branches through the Code tree multiple times
+(loop, function calls).
+The Generator only iterate once throgh all Code nodes.
+The OpCodes will be added to the Code node.
+Maybe it makes sense, that there is no special interpreter step (Code.execute())
+but a Code generates its OpCode (if not already done) and executes simply this OpCode.
+
+<jump2>Interpreter</jump2>
+To enable evaluation of Code at compile time (and extentions of 
+grammar at compile time) the mayor Code nodes has to implement
+the execute method.
+After the ParseNode's has created the AST (ParseNode.parse()) as Code nodes,
+the SymbolTable will be build in in the Code.postParse() step.
+After then the Code.execute() function of the root node will be called.
+
+<jump3>Interpreter and SymbolTable</jump3>
+The first call of a Code with associated SymbolTable should 
+register all user defined classes into the ACDK DMI.
+
+Every call to a Code with associated SymbolTable should 
+create the local variables on the stack.
+
+<jump2>OpCode Generator</jump2>
+The OpCode should regard following issues:
+<fl>
+<f> Can be executed directly by AAL Virtual Machine.
+<f> Can be stored into a file (including meta information/SymbolTable)
+<f> Can be transformed into:
+<sfl>
+  <sf> Java Byte Code
+  <sf> .NET ILASM
+  <sf> other ?
+</sfl>
+</fl>
+<jump3>OpCode Details</jump3>
+The OpCode operates only on the stack.
+
+Open Issues:
+<fl>
+<f> The definitions of Metainfo also as OpCode (ILASM like)
+    or as associated ressource (JavaVM).
+<f> Resolution of method invoke, polymorphic functions, parameter
+    matching.
+    
+</fl>
+.

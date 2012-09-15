@@ -1,0 +1,243 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL Object Representation</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Object Representation
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | Object Representation | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL Object Representation</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL Object Representation</h1> -->
+<p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | Object Representation | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p>
+<p class="PageIntro">
+How to build AAL Objects.
+</p>
+
+
+
+<a name="jumptable136"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Open Questions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Open Questions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Diverent callings"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Diverent callings</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Weak calling"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Weak calling</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AAL internal calls"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;AAL internal calls</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#virtual calls"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;virtual calls</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable4"  style="border-style:none" href="#non-virtual calls"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;non-virtual calls</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AAL to C++ ACDK calls"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;AAL to C++ ACDK calls</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#virtual calls for derived Objects"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;virtual calls for derived Objects</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Basics"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Basics</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ClazzInfo"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;ClazzInfo</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#DMI"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;DMI</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Elements"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Units"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Units</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Functions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Functions</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Binding"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Binding</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Static Binding"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Static Binding</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dynamic Binding"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Dynamic Binding</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Discussion"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Discussion</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+This page is outdated.
+</td></tr></table>
+
+<h2><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Open Questions">Open Questions</a></h2>
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Diverent callings">Diverent callings</a></h3>
+At compile time it should be branch between
+different calling conventions. 
+
+<h4><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Weak calling">Weak calling</a></h4>
+Resolution at runtime. Callee interpret the arguments.
+Standard DMI.
+
+<h4><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AAL internal calls">AAL internal calls</a></h4>
+
+<h5><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="virtual calls">virtual calls</a></h5>
+Virtual calls must be dispatched. 
+One way is to use DMI mechanism, which is probably not
+the fasted way.
+Alternativelly AalObjects provides a vtable, which makes it 
+necesarry to manage a hash table for each method entry.
+
+<h5><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="non-virtual calls">non-virtual calls</a></h5>
+non-virtual callers can remember ClazzMethodInfo after the first call and call it
+directly.
+
+<h4><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AAL to C++ ACDK calls">AAL to C++ ACDK calls</a></h4>
+
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="virtual calls for derived Objects">virtual calls for derived Objects</a></h3>
+ACDK DMI doesn't support currently the non-virtual 
+call flag. This may be necessary.
+
+
+<h2><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basics">Basics</a></h2>
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ClazzInfo">ClazzInfo</a></h3>
+ClazzInfo for internal AAL Objects.
+The class DClazzInfo is a dynamic compatible version of ClazzInfo.
+
+
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DMI">DMI</a></h3>
+Using ACDK DMI interface also for internal AAL Objects.
+Overload the standard implementation functions of DMI.
+
+<h2><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Elements">Elements</a></h2>
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Units">Units</a></h3>
+Problem: In the current definituion of
+ClazzInfo, there is no possibility to have 
+nested ClazzInfo.
+
+On the other side, Units are just wrapper to namespaces
+and cannot contain functions, members and so on.
+
+Originally the idea to resolve componed type names
+was to recursivally resolve names.
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+acdk.lang.Object&nbsp;o&nbsp;=&nbsp;new&nbsp;acdk.lang.Object();<br>
+//&nbsp;whould&nbsp;be&nbsp;resolved<br>
+globlal.getType("acdk").getType("lang").getType("Object");<br></font>
+</td></tr></table>
+
+Alternativally (actually the way it is implemented)
+a compositive name will be resolved at ones:
+global.getType("acdk/lang/Object")
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Functions">Functions</a></h3>
+
+Function may be also a ACDK Object, which have a 
+standard method 'call'.
+
+<h2><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Binding">Binding</a></h2>
+Calling methods can have static or dynamic binding.
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Static Binding">Static Binding</a></h3>
+On static binding at compile time the signature of the 
+called function is known. The mapping of the parameters
+(default parameter, named parameter, pass attributes (in, out)
+rest paramters) will be done at compile time. 
+The polymorphic function will be resolved (The Code holds
+a ClazzMethodInfo).
+
+The caller pushes all parameter on the stack and calls the 
+function.
+
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dynamic Binding">Dynamic Binding</a></h3>
+If the called type is unknown, a dynamic call will be invoked.
+Instead of just pushing the parameters on the stack, a invocation frame
+has to be build on the stack, which describes the parameters:
+<ul class="FeatureList">
+<li class="Feature"> Number of unnamed parameters.
+<li class="Feature"> pass attributes of each parameter.
+<li class="Feature"> Number of named parameters.
+<li class="Feature"> Name of parameter, Value of parameter.
+</ul>
+If used external Classes, for which no Metainfo at compile time is available,
+dynamic binding is the only solution.
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Discussion">Discussion</a></h3>
+Whenever possible, static binding should be prefered, because
+of performance.
+
+Another important issue is the support of extended argument attributes
+like in, out.
+By default the value (or the value of the reference of an Object) will
+be pushed onto the stack before invoking the function.
+This will not work with out parameters.
+Alternativally each argument has to be casted by the caller:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(out&nbsp;int&nbsp;i)&nbsp;{&nbsp;i&nbsp;=&nbsp;42;&nbsp;}<br>
+<br>
+int&nbsp;i;<br>
+foo(outOf&nbsp;i);<br></font>
+</td></tr></table>
+
+<ul class="FeatureList">
+<li class="Feature"> Static binding has no dynamic resolution of polymorphic functions:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(Object&nbsp;o);<br>
+void&nbsp;foo(String&nbsp;o);<br>
+Object&nbsp;o&nbsp;=&nbsp;new&nbsp;String("asdf");<br>
+foo(o);&nbsp;//&nbsp;will&nbsp;call&nbsp;foo(Object&nbsp;o)&nbsp;on&nbsp;static&nbsp;binding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;will&nbsp;call&nbsp;foo(String&nbsp;o)&nbsp;on&nbsp;dynamic&nbsp;binding<br></font>
+</td></tr></table>
+</ul>
+
+<h3><a href="#jumptable136"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h3>
+A problem for static binding is to figure out the formal type of the 
+arguments at compile time:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(String&nbsp;s);<br>
+void&nbsp;foo(int&nbsp;i);<br>
+String&nbsp;s&nbsp;=&nbsp;new&nbsp;String("asdf");<br>
+foo(s&nbsp;+&nbsp;2);<br>
+&nbsp;&nbsp;&nbsp;//&nbsp;what&nbsp;is&nbsp;the&nbsp;formal&nbsp;type&nbsp;of&nbsp;'s&nbsp;+&nbsp;2'?<br>
+foo(Integer.parseInt("1"));&nbsp;//&nbsp;same&nbsp;question<br></font>
+</td></tr></table>
+
+The postParse step has to resolve the types of an expression.
+
+Static binding will be implemented later and will be available
+via an unit attribute similar to the Perl strict statement.
+
+In case of NamedArguments the static binding resolves the 
+named arguments into the order of the normal argument position.
+The dynamic binding has to pass the named arguments to the 
+invoke interface.
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | Object Representation | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

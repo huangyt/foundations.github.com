@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-05-01T13:40:50</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 4; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPFileSystem_Test.standard">FTPFileSystem_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPFileSystem_Test.fileOps">FTPFileSystem_Test.fileOps</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPFileSystem_Test.timeOut">FTPFileSystem_Test.timeOut</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPClient_Test.standard">FTPClient_Test.standard</a> <br>
+</td></tr></table>
+<h2><a id="FTPFileSystem_Test.standard">FTPFileSystem_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][FTPFileSystem_Test.standard] Start Test
+[AUNIT:STRT] Start Test: FTPFileSystem_Test.standard
+I: 212.227.224.238:21; rcv: 220 FTP Server ready.
+I: 212.227.224.238:21; snd: FEAT
+I: 212.227.224.238:21; rcv: 211-Features:
+  MDTM
+  REST STREAM
+  SIZE
+211 End
+I: 212.227.224.238:21; snd: USER ftp
+I: 212.227.224.238:21; rcv: 331 Anonymous login ok, send your complete email address as your password.
+I: 212.227.224.238:21; snd: PASS ****
+I: 212.227.224.238:21; rcv: 230 Anonymous access granted, restrictions apply.
+I: 212.227.224.238:21; snd: PASV
+I: 212.227.224.238:21; rcv: 227 Entering Passive Mode (212,227,224,238,202,80).
+I: 212.227.224.238:21; snd: CWD acdk
+I: 212.227.224.238:21; rcv: 250 CWD command successful.
+I: 212.227.224.238:21; snd: LIST -aL
+I: 212.227.224.238:21; rcv: 150 Opening ASCII mode data connection for file list
+I: 212.227.224.238:21; data response: drwxr-x---   2 ftp      ftp          4096 Sep  2  2001 .
+drwxr-x---   4 ftp      ftp          4096 Mar  4  2001 ..
+-rw-r-----   1 ftp      ftp       5856773 Apr  8  2001 ACDK-1.01-en.chm
+-rw-r-----   1 ftp      ftp       5909722 Apr  8  2001 ACDK-1.01_docs.tgz
+-rw-r-----   1 ftp      ftp       7311835 Sep  2  2001 ACDK_docs-snap-2001-09-02.tgz
+-rw-r-----   1 ftp      ftp       1846174 Jun  4  2001 Web-src-20010604.zip
+-rw-r-----   1 ftp      ftp       3410422 May 14  2001 acdk-all-src-2001-05-14_06-19-29.tar.gz
+-rw-r-----   1 ftp      ftp       2060279 May 14  2001 acdk-all-src-2001-05-14_09-01-55.tar.gz
+-rw-r-----   1 ftp      ftp       1405654 May 20  2001 acdk-all-src-2001-05-20_16-57-54.tar.gz
+-rw-r-----   1 ftp      ftp       1432284 May 27  2001 acdk-all-src-2001-05-27_20-38-40.tar.gz
+-rw-r-----   1 ftp      ftp       1492336 Jun  4  2001 acdk-all-src-2001-06-04_19-51-57.tar.gz
+-rw-r-----   1 ftp      ftp       2330569 Jun 10  2001 acdk-all-src-2001-06-10_22-37-28.tar.gz
+-rw-r-----   1 ftp      ftp       1490640 Jun 17  2001 acdk-all-src-2001-06-17_14-55-17.tar.gz
+-rw-r-----   1 ftp      ftp       1497572 Jun 26  2001 acdk-all-src-2001-06-26_19-23-06.tar.gz
+-rw-r-----   1 ftp      ftp       1532424 Jul 22  2001 acdk-all-src-2001-07-22_19-26-12.tar.gz
+-rw-r-----   1 ftp      ftp       1625006 Jul 29  2001 acdk-all-src-2001-07-29_15-47-35.tar.gz
+-rw-r-----   1 ftp      ftp         20389 Apr  8  2001 acdk_boot-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp         43294 Apr  8  2001 acdk_boot-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp        582449 Apr  8  2001 acdk_core-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        896705 Apr  8  2001 acdk_core-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         17831 Apr  8  2001 acdk_dmi-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp         36491 Apr  8  2001 acdk_dmi-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         24608 Apr  8  2001 acdk_java-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp         48625 Apr  8  2001 acdk_java-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         82062 Apr  8  2001 acdk_lisp-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        132565 Apr  8  2001 acdk_lisp-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         65335 Apr  8  2001 acdk_net-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        111712 Apr  8  2001 acdk_net-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         22300 Apr  8  2001 acdk_perl-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp         48454 Apr  8  2001 acdk_perl-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         61190 Apr  8  2001 acdk_sql-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp         90171 Apr  8  2001 acdk_sql-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp        102410 Apr  8  2001 acdk_sql_odbc-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        134152 Apr  8  2001 acdk_sql_odbc-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         23136 Apr  8  2001 acdk_tcl-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp         49000 Apr  8  2001 acdk_tcl-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp        115292 Apr  8  2001 acdk_text-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        153920 Apr  8  2001 acdk_text-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         65173 Apr  8  2001 acdk_xml-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        115852 Apr  8  2001 acdk_xml-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp        135867 Apr  8  2001 acdkx_orb-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        226790 Apr  8  2001 acdkx_orb-src-1.01.0.zip
+-rw-r-----   1 ftp      ftp         62169 Apr  8  2001 acdkx_sol-src-1.01.0.tar.gz
+-rw-r-----   1 ftp      ftp        115375 Apr  8  2001 acdkx_sol-src-1.01.0.zip
+
+I: 212.227.224.238:21; rcv: 226 Transfer complete.
+[AUNIT:SUCC]: FTPFileSystem_Test.standard:
+acdk_net_ftp_FTPFileSystem_Test.cpp(90): f.isFile() == true
+I: 212.227.224.238:21; snd: TYPE I
+I: 212.227.224.238:21; rcv: 200 Type set to I
+I: 212.227.224.238:21; snd: PASV
+I: 212.227.224.238:21; rcv: 227 Entering Passive Mode (212,227,224,238,202,87).
+I: 212.227.224.238:21; snd: RETR /acdk/acdk_xml-src-1.01.0.zip
+I: 212.227.224.238:21; rcv: 150 Opening BINARY mode data connection for /acdk/acdk_xml-src-1.01.0.zip (115852 bytes)
+I: 212.227.224.238:21; rcv: 226 Transfer complete.
+</pre>
+<h2><a id="FTPFileSystem_Test.fileOps">FTPFileSystem_Test.fileOps</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][FTPFileSystem_Test.standard] End Test
+[AUNIT:ENDT] End Test: FTPFileSystem_Test.standard
+[AUNIT:STRT][FTPFileSystem_Test.fileOps] Start Test
+[AUNIT:STRT] Start Test: FTPFileSystem_Test.fileOps
+I: 127.0.0.1:21; rcv: 220 unknown FTP server ready.
+I: 127.0.0.1:21; snd: FEAT
+I: 127.0.0.1:21; rcv: 530 Please login with USER and PASS.
+I: 127.0.0.1:21; snd: USER acdktest
+I: 127.0.0.1:21; rcv: 331 Password required for acdktest.
+I: 127.0.0.1:21; snd: PASS ****
+I: 127.0.0.1:21; rcv: 530 Login incorrect.
+FTPClient test failed: you need a local ftp server and a user acdktest pass testacdk with writing access on the default ftp login directory for this test
+</pre>
+<h2><a id="FTPFileSystem_Test.timeOut">FTPFileSystem_Test.timeOut</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][FTPFileSystem_Test.fileOps] End Test
+[AUNIT:ENDT] End Test: FTPFileSystem_Test.fileOps
+[AUNIT:STRT][FTPFileSystem_Test.timeOut] Start Test
+[AUNIT:STRT] Start Test: FTPFileSystem_Test.timeOut
+</pre>
+<h2><a id="FTPClient_Test.standard">FTPClient_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][FTPFileSystem_Test.timeOut] End Test
+[AUNIT:ENDT] End Test: FTPFileSystem_Test.timeOut
+[AUNIT:STRT][FTPClient_Test.standard] Start Test
+[AUNIT:STRT] Start Test: FTPClient_Test.standard
+I: 127.0.0.1:21; rcv: 220 unknown FTP server ready.
+I: 127.0.0.1:21; snd: FEAT
+I: 127.0.0.1:21; rcv: 530 Please login with USER and PASS.
+I: 127.0.0.1:21; snd: USER acdktest
+I: 127.0.0.1:21; rcv: 331 Password required for acdktest.
+I: 127.0.0.1:21; snd: PASS ****
+I: 127.0.0.1:21; rcv: 530 Login incorrect.
+FTPClient test failed: you need a local ftp server and a user acdktest pass testacdk with writing access on the default ftp login directory for this test
+</pre>
+</body></html>

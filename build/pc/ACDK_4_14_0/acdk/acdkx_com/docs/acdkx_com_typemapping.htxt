@@ -1,0 +1,55 @@
+%id: acdkx_com_typemapping
+%title: Type mappings in the ACDKX COM
+%shorttitle: Type mappings
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+How the types and interfaces of the COM word will
+be transated into the ACDK world.
+</pageintro>
+
+<jumptable/>
+
+
+<jump2>Basic Types</jump2>
+Basic types will be passed with a COM VARIANT in the best fitting 
+type.
+
+<jump2>Strings</jump2>
+COM BSTR will be converted tino acdk::lang::Strings and vice versa.
+
+<jump2>Object types</jump2>
+COM Objects (IDispatch*) will be wrapped with a 
+%ref[acdkx::com::ComObject, acdkx_com_ComObject_man] and vice versa.
+ACDK Objects will be wrapped into %ref[IAcdkObject, acdkx_com_AcdkObject_man] 
+("Acdk.Object") and vice versa.
+
+<jump2>Exceptions</jump2>
+Exceptions are not supported by COM. In the Interface an Error information
+for the COM side will be generated.
+
+<jump1>Enhanced DMI functions</jump1>
+
+<jump2>Overloading</jump2>
+COM doesn't support overloading.
+ACDK supports alternative names for ambigious names.
+You can use the %ref[Attribute MethodAltNameAttribute, acdk_hb_mi_attributes] 
+to set the alternative unique method name.
+
+
+<jump2>Default values for parameters<jump2>
+AcdkObject supports default values for parameters.
+
+<jump2>Named Parameters</jump2>
+Not supported.
+
+<jump2>OUT</jump2>
+OUT-Parameters are supported in both ways with all supported types.
+
+<jump2>BYVAL</jump2>
+Not supported yet.
+
+.
+
+

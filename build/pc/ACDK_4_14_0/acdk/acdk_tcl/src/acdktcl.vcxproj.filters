@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{745aa4ad-096d-4177-9f24-fd86eebc1aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tcl">
+      <UniqueIdentifier>{d53dc954-3d45-4572-adf4-b065fbd42c21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tcl\interpreter">
+      <UniqueIdentifier>{49544d1e-38f2-4414-b14f-809cdaabe6be}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tcl\interpreter\Main.cpp">
+      <Filter>acdk\tcl\interpreter</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

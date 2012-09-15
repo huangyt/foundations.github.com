@@ -1,0 +1,20 @@
+
+
+class AClass 
+{
+  // callback function
+  static void println(String name) 
+  { 
+    out.println("AClass: " + name); 
+  }
+}
+DelegateArray delegates = new DelegateArray(0);
+// script implementation
+delegates.append(delegate AClass.println);
+// native ACDK C++ implemenation of println
+delegates.append(delegate acdk.lang.System.out.println);
+
+foreach (Delegate dlg in delegates)
+{
+  dlg.call("A Text");
+}

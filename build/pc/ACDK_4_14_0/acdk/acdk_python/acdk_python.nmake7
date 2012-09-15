@@ -1,0 +1,65 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_python
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_python_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_python_Test failed; exit 1; 
+
+
+
+acdk_python-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_python.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_python.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_python.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_python.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_python.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_python.lsp -pdir src bcc
+
+acdkpython-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkpython.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkpython.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkpython.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkpython.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkpython.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkpython.lsp -pdir src bcc
+
+acdk_python_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/python\acdk_python_Test.lsp -pdir tests/acdk/python dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/python\acdk_python_Test.lsp -pdir tests/acdk/python linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/python\acdk_python_Test.lsp -pdir tests/acdk/python sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/python\acdk_python_Test.lsp -pdir tests/acdk/python bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/python\acdk_python_Test.lsp -pdir tests/acdk/python mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/python\acdk_python_Test.lsp -pdir tests/acdk/python bcc
+
+
+makemake:: acdk_python-makemake acdkpython-makemake acdk_python_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_python.lsp
+
+

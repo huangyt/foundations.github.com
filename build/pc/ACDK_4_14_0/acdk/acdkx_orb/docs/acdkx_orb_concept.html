@@ -1,0 +1,379 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Concept of acdkx_orb</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK ORB</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Concept of acdkx_orb<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdkx_orb_init.html">acdkx_orb_init</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdkx_orb_mapping.html">Mapping of ACDK</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDKX ORB Readme</a> | <a  href="acdkx_orb_static_skel.html">Static Proxy and Skeleton</a> | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | <a  href="acdkxorbidl_man.html">acdkorbidl</a> | Concept of acdkx_orb | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Concept of acdkx_orb</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Concept of acdkx_orb</h1> -->
+<p class="PageIntro">
+Some notes about the basic design ideas and features of ACDK ORB.
+</p>
+<br>
+<a name="jumptable103"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Current Problems"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Current Problems</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Connection Peer Pool"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Connection Peer Pool</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The Idea"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The Idea</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The way"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The way</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ARB and ORB"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ARB and ORB</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ARB"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ARB</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ARB Basic implementation concepts"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ARB Basic implementation concepts</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Features"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Features</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ORB"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ORB</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ORB Basic implementation concepts"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ORB Basic implementation concepts</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sample"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sample</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The situation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The situation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ARB"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ARB</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ORB"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ORB</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Outlook"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Outlook</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ACDK as generic CORBA server"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ACDK as generic CORBA server</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ACDK as generic CORBA client"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ACDK as generic CORBA client</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Standard CORBA client DMI interface"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Standard CORBA client DMI interface</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Following issues has to be clarified:"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Following issues has to be clarified:</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Current Problems">Current Problems</a></h2>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Connection Peer Pool">Connection Peer Pool</a></h3>
+For each Client-Server connection should only
+one connection held.<br>
+Writing messages must be synchronized.<br>
+This is implemented on client size with a
+ConnectionManager. This manager closes Connection
+when no more Objects are active.<br>
+<br>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The Idea">The Idea</a></h2>
+The metacompiler of ACDK provides detailed 
+information for each class, method, argument, etc.<br>
+This enables the Dynamic Method Invocation Interface (DMI) 
+and serialization for each ACDK class.<br>
+It is only a little step to traditional middleware like
+DCOM and CORBA. 
+<br>
+It is not trivial to use CORBA in a project, 
+especially in C++.<br>
+acdkx_orb should provide a very simple way to use 
+ACDK objects as CORBA components.<br>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The way">The way</a></h2>
+The CORBA specification 2.4 or even 3.0 is
+a monster not only to implement but even to
+understand.<br>
+So I've started with a very simple not-compatible
+ORB called ARB, in which I implement the basic 
+routines I found and understand in CORBA.<br>
+<br>
+To reinvent an alredy invented machines gives 
+a more deep look a the machine.<br>
+<br>
+In the second step I want to implement the CORBA
+2.4 and upcomming 3.0 standards.<br>
+<br>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ARB and ORB">ARB and ORB</a></h2>
+<br>
+ARB is a simple build in ORB, which is not CORBA
+compatible. 
+<br>
+<ul class="FeatureList">
+<li class="Feature"> ARB uses build in ACDK types in most native way.<br>
+<li class="Feature"> ARB doesn't support struct and sequences, simply
+    because they are superflous using ACDK types and
+    passing them byval.<br>
+<li class="Feature"> In the first version ARB uses an XML type protocoll
+    for better debugging. GIIOP should be implemented later.<br>
+</ul>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ARB">ARB</a></h2>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ARB Basic implementation concepts">ARB Basic implementation concepts</a></h3>
+<br>
+ARB interfaces should be implement the acdkx::arb::ArbInterface.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// in AnArbInteface.h
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> AnArbInteface
+: implements ::acdkx::arb::ArbInterface
+{
+  <I><FONT COLOR="#B22222">// generate Metainfo
+</FONT></I>  ACDK_WITH_METAINFO 
+  <I><FONT COLOR="#B22222">// generate ARB helper
+</FONT></I>  ACDK_CORBA_INTERFACE(AnArbInteface)
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <I><FONT COLOR="#B22222">// has one public method
+</FONT></I>  <B><FONT COLOR="#228B22">virtual</FONT></B> RString getNameOfAThing(OUT(RString) name, IN(<B><FONT COLOR="#228B22">int</FONT></B>) size) <B><FONT COLOR="#A020F0">throw</FONT></B> (RException);
+};
+</PRE></td></tr></table>
+<br>
+The ACDK metacompiler acdkmc generates the needed additions:<br>
+<ul class="FeatureList">
+<li class="Feature"> The class AnArbInteface_Proxy with used from the client.<br>
+<li class="Feature"> The AnArbInteface::orbDispatch() method, which dispatch incoming
+    calls on the server side.<br>
+</ul>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Features">Features</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Passing basic types
+<li class="Feature"> Passing Strings
+<li class="Feature"> passing in, out, inout
+<li class="Feature"> Passing Objects by value
+<li class="Feature"> Passing Interfaces
+<li class="Feature"> Exceptions 
+<li class="Feature"> oneway
+<li class="Feature"> calling objects in local process without big overhead
+</ul>
+<br>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ORB">ORB</a></h2>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ORB Basic implementation concepts">ORB Basic implementation concepts</a></h3>
+Following the CORBA 2.4 standard with a Java type mapping.<br>
+<br>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample">Sample</a></h3>
+<br>
+The interface definition:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_INTERFACE</FONT></B>(Hello);
+
+<I><FONT COLOR="#B22222">/** 
+  class to test with OB orb 
+*/</FONT></I>
+<B><FONT COLOR="#228B22">class</FONT></B> ACDKX_ORB_PUBLIC Hello 
+: implements ::org::omg::CORBA::portable::InvokeHandler
+{
+  ACDK_WITH_METAINFO
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  ACDK_CORBA_INTERFACE(Hello)
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> hello() = 0;
+};
+</PRE></td></tr></table>
+<hr>
+Now the Server implementation:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_CLASS</FONT></B>(HelloImpl);
+
+<B><FONT COLOR="#228B22">class</FONT></B> HelloImpl
+: extends ::acdkx::orb::ServerDelegate,
+  implements ::Hello
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">virtual</FONT></B> RClass getClass() { <B><FONT COLOR="#A020F0">return</FONT></B> Hello::getClass(); }
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> hello()
+  {
+    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Hello Server&quot;</FONT></B>);
+  }
+};
+
+</PRE></td></tr></table>
+<hr>
+In the main routine this can be registered:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  RORB orb = ORB::init();
+  RHelloImpl obj = <B><FONT COLOR="#A020F0">new</FONT></B> HelloImpl();
+  orb-&gt;impl_is_ready(obj);
+  RString ostr = orb-&gt;object_to_string(obj);
+  RString fname = <B><FONT COLOR="#BC8F8F">&quot;Hello.ref&quot;</FONT></B>;
+  ::acdk::io::FileWriter f(fname);
+  f.write(ostr-&gt;c_str());
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(ostr);
+  orb-&gt;run();
+  
+</PRE></td></tr></table>
+<hr>
+And finally the client usage:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  RORB orb = ORB::init();
+  RString refid;
+  RString fname = <B><FONT COLOR="#BC8F8F">&quot;Hello.ref&quot;</FONT></B>;
+  ::acdk::io::InputReader f(<B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::io::FileReader(fname));
+  refid = f.readString();
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Calling refid: &quot;</FONT></B> + refid);
+  RHello obj = (RHello)orb-&gt;string_to_object(refid);
+  obj-&gt;hello();
+</PRE></td></tr></table>
+<hr>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The situation">The situation</a></h2>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ARB">ARB</a></h3>
+ARB is up and running.<br>
+Just started the implementation of org::omg::CORBA::* interfaces,
+following the Java mapping specifications.<br>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ORB">ORB</a></h3>
+ORB: I'm just busy on it.<br>
+The very basic functionality is working.<br>
+<br>
+<ul class="FeatureList">
+  <li class="Feature"> Oriented at the Java portable class structure.<br>
+  <li class="Feature"> Basic types in, out, inout
+  <li class="Feature"> oneway
+  <li class="Feature"> The operations with a very BOA are running!<br>
+  <li class="Feature"> Basic tests with OB and mico are running!  
+</ul>
+<br>
+The [G|I]IOP-protocols are quite difficult, because and implementation
+has to support all 
+versions (1.0, 1.1, 1.2), so it is quite hard to implement
+them all. 
+I'll try to implement the 1.2 protocol with the mayor messages.<br>
+Later I try add the other messages.<br>
+As far as possible I'll follow the the java mapping
+in the implementation (org.omg.CORBA.*, especially 
+org.omg.CORBA.portable.*).<br>
+<br>
+<h2><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Outlook">Outlook</a></h2>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK as generic CORBA server">ACDK as generic CORBA server</a></h3>
+With the standard DMI functionality all 
+classes should be provided for other CORBA clients.<br>
+<ul class="FeatureList">
+<li class="Feature"> Polymorphic will be solved through alternative method names.<br>
+<li class="Feature"> For standard functions, like New, invoke, invoke_static, peek, poke, etc. will
+    be provided by an extra interface (see AcdkObject idl below).<br>
+<li class="Feature"> Generate IDL-defintions with altnames as methods names.<br>
+<li class="Feature"> For New and the static version of methods/peek/poke
+    Create a Factory class, which exports names by IDL.<br>
+    These Factory classes should be ordinary ACDK Classes.<br>
+</ul>
+<br>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK as generic CORBA client">ACDK as generic CORBA client</a></h3>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> <b>Cannot use standard DMI invoke interface</b> and try to call CORBA services
+    by standard marschaling with the risk of hanging.<br>
+    Main-Problem, there is no hint for the type of the return value.<br>
+    CorObject with hint to an given interface, without generating
+    static skeleton.<br>
+<li class="Feature"> <b>Make use of the DmiProxy</b>!<br>
+    Has to rewrite DmiProxy, to provide DMI-Bridge (calling the server)
+    also ClazzInfo and MethodInfo (for the type of the return value).<br>
+    
+<li class="Feature"> Make use of the Interface-repository?<br>
+<br>
+</ul>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Standard CORBA client DMI interface">Standard CORBA client DMI interface</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">/**
+  Interface definition for calling any ACDK object
+*/</FONT></I>
+
+<B><FONT COLOR="#A020F0">interface</FONT></B> AcdkObject
+{
+  <B><FONT COLOR="#A020F0">typedef</FONT></B> <B><FONT COLOR="#A020F0">sequence</FONT></B>&lt;<B><FONT COLOR="#A020F0">any</FONT></B>&gt; Params;
+  AcdkObject New(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> classname, <B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> constructor, <B><FONT COLOR="#A020F0">in</FONT></B> Params outp, <B><FONT COLOR="#A020F0">out</FONT></B> Params inp);
+  <B><FONT COLOR="#A020F0">any</FONT></B> invoke(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> methodname, <B><FONT COLOR="#A020F0">in</FONT></B> Params outp, <B><FONT COLOR="#A020F0">out</FONT></B> Params inp);
+  <B><FONT COLOR="#A020F0">any</FONT></B> invoke_static(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> classname, <B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> methodname, <B><FONT COLOR="#A020F0">in</FONT></B> Params outp, <B><FONT COLOR="#A020F0">out</FONT></B> Params inp);
+  <B><FONT COLOR="#A020F0">any</FONT></B> peek(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> membername);
+  <B><FONT COLOR="#A020F0">any</FONT></B> peek_static(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> classname, <B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> membername);
+  <B><FONT COLOR="#A020F0">void</FONT></B> poke(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> membername, <B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">any</FONT></B> value);
+  <B><FONT COLOR="#A020F0">void</FONT></B> poke_static(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> classname, <B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> membername, <B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">any</FONT></B> value);
+};
+
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable103"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Following issues has to be clarified:">Following issues has to be clarified:</a></h3>
+<ul class="FeatureList">
+  <li class="Feature"> Classes for Stup/Proxy
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> How make it simple to implement interfaces without many overhead.<br>
+      <li class="SubFeature"> Which classes should be super classes for interfaces?<br>
+      <li class="SubFeature"> One base implementation for CORBA/DCOM/SOAP or different?<br>
+      <li class="SubFeature"> How to avoid to generade meta information for the implemention, and
+           only for the interfaces.<br>
+    </ul>
+  <li class="Feature"> Dynamic DMI
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> Replace the old DMI mechanism with new flexible CORBA-DMI mechanism.<br>
+          
+    </ul>
+  <li class="Feature"> Metainfo
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> Use/enhance acdk Metainfo for IR?<br>
+    </ul>
+  <li class="Feature"> CORBA Services
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> Which services should be implemented, which used from 3thrd party?<br>
+      <li class="SubFeature"> Which services should be implemented first?<br>
+    </ul>
+  <li class="Feature"> Native ACDK CORBA support
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> Moving the basic CORBA stup/skeleton into the core package
+      <li class="SubFeature"> support all classes/interfaces with CORBA-Support
+    </ul>
+  <li class="Feature"> DCOM and RMI support
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> Implement DCOM support for the CORBA-Classes
+      <li class="SubFeature"> Implement RMI support for the CORBA-Classes.<br>
+      <li class="SubFeature"> Incompatibilities?<br>
+    </ul>
+</ul>
+<br>
+Any input appreciated!<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDKX ORB Readme</a> | <a  href="acdkx_orb_static_skel.html">Static Proxy and Skeleton</a> | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | <a  href="acdkxorbidl_man.html">acdkorbidl</a> | Concept of acdkx_orb | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

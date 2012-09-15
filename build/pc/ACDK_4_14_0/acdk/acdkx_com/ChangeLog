@@ -1,0 +1,426 @@
+2005-02-05 11:45  kommer
+
+	* src/acdkx/com/AbstractCoInterface.h,
+	src/acdkx/com/ActiveScript.cpp, src/acdkx/com/ActiveScript.h,
+	src/acdkx/com/Co.cpp, src/acdkx/com/Co.h,
+	src/acdkx/com/CoException.cpp, src/acdkx/com/CoException.h,
+	src/acdkx/com/CoSys.cpp, src/acdkx/com/CoSys.h,
+	src/acdkx/com/ComDmiClient.cpp, src/acdkx/com/ComDmiClient.h,
+	src/acdkx/com/Config.h, src/acdkx/com/CreateTypeInfo.cpp,
+	src/acdkx/com/CreateTypeInfo.h, src/acdkx/com/CreateTypeLib.cpp,
+	src/acdkx/com/CreateTypeLib.h, src/acdkx/com/IUnknown.cpp,
+	src/acdkx/com/IUnknown.h, src/acdkx/com/RegisterServer.cpp,
+	src/acdkx/com/RegisterServer.h, src/acdkx/com/com.h,
+	tests/acdkx/com/acdkx_com_ActiveScript_Test.cpp,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeInfo_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeLib_Test.cpp,
+	tests/acdkx/com/acdkx_com_DmiObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.cpp: copyright statement ajusted
+
+2004-11-21 22:56  kommer
+
+	* src/acdkx/com/AbstractCoInterface.h,
+	src/acdkx/com/ActiveScript.cpp, src/acdkx/com/ActiveScript.h,
+	src/acdkx/com/Co.cpp, src/acdkx/com/Co.h,
+	src/acdkx/com/CoException.cpp, src/acdkx/com/CoException.h,
+	src/acdkx/com/CoSys.cpp, src/acdkx/com/CoSys.h,
+	src/acdkx/com/ComDmiClient.cpp, src/acdkx/com/ComDmiClient.h,
+	src/acdkx/com/ComObject.h, src/acdkx/com/Config.h,
+	src/acdkx/com/CreateTypeInfo.cpp, src/acdkx/com/CreateTypeInfo.h,
+	src/acdkx/com/CreateTypeLib.cpp, src/acdkx/com/CreateTypeLib.h,
+	src/acdkx/com/IUnknown.cpp, src/acdkx/com/IUnknown.h,
+	src/acdkx/com/RegisterServer.cpp, src/acdkx/com/RegisterServer.h,
+	src/acdkx/com/com.h,
+	tests/acdkx/com/acdkx_com_ActiveScript_Test.cpp,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeInfo_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeLib_Test.cpp,
+	tests/acdkx/com/acdkx_com_DmiObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.cpp: changed copyright date to 2005
+
+2004-11-16 10:39  kommer
+
+	* acdkx_com.sln: vc7 compat fixes
+
+2004-06-14 19:50  kommer
+
+	* acdkx_com.lsp: add cbx generation
+
+2004-06-14 13:20  kommer
+
+	* acdkx_com.bcc, acdkx_com.linux, acdkx_com.nmake,
+	src/acdkx_com.dsp: introduced a new make target "clean-temps" which
+	only delete object files, but not libraries or executables
+
+2004-06-13 00:30  kommer
+
+	* acdkx_com.nmake: make clean for nmake also cleans now release
+	target
+
+2004-06-09 14:26  kommer
+
+	* src/acdkx/com/ComObject.cpp: ComObjects are weak dmi server
+
+2004-06-09 02:14  kommer
+
+	* acdkx_com.bpgr, src/acdkx_com.cbx,
+	tests/acdkx/com/acdkx_com_Test.cbx: initial revision
+
+2004-04-26 11:38  kommer
+
+	* docs/: ACDK-FreeLicense.htxt, acdk_general_install.htxt: [no log
+	message]
+
+2004-03-10 15:40  kommer
+
+	* ChangeLog: initial revision
+
+2004-03-08 14:10  kommer
+
+	* src/acdkx/com/AcdkObject.cpp: vc 7 warning
+
+2004-03-07 04:06  kommer
+
+	* src/acdkx/com/: ComObject.cpp, CreateTypeInfo.cpp: reorganized
+	MetaInfo for performance and prepared for nested types
+
+2003-06-19 16:37  kommer
+
+	* src/acdkx/com/AbstractCoInterface.h,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/AcdkObject.h,
+	src/acdkx/com/ActiveScript.cpp, src/acdkx/com/ActiveScript.h,
+	src/acdkx/com/Co.cpp, src/acdkx/com/Co.h,
+	src/acdkx/com/CoException.cpp, src/acdkx/com/CoException.h,
+	src/acdkx/com/CoSys.cpp, src/acdkx/com/CoSys.h,
+	src/acdkx/com/ComDmiClient.cpp, src/acdkx/com/ComDmiClient.h,
+	src/acdkx/com/ComObject.cpp, src/acdkx/com/ComObject.h,
+	src/acdkx/com/Config.h, src/acdkx/com/CreateTypeInfo.cpp,
+	src/acdkx/com/CreateTypeInfo.h, src/acdkx/com/CreateTypeLib.cpp,
+	src/acdkx/com/CreateTypeLib.h, src/acdkx/com/IUnknown.cpp,
+	src/acdkx/com/IUnknown.h, src/acdkx/com/RegisterServer.cpp,
+	src/acdkx/com/RegisterServer.h, src/acdkx/com/TypeInfo.cpp,
+	src/acdkx/com/TypeInfo.h, src/acdkx/com/com.h,
+	tests/acdkx/com/acdkx_com_ActiveScript_Test.cpp,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeInfo_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeLib_Test.cpp,
+	tests/acdkx/com/acdkx_com_DmiObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.cpp: source comment header ajusted
+
+2003-06-19 15:17  kommer
+
+	* .cvsignore, acdkx_com.bcc, acdkx_com.dsw, acdkx_com.linux,
+	acdkx_com.lsp, acdkx_com.nmake, acdkx_com.nmake7, acdkx_com.sln,
+	build.cfg, build.csf, cfg/.cvsignore,
+	docs/acdk_general_install.htxt, docs/package.xml,
+	src/acdkx_com.bcc, src/acdkx_com.dsp, src/acdkx_com.linux,
+	src/acdkx_com.lsp, src/acdkx_com.vcproj,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/AcdkObject.h,
+	src/acdkx/com/ActiveScript.cpp, src/acdkx/com/ActiveScript.h,
+	src/acdkx/com/Co.cpp, src/acdkx/com/CoException.cpp,
+	src/acdkx/com/CoSys.cpp, src/acdkx/com/CoSys.h,
+	src/acdkx/com/ComObject.cpp, src/acdkx/com/ComObject.h,
+	src/acdkx/com/CreateTypeInfo.cpp, src/acdkx/com/CreateTypeLib.cpp,
+	src/acdkx/com/CreateTypeLib.h, src/acdkx/com/IAcdkObject_i.c,
+	src/acdkx/com/IUnknown.cpp, src/acdkx/com/RegisterServer.cpp,
+	src/acdkx/com/RegisterServer.h, src/acdkx/com/TypeInfo.cpp,
+	tests/acdkx/com/acdkx_com_ActiveScript_Test.cpp,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.bcc,
+	tests/acdkx/com/acdkx_com_Test.dsp: merged acdk-3-unicode into MAIN
+
+2003-06-14 18:37  kommer
+
+	* src/acdkx/com/IAcdkObject_i.c: 'not longer needed'
+
+2003-06-11 16:48  kommer
+
+	* build.cfg: 'not longer needed'
+
+2003-06-11 15:50  kommer
+
+	* build.csf: file build.csf was initially added on branch
+	acdk-3-unicode.
+
+2003-06-11 15:50  kommer
+
+	* build.csf: initial revision
+
+2003-05-05 12:22  kommer
+
+	* tests/acdkx/com/acdkx_com_ActiveScript_Test.cpp: file
+	acdkx_com_ActiveScript_Test.cpp was initially added on branch
+	acdk-3-unicode.
+
+2003-05-05 12:22  kommer
+
+	* tests/acdkx/com/acdkx_com_ActiveScript_Test.cpp: initial revision
+
+2003-05-05 12:21  kommer
+
+	* src/acdkx/com/: AcdkObject.cpp, ActiveScript.cpp, ActiveScript.h,
+	CoSys.h, ComObject.cpp, IUnknown.cpp, RegisterServer.cpp: bcc
+	compat
+
+2003-04-26 15:33  kommer
+
+	* acdkx_com.lsp, docs/package.xml: shift to version 4.00.*
+
+2003-03-21 10:19  kommer
+
+	* src/acdkx/com/AcdkObject.cpp, src/acdkx/com/AcdkObject.h,
+	src/acdkx/com/ActiveScript.cpp, src/acdkx/com/Co.cpp,
+	src/acdkx/com/CoSys.cpp, src/acdkx/com/CoSys.h,
+	src/acdkx/com/ComObject.cpp, src/acdkx/com/ComObject.h,
+	src/acdkx/com/CreateTypeLib.cpp, src/acdkx/com/CreateTypeLib.h,
+	src/acdkx/com/RegisterServer.cpp, src/acdkx/com/RegisterServer.h,
+	src/acdkx/com/TypeInfo.cpp,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp: unicode related
+	changes
+
+2003-01-03 11:49  kommer
+
+	* src/acdkx/com/: ComObject.cpp, ComObject.h, TypeInfo.cpp: reflect
+	changed parameters of StandardDispatch methods
+
+2002-12-30 15:01  kommer
+
+	* src/acdkx_com.vcproj, tests/acdkx/com/acdkx_com_Test.vcproj:
+	initial revision
+
+2002-12-30 14:52  kommer
+
+	* acdkx_com.nmake7, acdkx_com.sln: initial revision
+
+2002-12-08 13:05  kommer
+
+	* src/acdkx/com/AbstractCoInterface.h,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/ActiveScript.cpp,
+	src/acdkx/com/ActiveScript.h, src/acdkx/com/Co.cpp,
+	src/acdkx/com/Co.h, src/acdkx/com/CoException.cpp,
+	src/acdkx/com/CoException.h, src/acdkx/com/CoSys.cpp,
+	src/acdkx/com/CoSys.h, src/acdkx/com/ComDmiClient.cpp,
+	src/acdkx/com/ComDmiClient.h, src/acdkx/com/ComObject.cpp,
+	src/acdkx/com/Config.h, src/acdkx/com/CreateTypeInfo.cpp,
+	src/acdkx/com/CreateTypeInfo.h, src/acdkx/com/CreateTypeLib.cpp,
+	src/acdkx/com/CreateTypeLib.h, src/acdkx/com/IUnknown.cpp,
+	src/acdkx/com/IUnknown.h, src/acdkx/com/TypeInfo.cpp,
+	src/acdkx/com/com.h, tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_DmiObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.cpp: new source file header
+
+2002-09-10 18:32  kommer
+
+	* acdkx_com.dsw, docs/acdkx_com_typemapping.htxt,
+	src/acdkx_com.bcc, src/acdkx_com.dsp, src/acdkx_com.linux,
+	src/acdkx_com.lsp, src/acdkx/com/AbstractCoInterface.h,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/ActiveScript.cpp,
+	src/acdkx/com/ActiveScript.h, src/acdkx/com/ComObject.cpp,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_DmiObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.bcc,
+	tests/acdkx/com/acdkx_com_Test.dsp,
+	tests/acdkx/com/acdkx_com_Test.linux,
+	tests/acdkx/com/acdkx_com_Test.lsp: implemented and tested
+	ActiveScript
+
+2002-09-09 01:34  kommer
+
+	* src/acdkx/com/ActiveScript.cpp, src/acdkx/com/ActiveScript.h,
+	src/acdkx/com/ComDmiClient.cpp, src/acdkx/com/ComDmiClient.h,
+	tests/acdkx/com/acdkx_com_DmiObject_Test.cpp: initial revision
+
+2002-09-04 12:45  kommer
+
+	* acdkx_com.linux, acdkx_com.nmake, src/acdkx_com.dsp,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/AcdkObject.h,
+	src/acdkx/com/CoSys.cpp, src/acdkx/com/CoSys.h,
+	src/acdkx/com/ComObject.cpp, src/acdkx/com/ComObject.h,
+	src/acdkx/com/CreateTypeInfo.cpp, src/acdkx/com/TypeInfo.cpp,
+	tests/acdkx/com/acdkx_com_Test.dsp,
+	tests/acdkx/com/acdkx_com_Test.lsp: introduced MetaAttributes
+
+2002-07-31 14:42  kommer
+
+	* build.cfg: initial revision
+
+2002-06-19 15:26  kommer
+
+	* acdkx_com.bcc, src/acdkx_com.bcc,
+	tests/acdkx/com/acdkx_com_Test.bcc: initial revision
+
+2002-06-19 15:23  kommer
+
+	* acdkx_com.linux, acdkx_com.lsp, acdkx_com.nmake,
+	docs/acdk_general_install.htxt, docs/package.xml, docs/readme.htxt,
+	src/acdkx_com.dsp, src/acdkx_com.linux,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/AcdkObject.h,
+	src/acdkx/com/Co.cpp, src/acdkx/com/ComObject.cpp,
+	src/acdkx/com/IAcdkObject.h, tests/acdkx/com/acdkx_com_Test.dsp,
+	tests/acdkx/com/acdkx_com_Test.linux,
+	tests/acdkx/com/vbclient/Projekt1.vbp: bcc compat
+
+2002-06-11 01:05  kommer
+
+	* src/acdkx/com/AcdkObject.cpp: Fixed bug, which causes
+	ComObject_Test::self to crash
+
+2002-05-23 17:04  kommer
+
+	* src/acdkx_com.lsp, tests/acdkx/com/acdkx_com_Test.lsp: changed
+	ACDK_IN_ACDK_LIB to IN_ACDK_CORE_LIB and ACDK_USE_ACDK_LIB to
+	USE_ACDK_CORE_LIB
+
+2002-05-19 14:07  kommer
+
+	* docs/acdkx_com_AcObject_man.htxt: [no log message]
+
+2002-05-19 14:06  kommer
+
+	* docs/acdkx_com_AcdkObject_man.htxt,
+	docs/acdkx_com_ComObject_man.htxt, docs/acdkx_com_install.htxt,
+	docs/acdkx_com_typemapping.htxt,
+	tests/acdkx/com/acdkx_com_AcdkObject_Test.vbs: initial revision
+
+2002-05-19 13:20  kommer
+
+	* src/acdkx/com/: AcObject.h, AcObject.cpp: [no log message]
+
+2002-04-21 17:57  kommer
+
+	* docs/acdk_general_install.htxt: initial revision
+
+2001-12-31 16:13  kommer
+
+	* src/acdkx/com/AcdkObject.cpp: ScriptVar assignment ajustments
+
+2001-12-23 13:55  kommer
+
+	* src/acdkx/com/AcObject.cpp, src/acdkx/com/ComObject.cpp,
+	src/acdkx/com/ComObject.h,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp: changed DMI
+	standardDispatch a little bit
+
+2001-12-21 12:41  kommer
+
+	* docs/acdkx_com_man.htxt,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeInfo_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeLib_Test.cpp: fixed tests
+	namespace
+
+2001-12-09 22:49  kommer
+
+	* cfg/.cvsignore: initial revision
+
+2001-12-09 20:52  kommer
+
+	* src/acdkx_com.dsp, src/acdkx_com.linux, src/acdkx_com.lsp,
+	src/acdkx/com/AcObject.cpp, src/acdkx/com/AcObject.h,
+	src/acdkx/com/AcdkObject.cpp, src/acdkx/com/AcdkObject.h,
+	src/acdkx/com/Co.cpp, src/acdkx/com/CoException.h,
+	src/acdkx/com/CoSys.h, src/acdkx/com/ComObject.cpp,
+	src/acdkx/com/ComObject.h, src/acdkx/com/CreateTypeInfo.cpp,
+	src/acdkx/com/CreateTypeInfo.h, src/acdkx/com/CreateTypeLib.cpp,
+	src/acdkx/com/CreateTypeLib.h,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeInfo_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.dsp: introduced IN() for method
+	parameters
+
+2001-12-02 14:16  kommer
+
+	* tests/acdkx/com/: acdkx_com_ComObject_Test.cpp,
+	acdkx_com_CreateTypeInfo_Test.cpp,
+	acdkx_com_CreateTypeLib_Test.cpp, acdkx_com_Test.cpp,
+	acdkx_com_Test.lsp: renamed testunit to aunit
+
+2001-11-22 09:37  kommer
+
+	* src/acdkx/com/ComObject.cpp, src/acdkx/com/ComObject.h,
+	tests/acdkx/com/acdkx_com_ComObject_Test.cpp,
+	docs/acdkx_com_AcObject_man.htxt: initial revision
+
+2001-11-22 09:37  kommer
+
+	* src/acdkx/com/CoObject.cpp, src/acdkx/com/CoObject.h,
+	tests/acdkx/com/acdkx_com_CoObject_Test.cpp: [no log message]
+
+2001-11-18 15:21  kommer
+
+	* src/acdkx/com/IAcdkObject_i.c,
+	tests/acdkx/com/acdkx_com_Test.linux: initial revision
+
+2001-11-18 15:17  kommer
+
+	* src/acdkx_com.linux, src/acdkx/com/AbstractCoInterface.h,
+	src/acdkx/com/acdkx_com.def, src/acdkx/com/CoSys.cpp,
+	tests/acdkx/com/vbclient/Projekt1.vbp,
+	tests/acdkx/com/vbclient/Projekt1.vbw,
+	tests/acdkx/com/vbclient/Test1.frm: initial revision
+
+2001-11-13 23:27  kommer
+
+	* src/acdkx/com/IAcdkObject.idl: initial revision
+
+2001-11-13 23:23  kommer
+
+	* tests/acdkx/com/.cvsignore, src/acdkx/com/com.h: initial revision
+
+2001-11-13 20:36  kommer
+
+	* src/acdkx/com/: AcdkObject.cpp, AcdkObject.h, IAcdkObject.h,
+	IAcdkObject.tlb: initial revision
+
+2001-11-13 14:26  kommer
+
+	* docs/acdkx_com_man.htxt: initial revision
+
+2001-10-28 19:24  kommer
+
+	* src/acdkx/com/CoObject.cpp, src/acdkx/com/CoObject.h,
+	src/acdkx/com/RegisterServer.cpp, src/acdkx/com/RegisterServer.h,
+	tests/acdkx/com/acdkx_com_CoObject_Test.cpp: initial revision
+
+2001-10-10 10:41  kommer
+
+	* src/acdkx/com/: TypeInfo.cpp, TypeInfo.h: initial revision
+
+2001-10-07 22:57  kommer
+
+	* src/acdkx/com/: AcObject.cpp, AcObject.h, CoSys.h: initial
+	revision
+
+2001-10-05 16:13  kommer
+
+	* src/acdkx/com/CreateTypeInfo.cpp, src/acdkx/com/CreateTypeInfo.h,
+	src/acdkx/com/CreateTypeLib.cpp, src/acdkx/com/CreateTypeLib.h,
+	tests/acdkx/com/acdkx_com_CreateTypeInfo_Test.cpp,
+	tests/acdkx/com/acdkx_com_CreateTypeLib_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.cpp,
+	tests/acdkx/com/acdkx_com_Test.dsp,
+	tests/acdkx/com/acdkx_com_Test.lsp: initial revision
+
+2001-09-30 18:48  kommer
+
+	* docs/readme.htxt, acdkx_com.linux: initial revision
+
+2001-09-30 18:27  kommer
+
+	* Makefile: initial revision
+
+2001-09-30 18:24  kommer
+
+	* index.htxt, docs/.cvsignore, docs/ACDK-FreeLicense.htxt,
+	docs/package.xml: initial revision
+
+2001-09-30 17:24  kommer
+
+	* acdkx_com.dsw, acdkx_com.lsp, acdkx_com.nmake, src/acdkx_com.dsp,
+	src/acdkx_com.lsp, .cvsignore, src/.cvsignore,
+	src/acdkx/com/Co.cpp, src/acdkx/com/Co.h,
+	src/acdkx/com/CoException.cpp, src/acdkx/com/CoException.h,
+	src/acdkx/com/Config.h, src/acdkx/com/IUnknown.cpp,
+	src/acdkx/com/IUnknown.h: initial revision
+

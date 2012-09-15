@@ -1,0 +1,27 @@
+
+using acdkx.rdmi;
+
+using acdk.util.logging;
+RLogger log = LogManager::getCreateLogger("acdkx.rdmi");
+log->addConsumer(new ConsoleConsumer(new SimpleFormatter()));
+LogManager::MinLevel = Debug;
+LogManager::Threshold  = Debug;
+
+
+class TestRemoteClass
+{
+  TestRemoteClass()
+  {
+  }
+  void modifyStringBuffer(StringBuffer sb)
+  {
+    out.println("modify sb: " + sb.toString());
+    sb.append("modified");
+  }
+}
+
+
+RRemoteDmiServer server = new RemoteDmiServer(new TcpServer(1111), new BinaryProtocol());
+server->startInBackground();
+out.println("RemoteDmiServer started on port 1111");
+server.join();

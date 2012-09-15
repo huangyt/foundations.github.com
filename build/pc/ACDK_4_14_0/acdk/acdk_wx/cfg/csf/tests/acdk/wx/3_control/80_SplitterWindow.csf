@@ -1,0 +1,54 @@
+
+using acdk.wx;
+
+class MyFrame
+extends Frame
+{
+  TreeCtrl _treectrl;
+  //TextCtrl text1;
+  //TextCtrl text2;
+  MyFrame(String title) 
+  {
+    super(title);
+    SplitterWindow splitter = new SplitterWindow(this);
+    out.println("befor textctrl");
+    Button btn1 = new Button(splitter, -1, "A");
+    Button btn2 = new Button(splitter, -1, "B");
+    out.println("after button");
+    //TextCtrl text1 = new TextCtrl(splitter, -1, "Left side");
+    out.println("befor textctrl 2");
+    //TextCtrl text2 = new TextCtrl(splitter, -1, "Right side");
+    out.println("befor split");
+    //splitter.splitVertically( text1, text2 );
+    splitter.splitVertically( btn1, btn2 );
+    out.println("after split");
+/*      
+    _treectrl = new TreeCtrl(splitter, -1, new Point(0, 0), new Size(200, 200));
+    TreeItemId root = _treectrl->addRoot("TestCases");
+    TreeItemId node1 = _treectrl->appendItem(root, "Node1");
+    _treectrl.appendItem(node1, "Leaf 1");
+    _treectrl.appendItem(node1, "Leaf 2");
+    _treectrl.appendItem(node1, "Leaf 3");
+    TreeItemId node2 = _treectrl.appendItem(root, "Node2");
+    _treectrl.appendItem(node2, "Leaf 1");
+    _treectrl.appendItem(node2, "Leaf 2");
+    _treectrl.appendItem(node2, "Leaf 3");
+    TextCtrl text = new TextCtrl(splitter, -1, "Text comes here");
+    splitter.splitVertically( _treectrl, text );
+*/
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame("Hallo")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

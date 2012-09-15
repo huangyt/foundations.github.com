@@ -1,0 +1,12 @@
+
+with (acdk.lang.System.out)
+{
+  .print("Hello ");
+  .print("in");
+  .println(" with statement");
+  with (acdk.lang.System.err)
+  {
+    .println("This goes to err");
+  }
+  .println("This goes to out");
+}

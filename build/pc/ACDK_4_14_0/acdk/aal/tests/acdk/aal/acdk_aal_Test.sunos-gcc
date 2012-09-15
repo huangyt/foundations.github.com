@@ -1,0 +1,217 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../../../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=./tobj/acdk_aal_Test/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT  $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_tools_aunit -lacdk_text -lacdk_aal 
+CFLAGSX = 
+LDFLAGSX = 
+
+SOURCES= 	./acdk_aal_AalObject_Test.cpp \
+	./acdk_aal_AritmExpr_Test.cpp \
+	./acdk_aal_Arrays_Test.cpp \
+	./acdk_aal_Basics_Test.cpp \
+	./acdk_aal_BinaryExpr_Test.cpp \
+	./acdk_aal_Closure_Test.cpp \
+	./acdk_aal_Compiler_Test.cpp \
+	./acdk_aal_DefunStatements_Test.cpp \
+	./acdk_aal_DeriveObject_Test.cpp \
+	./acdk_aal_Exceptions_Test.cpp \
+	./acdk_aal_ExtendClass_Test.cpp \
+	./acdk_aal_Functions_Test.cpp \
+	./acdk_aal_Interpret_Test.cpp \
+	./acdk_aal_LiteralWrapping_Test.cpp \
+	./acdk_aal_LogicalExpr_Test.cpp \
+	./acdk_aal_Operator_Test.cpp \
+	./acdk_aal_ParameterPassing_Test.cpp \
+	./acdk_aal_RelExpr_Test.cpp \
+	./acdk_aal_Scanner_Test.cpp \
+	./acdk_aal_Statements_Test.cpp \
+	./acdk_aal_Test.cpp \
+	./acdk_aal_WeakInvoke_Test.cpp \
+
+HEADER= 
+OBJECTS= 	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_AalObject_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_AritmExpr_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Arrays_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Basics_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_BinaryExpr_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Closure_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Compiler_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_DefunStatements_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_DeriveObject_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Exceptions_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_ExtendClass_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Functions_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Interpret_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_LiteralWrapping_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_LogicalExpr_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Operator_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_ParameterPassing_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_RelExpr_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Scanner_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Statements_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Test.o \
+	./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_WeakInvoke_Test.o \
+
+
+FINALTARGET=../../../../bin/acdk_aal_Test
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../../../bin/acdk_aal_Test: $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../../../bin/acdk_aal_Test $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_aal_Test.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_AalObject_Test.o: ./acdk_aal_AalObject_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_AalObject_Test.o -c ./acdk_aal_AalObject_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_AritmExpr_Test.o: ./acdk_aal_AritmExpr_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_AritmExpr_Test.o -c ./acdk_aal_AritmExpr_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Arrays_Test.o: ./acdk_aal_Arrays_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Arrays_Test.o -c ./acdk_aal_Arrays_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Basics_Test.o: ./acdk_aal_Basics_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Basics_Test.o -c ./acdk_aal_Basics_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_BinaryExpr_Test.o: ./acdk_aal_BinaryExpr_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_BinaryExpr_Test.o -c ./acdk_aal_BinaryExpr_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Closure_Test.o: ./acdk_aal_Closure_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Closure_Test.o -c ./acdk_aal_Closure_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Compiler_Test.o: ./acdk_aal_Compiler_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Compiler_Test.o -c ./acdk_aal_Compiler_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_DefunStatements_Test.o: ./acdk_aal_DefunStatements_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_DefunStatements_Test.o -c ./acdk_aal_DefunStatements_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_DeriveObject_Test.o: ./acdk_aal_DeriveObject_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_DeriveObject_Test.o -c ./acdk_aal_DeriveObject_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Exceptions_Test.o: ./acdk_aal_Exceptions_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Exceptions_Test.o -c ./acdk_aal_Exceptions_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_ExtendClass_Test.o: ./acdk_aal_ExtendClass_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_ExtendClass_Test.o -c ./acdk_aal_ExtendClass_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Functions_Test.o: ./acdk_aal_Functions_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Functions_Test.o -c ./acdk_aal_Functions_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Interpret_Test.o: ./acdk_aal_Interpret_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Interpret_Test.o -c ./acdk_aal_Interpret_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_LiteralWrapping_Test.o: ./acdk_aal_LiteralWrapping_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_LiteralWrapping_Test.o -c ./acdk_aal_LiteralWrapping_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_LogicalExpr_Test.o: ./acdk_aal_LogicalExpr_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_LogicalExpr_Test.o -c ./acdk_aal_LogicalExpr_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Operator_Test.o: ./acdk_aal_Operator_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Operator_Test.o -c ./acdk_aal_Operator_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_ParameterPassing_Test.o: ./acdk_aal_ParameterPassing_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_ParameterPassing_Test.o -c ./acdk_aal_ParameterPassing_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_RelExpr_Test.o: ./acdk_aal_RelExpr_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_RelExpr_Test.o -c ./acdk_aal_RelExpr_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Scanner_Test.o: ./acdk_aal_Scanner_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Scanner_Test.o -c ./acdk_aal_Scanner_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Statements_Test.o: ./acdk_aal_Statements_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Statements_Test.o -c ./acdk_aal_Statements_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Test.o: ./acdk_aal_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_Test.o -c ./acdk_aal_Test.cpp
+
+./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_WeakInvoke_Test.o: ./acdk_aal_WeakInvoke_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ./tobj/acdk_aal_Test/sunos-gcc/acdk_aal_WeakInvoke_Test.o -c ./acdk_aal_WeakInvoke_Test.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../../../bin/acdk_aal_Test $(OBJECTS)
+
+  

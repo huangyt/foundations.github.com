@@ -1,0 +1,88 @@
+<package>
+This is an experimental make-maker
+<name>acdk_make</name>
+
+<title>
+ACDK Make (acdk_make)
+</title>
+
+<shortdescription>
+acdk_make (amake) contains a build
+system for ACDK.
+</shortdescription>
+<description>
+<m>acdk_make</m> is target as a make system replacement similar to 
+ant in Java world. 
+<fl>
+<f> Extensionable through Tasks.
+<f> Support for various compiler/platforms
+<f> paralized compile Jobs
+<f> build-in fast dependencies check
+</fl>
+<p>
+<b>Currently acdk_make is alpha software and will change in future.
+
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+ACDK Free Edition License.
+</license>
+<dependencies>
+  acdk_lisp.
+</dependencies>
+
+<plattforms>
+  all.
+</plattforms>
+
+<namespaces>
+  none
+</namespaces>
+
+<authors>
+  Roger René Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Currently it is in an experimental state.
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- Various ajustments to CfgScript language
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+- Configuration specs for compiler, linker etc, will
+  not be hard coded but readed from 
+  cfg/cfginclude/compile_specs.cfg.
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+See also %ref[../ChangeLog].
+
+===========================================================
+acdk_make 4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+See also %ref[../ChangeLog].
+
+</changes>
+
+<notes>
+  Nothing.
+</notes>
+</package>

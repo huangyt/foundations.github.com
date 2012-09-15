@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{f17b346c-0ebc-4de7-b7ff-5d78e3cf714f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\python">
+      <UniqueIdentifier>{bb7eb691-b8b2-4e57-875c-07320c3c748b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\python\interpreter">
+      <UniqueIdentifier>{13305c52-ffcc-40c4-adc1-70f1f11681ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\python\interpreter\Main.cpp">
+      <Filter>acdk\python\interpreter</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

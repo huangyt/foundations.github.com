@@ -1,0 +1,142 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Perl, acdk::perl">
+<title>ACDK Perl</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../docs/packages.html">Packages</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Perl<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/readme.html">ACDK Perl Readme</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_perl_install.html">Compile acdk_perl</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdkperl_man.html">acdkperl Manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_perl_dll_man.html">acdk_perl Manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/acdk_general_install.html">Installation</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/ACDK-FreeLicense.html">License</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | ACDK Perl | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Perl</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Perl</h1> -->
+<br>
+<p class="PageIntro">
+With acdk_perl, you can instrument a perl interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your perl environment.</p>
+<br>
+<p></p>
+<m>acdk_perl</m> provides an integration of ACDK and Perl with
+embedding Perl Code in ACDK and <a  href="docs/acdk_perl_dll_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;accessing ACDK object from Perl</a>.<br>
+<br>
+In contrast to tradional glue code (XS)  with <m>acdk_perl</m> no further
+code has to be written or generated to access C++ Objects from perl code.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+sub <B><FONT COLOR="#0000FF">foo</FONT></B>($$)
+{
+  my ($string1, $string2) = @_;
+  my $sb = pacdk::<B><FONT COLOR="#A020F0">new</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, $string1);
+  $sb-&gt;append($string2);
+  <B><FONT COLOR="#A020F0">return</FONT></B> $sb-&gt;toString();
+}
+<B><FONT COLOR="#0000FF">pacdk::peek_static</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;out&quot;</FONT></B>)-&gt;println(foo(<B><FONT COLOR="#BC8F8F">&quot;Hello Perl &quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;from ACDK&quot;</FONT></B>));
+</PRE></td></tr></table>
+<br>
+<br>
+With a few lines of code:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  RAPerlInterpreter pi = <B><FONT COLOR="#A020F0">new</FONT></B> APerlInterpreter();
+  pi-&gt;parse(<B><FONT COLOR="#BC8F8F">&quot;print(\&quot;Hello Perl\&quot;);\n&quot;</FONT></B>);
+  pi-&gt;run();
+</PRE></td></tr></table>
+an full featured Perl interpreter can be embedded into C++ code.<br>
+<br>
+The <a  href="docs/acdkperl_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdkperl</m></a> command line perl interpreter is already 
+prepared to have access to ACDK world.<p></p>
+<p></p>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="docs/readme.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Perl Readme</a></p><p class="pagesummary">
+ACDK Perl (acdk_perl)With acdk_perl, you can instrument a perl interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your perl environment.</p><p class="subchapterlink"><a  href="docs/acdk_perl_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;Compile acdk_perl</a></p><p class="pagesummary">
+Instruction how to compile and run acdk_perl.
+</p><p class="subchapterlink"><a  href="docs/acdkperl_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdkperl Manual</a></p><p class="pagesummary">
+The acdkperl executable is just a smal wrapper to the embedded acdk 
+Perl interpreter.
+</p><p class="subchapterlink"><a  href="docs/acdk_perl_dll_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_perl Manual</a></p><p class="pagesummary">
+acdk_perl_man contains an interface to an perl interperter
+and the DMI code to script ACDK objects from perl code.
+</p><p class="subchapterlink"><a  href="../docs/acdk_general_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK General installation notice</a></p><p class="pagesummary">
+How to install and compile ACDK.
+And how to create your own executable/library to make use of ACDK.
+</p><p class="subchapterlink"><a  href="../docs/ACDK-FreeLicense.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;The ACDK License Terms, LGPL</a></p><p class="pagesummary">
+ACDK is available under the LGPL license.
+</p></td></tr></table><!-- subchaptersframe -->
+
+<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/</a> (Web at Sourceforge).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.com/</a> (Home of Artefaktur).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.ch/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.ch/</a> (Mirror)
+<li class="Feature"> <a  href="http://sourceforge.net/projects/acdk/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/projects/acdk/</a> (Support at Sourceforge).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/perl/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/perl/</a> (Home of this project).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__perl.html"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__perl.html</a> (Online reference).<br>
+<li class="Feature"> <a  href="mailto:kommer@artefaktur.com"><img border="0" src="./../docs\images/url_mailto.gif" alt="mailto">&nbsp;Roger Rene Kommer</a> (Mail Author).<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | ACDK Perl | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

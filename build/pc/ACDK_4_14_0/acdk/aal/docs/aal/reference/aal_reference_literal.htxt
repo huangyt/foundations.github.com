@@ -1,0 +1,30 @@
+%id: aal_reference_literal
+%title: AAL Literals
+%shorttitle: Literals
+%body:
+<chapterline/>
+<pageintro>
+
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Boolean</jump1>
+<rs>
+true
+false
+</rs>
+
+<jump1>Nil literal</jump1>
+The Nil literal represents an unitialized object
+instance of any type.
+
+<rs>
+Nil
+nil
+</rs>
+<jump1>Numbers</jump1>
+<jump2>Decimal Numbers</jump2>
+
+.

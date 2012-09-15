@@ -1,0 +1,59 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_tcl
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_tcl_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_tcl_Test failed; exit 1; 
+
+
+
+acdk_tcl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src bsd
+
+acdktcl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src bsd
+
+acdk_tcl_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl bsd
+
+
+makemake:: acdk_tcl-makemake acdktcl-makemake acdk_tcl_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_tcl.lsp
+
+

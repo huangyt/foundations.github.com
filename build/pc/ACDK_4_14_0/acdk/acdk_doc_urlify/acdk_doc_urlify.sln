@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_core", "..\acdk_core\src\acdk_core.vcxproj", "{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acdk_doc_urlify", "src\acdk_doc_urlify.vcxproj", "{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}.Debug|Win32.Build.0 = Debug|Win32
+		{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}.Release|Win32.ActiveCfg = Release|Win32
+		{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}.Release|Win32.Build.0 = Release|Win32
+		{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}.Template|Win32.ActiveCfg = Release|Win32
+		{638511D6-3C57-C4D0-AACC-EA56F65BCEA4}.Template|Win32.Build.0 = Release|Win32
+		{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}.Debug|Win32.ActiveCfg = Debug|Win32
+		{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}.Debug|Win32.Build.0 = Debug|Win32
+		{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}.Release|Win32.ActiveCfg = Release|Win32
+		{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}.Release|Win32.Build.0 = Release|Win32
+		{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}.Template|Win32.ActiveCfg = Template|Win32
+		{98ECA398-30AE-6BCE-6ADF-25C78A3A1872}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

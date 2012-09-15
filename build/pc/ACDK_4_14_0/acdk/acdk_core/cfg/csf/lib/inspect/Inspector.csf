@@ -1,0 +1,215 @@
+
+using acdk.wx;
+using acdk.tools.aunit;
+
+
+enum ATRIds
+{
+  InspectorClassTreeId = 1001,
+  InspectorObjectTreeId,
+  DetailTextCtrlId,
+  ReloadClassId,
+  ReloadObjectId,
+  RunTimerId,
+  CfgConsoleId,
+  CurrentTestST,
+  StResult,
+  RunBtnId,
+  Event_MenuQuit,
+  Event_MenuAbout,
+  MenuLoadSharedLibId,
+  TbHelpId,
+  Event_TestListenerPing,
+  Event_ClearLog,
+  TestRepId,
+  TestLogId,
+  ClassTreeExpandAllId,
+  ReloadObjectId,
+  ViewRootObjectsId,
+  ViewAllObjectsId,
+  ViewGcAbleObjectId,
+  ObjectTreeSelectClassId
+}
+
+class Inspector
+extends Frame
+{
+  acdk.wx.inspector.ClassTreeCtrl _classTree;
+  acdk.wx.inspector.ObjectTreeCtrl _objectTree;
+  TextCtrl _detailTextCtrl;
+  acdk.wx.inspector.CfgScriptConsole _console;
+  Menu _classTreeMenu;
+  Menu _objectTreeMenu;
+  Notebook  _notebook;
+  Inspector(String title) 
+  {
+    super(Nil, -1, title, new Point(100, 100), new Size(800, 600));
+    
+    
+   MenuBar menuBar = new MenuBar();
+    
+    Menu menuFile = new Menu();
+    /*
+    menuFile.append(Event_FileNew, "New", "Creates a new file"); 
+    menuFile.append(Event_FileOpen, "Open", "Open a file"); 
+    menuFile.append(Event_FileSave, "Save", "Open a file"); 
+    */
+    menuFile.append(MenuLoadSharedLibId, "Load DLL/SO", "Load shared library to inspect class info");
+    menuFile.append(Event_ClearLog, "Clear Log", "Clear Log Window"); 
+    menuFile.appendSeparator();
+    menuFile.append(Event_MenuQuit, "E&xit\tAlt-X", "Quit this program");
+    menuBar.append(menuFile, "&File");
+    
+    connect(CommandEvent.EvtCommandMenuSelected, Event_MenuQuit, 
+            lambda[this]  { close(true);  } 
+            );
+    connect(CommandEvent.EvtCommandMenuSelected, MenuLoadSharedLibId, 
+            lambda[this]  void (CommandEvent event) 
+      { 
+        FileDialog dlg = new FileDialog(this, "Select dll/so to load", System.getProperty("ACDKHOME") + "/bin", "", "*.dll", FDFOpen);
+        if (dlg.showModal() != IdOk)
+          return;
+        
+        SharedLibrary sl = new SharedLibrary(dlg.getPath());
+        sl.loadLibary();
+      } 
+    );
+    
+    connect(CommandEvent.EvtCommandMenuSelected, Event_MenuAbout, delegate onMenuAbout); 
+    SplitterWindow splitter = new SplitterWindow(this);
+    _notebook = new Notebook(splitter, -1);
+    
+      
+    _classTree = new acdk.wx.inspector.ClassTreeCtrl(_notebook, InspectorClassTreeId, new Point(0, 0), new Size(200, 200));
+    _objectTree = new acdk.wx.inspector.ObjectTreeCtrl(_notebook, InspectorObjectTreeId, new Point(0, 0), new Size(200, 200));
+    _notebook.addPage(_classTree,  "Class");
+    _notebook.addPage(_objectTree,  "Object");
+    
+    
+    SplitterWindow horSplitter = new SplitterWindow(splitter);
+    _detailTextCtrl = new TextCtrl(horSplitter, TestRepId, "", Point.defaultPosition(), Size.defaultSize(), 
+                            TeMultiline | TeAutoScroll | TeDontwrap);
+    
+    
+    _console = new acdk.wx.inspector.CfgScriptConsole(horSplitter, CfgConsoleId, Point.defaultPosition(), Size.defaultSize());
+    horSplitter.splitHorizontally(_detailTextCtrl, _console, 300);
+    splitter.splitVertically(_notebook, horSplitter, 300);
+    
+    connect(CommandEvent.EvtCommandMenuSelected, ReloadClassId, 
+            lambda[this]  { _classTree.reload();  } 
+            );
+    connect(CommandEvent.EvtCommandMenuSelected, ReloadObjectId, 
+            lambda[this]  { _objectTree.reload();  } 
+            );
+    _classTree.setOverViewTextCtrl(_detailTextCtrl);
+    Menu menuView = new Menu();
+    menuView.append(ReloadClassId, "Refresh Class Tree", "Refresh Class Tree"); 
+    menuView.append(ReloadObjectId, "Refresh Object Tree", "Refresh Object Tree"); 
+    menuBar.append(menuView, "&View");
+    Menu helpMenu = new Menu();
+    helpMenu.append(Event_MenuAbout, "&About...\tCtrl-A", "Show about dialog");
+    menuBar.append(helpMenu, "&Help");
+    setMenuBar(menuBar);
+    
+    
+    _classTreeMenu = new Menu();
+    _classTreeMenu.append(ReloadClassId, "Reload");
+    _classTreeMenu.append(ClassTreeExpandAllId, "Expand All");
+    connect(CommandEvent.EvtCommandMenuSelected, ClassTreeExpandAllId,
+      lambda[this]
+      {
+        _classTree.expandAll();
+      }
+    );
+    connect(TreeEvent.EvtCommandTreeItemRightClick, InspectorClassTreeId, 
+            lambda [this]  void (Event event)
+            { 
+              popupMenu(_classTreeMenu, event.getPoint()); 
+            } 
+           );
+    _objectTree.setOverViewTextCtrl(_detailTextCtrl);
+    _objectTreeMenu = new Menu();
+    _objectTreeMenu.append(ReloadObjectId, "Reload");
+    _objectTreeMenu.appendRadioItem(ViewRootObjectsId, "View Roots"); 
+    _objectTreeMenu.appendRadioItem(ViewAllObjectsId, "All Objects"); 
+    _objectTreeMenu.appendRadioItem(ViewGcAbleObjectId, "Gcable Objects"); 
+    _objectTreeMenu.appendSeparator();
+    _objectTreeMenu.append(ObjectTreeSelectClassId, "Select Type");
+    //(ViewGcAbleObjectId, "Gcable Objects"); 
+    //_objectTreeMenu.append(ClassTreeExpandAllId, "Expand All");
+    
+     connect(TreeEvent.EvtCommandTreeItemRightClick, InspectorObjectTreeId, 
+            lambda [this]  void (Event event)
+            { 
+              popupMenu(_objectTreeMenu, event.getPoint()); 
+            } 
+           );
+    connect(CommandEvent.EvtCommandMenuSelected, ReloadObjectId,
+      lambda[this]
+      {
+        _objectTree.reload();
+      }
+    );
+    connect(CommandEvent.EvtCommandMenuSelected, ViewRootObjectsId,
+      lambda[this]
+      {
+        //out.println("ViewRootObjectsId");
+        _objectTreeMenu.check(ViewRootObjectsId, true);
+        _objectTree.reload(acdk.wx.inspector.ObjectFilterRootsOnly);
+      }
+    );
+    connect(CommandEvent.EvtCommandMenuSelected, ViewAllObjectsId,
+      lambda[this]
+      {
+        //out.println("ViewAllObjectsId");
+        _objectTreeMenu.check(ViewAllObjectsId, true);
+        _objectTree.reload(acdk.wx.inspector.ObjectFilterAllObjects);
+      }
+    );
+    connect(CommandEvent.EvtCommandMenuSelected, ViewGcAbleObjectId,
+      lambda[this]
+      {
+        //out.println("ViewGcAbleObjectId");
+        _objectTreeMenu.check(ViewGcAbleObjectId, true);
+        _objectTree.reload(acdk.wx.inspector.ObjectFilterGcAble);
+      }
+    );
+    connect(CommandEvent.EvtCommandMenuSelected, ObjectTreeSelectClassId,
+      lambda[this]
+      {
+        //_objectTreeMenu.check(ViewGcAbleObjectId, true);
+        //_objectTree.reload(acdk.wx.inspector.ObjectFilterGcAble);
+        TreeItemId id = _objectTree.getSelection();
+        if (id.isOk() == false)
+          return;
+        Object obj = _objectTree.getItemDataObject(id);
+        if (obj == Nil)
+          return;
+        _notebook.setSelection(0);
+        _classTree.selectClass(obj.getClass());
+        
+      }
+    );
+    
+  }
+  
+  
+  void onMenuAbout(Event event)
+  {
+    Window.messageBox("ACDK Inspector written with ACDK CfgScript\n By Roger Rene Kommer (http://acdk.sourceforge.net)");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new Inspector("ACDK Test Runner")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

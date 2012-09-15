@@ -1,0 +1,194 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="for, while, do, foreach">
+<title>CfgScript Loop Statements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Loop Statements
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a> | Loop Statements | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Loop Statements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Loop Statements</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a> | Loop Statements | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p>
+<p class="PageIntro">
+Various loops, like do/while, while, for, foreach are available
+</p>
+
+<br>
+<a name="jumptable35"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#LoopStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;LoopStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#WhileStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;WhileStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#DoWhileStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;DoWhileStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ForStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ForStatement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ForEachStatement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ForEachStatement</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable35"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="LoopStatement">LoopStatement</a></h2>
+<pre>
+LoopStatement
+: <a  href="acdk_cfgscript_hb_lang_stmt_loop.html#WhileStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;WhileStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_loop.html#DoWhileStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;DoWhileStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_loop.html#ForStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ForStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_loop.html#ForEachStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ForEachStatement</a>
+;
+</pre>
+<br>
+<h4><a href="#jumptable35"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="WhileStatement">WhileStatement</a></h4>
+<pre>
+WhileStatement
+: 'while' '(' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ')' 
+              <a  href="acdk_cfgscript_hb_lang_stmt.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Statement</a>
+;
+</pre>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">int</FONT></B> i = 1;
+<B><FONT COLOR="#0000FF">while</FONT></B> (i &gt; 1 &amp;&amp; i &lt; 5)
+{
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i == 2)
+  {
+    i = 3;
+    <B><FONT COLOR="#A020F0">continue</FONT></B>;
+  }
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i == 4)
+    <B><FONT COLOR="#A020F0">break</FONT></B>;
+  i = i + 1;
+}
+</PRE></td></tr></table>
+<br>
+<h4><a href="#jumptable35"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DoWhileStatement">DoWhileStatement</a></h4>
+<pre>
+DoWhileStatement
+: 'do' <a  href="acdk_cfgscript_hb_lang_stmt.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Statement</a> 
+  'while' '(' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ')' ';'
+;
+</pre>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+StringBuffer sb = <B><FONT COLOR="#A020F0">new</FONT></B> StringBuffer(<B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>);
+<B><FONT COLOR="#A020F0">do</FONT></B> {
+  sb.append(<B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B>);
+} <B><FONT COLOR="#A020F0">while</FONT></B> (sb.length() &lt; 10);
+</PRE></td></tr></table>
+<h4><a href="#jumptable35"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ForStatement">ForStatement</a></h4>
+<pre>
+ForStatement
+: 'for' '(' (VarDecl | <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a>) ';' 
+                       <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ';' 
+                       <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ')' 
+        <a  href="acdk_cfgscript_hb_lang_stmt.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Statement</a>
+;
+</pre>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#0000FF">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i = 0; i &lt; 5; ++i)
+{
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i &lt; 2)
+    <B><FONT COLOR="#A020F0">continue</FONT></B>;
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i &gt; 3)
+    <B><FONT COLOR="#A020F0">break</FONT></B>;
+}
+</PRE></td></tr></table>
+<br>
+<br>
+<h4><a href="#jumptable35"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ForEachStatement">ForEachStatement</a></h4>
+<pre>
+ForStatement
+: 'foreach' '(' VarDecl 'in' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> ')' 
+      <a  href="acdk_cfgscript_hb_lang_stmt.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Statement</a>
+</pre>
+<br>
+The Expression has to be one of following types:<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__Collection"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::Collection</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__Iterator"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::Iterator</a>
+<li class="Feature"> ObjectArray
+<li class="Feature"> BasicArray (boolArray, intArray, etc.)
+</ul>
+In all other cases the the loop will initialized with the Expression
+value and will looping once with this value.<br>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+ObjectArray array = [ 1, 2, 3, 4, 5, 6, 7 ];
+
+<B><FONT COLOR="#228B22">bool</FONT></B> reachedEnd = false;
+<B><FONT COLOR="#0000FF">foreach</FONT></B> (i in array)
+{
+ 
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i == 2)
+    <B><FONT COLOR="#A020F0">continue</FONT></B>;
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;foreach: &quot;</FONT></B> + i);
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i == 4)
+  {
+    reachedEnd = true;
+    <B><FONT COLOR="#A020F0">break</FONT></B>;
+  }
+  <B><FONT COLOR="#A020F0">if</FONT></B> (i == 5)
+    reachedEnd = false;
+}
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a> | Loop Statements | <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a> | <a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a> | <a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a> | <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

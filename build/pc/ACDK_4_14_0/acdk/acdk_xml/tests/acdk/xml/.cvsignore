@@ -1,0 +1,5 @@
+*.deps
+obj
+*.xml
+*.plg
+tobj

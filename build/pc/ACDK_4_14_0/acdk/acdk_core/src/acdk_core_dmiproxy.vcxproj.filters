@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{e77f892d-5981-4328-95a7-21a4a43c260c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang">
+      <UniqueIdentifier>{56b06007-7063-4df1-9fd4-7fa9b4ce19ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\lang_dmiproxy">
+      <UniqueIdentifier>{6afeb534-db8d-40a9-82ed-da9ef70a63f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\dmi">
+      <UniqueIdentifier>{4dd41862-eec7-48e5-a892-329ddf5889c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\dmi\dmi_dmiproxy">
+      <UniqueIdentifier>{be4101f4-dce4-487f-bedd-e525a1a5f071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\ref">
+      <UniqueIdentifier>{2bb4fcff-f3a3-4f84-871e-7c67225e8be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\ref\ref_dmiproxy">
+      <UniqueIdentifier>{0f6de5e1-204d-4e80-affa-b3e820efbd6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\reflect">
+      <UniqueIdentifier>{39578b01-ab16-40d9-95d3-f363bfcca906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\reflect\reflect_dmiproxy">
+      <UniqueIdentifier>{9c1675e7-0538-4769-a279-c5a09b2ff0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\io">
+      <UniqueIdentifier>{154b2524-7168-4b61-b0a2-d66b6fd1eeba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\io\io_dmiproxy">
+      <UniqueIdentifier>{7ac887a4-db3d-4c82-8c02-0a470b1940a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util">
+      <UniqueIdentifier>{fda1e3f9-d5fa-40f8-83ff-95bae675b590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\util_dmiproxy">
+      <UniqueIdentifier>{82b4f0a3-6c0a-4dbf-80a6-52d1e6a9dbf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\logging">
+      <UniqueIdentifier>{2c4c6859-8c21-494c-941d-d506a34bfd55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\logging\logging_dmiproxy">
+      <UniqueIdentifier>{966bfb15-bf74-40c9-a368-5890c4a6a83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\locale">
+      <UniqueIdentifier>{5bf8108d-fc61-4cfe-9c68-741c6d52510a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\locale\locale_dmiproxy">
+      <UniqueIdentifier>{efd00e80-8856-4835-93b3-b26d7b27649d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\lang\lang_dmiproxy\lang_dmiproxy.cpp">
+      <Filter>acdk\lang\lang_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_dmiproxy\lang_dmiproxy1.cpp">
+      <Filter>acdk\lang\lang_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_dmiproxy\lang_dmiproxy2.cpp">
+      <Filter>acdk\lang\lang_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\dmi_dmiproxy\dmi_dmiproxy.cpp">
+      <Filter>acdk\lang\dmi\dmi_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\ref_dmiproxy\ref_dmiproxy.cpp">
+      <Filter>acdk\lang\ref\ref_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\reflect_dmiproxy\reflect_dmiproxy.cpp">
+      <Filter>acdk\lang\reflect\reflect_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_dmiproxy\io_dmiproxy.cpp">
+      <Filter>acdk\io\io_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_dmiproxy\io_dmiproxy1.cpp">
+      <Filter>acdk\io\io_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_dmiproxy\io_dmiproxy2.cpp">
+      <Filter>acdk\io\io_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_dmiproxy\util_dmiproxy.cpp">
+      <Filter>acdk\util\util_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_dmiproxy\util_dmiproxy1.cpp">
+      <Filter>acdk\util\util_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_dmiproxy\util_dmiproxy2.cpp">
+      <Filter>acdk\util\util_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\logging_dmiproxy\logging_dmiproxy.cpp">
+      <Filter>acdk\util\logging\logging_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\locale_dmiproxy\locale_dmiproxy.cpp">
+      <Filter>acdk\locale\locale_dmiproxy</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

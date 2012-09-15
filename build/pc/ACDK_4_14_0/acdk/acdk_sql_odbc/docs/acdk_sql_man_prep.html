@@ -1,0 +1,91 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Prepared Statements">
+<title>ACDK SQL Prepared Statements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK SQL ODBC</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_sql_man.html">ACDK SQL Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Prepared Statements
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | Prepared Statements | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK SQL Prepared Statements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK SQL Prepared Statements</h1> -->
+<p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | Prepared Statements | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p>
+
+<p class="PageIntro">
+  To improve performance, use prepared statments
+</p>
+
+<br>
+<br>
+Use <code>prepareStament</code> create a Prepared SQL Statement:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    RString sql = <B><FONT COLOR="#BC8F8F">&quot;SELECT intcol, realcol, stringcol FROM acdk_PreparedStatement_Test WHERE intcol &lt; ?&quot;</FONT></B>;
+    RPreparedStatement statement = connection-&gt;prepareStatement(sql); 
+    statement-&gt;setInt(1, 2); <I><FONT COLOR="#B22222">// 1 = first '?'</FONT></I>
+    RResultSet rset = statement-&gt;executeQuery();
+    <B><FONT COLOR="#228B22">int</FONT></B> count = 0;
+    <B><FONT COLOR="#A020F0">while</FONT></B> (rset-&gt;next() == true)
+    {
+      <B><FONT COLOR="#228B22">int</FONT></B> intcol = rset-&gt;getInt(1);
+      <B><FONT COLOR="#228B22">float</FONT></B> floatcol = rset-&gt;getFloat(<B><FONT COLOR="#BC8F8F">&quot;realcol&quot;</FONT></B>); 
+      RString sval = rset-&gt;getString(<B><FONT COLOR="#BC8F8F">&quot;stringcol&quot;</FONT></B>);
+      ++count;
+    }
+</PRE></td></tr></table>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | Prepared Statements | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

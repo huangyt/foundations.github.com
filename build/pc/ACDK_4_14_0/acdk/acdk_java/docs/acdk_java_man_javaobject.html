@@ -1,0 +1,118 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="DMI Client Java">
+<title>acdk::java::JavaObject</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Java</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_java_man.html">acdk_java</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk::java::JavaObject<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_java_man_typemapping.html">Type mapping</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_java_man_intro.html">Intro</a> | <a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a> | acdk::java::JavaObject | <a  href="acdk_java_man_typemapping.html">Type mapping</a> | <a  href="acdk_java_man_installation.html">Compile acdk_java</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk::java::JavaObject</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk::java::JavaObject</h1> -->
+<p class="curchapterline"> | <a  href="acdk_java_man_intro.html">Intro</a> | <a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a> | acdk::java::JavaObject | <a  href="acdk_java_man_typemapping.html">Type mapping</a> | <a  href="acdk_java_man_installation.html">Compile acdk_java</a> |</p>
+<br>
+<p class="PageIntro">
+With the ACDK class acdk::java::JavaObject you can use any Java class
+inside C++ using the standard DMI interfaces.<br>
+</p>
+<br>
+<a name="jumptable85"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The Hello World example"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The Hello World example</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#DMI Interface"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;DMI Interface</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable85"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The Hello World example">The Hello World example</a></h2>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+  <I><FONT COLOR="#B22222">// create a new java object
+</FONT></I>  ::acdk::java::RJavaObject jo = <B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::java::JavaObject(<B><FONT COLOR="#BC8F8F">&quot;java/lang/StringBuffer&quot;</FONT></B>, 
+                                                              (<B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>*)<B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>);
+  
+  <I><FONT COLOR="#B22222">// call the method append of the the java object
+</FONT></I>  jo-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;append&quot;</FONT></B>, (<B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>*)<B><FONT COLOR="#BC8F8F">&quot; Java from ACDK&quot;</FONT></B>);
+  
+  <I><FONT COLOR="#B22222">// call the method toString of the Java object
+</FONT></I>  RObject str = (RString)jo-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;toString&quot;</FONT></B>);
+  
+  <I><FONT COLOR="#B22222">// get the static public member of the java object
+</FONT></I>  RObject jout = ::acdk::java::JavaObject::peek_static(<B><FONT COLOR="#BC8F8F">&quot;java/lang/System&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;out&quot;</FONT></B>);
+  
+  <I><FONT COLOR="#B22222">// call the invoke method of the ::acdk::langObject
+</FONT></I>  <I><FONT COLOR="#B22222">// The DMI automatically dispatches the call to the 
+</FONT></I>  <I><FONT COLOR="#B22222">// corresponding Java Object
+</FONT></I>  jout-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;println&quot;</FONT></B>, str);
+  
+  RObject aout = System::out;
+  <I><FONT COLOR="#B22222">// Same interface works also with ACDK objects.
+</FONT></I>  aout-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;println&quot;</FONT></B>, str);
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable85"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DMI Interface">DMI Interface</a></h2>
+<br>
+The standard DMI interface works with following exceptions:<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> Object::peek_static and Object::poke_static 
+    does not map directly to the corresponding Java member.<br>
+    You can use JavaObject::peek_static or Object::invoke_static(classname, 
+                                                                 "peek_static", 
+                                                                 membername)
+    instead.<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_java_man_intro.html">Intro</a> | <a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a> | acdk::java::JavaObject | <a  href="acdk_java_man_typemapping.html">Type mapping</a> | <a  href="acdk_java_man_installation.html">Compile acdk_java</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

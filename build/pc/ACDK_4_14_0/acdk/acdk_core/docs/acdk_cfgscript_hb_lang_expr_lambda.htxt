@@ -1,0 +1,125 @@
+%id: acdk_cfgscript_hb_lang_expr_lambda
+%title: CfgScript Lambda Expressions
+%shorttitle: Lambda 
+%seealso: acdk_cfgscript_hb_lang_expr_delegate
+%keywords: delegate, lambda, closure
+%body:
+<chapterline/>
+<pageintro>
+The lambda expression is a easy way to define methods in place. The result
+of a lambda expression is a Delegate object.
+</pageintro>
+
+<htmlauto/>
+
+<pre>
+LambdaExpression
+: 'lambda' [ LambdaDefineTimeArgs ] [ UnamedMethodSignature ] '{' Statement* '}'
+;
+
+LambdaDefineTimeArgs 
+: '[' LambdaDefineTimeArgList ']'
+;
+LambdaDefineTimeArgList
+: LambdaDefineTimeArg [ ',' LambdaDefineTimeArgList ]
+;
+
+LambdaDefineTimeArg
+: Identifier
+| 'this'
+| Identifier ':' Expression
+;
+
+UnamedMethodSignature
+: ReturnType '(' ArgumentDecl ')'
+;
+</pre>
+
+There are several forms of this expression:
+<source>
+// generates a anonymous function with void return value and no parameter
+Delegate d1 = lambda void () { out.println("Called via Lambda"); };
+d1.call();
+// prints "Called via Lambda"
+
+
+// generates a anonymous function with int return and two parameter
+Delegate d2 = lambda int (int a1, int a2) { return a1 + a2; };
+int erg = d2.call(2, 3);
+// erg == 5
+
+</source>
+
+The declaration of the lambda method specification (return type and arguments) is
+optionional. 
+<source>
+// generates a anonymous function
+// syntax 'lambda { <MethodBody> }'
+Delegate d1 = lambda { out.println("Called via Lambda"); };
+d1.call();
+
+// this lambda is equal to
+Delegate d2 = lambda Any (Rest rest) { out.println("Called via Lambda"); };
+d2.call();
+
+// here the alternative form of the adder expression above:
+Delegate d3 = lambda { return rest.get(0) + rest.get(1); };
+int erg2 = d3.call(2, 3);
+</source>
+
+Lambda expression support also arguments, which will passed to the
+the method body at declaration time.
+<source>
+Delegate d4;
+{
+  int ivar = 42;
+  String text = "Hello";
+  // pass variable ivar to the lambda block
+  // It is like an argument, but initialized with a value at 
+  // definition time and not at call time
+  d4 = lambda [text, ivar] { out.println("local variable ivar: " + ivar + " and: " + text); };
+} // ivar and text goes out of scope
+d4.call();
+</source>
+The arguments must be variable names.
+
+An alternative form for definition time arguments with expressions is:
+<source>
+// use the named parameter syntax to pass expressions to lambda at defintion time
+Delegate d5 = lambda [ivar: 42 - 1, text: "Hello again"] { out.println("local expressions ivar: " + ivar + " and: " + text); };
+d5.call();
+</source>
+
+Additionally the definition time arguments gives the possibility to
+make a lambda expression a method of a object class with full access to
+members an methods of this Object:
+<source>
+
+class BClass
+{
+  int _ivar = 42;
+  BClass() {}
+  int makeIt() { return 3; }
+  Delegate getLocalDelegate()
+  {
+    return lambda [this] 
+    { 
+      out.println("Accessing members and methods of this: _ivar=" + _ivar + "; makeIt()=" + makeIt()); 
+    };
+  }
+}
+BClass acls = new BClass();
+Delegate del = acls.getLocalDelegate();
+del.call();
+// now same same in one line (lispish)
+(new BClass()).getLocalDelegate().call();
+
+</source>
+
+All forms of defintition time arguments (identifier, named parameter, and this) can be combined in
+one lambda expression.
+
+Lambda and delegate expressions are very usefull to define callback/event mechanism found
+in %ref[acdk_wx].
+
+.

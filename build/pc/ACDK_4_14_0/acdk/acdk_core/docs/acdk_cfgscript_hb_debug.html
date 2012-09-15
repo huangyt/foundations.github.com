@@ -1,0 +1,376 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Debugging CfgScript</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Debugging
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | Debugging | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Debugging CfgScript</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Debugging CfgScript</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | Debugging | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p>
+<p class="PageIntro">
+How to debug a CfgScript.
+</p>
+
+<br>
+<br>
+<a name="jumptable47"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Using the CfgScript debugger"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using the CfgScript debugger</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(c)ontinue"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(c)ontinue</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(n)next"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(n)next</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(s)tep"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(s)tep</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(q)uit"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(q)uit</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#brf (break at function)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;brf (break at function)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Set breakpoint at source line"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Set breakpoint at source line</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Set breakpoint at exception"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Set breakpoint at exception</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#bt (Print BackTrace)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;bt (Print BackTrace)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(l)ist"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(l)ist</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#df or dumpframe"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;df or dumpframe</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#de or dumpenv"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;de or dumpenv</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#trace on/off"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;trace on/off</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(p)rint"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(p)rint</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#(i)nput"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;(i)nput</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Control debugger from source"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Control debugger from source</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#__script.breakToDebug()"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;__script.breakToDebug()</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#__script.traceOn()/__script.traceOff()"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;__script.traceOn()/__script.traceOff()</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#__script.getScriptBackTrace()"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;__script.getScriptBackTrace()</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Error situation in Script"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Error situation in Script</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#What happens on errors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;What happens on errors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Handle interpreter errors with code"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Handle interpreter errors with code</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Unittests"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Unittests</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using the CfgScript debugger">Using the CfgScript debugger</a></h2>
+<br>
+Using CfgScript interpreter in debugging mode just start the <code>acdkcfgscript</code>
+interpreter with the <code>-csfdebug</code> option.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#5F9EA0">0</FONT></B>:
+<B><FONT COLOR="#5F9EA0">1</FONT></B>:
+! <B><FONT COLOR="#228B22">int</FONT></B> i = 0;
+&gt; 
+</PRE></td></tr></table>
+In the debugger the statement, which will executed next will marked with <code>!</code>.<br>
+Type <code>?</code> at the prompt and you will receive a short help:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Debugging commands:
+<B><FONT COLOR="#5F9EA0">running</FONT></B>:
+c|<B><FONT COLOR="#A020F0">continue</FONT></B>           <B><FONT COLOR="#A020F0">continue</FONT></B> running
+n|next               execute next line
+s|step               next statement (step into functions)
+r|<B><FONT COLOR="#A020F0">return</FONT></B>             run until <B><FONT COLOR="#A020F0">return</FONT></B>
+q|quit               quit debugging/interpreter
+
+<B><FONT COLOR="#5F9EA0">Breakpoints</FONT></B>:
+br[f|l|e] &lt;cmd&gt; [&lt;substr&gt;] <B><FONT COLOR="#A020F0">break</FONT></B> at function, line or exception
+    <B><FONT COLOR="#5F9EA0">cmd</FONT></B>: <B><FONT COLOR="#A020F0">new</FONT></B>|list|<B><FONT COLOR="#A020F0">delete</FONT></B>
+
+View Data:
+bt                   print backtrace
+l|list               view source
+df|dumpframe [frame] dump current scope or scope of frame number
+de|dumpenv           dump current environment
+trace [on|off]       activate or deactivate tracing
+
+view/modify:
+p|print &lt;expr&gt;       print expression
+i|input              interactive mode
+
+(Please refer to the CfgScript handbook <B><FONT COLOR="#A020F0">for</FONT></B> more information)
+
+&gt; 
+</PRE></td></tr></table>
+<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(c)ontinue">(c)ontinue</a></h3>
+When break into the debugger with <code>c</code> the program will continue
+running until next breakpoint.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(n)next">(n)next</a></h3>
+When break into the debugger with <code>n</code> will execute the script
+until next statement will be reached. This command will not step into
+function calls or block statements.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(s)tep">(s)tep</a></h3>
+When break into the debugger with <code>s</code> will execute the script
+until next statement will be reached. This command will step into
+function calls of CfgScript class methods.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(q)uit">(q)uit</a></h3>
+When break into the debugger with <code>q</code> will stop the execution
+the script and quits.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="brf (break at function)">brf (break at function)</a></h3>
+With the <code>brf</code> command a breakpoint can be list, set or remove at a method of a CfgScript 
+class. 
+<br>
+With <code>brf new</code> a new breakpoint can be inserted.<br>
+<br>
+The argument is simply a substring of the method signature. 
+<ul class="FeatureList">
+<li class="Feature"> <code>foo(</code> stops at any CfgScript method named foo
+<li class="Feature"> <code>MyClass.</code> stops at any method of the CfgScript class MyClass
+<li class="Feature"> <code>MyClass.foo(</code> stops at any MyClass method named foo
+<li class="Feature"> <code>MyClass.foo()</code> stops at the MyClass foo method, which has no arguments.<br>
+<li class="Feature"> <code>MyClass</code> stops at any CfgScript method, either owned by MyClass or has
+    MyClass as return value or parameter.<br>
+</ul>
+To delete a breakpoint enter for example:<br>
+<code>brf delete foo(</code>
+<br>
+If no argument at <code>brf delete</code> is given, all breakpoints will be deleted.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Set breakpoint at source line">Set breakpoint at source line</a></h3>
+With <code>brl</code> it is possible to insert a break point
+at a source line. <code>brl</code> has the same commands as brf, but 
+the argument will be parsed following way:<br>
+<ul class="FeatureList">
+<li class="Feature"> &lt;number&gt; it will break at source line in any source
+<li class="Feature"> &lt;sourcefile&gt;:&lt;number&gt; will break at line of given 
+    csf source. The source file must only a substring of the fully 
+    qualified source file name.<br>
+</ul>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Set breakpoint at exception">Set breakpoint at exception</a></h3>
+With <code>bre</code> it is possible to insert a break point
+just before an exception will be thrown. 
+<code>brl</code> has the same commands as brf.<br>
+If the optional argument is not given (in case <code> bre new</code>)
+the interpreter will break to debugger if any exception will be thrown.<br>
+Otherwise the argument will check if it is a substring of the class name
+(for example <code>"acdk/lang/IndexOutOfBoundsException"</code>) of the thrown
+exception.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="bt (Print BackTrace)">bt (Print BackTrace)</a></h3>
+Print the current stack backtrace.<br>
+The current stack frame is at top.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+&gt; bt
+cfg/csf/tests/8_misc/DebuggingTest.csf(14):     __script.traceOff();
+<B><FONT COLOR="#228B22">static</FONT></B>  <B><FONT COLOR="#228B22">void</FONT></B> DebuggingTestClass.foo()
+cfg/csf/tests/8_misc/DebuggingTest.csf(20):     foo();
+<B><FONT COLOR="#228B22">static</FONT></B>  <B><FONT COLOR="#228B22">void</FONT></B> DebuggingTestClass.baz(<B><FONT COLOR="#228B22">int</FONT></B> i)
+cfg/csf/tests/8_misc/DebuggingTest.csf(26):     baz(i);
+<B><FONT COLOR="#228B22">static</FONT></B>  <B><FONT COLOR="#228B22">void</FONT></B> DebuggingTestClass.bar(<B><FONT COLOR="#228B22">int</FONT></B> i)
+cfg/csf/tests/8_misc/DebuggingTest.csf(38): DebuggingTestClass.bar(3);
+</PRE></td></tr></table>
+<br>
+See also <a  href="acdk_cfgscript_hb_debug.html#__script.getScriptBackTrace()"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;__script.getScriptBackTrace()</a>.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(l)ist">(l)ist</a></h3>
+View the source at the current position.<br>
+The possition of the next executed statement will be marked
+with a <code>!</code>.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+&gt; vs
+<B><FONT COLOR="#5F9EA0">8</FONT></B>:   {
+<B><FONT COLOR="#5F9EA0">9</FONT></B>:     <B><FONT COLOR="#228B22">int</FONT></B> i = 42;
+<B><FONT COLOR="#5F9EA0">10</FONT></B>:     String s = <B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>;
+<B><FONT COLOR="#5F9EA0">11</FONT></B>:     out.println(__script.getScriptBackTrace());
+<B><FONT COLOR="#5F9EA0">12</FONT></B>:     __script.breakToDebug();
+! __script.traceOff();
+<B><FONT COLOR="#5F9EA0">14</FONT></B>: i = i + 10;
+<B><FONT COLOR="#5F9EA0">15</FONT></B>: out.println(<B><FONT COLOR="#BC8F8F">&quot;After debug&quot;</FONT></B>);
+<B><FONT COLOR="#5F9EA0">16</FONT></B>: }
+<B><FONT COLOR="#5F9EA0">17</FONT></B>: <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> baz(<B><FONT COLOR="#228B22">int</FONT></B> i)
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="df or dumpframe">df or dumpframe</a></h3>
+Dump all variables in current stack frame.<br>
+Optional the frame number can given with integer argument.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="de or dumpenv">de or dumpenv</a></h3>
+Dump all variables, visible from current point.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="trace on/off">trace on/off</a></h3>
+With <code>trace on</code> all code lines are printed, which are executed.<br>
+<br>
+See also <a  href="acdk_cfgscript_hb_debug.html#__script.traceOn()/__script.traceOff()"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;__script.traceOn()/__script.traceOff()</a>.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(p)rint">(p)rint</a></h3>
+The <code>print</code> command expects an argument, which should be an CfgScript expression.<br>
+The result of this expression will be printed.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+&gt; print 42 * 3
+126
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="(i)nput">(i)nput</a></h3>
+With <code>i</code> code can be inserted and executed.<br>
+Finish code input with a input line with single . (point).<br>
+After finish the input the source code, it will be executed in a nested scope.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#5F9EA0">0</FONT></B>:
+! __script.traceOn();
+&gt; i
+enter code and end it with a single . in the line
+out.println(<B><FONT COLOR="#BC8F8F">&quot;Hello&quot;</FONT></B>);
+. 
+
+Hello
+&gt;
+</PRE></td></tr></table>
+<h2><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Control debugger from source">Control debugger from source</a></h2>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="__script.breakToDebug()">__script.breakToDebug()</a></h3>
+Insert the <code>__script.breakToDebug();</code> statement in our
+code. When executed the interpreter breaks to the debugger.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="__script.traceOn()/__script.traceOff()">__script.traceOn()/__script.traceOff()</a></h3>
+With the <code>__script.traceOn();</code> statement each line
+will be printed to standard out before executed.<br>
+With <code>__script.traceOff();</code> the trace will be switched off.<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="__script.getScriptBackTrace()">__script.getScriptBackTrace()</a></h3>
+The <code>__script.getScriptBackTrace();</code> statement gives
+you a textual representation of the the current call stack.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+out.println(__script.getScriptBackTrace());
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Error situation in Script">Error situation in Script</a></h2>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="What happens on errors">What happens on errors</a></h3>
+Whenever an error happens in the Script and the script terminates
+because either a unhandled thrown exception or a syntax/semantic 
+error the stack trace of the script will be dumped.<br>
+<br>
+Sample output:<br>
+<pre>
+507$/artefaktur/acdk/acdk_core>../bin/acdkcfgscript_d.exe cfg/csf/tests/8_misc/20_ScriptBackTrace.csf 
+unhandled exception:
+don't call this, Go Away!
+In:
+c:\d\artefaktur\acdk\acdk_core\cfg\csf\tests\8_misc\TestIncludeBackTrace.csf(7):     throw new Exception("don't call this, Go Away!");
+static  void IncludedClass.foo()
+c:\d\artefaktur\acdk\acdk_core\cfg\csf\tests\8_misc\TestIncludeBackTrace.csf(11):     foo();
+static  void IncludedClass.bar(int i)
+cfg/csf/tests/8_misc/20_ScriptBackTrace.csf(10):     IncludedClass.bar(42);
+static  void AClass.foo()
+cfg/csf/tests/8_misc/20_ScriptBackTrace.csf(18):     foo();
+static  AClass AClass.bar(int i)
+cfg/csf/tests/8_misc/20_ScriptBackTrace.csf(22): AClass.bar(2);
+</pre>
+<br>
+<br>
+<h3><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Handle interpreter errors with code">Handle interpreter errors with code</a></h3>
+<br>
+If the CfgScript error encounter an error it throws 
+an exception. Because the exception handling in CfgScript 
+using C++ exceptions the interpreter thrown exceptions can 
+also be handled inside the script.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">/*
+  first example try to use a variable, which is not
+  not defined.
+*/</FONT></I> 
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+  <B><FONT COLOR="#A020F0">new</FONT></B> StringBuffer(this_variable_doesn_exists);
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST FAILED&quot;</FONT></B>);
+} <B><FONT COLOR="#A020F0">catch</FONT></B> (acdk.cfgscript.ScriptException ex) {
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;Caught script error in script: &quot;</FONT></B> + ex.getMessage());
+}
+<I><FONT COLOR="#B22222">/*
+  second example tries to invoke a method, which doesn't exists.
+*/</FONT></I>
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+  num = 3;
+  <I><FONT COLOR="#B22222">// try to call non existent method
+</FONT></I>  num.foobaz();
+} <B><FONT COLOR="#A020F0">catch</FONT></B> (acdk.lang.NoSuchMethodException ex) {
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;Caught script error in script: &quot;</FONT></B> + ex.getMessage());
+}
+<I><FONT COLOR="#B22222">/*
+  it is also possibe - as long the curled brackets {} are balanced - 
+  to handle really ugly syntax error
+*/</FONT></I>
+<B><FONT COLOR="#A020F0">try</FONT></B> {
+  num = 3;
+  <I><FONT COLOR="#B22222">// syntax error
+</FONT></I>  <B><FONT COLOR="#A020F0">if</FONT></B> num = 3 then num = 4;
+  p- alsjd8u usdyfiu]'lu1e <I><FONT COLOR="#B22222">// more garbage
+</FONT></I>} <B><FONT COLOR="#A020F0">catch</FONT></B> (acdk.cfgscript.ScriptException ex) {
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;Caught script error in script: &quot;</FONT></B> + ex.getMessage());
+}
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable47"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Unittests">Unittests</a></h2>
+CfgScript files can also be used as plugins for the <a  href="acdk_tools_testunit_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Unit Tests </a> framework.<br>
+Please refer to <a  href="acdk_tools_testunit_man.html#Using CfgScript as Unit Tests"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Using CfgScript as Unit Tests</a>.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | Debugging | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

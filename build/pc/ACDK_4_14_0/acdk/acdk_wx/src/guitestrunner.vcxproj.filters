@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{e40b4f6c-551b-4494-a308-edab833710f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{12c2be9b-9101-48ea-bd77-7172a484ea78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\aunit">
+      <UniqueIdentifier>{a40ec984-bd85-4609-9ee7-720bdb924acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\aunit\guitestrunner">
+      <UniqueIdentifier>{020d5842-d98d-4eda-b2d3-a95c9ac21388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\res">
+      <UniqueIdentifier>{46374108-9008-45b2-9de2-092b2609e364}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\aunit\guitestrunner\GuiTestListener.h">
+      <Filter>acdk\tools\aunit\guitestrunner</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\guitestrunner\TestRunnerFrame.h">
+      <Filter>acdk\tools\aunit\guitestrunner</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\aunit\guitestrunner\TestTreeCtrl.h">
+      <Filter>acdk\tools\aunit\guitestrunner</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\aunit\guitestrunner\guitestrunner.cpp">
+      <Filter>acdk\tools\aunit\guitestrunner</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="acdk\res\wx.rc">
+      <Filter>acdk\res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

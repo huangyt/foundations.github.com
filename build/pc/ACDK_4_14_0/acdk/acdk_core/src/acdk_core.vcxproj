@@ -1,0 +1,1440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_core\dsp_r\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_core\dsp_d\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>../src;../include;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_CORE_LIB;WIN32;NDEBUG;_WINDOWS;_MT;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_core\dsp_r\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_core\dsp_r\acdk_core.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_core\dsp_r\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_core\dsp_r\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_core.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_core.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_core_r.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_core_r.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>../src;../include;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_CORE_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_core\dsp_d\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_core\dsp_d\acdk_core.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_core\dsp_d\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_core\dsp_d\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_core.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_core.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_core_d.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_core_d.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\lang\dmi\AcdkDmiClient.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\AcdkStdWeakTypeDmiClient.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\ClazzInfo.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\dmi_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiClient.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiDelegate.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiObject.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiProxy.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\Marshaler.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\MetaAttribute.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\MetaInfo.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\MetaObject.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\ScriptVar.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\ScriptVar2.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\StdDispatch.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\SysFields.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\Allocator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BackTrace.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BitmapPagedAllocator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BoehmGC.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BoehmGCAllocator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_condition.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_fastmutex.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_memcheck.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_memtrace.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_mutex.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_recursivemutex.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_semaphore.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_specific.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_system.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_winimage.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\Garbage_Heap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\LocalGcHeap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\MarkSweepGc.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\ObjectHeap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\ObjectLockPool.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\PagedAllocator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\PagedHeap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\RC_GC_Heap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\RC_Heap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\StackAllocator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\StackHeap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\TracedRawAllocator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\acdk_lang_ref_Package.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\NotifyObjectEvent.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\ref_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\Reference.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\ReferenceQueue.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\SharedOwning.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Constructor.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Enumeration.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Field.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Method.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Modifier.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Parameter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\reflect_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Unit.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\acdk_lang_Package.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\BasicArray.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Boolean.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Byte.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ByteBuffer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Character.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Class.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ClassCastException.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ClassLoader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\CmdLineOption.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\CmdLineParser.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Double.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Float.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Integer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Long.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Math.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Number.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Object.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ObjectArrayBase.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ObjectArrayImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ObjectDebug.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Package.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Process.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Runtime.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\SharedLibrary.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Short.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StackFrame.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\String.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StringBuffer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StringOld.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StringUtf8Utils.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\System.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\SystemError.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Thread.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ThreadGroup.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Throwable.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\UnicodeCharacter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Void.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractCharFilterReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractCharReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractCharWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractFilterWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractObjectReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractObjectWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\acdk_io_Package.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ASCIIDataReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ASCIIDataWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryDataReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryDataWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryObjectReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryObjectWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BufferedReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BufferedWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ByteBufferReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ByteBufferWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ByteToCharReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharArrayReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharArrayWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharToByteWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleCharReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleCharWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\File.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileAbstractImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileDescriptor.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileInfo.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileReaderWriterImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileStandardImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileStatus.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileSystem.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\GlobFilenameFilter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\InputReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\IOException.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\JoinedReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\LineNumberCharReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\LineNumberReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\MemoryMappedFile.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\MemReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\MemWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PipedReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PipedWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PrintWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PushbackCharReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PushbackReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\RandomAccessFile.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\Reader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\RessourceFileSystem.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\StandardFileSystem.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\StreamTokenizer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\SubReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\io\Writer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\AbstractLogConsumer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\FileConsumer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\Level.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\Logger.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\logging_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\LogManager.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\RollingFileConsumer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\SimpleFormatter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\StdFormatter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\TransactionConsumer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\Win32DbgConsumer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractCollection.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractList.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractListSubList.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractMap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractSequentialList.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractSet.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\acdk_util_Package.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\ArrayList.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Arrays.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\BitSet.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Bucket.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Calendar.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Collections.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Date.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\GregorianCalendar.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\HashMap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\HashSet.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Hashtable.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\LinkedList.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\ListResourceBundle.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Locale.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Properties.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\PropertiesListener.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\PropertyResourceBundle.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Random.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\ResourceBundle.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SimpleCalendar.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SimpleListResourceBundle.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SimpleTimeZone.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\StringTokenizer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SysDate.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\TimeZone.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\TreeMap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\TreeSet.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Vector.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\util\WeakHashMap.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\AsciiEncoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\AsciiUtfEncoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\ByteAsciiEncoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\CEscapeEncoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\Encoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\IsoEncoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\IsoTables.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\locale_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\UCS2Encoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\UnicodeTable.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\UTF8Encoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\lang\dmi\AcdkDmiClient.h" />
+    <ClInclude Include="acdk\lang\dmi\AcdkStdWeakTypeDmiClient.h" />
+    <ClInclude Include="acdk\lang\dmi\ClazzAttributesRes.h" />
+    <ClInclude Include="acdk\lang\dmi\ClazzInfo.h" />
+    <ClInclude Include="acdk\lang\dmi\ClazzInfoInternals.h" />
+    <ClInclude Include="acdk\lang\dmi\dmi.h" />
+    <ClInclude Include="acdk\lang\dmi\DmiClient.h" />
+    <ClInclude Include="acdk\lang\dmi\DmiDelegate.h" />
+    <ClInclude Include="acdk\lang\dmi\DmiNamedArg.h" />
+    <ClInclude Include="acdk\lang\dmi\DmiObject.h" />
+    <ClInclude Include="acdk\lang\dmi\DmiObjectArray.h" />
+    <ClInclude Include="acdk\lang\dmi\DmiProxy.h" />
+    <ClInclude Include="acdk\lang\dmi\Marshaler.h" />
+    <ClInclude Include="acdk\lang\dmi\MetaAttribute.h" />
+    <ClInclude Include="acdk\lang\dmi\MetaInfo.h" />
+    <ClInclude Include="acdk\lang\dmi\MetaInfoChildsArray.h" />
+    <ClInclude Include="acdk\lang\dmi\MetaInfoFlags.h" />
+    <ClInclude Include="acdk\lang\dmi\MetaObject.h" />
+    <ClInclude Include="acdk\lang\dmi\NamedArgs.h" />
+    <ClInclude Include="acdk\lang\dmi\ScriptInterpreter.h" />
+    <ClInclude Include="acdk\lang\dmi\ScriptVar.h" />
+    <ClInclude Include="acdk\lang\dmi\ScriptVarInl.h" />
+    <ClInclude Include="acdk\lang\dmi\StdDispatch.h" />
+    <ClInclude Include="acdk\lang\dmi\SysFields.h" />
+    <ClInclude Include="acdk\lang\sys\Allocator.h" />
+    <ClInclude Include="acdk\lang\sys\AllocatorInternals.h" />
+    <ClInclude Include="acdk\lang\sys\BackTrace.h" />
+    <ClInclude Include="acdk\lang\sys\BitmapPagedAllocator.h" />
+    <ClInclude Include="acdk\lang\sys\BoehmGC.h" />
+    <ClInclude Include="acdk\lang\sys\BoehmGCAllocator.h" />
+    <ClInclude Include="acdk\lang\sys\ControlPushPopOnStack.h" />
+    <ClInclude Include="acdk\lang\sys\core_alloca.h" />
+    <ClInclude Include="acdk\lang\sys\core_atomicop.h" />
+    <ClInclude Include="acdk\lang\sys\core_atomicop_linux.h" />
+    <ClInclude Include="acdk\lang\sys\core_condition.h" />
+    <ClInclude Include="acdk\lang\sys\core_fastmutex.h" />
+    <ClInclude Include="acdk\lang\sys\core_guard.h" />
+    <ClInclude Include="acdk\lang\sys\core_hashmap.h" />
+    <ClInclude Include="acdk\lang\sys\core_memcheck.h" />
+    <ClInclude Include="acdk\lang\sys\core_memtrace.h" />
+    <ClInclude Include="acdk\lang\sys\core_mutex.h" />
+    <ClInclude Include="acdk\lang\sys\core_pair.h" />
+    <ClInclude Include="acdk\lang\sys\core_prim.h" />
+    <ClInclude Include="acdk\lang\sys\core_ptherror.h" />
+    <ClInclude Include="acdk\lang\sys\core_recursivemutex.h" />
+    <ClInclude Include="acdk\lang\sys\core_semaphore.h" />
+    <ClInclude Include="acdk\lang\sys\core_sharedlib.h" />
+    <ClInclude Include="acdk\lang\sys\core_smartptr.h" />
+    <ClInclude Include="acdk\lang\sys\core_specific.h" />
+    <ClInclude Include="acdk\lang\sys\core_static_vector.h" />
+    <ClInclude Include="acdk\lang\sys\core_string.h" />
+    <ClInclude Include="acdk\lang\sys\core_substring.h" />
+    <ClInclude Include="acdk\lang\sys\core_sys_static_mutex.h" />
+    <ClInclude Include="acdk\lang\sys\core_syslocal.h" />
+    <ClInclude Include="acdk\lang\sys\core_system.h" />
+    <ClInclude Include="acdk\lang\sys\core_thread_id.h" />
+    <ClInclude Include="acdk\lang\sys\core_threadsys.h" />
+    <ClInclude Include="acdk\lang\sys\core_tick.h" />
+    <ClInclude Include="acdk\lang\sys\core_value_scope.h" />
+    <ClInclude Include="acdk\lang\sys\core_vector.h" />
+    <ClInclude Include="acdk\lang\sys\core_winimage.h" />
+    <ClInclude Include="acdk\lang\sys\default_vc_warnings.h" />
+    <ClInclude Include="acdk\lang\sys\disable_vc_warnings.h" />
+    <ClInclude Include="acdk\lang\sys\Garbage_Heap.h" />
+    <ClInclude Include="acdk\lang\sys\HeapFrame.h" />
+    <ClInclude Include="acdk\lang\sys\LocalGcHeap.h" />
+    <ClInclude Include="acdk\lang\sys\ObjectHeap.h" />
+    <ClInclude Include="acdk\lang\sys\ObjectLockPool.h" />
+    <ClInclude Include="acdk\lang\sys\PagedAllocator.h" />
+    <ClInclude Include="acdk\lang\sys\PagedHeap.h" />
+    <ClInclude Include="acdk\lang\sys\RC_GC_Heap.h" />
+    <ClInclude Include="acdk\lang\sys\RC_Heap.h" />
+    <ClInclude Include="acdk\lang\sys\RefHeap.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder1.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder2.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder3.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder3Inl.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder4.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolder5.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolderExt.h" />
+    <ClInclude Include="acdk\lang\sys\RefHolderX.h" />
+    <ClInclude Include="acdk\lang\sys\StackAllocator.h" />
+    <ClInclude Include="acdk\lang\sys\StackHeap.h" />
+    <ClInclude Include="acdk\lang\sys\StaticObjectWrapper.h" />
+    <ClInclude Include="acdk\lang\sys\sys.h" />
+    <ClInclude Include="acdk\lang\sys\SysRefHolder.h" />
+    <ClInclude Include="acdk\lang\sys\TracedRawAllocator.h" />
+    <ClInclude Include="acdk\lang\ref\NotifyObjectEvent.h" />
+    <ClInclude Include="acdk\lang\ref\PhantomReference.h" />
+    <ClInclude Include="acdk\lang\ref\ref.h" />
+    <ClInclude Include="acdk\lang\ref\Reference.h" />
+    <ClInclude Include="acdk\lang\ref\ReferenceQueue.h" />
+    <ClInclude Include="acdk\lang\ref\SharedOwning.h" />
+    <ClInclude Include="acdk\lang\ref\SoftReference.h" />
+    <ClInclude Include="acdk\lang\ref\WeakReference.h" />
+    <ClInclude Include="acdk\lang\reflect\AccessibleObject.h" />
+    <ClInclude Include="acdk\lang\reflect\Constructor.h" />
+    <ClInclude Include="acdk\lang\reflect\Enumeration.h" />
+    <ClInclude Include="acdk\lang\reflect\Field.h" />
+    <ClInclude Include="acdk\lang\reflect\InvocationTargetException.h" />
+    <ClInclude Include="acdk\lang\reflect\Member.h" />
+    <ClInclude Include="acdk\lang\reflect\Method.h" />
+    <ClInclude Include="acdk\lang\reflect\Modifier.h" />
+    <ClInclude Include="acdk\lang\reflect\Parameter.h" />
+    <ClInclude Include="acdk\lang\reflect\reflect.h" />
+    <ClInclude Include="acdk\lang\reflect\Unit.h" />
+    <ClInclude Include="acdk\lang\ArithmeticException.h" />
+    <ClInclude Include="acdk\lang\ArrayIndexOutOfBoundsException.h" />
+    <ClInclude Include="acdk\lang\BasicArray.h" />
+    <ClInclude Include="acdk\lang\BasicArrayInl.h" />
+    <ClInclude Include="acdk\lang\Boolean.h" />
+    <ClInclude Include="acdk\lang\Byte.h" />
+    <ClInclude Include="acdk\lang\ByteBuffer.h" />
+    <ClInclude Include="acdk\lang\Character.h" />
+    <ClInclude Include="acdk\lang\Class.h" />
+    <ClInclude Include="acdk\lang\ClassCastException.h" />
+    <ClInclude Include="acdk\lang\ClassLoader.h" />
+    <ClInclude Include="acdk\lang\ClassNotFoundException.h" />
+    <ClInclude Include="acdk\lang\Cloneable.h" />
+    <ClInclude Include="acdk\lang\CloneNotSupportedException.h" />
+    <ClInclude Include="acdk\lang\CmdLineOption.h" />
+    <ClInclude Include="acdk\lang\CmdLineParseException.h" />
+    <ClInclude Include="acdk\lang\CmdLineParser.h" />
+    <ClInclude Include="acdk\lang\Comparable.h" />
+    <ClInclude Include="acdk\lang\DmiException.h" />
+    <ClInclude Include="acdk\lang\DmiTypeConversionException.h" />
+    <ClInclude Include="acdk\lang\Double.h" />
+    <ClInclude Include="acdk\lang\Error.h" />
+    <ClInclude Include="acdk\lang\Exception.h" />
+    <ClInclude Include="acdk\lang\ExceptionDeclarations.h" />
+    <ClInclude Include="acdk\lang\ExtObject.h" />
+    <ClInclude Include="acdk\lang\Float.h" />
+    <ClInclude Include="acdk\lang\IllegalAccessException.h" />
+    <ClInclude Include="acdk\lang\IllegalArgumentException.h" />
+    <ClInclude Include="acdk\lang\IllegalMonitorStateException.h" />
+    <ClInclude Include="acdk\lang\IllegalStateException.h" />
+    <ClInclude Include="acdk\lang\IllegalThreadStateException.h" />
+    <ClInclude Include="acdk\lang\IndexOutOfBoundsException.h" />
+    <ClInclude Include="acdk\lang\InOutPreDeclaration.h" />
+    <ClInclude Include="acdk\lang\InstantiationException.h" />
+    <ClInclude Include="acdk\lang\Integer.h" />
+    <ClInclude Include="acdk\lang\InterfaceBase.h" />
+    <ClInclude Include="acdk\lang\InterruptedException.h" />
+    <ClInclude Include="acdk\lang\lang.h" />
+    <ClInclude Include="acdk\lang\lang_all.h" />
+    <ClInclude Include="acdk\lang\Long.h" />
+    <ClInclude Include="acdk\lang\Math.h" />
+    <ClInclude Include="acdk\lang\NoSuchDmiElementException.h" />
+    <ClInclude Include="acdk\lang\NoSuchElementException.h" />
+    <ClInclude Include="acdk\lang\NoSuchFieldException.h" />
+    <ClInclude Include="acdk\lang\NoSuchMethodException.h" />
+    <ClInclude Include="acdk\lang\NullPointerException.h" />
+    <ClInclude Include="acdk\lang\Number.h" />
+    <ClInclude Include="acdk\lang\NumberFormatException.h" />
+    <ClInclude Include="acdk\lang\Object.h" />
+    <ClInclude Include="acdk\lang\ObjectArrayBase.h" />
+    <ClInclude Include="acdk\lang\ObjectArrayBaseInl.h" />
+    <ClInclude Include="acdk\lang\ObjectArrayImpl.h" />
+    <ClInclude Include="acdk\lang\ObjectBase.h" />
+    <ClInclude Include="acdk\lang\ObjectDebug.h" />
+    <ClInclude Include="acdk\lang\ObjectImpl.h" />
+    <ClInclude Include="acdk\lang\ObjectInline.h" />
+    <ClInclude Include="acdk\lang\OutOfMemoryError.h" />
+    <ClInclude Include="acdk\lang\Package.h" />
+    <ClInclude Include="acdk\lang\ParamsMismatchException.h" />
+    <ClInclude Include="acdk\lang\Process.h" />
+    <ClInclude Include="acdk\lang\Runnable.h" />
+    <ClInclude Include="acdk\lang\Runtime.h" />
+    <ClInclude Include="acdk\lang\RuntimeException.h" />
+    <ClInclude Include="acdk\lang\SharedLibrary.h" />
+    <ClInclude Include="acdk\lang\Short.h" />
+    <ClInclude Include="acdk\lang\StackFrame.h" />
+    <ClInclude Include="acdk\lang\StackOverflowError.h" />
+    <ClInclude Include="acdk\lang\String.h" />
+    <ClInclude Include="acdk\lang\StringBuffer.h" />
+    <ClInclude Include="acdk\lang\StringConcenator.h" />
+    <ClInclude Include="acdk\lang\StringIndexOutOfBoundsException.h" />
+    <ClInclude Include="acdk\lang\StringInline.h" />
+    <ClInclude Include="acdk\lang\StringInternals.h" />
+    <ClInclude Include="acdk\lang\StringUtf8Utils.h" />
+    <ClInclude Include="acdk\lang\System.h" />
+    <ClInclude Include="acdk\lang\SystemError.h" />
+    <ClInclude Include="acdk\lang\SystemInline.h" />
+    <ClInclude Include="acdk\lang\SystemIntern.h" />
+    <ClInclude Include="acdk\lang\Thread.h" />
+    <ClInclude Include="acdk\lang\ThreadDeath.h" />
+    <ClInclude Include="acdk\lang\ThreadGroup.h" />
+    <ClInclude Include="acdk\lang\ThreadImpl.h" />
+    <ClInclude Include="acdk\lang\ThreadLocal.h" />
+    <ClInclude Include="acdk\lang\ThreadLocalImpl.h" />
+    <ClInclude Include="acdk\lang\Throwable.h" />
+    <ClInclude Include="acdk\lang\UnicodeCharacter.h" />
+    <ClInclude Include="acdk\lang\UnsupportedOperationException.h" />
+    <ClInclude Include="acdk\lang\Void.h" />
+    <ClInclude Include="acdk\io\AbstractCharFilterReader.h" />
+    <ClInclude Include="acdk\io\AbstractCharFilterWriter.h" />
+    <ClInclude Include="acdk\io\AbstractCharReader.h" />
+    <ClInclude Include="acdk\io\AbstractCharWriter.h" />
+    <ClInclude Include="acdk\io\AbstractFilterReader.h" />
+    <ClInclude Include="acdk\io\AbstractFilterWriter.h" />
+    <ClInclude Include="acdk\io\AbstractObjectReader.h" />
+    <ClInclude Include="acdk\io\AbstractObjectWriter.h" />
+    <ClInclude Include="acdk\io\AbstractReader.h" />
+    <ClInclude Include="acdk\io\AbstractStorageReader.h" />
+    <ClInclude Include="acdk\io\AbstractStorageWriter.h" />
+    <ClInclude Include="acdk\io\AbstractWriter.h" />
+    <ClInclude Include="acdk\io\ASCIIDataReader.h" />
+    <ClInclude Include="acdk\io\ASCIIDataWriter.h" />
+    <ClInclude Include="acdk\io\BinaryDataReader.h" />
+    <ClInclude Include="acdk\io\BinaryDataWriter.h" />
+    <ClInclude Include="acdk\io\BinaryObjectReader.h" />
+    <ClInclude Include="acdk\io\BinaryObjectWriter.h" />
+    <ClInclude Include="acdk\io\BufferedReader.h" />
+    <ClInclude Include="acdk\io\BufferedWriter.h" />
+    <ClInclude Include="acdk\io\ByteBufferReader.h" />
+    <ClInclude Include="acdk\io\ByteBufferWriter.h" />
+    <ClInclude Include="acdk\io\BytePtrReader.h" />
+    <ClInclude Include="acdk\io\ByteToCharReader.h" />
+    <ClInclude Include="acdk\io\ByteToCharWriter.h" />
+    <ClInclude Include="acdk\io\CharArrayReader.h" />
+    <ClInclude Include="acdk\io\CharArrayWriter.h" />
+    <ClInclude Include="acdk\io\CharReader.h" />
+    <ClInclude Include="acdk\io\CharToByteReader.h" />
+    <ClInclude Include="acdk\io\CharToByteWriter.h" />
+    <ClInclude Include="acdk\io\CharWriter.h" />
+    <ClInclude Include="acdk\io\ConsoleCharReader.h" />
+    <ClInclude Include="acdk\io\ConsoleCharWriter.h" />
+    <ClInclude Include="acdk\io\ConsoleReader.h" />
+    <ClInclude Include="acdk\io\ConsoleWriter.h" />
+    <ClInclude Include="acdk\io\DataReader.h" />
+    <ClInclude Include="acdk\io\DataWriter.h" />
+    <ClInclude Include="acdk\io\EOFException.h" />
+    <ClInclude Include="acdk\io\File.h" />
+    <ClInclude Include="acdk\io\FileAbstractImpl.h" />
+    <ClInclude Include="acdk\io\FileDescriptor.h" />
+    <ClInclude Include="acdk\io\FileFilter.h" />
+    <ClInclude Include="acdk\io\FileImpl.h" />
+    <ClInclude Include="acdk\io\FileInfo.h" />
+    <ClInclude Include="acdk\io\FilenameFilter.h" />
+    <ClInclude Include="acdk\io\FileNotFoundException.h" />
+    <ClInclude Include="acdk\io\FileReader.h" />
+    <ClInclude Include="acdk\io\FileReaderWriterImpl.h" />
+    <ClInclude Include="acdk\io\FileStandardImpl.h" />
+    <ClInclude Include="acdk\io\FileStatus.h" />
+    <ClInclude Include="acdk\io\FileSystem.h" />
+    <ClInclude Include="acdk\io\FileSystemFactory.h" />
+    <ClInclude Include="acdk\io\FileWriter.h" />
+    <ClInclude Include="acdk\io\FilterReader.h" />
+    <ClInclude Include="acdk\io\FilterWriter.h" />
+    <ClInclude Include="acdk\io\GlobFilenameFilter.h" />
+    <ClInclude Include="acdk\io\InputReader.h" />
+    <ClInclude Include="acdk\io\io.h" />
+    <ClInclude Include="acdk\io\io_all.h" />
+    <ClInclude Include="acdk\io\IOException.h" />
+    <ClInclude Include="acdk\io\JoinedReader.h" />
+    <ClInclude Include="acdk\io\LineNumberCharReader.h" />
+    <ClInclude Include="acdk\io\LineNumberReader.h" />
+    <ClInclude Include="acdk\io\MemoryMappedFile.h" />
+    <ClInclude Include="acdk\io\MemReader.h" />
+    <ClInclude Include="acdk\io\MemWriter.h" />
+    <ClInclude Include="acdk\io\NullWriter.h" />
+    <ClInclude Include="acdk\io\ObjectReader.h" />
+    <ClInclude Include="acdk\io\ObjectStreamException.h" />
+    <ClInclude Include="acdk\io\ObjectWriter.h" />
+    <ClInclude Include="acdk\io\OutputDebugStringWriter.h" />
+    <ClInclude Include="acdk\io\PipedReader.h" />
+    <ClInclude Include="acdk\io\PipedWriter.h" />
+    <ClInclude Include="acdk\io\PrintWriter.h" />
+    <ClInclude Include="acdk\io\PushbackCharReader.h" />
+    <ClInclude Include="acdk\io\PushbackReader.h" />
+    <ClInclude Include="acdk\io\RandomAccessFile.h" />
+    <ClInclude Include="acdk\io\Reader.h" />
+    <ClInclude Include="acdk\io\RessourceFileImpl.h" />
+    <ClInclude Include="acdk\io\RessourceFileSystem.h" />
+    <ClInclude Include="acdk\io\Serializable.h" />
+    <ClInclude Include="acdk\io\SerializedObjectDescriptor.h" />
+    <ClInclude Include="acdk\io\StandardFileSystem.h" />
+    <ClInclude Include="acdk\io\Storage.h" />
+    <ClInclude Include="acdk\io\StreamTokenizer.h" />
+    <ClInclude Include="acdk\io\StringReader.h" />
+    <ClInclude Include="acdk\io\StringWriter.h" />
+    <ClInclude Include="acdk\io\SubReader.h" />
+    <ClInclude Include="acdk\io\TeeCharWriter.h" />
+    <ClInclude Include="acdk\io\TeeReader.h" />
+    <ClInclude Include="acdk\io\TeeWriter.h" />
+    <ClInclude Include="acdk\io\Writer.h" />
+    <ClInclude Include="acdk\util\logging\AbstractLogConsumer.h" />
+    <ClInclude Include="acdk\util\logging\ConsoleConsumer.h" />
+    <ClInclude Include="acdk\util\logging\FileConsumer.h" />
+    <ClInclude Include="acdk\util\logging\Formatter.h" />
+    <ClInclude Include="acdk\util\logging\Level.h" />
+    <ClInclude Include="acdk\util\logging\Log.h" />
+    <ClInclude Include="acdk\util\logging\LogConsumer.h" />
+    <ClInclude Include="acdk\util\logging\Logger.h" />
+    <ClInclude Include="acdk\util\logging\logging.h" />
+    <ClInclude Include="acdk\util\logging\LogManager.h" />
+    <ClInclude Include="acdk\util\logging\LogRecord.h" />
+    <ClInclude Include="acdk\util\logging\MsgBoxConsumer.h" />
+    <ClInclude Include="acdk\util\logging\NamedLogArgs.h" />
+    <ClInclude Include="acdk\util\logging\RollingFileConsumer.h" />
+    <ClInclude Include="acdk\util\logging\SimpleFormatter.h" />
+    <ClInclude Include="acdk\util\logging\StdFormatter.h" />
+    <ClInclude Include="acdk\util\logging\TransactionConsumer.h" />
+    <ClInclude Include="acdk\util\logging\Win32DbgConsumer.h" />
+    <ClInclude Include="acdk\util\logging\WriterConsumer.h" />
+    <ClInclude Include="acdk\util\AbstractCollection.h" />
+    <ClInclude Include="acdk\util\AbstractList.h" />
+    <ClInclude Include="acdk\util\AbstractListIterator.h" />
+    <ClInclude Include="acdk\util\AbstractListListIterator.h" />
+    <ClInclude Include="acdk\util\AbstractListSubList.h" />
+    <ClInclude Include="acdk\util\AbstractMap.h" />
+    <ClInclude Include="acdk\util\AbstractSequentialList.h" />
+    <ClInclude Include="acdk\util\AbstractSet.h" />
+    <ClInclude Include="acdk\util\acdk_util_classes.h" />
+    <ClInclude Include="acdk\util\ArrayIterator.h" />
+    <ClInclude Include="acdk\util\ArrayList.h" />
+    <ClInclude Include="acdk\util\Arrays.h" />
+    <ClInclude Include="acdk\util\BasicMapEntry.h" />
+    <ClInclude Include="acdk\util\BitSet.h" />
+    <ClInclude Include="acdk\util\Bucket.h" />
+    <ClInclude Include="acdk\util\Calendar.h" />
+    <ClInclude Include="acdk\util\Collection.h" />
+    <ClInclude Include="acdk\util\Collections.h" />
+    <ClInclude Include="acdk\util\Comparator.h" />
+    <ClInclude Include="acdk\util\ConcurrentModificationException.h" />
+    <ClInclude Include="acdk\util\Date.h" />
+    <ClInclude Include="acdk\util\Dictionary.h" />
+    <ClInclude Include="acdk\util\DoubleIterator.h" />
+    <ClInclude Include="acdk\util\EmptyCollectionIterator.h" />
+    <ClInclude Include="acdk\util\Enumeration.h" />
+    <ClInclude Include="acdk\util\EventListener.h" />
+    <ClInclude Include="acdk\util\EventListenerProxy.h" />
+    <ClInclude Include="acdk\util\EventObject.h" />
+    <ClInclude Include="acdk\util\GregorianCalendar.h" />
+    <ClInclude Include="acdk\util\HashMap.h" />
+    <ClInclude Include="acdk\util\HashSet.h" />
+    <ClInclude Include="acdk\util\Hashtable.h" />
+    <ClInclude Include="acdk\util\IdentityHashMap.h" />
+    <ClInclude Include="acdk\util\Iterator.h" />
+    <ClInclude Include="acdk\util\LinkedList.h" />
+    <ClInclude Include="acdk\util\List.h" />
+    <ClInclude Include="acdk\util\ListIterator.h" />
+    <ClInclude Include="acdk\util\ListResourceBundle.h" />
+    <ClInclude Include="acdk\util\Locale.h" />
+    <ClInclude Include="acdk\util\Map.h" />
+    <ClInclude Include="acdk\util\MissingResourceException.h" />
+    <ClInclude Include="acdk\util\NoSuchElementException.h" />
+    <ClInclude Include="acdk\util\Properties.h" />
+    <ClInclude Include="acdk\util\PropertiesListener.h" />
+    <ClInclude Include="acdk\util\PropertyResourceBundle.h" />
+    <ClInclude Include="acdk\util\Random.h" />
+    <ClInclude Include="acdk\util\ResourceBundle.h" />
+    <ClInclude Include="acdk\util\Set.h" />
+    <ClInclude Include="acdk\util\SimpleCalendar.h" />
+    <ClInclude Include="acdk\util\SimpleListResourceBundle.h" />
+    <ClInclude Include="acdk\util\SimpleTimeZone.h" />
+    <ClInclude Include="acdk\util\SingleObjectIterator.h" />
+    <ClInclude Include="acdk\util\SortedMap.h" />
+    <ClInclude Include="acdk\util\SortedSet.h" />
+    <ClInclude Include="acdk\util\StringTokenizer.h" />
+    <ClInclude Include="acdk\util\SynchronizedCollections.h" />
+    <ClInclude Include="acdk\util\SysDate.h" />
+    <ClInclude Include="acdk\util\TAbstractCollection.h" />
+    <ClInclude Include="acdk\util\TAbstractList.h" />
+    <ClInclude Include="acdk\util\TAbstractListIterator.h" />
+    <ClInclude Include="acdk\util\TAbstractListListIterator.h" />
+    <ClInclude Include="acdk\util\TAbstractListSubList.h" />
+    <ClInclude Include="acdk\util\TAbstractMap.h" />
+    <ClInclude Include="acdk\util\TAbstractSet.h" />
+    <ClInclude Include="acdk\util\TArrayList.h" />
+    <ClInclude Include="acdk\util\TBasicMapEntry.h" />
+    <ClInclude Include="acdk\util\TBucket.h" />
+    <ClInclude Include="acdk\util\TCollection.h" />
+    <ClInclude Include="acdk\util\TComparator.h" />
+    <ClInclude Include="acdk\util\TDoubleIterator.h" />
+    <ClInclude Include="acdk\util\THashMap.h" />
+    <ClInclude Include="acdk\util\THashSet.h" />
+    <ClInclude Include="acdk\util\TimeZone.h" />
+    <ClInclude Include="acdk\util\TIterator.h" />
+    <ClInclude Include="acdk\util\TList.h" />
+    <ClInclude Include="acdk\util\TListIterator.h" />
+    <ClInclude Include="acdk\util\TMap.h" />
+    <ClInclude Include="acdk\util\TreeMap.h" />
+    <ClInclude Include="acdk\util\TreeSet.h" />
+    <ClInclude Include="acdk\util\TSet.h" />
+    <ClInclude Include="acdk\util\TSortedMap.h" />
+    <ClInclude Include="acdk\util\TTreeMap.h" />
+    <ClInclude Include="acdk\util\util.h" />
+    <ClInclude Include="acdk\util\util_all.h" />
+    <ClInclude Include="acdk\util\Vector.h" />
+    <ClInclude Include="acdk\util\WeakHashMap.h" />
+    <ClInclude Include="acdk\locale\8859-10_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-13_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-14_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-15_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-16_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-1_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-2_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-3_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-4_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-5_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-6_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-7_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-8_mapping.h" />
+    <ClInclude Include="acdk\locale\8859-9_mapping.h" />
+    <ClInclude Include="acdk\locale\AsciiEncoding.h" />
+    <ClInclude Include="acdk\locale\AsciiUtfEncoding.h" />
+    <ClInclude Include="acdk\locale\ByteAsciiEncoding.h" />
+    <ClInclude Include="acdk\locale\CEscapeEncoding.h" />
+    <ClInclude Include="acdk\locale\CharacterCodingException.h" />
+    <ClInclude Include="acdk\locale\CodingErrorAction.h" />
+    <ClInclude Include="acdk\locale\CP1250_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1251_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1252_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1253_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1254_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1255_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1256_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1257_mapping.h" />
+    <ClInclude Include="acdk\locale\CP1258_mapping.h" />
+    <ClInclude Include="acdk\locale\Decoder.h" />
+    <ClInclude Include="acdk\locale\Encoder.h" />
+    <ClInclude Include="acdk\locale\Encoding.h" />
+    <ClInclude Include="acdk\locale\IBM-850_mapping.h" />
+    <ClInclude Include="acdk\locale\IllegalCharsetNameException.h" />
+    <ClInclude Include="acdk\locale\IsoEncoding.h" />
+    <ClInclude Include="acdk\locale\locale.h" />
+    <ClInclude Include="acdk\locale\UCS2Encoding.h" />
+    <ClInclude Include="acdk\locale\UnicodeTable.h" />
+    <ClInclude Include="acdk\locale\UnmappableCharacterException.h" />
+    <ClInclude Include="acdk\locale\UTF8Encoding.h" />
+    <ClInclude Include="acdk\acdk.h" />
+    <ClInclude Include="acdk\acdk_all.h" />
+    <ClInclude Include="acdk\AcdkCoreConfig.h" />
+    <ClInclude Include="acdk\Compiler.h" />
+    <ClInclude Include="acdk\Config.h" />
+    <ClInclude Include="acdk\Platform.h" />
+    <ClInclude Include="acdk\Version.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

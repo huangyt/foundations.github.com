@@ -1,0 +1,46 @@
+using acdk.io;
+{
+String head = "<html><header><title>Hello</title></header><body>";
+String footer = "</body></html>";
+StringArray hellos = [ "First", "Second", "Third" ];
+StringBuffer sb = new StringBuffer();
+sb.append(head);
+sb.append("<table>");
+foreach (String s in hellos)
+{
+  sb.append("<tr><td>").append(s).append("</td></tr>");
+}
+sb.append("</table>");
+sb.append(footer);
+out.println(sb.toString());
+}
+
+{
+  StringArray hellos = [ "First", "Second", "Third" ];
+  
+String s =
+`"<html>
+  <header>
+    <title>Hello</title>
+  </header>
+  <body>
+    <table>
+  !{ foreach (String s in hellos) { out.println(\"<tr><td>\" + s + \"</td></tr>\"); } }!
+  </table>
+ </body>
+</html>"`;
+//out.println(s);
+
+}
+
+
+
+StringArray sa = [ "First", "Second", "Third" ];
+
+File dir = (new File(__script.getFileName())).getParentFile();
+foreach (File f in dir.listFiles(new GlobFilenameFilter("*.cst")))
+{
+  Script s = new Script(f.getPath());
+  s->evalTemplate(f, __props);
+}
+

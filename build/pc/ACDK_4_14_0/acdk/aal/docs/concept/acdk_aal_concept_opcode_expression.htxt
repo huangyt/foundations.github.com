@@ -1,0 +1,59 @@
+%id: acdk_aal_concept_opcode_expression
+%title: AAL OpCode Expressions
+%shorttitle: Expressions
+%body:
+<chapterline/>
+<pageintro>
+Intermediate OpCode for AAL.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Basics</jump1>
+
+Expression are evaluated to a resulting value, which should be on top of stack
+after execution.
+
+<jump1>Topics</jump1>
+
+<jump2>Operators</jump2>
+<rs>
+id1 + id2
+</rs>
+whereas id1/id2 can be an basic type or an Object.
+If both ids are basic types build in operator should
+be used. Otherwise an matching operator should be found.
+<rs>
+load [id1]
+load [id2]
+add
+
+or
+load [id2] // argument
+load [id1] // object
+push "operator_pl"
+push 1 // number of args and flags
+invoke
+</rs>
+
+<jump2>Short circuit boolean evaluation</jump2>
+<rs>
+i < 9 && i > 0
+</rs>
+If the first part of the expression i < 9 the second part 
+of the logical expression should not be evaluated.
+<rs>
+load [i]
+push 9
+lt
+brfalse endofexpr // false is on TOS
+pop               // TOS=true not further needed
+load [i]
+push 0
+gt    // result is on TOS
+:endofexpr
+
+</rs>
+
+.

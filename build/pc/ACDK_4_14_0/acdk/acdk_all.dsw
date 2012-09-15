@@ -1,0 +1,635 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+###############################################################################
+
+Project: "AdressClient"=.\acdkx_orb\tests\acdkx\orb\acdk\AdressClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdkx_orb
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AdressServer"=.\acdkx_orb\tests\acdkx\orb\acdk\AdressServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "HelloWorld"=.\acdk_boot\src\HelloWorld.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_boot
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_aal"=.\aal\src\acdk_aal.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_boot"=.\acdk_boot\src\acdk_boot.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_cfgscript"=.\acdk_core\src\acdk_cfgscript.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_core"=.\acdk_core\src\acdk_core.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_core_dmiproxy"=.\acdk_core\src\acdk_core_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_core_metainf"=.\acdk_core\src\acdk_core_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_java"=.\acdk_java\src\acdk_java.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_lisp"=.\acdk_lisp\src\acdk_lisp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_make"=.\acdk_make\src\acdk_make.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_net"=.\acdk_net\src\acdk_net.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_perl"=.\acdk_perl\src\acdk_perl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_python"=.\acdk_python\src\acdk_python.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_security"=.\acdk_core\src\acdk_security.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_security_metainf"=.\acdk_core\src\acdk_security_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_security
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_sql"=.\acdk_sql\src\acdk_sql.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_sql_odbc"=.\acdk_sql_odbc\src\acdk_sql_odbc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_sql
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_tcl"=.\acdk_tcl\src\acdk_tcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_text"=.\acdk_text\src\acdk_text.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_text_metainf"=.\acdk_text\src\acdk_text_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_tools_aunit"=.\acdk_core\src\acdk_tools_aunit.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_tools_aunit_dmiproxy"=.\acdk_core\src\acdk_tools_aunit_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_tools_aunit_metainf"=.\acdk_core\src\acdk_tools_aunit_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_aunit
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_tools_mc"=.\acdk_core\src\acdk_tools_mc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdk_vfile"=.\acdk_vfile\src\acdk_vfile.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_vfile_convert"=.\acdk_vfile\src\acdk_vfile_convert.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_vfile
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_vfile_file2rc"=.\acdk_vfile\src\acdk_vfile_file2rc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdk_xml"=.\acdk_xml\src\acdk_xml.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name org_xml
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdkcfgscript"=.\acdk_core\src\acdkcfgscript.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdkjava"=.\acdk_java\src\acdkjava.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_java
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_text
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdklisp"=.\acdk_lisp\src\acdklisp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_lisp
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdkmake"=.\acdk_make\src\acdkmake.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_make
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdkmc"=.\acdk_core\src\acdkmc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_security
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_tools_mc
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdkperl"=.\acdk_perl\src\acdkperl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_perl
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdkpython"=.\acdk_python\src\acdkpython.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_python
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdktcl"=.\acdk_tcl\src\acdktcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_tcl
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "acdkx_com"=.\acdkx_com\src\acdkx_com.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "acdkx_orb"=.\acdkx_orb\src\acdkx_orb.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_xml
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "org_xml"=.\acdk_xml\src\org_xml.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

@@ -1,0 +1,122 @@
+<package>
+<name>acdk_wx</name>
+
+<title>
+ACDK wxWindow/wxWidget (acdk_WX)
+</title>
+
+<shortdescription>
+acdk_wx provides a ACDK-Wrapper to create platform independ
+GUI applications using the wxWindow/wxWidget GUI library.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2004 by Roger Rene Kommer
+</copyright>
+<description>
+
+<m>acdk_wx</m> is a ACDK wrapper for the portable %ref[wxWidgets GUI library, http://www.wxwidgets.org/].
+
+Different to the original wxWidgetds C++ library, <m>acdk_wx</m> uses the simplified 
+%ref[ACDK object model, acdk_wx_hb_mapping] (no pointers needed).
+
+Many GUI classes %ref[are availabe in ACDK, acdk_wx_hb_overview_classes].
+
+With %ref[CfgScript, acdk_cfgscript_hb] portable GUI application can be written with
+C++ or Cfgscript with a %ref[few lines, acdk_wx_hb_minimal].
+
+For more information please refer also to the %ref[handbook, acdk_wx_hb].
+
+</description>
+
+<license>
+ACDK Free Edition License (%ref[acdk_license]).
+</license>
+
+<dependencies>
+acdk_core
+</dependencies>
+
+<namespaces>
+%nsref[acdk::wx]
+</namespaces>
+
+<plattforms>
+All.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+Beta version.
+
+Unit test on Linux/gtk+ doesn't work properly:
+Running all unit tests will cause an error
+in the threading library (GThread) of wxWidgets. 
+This error will not occour if you running only one 
+test at once and restart the test executable.
+
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+- Port to wxWidgets 2.6
+- Many fixes in acdk::wx package
+- New module acdk_wx_ide with wrapper for wxStyledTextCtrl
+  and wxFrameLayout.
+  The FrameLayout doesn't seem to run stable on all platforms.
+- Experimental CfgScript GUI Editor and Debugger acdkcsfide. 
+  This will run currently only under the Windows platform.
+  
+===========================================================
+4.12.0
+- Compilation fixes for wxGTK
+
+===========================================================
+4.11.0
+- Implemented most wxWidgets classes in ACDK.
+- Reorganized Event handling. Event types (like EvtMove)
+  are not longer defined as enumeration, but as static
+  members of the corresponding Event class (MoveEvent.EvtMove).
+- Written guitestrunner to execute ACDK Unit test executables.
+- Fixed some memory leaks.
+- Added ACDK specific controls ClassTreeCtrl, ObjectTreeCtrl 
+  and CfgScriptConsole.
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.10.0
+- First working alpha version with CfgScript language
+  binding.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+Intial revision.
+
+
+</changes>
+
+<notes>
+
+</notes>
+</package>

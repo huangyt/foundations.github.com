@@ -1,0 +1,46 @@
+<package>
+<name>acdk_tcl</name>
+
+<title>
+  ACDK Tcl Library
+</title>
+
+<shortdescription>
+acdkx_orb is a build in CORBA ORB for ACDK.
+</shortdescription>
+
+<description>
+None at the moment.
+</description>
+
+<license>
+  ACDK Free Edition License.
+</license>
+<dependencies>
+  acdk_core
+  acdk_text
+  acdk_xml
+</dependencies>
+
+<namespaces>
+  org::omg
+  acdkx::arb
+  acdkx::orb
+</namespaces>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  This is pre alpha
+</todo>
+
+<changes>
+  Initial releases.
+</changes>
+
+<notes>
+
+</notes>
+</package>

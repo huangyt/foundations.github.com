@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_net\dsp_d\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_net\dsp_r\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_NET_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_net\dsp_d\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_net\dsp_d\acdk_net.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_net\dsp_d\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_net\dsp_d\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_net.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_net.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_net_d.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_net_d.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_NET_LIB;WIN32;NDEBUG;_WINDOWS;_MT;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_net\dsp_r\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_net\dsp_r\acdk_net.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_net\dsp_r\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_net\dsp_r\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_net.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_net.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_net_r.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_net_r.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\net\Authenticator.h" />
+    <ClInclude Include="acdk\net\Config.h" />
+    <ClInclude Include="acdk\net\ContentHandler.h" />
+    <ClInclude Include="acdk\net\ContentHandlerFactory.h" />
+    <ClInclude Include="acdk\net\DatagramPacket.h" />
+    <ClInclude Include="acdk\net\DatagramSocket.h" />
+    <ClInclude Include="acdk\net\FileNameMap.h" />
+    <ClInclude Include="acdk\net\FileURLConnection.h" />
+    <ClInclude Include="acdk\net\HeaderFieldHelper.h" />
+    <ClInclude Include="acdk\net\HttpURLConnection.h" />
+    <ClInclude Include="acdk\net\HttpURLConnectionImpl.h" />
+    <ClInclude Include="acdk\net\InetAddress.h" />
+    <ClInclude Include="acdk\net\InetSocketAddress.h" />
+    <ClInclude Include="acdk\net\InetURLConnection.h" />
+    <ClInclude Include="acdk\net\MalformedURLException.h" />
+    <ClInclude Include="acdk\net\MimeTypeMapper.h" />
+    <ClInclude Include="acdk\net\net.h" />
+    <ClInclude Include="acdk\net\netsysincl.h" />
+    <ClInclude Include="acdk\net\PasswordAuthentication.h" />
+    <ClInclude Include="acdk\net\ProtocolException.h" />
+    <ClInclude Include="acdk\net\ServerSocket.h" />
+    <ClInclude Include="acdk\net\Socket.h" />
+    <ClInclude Include="acdk\net\SocketAddress.h" />
+    <ClInclude Include="acdk\net\SocketException.h" />
+    <ClInclude Include="acdk\net\SocketImpl.h" />
+    <ClInclude Include="acdk\net\SocketImplFactory.h" />
+    <ClInclude Include="acdk\net\SocketLogConsumer.h" />
+    <ClInclude Include="acdk\net\SocketOptions.h" />
+    <ClInclude Include="acdk\net\TCPSocket.h" />
+    <ClInclude Include="acdk\net\TCPSocketFactory.h" />
+    <ClInclude Include="acdk\net\TransRateReader.h" />
+    <ClInclude Include="acdk\net\TransRateWriter.h" />
+    <ClInclude Include="acdk\net\UnknownServiceException.h" />
+    <ClInclude Include="acdk\net\URL.h" />
+    <ClInclude Include="acdk\net\URLConnection.h" />
+    <ClInclude Include="acdk\net\URLDecoder.h" />
+    <ClInclude Include="acdk\net\URLEncoder.h" />
+    <ClInclude Include="acdk\net\URLEncoding.h" />
+    <ClInclude Include="acdk\net\UrlFileSystem.h" />
+    <ClInclude Include="acdk\net\URLInterface.h" />
+    <ClInclude Include="acdk\net\URLStreamHandler.h" />
+    <ClInclude Include="acdk\net\URLStreamHandlerFactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\net\acdk_net_Package.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\Authenticator.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\DatagramSocket.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\FileURLConnection.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\HeaderFieldHelper.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\HttpURLConnection.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\HttpURLConnectionImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\InetAddress.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\InetURLConnection.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\MimeTypeMapper.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\net_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ServerSocket.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\Socket.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketException.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketImplFactory.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketLogConsumer.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketOptions.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TCPSocket.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TCPSocketFactory.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TransRateReader.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TransRateWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URL.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLConnection.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLDecoder.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLEncoder.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLEncoding.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\UrlFileSystem.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLStreamHandler.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLStreamHandlerFactory.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<book>
+  <!-- describing the title -->
+  <title value="This is the Title"/>
+  <body>
+    This is the text
+  </body>
+  <body2><![CDATA[
+  void foo()
+  {
+    ++i; "CDATA";
+  }]]></body2>
+  <body3><![CDATA[
+  void foo()
+  {
+    ++i; "CDATA";
+  }]]></body3>
+</book>

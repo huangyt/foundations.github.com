@@ -1,0 +1,311 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_aci/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ACDK_ACI_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_cfgscript -lacdk_text 
+CFLAGSX = 
+LDFLAGSX = 
+
+SOURCES= 	acdk/aci/aci_metainf_base.cpp \
+	acdk/aci/ClazzSymbolTable.cpp \
+	acdk/aci/Compiler.cpp \
+	acdk/aci/DClazzInfo.cpp \
+	acdk/aci/DClazzInfoPersist.cpp \
+	acdk/aci/SymbolTable.cpp \
+	acdk/aci/ast/AstNode.cpp \
+	acdk/aci/ast/ast_metainf_base.cpp \
+	acdk/aci/ast/Terminal.cpp \
+	acdk/aci/parser/BlockCommentParseNode.cpp \
+	acdk/aci/parser/DecimalLiteralParseNode.cpp \
+	acdk/aci/parser/FloatLiteralParseNode.cpp \
+	acdk/aci/parser/IdentifierParseNode.cpp \
+	acdk/aci/parser/KeywordParseNode.cpp \
+	acdk/aci/parser/ParseEnv.cpp \
+	acdk/aci/parser/ParseException.cpp \
+	acdk/aci/parser/parser_metainf_base.cpp \
+	acdk/aci/parser/RegScanParseNode.cpp \
+	acdk/aci/parser/Scanner.cpp \
+	acdk/aci/parser/StringTerminalParseNode.cpp \
+	acdk/aci/parser/SyntaxNode.cpp \
+	acdk/aci/parser/SyntaxParseNode.cpp \
+	acdk/aci/parser/TerminalParseNode.cpp \
+	acdk/aci/vm/EvalEnv.cpp \
+	acdk/aci/vm/ExecutableCollector.cpp \
+	acdk/aci/vm/OpCodeStm.cpp \
+	acdk/aci/vm/vm_metainf_base.cpp \
+	acdk/aci/util/util_metainf_base.cpp \
+	acdk/aci/sasm/AsmParseNode.cpp \
+
+HEADER= 	acdk/aci/AccLoader.h \
+	acdk/aci/aci.h \
+	acdk/aci/aci_metainf.h \
+	acdk/aci/ClazzSymbolTable.h \
+	acdk/aci/Compiler.h \
+	acdk/aci/Config.h \
+	acdk/aci/core_stack.h \
+	acdk/aci/DClazzInfo.h \
+	acdk/aci/StdAci.h \
+	acdk/aci/SymbolTable.h \
+	acdk/aci/ast/AciCodeAttributeData.h \
+	acdk/aci/ast/ast.h \
+	acdk/aci/ast/AstNode.h \
+	acdk/aci/ast/AstNodeVisitor.h \
+	acdk/aci/ast/ast_metainf.h \
+	acdk/aci/ast/EofTerminal.h \
+	acdk/aci/ast/Expression.h \
+	acdk/aci/ast/Identifier.h \
+	acdk/aci/ast/Keyword.h \
+	acdk/aci/ast/Literal.h \
+	acdk/aci/ast/Statement.h \
+	acdk/aci/ast/Terminal.h \
+	acdk/aci/ast/Whitespace.h \
+	acdk/aci/parser/BlockCommentParseNode.h \
+	acdk/aci/parser/DecimalLiteralParseNode.h \
+	acdk/aci/parser/FloatLiteralParseNode.h \
+	acdk/aci/parser/IdentifierParseNode.h \
+	acdk/aci/parser/KeywordParseNode.h \
+	acdk/aci/parser/LineCommentParseNode.h \
+	acdk/aci/parser/LiteralParseNode.h \
+	acdk/aci/parser/ParseEnv.h \
+	acdk/aci/parser/ParseException.h \
+	acdk/aci/parser/ParseNode.h \
+	acdk/aci/parser/parser.h \
+	acdk/aci/parser/RegScanParseNode.h \
+	acdk/aci/parser/Scanner.h \
+	acdk/aci/parser/StringTerminalParseNode.h \
+	acdk/aci/parser/SyntaxNode.h \
+	acdk/aci/parser/SyntaxParseNode.h \
+	acdk/aci/parser/TerminalParseNode.h \
+	acdk/aci/parser/WhiteSpaceParseNode.h \
+	acdk/aci/vm/EvalEnv.h \
+	acdk/aci/vm/Executable.h \
+	acdk/aci/vm/OpCodeOp.h \
+	acdk/aci/vm/OpCodeStm.h \
+	acdk/aci/vm/vm.h \
+	acdk/aci/util/CodeLocation.h \
+	acdk/aci/util/Source.h \
+	acdk/aci/util/StringSource.h \
+	acdk/aci/util/TStackedSet.h \
+	acdk/aci/util/util.h \
+	acdk/aci/sasm/AsmParseNode.h \
+	acdk/aci/sasm/sasm.h \
+
+OBJECTS= 	../tobj/acdk_aci/linux/aci_metainf_base.o \
+	../tobj/acdk_aci/linux/ClazzSymbolTable.o \
+	../tobj/acdk_aci/linux/Compiler.o \
+	../tobj/acdk_aci/linux/DClazzInfo.o \
+	../tobj/acdk_aci/linux/DClazzInfoPersist.o \
+	../tobj/acdk_aci/linux/SymbolTable.o \
+	../tobj/acdk_aci/linux/AstNode.o \
+	../tobj/acdk_aci/linux/ast_metainf_base.o \
+	../tobj/acdk_aci/linux/Terminal.o \
+	../tobj/acdk_aci/linux/BlockCommentParseNode.o \
+	../tobj/acdk_aci/linux/DecimalLiteralParseNode.o \
+	../tobj/acdk_aci/linux/FloatLiteralParseNode.o \
+	../tobj/acdk_aci/linux/IdentifierParseNode.o \
+	../tobj/acdk_aci/linux/KeywordParseNode.o \
+	../tobj/acdk_aci/linux/ParseEnv.o \
+	../tobj/acdk_aci/linux/ParseException.o \
+	../tobj/acdk_aci/linux/parser_metainf_base.o \
+	../tobj/acdk_aci/linux/RegScanParseNode.o \
+	../tobj/acdk_aci/linux/Scanner.o \
+	../tobj/acdk_aci/linux/StringTerminalParseNode.o \
+	../tobj/acdk_aci/linux/SyntaxNode.o \
+	../tobj/acdk_aci/linux/SyntaxParseNode.o \
+	../tobj/acdk_aci/linux/TerminalParseNode.o \
+	../tobj/acdk_aci/linux/EvalEnv.o \
+	../tobj/acdk_aci/linux/ExecutableCollector.o \
+	../tobj/acdk_aci/linux/OpCodeStm.o \
+	../tobj/acdk_aci/linux/vm_metainf_base.o \
+	../tobj/acdk_aci/linux/util_metainf_base.o \
+	../tobj/acdk_aci/linux/AsmParseNode.o \
+
+
+FINALTARGET=../../bin/libacdk_aci.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_aci.so: $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_aci.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_aci.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_aci/linux/aci_metainf_base.o: acdk/aci/aci_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/aci_metainf_base.o -c acdk/aci/aci_metainf_base.cpp
+
+../tobj/acdk_aci/linux/ClazzSymbolTable.o: acdk/aci/ClazzSymbolTable.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/ClazzSymbolTable.o -c acdk/aci/ClazzSymbolTable.cpp
+
+../tobj/acdk_aci/linux/Compiler.o: acdk/aci/Compiler.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/Compiler.o -c acdk/aci/Compiler.cpp
+
+../tobj/acdk_aci/linux/DClazzInfo.o: acdk/aci/DClazzInfo.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/DClazzInfo.o -c acdk/aci/DClazzInfo.cpp
+
+../tobj/acdk_aci/linux/DClazzInfoPersist.o: acdk/aci/DClazzInfoPersist.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/DClazzInfoPersist.o -c acdk/aci/DClazzInfoPersist.cpp
+
+../tobj/acdk_aci/linux/SymbolTable.o: acdk/aci/SymbolTable.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/SymbolTable.o -c acdk/aci/SymbolTable.cpp
+
+../tobj/acdk_aci/linux/AstNode.o: acdk/aci/ast/AstNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/AstNode.o -c acdk/aci/ast/AstNode.cpp
+
+../tobj/acdk_aci/linux/ast_metainf_base.o: acdk/aci/ast/ast_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/ast_metainf_base.o -c acdk/aci/ast/ast_metainf_base.cpp
+
+../tobj/acdk_aci/linux/Terminal.o: acdk/aci/ast/Terminal.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/Terminal.o -c acdk/aci/ast/Terminal.cpp
+
+../tobj/acdk_aci/linux/BlockCommentParseNode.o: acdk/aci/parser/BlockCommentParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/BlockCommentParseNode.o -c acdk/aci/parser/BlockCommentParseNode.cpp
+
+../tobj/acdk_aci/linux/DecimalLiteralParseNode.o: acdk/aci/parser/DecimalLiteralParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/DecimalLiteralParseNode.o -c acdk/aci/parser/DecimalLiteralParseNode.cpp
+
+../tobj/acdk_aci/linux/FloatLiteralParseNode.o: acdk/aci/parser/FloatLiteralParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/FloatLiteralParseNode.o -c acdk/aci/parser/FloatLiteralParseNode.cpp
+
+../tobj/acdk_aci/linux/IdentifierParseNode.o: acdk/aci/parser/IdentifierParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/IdentifierParseNode.o -c acdk/aci/parser/IdentifierParseNode.cpp
+
+../tobj/acdk_aci/linux/KeywordParseNode.o: acdk/aci/parser/KeywordParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/KeywordParseNode.o -c acdk/aci/parser/KeywordParseNode.cpp
+
+../tobj/acdk_aci/linux/ParseEnv.o: acdk/aci/parser/ParseEnv.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/ParseEnv.o -c acdk/aci/parser/ParseEnv.cpp
+
+../tobj/acdk_aci/linux/ParseException.o: acdk/aci/parser/ParseException.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/ParseException.o -c acdk/aci/parser/ParseException.cpp
+
+../tobj/acdk_aci/linux/parser_metainf_base.o: acdk/aci/parser/parser_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/parser_metainf_base.o -c acdk/aci/parser/parser_metainf_base.cpp
+
+../tobj/acdk_aci/linux/RegScanParseNode.o: acdk/aci/parser/RegScanParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/RegScanParseNode.o -c acdk/aci/parser/RegScanParseNode.cpp
+
+../tobj/acdk_aci/linux/Scanner.o: acdk/aci/parser/Scanner.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/Scanner.o -c acdk/aci/parser/Scanner.cpp
+
+../tobj/acdk_aci/linux/StringTerminalParseNode.o: acdk/aci/parser/StringTerminalParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/StringTerminalParseNode.o -c acdk/aci/parser/StringTerminalParseNode.cpp
+
+../tobj/acdk_aci/linux/SyntaxNode.o: acdk/aci/parser/SyntaxNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/SyntaxNode.o -c acdk/aci/parser/SyntaxNode.cpp
+
+../tobj/acdk_aci/linux/SyntaxParseNode.o: acdk/aci/parser/SyntaxParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/SyntaxParseNode.o -c acdk/aci/parser/SyntaxParseNode.cpp
+
+../tobj/acdk_aci/linux/TerminalParseNode.o: acdk/aci/parser/TerminalParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/TerminalParseNode.o -c acdk/aci/parser/TerminalParseNode.cpp
+
+../tobj/acdk_aci/linux/EvalEnv.o: acdk/aci/vm/EvalEnv.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/EvalEnv.o -c acdk/aci/vm/EvalEnv.cpp
+
+../tobj/acdk_aci/linux/ExecutableCollector.o: acdk/aci/vm/ExecutableCollector.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/ExecutableCollector.o -c acdk/aci/vm/ExecutableCollector.cpp
+
+../tobj/acdk_aci/linux/OpCodeStm.o: acdk/aci/vm/OpCodeStm.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/OpCodeStm.o -c acdk/aci/vm/OpCodeStm.cpp
+
+../tobj/acdk_aci/linux/vm_metainf_base.o: acdk/aci/vm/vm_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/vm_metainf_base.o -c acdk/aci/vm/vm_metainf_base.cpp
+
+../tobj/acdk_aci/linux/util_metainf_base.o: acdk/aci/util/util_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/util_metainf_base.o -c acdk/aci/util/util_metainf_base.cpp
+
+../tobj/acdk_aci/linux/AsmParseNode.o: acdk/aci/sasm/AsmParseNode.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -o ../tobj/acdk_aci/linux/AsmParseNode.o -c acdk/aci/sasm/AsmParseNode.cpp
+
+
+
+metainfo:
+	$(ACDKMC) acdk/aci;\
+	$(ACDKMC) acdk/aci/ast;\
+	$(ACDKMC) acdk/aci/parser;\
+	$(ACDKMC) acdk/aci/vm;\
+	$(ACDKMC) acdk/aci/util;\
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_aci.so $(OBJECTS)
+
+  

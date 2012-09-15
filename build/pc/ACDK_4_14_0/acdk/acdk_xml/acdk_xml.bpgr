@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/org_xml.cbx"/>
+  <project path="src/org_xml_metainf.cbx"/>
+  <project path="src/acdk_xml.cbx"/>
+  <project path="src/acdk_xml_metainf.cbx"/>
+  <project path="tests/acdk/xml/acdk_xml_XMLObjectReaderWriter_Test.cbx"/>
+  <project path="tests/acdk/xml/sax/acdk_xml_sax_Test.cbx"/>
+  <project path="tests/acdk/xml/dom/acdk_xml_dom_Test.cbx"/>
+
+</projectgroup>

@@ -1,0 +1,77 @@
+%id: acdk_links
+%title: ACDK Links
+%shorttitle: Links
+%body:
+<pageintro>
+Links with more information about ACDK.
+</pageintro>
+
+<jumptable/>
+<jump1>Main pages</jump1>
+<fl>
+<f> %ref[ACDK Home Page at acdk.sourceforge.net, http://acdk.sourceforge.net]
+<f> %ref[ACDK Project Page at sourceforge, http://sourceforge.net/projects/acdk/]
+<f> %ref[Home page of ACDK author (www.artefaktur.com), http://www.artefaktur.com]
+</fl>
+
+
+
+<jump1>Download</jump1>
+<fl>
+<f> %ref[Download ACDK, http://sourceforge.net/project/showfiles.php?group_id=15364]
+</fl>
+
+<jump1>ACDK documentation</jump1>
+<fl>
+<f> %ref[ACDK Handbook, http://acdk.sourceforge.net/acdk/docs/hb/acdk_hb.html]
+<f> %ref[ACDK Reference, http://acdk.sourceforge.net/acdk/docs/reference.html]
+<f> The ACDK Handbook and Reference can also be downloaded (see <b>Download</b> Section).
+</fl>
+
+<jump1>Contact/Help</jump1>
+<fl>
+<f> %ref[ACDK help forum at sourceforge, http://sourceforge.net/forum/forum.php?forum_id=48803].
+<f> %ref[Contact author via mail (kommer@artefaktur.com), mailto:kommer@artefaktur.com]
+<f> %ref[Report a bug, http://sourceforge.net/tracker/?group_id=15364&atid=115364]
+</fl>
+
+<jump1>Last Minute informations</jump1>
+<fl>
+<f> %ref[ACDK Announcements/News, http://acdk.sourceforge.net/acdk/acdk_news.html]
+<f> %ref[ChangeLog and Upcomming, http://sourceforge.net/docman/display_doc.php?docid=5800&group_id=15364]
+<f> %ref[Porting ACDK to other platforms, http://sourceforge.net/docman/display_doc.php?docid=11524&group_id=15364]
+</fl>
+
+<jump1>Software/Devlopment Portals listining ACDK</jump1>
+<fl>
+<f> %ref[www.gnu.org, http://www.gnu.org/directory/ACDK.html]
+<f> %ref[freshmeat.net, http://freshmeat.net/projects/acdk/]
+<f> %ref[www.heise.de (German), http://www.heise.de/software/default.shtml?prg=18719&T=acdk]
+<f> %ref[www.linux.org, http://www.linux.org/apps/AppId_7605.html]
+<f> %ref[www.trumphurst.com, http://www.trumphurst.com/cpplibs/datapage.phtml?sqldata=Dataid=345]
+<f> %ref[www.versiontracker.com, http://www.versiontracker.com/dyn/moreinfo/win/33360]
+<f> Wikipedia: %ref[http://en.wikipedia.org/wiki/Artefaktur, http://en.wikipedia.org/wiki/Artefaktur]
+<f> %ref[Google Directory, http://directory.google.com/Top/Computers/Programming/Languages/C++/Class_Libraries/]
+<f> %ref[dmoz.org (Open Directory), http://dmoz.org/Computers/Programming/Languages/C%2b%2b/Class_Libraries/]
+<f> %ref[http://userpage.fu-berlin.de/~ram/pub/pub_kfd8tk87g/c++_resources_en, http://userpage.fu-berlin.de/~ram/pub/pub_kfd8tk87g/c++_resources_en]
+<f> %ref[www.linuxlinks.com, http://www.linuxlinks.com/Software/Programming/Libraries/Miscellaneous/index.shtml]
+<f> %ref[www.devlib.org, http://www.devlib.org/Programming/Languages/C__/Class_Libraries/index.php]
+</fl>
+<comment>
+Currently not listed at:
+<fl>
+<f> http://webkatalog.freenet.de/freenet_page_40c275d0f902c65a537cdd410ba7ee9b.html
+<f> http://www.stickysauce.com/scriptdirectory/c/cplusplus/class.htm
+<f> submitted but not reviewed: http://www.programmersheaven.com/c/authorpage.asp?AuthorID=175290
+<f> http://www.thefreecountry.com/sourcecode/cpp.shtml
+<f> http://www.icewalkers.com/login.php?msg=1
+<f> Sourcebank: http://archive.devx.com/sourcebank/directorybrowse.asp?adType=&dir_id=906&showResType=0&timeSelect=&showFilter=showAll
+<f> https://author.tucows.com/control_add_software_step1.html
+<f> http://www.bloodshed.net/c/
+<f> http://www.linuxsoftware.org/leaf.php3?catid=161
+<f> http://www.linuxwaves.com/linuxlinks/Software/Programming/Libraries/
+<f> http://www.techcache.com/dir/programming_languages/c_plus_plus/index.asp?PgNo=2
+<f> http://hemmerling.free.fr/html/en/framwork.html
+</fl>
+</comment>
+.

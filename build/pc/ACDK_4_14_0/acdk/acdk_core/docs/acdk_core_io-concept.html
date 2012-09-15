@@ -1,0 +1,186 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>IO-Concept of ACDK</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_core_man.html">man acdk_core</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Reader / Writer<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/url_html.gif" alt="down">&nbsp;<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__io"><img border="0" src="./../../docs\images/url_html.gif">&nbsp;acdk::io</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_core_man_config.html">Runtime Configuration</a> | Reader / Writer | <a  href="acdk_io_FileSystem.html">acdk::io::FileSystem</a> | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | <a  href="acdk_util_logging.html">ACDK Logging framework</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>IO-Concept of ACDK</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>IO-Concept of ACDK</h1> -->
+<br>
+<p class="PageIntro">
+By introducing the IO concept, an insertable universal framework, 
+ACDK distants itself even further from its model Java. 
+</p>
+<br>
+<a name="jumptable10"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The IO concept in Java"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The IO concept in Java</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Character of frameworks"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Character of frameworks</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Streams as Pipes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Streams as Pipes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Binary Reader and Writer classes in ACDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Binary Reader and Writer classes in ACDK</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Reader"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Reader</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Writer"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Writer</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Storage"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Storage</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Filter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Filter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#FilterReader"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FilterReader</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#FilterWriter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FilterWriter</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Formated Reader/Writer"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Formated Reader/Writer</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The IO concept in Java">The IO concept in Java</a></h2>
+In Java, there is not only one IO concept (Input/Output, appreviation IO), 
+but several others as well. 
+<br>
+<br>
+<br>
+<h2><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Character of frameworks">Character of frameworks</a></h2>
+Frameworks with a good design are distinguished through: 
+<ul class="FeatureList">
+<li class="Feature"> Their basic principles can be explained with only a few good interfaces 
+<li class="Feature"> are relative easy to be implemented 
+<li class="Feature"> are relative easy to be expanded 
+<li class="Feature"> can be universally inputted 
+</ul>
+<br>
+<br>
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Streams as Pipes">Streams as Pipes</a></h3>
+When using input/output, there are several types of elements. 
+Those, which read and write from a medium (like a file, console, TCP etc.)and those, which work as a filter with an existing stream. 
+A well known example are the Unix command-line utilities, where pipes can be used for Standard-IN and Standard-OUT: 
+<code> 
+cat address.dat | cut -d ';' -f 2 | grep 'Kassel' | wc -l > erg.dat
+</code>
+<br>
+Unix-Tools can also be seen as the nucleus of classical component technologies.<br>
+<br>
+<image descr="Elemente von Streams"
+       src="./Filter-Storage-Elements.gif">
+<br>
+These elements can now be put together, just like in a building set.<br>
+<br>
+<image descr=""
+       src="./Filter-Storage-combination.gif">
+<br>
+<br>
+<h2><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Binary Reader and Writer classes in ACDK">Binary Reader and Writer classes in ACDK</a></h2>
+In ACDK, Stream classes are divided like this: 
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Reader">Reader</a></h3>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Reader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Reader</a>places the base interface for 
+readable accesson a stream. A Reader reads bytes (octets)
+from the source.<br>
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Writer">Writer</a></h3>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Writer"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Writer</a> places the basis interface for writable access on a stream.  
+A Writer writes bytes (octets) to a target.<br>
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Storage">Storage</a></h3>
+A <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Storage"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Storage</a> represents the medium, from which one can read or write. Storage is usually a describer.<br>
+<br>
+<image descr=""
+       src="./Storage_Writer.gif">
+<image descr=""
+       src="./Storage_Reader.gif">
+<image descr=""
+       src="./Storage_ReaderWriter.gif">
+<br>
+<br>
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Filter">Filter</a></h3>
+Filters are again divided into readable and writable: 
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FilterReader">FilterReader</a></h3>
+A  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FilterReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FilterReader</a> reads from a given reader. 
+This can further be a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FilterReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FilterReader</a> or a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Storage"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Storage</a> 
+which implementates a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Reader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Reader</a> interface. 
+<br>
+<br>
+<image descr=""
+       src="./class_acdk__io__FilterReader.gif">
+<br>
+<h3><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FilterWriter">FilterWriter</a></h3>
+A  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FilterWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FilterWriter</a> reads from a given reader. 
+This can further be a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__FilterWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::FilterWriter</a> or a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Storage"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Storage</a> which implementates a 
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__Writer"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::Writer</a> interface. 
+<br>
+<image descr=""
+       src="./class_acdk__io__FilterWriter.gif">
+     
+<br>
+<h2><a href="#jumptable10"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Formated Reader/Writer">Formated Reader/Writer</a></h2>
+On top of the Reader/Writer interface formated filter Reader/Writer
+provides an access to formated Data.<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__CharReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::CharReader</a> and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__CharWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::CharWriter</a> 
+    reads/writes strings from/to a source/target.<br>
+    See also <a  href="acdk_core_io-concept.html#Character Reader and Writer classes in ACDK"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Character Reader and Writer classes in ACDK</a>.<br>
+    
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__DataReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::DataReader</a> and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__DataWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::DataWriter</a>
+    reads/writes basic types and Strings to/from a source/target.<br>
+    The format can be Binary (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__BinaryDataReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::BinaryDataReader</a>)
+    or XML (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__xml__XMLObjectReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::XMLObjectReader</a>.<br>
+    
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__ObjectReader"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::ObjectReader</a> and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__ObjectWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::ObjectWriter</a>
+    is derived from DataReader/DataWriter and has the ability to 
+    read/write Object from/to a source/target. 
+    See also: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_serialization"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Serialization</a>.<br>
+    
+</ul>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_core_man_config.html">Runtime Configuration</a> | Reader / Writer | <a  href="acdk_io_FileSystem.html">acdk::io::FileSystem</a> | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | <a  href="acdk_util_logging.html">ACDK Logging framework</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

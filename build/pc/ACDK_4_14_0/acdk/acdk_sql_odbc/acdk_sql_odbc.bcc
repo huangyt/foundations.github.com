@@ -1,0 +1,163 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_sql_odbc
+
+default: all
+all:: install compile
+
+compile:: acdk_sql_odbc acdk_tools_odbctests acdk_sql_Test 
+clean:: acdk_sql_odbc-clean acdk_tools_odbctests-clean acdk_sql_Test-clean 
+metainfo:: acdk_sql_odbc-metainfo acdk_tools_odbctests-metainfo acdk_sql_Test-metainfo 
+acdk_sql_odbc:  
+	cd src
+	$(MAKE) -f acdk_sql_odbc.bcc
+	cd ..
+
+
+acdk_sql_odbc-clean:
+	cd src
+	$(MAKE) -f acdk_sql_odbc.bcc clean
+	cd ..
+
+
+acdk_sql_odbc-metainfo:
+	cd src
+	$(MAKE) -f acdk_sql_odbc.bcc metainfo
+	cd ..
+
+
+acdk_tools_odbctests:  acdk_sql_odbc
+	cd src
+	$(MAKE) -f acdk_tools_odbctests.bcc
+	cd ..
+
+
+acdk_tools_odbctests-clean:
+	cd src
+	$(MAKE) -f acdk_tools_odbctests.bcc clean
+	cd ..
+
+
+acdk_tools_odbctests-metainfo:
+	cd src
+	$(MAKE) -f acdk_tools_odbctests.bcc metainfo
+	cd ..
+
+
+acdk_sql_Test:  
+	cd tests/acdk/sql
+	$(MAKE) -f acdk_sql_Test.bcc
+	cd ../../..
+
+
+acdk_sql_Test-clean:
+	cd tests/acdk/sql
+	$(MAKE) -f acdk_sql_Test.bcc clean
+	cd ../../..
+
+
+acdk_sql_Test-metainfo:
+	cd tests/acdk/sql
+	$(MAKE) -f acdk_sql_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_sql_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_sql_odbc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src cbx
+
+acdk_tools_odbctests-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src cbx
+
+acdk_sql_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql cbx
+
+
+makemake:: acdk_sql_odbc-makemake acdk_tools_odbctests-makemake acdk_sql_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_odbc.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tools_odbctests.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql\acdk_sql_Test.lsp -pdir tests/acdk/sql cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_sql_odbc.lsp
+
+

@@ -1,0 +1,45 @@
+<package>
+<name>acdk_security</name>
+
+<title>
+  ACDK Security Library
+</title>
+
+<shortdescription>
+Implements security algorithm.
+</shortdescription>
+
+<description>
+In the ACDK Security Library some routines 
+regarding security and cryptographic algorithm are implemented.
+</description>
+
+<license>
+ACDK Free Edition License.
+</license>
+
+<dependencies>
+acdk_core
+</dependencies>
+
+<namespaces>
+acdk::security;
+</namespaces>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+Nothing at the moment.
+Most of Java package java.security is not implemented yet.
+</todo>
+
+<changes>
+Plase refer to package changes.
+</changes>
+
+<notes>
+None.
+</notes>
+</package>

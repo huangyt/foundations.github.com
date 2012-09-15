@@ -1,0 +1,217 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="interpreter, acdkcfgscript">
+<title>The CfgScript Interpreter acdkcfgscript</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdkcfgscript<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_embedd.html">Embedding</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | acdkcfgscript | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>The CfgScript Interpreter acdkcfgscript</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>The CfgScript Interpreter acdkcfgscript</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | acdkcfgscript | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p>
+<p class="PageIntro">
+<code>acdkcfgscript</code> is the command line interpreter for executing CfgScript scripts.
+</p>
+
+<br>
+<br>
+<a name="jumptable17"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Syntax"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Syntax</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Execute a Script File"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Execute a Script File</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Execute a Script passed as argument"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Execute a Script passed as argument</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Associate csf script file with the acdkcfgscript interpreter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Associate csf script file with the acdkcfgscript interpreter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#CfgScript Options"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CfgScript Options</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#-csfinclude / CSFINCLUDES"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;-csfinclude / CSFINCLUDES</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#-csfpath / CSFPATH"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;-csfpath / CSFPATH</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#-csfdebug"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;-csfdebug</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#-csfdebugonfail"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;-csfdebugonfail</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#acdk-options"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk-options</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Script Environment"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Script Environment</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax">Syntax</a></h2>
+<br>
+When starting the acdkcfgscript executable without arguments you will receive following output:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+CfgScript Interpreter. Copyright 2003-2005 by Roger Rene Kommer, artefaktur
+<B><FONT COLOR="#5F9EA0">Syntax</FONT></B>:
+  acdkcfgscript &lt;acdk-options&gt; &lt;cfgscript-options&gt; file.csf &lt;script arguments&gt;
+  acdkcfgscript &lt;acdk-options&gt; &lt;cfgscript-options&gt; -e &lt;scriptcode&gt;
+cfgscript-options:
+  -csfinclude directory     insert include search directory
+  -csfpath    directory     insert path <B><FONT COLOR="#A020F0">for</FONT></B> the CfgScript <B><FONT COLOR="#228B22">class</FONT></B> loader
+  -csfdebug                 start interpreter in debug mode
+  -csfdebugonfail           branch to debugger <B><FONT COLOR="#A020F0">if</FONT></B> exception is thrown
+  
+acdk-options:
+common acdk options:
+  -acdk-home=&lt;pathname&gt;   set the path to acdk home directory
+  -acdk-home &lt;pathname&gt;
+  -acdk-tools-home=&lt;pathname&gt;   set the path to acdk tools home directory
+  -acdk-tools-home &lt;pathname&gt;
+  -acdk-path &lt;pathlist&gt;   Env path list <B><FONT COLOR="#A020F0">for</FONT></B> ACDKPATH, to find acdk libraries
+  -acdk-gc                run with mark/sweep garbage collection (experimental)
+  -acdk-rc                run with reference counting garbage collection
+  -acdk-rcgc              run with reference counting and mark/sweek gc
+  -acdk-pa                run with PageAllocator garbage collection (<B><FONT COLOR="#A020F0">default</FONT></B>)
+  -acdk-st                run in single thread mode
+  -cygpath                on windows platform runs in cygwin enviromnent
+  -acdk-enc &lt;<B><FONT COLOR="#228B22">char</FONT></B> enc&gt;    use encoding <B><FONT COLOR="#A020F0">for</FONT></B> console in/output
+  -acdk-maxmem &lt;number&gt;   limit memory usage -1 no limit, otherwise number of MB
+  -loglevel &lt;loglevel&gt;    integer [0(all)-65535(Non)] or 
+                                  [All|Trace|Debug|Info|Warn|Note|Error|Fatal|None]
+
+
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Execute a Script File">Execute a Script File</a></h3>
+The base syntax to start a CfgScript is:<br>
+<code>cfgscript MyScriptFile.csf</code>
+<br>
+If you want to pass argument to the script:<br>
+<code>cfgscript MyScriptFile.csf -first -second</code>
+<br>
+These arguments are availabe in the script:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#0000FF">foreach</FONT></B> (String arg in scriptargs)
+{
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;Script Argument: &quot;</FONT></B> + arg);
+}
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Execute a Script passed as argument">Execute a Script passed as argument</a></h3>
+To execute a mini script directly from commandline just use the <code>-e</code> option:<br>
+<br>
+<code>cfgscript -e 'out.println("hello");'</code>
+<br>
+Please note: the quoting of the following code after the <code>-e</code> option depends on the operation system and shell you use.<br>
+<br>
+<h3><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Associate csf script file with the acdkcfgscript interpreter">Associate csf script file with the acdkcfgscript interpreter</a></h3>
+On MS Windows, use the standard mechanism to associate a file extension with a program to open.<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> On Unix you can add following lines to the top of a script file:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#!/<B><FONT COLOR="#5F9EA0">bin/sh</FONT></B>
+#!<B><FONT COLOR="#5F9EA0">ignorenextline</FONT></B>
+eval 'exec acdkcfgscript $0 ${1:<B><FONT COLOR="#BC8F8F">&quot;$@&quot;</FONT></B>}'
+
+System.out.println(<B><FONT COLOR="#BC8F8F">&quot;executed&quot;</FONT></B>); <I><FONT COLOR="#B22222">// this is the first line of the real script
+</FONT></I></PRE></td></tr></table>
+<li class="Feature"> make the script file executable (<code>chmod +x scriptfile.csf</code>).<br>
+<li class="Feature"> Add the <code>$ACDKHOME/bin</code> path to the environment variable <code>PATH</code> and <code>LD_LIBRARY_PATH</code>.<br>
+</ul>
+<br>
+<h3><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CfgScript Options">CfgScript Options</a></h3>
+<h4><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="-csfinclude / CSFINCLUDES">-csfinclude / CSFINCLUDES</a></h4>
+The <code>-csfinclude</code> option insert a search path for the <a  href="acdk_cfgscript_hb_lang_source.html#IncludeStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;include statement</a>.<br>
+<br>
+You can also use the <code>CSFINCLUDES</code> environment variable, to declare a list of include path.<br>
+On Unix:<br>
+<code>export CSFINCLUDES=/usr/local/acdk/extmodules/csf:~/acdk/csf/include</code>
+<br>
+On Windows:<br>
+<code>set CSFINCLUDES=c:\programr\acdk\extmodules\csf;c:\MyDocs\acdk\csf\include</code>
+<br>
+<br>
+<h4><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="-csfpath / CSFPATH">-csfpath / CSFPATH</a></h4>
+<br>
+The <code>-csfpath</code> insert a directory in the CSFPATH environment variable.<br>
+Is a list of directory where the CfgScript ClassLoader tries to load CfgScript Classes.<br>
+<br>
+Please refer also to: <a  href="acdk_cfgscript_hb_lib.html#CfgScript ClassLoader"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript ClassLoader</a>.<br>
+<br>
+<h4><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="-csfdebug">-csfdebug</a></h4>
+Start the interpreter in the debugging mode.<br>
+Please refer to <a  href="acdk_cfgscript_hb_debug.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Debugging</a>.<br>
+<br>
+<h4><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="-csfdebugonfail">-csfdebugonfail</a></h4>
+if <code>-csfdebugonfail</code> is set the interpreter branches to the <a  href="acdk_cfgscript_hb_debug.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;debugger</a>
+if any exception will be thrown.<br>
+<br>
+<h3><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk-options">acdk-options</a></h3>
+<br>
+The <code>acdk-options</code> are documented in <a  href="acdk_core_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;man acdk_core</a>.<br>
+<br>
+<h2><a href="#jumptable17"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Script Environment">Script Environment</a></h2>
+When starting the interpreter some variables are predefined:<br>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__cfgscript__Script"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript::Script</a> <code>__script</code> Instance of the current executed script.<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__cfgscript__Props"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript::Props</a> <code>__props</code> The set of variables visible in current scope.<br>
+<li class="Feature"> All enviromnent varialbes.<br>
+<li class="Feature"> <code>true, false, Nil, null</code>: as corresponing literal values.<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__io__PrintWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io::PrintWriter</a> <code>out</code>, <code>err</code> and <code>in</code>. Normally an alias to member of 
+    <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__lang__System"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::System</a>.<br>
+<br>
+</ul>
+<br>
+Inside the method of CfgScriptClass following variables are set:<br>
+<ul class="FeatureList">
+<li class="Feature"> <code>this</code> if method is not static.<br>
+<li class="Feature"> <code>super</code> super class.<br>
+</ul>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_intro.html">Introduction</a> | <a  href="acdk_cfgscript_hb_start.html">Start</a> | acdkcfgscript | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

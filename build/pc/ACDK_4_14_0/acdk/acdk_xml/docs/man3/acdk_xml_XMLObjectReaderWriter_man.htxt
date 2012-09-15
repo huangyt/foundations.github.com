@@ -1,0 +1,184 @@
+%id: acdk_xml_XMLObjectReaderWriter_man
+%title: XMLObject[Reader|Writer]
+%seealso: class_acdk__xml__XMLObjectReader, class_acdk__xml__XMLObjectWriter
+%body:
+<pageintro>
+  With the XMLObject[Reader|Writer] class you can write and read
+  ACDK objects to a XML stream.
+</pageintro>
+<htmlauto/>
+
+With the XMLObject[Reader|Writer] class you can write and read
+ACDK objects to a XML stream.
+Therefore the Serialization-feature will be used.
+
+<jumptable/>
+<jump1>Sample</jump1>
+
+On given class:
+<source>
+ACDK_DECL_CLASS(TestClass);
+
+class ACDK_XML_PUBLIC TestClass 
+: extends ::acdk::lang::Object
+{
+  // need meta information for serialisation
+  ACDK_WITH_METAINFO
+public:
+  /// just a few dummy data elements
+  RString _astring;
+  /// ACDK-containes can be serialized
+  RHashMap _map;
+  int _ival;
+public:
+  /** needed for de-serialisation */
+  static RObject create_instance() { return new TestClass(); }
+  TestClass()
+  : Object(),
+    _astring(new String("Hallo")),
+    _map(new HashMap()),
+    _ival(42)
+  {
+    _map->put(new String("Kommer"), new String("Roger Rene"));
+    _map->put(new String("Reinhard"), new String("Kai"));
+  }
+  virtual bool equals(RObject o)
+  {
+    if (instanceof(o, TestClass) == false)
+      return false;
+    RTestClass other = (RTestClass)o;
+    if (_astring->equals(other->_astring) == false)
+      return false;
+    if (_map->equals(other->_map) == false)
+      return false;
+    if (_ival != other->_ival)
+      return false;
+    return true;
+  }
+};
+</source>
+
+You can serialize the Class with:
+<source>
+ // create an instance to serialize
+  RTestClass object = new TestClass();
+  RString fname = "./TestClass.xml";
+  {
+    RFileWriter fout = new FileWriter(fname);
+    // the XMLObjectWriter 
+    RXMLObjectWriter xmlout = new XMLObjectWriter(fout);
+    // dump out with field information
+    xmlout->withFieldInfo(true); 
+    xmlout->writeObject(object);
+  }
+  // and now read in (deserialize) the object from XML-Stream
+  
+  RFileReader fin = new FileReader(fname);
+  RXMLObjectReader xmlin = new XMLObjectReader(fin);
+  RObject readedObject = xmlin->readObject();
+  if (readedObject->equals(object) == false)
+    System::out->println("Test failed");
+  else
+    System::out->println("Test OK");
+</source>
+
+The content of ./TestClass.xml:
+
+<pre>
+&nbsp;&lt;object&nbsp;name="acdk/xml/TestClass"&nbsp;lref="1"&gt;
+&nbsp;&nbsp;&lt;field&nbsp;name="_astring"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="2"&gt;Hallo&lt;/object&gt;
+&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&lt;field&nbsp;name="_ival"&gt;
+&nbsp;&nbsp;&nbsp;&lt;int&gt;42&lt;/int&gt;
+&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&lt;field&nbsp;name="_map"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/HashMap"&nbsp;lref="3"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_buckets"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="[acdk/util/Bucket"&nbsp;lref="4"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_length"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;11&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/Bucket"&nbsp;lref="5"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_first"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/BucketNode"&nbsp;lref="6"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_key"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="7"&gt;Kommer&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_value"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="8"&gt;Roger&nbsp;Rene&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_next"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_data"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/Bucket"&nbsp;lref="9"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_first"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/util/BucketNode"&nbsp;lref="10"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_key"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="11"&gt;Reinhard&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_value"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;object&nbsp;name="acdk/lang/String"&nbsp;lref="12"&gt;Kai&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_next"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Nil/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_capacity"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;11&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_loadFactor"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;float&gt;0.750000&lt;/float&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_modCount"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;2&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_size"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;2&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;field&nbsp;name="_threshold"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;int&gt;8&lt;/int&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/object&gt;
+&nbsp;&nbsp;&lt;/field&gt;
+&nbsp;&lt;/object&gt;
+</pre>
+.

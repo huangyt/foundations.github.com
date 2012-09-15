@@ -1,0 +1,170 @@
+
+
+PACKAGES=acdk_core acdk_text acdk_make acdk_net acdk_boot acdk_xml acdk_vfile \
+         acdk_lisp acdk_sql acdk_sql_sqlite \
+	 acdkx_orb acdkx_rdmi \
+         acdk_perl acdk_python acdk_tcl acdk_java \
+         acdk_wx \
+         acdk_sql_odbc \
+         acdk_tools_java2acdk
+
+OLDTARGETS=acdkx_sol
+TARGETS=$(PACKAGES)
+
+PACKAGEVERSION=4.12
+PERL=perl
+
+MAKETARGET=bsd
+
+default::
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -k -f $$target.$(MAKETARGET); \
+	  cd ..; \
+	done
+
+compile:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -k -f $$target.$(MAKETARGET) compile; \
+	  cd ..; \
+	done
+
+all:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) all; \
+	  cd ..; \
+	done
+
+clean:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) clean; \
+	  cd ..; \
+	done
+
+projectgen:
+	for target in $(TARGETS); do \
+		cd $$target; \
+		../bin/acdklisp -acdk-home=.. $$target.lsp; \
+		cd ..; \
+	done
+
+install:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) install; \
+	  cd ..; \
+	done
+
+doc:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) doc; \
+	  cd ..; \
+	done
+
+
+distrib:
+	if test ! -d distribution; then \
+    mkdir distribution; \
+  fi; \
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) distrib; \
+	  cd ..; \
+	done
+
+ddistrib:
+	if test ! -d distribution; then \
+    mkdir distribution; \
+  fi; \
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) ddistrib; \
+	  cd ..; \
+	done
+
+depend:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) depend; \
+	  cd ..; \
+	done
+
+
+test:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) test; \
+	  cd ..; \
+	done
+
+
+makemake:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) makemake; \
+	  cd ..; \
+	done
+	
+metamakemake:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) metamakemake; \
+	  cd ..; \
+	done
+
+
+RELACDKHOME=..
+ACDKMAKE=../bin/acdklisp -acdk-home=$(RELACDKHOME)
+
+acdkmake::
+	for target in $(TARGETS); do \
+	  cd $$target; \
+    $(ACDKMAKE) -acdk-home=$(RELACDKHOME) $$target.lsp; \
+	  cd ..; \
+	done;
+
+TARBALL=acdk_all-$(MAKETARGET)-$(PACKAGEVERSION).tgz
+
+snapshot:
+	$(PERL) ./bin/makedistr2.pl -snap -src '.' \
+	   -name acdk-all-src-`date "+%Y-%m-%d_%H-%M-%S"`
+
+
+METAINFODIRS = \
+  acdk_core/src/acdk/lang \
+  acdk_core/src/acdk/lang/ref \
+  acdk_core/src/acdk/lang/reflect \
+  acdk_core/src/acdk/io \
+  acdk_core/src/acdk/util \
+  acdk_core/src/acdk/security \
+  acdk_core/src/acdk/locale \
+  acdk_text/src/acdk/text \
+  acdk_net/src/acdk/net \
+  acdk_xml/src/acdk/xml \
+  acdkx_orb/src/acdkx/arb \
+  acdkx_orb/src/acdkx/orb \
+  acdkx_orb/src/acdkx/orb/selftests \
+  acdkx_orb/src/org/omg/CORBA \
+  acdkx_orb/src/org/omg/CORBA/portable \
+  acdkx_orb/src/org/omg/CosNaming \
+  acdkx_orb/src/org/omg \
+  acdkx_orb/src/org/omg/PortableServer \
+  acdkx_orb/tests/acdkx/orb/acdk/IdlMappingTest.h \
+  acdkx_sol/src/acdkx/servlet \
+  acdkx_sol/src/acdkx/sol \
+  acdk_boot/src/acdk/boot \
+  acdk_dmi/src/acdk/dmi 
+
+ACDKMC=./bin/acdkmc_d
+
+metainfo:
+	for i in $(METAINFODIRS); do \
+	  $(ACDKMC) $$i; \
+	done
+    
+  
+

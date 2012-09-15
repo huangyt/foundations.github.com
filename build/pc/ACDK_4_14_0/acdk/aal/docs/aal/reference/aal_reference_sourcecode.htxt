@@ -1,0 +1,14 @@
+%id: aal_reference_sourcecode
+%title: AAL Source Code
+%shorttitle: Source Code
+%body:
+<chapterline/>
+<pageintro>
+Format of AAL source code
+</pageintro>
+
+
+AAL source code is a simple text file ends with the suffix .aal.
+
+
+.

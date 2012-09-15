@@ -1,0 +1,24 @@
+%id: acdk_cfgscript_hb_lang_logging
+%title: CfgScript Logging
+%shorttitle: Logging
+%keywords: CfgScript Logging
+%body:
+<chapterline/>
+<pageintro>
+CfgScript has a build in logging functionality, which is based on the <c>acdk::util::logging</c> framework.
+</pageintro>
+
+You can use the <c>ACDK_LOG()</c> for unnamed or root logging or <c>ACDK_NLOG()</c> for named logging.
+
+Sample:
+<source>
+ACDK_LOG(Trace, "Hello");
+ACDK_NLOG("my.scope", Info, "This is the current environment: " + __props.toString());
+</source>
+The reason to make logging a part of the language is simply performance. 
+The interpreter checks after parsing <c>ACDK_NLOG("my.scope", Info,</c> if the there is a logger 
+in the given loglevel. If There is no logger, the interpreter simple skip the rest of the statement.
+
+For more information about the ACDK Logging please refer to %ref[acdk_util_logging].
+
+.

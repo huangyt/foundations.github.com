@@ -1,0 +1,283 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.mingw
+
+# where to store the .o files
+OBJECTDIR=../tobj/sqlite3/mingw
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT -O2  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_WIN32 -D_REENTRANT -DWIN32_THREADS -DACDK_OS_WIN32 -DACDK_MINGW  $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g 
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lkernel32 -lwsock32
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) 
+CFLAGSX=
+
+SOURCES= 	sqlitesrc/alter.c \
+	sqlitesrc/attach.c \
+	sqlitesrc/auth.c \
+	sqlitesrc/btree.c \
+	sqlitesrc/build.c \
+	sqlitesrc/date.c \
+	sqlitesrc/delete.c \
+	sqlitesrc/expr.c \
+	sqlitesrc/func.c \
+	sqlitesrc/hash.c \
+	sqlitesrc/insert.c \
+	sqlitesrc/legacy.c \
+	sqlitesrc/main.c \
+	sqlitesrc/opcodes.c \
+	sqlitesrc/os_unix.c \
+	sqlitesrc/os_win.c \
+	sqlitesrc/pager.c \
+	sqlitesrc/parse.c \
+	sqlitesrc/pragma.c \
+	sqlitesrc/printf.c \
+	sqlitesrc/random.c \
+	sqlitesrc/select.c \
+	sqlitesrc/shell.c \
+	sqlitesrc/table.c \
+	sqlitesrc/tokenize.c \
+	sqlitesrc/trigger.c \
+	sqlitesrc/update.c \
+	sqlitesrc/utf.c \
+	sqlitesrc/util.c \
+	sqlitesrc/vacuum.c \
+	sqlitesrc/vdbe.c \
+	sqlitesrc/vdbeapi.c \
+	sqlitesrc/vdbeaux.c \
+	sqlitesrc/vdbemem.c \
+	sqlitesrc/where.c \
+
+HEADER= 
+OBJECTS= 	../tobj/sqlite3/mingw/alter.o \
+	../tobj/sqlite3/mingw/attach.o \
+	../tobj/sqlite3/mingw/auth.o \
+	../tobj/sqlite3/mingw/btree.o \
+	../tobj/sqlite3/mingw/build.o \
+	../tobj/sqlite3/mingw/date.o \
+	../tobj/sqlite3/mingw/delete.o \
+	../tobj/sqlite3/mingw/expr.o \
+	../tobj/sqlite3/mingw/func.o \
+	../tobj/sqlite3/mingw/hash.o \
+	../tobj/sqlite3/mingw/insert.o \
+	../tobj/sqlite3/mingw/legacy.o \
+	../tobj/sqlite3/mingw/main.o \
+	../tobj/sqlite3/mingw/opcodes.o \
+	../tobj/sqlite3/mingw/os_unix.o \
+	../tobj/sqlite3/mingw/os_win.o \
+	../tobj/sqlite3/mingw/pager.o \
+	../tobj/sqlite3/mingw/parse.o \
+	../tobj/sqlite3/mingw/pragma.o \
+	../tobj/sqlite3/mingw/printf.o \
+	../tobj/sqlite3/mingw/random.o \
+	../tobj/sqlite3/mingw/select.o \
+	../tobj/sqlite3/mingw/shell.o \
+	../tobj/sqlite3/mingw/table.o \
+	../tobj/sqlite3/mingw/tokenize.o \
+	../tobj/sqlite3/mingw/trigger.o \
+	../tobj/sqlite3/mingw/update.o \
+	../tobj/sqlite3/mingw/utf.o \
+	../tobj/sqlite3/mingw/util.o \
+	../tobj/sqlite3/mingw/vacuum.o \
+	../tobj/sqlite3/mingw/vdbe.o \
+	../tobj/sqlite3/mingw/vdbeapi.o \
+	../tobj/sqlite3/mingw/vdbeaux.o \
+	../tobj/sqlite3/mingw/vdbemem.o \
+	../tobj/sqlite3/mingw/where.o \
+
+
+FINALTARGET=../../bin/sqlite3.exe
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/sqlite3.exe: $(OBJECTS)
+	$(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../bin/sqlite3.exe $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=sqlite3.mingw.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/sqlite3/mingw/alter.o: sqlitesrc/alter.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/alter.o -c sqlitesrc/alter.c
+
+../tobj/sqlite3/mingw/attach.o: sqlitesrc/attach.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/attach.o -c sqlitesrc/attach.c
+
+../tobj/sqlite3/mingw/auth.o: sqlitesrc/auth.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/auth.o -c sqlitesrc/auth.c
+
+../tobj/sqlite3/mingw/btree.o: sqlitesrc/btree.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/btree.o -c sqlitesrc/btree.c
+
+../tobj/sqlite3/mingw/build.o: sqlitesrc/build.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/build.o -c sqlitesrc/build.c
+
+../tobj/sqlite3/mingw/date.o: sqlitesrc/date.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/date.o -c sqlitesrc/date.c
+
+../tobj/sqlite3/mingw/delete.o: sqlitesrc/delete.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/delete.o -c sqlitesrc/delete.c
+
+../tobj/sqlite3/mingw/expr.o: sqlitesrc/expr.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/expr.o -c sqlitesrc/expr.c
+
+../tobj/sqlite3/mingw/func.o: sqlitesrc/func.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/func.o -c sqlitesrc/func.c
+
+../tobj/sqlite3/mingw/hash.o: sqlitesrc/hash.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/hash.o -c sqlitesrc/hash.c
+
+../tobj/sqlite3/mingw/insert.o: sqlitesrc/insert.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/insert.o -c sqlitesrc/insert.c
+
+../tobj/sqlite3/mingw/legacy.o: sqlitesrc/legacy.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/legacy.o -c sqlitesrc/legacy.c
+
+../tobj/sqlite3/mingw/main.o: sqlitesrc/main.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/main.o -c sqlitesrc/main.c
+
+../tobj/sqlite3/mingw/opcodes.o: sqlitesrc/opcodes.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/opcodes.o -c sqlitesrc/opcodes.c
+
+../tobj/sqlite3/mingw/os_unix.o: sqlitesrc/os_unix.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/os_unix.o -c sqlitesrc/os_unix.c
+
+../tobj/sqlite3/mingw/os_win.o: sqlitesrc/os_win.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/os_win.o -c sqlitesrc/os_win.c
+
+../tobj/sqlite3/mingw/pager.o: sqlitesrc/pager.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/pager.o -c sqlitesrc/pager.c
+
+../tobj/sqlite3/mingw/parse.o: sqlitesrc/parse.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/parse.o -c sqlitesrc/parse.c
+
+../tobj/sqlite3/mingw/pragma.o: sqlitesrc/pragma.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/pragma.o -c sqlitesrc/pragma.c
+
+../tobj/sqlite3/mingw/printf.o: sqlitesrc/printf.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/printf.o -c sqlitesrc/printf.c
+
+../tobj/sqlite3/mingw/random.o: sqlitesrc/random.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/random.o -c sqlitesrc/random.c
+
+../tobj/sqlite3/mingw/select.o: sqlitesrc/select.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/select.o -c sqlitesrc/select.c
+
+../tobj/sqlite3/mingw/shell.o: sqlitesrc/shell.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/shell.o -c sqlitesrc/shell.c
+
+../tobj/sqlite3/mingw/table.o: sqlitesrc/table.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/table.o -c sqlitesrc/table.c
+
+../tobj/sqlite3/mingw/tokenize.o: sqlitesrc/tokenize.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/tokenize.o -c sqlitesrc/tokenize.c
+
+../tobj/sqlite3/mingw/trigger.o: sqlitesrc/trigger.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/trigger.o -c sqlitesrc/trigger.c
+
+../tobj/sqlite3/mingw/update.o: sqlitesrc/update.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/update.o -c sqlitesrc/update.c
+
+../tobj/sqlite3/mingw/utf.o: sqlitesrc/utf.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/utf.o -c sqlitesrc/utf.c
+
+../tobj/sqlite3/mingw/util.o: sqlitesrc/util.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/util.o -c sqlitesrc/util.c
+
+../tobj/sqlite3/mingw/vacuum.o: sqlitesrc/vacuum.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/vacuum.o -c sqlitesrc/vacuum.c
+
+../tobj/sqlite3/mingw/vdbe.o: sqlitesrc/vdbe.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/vdbe.o -c sqlitesrc/vdbe.c
+
+../tobj/sqlite3/mingw/vdbeapi.o: sqlitesrc/vdbeapi.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/vdbeapi.o -c sqlitesrc/vdbeapi.c
+
+../tobj/sqlite3/mingw/vdbeaux.o: sqlitesrc/vdbeaux.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/vdbeaux.o -c sqlitesrc/vdbeaux.c
+
+../tobj/sqlite3/mingw/vdbemem.o: sqlitesrc/vdbemem.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/vdbemem.o -c sqlitesrc/vdbemem.c
+
+../tobj/sqlite3/mingw/where.o: sqlitesrc/where.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/sqlite3/mingw/where.o -c sqlitesrc/where.c
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/sqlite3.exe $(OBJECTS)
+
+  

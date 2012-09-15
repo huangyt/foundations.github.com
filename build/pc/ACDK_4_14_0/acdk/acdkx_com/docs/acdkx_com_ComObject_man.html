@@ -1,0 +1,180 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="DMI Server COM, COM">
+<title>acdkx::com::ComObject Manual</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDKX COM+</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdkx_com_man.html">acdkx_com man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdkx::com::ComObject man<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdkx_com_typemapping.html">Type mappings</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdkx_com_install.html">Install</a> | acdkx::com::ComObject man | <a  href="acdkx_com_AcdkObject_man.html">acdkx::com::AcdkObject</a> | <a  href="acdkx_com_typemapping.html">Type mappings</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdkx::com::ComObject Manual</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdkx::com::ComObject Manual</h1> -->
+<p class="curchapterline"> | <a  href="acdkx_com_install.html">Install</a> | acdkx::com::ComObject man | <a  href="acdkx_com_AcdkObject_man.html">acdkx::com::AcdkObject</a> | <a  href="acdkx_com_typemapping.html">Type mappings</a> |</p>
+<br>
+<p class="PageIntro">
+ACDK COM+ provides an interface from ACDK to Windows COM and vice versa.<br>
+</p>
+<br>
+<a name="jumptable109"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Introduction"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Introduction</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#acdkx::com::ComObject"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdkx::com::ComObject</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable109"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Introduction">Introduction</a></h2>
+<br>
+<h2><a href="#jumptable109"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdkx::com::ComObject">acdkx::com::ComObject</a></h2>
+<br>
+The ComObject class wrapps an COM ActiveX
+componound for ACDK. If you have installed
+Microsoft Word, you can control it with
+ACDK and it's scripting languages (Lisp, Perl,
+Tcl, Python, Java) without any further requirements.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+using namespace ::acdk::lang::dmi;
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">sayWordHello</FONT></B>()
+{
+    RComObject obj = <B><FONT COLOR="#A020F0">new</FONT></B> ComObject(<B><FONT COLOR="#BC8F8F">&quot;Word.Application&quot;</FONT></B>);
+
+    obj-&gt;poke(<B><FONT COLOR="#BC8F8F">&quot;Visible&quot;</FONT></B>, true);
+    RComObject docs = obj-&gt;peek(<B><FONT COLOR="#BC8F8F">&quot;Documents&quot;</FONT></B>);
+    RComObject doc = docs-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;Add&quot;</FONT></B>);
+    RComObject sel = obj-&gt;peek(<B><FONT COLOR="#BC8F8F">&quot;ActiveWindow&quot;</FONT></B>)-&gt;peek(<B><FONT COLOR="#BC8F8F">&quot;Selection&quot;</FONT></B>);
+    RString s(<B><FONT COLOR="#BC8F8F">&quot;This is ACDK&quot;</FONT></B>);
+    sel-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;TypeText&quot;</FONT></B>, <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>));
+    sel-&gt;peek(<B><FONT COLOR="#BC8F8F">&quot;Font&quot;</FONT></B>)-&gt;poke(<B><FONT COLOR="#BC8F8F">&quot;Bold&quot;</FONT></B>, true);
+    sel-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;TypeText&quot;</FONT></B>, (<B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>*)<B><FONT COLOR="#BC8F8F">&quot;ACDK &quot;</FONT></B>);
+    sel-&gt;peek(<B><FONT COLOR="#BC8F8F">&quot;Font&quot;</FONT></B>)-&gt;poke(<B><FONT COLOR="#BC8F8F">&quot;Bold&quot;</FONT></B>, false);
+    sel-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;TypeText&quot;</FONT></B>, (<B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>*)<B><FONT COLOR="#BC8F8F">&quot;instrumenting Word!&quot;</FONT></B>);
+    
+    <B><FONT COLOR="#5F9EA0">Thread</FONT></B>::sleep(3000);
+    obj-&gt;invoke(<B><FONT COLOR="#BC8F8F">&quot;Quit&quot;</FONT></B>, 0);
+}
+</PRE></td></tr></table>
+<br>
+Now the same through a ACDK script language:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">; Lisp:
+</FONT></I>(<B><FONT COLOR="#A020F0">defun</FONT></B> <B><FONT COLOR="#0000FF">say-word-hello</FONT></B> ()
+  (require 'acdkx.com.ComObject)
+  (set app (invoke-static 'acdkx.com.ComObject 'New <B><FONT COLOR="#BC8F8F">&quot;Word.Application&quot;</FONT></B>))
+  (poke app 'Visible T)
+  (set doc (invoke (peek app 'Documents) 'Add))
+  (set sel (peek (peek app 'ActiveWindow) 'Selection))
+  (invoke sel 'TypeText <B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>)
+  (poke (peek sel 'Font) 'Bold 1)
+  (invoke sel 'TypeText <B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>)
+  (poke (peek sel 'Font) 'Bold 0)
+  (invoke sel 'TypeText <B><FONT COLOR="#BC8F8F">&quot; instrumenting Word through acdklisp&quot;</FONT></B>)
+  (sleep 3000)
+  (invoke app 'Quit 0)
+)
+
+</PRE></td></tr></table>
+<br>
+With acdk_perl it is also possible to control Word:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">sub</FONT></B> require_class($)
+{
+  <B><FONT COLOR="#A020F0">my</FONT></B> (</FONT></B>$cls) = </FONT></B>@_;
+  <B><FONT COLOR="#A020F0">my</FONT></B> </FONT></B>$cl = acdk::<B><FONT COLOR="#A020F0">new</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/ClassLoader&quot;</FONT></B>);
+  </FONT></B>$cl-&gt;findClass(</FONT></B>$cls);
+}
+
+require_class(<B><FONT COLOR="#BC8F8F">'acdkx/com/ComObject'</FONT></B>);
+</FONT></B>$word = acdk::invoke_static(<B><FONT COLOR="#BC8F8F">'acdkx/com/ComObject'</FONT></B>, <B><FONT COLOR="#BC8F8F">'New'</FONT></B>, <B><FONT COLOR="#BC8F8F">'Word.Application'</FONT></B>);
+</FONT></B>$word-&gt;poke(<B><FONT COLOR="#BC8F8F">'Visible'</FONT></B>, 1);
+</FONT></B>$doc = </FONT></B>$word-&gt;peek(<B><FONT COLOR="#BC8F8F">'Documents'</FONT></B>)-&gt;Add();
+</FONT></B>$sel = </FONT></B>$word-&gt;peek(<B><FONT COLOR="#BC8F8F">'ActiveWindow'</FONT></B>)-&gt;peek(<B><FONT COLOR="#BC8F8F">'Selection'</FONT></B>);
+</FONT></B>$sel-&gt;TypeText(<B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>);
+</FONT></B>$sel-&gt;peek(<B><FONT COLOR="#BC8F8F">'Font'</FONT></B>)-&gt;poke(<B><FONT COLOR="#BC8F8F">'Bold'</FONT></B>, 1);
+</FONT></B>$sel-&gt;TypeText(<B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>);
+</FONT></B>$sel-&gt;peek(<B><FONT COLOR="#BC8F8F">'Font'</FONT></B>)-&gt;poke(<B><FONT COLOR="#BC8F8F">'Bold'</FONT></B>, 0);
+</FONT></B>$sel-&gt;TypeText(<B><FONT COLOR="#BC8F8F">&quot; instrumenting Word through acdk_perl&quot;</FONT></B>);
+acdk::invoke_static(<B><FONT COLOR="#BC8F8F">'acdk/lang/Thread'</FONT></B>, <B><FONT COLOR="#BC8F8F">'sleep'</FONT></B>, 3000);
+</FONT></B>$word-&gt;Quit(0);
+</PRE></td></tr></table>
+<br>
+Same game with acdk_python:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">import</FONT></B> acdk
+classloader = acdk.Object(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/ClassLoader&quot;</FONT></B>)
+classloader.findClass(<B><FONT COLOR="#BC8F8F">&quot;acdkx/com/ComObject&quot;</FONT></B>)
+word = acdk.invoke_static(<B><FONT COLOR="#BC8F8F">&quot;acdkx/com/ComObject&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;New&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Word.Application&quot;</FONT></B>)
+word.poke(<B><FONT COLOR="#BC8F8F">&quot;Visible&quot;</FONT></B>, 1)
+doc = word.peek(<B><FONT COLOR="#BC8F8F">&quot;Documents&quot;</FONT></B>).Add()
+sel = word.peek(<B><FONT COLOR="#BC8F8F">&quot;ActiveWindow&quot;</FONT></B>).peek(<B><FONT COLOR="#BC8F8F">&quot;Selection&quot;</FONT></B>)
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>)
+sel.peek(<B><FONT COLOR="#BC8F8F">&quot;Font&quot;</FONT></B>).poke(<B><FONT COLOR="#BC8F8F">&quot;Bold&quot;</FONT></B>, 1)
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>)
+sel.peek(<B><FONT COLOR="#BC8F8F">&quot;Font&quot;</FONT></B>).poke(<B><FONT COLOR="#BC8F8F">&quot;Bold&quot;</FONT></B>, 0)
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot; instrumenting Word through acdk_perl&quot;</FONT></B>)
+acdk.invoke_static(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/Thread&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;sleep&quot;</FONT></B>, 3000)
+word.Quit(0)
+</PRE></td></tr></table>
+<br>
+From Perl ActiveX methods (like TypeText) can be called directly by name.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdkx_com_install.html">Install</a> | acdkx::com::ComObject man | <a  href="acdkx_com_AcdkObject_man.html">acdkx::com::AcdkObject</a> | <a  href="acdkx_com_typemapping.html">Type mappings</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

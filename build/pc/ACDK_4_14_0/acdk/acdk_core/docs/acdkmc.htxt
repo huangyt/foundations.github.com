@@ -1,0 +1,78 @@
+%id: acdkmc_man
+%title: ACDK Metacompiler - Manual
+%shorttitle: man acdkmc
+%seealso: acdk_tools_mc_man, acdk_core_man, Metainfo=acdk_hb_mi
+%keywords: acdkmc, meta compiler
+%body:
+<pageintro>
+  man pages for <b>acdkmc</b> - ACDK Metacompiler
+</pageintro>
+<htmlauto/>
+<jumptable/>
+
+<jump1>NAME</jump1>
+      acdkmc - ACDK Metacompiler
+<jump1>DESCRIPTION</jump1>
+  <greptag fname="./acdkmc.xml" tag="description"/>
+    
+<jump1>SYNOPSIS</jump1>
+<jump2>Calling acdkmc</jump2>
+<pre>
+acdkmc [acdk-options] [acdkmc-options] file or directory
+  acdkmc-options:
+  -dmiproxy       generate dmiproxy for selected module
+</pre>
+
+acdkmc is the compiler that generates %ref[metainfo, acdk_hb_mi]
+and %ref[DMI stubs and proxies, acdk_hb_dmi] for acdk-classes.
+
+If you want to generate metainfo for one namespace/directory:
+<code> acdkmc ./src/acdk/text</code>.
+acdkmc generates a file named:
+<code> ./src/acdk/text/text_metainf_base.cpp</code>.
+which contains the base metainfo of all header found in this directory.
+<code> ./src/acdk/text/text_metainf/text_metainf/text_metainf_ext.cpp</code>.
+which contains the extended metainfo of all header found in this directory.
+
+
+<jump2>Class format</jump2>
+The ACDK meta compiler is not a strict but a lazy parser.
+Therefore, it scans only for class declarations. If acdkmc finds a ACDK_WITH_METAINFO
+in the header, it will generate meta information for this class.
+Only members, methods and constuctors are considered, which contain
+types known by ACDK:
+<ul>
+<li> basic types: bool, char, byte, short, int, jlong, float, double
+<li> Arrays of Basic types: RboolArray, RcharArray, and so on
+<li> ACDK-Objects, i.e. references to  classes and interfaces. RInteger, acdk::util::RIterator
+<li> enums which are declared (not necessarely defined) in the same header.
+</ul>
+
+Types not known by ACDK:
+<ul>
+<li> signed/unsigned with integer types
+<li> other basic types
+<li> other classes/enums
+<li> pointer, references
+<li> const
+</ul>
+You can, of course, also use these types as class elements, but acdkmc will
+not create metainfo for these elements; they are not included in 
+the metafeatures: garbage collection, serialisation, debugging, etc.
+Please refer also to %ref[http://acdk.sourceforge.net] for more information.
+
+<jump2>Tags</jump2>
+If a member, method, or constructor is marked with the keyword <b>foreign</b>, no class information
+will be generated for this element.
+
+<jump2>DMI-Proxies</jump2>
+about the usage of the option <c>-dmiproxy</c> Please read notes at %ref[acdk_hb_dmi_subclassing].
+
+<jump1>FILES</jump1>
+bin/acdkmc -  The executable
+
+<jump1>SEE ALSO</jump1>
+
+%ref[acdk_core, acdk_core_man].
+%ref[ACDK Metainfo, acdk_hb_mi].
+.

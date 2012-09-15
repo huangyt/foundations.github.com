@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<book>
+  <!-- describing the title -->
+  <title value="This is the Title"/>
+  
+  <body>
+    This is the text
+    <chapter num="1">
+      <ct num="1">Chapter 1</ct>
+      <par>First Text</par>
+    </chapter>
+    <chapter num="2">
+      <ct num="2">Chapter 2</ct>
+      <par>Second Text</par>
+      <par>Second Text 2</par>
+    </chapter>
+  </body>
+  <title value="This is another Title"/>
+  <body>Body2</body>
+</book>

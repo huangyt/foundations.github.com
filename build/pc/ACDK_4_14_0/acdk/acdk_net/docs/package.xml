@@ -1,0 +1,147 @@
+<package>
+<name>acdk_net</name>
+
+<title>
+ACDK NET (acdk_net)
+</title>
+
+<shortdescription>
+acdk_net contains the basic functions for network communication.
+</shortdescription>
+<description>
+<m>acdk_net</m> corresponds to the java.net packages with 
+TCP and UDP Sockets and URLConnection (%cref[acdk::net::HttpURLConnection] and
+%cref[acdk::net::FileURLConnection].
+
+The package %ref[<m>acdkx_net_ssl</m>, acdkx_net_ssl] provides a 
+simple %cref[acdkx::net::ssl::SSLSocket] and HTTPSURLConnection.
+Later can be used to access https URLs.
+
+The Socket networking classes fits into the ACDK IO framework.
+
+<m>acdk_net_ftp</m> provides a %ref[virtual file systems, acdk_io_FileSystem] plugin 
+for the %cref[acdk::io::File] fassade to access FTP Urls with ordinary file access. Please refer to the
+the unit tests %ref[acdk_net_ftp_FTPFileSystem_Test.cpp, tests_acdk_net_ftp_acdk_net_ftp_FTPFileSystem_Test_cpp]
+and %ref[acdk_net_ftp_FTPClient_Test.cpp, tests_acdk_net_ftp_acdk_net_ftp_FTPClient_Test_cpp] for samples
+how to use transparent ftp server access.
+
+
+It also contains an expermental (Simple Remote File System)
+in the package <m>acdk_net_srfsys</m> and (%nsref[acdk::net::srfsys])
+and the server/client acdk_net_srsync to synchronize two computers.
+It is not so sophisticated as f.e. rsync, but used in practise 
+to synchronize > 150 GB over modem lines.
+<m>acdk_net_srfsys</m> is implemented as remote file system plugin
+for the %cref[acdk::io::File] fassade.
+
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+ACDK Free Edition License.
+</license>
+
+<dependencies>
+%ref[acdk_core]
+%ref[OpenSSL, http://www.openssl.org].
+</dependencies>
+
+<namespaces>
+%nsref[acdk::net]
+%nsref[acdk::net::ftp]
+%nsref[acdk::net::srfsys]
+%nsref[acdk::net::srsync]
+%nsref[acdkx::net::ssl]
+</namespaces>
+
+<plattforms>
+All.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+- URL with file:// does not work correctly
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+- acdkx_net_ssl: Implement basic SSLSocket and 
+	HTTPSUrlConnection.
+- acdk_net: Implement the DatagramSocket with associated
+	classes.
+- acdk_net_ftp: FTPClient: fix for connection management.
+- acdk_net_ftp: FileSystem Plugin for FTP is now loadable
+-	acdk_net: add FileSystem Plugin for http:// urls.
+- acdk_net: Close a Socket in destructor.
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.10.0
+- New: FTPClient for ACDK Virtual File System.
+- Fixed some minor stuff.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Minor ajustments to unicode
+- Fit URLEncoder into acdk::locale::Encoding framework
+- Ajustment to new meta info framework
+
+===========================================================
+2.01.1
+
+
+- New %ref[acdk_net_srfys, acdk_net_srfsys_man].
+- In case a ServerSocket with 0.0.0.0 and port 0
+  it will be open a OS selected port.
+- Several Bug fixed.
+- Minor error handling (more information about the error)
+- Add test case EchoServer & EchoClient
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved configurations.
+
+===========================================================
+1.00.2
+Only changes in configuration.
+
+===========================================================
+acdk_net 1.00
+Initial public release
+
+
+===========================================================
+acdk_core 0.0.3 
+
+- Fixed a little bug in acdk::net::TCPSocket::write
+- prevent SIG_PIPE on sockets for OS_UNIX  
+
+===========================================================
+2000-25-05 acdk_net 0.0.2 initial public release
+</changes>
+
+<notes>
+None  
+</notes>
+</package>

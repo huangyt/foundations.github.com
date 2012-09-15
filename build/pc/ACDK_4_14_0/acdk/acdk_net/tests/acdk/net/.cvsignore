@@ -1,0 +1,6 @@
+*.deps
+*.plg
+*.class
+obj
+tobj
+

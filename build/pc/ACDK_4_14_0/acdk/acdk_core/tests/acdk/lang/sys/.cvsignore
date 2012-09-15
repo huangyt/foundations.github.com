@@ -1,0 +1,12 @@
+*.deps
+*.o
+*.obj
+*.sbr
+*.tmp
+obj
+bin
+*.stt
+*.deps
+*.plg
+tobj
+

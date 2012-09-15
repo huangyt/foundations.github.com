@@ -1,0 +1,227 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="operator, backtick">
+<title>CfgScript Backtick Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Backtick Expressions<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_templates.html">Templates</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | Backtick Expressions | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Backtick Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Backtick Expressions</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | Backtick Expressions | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p>
+<p class="PageIntro">
+A very powerful feature of scripting language - like unix shell or perl -
+is the ability of inline evaluation of strings.
+</p>
+
+<br>
+<a name="jumptable32"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#BacktickOperator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;BacktickOperator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Identifier replacement with ${id}"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Identifier replacement with ${id}</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Expression replacement with $(expression)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Expression replacement with $(expression)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Script replacement with !{scriptcode}!"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Script replacement with !{scriptcode}!</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#StringArray replacement with @{identifier}"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;StringArray replacement with @{identifier}</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Quoting with #{ text }#"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Quoting with #{ text }#</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Execute external program with `{ command }`"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Execute external program with `{ command }`</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<br>
+<h2><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="BacktickOperator">BacktickOperator</a></h2>
+<pre>
+GroupOperator
+: '`' <a  href="acdk_cfgscript_hb_lang_expr_literal.html#StringLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;StringLiteral</a> '`'
+;
+</pre>
+<br>
+The backtick enables inline expression evaluation in string literals, similar to Perl or sh
+evaulation.<br>
+<br>
+<h4><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Identifier replacement with ${id}">Identifier replacement with ${id}</a></h4>
+Single identifier, wrapped with <code>${}</code> will be resolved in current scope:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">int</FONT></B> i = 42;
+String s = `<B><FONT COLOR="#BC8F8F">&quot;i is ${i}&quot;</FONT></B>`;
+out.println(s);
+</PRE></td></tr></table>
+This code prints:<br>
+<code>i is 42</code>.<br>
+<br>
+<h4><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Expression replacement with $(expression)">Expression replacement with $(expression)</a></h4>
+If the string between <code>${}</code> is not a single identifier it will be 
+evaluated as expression:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">int</FONT></B> i = 42;
+String s = `<B><FONT COLOR="#BC8F8F">&quot;i is ${i + 1}&quot;</FONT></B>`;
+out.println(s);
+</PRE></td></tr></table>
+This code prints:<br>
+<code>i is 43</code>.<br>
+<br>
+<h4><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Script replacement with !{scriptcode}!">Script replacement with !{scriptcode}!</a></h4>
+The string between <code>!{}!</code> will be evaluated as normal
+script. This part will be replaced with the content written to
+out.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">int</FONT></B> i = 42;
+String s = `<B><FONT COLOR="#BC8F8F">&quot;i is !{ out.print(i + 1); }!&quot;</FONT></B>`;
+out.println(s);
+</PRE></td></tr></table>
+This code prints:<br>
+<code>i is 43</code>.<br>
+Note: writing to <code>err</code> is also possible, but this goes to 
+the standard err object.<br>
+<br>
+<h3><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="StringArray replacement with @{identifier}">StringArray replacement with @{identifier}</a></h3>
+The string between <code>@{}</code> has to be a identifier to
+a StringArray. 
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+String args = [ <B><FONT COLOR="#BC8F8F">&quot;a&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;b&quot;</FONT></B> ];
+String s = `<B><FONT COLOR="#BC8F8F">&quot;args is @{args}&quot;</FONT></B>`;
+out.println(s):
+</PRE></td></tr></table>
+<code>i is a b</code>.<br>
+<br>
+<h3><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Quoting with #{ text }#">Quoting with #{ text }#</a></h3>
+If you want to quote parts of the string, to avoid unwanted evaluation you can quote parts with
+#{}#.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+String hello = <B><FONT COLOR="#BC8F8F">&quot;hallo&quot;</FONT></B>;
+out.println(`<B><FONT COLOR="#BC8F8F">&quot;#{${hello}}# is ${hello}&quot;</FONT></B>`);
+</PRE></td></tr></table>
+The first <code>${hello}</code> is quoted, so the output is:<br>
+<code>${hello} is hallo</code>
+<br>
+<h3><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Execute external program with `{ command }`">Execute external program with `{ command }`</a></h3>
+With <code>`{ }`</code> the enclosing command will be executed by the 
+operation system.<br>
+<br>
+The command can contain itself contain string replacements.<br>
+Here an example:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+String cdir = System.getAcdkHome();
+String lsOutput = <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>;
+String dirCmd = <B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>;
+
+<B><FONT COLOR="#0000FF">if</FONT></B> (System.getPlatformFlags() &amp; acdk.lang.PfWin32)
+  dirCmd = <B><FONT COLOR="#BC8F8F">&quot;dir&quot;</FONT></B>;
+<B><FONT COLOR="#A020F0">else</FONT></B>
+  dirCmd = <B><FONT COLOR="#BC8F8F">&quot;ls&quot;</FONT></B>;
+  
+lsOutput = `<B><FONT COLOR="#BC8F8F">&quot;`{${dirCmd} ${cdir}}`&quot;</FONT></B>`;
+</PRE></td></tr></table>
+<br>
+You can control more options for execution the external command with
+variables declared in the current scope.<br>
+<ul class="FeatureList">
+<li class="Feature"> <code>int SHELLEXECUTE_TIMEOUT</code>: only wait given milliseconds  for finish
+   process execution. If the process was not finished after given milliseconds
+   the process will be killed. 
+   The default is <code>-1</code>, which means calling script waits for ever.<br>
+<li class="Feature"> <code>bool SHELLEXECUTE_USEFILEREDIRECT</code>: Use temporary files to capture
+    output of process.<br>
+    Default is <code>false</code>.<br>
+<li class="Feature"> <code>bool SHELLEXECUTE_USESHELL</code>: Don't execute the given executable directly
+    by underlying operation system, but use the system shell.<br>
+    Default is <code>false</code>.<br>
+<li class="Feature"> <code>String SHELLEXECUTE_SHELL</code>: If SHELLEXECUTE_USESHELL is <code>true</code>
+    define the shell executable, which should execute the command.<br>
+    Default is <code>"cmd"</code> on Windows and <code>"sh"</code> on unix platforms.<br>
+<li class="Feature"> <code>String SHELLEXECUTE_EXECUTE_OPTION</code>: Option given to the shell 
+    (<code>SHELLEXECUTE_SHELL</code>). 
+    Default is <code>"/C"</code> on Windows and <code>"-c"</code> on unix platforms.<br>
+<li class="Feature"> <code>bool SHELLEXECUTE_ISSHELLSCRIPT</code>: The command passed to shell
+    (<code>SHELLEXECUTE_SHELL</code>) is not a native command, but itself a script.<br>
+<br>
+</ul>
+<br>
+Here a sample to use the shell:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+SHELLEXECUTE_USESHELL = true;
+String path;
+<B><FONT COLOR="#0000FF">if</FONT></B> (System.getPlatformFlags() &amp; acdk.lang.PfWin32) 
+  path = `<B><FONT COLOR="#BC8F8F">&quot;`{echo #{%PATH%}#}`&quot;</FONT></B>`;
+<B><FONT COLOR="#A020F0">else</FONT></B>
+  path = `<B><FONT COLOR="#BC8F8F">&quot;`{echo #{${PATH}}#}`&quot;</FONT></B>`;
+out.println(<B><FONT COLOR="#BC8F8F">&quot;PATH from shell is: &quot;</FONT></B> + path);
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable32"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_1_expressions_87_BacktickExpression_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_1_expressions_87_BacktickExpression_Test_csf</a>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=csf_tests_acdk_cfgscript_1_expressions_88_BacktickShellExpression_Test_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_tests_acdk_cfgscript_1_expressions_88_BacktickShellExpression_Test_csf</a>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | Backtick Expressions | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

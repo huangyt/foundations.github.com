@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{eb544e55-cff8-4d3f-ae35-1aaef6a582ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tcl">
+      <UniqueIdentifier>{752a3aef-453a-4027-a093-03ef57c131a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tcl\tcl_metainf">
+      <UniqueIdentifier>{506501b3-d87f-497a-91d8-bb00eeaa9ebe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tcl\Config.h">
+      <Filter>acdk\tcl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tcl\tcl.h">
+      <Filter>acdk\tcl</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tcl\TclInterpreter.h">
+      <Filter>acdk\tcl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tcl\TclInterpreter.cpp">
+      <Filter>acdk\tcl</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tcl\tcl_metainf_base.cpp">
+      <Filter>acdk\tcl</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tcl\tcl_metainf\tcl_metainf_ext.cpp">
+      <Filter>acdk\tcl\tcl_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

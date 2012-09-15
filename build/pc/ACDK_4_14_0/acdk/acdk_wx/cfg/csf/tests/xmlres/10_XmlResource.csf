@@ -1,0 +1,77 @@
+
+using acdk.wx;
+
+class MyDialog
+extends Dialog
+{
+  MyDialog()
+  {
+    super(Nil, -1, "Hello", Point.defaultPosition(), new Size(200, 200));
+    //setMenuBar(XmlResource.get().loadMenuBar("mainmenu"));
+  }
+}
+
+class MyFrame
+extends Frame
+{
+  MyFrame()
+  {
+    super("Hello"); //, Point.defaultPosition(), new Size(200, 200));
+    setMenuBar(XmlResource.get().loadMenuBar("mainmenu"));
+    connect(CommandEvent.EvtCommandMenuSelected, XmlResource.s2id("menu_quit"), new acdk.lang.dmi.DmiDelegate(this, "onQuit"));
+    connect(CommandEvent.EvtCommandMenuSelected, XmlResource.s2id("menu_dlg1"), new acdk.lang.dmi.DmiDelegate(this, "onDlg1"));
+    connect(CommandEvent.EvtCommandMenuSelected, XmlResource.s2id("menu_dlg2"), new acdk.lang.dmi.DmiDelegate(this, "onDlg2"));
+  }
+  void onQuit(Event event)
+  {
+    close(true);
+  }
+  void onDlg1(Event event)
+  {
+    Dialog dlg  = XmlResource.get().loadDialog(this, "dlg1");
+    if (dlg != Nil)
+      dlg.showModal();
+    else
+      out.println("Cannot load XmlRessource dlg1");
+  }
+  void onDlg2(Event event)
+  {
+    Dialog dlg  = XmlResource.get().loadDialog(this, "dlg2");
+    if (dlg != Nil)
+      dlg.showModal();
+    else
+      out.println("Cannot load XmlRessource dlg1");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    XmlResource xmlres = XmlResource.get();
+    xmlres.initAllHandlers();
+    xmlres.load("res/resource.xrc");
+    /*
+    Dialog dlg;
+    dlg = xmlres.loadDialog(Nil, "dlg1");
+    if (dlg == Nil)
+      Window.messageBox("Cannot Load Ressource");
+    else
+      dlg.showModal();
+      */
+    MyFrame frame = new MyFrame();
+    frame.show(true);
+    return true;
+    /*
+    MyDialog win = new MyDialog();
+    //win.show(true);
+    win.showModal();
+    */
+    return false; // don't continue
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

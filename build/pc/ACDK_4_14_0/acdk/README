@@ -1,0 +1,70 @@
+Welcome to ACDK.
+
+Please read the Licence-Info in ACDK-Licence.txt.
+
+To install the packages read the reame and install
+files in the packages.
+
+Installation order:
+1.) acdk_core
+2.) acdk_text
+3.) acdk_net
+4.) acdk_boot
+5.) others
+
+Linux
+-------------------------------------------------------
+After installing the ACDK package (see INSTALL)
+
+(replace PACKAGENAME with acdk_core, acdk_text, etc.)
+
+install it using
+> make -f PACKAGENAME.linux install
+compile it using
+> make -f PACKAGENAME.linux
+
+Solaris
+-------------------------------------------------------
+After installing the ACDK package (see INSTALL)
+
+(replace PACKAGENAME with acdk_core, acdk_text, etc.)
+install it using
+> gmake -f PACKAGENAME.sunos-gcc install
+compile it using
+> gmake -f PACKAGENAME.sunos-gcc
+
+FreeBSD
+-------------------------------------------------------
+After installing the ACDK package (see INSTALL)
+
+(replace PACKAGENAME with acdk_core, acdk_text, etc.)
+install it using
+> make -f PACKAGENAME.bsd install
+compile it using
+> make -f PACKAGENAME.bsd
+
+
+Windows NT / Windows 2000
+-------------------------------------------------------
+This distribution contains only project files
+for MS Visual C++ 6.
+Either
+nmake -f acdk_%PACKAGENAME%.nmake install
+nmake -f acdk_%PACKAGENAME%.nmake
+or
+nmake -f acdk_%PACKAGENAME%.nmake install
+Open the acdk_%PACKAGENAME%.dsw file and compile the package.
+
+For more detailed information please refer to
+the package documentation and
+http://acdk.sourceforge.net
+
+Please refer to
+http://sourceforge.net/docman/display_doc.php?docid=5800&group_id=15364
+for Changes since last releases and open issues.
+
+
+-- 
+Roger Rene Kommer
+http://acdk.sourceforge.net
+mailto:kommer@artefaktur.com

@@ -1,0 +1,19 @@
+%id: acdk_cfgscript_hb_wishlist
+%title: CfgScript Wish List
+%shorttitle: Wish List
+%body:
+<htmlauto/>
+<pageintro>
+The wish list for CfgScript
+</pageintro>
+
+<fl>
+<f> arrays with [] access
+<f> array slices
+<f> Extended character literals r"as\ndf" -> results to as\ndf
+<f> Native RegExp support 
+<f> Foreach with delegate (<c>foreach (int i in delegate obj.getElement) {} where bool getElement(in int idx, out int element)</c>)
+<f> Support for docstrings (for context help), should integrated into ACDK core.
+</fl>
+
+.

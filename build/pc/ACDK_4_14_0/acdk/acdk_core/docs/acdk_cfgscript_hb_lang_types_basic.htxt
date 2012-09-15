@@ -1,0 +1,57 @@
+%id: acdk_cfgscript_hb_lang_types_basic
+%title: CfgScript Basic Types
+%shorttitle: Basic Types
+%body:
+<chapterline/>
+<pageintro>
+Basic types are the common atomar value types.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Basic Types</jump1>
+<pre>
+BasicType
+: 'bool'
+| 'char'
+| 'byte'
+| 'short'
+| 'int'
+| 'jlong'
+| 'float'
+| 'double'
+;
+</pre>
+
+Sample:
+<source>
+// declaration and initialization of an int variable:
+int i = 42;
+bool b = true;
+</source>
+
+
+<jump1>Basic Types are Objects</jump1>
+
+Different to native C++-code the basic types are handled in CfgScript as
+objects too. ACDK uses the class %cref[acdk::lang::dmi::DmiObject] to
+manage basic types.
+
+<source>
+int i = 42;
+i.toString().length() == 2;
+</source>
+
+Different to other Object types, basic types are passed
+by value, not by reference like normal objects.
+
+<jump1>Literals</jump1>
+Literal of basic types can also be used as objects:
+<source>
+42.toString().length() == 2;
+"AB".length() == 2;
+</source>
+
+
+.

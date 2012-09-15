@@ -1,0 +1,60 @@
+
+
+String cdir = System.getAcdkHome();
+
+{
+  RString cmd;
+  if (System::getPlatformFlags() & acdk.lang.PfWin32)
+    cmd = "dir";
+  else
+    cmd = "ls";
+  cmd = cmd + " " + cdir;
+  out.println("executing: " + cmd);
+  ShellExecutor exec = new ShellExecutor(cmd, 0);
+  
+  //ShellExecutor exec = new ShellExecutor(cmd, acdk.cfgscript.SExecNoStdOut | 
+  //                                            acdk.cfgscript.SExecNoErrOut, Nil);
+  
+  //exec.setOutWriter(Nil);
+  //exec.setErrWriter(err);
+  Props props = new Props();
+  exec.execute(props);
+  RString out = exec.getOutString();
+  RString err = exec.getErrString();
+  System::out->println("executed " + cmd + ":\n" + out);
+}
+
+
+String hello = "hello";
+out.println(`"#{${hello}}# is ${hello}"`);
+
+
+
+String lsOutput = "";
+String dirCmd = "";
+if (System.getPlatformFlags() & acdk.lang.PfWin32)
+  dirCmd = "dir";
+else
+  dirCmd = "ls";
+out.println(`"executing: ${dirCmd} ${cdir}"`);
+lsOutput = `"`{${dirCmd} ${cdir}}`"`;
+
+out.println("Output is: " + lsOutput);
+SHELLEXECUTE_USESHELL = true;
+String path;
+if (System.getPlatformFlags() & acdk.lang.PfWin32) 
+  path = `"`{echo #{%PATH%}#}`"`;
+else
+  path = `"`{echo #{${PATH}}#}`"`;
+out.println("PATH from shell is: " + path);
+
+
+SHELLEXECUTE_USESHELL = true;
+SHELLEXECUTE_TIMEOUT = 300;
+String p;
+if (System.getPlatformFlags() & acdk.lang.PfWin32) 
+   p = `"`{pause}`"`;
+else
+  p = `"`{sleep 3000}`"`;
+out.println("cancel process out: " + p);
+

@@ -1,0 +1,33 @@
+%id: acdk_vfile_file2rc_man
+%title: acdk_vfile_file2rc
+%keywords: acdk_vfile_file2rc
+%body:
+<pageintro>
+acdk_vfile_file2rc converts a binary file to a
+byte array in a C file.
+</pageintro>
+<jumptable/>
+<jump1>Usage</jump1>
+<pre>
+acdk_vfile_file2rc &lt;input filename&gt &lt;output filename&gt;
+</pre>
+
+Convert binary file &lt;input filename&gt into a byte array.
+
+Sample:
+<source>
+unsigned char ressource_array[] = {
+  80,  75,   3,   4,  20,   0,   2,   0,   8,   0,  93, 146, 121,  42,  15, 201, 192, 170, 169,   0,   0
+  ,   0, 116,   1,   0,   0,  27,   0,  21,   0,  97,  99, 100, 107,  45,  49,  46,  48,  49,  47,  97,  99
+  // and so on
+} ;
+int ressource_size = 36608;
+
+</source>
+
+This C file can be used to include them as ressource files.
+
+Please refer to %ref[Embedding archive files into ressources, acdk_vfile_man#Embedding archive files into ressources])
+how to use this local internal file from code.
+
+.

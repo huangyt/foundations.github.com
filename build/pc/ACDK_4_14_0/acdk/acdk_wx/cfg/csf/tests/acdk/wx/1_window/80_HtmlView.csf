@@ -1,0 +1,31 @@
+
+using acdk.wx;
+
+class MyFrame
+extends Frame
+{
+  HtmlWindow hw;
+  MyFrame(String title) 
+  {
+    super(title);
+    hw = new HtmlWindow(this, -1);
+    //hw.loadFile(acdk.lang.System.getAcdkHome() + "/index.html");
+    hw.loadPage("http://acdk.sourceforge.net/acdk/modules/acdk_modules.html");
+    //hw.loadPage("http://sourceforge.net/projects/acdk/");
+    
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame("Hallo")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

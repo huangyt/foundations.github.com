@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{98707faf-c94b-4399-a848-9b802fd30935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci">
+      <UniqueIdentifier>{8d52d928-00ff-407f-b56b-4a1161d15283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\aci_metainf">
+      <UniqueIdentifier>{8551eee4-af9c-4a14-844b-e6306703e375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\ast">
+      <UniqueIdentifier>{70b9dafb-8c64-47ce-ad74-b5025926285a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\ast\ast_metainf">
+      <UniqueIdentifier>{09405a00-55af-43ff-881f-250172cdc2a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\parser">
+      <UniqueIdentifier>{97a9671e-5bce-43ae-8484-ddab83c0933f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\parser\parser_metainf">
+      <UniqueIdentifier>{fc6ee845-4dfc-4424-93c6-49f320ee8c81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\vm">
+      <UniqueIdentifier>{443042a1-2744-4999-932a-1f0022ee1b67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\vm\vm_metainf">
+      <UniqueIdentifier>{dc98fa5d-2029-4a2d-b2ee-b7a65875f4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\util">
+      <UniqueIdentifier>{0225e259-a597-4294-ba41-1c1dbb0c1674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\util\util_metainf">
+      <UniqueIdentifier>{d05c1e52-b438-4497-9493-78674b4f2334}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\aci\aci_metainf\aci_metainf_ext.cpp">
+      <Filter>acdk\aci\aci_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\ast_metainf\ast_metainf_ext.cpp">
+      <Filter>acdk\aci\ast\ast_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\parser_metainf\parser_metainf_ext.cpp">
+      <Filter>acdk\aci\parser\parser_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\vm_metainf\vm_metainf_ext.cpp">
+      <Filter>acdk\aci\vm\vm_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\util\util_metainf\util_metainf_ext.cpp">
+      <Filter>acdk\aci\util\util_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

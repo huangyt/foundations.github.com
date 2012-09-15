@@ -1,0 +1,25 @@
+
+#include "amake_config.csf"
+
+
+acdk_python = new acdk.make.AcdkLibTask("acdk_python");
+acdk_python.addModule("src/acdk/python");
+acdk_python.addAcdkLib("acdk_core");
+acdk_python.addModuleConfigTask("amake_python_config");
+
+acdk_python_Test = new acdk.make.AcdkTestExeTask("acdk_python_Test");
+acdk_python_Test.setBaseDir("tests/acdk/python");
+acdk_python_Test.addSource("tests/acdk/python");
+acdk_python_Test.addAcdkLib("acdk_core");
+acdk_python_Test.addAcdkLib("acdk_python");
+acdk_python_Test.addAcdkLib("acdk_tools_aunit");
+acdk_python_Test.addSubTask("acdk_python");
+acdk_python_Test.addModuleConfigTask("amake_python_config");
+
+acdk_python_prj = new acdk.make.AcdkProjectTask("acdk_python_prj");
+acdk_python_prj.registerTask("default");
+acdk_python_prj.addSubTask("acdk_python");
+acdk_python_prj.addSubTask("acdk_python_Test");
+
+
+

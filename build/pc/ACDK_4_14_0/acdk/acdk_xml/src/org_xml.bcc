@@ -1,0 +1,186 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ORG_XML_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib"
+
+OUTFILE="..\..\bin\org_xml.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\org_xml\bcc"
+SOURCES= 	"org\xml\sax\sax_metainf_base.cpp" \
+	"org\xml\sax\helpers\AttributesImpl.cpp" \
+	"org\xml\sax\helpers\helpers_metainf_base.cpp" \
+	"org\xml\sax\helpers\MiscXmlUtils.cpp" \
+	"org\xml\sax\helpers\NamespaceSupport.cpp" \
+	"org\w3c\dom\DOMWriter.cpp" \
+	"org\w3c\dom\dom_metainf_base.cpp" \
+	"org\w3c\dom\Node.cpp" \
+	"org\w3c\dom\xpath\xpath_metainf_base.cpp" \
+	"org\w3c\dom\traversal\traversal_metainf_base.cpp" \
+
+HEADER= 	"org\xml\sax\AttributeList.h" \
+	"org\xml\sax\Attributes.h" \
+	"org\xml\sax\Config.h" \
+	"org\xml\sax\ContentHandler.h" \
+	"org\xml\sax\DeclHandler.h" \
+	"org\xml\sax\DocumentHandler.h" \
+	"org\xml\sax\DTDHandler.h" \
+	"org\xml\sax\EntityResolver.h" \
+	"org\xml\sax\ErrorHandler.h" \
+	"org\xml\sax\HandlerBase.h" \
+	"org\xml\sax\InputSource.h" \
+	"org\xml\sax\LexicalHandler.h" \
+	"org\xml\sax\Locator.h" \
+	"org\xml\sax\Parser.h" \
+	"org\xml\sax\sax.h" \
+	"org\xml\sax\SAXException.h" \
+	"org\xml\sax\SAXNotRecognizedException.h" \
+	"org\xml\sax\SAXNotSupportedException.h" \
+	"org\xml\sax\SAXParseException.h" \
+	"org\xml\sax\XMLFilter.h" \
+	"org\xml\sax\XMLReader.h" \
+	"org\xml\sax\helpers\AttributesImpl.h" \
+	"org\xml\sax\helpers\CollectiveErrorHandler.h" \
+	"org\xml\sax\helpers\DefaultHandler.h" \
+	"org\xml\sax\helpers\helpers.h" \
+	"org\xml\sax\helpers\LocatorImpl.h" \
+	"org\xml\sax\helpers\MiscXmlUtils.h" \
+	"org\xml\sax\helpers\NamespaceSupport.h" \
+	"org\xml\sax\helpers\StdErrorHandler.h" \
+	"org\xml\sax\helpers\XMLFilterImpl.h" \
+	"org\w3c\dom\Attr.h" \
+	"org\w3c\dom\Branch.h" \
+	"org\w3c\dom\CDATASection.h" \
+	"org\w3c\dom\CharacterData.h" \
+	"org\w3c\dom\Comment.h" \
+	"org\w3c\dom\Document.h" \
+	"org\w3c\dom\DocumentFragment.h" \
+	"org\w3c\dom\DocumentType.h" \
+	"org\w3c\dom\dom.h" \
+	"org\w3c\dom\DOMConfiguration.h" \
+	"org\w3c\dom\DOMError.h" \
+	"org\w3c\dom\DOMErrorHandler.h" \
+	"org\w3c\dom\DOMException.h" \
+	"org\w3c\dom\DOMImplementation.h" \
+	"org\w3c\dom\DOMLocator.h" \
+	"org\w3c\dom\DOMWriter.h" \
+	"org\w3c\dom\Element.h" \
+	"org\w3c\dom\Entity.h" \
+	"org\w3c\dom\EntityReference.h" \
+	"org\w3c\dom\NamedNodeMap.h" \
+	"org\w3c\dom\Node.h" \
+	"org\w3c\dom\NodeList.h" \
+	"org\w3c\dom\Notation.h" \
+	"org\w3c\dom\ProcessingInstruction.h" \
+	"org\w3c\dom\Text.h" \
+	"org\w3c\dom\xpath\xpath.h" \
+	"org\w3c\dom\xpath\XPathEvaluator.h" \
+	"org\w3c\dom\xpath\XPathException.h" \
+	"org\w3c\dom\xpath\XPathExpression.h" \
+	"org\w3c\dom\xpath\XPathNamespace.h" \
+	"org\w3c\dom\xpath\XPathNSResolver.h" \
+	"org\w3c\dom\xpath\XPathResult.h" \
+	"org\w3c\dom\traversal\DocumentTraversal.h" \
+	"org\w3c\dom\traversal\NodeFilter.h" \
+	"org\w3c\dom\traversal\NodeIterator.h" \
+	"org\w3c\dom\traversal\traversal.h" \
+	"org\w3c\dom\traversal\TreeWalker.h" \
+
+OBJECTS= 	"..\tobj\org_xml\bcc\sax_metainf_base.obj" \
+	"..\tobj\org_xml\bcc\AttributesImpl.obj" \
+	"..\tobj\org_xml\bcc\helpers_metainf_base.obj" \
+	"..\tobj\org_xml\bcc\MiscXmlUtils.obj" \
+	"..\tobj\org_xml\bcc\NamespaceSupport.obj" \
+	"..\tobj\org_xml\bcc\DOMWriter.obj" \
+	"..\tobj\org_xml\bcc\dom_metainf_base.obj" \
+	"..\tobj\org_xml\bcc\Node.obj" \
+	"..\tobj\org_xml\bcc\xpath_metainf_base.obj" \
+	"..\tobj\org_xml\bcc\traversal_metainf_base.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\org_xml\bcc\sax_metainf_base.obj": "org\xml\sax\sax_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\xml\sax\sax_metainf_base.cpp"
+
+"..\tobj\org_xml\bcc\AttributesImpl.obj": "org\xml\sax\helpers\AttributesImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\xml\sax\helpers\AttributesImpl.cpp"
+
+"..\tobj\org_xml\bcc\helpers_metainf_base.obj": "org\xml\sax\helpers\helpers_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\xml\sax\helpers\helpers_metainf_base.cpp"
+
+"..\tobj\org_xml\bcc\MiscXmlUtils.obj": "org\xml\sax\helpers\MiscXmlUtils.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\xml\sax\helpers\MiscXmlUtils.cpp"
+
+"..\tobj\org_xml\bcc\NamespaceSupport.obj": "org\xml\sax\helpers\NamespaceSupport.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\xml\sax\helpers\NamespaceSupport.cpp"
+
+"..\tobj\org_xml\bcc\DOMWriter.obj": "org\w3c\dom\DOMWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\w3c\dom\DOMWriter.cpp"
+
+"..\tobj\org_xml\bcc\dom_metainf_base.obj": "org\w3c\dom\dom_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\w3c\dom\dom_metainf_base.cpp"
+
+"..\tobj\org_xml\bcc\Node.obj": "org\w3c\dom\Node.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\w3c\dom\Node.cpp"
+
+"..\tobj\org_xml\bcc\xpath_metainf_base.obj": "org\w3c\dom\xpath\xpath_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\w3c\dom\xpath\xpath_metainf_base.cpp"
+
+"..\tobj\org_xml\bcc\traversal_metainf_base.obj": "org\w3c\dom\traversal\traversal_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\org_xml\bcc" "org\w3c\dom\traversal\traversal_metainf_base.cpp"
+
+
+
+clean:
+	del "..\..\bin\org_xml.dll"
+	del "..\tobj\org_xml\bcc\sax_metainf_base.obj"
+	del "..\tobj\org_xml\bcc\AttributesImpl.obj"
+	del "..\tobj\org_xml\bcc\helpers_metainf_base.obj"
+	del "..\tobj\org_xml\bcc\MiscXmlUtils.obj"
+	del "..\tobj\org_xml\bcc\NamespaceSupport.obj"
+	del "..\tobj\org_xml\bcc\DOMWriter.obj"
+	del "..\tobj\org_xml\bcc\dom_metainf_base.obj"
+	del "..\tobj\org_xml\bcc\Node.obj"
+	del "..\tobj\org_xml\bcc\xpath_metainf_base.obj"
+	del "..\tobj\org_xml\bcc\traversal_metainf_base.obj"
+
+

@@ -1,0 +1,120 @@
+%id: acdk_java_serialization_man
+%title: acdk_java_serialization Manual
+%shorttitle: acdk_java_serialization
+%chapter: acdk_java_serialization_sample
+%keywords: acdk::java::serialization, Java, serialization
+
+%body:
+<htmlauto/>
+
+<pageintro>
+The package provides a java compatible object serialization.
+</pageintro>
+
+See also %ref[acdk_java_serialization_sample].
+
+<jumptable/>
+
+<jump1>Type mapping</jump1>
+Java and ACDK has similar but not identical object model.
+Therefore for serialization a type mapping between Java and ACDK is 
+necessary.
+
+<jump2>Basic Types</jump2>
+Basic types will be serialized in network byte order.
+In Java a character is 16 bit wide (like a short). In ACDK a character is only 8
+bit wide (like a byte). 
+At the moment no transformation (UTF8/16) will be made in conversion of characters 
+from ACDK to Java and vice version.
+Transfering data from Java to ACDK information about the
+higher 8 bytes may be lost.
+
+<jump2>Arrays of basic</jump2>
+Similar to the meta-information of ACDK classes with generated structures
+::acdk::lang::dmi::ClazzInfo, there is also a database for the typmapping
+using static structs of type ::acdk::java::serialization::ClassTypeMapping.
+
+The typmapping for some standard Java/ACDK classes can be found in the files
+a2jser_acdk_lang.cpp, a2jser_acdk_util.cpp, and so on in the directory 
+./src/acdk/java/serialization. 
+
+<jump1>Arrays of Objects</jump1>
+The type mapping of Objects is supported via a user defined type mapping.
+(See below.)
+
+<jump1>Arrays of basic</jump1>
+The serialization of the basic types and Object in one dimensional
+arrays is supperted. Not supported are serialization of multi dimensional
+arrays.
+
+<jump2>Create Typemappings for own ACDK classes</jump2>
+To create own type mappings you can use the Java programm
+./src/java/JavaClassDeclToAcdkSer.java. 
+
+<code>promt&gt; javac JavaClassDeclToAcdkSer java.package.ClassName</code>
+
+The output can be copied/appended into a .cpp source file.
+
+<jump2>Modify the type mapping</jump2>
+
+The default mapping can be modified:
+<fl>
+<f> Name of member
+<f> Type of member
+</fl> 
+
+<note>
+Do not delete member definition of the type mapping, because the original Java serialization
+is still needed to write a correct Java class description to the stream.
+</note>
+
+<jump2>Define own writer and reader methods.</jump2>
+
+In the struct ClassTypeMapping the members read_func and write_func can be 
+overwritten to define own methods to read/write an Object in a Java compatible way.
+
+Please refer to the file acdk_java/src/acdk/java/serialization/a2jser_acdk_util.cpp and the
+other a2jser_* files to look some examples.
+
+<note>
+In the read_func function the newly created ACDK-Object has to be registered before 
+reading other members.
+</note>
+<source>
+RObject 
+a2jser_read_acdk_util_ArrayList(IN(::acdk::java::serialization::RJavaObjectReader) in, 
+                                const ::acdk::java::serialization::ClassTypeMapping* ctm)
+{
+  int count = in->readInt();
+  RArrayList al = new ArrayList();
+  in->registerNewObject(&al); // register Object.
+  for (int i = 0; i < count; ++i)
+  {
+    al->add(in->readObject());
+  }
+  return al;
+}
+
+:acdk::java::serialization::ClassTypeMapping a2jser_java_util_ArrayList = 
+{
+  "acdk/util/ArrayList", // acdk_name
+  "java/util/ArrayList", // java_name
+  "", // acdk_super
+  "", // java_super
+  ::acdk::java::serialization::SC_SERIALIZABLE, // flags
+  JLONG_CONSTANT(0x7881d21d99c7619d), // UID
+  JLONG_CONSTANT(0x788cfdda08df1046), //[] UID
+  a2jser_java_util_ArrayList_fields, // Fields
+  a2jser_read_acdk_util_ArrayList, // read_func
+  a2jser_write_acdk_util_ArrayList, // write_func
+  0 // used for internal linked list
+};
+
+</source>
+<jump1>Sample</jump1>
+Please refer to %ref[acdk_java_serialization_sample].
+
+.
+
+
+

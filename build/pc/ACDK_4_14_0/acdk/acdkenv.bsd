@@ -1,0 +1,10 @@
+
+# this set the environmnet for running acdk
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/artefaktur/acdk/bin:/artefaktur/wxwidgets/lib
+ACDK_JAVA_LIBDIR=/usr/lib/SunJava2-1.4.2/jre/lib/i386
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ACDK_JAVA_LIBDIR:$ACDK_JAVA_LIBDIR/client:$ACDK_JAVA_LIBDIR/native_threads
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/artefaktur/extsrc/lib
+
+

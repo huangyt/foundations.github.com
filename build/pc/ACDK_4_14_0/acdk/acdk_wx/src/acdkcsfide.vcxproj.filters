@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{d12b1c3f-6d84-426d-a8fb-db150130c63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{5a8e9dee-8c1c-4d3a-bc19-43eba1418608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\csfide">
+      <UniqueIdentifier>{be8cefe9-4197-4aaa-88e6-867a39f73c84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\res">
+      <UniqueIdentifier>{0a8804de-7fa5-4cbb-8b0d-a422677553db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\csfide\BackTraceCtrl.h">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\csfide\CsfDebugger.h">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\csfide\Editor.h">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\csfide\LocalVarsCtrl.h">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\csfide\Main.h">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\csfide\OutputWindow.h">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\csfide\CsfDebugger.cpp">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\csfide\Editor.cpp">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\csfide\Main.cpp">
+      <Filter>acdk\tools\csfide</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="acdk\res\wx.rc">
+      <Filter>acdk\res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

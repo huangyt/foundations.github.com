@@ -1,0 +1,188 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_text">
+<title>ACDK TEXT Readme</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Text</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK TEXT Readme<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="prce_license.html">PCRE LICENCE</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | ACDK TEXT Readme | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="prce_license.html">PCRE LICENCE</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK TEXT Readme</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK TEXT Readme</h1> -->
+<br>
+<p class="PageIntro">
+ACDK Text (acdk_text)acdk_text contains classes for text rendering and parsing, 
+including perl like regular expressions.</p>
+<br>
+<br>
+<a name="jumptable55"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Title"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Title</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Version"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Short Description</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Authors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Authors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#License"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;License</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Description</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Notes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Todo"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Todo</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Changes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Changes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+  <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Title">Title</a></h3>
+    ACDK Text (acdk_text)  <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Version">Version</a></h3>
+    Distribution version: 4.14.<br>
+    Package version: 4.14.0.<br>
+   
+  <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short Description">Short Description</a></h3>
+    <pre class="quoted">
+  acdk_text contains classes for text rendering and parsing, 
+including perl like regular expressions.    </pre>
+  <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h3>
+    <pre class="quoted">
+      <a  href="../../acdk_core/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Core</a>
+    </pre>
+  <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+    <pre class="quoted">
+      acdk::text
+    </pre>
+  <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Authors">Authors</a></h3>
+    <pre class="quoted">
+      Roger Rene Kommer (kommer@artefaktur.com).<br>
+Philip Hazel (ph10@cam.ac.uk) (regular expression)    </pre>
+   <h3><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="License">License</a></h3>
+    <pre class="quoted">
+      ACDK Free Edition License. (<a  href="../../docs/ACDK-FreeLicense.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;License</a>).<br>
+PRCE License (<a  href="prce_license.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;PCRE LICENCE</a>).    </pre>
+<h2><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Description">Description</a></h2>
+  <m>acdk_text</m> corresponds to the <code>java.text</code> packages.<br>
+<br>
+See also <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__text"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::text</a>.<br>
+<br>
+Additionally acdk_text contains <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__text__RegExp"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::text::RegExp</a> for Perl
+like regular expression.<br>
+<h2><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes">Notes</a></h2>
+  <pre class="quoted">
+  Note: 
+For all files in the directory:<br>
+./src/acdk/text/regexp/pcre<br>
+another copyright applies:<br>
+<br>
+"Written by: Philip Hazel <ph10@cam.ac.uk>
+Copyright (c) 1997-1999 University of Cambridge"<br>
+<br>
+Please refer also to:<br>
+./src/acdk/text/regexp/pcre/LICENCE<br>
+for more information.  </pre>
+<br>
+<h2><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Todo">Todo</a></h2>
+  <pre class="quoted">
+  - Some Tests DecimalFormat_Test doesn't run reliable on Linux.  </pre>
+ 
+<h2><a href="#jumptable55"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Changes">Changes</a></h2>
+  <pre class="quoted">
+    ===========================================================
+4.10.0
+- Fixed unicode bug in RegExp
+<br>
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a>.<br>
+===========================================================
+4.02.0
+- Configuration and documentation fixes.<br>
+<br>
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.<br>
+<br>
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.<br>
+- Fixed BCC bugs.<br>
+- Reworked RegExp.<br>
+<br>
+===========================================================
+3.01.0
+- Use preg_* functionality instead of posix regexp
+- This also automatically fixed bug under FreeBSD
+<br>
+===========================================================
+2.01.1
+- Problem detected with RegExp::replace on BSD.<br>
+  Deactivated test for this platform.<br>
+<br>
+===========================================================
+2.00.1
+- Use PCRE v3.9
+- Ajustments
+- Basic test for RegExp
+<br>
+===========================================================
+1.01.0
+<br>
+- Enhanced Metainfo compiler for CORBA functionality.<br>
+- Improved Configurations.<br>
+===========================================================
+1.00.2
+Only changes in configuration.<br>
+<br>
+===========================================================
+1.00
+Initial public release  </pre>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | ACDK TEXT Readme | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="prce_license.html">PCRE LICENCE</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

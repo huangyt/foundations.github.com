@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{7e7c45c9-7413-481e-af50-271509aedae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lisp">
+      <UniqueIdentifier>{b29dde32-05f6-47b8-a75d-f82e0d8cf2eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lisp\interpreter">
+      <UniqueIdentifier>{54f5de06-02b2-4581-922f-5d1bbbffeefb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\lisp\interpreter\IACDKLisp.cpp">
+      <Filter>acdk\lisp\interpreter</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

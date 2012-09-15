@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{9e51850c-3769-4cd2-9bd7-1ca203a2c367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml">
+      <UniqueIdentifier>{86238f62-5d1b-422e-b143-414166caa83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\xml_metainf">
+      <UniqueIdentifier>{3854f7d7-f650-4373-96a5-8afc1e45d70f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\sax">
+      <UniqueIdentifier>{53450bbc-c206-4947-bed7-da02f049bffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\sax\sax_metainf">
+      <UniqueIdentifier>{8ef9d760-92a8-43f4-b686-bbd826aa23af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\dom">
+      <UniqueIdentifier>{c70f7e8c-6514-4692-b75b-22e289c76b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\dom\dom_metainf">
+      <UniqueIdentifier>{040f1f4c-6c82-4aae-a31b-e7b03cb1fe8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\libxmldom">
+      <UniqueIdentifier>{a932eaf8-65c1-465c-8100-aaa080d10f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\libxmldom\libxmldom_metainf">
+      <UniqueIdentifier>{c89c8791-4ecb-4ed3-995c-7364882c2ba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\parsers">
+      <UniqueIdentifier>{378ec60e-36d6-4de9-bdc1-77bfd6234001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\xml\parsers\parsers_metainf">
+      <UniqueIdentifier>{78f27407-cc18-449e-9cc2-5f26a560e954}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\xml\xml_metainf\xml_metainf_ext.cpp">
+      <Filter>acdk\xml\xml_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\xml\sax\sax_metainf\sax_metainf_ext.cpp">
+      <Filter>acdk\xml\sax\sax_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\xml\dom\dom_metainf\dom_metainf_ext.cpp">
+      <Filter>acdk\xml\dom\dom_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext.cpp">
+      <Filter>acdk\xml\libxmldom\libxmldom_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\xml\libxmldom\libxmldom_metainf\libxmldom_metainf_ext1.cpp">
+      <Filter>acdk\xml\libxmldom\libxmldom_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\xml\parsers\parsers_metainf\parsers_metainf_ext.cpp">
+      <Filter>acdk\xml\parsers\parsers_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

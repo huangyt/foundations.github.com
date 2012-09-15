@@ -1,0 +1,381 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL Concept</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Concept<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_aal_ip.html">Intentional Programming</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aci_concept.html">ACI Concept</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_languagedef.html">AAL definition</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_parser.html">AAL parser</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_objects.html">Object Representation</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_opcode.html">OpCode</a>
+<br>
+&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_links.html">Reference Links</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../readme.html">AAL Readme</a> | <a  href="../../..">aal_aci</a> | <a  href="../aal/reference/aal_reference.html">Reference</a> | Concept | <a  href="../../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL Concept</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL Concept</h1> -->
+<p class="PageIntro">
+Conceptional thinking about design of AAL.
+</p>
+
+Note: These papers are only result on my brainstorming about
+concepts, definitions and implementations of the AAL.
+
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="../acdk_aal_ip.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL as Intentional Programming System</a></p><p class="pagesummary">
+How to use AAL as Intentional Programming System.
+</p><p class="subchapterlink"><a  href="acdk_aci_concept.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;ACI Concept</a></p><p class="pagesummary">
+Conceptional thinking about design of ACI.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_languagedef.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL definition</a></p><p class="pagesummary">
+Spec of the language.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_languagesyntax.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL syntax</a></p><p class="pagesummary">
+Syntax of the ALL (snapshot).
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_parser.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL parser</a></p><p class="pagesummary">
+Design of the AAL extensible Parser.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_objects.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL Object Representation</a></p><p class="pagesummary">
+How to build AAL Objects.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_opcode.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL OpCode</a></p><p class="pagesummary">
+Intermediate OpCode for AAL.
+</p><p class="subchapterlink"><a  href="acdk_aal_concept_links.html"><img border="0" src="./../../../docs\images/url_chapter.gif">&nbsp;AAL concept Reference Links</a></p><p class="pagesummary">
+Links to Web ressources.
+</p></td></tr></table><!-- subchaptersframe -->
+
+
+<h2>Steps</h2>
+(Task - percent implemented yet)
+<ul class="FeatureList">
+<li class="Feature"> Compiler-Interpreter framework
+<ul class="FeatureList">
+  <li class="Feature"> Scanner framework using regular expressions 
+      and user defined scanner plugins (C++-commets, etc) - 70%
+  <li class="Feature"> Parser framework using extended BNF syntax - 70%
+  <li class="Feature"> SymbolTable - 50%
+</ul>
+<li class="Feature"> OpCode Interpreter
+<ul class="FeatureList">
+  <li class="Feature"> Standard OpCodes - 30%
+  <li class="Feature"> DMI Client Interface - 20%
+  <li class="Feature"> DMI Server Interface - 20%
+</ul>
+<li class="Feature"> AAL language
+<ul class="FeatureList">
+  <li class="Feature"> Standard AAL syntax definition - 40%
+  <li class="Feature"> Semantik parser - 60%
+  <li class="Feature"> OpCode generator - 50%
+  <li class="Feature"> Language Details<br>
+  
+  <ul class="FeatureList">
+    <li class="Feature"> Object related things
+    <ul class="FeatureList">
+      <li class="Feature"> allow fully qualified names (acdk.lang.System.out.println("asdf");) - 90%
+      <li class="Feature"> preparse all declarations of class before body - 100%
+      <li class="Feature"> Namespace definitions - 60%
+      <li class="Feature"> using declarations - 60%
+      <li class="Feature"> using also for classes, methods and fields - 0%
+      <li class="Feature"> Interfaces - 50%
+      <ul class="FeatureList">
+        <li class="Feature"> Check if all abstract interfaces are implemented in NewExpression - 0%
+      </ul>
+      <li class="Feature"> Abstract Classes - 50%
+      <li class="Feature"> Allow member access inside class without this. prefix - 70%
+      <li class="Feature"> User defined operators - 40%
+      <li class="Feature"> static class member - 80%
+      <li class="Feature"> property similar to C# - 0%
+      <li class="Feature"> Stacked Object variables (maybe only possible for AAL objects, not for ACDK Objects) - 0%
+        <ul class="FeatureList">
+          <li class="Feature"> Redesign of Stack/Heap to allow typed values (currently only ScriptVar are allowed).
+          <li class="Feature"> need raw_sizeof(Class) at runtime - 0%
+          <li class="Feature"> DMI Constructor interface with allocator - 0%
+        </ul>
+      <li class="Feature"> AalObject as DMI Server - 10%
+      <ul class="FeatureList">
+        <li class="Feature"> Allow AalObject to derive from ACDK Object - 50%.
+        <li class="Feature"> Overwrite (virtual) method call in AllObject derived from ACDK object
+            - only possible with external DMI thunked version of the classes.
+      </ul>
+      <li class="Feature"> Allow call undefined DMI Server classes (weak binding) - 100%
+      <li class="Feature"> Declare classes as weak, dispatching/overloading on object types, not on class types.
+          method calls may return DoesNotUnderstand.
+          obj.call() static call if possible, dynamic call if necessary
+          obj->call() forced dynamic call 
+          This also can be used as implementation of multimethods
+          - 80%
+      <li class="Feature"> public/private class members access, checking at run time - 40%
+      <li class="Feature"> public/private class members access, checking at compile time - 30%
+      <li class="Feature"> public/protected/private for unit access - 0%
+      
+      <li class="Feature"> explicit Super invocation (class A { void foo(); } class B extends A { void foo() { A.foo(); } - 50%
+      <li class="Feature"> Implicit default super constructor invocation - 100%
+      <li class="Feature"> Class Constructor (static ClassName() {}) - 100%
+      <li class="Feature"> super alias for parent class - 0%
+      <li class="Feature"> Generate default constructor if no constructor is defined - 100%.
+      <li class="Feature"> Automatic constant object wrapper to allow "asdf".length(), 42.toString() - 10%
+      <li class="Feature"> Read only member - 0%
+      <li class="Feature"> Free standing functions - 30%
+      <li class="Feature"> Overwrite/Extend classes/objects at compile time - 0%
+      <li class="Feature"> Protect classes from Overwrite/Extend. All ACDK classes are sealed - 0%.
+      <li class="Feature"> Add fields at runtime (static fields, on all new created object of an class, to a single instance) - 0%
+      <li class="Feature"> Accessing global variables - 0%
+      <li class="Feature"> Local type (classes, functions) definitions with access attributes - 0%
+      <li class="Feature"> byval field members - 0%
+      <li class="Feature"> multiple inheritance by forwarding ('using' type) - 0%
+    </ul>
+    <li class="Feature"> Call interface
+    <ul class="FeatureList">
+      <li class="Feature"> Standard parameters - 60%
+      <li class="Feature"> named parameters - 70%
+      <li class="Feature"> in, out, inout parameters - 0%
+      <li class="Feature"> byval parameters - 0%
+      <li class="Feature"> weak interfaces (like perl, tcl, etc.) - 0%
+      <li class="Feature"> rest parameters - 0%
+      <li class="Feature"> Ad hoc named and unnamed tuples (structs/arrays/hashes) for parameter and return types
+          using rest parameters
+      <li class="Feature"> 
+      <li class="Feature"> build in method/field invokation not using dmi - (not needed) 0%
+    </ul>
+    <li class="Feature"> Types
+    <ul class="FeatureList">
+      <li class="Feature"> Buildin basic types - 30%
+      <ul class="FeatureList">
+        <li class="Feature"> constant right sizes (12 = byte, 1234 = short, etc) - 80%
+        <li class="Feature"> parse dec constants - 100%
+        <li class="Feature"> parse hex constants - 0%
+        <li class="Feature"> parse postfixed number constants "0L"- 100%
+      </ul>
+      <li class="Feature"> Strings - 30%
+      <ul class="FeatureList">
+        <li class="Feature"> standard strings - 100%
+        <li class="Feature"> String concation: "a" "b" => "ab" - 100%
+        <li class="Feature"> Multiline strings: "
+                                " - 0%
+        <li class="Feature"> String::operator+() - 100%
+        <li class="Feature"> StringBuffer::operator+=() - 100%
+      </ul>
+      <li class="Feature"> any type - 0%
+      <li class="Feature"> Enumeration - 0%
+      <li class="Feature"> Derived enumerations - 0%
+      <li class="Feature"> Constants (maybe implemented with readonly variables) - 0%
+      <li class="Feature"> Buildin array types - 50%
+      <ul class="FeatureList">
+        <li class="Feature"> Basic type arrays - 80%
+        <li class="Feature"> Object type arrays - 70%
+        <li class="Feature"> static initialization of arrays "int[] iarr = { 1, 2, 3};" - 0%
+        <li class="Feature"> multi dimensional arrays  - 0%
+        <li class="Feature"> array slicing - 0%
+      </ul>
+      <li class="Feature"> Buildin hash types - 0%
+      <li class="Feature"> Value types - 0%
+    </ul>
+    <li class="Feature"> Expressions:
+    <ul class="FeatureList">
+      <li class="Feature"> Assignment operator - 30%
+      <li class="Feature"> Type checking for assigment - 0%
+      <ul class="FeatureList">
+        <li class="Feature"> := operator for value assignment - 0%
+      </ul>
+      <li class="Feature"> Resolve user defined class operators - 25%
+      <li class="Feature"> Short cicuit boolean evaluation (a.foo() == true && b.foo() == true) - 100%
+      <li class="Feature"> Relational Expression - 80%
+      <li class="Feature"> ! not operator - 100%
+      <li class="Feature"> Bitwise operators |, &, ^, ~ - 100%
+      <li class="Feature"> Assignments chain (a = b = c) - 100%
+      <li class="Feature"> operator=== to compare if two Objects are equals - 100%.
+      <li class="Feature"> operator<=> to compare if two Objects via compareTo - 0%.
+      <li class="Feature"> Additive operators - 20%
+      <li class="Feature"> Cast expression for objects - 60%
+      <li class="Feature"> Cast expression for basic types - 0%
+      <li class="Feature"> C++-like casts (int(32), String(other) - 0%
+      <li class="Feature"> Boxing casts ((int)integer; Object(42) - 0%
+      <li class="Feature"> Type conversion/coercion (short + long == long) - 0%
+      <li class="Feature"> Multiplicative operators - 100%
+      <li class="Feature"> modulo operator on floats (C++ doesn't support this, but Java) - %
+      <li class="Feature"> Prefix and Postfix operator - 70%
+      <ul class="FeatureList">
+        <li class="Feature"> Buildin ops - 80%
+        <li class="Feature"> overloaded ops - 0%
+        <li class="Feature"> single -/+ Prefix - 0%
+      </ul>
+      <li class="Feature"> Shift operator - 100%
+      <li class="Feature"> >>> shift operator - 100%
+      <li class="Feature"> Expression if (test ? true : false) - 100%
+      <li class="Feature"> Comma seperated expressions (often used in for loops) - 0%
+      <li class="Feature"> Empty Expression (used in for loops) - 100%
+      <li class="Feature"> Buildin expressions 
+      <ul class="FeatureList">
+        <li class="Feature"> instanceof - 0%
+      </ul>
+    </ul>
+    <li class="Feature"> Metainfo
+    <ul class="FeatureList">
+      <li class="Feature"> Standard Metainfo using ACDK DMI and acdk.lang.reflect
+    </ul>
+    <li class="Feature"> Statements:
+    <ul class="FeatureList">
+      <li class="Feature"> If statement - 100%
+      <li class="Feature"> While statement - 100%
+      <li class="Feature"> return statement - 100%
+      <li class="Feature"> Scoped Blocks - 60%
+      <li class="Feature"> Do statement - 100%
+      <li class="Feature"> for statement - 100%
+      <li class="Feature"> foreach statement for arrays (foreach (iterator, container, condition) Statement (from kiev) - 0%
+      <li class="Feature"> foreach statement on maps - 0%
+      <li class="Feature"> switch statement - 100%
+      <li class="Feature"> swtich statement with expressions - 100%
+      <li class="Feature"> break, continue statement - 100%
+      <li class="Feature"> goto, check if var initialization will be crossed - 70%
+      <li class="Feature"> goto needs at least one statement behind. "void foo() { goto endoffoo; endoffoo: }" does not work - 100%
+      <li class="Feature"> empty statement - 100%
+      <li class="Feature"> Synchronization - 0%
+      <li class="Feature"> with expression (similar to VB) - 0%      
+    </ul>
+    <li class="Feature"> Exceptions
+    <ul class="FeatureList">
+      <li class="Feature"> throw/catch/finally statement - 100%
+      <li class="Feature"> Handle AAL orginator and AAL catcher - 100%
+      <li class="Feature"> Handle AAL orginator and ACDK catcher - 0%
+      <li class="Feature"> Handle ACDK orginator and AAL catcher - 100%
+      <li class="Feature"> Handle ACDK orginator and ACDK catcher - 0%
+      <li class="Feature"> [re-] throw exception - 0%
+      <li class="Feature"> call function in catch blocks (which allows rethrow] - 0%
+      <li class="Feature"> throws method declaration - 0%
+      <li class="Feature"> throwable class - 100%
+      <li class="Feature"> Backtrace - 0%.
+    </ul>
+    <li class="Feature"> Closures
+    <ul class="FeatureList">
+      <li class="Feature"> standard closures - 50%
+      <li class="Feature"> named parameter: new (firstVar: Expression) { int expression() { return firstVar; } }; - 0%
+    </ul>
+    <li class="Feature"> Free standing Functions - 80%
+    <li class="Feature"> Defun (higher order functions)
+    <ul class="FeatureList">
+      <li class="Feature"> static defun (defun Function static int (int i); Function f = obj.method;  f(42); )- 0%
+      <li class="Feature"> object defun (defun Function int (int i); Function f = AClass.method; obj.f(42); ) - 0%
+      <li class="Feature"> way to use defun inplace without name it (see pizza) - 0%
+    </ul>
+    <li class="Feature"> Templates
+    <ul class="FeatureList">
+      <li class="Feature"> standard class templates for collection - 0%
+      <li class="Feature"> restricted template types (<A implements Comparable<T> > - 0%
+      <li class="Feature"> Parse Templates - 0%
+      <li class="Feature"> Template persistence database - 0%
+    </ul>
+    <li class="Feature"> Custom Attributes
+    <ul class="FeatureList">
+      <li class="Feature"> Standard ACDK Attributes - 0%
+      <li class="Feature"> Compiler interface - 0%
+    </ul>
+    <li class="Feature"> Compiler-Interpreter
+    <ul class="FeatureList">
+      <li class="Feature"> Basic Metacompiling feature (reg-exp syntax "string =~ /bla/" as sample - 0%
+      <li class="Feature"> Compiler plugins for code weaving (AOP, assertions, logging, serialization, synchronization) - 0%
+      <li class="Feature"> Compiler plugin for Java compatibility - 0%
+      <li class="Feature"> Compiler plugin for ACDK compatibility - 0%
+      <li class="Feature"> Compiler plugin for Lisp - 0%
+    </ul>
+    <li class="Feature"> Assembler
+    <ul class="FeatureList">
+      <li class="Feature"> inline assembler statments for AAL runtime (aasm push "asdf") - 0%
+      <li class="Feature"> inline assembler statments for Java runtime (jasm push) - 0%
+      <li class="Feature"> inline assembler statments for .NET runtime (nasm push) - 0%
+    </ul>
+    <li class="Feature"> Praeprocessor, may implemented via compiler-interpreter
+    <ul class="FeatureList">
+      <li class="Feature"> define / defined
+      <li class="Feature"> if
+      <li class="Feature"> error
+    </ul>
+  </ul>
+  <li class="Feature"> Runtime
+  <ul class="FeatureList">
+    <li class="Feature"> ClassLoader for AAL scripts - 0%
+    <li class="Feature"> ClassLoader for external DMI classes (Java, Perl, CORBA, etc) - 0%
+    <li class="Feature"> Interpreter - Interface
+    <ul class="FeatureList">
+      <li class="Feature"> Interface to allow set/get variables from executed environment - 40%
+    </ul>
+    <li class="Feature"> Debugger
+    <ul class="FeatureList">
+      <li class="Feature"> Breakpoints - 0%
+      <li class="Feature"> Print code line - 0%.
+      <li class="Feature"> Call stack trace - 0%
+      <li class="Feature"> local variables trace - 0%
+    </ul>
+    <li class="Feature"> Code generation - 20%
+    <li class="Feature"> Usefull compiler error/warning messages - 20%
+    <li class="Feature"> DClazzInfo persistence - 0%
+    <li class="Feature"> AalClazzFormat - 0%
+    <li class="Feature"> Runtime executor - 0%
+    <li class="Feature"> Resolve classnames, methods and fields at load time - 0%
+    <li class="Feature"> Java VM code generation - 0%
+      <ul class="FeatureList">
+        <li class="Feature"> DMI stubs for foreign objects (ACDK, Perl, etc)
+        <li class="Feature"> Direct call interface for Java Objects.
+      </ul>
+    <li class="Feature"> .NET VM code generation - 0%
+    <li class="Feature"> GCC frontend - 0%
+  </ul>
+</ul>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../readme.html">AAL Readme</a> | <a  href="../../..">aal_aci</a> | <a  href="../aal/reference/aal_reference.html">Reference</a> | Concept | <a  href="../../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

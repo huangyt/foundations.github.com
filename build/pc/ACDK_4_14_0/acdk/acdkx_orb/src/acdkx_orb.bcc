@@ -1,0 +1,392 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDKX_ORB_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_net.lib" "..\..\bin\acdk_text.lib" "..\..\bin\org_xml.lib" "..\..\bin\acdk_xml.lib"
+
+OUTFILE="..\..\bin\acdkx_orb.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdkx_orb\bcc"
+SOURCES= 	"org\omg\CORBA\Any.cpp" \
+	"org\omg\CORBA\Contained.cpp" \
+	"org\omg\CORBA\Container.cpp" \
+	"org\omg\CORBA\CORBA_metainf_base.cpp" \
+	"org\omg\CORBA\InterfaceDef.cpp" \
+	"org\omg\CORBA\ORB.cpp" \
+	"org\omg\CORBA\OrbExceptions.cpp" \
+	"org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext.cpp" \
+	"org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext1.cpp" \
+	"org\omg\CORBA\GIOP\GIOP.cpp" \
+	"org\omg\CORBA\portable\ObjectImpl.cpp" \
+	"org\omg\CORBA\portable\portable_metainf_base.cpp" \
+	"org\omg\CORBA\portable\portable_metainf\portable_metainf_ext.cpp" \
+	"org\omg\CosNaming\CosNaming_metainf_base.cpp" \
+	"org\omg\CosNaming\CosNaming_metainf\CosNaming_metainf_ext.cpp" \
+	"org\omg\PortableServer\PortableServer_metainf_base.cpp" \
+	"org\omg\PortableServer\PortableServer_metainf\PortableServer_metainf_ext.cpp" \
+	"acdkx\orb\acdk2orb.cpp" \
+	"acdkx\orb\AcdkObject.cpp" \
+	"acdkx\orb\AcdkObject_clazzInfo.cpp" \
+	"acdkx\orb\AORB.cpp" \
+	"acdkx\orb\AServerRequestImpl.cpp" \
+	"acdkx\orb\CDRObjectReader.cpp" \
+	"acdkx\orb\CDRObjectWriter.cpp" \
+	"acdkx\orb\CorObject.cpp" \
+	"acdkx\orb\CorObject_clazzInfo.cpp" \
+	"acdkx\orb\GIOPMessage.cpp" \
+	"acdkx\orb\ObjectKey.cpp" \
+	"acdkx\orb\OrbConnection.cpp" \
+	"acdkx\orb\OrbConnectionMgr.cpp" \
+	"acdkx\orb\OrbOutputStream.cpp" \
+	"acdkx\orb\orb_metainf_base.cpp" \
+	"acdkx\orb\ReplyInputStream.cpp" \
+	"acdkx\orb\ReplyOutputStream.cpp" \
+	"acdkx\orb\RequestOutputStream.cpp" \
+	"acdkx\orb\ServerDelegate.cpp" \
+	"acdkx\orb\orb_metainf\orb_metainf_ext.cpp" \
+	"acdkx\orb\selftests\selftests_metainf_base.cpp" \
+	"acdkx\orb\selftests\selftests_metainf\selftests_metainf_ext.cpp" \
+	"acdkx\arb\AObjectImpl.cpp" \
+	"acdkx\arb\arb.cpp" \
+	"acdkx\arb\arb_metainf_base.cpp" \
+	"acdkx\arb\XMLDelegate.cpp" \
+	"acdkx\arb\arb_metainf\arb_metainf_ext.cpp" \
+
+HEADER= 	"org\omg\CORBA\Any.h" \
+	"org\omg\CORBA\AttributeDef.h" \
+	"org\omg\CORBA\Contained.h" \
+	"org\omg\CORBA\Container.h" \
+	"org\omg\CORBA\Context.h" \
+	"org\omg\CORBA\CORBA.h" \
+	"org\omg\CORBA\ExceptionDef.h" \
+	"org\omg\CORBA\IDLType.h" \
+	"org\omg\CORBA\InterfaceDef.h" \
+	"org\omg\CORBA\IRObject.h" \
+	"org\omg\CORBA\ModuleDef.h" \
+	"org\omg\CORBA\Object.h" \
+	"org\omg\CORBA\OperationDef.h" \
+	"org\omg\CORBA\ORB.h" \
+	"org\omg\CORBA\OrbExceptions.h" \
+	"org\omg\CORBA\PrimitiveDef.h" \
+	"org\omg\CORBA\Repository.h" \
+	"org\omg\CORBA\SequenceDef.h" \
+	"org\omg\CORBA\ServerRequest.h" \
+	"org\omg\CORBA\StringDef.h" \
+	"org\omg\CORBA\StructDef.h" \
+	"org\omg\CORBA\TypeCode.h" \
+	"org\omg\CORBA\GIOP\GIOP.h" \
+	"org\omg\CORBA\IIOP\IIOP.h" \
+	"org\omg\CORBA\IOP\IOP.h" \
+	"org\omg\CORBA\portable\ApplicationException.h" \
+	"org\omg\CORBA\portable\Delegate.h" \
+	"org\omg\CORBA\portable\InputStream.h" \
+	"org\omg\CORBA\portable\InvokeHandler.h" \
+	"org\omg\CORBA\portable\ObjectImpl.h" \
+	"org\omg\CORBA\portable\OutputStream.h" \
+	"org\omg\CORBA\portable\portable.h" \
+	"org\omg\CORBA\portable\RemarshalException.h" \
+	"org\omg\CORBA\portable\ResponseHandler.h" \
+	"org\omg\CosNaming\Config.h" \
+	"org\omg\CosNaming\CosNaming.h" \
+	"org\omg\PortableServer\POA.h" \
+	"org\omg\PortableServer\POAManager.h" \
+	"org\omg\PortableServer\PortableServer.h" \
+	"acdkx\orb\acdk2orb.h" \
+	"acdkx\orb\AcdkObject.h" \
+	"acdkx\orb\AcdkObjectInterface.h" \
+	"acdkx\orb\AContextImpl.h" \
+	"acdkx\orb\AORB.h" \
+	"acdkx\orb\AServerRequestImpl.h" \
+	"acdkx\orb\CDRObjectReader.h" \
+	"acdkx\orb\CDRObjectWriter.h" \
+	"acdkx\orb\Config.h" \
+	"acdkx\orb\CorObject.h" \
+	"acdkx\orb\GIOPMessage.h" \
+	"acdkx\orb\ObjectKey.h" \
+	"acdkx\orb\orb.h" \
+	"acdkx\orb\OrbConnection.h" \
+	"acdkx\orb\OrbConnectionMgr.h" \
+	"acdkx\orb\OrbInputStream.h" \
+	"acdkx\orb\OrbOutputStream.h" \
+	"acdkx\orb\ReplyInputStream.h" \
+	"acdkx\orb\ReplyOutputStream.h" \
+	"acdkx\orb\RequestOutputStream.h" \
+	"acdkx\orb\ServerDelegate.h" \
+	"acdkx\orb\std_orb.h" \
+	"acdkx\orb\selftests\selftests.h" \
+	"acdkx\orb\selftests\TestInterface.h" \
+	"acdkx\orb\selftests\TestInterfaceImpl.h" \
+	"acdkx\arb\ADelegate.h" \
+	"acdkx\arb\AObjectImpl.h" \
+	"acdkx\arb\arb.h" \
+	"acdkx\arb\Config.h" \
+	"acdkx\arb\XMLDelegate.h" \
+
+OBJECTS= 	"..\tobj\acdkx_orb\bcc\Any.obj" \
+	"..\tobj\acdkx_orb\bcc\Contained.obj" \
+	"..\tobj\acdkx_orb\bcc\Container.obj" \
+	"..\tobj\acdkx_orb\bcc\CORBA_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\InterfaceDef.obj" \
+	"..\tobj\acdkx_orb\bcc\ORB.obj" \
+	"..\tobj\acdkx_orb\bcc\OrbExceptions.obj" \
+	"..\tobj\acdkx_orb\bcc\CORBA_metainf_ext.obj" \
+	"..\tobj\acdkx_orb\bcc\CORBA_metainf_ext1.obj" \
+	"..\tobj\acdkx_orb\bcc\GIOP.obj" \
+	"..\tobj\acdkx_orb\bcc\ObjectImpl.obj" \
+	"..\tobj\acdkx_orb\bcc\portable_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\portable_metainf_ext.obj" \
+	"..\tobj\acdkx_orb\bcc\CosNaming_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\CosNaming_metainf_ext.obj" \
+	"..\tobj\acdkx_orb\bcc\PortableServer_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\PortableServer_metainf_ext.obj" \
+	"..\tobj\acdkx_orb\bcc\acdk2orb.obj" \
+	"..\tobj\acdkx_orb\bcc\AcdkObject.obj" \
+	"..\tobj\acdkx_orb\bcc\AcdkObject_clazzInfo.obj" \
+	"..\tobj\acdkx_orb\bcc\AORB.obj" \
+	"..\tobj\acdkx_orb\bcc\AServerRequestImpl.obj" \
+	"..\tobj\acdkx_orb\bcc\CDRObjectReader.obj" \
+	"..\tobj\acdkx_orb\bcc\CDRObjectWriter.obj" \
+	"..\tobj\acdkx_orb\bcc\CorObject.obj" \
+	"..\tobj\acdkx_orb\bcc\CorObject_clazzInfo.obj" \
+	"..\tobj\acdkx_orb\bcc\GIOPMessage.obj" \
+	"..\tobj\acdkx_orb\bcc\ObjectKey.obj" \
+	"..\tobj\acdkx_orb\bcc\OrbConnection.obj" \
+	"..\tobj\acdkx_orb\bcc\OrbConnectionMgr.obj" \
+	"..\tobj\acdkx_orb\bcc\OrbOutputStream.obj" \
+	"..\tobj\acdkx_orb\bcc\orb_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\ReplyInputStream.obj" \
+	"..\tobj\acdkx_orb\bcc\ReplyOutputStream.obj" \
+	"..\tobj\acdkx_orb\bcc\RequestOutputStream.obj" \
+	"..\tobj\acdkx_orb\bcc\ServerDelegate.obj" \
+	"..\tobj\acdkx_orb\bcc\orb_metainf_ext.obj" \
+	"..\tobj\acdkx_orb\bcc\selftests_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\selftests_metainf_ext.obj" \
+	"..\tobj\acdkx_orb\bcc\AObjectImpl.obj" \
+	"..\tobj\acdkx_orb\bcc\arb.obj" \
+	"..\tobj\acdkx_orb\bcc\arb_metainf_base.obj" \
+	"..\tobj\acdkx_orb\bcc\XMLDelegate.obj" \
+	"..\tobj\acdkx_orb\bcc\arb_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdkx_orb\bcc\Any.obj": "org\omg\CORBA\Any.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\Any.cpp"
+
+"..\tobj\acdkx_orb\bcc\Contained.obj": "org\omg\CORBA\Contained.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\Contained.cpp"
+
+"..\tobj\acdkx_orb\bcc\Container.obj": "org\omg\CORBA\Container.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\Container.cpp"
+
+"..\tobj\acdkx_orb\bcc\CORBA_metainf_base.obj": "org\omg\CORBA\CORBA_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\CORBA_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\InterfaceDef.obj": "org\omg\CORBA\InterfaceDef.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\InterfaceDef.cpp"
+
+"..\tobj\acdkx_orb\bcc\ORB.obj": "org\omg\CORBA\ORB.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\ORB.cpp"
+
+"..\tobj\acdkx_orb\bcc\OrbExceptions.obj": "org\omg\CORBA\OrbExceptions.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\OrbExceptions.cpp"
+
+"..\tobj\acdkx_orb\bcc\CORBA_metainf_ext.obj": "org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext.cpp"
+
+"..\tobj\acdkx_orb\bcc\CORBA_metainf_ext1.obj": "org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\CORBA_metainf\CORBA_metainf_ext1.cpp"
+
+"..\tobj\acdkx_orb\bcc\GIOP.obj": "org\omg\CORBA\GIOP\GIOP.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\GIOP\GIOP.cpp"
+
+"..\tobj\acdkx_orb\bcc\ObjectImpl.obj": "org\omg\CORBA\portable\ObjectImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\portable\ObjectImpl.cpp"
+
+"..\tobj\acdkx_orb\bcc\portable_metainf_base.obj": "org\omg\CORBA\portable\portable_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\portable\portable_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\portable_metainf_ext.obj": "org\omg\CORBA\portable\portable_metainf\portable_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CORBA\portable\portable_metainf\portable_metainf_ext.cpp"
+
+"..\tobj\acdkx_orb\bcc\CosNaming_metainf_base.obj": "org\omg\CosNaming\CosNaming_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CosNaming\CosNaming_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\CosNaming_metainf_ext.obj": "org\omg\CosNaming\CosNaming_metainf\CosNaming_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\CosNaming\CosNaming_metainf\CosNaming_metainf_ext.cpp"
+
+"..\tobj\acdkx_orb\bcc\PortableServer_metainf_base.obj": "org\omg\PortableServer\PortableServer_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\PortableServer\PortableServer_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\PortableServer_metainf_ext.obj": "org\omg\PortableServer\PortableServer_metainf\PortableServer_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "org\omg\PortableServer\PortableServer_metainf\PortableServer_metainf_ext.cpp"
+
+"..\tobj\acdkx_orb\bcc\acdk2orb.obj": "acdkx\orb\acdk2orb.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\acdk2orb.cpp"
+
+"..\tobj\acdkx_orb\bcc\AcdkObject.obj": "acdkx\orb\AcdkObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\AcdkObject.cpp"
+
+"..\tobj\acdkx_orb\bcc\AcdkObject_clazzInfo.obj": "acdkx\orb\AcdkObject_clazzInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\AcdkObject_clazzInfo.cpp"
+
+"..\tobj\acdkx_orb\bcc\AORB.obj": "acdkx\orb\AORB.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\AORB.cpp"
+
+"..\tobj\acdkx_orb\bcc\AServerRequestImpl.obj": "acdkx\orb\AServerRequestImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\AServerRequestImpl.cpp"
+
+"..\tobj\acdkx_orb\bcc\CDRObjectReader.obj": "acdkx\orb\CDRObjectReader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\CDRObjectReader.cpp"
+
+"..\tobj\acdkx_orb\bcc\CDRObjectWriter.obj": "acdkx\orb\CDRObjectWriter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\CDRObjectWriter.cpp"
+
+"..\tobj\acdkx_orb\bcc\CorObject.obj": "acdkx\orb\CorObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\CorObject.cpp"
+
+"..\tobj\acdkx_orb\bcc\CorObject_clazzInfo.obj": "acdkx\orb\CorObject_clazzInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\CorObject_clazzInfo.cpp"
+
+"..\tobj\acdkx_orb\bcc\GIOPMessage.obj": "acdkx\orb\GIOPMessage.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\GIOPMessage.cpp"
+
+"..\tobj\acdkx_orb\bcc\ObjectKey.obj": "acdkx\orb\ObjectKey.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\ObjectKey.cpp"
+
+"..\tobj\acdkx_orb\bcc\OrbConnection.obj": "acdkx\orb\OrbConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\OrbConnection.cpp"
+
+"..\tobj\acdkx_orb\bcc\OrbConnectionMgr.obj": "acdkx\orb\OrbConnectionMgr.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\OrbConnectionMgr.cpp"
+
+"..\tobj\acdkx_orb\bcc\OrbOutputStream.obj": "acdkx\orb\OrbOutputStream.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\OrbOutputStream.cpp"
+
+"..\tobj\acdkx_orb\bcc\orb_metainf_base.obj": "acdkx\orb\orb_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\orb_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\ReplyInputStream.obj": "acdkx\orb\ReplyInputStream.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\ReplyInputStream.cpp"
+
+"..\tobj\acdkx_orb\bcc\ReplyOutputStream.obj": "acdkx\orb\ReplyOutputStream.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\ReplyOutputStream.cpp"
+
+"..\tobj\acdkx_orb\bcc\RequestOutputStream.obj": "acdkx\orb\RequestOutputStream.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\RequestOutputStream.cpp"
+
+"..\tobj\acdkx_orb\bcc\ServerDelegate.obj": "acdkx\orb\ServerDelegate.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\ServerDelegate.cpp"
+
+"..\tobj\acdkx_orb\bcc\orb_metainf_ext.obj": "acdkx\orb\orb_metainf\orb_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\orb_metainf\orb_metainf_ext.cpp"
+
+"..\tobj\acdkx_orb\bcc\selftests_metainf_base.obj": "acdkx\orb\selftests\selftests_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\selftests\selftests_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\selftests_metainf_ext.obj": "acdkx\orb\selftests\selftests_metainf\selftests_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\orb\selftests\selftests_metainf\selftests_metainf_ext.cpp"
+
+"..\tobj\acdkx_orb\bcc\AObjectImpl.obj": "acdkx\arb\AObjectImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\arb\AObjectImpl.cpp"
+
+"..\tobj\acdkx_orb\bcc\arb.obj": "acdkx\arb\arb.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\arb\arb.cpp"
+
+"..\tobj\acdkx_orb\bcc\arb_metainf_base.obj": "acdkx\arb\arb_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\arb\arb_metainf_base.cpp"
+
+"..\tobj\acdkx_orb\bcc\XMLDelegate.obj": "acdkx\arb\XMLDelegate.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\arb\XMLDelegate.cpp"
+
+"..\tobj\acdkx_orb\bcc\arb_metainf_ext.obj": "acdkx\arb\arb_metainf\arb_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdkx_orb\bcc" "acdkx\arb\arb_metainf\arb_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdkx_orb.dll"
+	del "..\tobj\acdkx_orb\bcc\Any.obj"
+	del "..\tobj\acdkx_orb\bcc\Contained.obj"
+	del "..\tobj\acdkx_orb\bcc\Container.obj"
+	del "..\tobj\acdkx_orb\bcc\CORBA_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\InterfaceDef.obj"
+	del "..\tobj\acdkx_orb\bcc\ORB.obj"
+	del "..\tobj\acdkx_orb\bcc\OrbExceptions.obj"
+	del "..\tobj\acdkx_orb\bcc\CORBA_metainf_ext.obj"
+	del "..\tobj\acdkx_orb\bcc\CORBA_metainf_ext1.obj"
+	del "..\tobj\acdkx_orb\bcc\GIOP.obj"
+	del "..\tobj\acdkx_orb\bcc\ObjectImpl.obj"
+	del "..\tobj\acdkx_orb\bcc\portable_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\portable_metainf_ext.obj"
+	del "..\tobj\acdkx_orb\bcc\CosNaming_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\CosNaming_metainf_ext.obj"
+	del "..\tobj\acdkx_orb\bcc\PortableServer_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\PortableServer_metainf_ext.obj"
+	del "..\tobj\acdkx_orb\bcc\acdk2orb.obj"
+	del "..\tobj\acdkx_orb\bcc\AcdkObject.obj"
+	del "..\tobj\acdkx_orb\bcc\AcdkObject_clazzInfo.obj"
+	del "..\tobj\acdkx_orb\bcc\AORB.obj"
+	del "..\tobj\acdkx_orb\bcc\AServerRequestImpl.obj"
+	del "..\tobj\acdkx_orb\bcc\CDRObjectReader.obj"
+	del "..\tobj\acdkx_orb\bcc\CDRObjectWriter.obj"
+	del "..\tobj\acdkx_orb\bcc\CorObject.obj"
+	del "..\tobj\acdkx_orb\bcc\CorObject_clazzInfo.obj"
+	del "..\tobj\acdkx_orb\bcc\GIOPMessage.obj"
+	del "..\tobj\acdkx_orb\bcc\ObjectKey.obj"
+	del "..\tobj\acdkx_orb\bcc\OrbConnection.obj"
+	del "..\tobj\acdkx_orb\bcc\OrbConnectionMgr.obj"
+	del "..\tobj\acdkx_orb\bcc\OrbOutputStream.obj"
+	del "..\tobj\acdkx_orb\bcc\orb_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\ReplyInputStream.obj"
+	del "..\tobj\acdkx_orb\bcc\ReplyOutputStream.obj"
+	del "..\tobj\acdkx_orb\bcc\RequestOutputStream.obj"
+	del "..\tobj\acdkx_orb\bcc\ServerDelegate.obj"
+	del "..\tobj\acdkx_orb\bcc\orb_metainf_ext.obj"
+	del "..\tobj\acdkx_orb\bcc\selftests_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\selftests_metainf_ext.obj"
+	del "..\tobj\acdkx_orb\bcc\AObjectImpl.obj"
+	del "..\tobj\acdkx_orb\bcc\arb.obj"
+	del "..\tobj\acdkx_orb\bcc\arb_metainf_base.obj"
+	del "..\tobj\acdkx_orb\bcc\XMLDelegate.obj"
+	del "..\tobj\acdkx_orb\bcc\arb_metainf_ext.obj"
+
+

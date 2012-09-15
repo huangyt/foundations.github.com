@@ -1,0 +1,2 @@
+String t = "acdk_lang_Test_d.exe";
+String fn = System.getAcdkHome() +  "/testreports/" + t.substr(0, t.length() - 4) + ".html";

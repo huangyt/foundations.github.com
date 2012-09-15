@@ -1,0 +1,110 @@
+%id: acdk_lisp_lang_class
+%title: ACDK Lisp Classes
+%shorttitle: Lisp Classes
+%keywords: Lisp, class, defclass, make-instance
+%body:
+<htmlauto/>
+<pageintro>
+The ACDK Lisp Object system is similar to the Common Lisp Object System.
+</pageintro>
+
+<jumptable/>
+
+<jump2>Define a Class in Lisp</jump2>
+
+<source lang="lisp">
+(defclass ClassName (SuperClasses) 
+ (SlotDefinitions)
+)
+</source>
+<fl>
+<f> defclass: keyword for define a class
+<f> ClassName: a name for the new class
+<f> (SuperClasses): List of previosly defined classes.
+<f> (SlotDefintions): List of definitions of slots (member/methods).
+</fl>
+<jump3>Slots</jump3>
+In notation of the Common Lisp Object System (CLOS) Slots are 
+members of a class.
+
+Slot definitions can be a simple identifier or a list:
+<source lang="lisp">
+  (SlotName :initform InitValue :initarg :InitArgname :allocation :class)
+</source>
+<fl>
+<f> SlotName: Name of member or method. This is required. All other are optional.
+<f> :initform InitValue: On creation of an object of this class 
+    the slot will be initialized with this value.
+<f> :initarg :InitArgname: Named argument in make-instance will be used
+    to initialize this slot at creation. 
+    Note: a slot will first be initialized with :initform and then with the argument
+    given with make-instance.
+    Slots without :initform or :initarg will be Nil.
+<f> :allocation :class: The slot is 'static' 
+</fl>
+
+<jump2>Create a Class in Lisp</jump2>
+make-instance creates an object instance of a previosly defined class (using defclass).
+<source lang="lisp">
+(make-instance 'ClassName &rest named-args)
+</source>
+<fl>
+<f> make-instance: build in method to create an object instance
+<f> 'ClassName: name of the Class previosly defined with defclass
+<f> &rest named-args: a list of named args. The named args must match
+    To one of the slot difinition of the class or its superclasses.
+</fl>
+
+<jump2>Accessing Slots</jump2>
+The solution for accessing slots is different CLOS.
+CLOS defines the function slot-value and the :accessor attribute 
+for slot defintions. These methods are not used in ACDK lisps.
+To reflect the syntax of common languages like C++, Java, Perl, Python, etc.
+the object instance is directly callable:
+<source lang="lisp">
+(defclass AClass ()
+  ( 
+    (foo :initform 2) 
+    (bar :initarg :bar)
+  )
+)
+(setf lobj (make-instance 'AClass :bar 4))
+(lobj 'foo) ;; reads slot -> 2
+(lobj 'bar) ;; reads slot -> 4
+(lobj 'bar 6) ;; sets slot -> 6
+</source>
+
+<jump2>Object Methods</jump2>
+The keyword defmethod from CLOS is not supported in ACDK Lisp.
+For a better interaction with other ACDK DMI components the object
+system is designed to be compatible with ACDK Object system.
+
+To implement member methods for a class just set a slotvalue
+to a function.
+
+<source lang="lisp">
+(defun AClass-foo-method (self a b)
+  (+ a b (self 'number))
+)
+(defclass AClass ()
+  (
+    (number :initarg :number)
+    ; set foo to external defined function
+    (foo :initform AClass-foo-method) 
+    ; use lamba to define an anon function
+    (bar :initform (lambda (self a b) 
+                          (+ a b (self 'number))))
+  )
+)
+(setf lobj (make-instance 'AClass :number 3))
+; calling foo method
+(lobj 'foo 3 4) ; -> 10
+; calling bar method
+(lobj 'bar 3 4) ; -> 10
+</source>
+
+
+.
+
+
+

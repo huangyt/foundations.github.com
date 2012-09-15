@@ -1,0 +1,181 @@
+<html><body>
+<h1>Unit Test 2004-11-28T20:41:53</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 11; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.standard">Interpreter_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.acdkObject">Interpreter_Test.acdkObject</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.opaqueAcdkObject">Interpreter_Test.opaqueAcdkObject</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.invoke_static">Interpreter_Test.invoke_static</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.peek">Interpreter_Test.peek</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.peek_static">Interpreter_Test.peek_static</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.poke">Interpreter_Test.poke</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.poke_static">Interpreter_Test.poke_static</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.handledError">Interpreter_Test.handledError</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.unhandledError">Interpreter_Test.unhandledError</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Interpreter_Test.unhandledInternalError">Interpreter_Test.unhandledInternalError</a> <br>
+</td></tr></table>
+<h2><a id="Interpreter_Test.standard">Interpreter_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Interpreter_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.standard
+Executing: [
+print "Hello World"
+]
+> [AUNIT:SUCC]: Interpreter_Test.standard:
+acdk_python_Interpreter_Test.cpp(87): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.acdkObject">Interpreter_Test.acdkObject</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.standard] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.standard
+[AUNIT:STRT][Interpreter_Test.acdkObject] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.acdkObject
+Executing: [
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+sb.append("World")
+sb.append("!")
+print sb.toString()
+]
+> [AUNIT:SUCC]: Interpreter_Test.acdkObject:
+acdk_python_Interpreter_Test.cpp(105): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.opaqueAcdkObject">Interpreter_Test.opaqueAcdkObject</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.acdkObject] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.acdkObject
+[AUNIT:STRT][Interpreter_Test.opaqueAcdkObject] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.opaqueAcdkObject
+Executing: [
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+isequal = sb.equals(sb)
+print isequal
+]
+> [AUNIT:SUCC]: Interpreter_Test.opaqueAcdkObject:
+acdk_python_Interpreter_Test.cpp(122): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.invoke_static">Interpreter_Test.invoke_static</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.opaqueAcdkObject] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.opaqueAcdkObject
+[AUNIT:STRT][Interpreter_Test.invoke_static] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.invoke_static
+Executing: [
+import acdk
+out = acdk.invoke_static("acdk/lang/Integer", "toString", 42)
+if out != "42": raise RuntimeError, "Test failed"]
+> [AUNIT:SUCC]: Interpreter_Test.invoke_static:
+acdk_python_Interpreter_Test.cpp(209): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.peek">Interpreter_Test.peek</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.invoke_static] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.invoke_static
+[AUNIT:STRT][Interpreter_Test.peek] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.peek
+Executing: [
+import acdk
+tc = acdk.Object("acdk/tools/aunit/DmiTestClass")
+print tc.peek("pubString")]
+> [AUNIT:SUCC]: Interpreter_Test.peek:
+acdk_python_Interpreter_Test.cpp(139): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.peek_static">Interpreter_Test.peek_static</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.peek] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.peek
+[AUNIT:STRT][Interpreter_Test.peek_static] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.peek_static
+Executing: [
+import acdk
+out = acdk.peek_static("acdk/lang/System", "out")
+out.println("Hallo World")
+]
+> Hallo World
+[AUNIT:SUCC]: Interpreter_Test.peek_static:
+acdk_python_Interpreter_Test.cpp(157): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.poke">Interpreter_Test.poke</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.peek_static] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.peek_static
+[AUNIT:STRT][Interpreter_Test.poke] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.poke
+Executing: [
+import acdk
+tc = acdk.Object("acdk/tools/aunit/DmiTestClass")
+tc.poke("pubString", "Hello")
+print tc.peek("pubString")
+]
+> [AUNIT:SUCC]: Interpreter_Test.poke:
+acdk_python_Interpreter_Test.cpp(175): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.poke_static">Interpreter_Test.poke_static</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.poke] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.poke
+[AUNIT:STRT][Interpreter_Test.poke_static] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.poke_static
+Executing: [
+import acdk
+acdk.poke_static("acdk/tools/aunit/DmiTestClass", "pubStaticInt", 42)
+print acdk.peek_static("acdk/tools/aunit/DmiTestClass", "pubStaticInt")
+]
+> [AUNIT:SUCC]: Interpreter_Test.poke_static:
+acdk_python_Interpreter_Test.cpp(191): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.handledError">Interpreter_Test.handledError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.poke_static] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.poke_static
+[AUNIT:STRT][Interpreter_Test.handledError] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.handledError
+Executing: [
+import acdk
+try:
+	out = acdk.peek_static("acdk/lang/System", "there_is_no_such_field")
+	raise RuntimeError, "Should never reached here"
+except RuntimeError, e:
+	print e
+]
+> [AUNIT:SUCC]: Interpreter_Test.handledError:
+acdk_python_Interpreter_Test.cpp(229): pi.getLastReturnCode() == 0
+</pre>
+<h2><a id="Interpreter_Test.unhandledError">Interpreter_Test.unhandledError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.handledError] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.handledError
+[AUNIT:STRT][Interpreter_Test.unhandledError] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.unhandledError
+Executing: [
+raise RuntimeError, "forced Exception"
+]
+> [AUNIT:SUCC]: Interpreter_Test.unhandledError:
+acdk_python_Interpreter_Test.cpp(244): pi.getLastReturnCode() != 0
+</pre>
+<h2><a id="Interpreter_Test.unhandledInternalError">Interpreter_Test.unhandledInternalError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Interpreter_Test.unhandledError] End Test
+[AUNIT:ENDT] End Test: Interpreter_Test.unhandledError
+[AUNIT:STRT][Interpreter_Test.unhandledInternalError] Start Test
+[AUNIT:STRT] Start Test: Interpreter_Test.unhandledInternalError
+Executing: [
+import acdk
+out = acdk.peek_static("acdk/lang/System", "there_is_no_such_field")
+]
+> [AUNIT:SUCC]: Interpreter_Test.unhandledInternalError:
+acdk_python_Interpreter_Test.cpp(259): pi.getLastReturnCode() != 0
+</pre>
+</body></html>

@@ -1,0 +1,107 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../../../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_cfgscript.lib" "..\..\..\..\bin\acdk_tools_aunit.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_cfgscript_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_cfgscript_Test\bcc"
+SOURCES= 	"acdk_cfgscript_Test.cpp" \
+	"acdk_cfgscript_Props_Test.cpp" \
+	"acdk_cfgscript_Script_Test.cpp" \
+	"acdk_cfgscript_ScriptStatements_Test.cpp" \
+	"acdk_cfgscript_Script2_Test.cpp" \
+	"acdk_cfgscript_ScriptCom_Test.cpp" \
+	"acdk_cfgscript_ScriptDebug_Test.cpp" \
+	"acdk_cfgscript_ShellExecutor_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Props_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Script_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptStatements_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Script2_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptCom_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptDebug_Test.obj" \
+	".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ShellExecutor_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Test.obj": "acdk_cfgscript_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Props_Test.obj": "acdk_cfgscript_Props_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_Props_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Script_Test.obj": "acdk_cfgscript_Script_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_Script_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptStatements_Test.obj": "acdk_cfgscript_ScriptStatements_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_ScriptStatements_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Script2_Test.obj": "acdk_cfgscript_Script2_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_Script2_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptCom_Test.obj": "acdk_cfgscript_ScriptCom_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_ScriptCom_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptDebug_Test.obj": "acdk_cfgscript_ScriptDebug_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_ScriptDebug_Test.cpp"
+
+".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ShellExecutor_Test.obj": "acdk_cfgscript_ShellExecutor_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_cfgscript_Test\bcc" "acdk_cfgscript_ShellExecutor_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_cfgscript_Test.exe"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Props_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Script_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptStatements_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_Script2_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptCom_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ScriptDebug_Test.obj"
+	del ".\tobj\acdk_cfgscript_Test\bcc\acdk_cfgscript_ShellExecutor_Test.obj"
+
+

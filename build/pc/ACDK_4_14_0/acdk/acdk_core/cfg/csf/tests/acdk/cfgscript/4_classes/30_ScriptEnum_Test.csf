@@ -1,0 +1,28 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+
+*/
+
+
+out.println(
+"===================================
+Test for defining enumeration
+");
+
+enum MyTest
+{
+  FirstValue,
+  SecondValue = 1000,
+  ThirdValue,
+  ForthValue = ThirdValue + 10
+}
+
+if (FirstValue == 0 && 
+    SecondValue == 1000 &&
+    ThirdValue ==  1001 &&
+    ForthValue == ThirdValue + 10
+    )
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

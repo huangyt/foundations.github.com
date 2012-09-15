@@ -1,0 +1,17 @@
+
+// Standard Integer 
+1234567
+
+// Oktal 
+075361
+
+// Signed Integer
+-12
+
+// float
+0.00321233
+// signed float
+-123412.12
+
+// string
+"asdfasdf\'\"_"

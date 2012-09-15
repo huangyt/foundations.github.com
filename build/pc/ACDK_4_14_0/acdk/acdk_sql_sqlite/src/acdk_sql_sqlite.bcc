@@ -1,0 +1,309 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_SQL_SQLITE_LIB -DTHREADSAFE=1
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_sql.lib"
+
+OUTFILE="..\..\bin\acdk_sql_sqlite.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_sql_sqlite\bcc"
+SOURCES= 	"acdk\sql\sqlite\LiteConnection.cpp" \
+	"acdk\sql\sqlite\LiteDatabaseMetaData.cpp" \
+	"acdk\sql\sqlite\LiteResultSet.cpp" \
+	"acdk\sql\sqlite\LiteStatement.cpp" \
+	"acdk\sql\sqlite\LiteTable.cpp" \
+	"acdk\sql\sqlite\sqlite_metainf_base.cpp" \
+	"sqlitesrc\alter.c" \
+	"sqlitesrc\attach.c" \
+	"sqlitesrc\auth.c" \
+	"sqlitesrc\btree.c" \
+	"sqlitesrc\build.c" \
+	"sqlitesrc\date.c" \
+	"sqlitesrc\delete.c" \
+	"sqlitesrc\expr.c" \
+	"sqlitesrc\func.c" \
+	"sqlitesrc\hash.c" \
+	"sqlitesrc\insert.c" \
+	"sqlitesrc\legacy.c" \
+	"sqlitesrc\main.c" \
+	"sqlitesrc\opcodes.c" \
+	"sqlitesrc\os_unix.c" \
+	"sqlitesrc\os_win.c" \
+	"sqlitesrc\pager.c" \
+	"sqlitesrc\parse.c" \
+	"sqlitesrc\pragma.c" \
+	"sqlitesrc\printf.c" \
+	"sqlitesrc\random.c" \
+	"sqlitesrc\select.c" \
+	"sqlitesrc\table.c" \
+	"sqlitesrc\tokenize.c" \
+	"sqlitesrc\trigger.c" \
+	"sqlitesrc\update.c" \
+	"sqlitesrc\utf.c" \
+	"sqlitesrc\util.c" \
+	"sqlitesrc\vacuum.c" \
+	"sqlitesrc\vdbe.c" \
+	"sqlitesrc\vdbeapi.c" \
+	"sqlitesrc\vdbeaux.c" \
+	"sqlitesrc\vdbemem.c" \
+	"sqlitesrc\where.c" \
+
+HEADER= 	"acdk\sql\sqlite\Config.h" \
+	"acdk\sql\sqlite\LiteConnection.h" \
+	"acdk\sql\sqlite\LiteDatabaseMetaData.h" \
+	"acdk\sql\sqlite\LiteDriver.h" \
+	"acdk\sql\sqlite\LitePreparedStatement.h" \
+	"acdk\sql\sqlite\LiteResultSet.h" \
+	"acdk\sql\sqlite\LiteResultSetMetaData.h" \
+	"acdk\sql\sqlite\LiteStatement.h" \
+	"acdk\sql\sqlite\LiteTable.h" \
+	"acdk\sql\sqlite\sqlite.h" \
+
+OBJECTS= 	"..\tobj\acdk_sql_sqlite\bcc\LiteConnection.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\LiteDatabaseMetaData.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\LiteResultSet.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\LiteStatement.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\LiteTable.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\sqlite_metainf_base.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\alter.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\attach.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\auth.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\btree.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\build.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\date.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\delete.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\expr.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\func.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\hash.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\insert.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\legacy.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\main.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\opcodes.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\os_unix.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\os_win.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\pager.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\parse.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\pragma.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\printf.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\random.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\select.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\table.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\tokenize.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\trigger.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\update.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\utf.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\util.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\vacuum.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\vdbe.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\vdbeapi.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\vdbeaux.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\vdbemem.obj" \
+	"..\tobj\acdk_sql_sqlite\bcc\where.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_sql_sqlite\bcc\LiteConnection.obj": "acdk\sql\sqlite\LiteConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "acdk\sql\sqlite\LiteConnection.cpp"
+
+"..\tobj\acdk_sql_sqlite\bcc\LiteDatabaseMetaData.obj": "acdk\sql\sqlite\LiteDatabaseMetaData.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "acdk\sql\sqlite\LiteDatabaseMetaData.cpp"
+
+"..\tobj\acdk_sql_sqlite\bcc\LiteResultSet.obj": "acdk\sql\sqlite\LiteResultSet.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "acdk\sql\sqlite\LiteResultSet.cpp"
+
+"..\tobj\acdk_sql_sqlite\bcc\LiteStatement.obj": "acdk\sql\sqlite\LiteStatement.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "acdk\sql\sqlite\LiteStatement.cpp"
+
+"..\tobj\acdk_sql_sqlite\bcc\LiteTable.obj": "acdk\sql\sqlite\LiteTable.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "acdk\sql\sqlite\LiteTable.cpp"
+
+"..\tobj\acdk_sql_sqlite\bcc\sqlite_metainf_base.obj": "acdk\sql\sqlite\sqlite_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "acdk\sql\sqlite\sqlite_metainf_base.cpp"
+
+"..\tobj\acdk_sql_sqlite\bcc\alter.obj": "sqlitesrc\alter.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\alter.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\attach.obj": "sqlitesrc\attach.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\attach.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\auth.obj": "sqlitesrc\auth.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\auth.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\btree.obj": "sqlitesrc\btree.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\btree.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\build.obj": "sqlitesrc\build.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\build.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\date.obj": "sqlitesrc\date.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\date.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\delete.obj": "sqlitesrc\delete.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\delete.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\expr.obj": "sqlitesrc\expr.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\expr.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\func.obj": "sqlitesrc\func.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\func.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\hash.obj": "sqlitesrc\hash.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\hash.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\insert.obj": "sqlitesrc\insert.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\insert.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\legacy.obj": "sqlitesrc\legacy.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\legacy.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\main.obj": "sqlitesrc\main.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\main.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\opcodes.obj": "sqlitesrc\opcodes.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\opcodes.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\os_unix.obj": "sqlitesrc\os_unix.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\os_unix.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\os_win.obj": "sqlitesrc\os_win.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\os_win.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\pager.obj": "sqlitesrc\pager.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\pager.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\parse.obj": "sqlitesrc\parse.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\parse.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\pragma.obj": "sqlitesrc\pragma.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\pragma.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\printf.obj": "sqlitesrc\printf.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\printf.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\random.obj": "sqlitesrc\random.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\random.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\select.obj": "sqlitesrc\select.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\select.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\table.obj": "sqlitesrc\table.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\table.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\tokenize.obj": "sqlitesrc\tokenize.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\tokenize.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\trigger.obj": "sqlitesrc\trigger.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\trigger.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\update.obj": "sqlitesrc\update.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\update.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\utf.obj": "sqlitesrc\utf.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\utf.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\util.obj": "sqlitesrc\util.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\util.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\vacuum.obj": "sqlitesrc\vacuum.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\vacuum.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\vdbe.obj": "sqlitesrc\vdbe.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\vdbe.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\vdbeapi.obj": "sqlitesrc\vdbeapi.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\vdbeapi.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\vdbeaux.obj": "sqlitesrc\vdbeaux.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\vdbeaux.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\vdbemem.obj": "sqlitesrc\vdbemem.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\vdbemem.c"
+
+"..\tobj\acdk_sql_sqlite\bcc\where.obj": "sqlitesrc\where.c"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_sql_sqlite\bcc" "sqlitesrc\where.c"
+
+
+
+clean:
+	del "..\..\bin\acdk_sql_sqlite.dll"
+	del "..\tobj\acdk_sql_sqlite\bcc\LiteConnection.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\LiteDatabaseMetaData.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\LiteResultSet.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\LiteStatement.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\LiteTable.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\sqlite_metainf_base.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\alter.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\attach.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\auth.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\btree.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\build.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\date.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\delete.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\expr.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\func.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\hash.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\insert.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\legacy.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\main.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\opcodes.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\os_unix.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\os_win.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\pager.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\parse.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\pragma.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\printf.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\random.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\select.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\table.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\tokenize.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\trigger.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\update.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\utf.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\util.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\vacuum.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\vdbe.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\vdbeapi.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\vdbeaux.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\vdbemem.obj"
+	del "..\tobj\acdk_sql_sqlite\bcc\where.obj"
+
+

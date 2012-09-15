@@ -1,0 +1,122 @@
+<package>
+
+<name>acdk_sql</name>
+
+<title>
+ACDK SQL (acdk_sql)
+</title>
+
+
+<shortdescription>
+acdk_sql contains the specification for JDBC-like interface to 
+SQL databases.
+</shortdescription>
+
+<description>
+<m>acdk_sql</m> contains the driver model, which 
+is quite similar to the JDBC interface.
+
+The following database drivers are available:
+<ul>
+<li> %ref[<m>acdk_sql_sqlite</m>, acdk_sql_sqlite] contains 
+     a small, ready to use, embedded SQL database. 
+<li> %ref[ODBC Bridge, acdk_sql_odbc]:
+<ul>
+  <li> all databases with an ODBC interface on Windows.
+     Tested with MS SQL 2000, MS Access, Oracle 9 and postgreSQL.
+  <li> mySQL and postgreSQL under Linux over the libODBC/unixODBC library.
+  <li> Oracle under Solaris aover the libODBC/unixODBC library.
+</ul>
+</ul>
+
+acdk_sql is only a interface library. An implementation
+of acdk_sql library for ODBC can be found in  %ref[acdk_sql_odbc]. 
+This package also provides %ref[detailed documentation, acdk_sql_man].
+
+
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+%ref[ACDK Free Edition License, acdk_license].
+</license>
+<dependencies>
+acdk_core
+acdk_net
+</dependencies>
+
+<namespaces>
+acdk::sql;
+</namespaces>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- New:  CallableStatement, PreparedStatement
+
+Please refer also to %ref[../ChangeLog] and  %ref[acdk_sql_odbc].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.01.1
+- Only ajustments to ACDK 2
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved configurations.
+
+===========================================================
+1.00.2
+Changed configuration managment.
+
+===========================================================
+1.00 
+Initial version
+</changes>
+<notes>
+</notes>
+
+<sf-notes>
+acdk_sql contains the specification for JDBC-like interface to 
+SQL databases.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/sql">http://acdk.sourceforge.net/acdk/sql</a>
+
+</sf-notes>
+<sf-changes>
+- Only ajustments to ACDK 2
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_sql/docs/readme-en.html#Changes">Changes</a>
+</sf-changes>
+
+
+</package>

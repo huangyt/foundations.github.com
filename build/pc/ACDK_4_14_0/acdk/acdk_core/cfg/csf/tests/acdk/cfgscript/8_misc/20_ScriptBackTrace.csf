@@ -1,0 +1,31 @@
+
+#include "TestIncludeBackTrace.csf"
+
+class AClass
+{
+  static void foo()
+  {
+    //out.println(__script.dumpScriptBackTrace());
+    //callWithEx();
+    IncludedClass.bar(42);
+  }
+  static void callWithEx()
+  {
+    throw new Throwable("Custom Ex");
+  }
+  static AClass bar(int i)
+  {
+    try {
+      foo();
+    } finally {
+       out.println("finally called");
+    }
+  }
+}
+try {
+  AClass.bar(2);
+  __script.testAssert(false, "should not be here (exception)");
+} catch (Throwable ex) {
+  
+  out.println(__script.getScriptBackTrace());
+}

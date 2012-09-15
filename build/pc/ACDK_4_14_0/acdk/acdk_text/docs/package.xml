@@ -1,0 +1,123 @@
+<package>
+<name>acdk_text</name>
+
+<title>
+ACDK Text (acdk_text)
+</title>
+
+<shortdescription>
+acdk_text contains classes for text rendering and parsing, 
+including perl like regular expressions.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+Parts: Copyright (c) 1997-1999 University of Cambridge.
+see also: %ref[prce_license]
+</copyright>
+<description>
+<m>acdk_text</m> corresponds to the <c>java.text</c> packages.
+
+See also %nsref[acdk::text].
+
+Additionally acdk_text contains %cref[acdk::text::RegExp] for Perl
+like regular expression.
+
+</description>
+
+<license>
+ACDK Free Edition License. (%ref[acdk_license]).
+PRCE License (%ref[prce_license]).
+</license>
+
+<dependencies>
+acdk_core
+</dependencies>
+
+<namespaces>
+acdk::text
+</namespaces>
+
+<plattforms>
+All.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+Philip Hazel (ph10@cam.ac.uk) (regular expression)
+</authors>
+
+<todo>
+- Some Tests DecimalFormat_Test doesn't run reliable on Linux.
+
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- Fixed unicode bug in RegExp
+
+Please refer also to %ref[../ChangeLog].
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+- Fixed BCC bugs.
+- Reworked RegExp.
+
+===========================================================
+3.01.0
+- Use preg_* functionality instead of posix regexp
+- This also automatically fixed bug under FreeBSD
+
+===========================================================
+2.01.1
+- Problem detected with RegExp::replace on BSD.
+  Deactivated test for this platform.
+
+===========================================================
+2.00.1
+- Use PCRE v3.9
+- Ajustments
+- Basic test for RegExp
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved Configurations.
+===========================================================
+1.00.2
+Only changes in configuration.
+
+===========================================================
+1.00
+Initial public release
+
+</changes>
+
+<notes>
+Note: 
+For all files in the directory:
+./src/acdk/text/regexp/pcre<br>
+another copyright applies:
+
+"Written by: Philip Hazel <ph10@cam.ac.uk>
+Copyright (c) 1997-1999 University of Cambridge"<br>
+
+Please refer also to:
+./src/acdk/text/regexp/pcre/LICENCE<br>
+for more information.
+</notes>
+</package>

@@ -1,0 +1,72 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX= $(WX_CFLAGS)
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_tools_aunit.lib" "..\..\bin\acdk_wx.lib" $(ACDK_WX_WXLIBS_DEBUG)
+
+OUTFILE="..\..\bin\guitestrunner.exe"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\guitestrunner"
+SOURCES= 	"acdk\tools\aunit\guitestrunner\guitestrunner.cpp" \
+	"acdk\res\wx.rc" \
+
+HEADER= 	"acdk\tools\aunit\guitestrunner\GuiTestListener.h" \
+	"acdk\tools\aunit\guitestrunner\TestRunnerFrame.h" \
+	"acdk\tools\aunit\guitestrunner\TestTreeCtrl.h" \
+
+OBJECTS= 	"..\tobj\guitestrunner\guitestrunner.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\guitestrunner\guitestrunner.obj": "acdk\tools\aunit\guitestrunner\guitestrunner.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\guitestrunner" "acdk\tools\aunit\guitestrunner\guitestrunner.cpp"
+
+"..\tobj\guitestrunner\wx.obj": "acdk\res\wx.rc"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\guitestrunner" "acdk\res\wx.rc"
+
+
+
+clean:
+	del "..\..\bin\guitestrunner.exe"
+	del "..\tobj\guitestrunner\guitestrunner.obj"
+
+

@@ -1,0 +1,40 @@
+using acdk.wx;
+
+
+class MyFrame
+extends Frame
+{
+  MyFrame() 
+  {
+    super("Event Sample");
+    connect(SizeEvent.EvtSize, -1, delegate onSize); // using delegate
+    connect(MoveEvent.EvtMove, -1, lambda[this] { out.println("on Move"); }); // using lambda
+    connect(CloseEvent.EvtCloseWindow, -1, 
+      lambda[this] // the new anonomous function is member of MyFrame
+        void (CloseEvent event) 
+        { 
+          out.println("on Close"); 
+          if (messageBox("Do Quit?", "Close Windows", MbYesNo) == MbYes)
+            event.skip();
+        }
+    );
+  }
+  void onSize(SizeEvent event)
+  {
+    out.println("onSize");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame()).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

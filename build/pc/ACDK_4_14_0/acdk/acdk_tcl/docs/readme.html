@@ -1,0 +1,189 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Tcl Readme</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Tcl</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Tcl Readme<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdktcl.html">acdktcl - manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_tcl_dll.html">acdk_tcl_dll - manual</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | ACDK Tcl Readme | <a  href="acdk_tcl_install.html">Compile acdk_tcl</a> | <a  href="acdktcl.html">acdktcl - manual</a> | <a  href="acdk_tcl_dll.html">acdk_tcl_dll - manual</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Tcl Readme</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Tcl Readme</h1> -->
+<br>
+<p class="PageIntro">
+ACDK Tcl (acdk_tcl)acdk_tcl enables to embed Tcl scripting 
+  code into your ACDK application, controling
+  all ACDK Objects via DMI.</p>
+<br>
+<br>
+<a name="jumptable92"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Title"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Title</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Version"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Short Description</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Authors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Authors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#License"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;License</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Description</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Notes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Todo"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Todo</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Changes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Changes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+  <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Title">Title</a></h3>
+    ACDK Tcl (acdk_tcl)  <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Version">Version</a></h3>
+    Distribution version: 4.14.<br>
+    Package version: 4.14.0.<br>
+   
+  <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short Description">Short Description</a></h3>
+    <pre class="quoted">
+  acdk_tcl enables to embed Tcl scripting 
+  code into your ACDK application, controling
+  all ACDK Objects via DMI.    </pre>
+  <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h3>
+    <pre class="quoted">
+      <a  href="../../acdk_core/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Core</a>
+<a  href="../../acdk_text/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Text</a>
+    </pre>
+  <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+    <pre class="quoted">
+      acdk::tcl
+  acdk::tcl::interpreter
+    </pre>
+  <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Authors">Authors</a></h3>
+    <pre class="quoted">
+      Roger Rene Kommer (kommer@artefaktur.com).    </pre>
+   <h3><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="License">License</a></h3>
+    <pre class="quoted">
+      ACDK Free Edition License.    </pre>
+<h2><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Description">Description</a></h2>
+  With <a  href="acdk_tcl_dll.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_tcl</m></a> you can instrument an Tcl interpreter
+inside your ACDK application. 
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// C++/ACDK
+</FONT></I>RTclInterpreter pi = <B><FONT COLOR="#A020F0">new</FONT></B> TclInterpreter();
+pi-&gt;parse(<B><FONT COLOR="#A020F0">new</FONT></B> acdk::io::File(<B><FONT COLOR="#BC8F8F">&quot;~/mytcl.tlc&quot;</FONT></B>));
+</PRE></td></tr></table>
+<br>
+In the Tcl script you can call all ACDK classes with
+the standard ACDK Dynamic Method Invokation (DMI) methods:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> foo{ string1 string2 }{
+  <B><FONT COLOR="#A020F0">set</FONT></B> sb [acdk_new <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B> $<FONT COLOR="#B8860B">string1</FONT> ] 
+  acdk_invoke $<FONT COLOR="#B8860B">sb</FONT> <B><FONT COLOR="#A020F0">append</FONT></B> $<FONT COLOR="#B8860B">string2</FONT>
+  <B><FONT COLOR="#A020F0">return</FONT></B> [acdk_invoke $<FONT COLOR="#B8860B">sb</FONT> toString]
+}
+acdk_invoke [ acdk_peek_static <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B> out ] println [ foo <B><FONT COLOR="#BC8F8F">&quot;Hello Tcl&quot;</FONT></B> <B><FONT COLOR="#BC8F8F">&quot; from ACDK&quot;</FONT></B>]
+</PRE></td></tr></table>
+<h2><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes">Notes</a></h2>
+  <pre class="quoted">
+  <br>
+    You need the Tcl-Libraries from Scriptics.<br>
+    <a  href="http://www.scriptics.com/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;www.scriptics.com</a>.<br>
+    
+    Please ajust the library and include path
+    to your Tcl-Libraries and headers.<br>
+  
+  </pre>
+<br>
+<h2><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Todo">Todo</a></h2>
+  <pre class="quoted">
+  Nothing at the moment.  </pre>
+ 
+<h2><a href="#jumptable92"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Changes">Changes</a></h2>
+  <pre class="quoted">
+    ===========================================================
+4.10.0
+- Nothing important
+<br>
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a>.<br>
+<br>
+===========================================================
+4.02.0
+- Configuration and documentation fixes.<br>
+<br>
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.<br>
+<br>
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.<br>
+<br>
+===========================================================
+2.00.1
+- Ajustments the new DMI.<br>
+- More documentation.<br>
+<br>
+===========================================================
+1.01.0
+<br>
+- Enhanced Metainfo compiler for CORBA functionality.<br>
+- Improved Configurations.<br>
+===========================================================
+1.00.2.<br>
+- Initial revision.  </pre>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | ACDK Tcl Readme | <a  href="acdk_tcl_install.html">Compile acdk_tcl</a> | <a  href="acdktcl.html">acdktcl - manual</a> | <a  href="acdk_tcl_dll.html">acdk_tcl_dll - manual</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

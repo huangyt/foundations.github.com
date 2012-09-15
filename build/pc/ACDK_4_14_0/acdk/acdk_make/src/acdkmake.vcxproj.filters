@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{31555c4d-4671-49b4-be88-20481930fa9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\make">
+      <UniqueIdentifier>{3fb7155b-9716-4f1f-89e5-77a34752094d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\make\main">
+      <UniqueIdentifier>{620a6731-f7b5-4745-b6da-88d4742634b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\make\main\acdkmake.cpp">
+      <Filter>acdk\make\main</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

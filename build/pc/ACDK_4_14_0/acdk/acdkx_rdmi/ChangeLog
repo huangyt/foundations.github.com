@@ -1,0 +1,91 @@
+2005-04-19 15:15  kommer
+
+	* src/acdkx/tools/rdmi/server/Main.cpp: initial revision
+
+2005-04-19 13:31  kommer
+
+	* src/: RDMIServer.bcc, RDMIServer.bsd, RDMIServer.cbx,
+	RDMIServer.dsp, RDMIServer.linux, RDMIServer.lsp, RDMIServer.mingw,
+	RDMIServer.sunos-gcc, .cvsignore: initial revision
+
+2005-04-16 13:51  kommer
+
+	* docs/rdmi_protocol.VSD,
+	cfg/csf/tests/acdkx/rdmi/CfgScriptServer.csf: initial revision
+
+2005-04-15 16:50  kommer
+
+	* acdkx_rdmi.lsp: added testcases
+
+2005-04-13 18:53  kommer
+
+	* docs/: .cvsignore, acdk_net_rdmi_hb.htxt, package.xml: initial
+	revision
+
+2005-03-27 16:49  kommer
+
+	* src/acdkx_rdmi.bcc, src/acdkx_rdmi_metainf.bcc,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.bcc: add sys library cw32i.lib
+
+2005-03-14 18:59  kommer
+
+	* src/acdkx/rdmi/RemoteDmiServer.cpp: ObjectReader/Writer revised
+
+2005-03-12 12:51  kommer
+
+	* src/acdkx/rdmi/RemoteDmiServer.cpp: removed/replaced LATIN1
+	characters
+
+2005-03-07 18:55  kommer
+
+	* index.htxt, docs/acdk_net_rdmi.htxt,
+	docs/acdkx_rdmi_concept.htxt, docs/readme.htxt: initial revision
+
+2005-03-07 18:51  kommer
+
+	* src/acdkx/rdmi/DmiServer.cpp: 'not longer needed'
+
+2005-02-28 09:59  kommer
+
+	* cfg/csf/tests/acdkx/rdmi/: RdmiClient_Test.csf,
+	RdmiServer_Test.csf: initial revision
+
+2005-02-28 09:29  kommer
+
+	* src/acdkx/rdmi/rdmi_metainf/rdmi_metainf_ext.cpp,
+	tests/acdkx/rdmi/acdk_rdmi_Basic_Test.cpp,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.bcc,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.bsd,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.cbx,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.cpp,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.dsp,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.linux,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.lsp,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.mingw,
+	tests/acdkx/rdmi/acdkx_rdmi_Test.sunos-gcc: initial revision
+
+2005-02-28 09:26  kommer
+
+	* acdkx_rdmi.bcc, acdkx_rdmi.bpgr, acdkx_rdmi.bsd, acdkx_rdmi.dsw,
+	acdkx_rdmi.linux, acdkx_rdmi.lsp, acdkx_rdmi.mingw,
+	acdkx_rdmi.nmake, acdkx_rdmi.sunos-gcc, .cvsignore,
+	src/acdkx_rdmi.bcc, src/acdkx_rdmi.bsd, src/acdkx_rdmi.cbx,
+	src/acdkx_rdmi.dsp, src/acdkx_rdmi.linux, src/acdkx_rdmi.lsp,
+	src/acdkx_rdmi.mingw, src/acdkx_rdmi.sunos-gcc,
+	src/acdkx_rdmi_metainf.bcc, src/acdkx_rdmi_metainf.bsd,
+	src/acdkx_rdmi_metainf.cbx, src/acdkx_rdmi_metainf.dsp,
+	src/acdkx_rdmi_metainf.linux, src/acdkx_rdmi_metainf.lsp,
+	src/acdkx_rdmi_metainf.mingw, src/acdkx_rdmi_metainf.sunos-gcc,
+	src/acdkx/rdmi/BinaryProtocol.cpp, src/acdkx/rdmi/BinaryProtocol.h,
+	src/acdkx/rdmi/Config.h, src/acdkx/rdmi/Connection.h,
+	src/acdkx/rdmi/DmiServer.cpp,
+	src/acdkx/rdmi/LocalObjectRepository.cpp,
+	src/acdkx/rdmi/LocalObjectRepository.h, src/acdkx/rdmi/Protocol.h,
+	src/acdkx/rdmi/ProtocolImpl.h, src/acdkx/rdmi/RemoteDmiProxy.cpp,
+	src/acdkx/rdmi/RemoteDmiProxy.h,
+	src/acdkx/rdmi/RemoteDmiServer.cpp,
+	src/acdkx/rdmi/RemoteDmiServer.h, src/acdkx/rdmi/ServerImpl.h,
+	src/acdkx/rdmi/TcpServer.cpp, src/acdkx/rdmi/TcpServer.h,
+	src/acdkx/rdmi/rdmi.h, src/acdkx/rdmi/rdmi_metainf_base.cpp:
+	initial revision
+

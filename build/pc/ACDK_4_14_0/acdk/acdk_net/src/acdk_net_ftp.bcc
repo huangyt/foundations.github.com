@@ -1,0 +1,108 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_NET_FTP_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_net.lib" "..\..\bin\acdk_security.lib"
+
+OUTFILE="..\..\bin\acdk_net_ftp.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_net_ftp\bcc"
+SOURCES= 	"acdk\net\ftp\FTPClient.cpp" \
+	"acdk\net\ftp\FTPFileImpl.cpp" \
+	"acdk\net\ftp\FTPFileSystem.cpp" \
+	"acdk\net\ftp\FTPURLConnection.cpp" \
+	"acdk\net\ftp\FTPUrlStreamHandler.cpp" \
+	"acdk\net\ftp\ftp_metainf_base.cpp" \
+	"acdk\net\ftp\ftp_metainf\ftp_metainf_ext.cpp" \
+
+HEADER= 	"acdk\net\ftp\Config.h" \
+	"acdk\net\ftp\ftp.h" \
+	"acdk\net\ftp\FTPClient.h" \
+	"acdk\net\ftp\FTPFileImpl.h" \
+	"acdk\net\ftp\FTPFileSystem.h" \
+	"acdk\net\ftp\FTPURLConnection.h" \
+	"acdk\net\ftp\FTPUrlStreamHandler.h" \
+
+OBJECTS= 	"..\tobj\acdk_net_ftp\bcc\FTPClient.obj" \
+	"..\tobj\acdk_net_ftp\bcc\FTPFileImpl.obj" \
+	"..\tobj\acdk_net_ftp\bcc\FTPFileSystem.obj" \
+	"..\tobj\acdk_net_ftp\bcc\FTPURLConnection.obj" \
+	"..\tobj\acdk_net_ftp\bcc\FTPUrlStreamHandler.obj" \
+	"..\tobj\acdk_net_ftp\bcc\ftp_metainf_base.obj" \
+	"..\tobj\acdk_net_ftp\bcc\ftp_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_net_ftp\bcc\FTPClient.obj": "acdk\net\ftp\FTPClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\FTPClient.cpp"
+
+"..\tobj\acdk_net_ftp\bcc\FTPFileImpl.obj": "acdk\net\ftp\FTPFileImpl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\FTPFileImpl.cpp"
+
+"..\tobj\acdk_net_ftp\bcc\FTPFileSystem.obj": "acdk\net\ftp\FTPFileSystem.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\FTPFileSystem.cpp"
+
+"..\tobj\acdk_net_ftp\bcc\FTPURLConnection.obj": "acdk\net\ftp\FTPURLConnection.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\FTPURLConnection.cpp"
+
+"..\tobj\acdk_net_ftp\bcc\FTPUrlStreamHandler.obj": "acdk\net\ftp\FTPUrlStreamHandler.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\FTPUrlStreamHandler.cpp"
+
+"..\tobj\acdk_net_ftp\bcc\ftp_metainf_base.obj": "acdk\net\ftp\ftp_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\ftp_metainf_base.cpp"
+
+"..\tobj\acdk_net_ftp\bcc\ftp_metainf_ext.obj": "acdk\net\ftp\ftp_metainf\ftp_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_net_ftp\bcc" "acdk\net\ftp\ftp_metainf\ftp_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_net_ftp.dll"
+	del "..\tobj\acdk_net_ftp\bcc\FTPClient.obj"
+	del "..\tobj\acdk_net_ftp\bcc\FTPFileImpl.obj"
+	del "..\tobj\acdk_net_ftp\bcc\FTPFileSystem.obj"
+	del "..\tobj\acdk_net_ftp\bcc\FTPURLConnection.obj"
+	del "..\tobj\acdk_net_ftp\bcc\FTPUrlStreamHandler.obj"
+	del "..\tobj\acdk_net_ftp\bcc\ftp_metainf_base.obj"
+	del "..\tobj\acdk_net_ftp\bcc\ftp_metainf_ext.obj"
+
+

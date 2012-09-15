@@ -1,0 +1,340 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Call Interface, in, out, inout, rest parameter, named rest parameter, multimethods, double dispatch methods">
+<title>CfgScript Calling Interface</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_class.html">Class</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Calling Interface<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_class_method.html">Class Methods</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_class_decl.html">ClassDeclaration</a> | <a  href="acdk_cfgscript_hb_lang_class_method.html">Class Methods</a> | <a  href="acdk_cfgscript_hb_lang_class_member.html">Class Members</a> | Calling Interface |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Calling Interface</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Calling Interface</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_class_decl.html">ClassDeclaration</a> | <a  href="acdk_cfgscript_hb_lang_class_method.html">Class Methods</a> | <a  href="acdk_cfgscript_hb_lang_class_member.html">Class Members</a> | Calling Interface |</p>
+<p class="PageIntro">
+CfgScript support a richt calling interface.
+</p>
+<br>
+<br>
+<a name="jumptable43"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Standard Call Interface"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Standard Call Interface</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Call methods with default parameter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call methods with default parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Call methods with named parameter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call methods with named parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Call with any parameter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call with any parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Call method with rest parameter array"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call method with rest parameter array</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Call method with rest named parameter array"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call method with rest named parameter array</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Delegates"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Delegates</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Multimethods"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Multimethods</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Weak Invocation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Weak Invocation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Standard Call Interface">Standard Call Interface</a></h2>
+All CfgScript methods are virtual/non-final - except of static methods and constructors.<br>
+<br>
+<jump2>Call with in/out/inout parameters</jump1>
+CfgScript - and ACDK - supports <code>in, out</code> and <code>inout</code> parameter attributes
+<ul class="FeatureList">
+<li class="Feature"> <code>in</code> is the default attribute (if no other is given).<br>
+    Values/reference will be passed from caller to callee. Callee may change
+    value (of basic types) or reference (of object types), but callers
+    variable will not be changed.<br>
+<li class="Feature"> <code>out</code> the caller provides an (unitilized) variable
+    the callee can overwrite the value and pass it back to the caller.<br>
+    <code>out</code> parameters can act as additional return values.<br>
+<li class="Feature"> <code>inout</code> is a combination of <code>in</code> and <code>out</code> parameters.<br>
+</ul>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<B><FONT COLOR="#228B22">class</FONT></B> AClass 
+{
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> foo(in String inS, inout String inoutS, out String erg)
+  {
+    erg = inS + inoutS;
+    inoutS = inS;
+    inS = <B><FONT COLOR="#BC8F8F">&quot;X&quot;</FONT></B>;
+    <B><FONT COLOR="#A020F0">return</FONT></B> erg.length();
+  }
+}
+
+String inS = <B><FONT COLOR="#BC8F8F">&quot;A&quot;</FONT></B>;
+String inoutS = <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;B&quot;</FONT></B>);
+String outS;
+<B><FONT COLOR="#228B22">int</FONT></B> erg = AClass.foo(inS, inoutS, outS);
+out.println(<B><FONT COLOR="#BC8F8F">&quot;inS: &quot;</FONT></B> + inS + <B><FONT COLOR="#BC8F8F">&quot;; inoutS: &quot;</FONT></B> + inoutS + <B><FONT COLOR="#BC8F8F">&quot;; outS: &quot;</FONT></B> + outS);
+
+<B><FONT COLOR="#0000FF">if</FONT></B> (inS.equals(<B><FONT COLOR="#BC8F8F">&quot;A&quot;</FONT></B>) &amp;&amp; inoutS.equals(<B><FONT COLOR="#BC8F8F">&quot;A&quot;</FONT></B>) &amp;&amp; outS.equals(<B><FONT COLOR="#BC8F8F">&quot;AB&quot;</FONT></B>))
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST OK&quot;</FONT></B>);
+<B><FONT COLOR="#A020F0">else</FONT></B>
+  out.println(<B><FONT COLOR="#BC8F8F">&quot;TEST FAILED&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call methods with default parameter">Call methods with default parameter</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyClass
+{
+  MyClass(<B><FONT COLOR="#228B22">int</FONT></B> param = 42) { <I><FONT COLOR="#B22222">/* ... */</FONT></I> }
+}
+MyClass cls1 = <B><FONT COLOR="#A020F0">new</FONT></B> MyClass(); <I><FONT COLOR="#B22222">// uses 42 for param
+</FONT></I>MyClass cls2 = <B><FONT COLOR="#A020F0">new</FONT></B> MyClass(1); <I><FONT COLOR="#B22222">// 
+</FONT></I></PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call methods with named parameter">Call methods with named parameter</a></h3>
+<br>
+Named parameter are useful if a method has many
+parameter with default parameters. 
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyRect
+{
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> posRect(<B><FONT COLOR="#228B22">int</FONT></B> xpos = 0, <B><FONT COLOR="#228B22">int</FONT></B> ypos = 0, <B><FONT COLOR="#228B22">int</FONT></B> xsize = 20, <B><FONT COLOR="#228B22">int</FONT></B> ysize = 30)
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;foo called with xpos = &quot;</FONT></B> + xpos + <B><FONT COLOR="#BC8F8F">&quot;, ypos = &quot;</FONT></B> + ypos + <B><FONT COLOR="#BC8F8F">&quot;, xsize = &quot;</FONT></B> + xsize + <B><FONT COLOR="#BC8F8F">&quot;, ysize = &quot;</FONT></B> + ysize);
+  }
+}
+
+<I><FONT COLOR="#B22222">// call foo with default 
+</FONT></I>MyRect.posRect();
+<I><FONT COLOR="#B22222">// call with positional parameter using the default size
+</FONT></I>MyRect.posRect(10, 10);
+<I><FONT COLOR="#B22222">// call with positional parameter using the default size
+</FONT></I>MyRect.posRect(10, 10, 12, 14);
+
+<I><FONT COLOR="#B22222">// new syntax
+</FONT></I><I><FONT COLOR="#B22222">// use default xpos and ypos
+</FONT></I>MyRect.posRect(xsize: 40, ysize: 50);
+<I><FONT COLOR="#B22222">// old deprecated syntax
+</FONT></I>MyRect.posRect(:ypos = 10, :xpos = 50);
+
+</PRE></td></tr></table>
+<br>
+Limits of default parameters:<br>
+<ul class="FeatureList">
+<li class="Feature"> default paramter must not have attribute <code>out</code> or <code>inout</code>
+</ul>
+<br>
+<h3><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call with any parameter">Call with any parameter</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// Any accepts any type, basic or object type
+</FONT></I>  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> callAny(Any any)
+  {
+    <B><FONT COLOR="#A020F0">if</FONT></B> (any instanceof <B><FONT COLOR="#228B22">float</FONT></B>)
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;called any with float: &quot;</FONT></B> + any.toString());
+    <B><FONT COLOR="#A020F0">else</FONT></B>
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;called any with &quot;</FONT></B> + any.getClass().getName() + <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B> + any.toString());
+  }
+MyClass.callAny(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+MyClass.callAny(42.4);
+</PRE></td></tr></table>
+This prints:<br>
+<pre>
+Called any with acdk/lang/String: asdf
+Called any with floating: 42.400002
+</pre>
+<br>
+<h3><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call method with rest parameter array">Call method with rest parameter array</a></h3>
+If the type of last parameter of a method is DmiObjectArray
+methods can accept variable count of parameters.<br>
+This is similar to <code>void foo(int i, ...);</code> notation
+in C/C++.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyClass
+{
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> variableArgsFunc(<B><FONT COLOR="#228B22">int</FONT></B> flags, Rest rest)
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;Function called with &quot;</FONT></B> + String.valueOf(rest.length()) + <B><FONT COLOR="#BC8F8F">&quot; rest parameters&quot;</FONT></B>);
+    foreach (v in rest)
+    {
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;  &quot;</FONT></B> + v.getClass().toString() + <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B> + v.toString());
+    }
+  }
+}
+
+<I><FONT COLOR="#B22222">// call foo with default 
+</FONT></I>MyClass.variableArgsFunc(42);
+MyClass.variableArgsFunc(42, 1, <B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>, <B><FONT COLOR="#A020F0">new</FONT></B> File(<B><FONT COLOR="#BC8F8F">&quot;testFile&quot;</FONT></B>));
+</PRE></td></tr></table>
+<br>
+Limits of rest parameters:<br>
+<ul class="FeatureList">
+<li class="Feature"> the paramters before the rest parameter must not bedefault parameter
+</ul>
+The type <code>Rest</code> is a typealias to <code>acdk.lang.dmi.DmiObjectArray</code>.<br>
+<br>
+<h3><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call method with rest named parameter array">Call method with rest named parameter array</a></h3>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyClass
+{
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> variableArgsFunc(<B><FONT COLOR="#228B22">int</FONT></B> flags, NamedRest rest)
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;Function called with &quot;</FONT></B> + String.valueOf(rest.length()) + <B><FONT COLOR="#BC8F8F">&quot; rest parameters&quot;</FONT></B>);
+    foreach (v in rest)
+    {
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;  &quot;</FONT></B> + v.name + <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B> + v.value);
+    }
+    <I><FONT COLOR="#B22222">// convert rest into props to easy access
+</FONT></I>    Props restp = <B><FONT COLOR="#A020F0">new</FONT></B> Props(rest);
+    <B><FONT COLOR="#A020F0">if</FONT></B> (restp.hasValue(<B><FONT COLOR="#BC8F8F">&quot;intParam&quot;</FONT></B>) == true)
+    {
+      <B><FONT COLOR="#228B22">int</FONT></B> i = intParam; <I><FONT COLOR="#B22222">// named rest paramater directly available, as they would
+</FONT></I>                    <I><FONT COLOR="#B22222">// be declared in the method signature
+</FONT></I>      i = restp.intParam; <I><FONT COLOR="#B22222">// alternative access as 'pseudo' member variable
+</FONT></I>      
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;  Has intParam: &quot;</FONT></B> + i);
+    }
+    <B><FONT COLOR="#A020F0">else</FONT></B>
+      out.println(<B><FONT COLOR="#BC8F8F">&quot;  Has No intParam&quot;</FONT></B>);
+  }
+}
+
+
+MyClass.variableArgsFunc(42, intParam: 1, stringParam: <B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>, fileParam: <B><FONT COLOR="#A020F0">new</FONT></B> File(<B><FONT COLOR="#BC8F8F">&quot;testFile&quot;</FONT></B>));
+MyClass.variableArgsFunc(42);
+</PRE></td></tr></table>
+<br>
+Limits of rest parameters:<br>
+<ul class="FeatureList">
+<li class="Feature"> the parameters before the rest named parameter must not bedefault parameter
+<li class="Feature"> the parameters before the rest named parameter must not be called by name
+</ul>
+<br>
+<h2><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Delegates">Delegates</a></h2>
+<br>
+Please refer to <a  href="acdk_cfgscript_hb_lang_expr_delegate.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Delegates</a> for more Information.<br>
+<br>
+<h2><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Multimethods">Multimethods</a></h2>
+CfgScript supports Multimethods or double dispatch in method calls:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyClass
+{
+  <B><FONT COLOR="#228B22">void</FONT></B> foo(String s) { out.println(<B><FONT COLOR="#BC8F8F">&quot;called MyClass.foo(String)&quot;</FONT></B>); }
+  <B><FONT COLOR="#228B22">void</FONT></B> foo(Object s) { out.println(<B><FONT COLOR="#BC8F8F">&quot;called MyClass.foo(Object)&quot;</FONT></B>); }
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyDerivedClass
+{
+  <B><FONT COLOR="#228B22">void</FONT></B> foo(String s) { out.println(<B><FONT COLOR="#BC8F8F">&quot;called MyDerivedClass.foo(String)&quot;</FONT></B>); }
+  <B><FONT COLOR="#228B22">void</FONT></B> foo(Object s) { out.println(<B><FONT COLOR="#BC8F8F">&quot;called MyDerivedClass.foo(Object)&quot;</FONT></B>); }
+}
+MyClass c = <B><FONT COLOR="#A020F0">new</FONT></B> MyDerivedClass();
+Object o = <B><FONT COLOR="#A020F0">new</FONT></B> String(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+c.foo(o); 
+</PRE></td></tr></table>
+<br>
+In static typed languages this little code example will print <code>called MyDerivedClass.foo(Object)</code>.<br>
+Dispatching only works for the <code>this</code> parameter, but not for the argument.<br>
+<br>
+In CfgScript the output will be <code>called MyDerivedClass.foo(String)</code>, the call will be dispatched regarding
+this <b>and</b> the method argument argument. 
+<br>
+<h2><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Weak Invocation">Weak Invocation</a></h2>
+In CfgScript method calls are not necessarily bound to a specific objects class type.<br>
+Some objects are only proxy objects, which represents classes from other
+object domains. In some cases the there is no specific type information
+for these objects avaible - they are weak types.<br>
+Nevertheless it is possible to call methods and access member types of these 
+objects:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// create a COM Object, like Microsoft Word
+</FONT></I>Any word = <B><FONT COLOR="#A020F0">new</FONT></B> acdkx.com.ComObject(<B><FONT COLOR="#BC8F8F">&quot;Word.Application&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// There is no detail metainfo available for this word object
+</FONT></I><I><FONT COLOR="#B22222">// but we can access members and call methods for this weak object 
+</FONT></I><I><FONT COLOR="#B22222">// type:
+</FONT></I>word.Visible = 1;
+Any doc = word.Documents.add();
+Any sel = word.ActiveWindow.Selection;
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>);
+sel.Font.Bold =  1;
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>);
+sel.Font.Bold = 0;
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot; instrumenting Word through acdk_cfgscript&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// this a normal ACDK call
+</FONT></I>acdk.lang.Thread.sleep(3000);
+word.Quit(0);
+</PRE></td></tr></table> 
+<br>
+<h2><a href="#jumptable43"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=dir_csf_tests_acdk_cfgscript_4_classes"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;dir_csf_tests_acdk_cfgscript_4_classes</a>
+</ul>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_class_decl.html">ClassDeclaration</a> | <a  href="acdk_cfgscript_hb_lang_class_method.html">Class Methods</a> | <a  href="acdk_cfgscript_hb_lang_class_member.html">Class Members</a> | Calling Interface |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

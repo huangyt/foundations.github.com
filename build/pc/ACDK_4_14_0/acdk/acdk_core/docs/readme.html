@@ -1,0 +1,641 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Core Readme</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Core Readme<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdkmc.html">man acdkmc</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_core_man.html">man acdk_core</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_tools_mc_man.html">man acdk_tools_mc</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | ACDK Core Readme | <a  href="acdk_core_man.html">man acdk_core</a> | <a  href="acdkmc.html">man acdkmc</a> | <a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a> | <a  href="acdk_security_man.html">man acdk_security</a> | <a  href="acdk_tools_mc_man.html">man acdk_tools_mc</a> | <a  href="acdk_tools_testunit_man.html">ACDK Unit Tests</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Core Readme</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Core Readme</h1> -->
+<p class="PageIntro">
+ACDK Core (acdk_core)acdk_core contains the core distribution of ACDK.</p>
+
+
+<a name="jumptable8"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Title"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Title</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Version"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Short Description</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Authors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Authors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#License"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;License</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Description</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Notes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Todo"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Todo</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Changes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Changes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+  <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Title">Title</a></h3>
+    ACDK Core (acdk_core)  <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Version">Version</a></h3>
+    Distribution version: 4.14.<br>
+    Package version: 4.14.0.
+   
+  <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short Description">Short Description</a></h3>
+    <pre class="quoted">
+acdk_core contains the core distribution of ACDK.    </pre>
+  <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h3>
+    <pre class="quoted">
+none
+    </pre>
+  <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+    <pre class="quoted">
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__dmi"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::dmi</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__sys"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::sys</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__ref"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::ref</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__reflect"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::reflect</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__io"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__util"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__util__logging"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__locale"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::locale</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__security"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::security</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__tools__aunit"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::tools::aunit</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__cfgscript"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__tools__mc"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::tools::mc</a>;
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__tools__acdkmc"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::tools::acdkmc</a>;
+    </pre>
+  <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Authors">Authors</a></h3>
+    <pre class="quoted">
+Roger René Kommer (kommer@artefaktur.com).    </pre>
+   <h3><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="License">License</a></h3>
+    <pre class="quoted">
+ACDK Free Edition License. 
+See <a  href="../../docs/ACDK-FreeLicense.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;License</a>.    </pre>
+<h2><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Description">Description</a></h2>
+  <pre class="quoted">
+The ACDK Core package contains the basic tools and libraries of the ACDK framework.
+
+The <m>acdk_core</m> library includes the basic classes in the namespaces <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang</a>, 
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__util"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util</a>, <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__io"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::io</a>, <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__reflect"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::reflect</a>,
+and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__ref"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::ref</a> (corresponds to java.lang, java.io, java.util, etc.)
+and establish a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_lang"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;powerfull and simple framework</a>, with most <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_about_features"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;features</a> 
+known by Java or C#.
+
+<m>acdk_core</m> also implements the basic <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;reflection</a>, late binding and 
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_dmi"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;object oriented integration of scripting languages</a>.
+
+Additionally <m>acdk_core</m> contains a <a  href="acdk_util_logging.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;logging framework</a> similar
+to frameworks like log4j.
+
+The Metacompiler <a  href="acdkmc.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdkmc</m></a> add <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Metainfo</a> 
+like runtime type information, support for <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_nameservice"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ClassLoader</a>
+and attached <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_attributes"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Attributes</a> to C++.
+
+Because software quality is direcly connected to the availability of a testing framework
+the <a  href="acdk_tools_testunit_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;unit test framework</a>  <m>acdk_tools_aunit</m> is included
+in the ACDK Core package.
+
+The library <a  href="acdk_security_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_security</m></a> contains some basic encryption functions.
+
+The scripting language <a  href="acdk_cfgscript_hb.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a> is a <a  href="acdk_cfgscript_hb_intro.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;full featured</a> 
+object oriented scripting language with Java/ACDK syntax, which does not only allow to instrument all ACDK
+classes in scripts, but also define own ACDK classes.
+
+Detailed documentation about ACDK, with <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;handbook</a> and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_reference"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;API reference</a> is available online
+or for <a  href="http://sourceforge.net/project/showfiles.php?group_id=15364&package_id=12244"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;download</a>.  </pre>
+<h2><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes">Notes</a></h2>
+  <pre class="quoted">
+  </pre>
+
+<h2><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Todo">Todo</a></h2>
+  <pre class="quoted">
+Nothing at the moment.  </pre>
+ 
+<h2><a href="#jumptable8"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Changes">Changes</a></h2>
+  <pre class="quoted">
+===========================================================
+4.14.0
+- all: boost performance for most platforms and compilers:
+  - using compiler build in static thread local if possible
+    If acdk_core.dll/so itself is not static linked to the 
+    the executable still use pthread/Win32 thread local
+  - with the -acdk-sp command line option for single CPU machines
+    atomic operations (int++) will not be synchronized.
+  - acdk::lang::String caches the calculated hashCode, which
+    is great performance improvement if intensivelly used
+    HashMaps with String as keys.
+    String::equals first check if hashCodes of two Strings
+    are identical.
+    with the ASCLITERAL/StaticAsciiLiteral literals can be 
+    defined static with precalculated hashCode, which 
+    boosts the equals method.
+- Thread::suspend(), and Thread::stop() implemented.
+  The suspend or stop a thread it has to be in a
+  waitable status (Object::wait(), Thread::sleep(), 
+  Thread::join(), Process::waitFor()).
+- Thread::terminate() implemented. This method 'kills' 
+  a thread immediatelly and does no cleanup or releasing
+  locks.
+- Implemented Process::suspend() and Process::resume.
+- Add unicode encoding with and without C-Escapes (AsciiUtf and
+  AsciiCEscUtf).
+- String: fixed memory leak in normalize().
+- add acdk::lang::sys::core_memtrace to trace memory leaks
+  and / or to profile memory usage.
+- MS compiler: if C structured exceptions are available
+  the -> operator on Reference Objects (like o->toString())
+  does not longer check for NullPointer, but uses the C exceptions
+  to detect null pointers and throw NullPointerException. 
+- acdk::lang::String: Add various convenience methods inspired
+	from the Java apache package StringUtils, like defaultString,
+	isEmpty, isNotEmpty, isBlank, isAlpha, isAlphaSpace, contains,
+	containsNone, containsOnly, indexOfAny, lastIndexOfAny, join,
+	split, deleteWhitespace, repeat, rightPad, leftPad, center, 
+	indexOfDifference, getDifference.
+- Unicode characters > 0x0237 where misinterpreted. The new
+	unicode character table should be fixed now.
+- Locales are for ~ 130 languages/countries are available.
+	The Locale settings for various localized names and formats
+	are now defined in properties (acdk_core/cfg/acdk/locale).
+- if class static RObject create_instance() defines, it does not 
+	need extended metainfo to use Class::forName()->newInstance().
+- The default Locale and encoding is initialized from the underlying
+	operation system.
+	Add Locale::setSystemLocale() family in case of using/synchronizing 
+	c library calls.
+- acdk_tools_aunit: add <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__tools__aunit__CfgScriptTestCase"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::tools::aunit::CfgScriptTestCase</a> 
+  and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__tools__aunit__CfgScriptTestSuite"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::tools::aunit::CfgScriptTestSuite</a> for integrating
+  CfgScripts as unit tests.
+- All: parse -Dkey=value options for setting system
+  properties values.
+- acdk::util::RessourceBundle: fixed various bugs.
+- acdk::util::Properties: fixed various bugs loading/storing
+  properties from/to file.
+- acdk::util::Properties: add eval() method to replace $(KEY)
+  expression with properties value.
+- map common runtime configuration options in System::properties.
+	Please refer also to acdk_core/cfg/acdk.cfg for available
+	values.
+- All: deleted or replaced LATIN1 characters in code
+- All: Supports Visual Studio 2005 Express Beta.
+- All: Remove senseless warnings in Visual Studio while preprocessing
+  for dependencies.
+- Unix platforms: fixed Object::wait(ms) with ms > 0 on some unix
+  platforms (linux). 
+- Throwable can have a nested cause (like in JDK 1.4).
+  Introduced StackFrame interface for serializable backtrace information.
+- Removed all deprecated TMC1 macros.
+- CfgScript: getClass/GetClass also works with basic types.
+- Fixed various performance bottlenecks in the CfgScript
+  interpreter. Performance improved for a factor of 3 - 30.
+- acdk_core: support for -logcat [category] and -logto [logtype or file] for all
+  acdk applications (see <a  href="acdk_util_logging.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Logging framework</a>);
+- acdk::util::Properties: add PropertiesChangeListener to listen on changes
+	on Properties.
+- CfgScript: not only allow to cast any to type, but also type to any.
+  This has the result that functions with DmiObject parameter accepts
+  any parameter.
+- acdk::io::FileSystem revised. FileSystem plugins are now configured
+	in the the properties (acdk.cfg by default). Opening files with file://, 
+	http://, ftp://, .zip@ and .tar@	files will automatically load the 
+	the corresponding FileSystem plugins.
+- CfgScript/DMI: Provide new ScriptGlobals functions, like inOf, outOf,
+  byRef, byVal, etc. (preparation for acdkx_rdmi).
+- CfgScript: support unix hashbang (#!) lines.
+- CfgScript: Implement JSP like <a  href="acdk_cfgscript_templates.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;templates for CfgScript</a>.
+- String::equals() use cached hashCode to improve performance.
+- Arrays: add methods to use array as stack, like pushFront,
+  popBack.
+- ObjectArrays: add methods to convert to and from ArrayList directly
+- ClassLoader: support for library aliases defined in the 
+  propertyfile acdk.lang.ClassLoaderAliase 
+  (cfg/acdk/lang/ClassLoaderAliase.properties).
+- CfgScript: foreach is allowed also for String or StringBuffer
+  (foreach (char c in StringOrStringBuffer) {})
+- acdkmc: Parsing header with "class UPPER_CASE_MACROS MyClass"
+  fixed. The macro is not limited to ACDK_ or ACDKX_ macros.
+- Object finalization: lock memory if this will be referenced
+  inside finalize or destructor.
+- using the THROWx-Statements a throwable can be intercepted
+  after constructed, but before throws using the 
+  <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__lang__ThrowListener"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::ThrowListener</a> interface.
+- CfgScript: create a DmiDelegate object from a short Script
+  string.
+- CfgScript: enhanced Props class. clone() is supported. 
+  A Props can itself render as CfgScript code.
+- acdk::lang::Number (and other, like Integer): Support of
+	non latin unicode digits in parsing.
+	Locale support parsing, stringifing float, double values.
+	Extended support for parsing with leading whitespaces or
+	trailing characters.
+- acdk::lang::Number: fixed parsing literal 0xFFFF (previous
+  the last F was interpreted as type hint.
+- acdk::util::Properties: fixed loading properties files with
+  backslash at the end of the line.
+- MetaInfo: MetaInfo can now be unloaded (needed for CfgScript
+  debugger).
+- CfgScript: support <a  href="acdk_cfgscript_hb_lang_expr_backtick.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;backtick expressions</a>
+  like <code>s = `"j + 1 is ${i + 1}"`;</code> and transparent invocation
+  of external programs.
+- acdk::util: Some classes where ports from the GNU Classpath
+  (back in 1999). Added corresponding license notes.
+- Complete ACDK: Removed the QPL license. ACDK is distributed
+  only with LGPL license from now.
+- CfgScript: Implemented a <a  href="acdk_cfgscript_hb_debug.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;command line debugger</a>. 
+  Start acdkcfgscript with -csfdebug option.
+- CfgScript: Fixed some bugs in inheritance casting and 
+  invoking.
+- CfgScript: add build in support for <a  href="acdk_cfgscript_hb_lang_logging.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK_LOG() and ACDK_NLOG()</a>.
+- CfgScript: add support for <a  href="acdk_cfgscript_hb_lang_class_decl.html#Interface"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;interfaces</a> declared in CfgScript.
+- CfgScript: Fixed bug in CfgScript ClassLoader
+- CfgScript: support for -csfscript argument and/or CSFPATH
+  environment for search path for the CfgScript ClassLoader.
+  
+===========================================================
+4.13.0
+- all: Port to Solaris 9 and 10 i386.
+- acdk_core: String with empty string will use always the same
+  instance of String. 
+- acdk_core: Threads on linux with new posix threads initionalization 
+  race condition fixed.
+- acdk_core: fixed deadlock situation in threaded garbage collecting.
+- CfgScript: Support for exponential numbers, numbers with
+  postfix to declare the type (12l for a long value).
+- CfgScript: Support for unicode character escape encoding.
+- acdk_core: StringBuffer fixed bug in append for gcc 2.9x. 
+- Literals in ACDK C++ with unicode character (other than 7 bit 
+  ascii characters) are encoded with "\\uxxxx" escape sequences. 
+  Literals in C++ code containing unicode character are wrapped
+  with the _US() (for strings) or _UC() (for single character) 
+  macros.
+  The old macros based on local source file encoding (latin-1)
+  are no longer supported.
+- new Macro THROW_INSTANCE to throw an throwable instance
+  which uses meta info to throw the corresponding reference 
+  type.
+- extended acdk::util::StringTokenizer with Java compatible 
+  delimiter (each char in the delimiter string is a delimiter).
+  Improved also performance.
+- implemented acdk::util::IdentityHashMap
+- implemented acdk::util::EventObject, EventListener, 
+  EventListenerProxy
+- acdk::lang::String: implemented intern() corresponding to
+  Java.
+- acdk::util::ResourceBundle: implemented supporting .properties
+  files (see API documentation)
+- CfgScript: implement basic debugging methods
+- CfgScript: Fix evaluation of 'if (x) ; else if (y) ; else ;'
+- CfgScript: Other minor bug fixes
+- All: Fix compatibily to VC 8 (2005)
+
+===========================================================
+4.12.0
+
+- extend acdk::io::File with acdk::io::FileInfo and 
+  possibility to make a file read only
+- Logger are now scoped. A configured logger with name "a.b" will 
+  be used if a name log entry "a.b.c" will be logged.
+- Bug fix using copy constructor of Object or derived.
+- All packages: project files for BorlandX currently
+  for Windows and Linux (debug)
+- Fixed acdk::io::FileReader. It now opens file in read only mode
+- Implemented class acdk::io::FileInfo and possibility to change file 
+  attributes (chmod). 
+
+===========================================================
+4.11.0
+- Bug Fix: Fixed memory leak in ObjectArray on growing
+  arrays.
+- acdkmc: support pseudo keyword 'final'. If class or method
+  is tagged with the keyword 'final' not dmi proxy will be
+  generated for this class/method by acdkmc.
+- New CfgScript: Supports lambda expressions.
+- New CfgScript: Logical operators (|| and &&) are evaluated
+  like in Java/C++ (short circuit logical expression evaluation). 
+- CfgScript: Fixed problem with evaluating complex expressions.
+- CfgScript/aunit: Added a GUI testrunner for ACDK Unit tests.
+- Fix minor bug in BufferedWriter.
+- Introducd acdk/Version.h
+
+===========================================================
+4.10.0
+- New implementation of the CfgScript language.
+  Refer to <a  href="acdk_cfgscript_hb.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript Handbook</a>.
+- New: Introduced DMI-Proxies <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_dmi_subclassing"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk_hb_dmi_subclassing</a>.
+- New: Possibility to use non-ACDK classes/struct with a ACDK object
+  framework (<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_lang_references"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk_hb_lang_references</a>.
+- New: introduce Object::_cast and dmicast<T> to allow
+  extended casts between different implementation languages.
+- New: template version of the container Framework: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__TCollection"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::TCollection</a>.
+- New: ClassLoader with plugin ClassLoaders.
+- New: Completed IO-Framework for CharReader/Writer.
+- New: On low memory situations Allocator try to 
+  free memory with the Garbage Collector and throw
+  OutOfMemoryError exception if no memory cannot be 
+  allocated.
+- New: Limit maximum usage of memory globaly or on thread basisc.
+  (Currently only works with the default heap PagedHeap.)
+- New: enhanced test framework to write test reports.
+- New/Fixed: Logging framework
+- New: Provide ExtObjectVal to wrapp foreign classes/structs 
+  as an ACDK object.
+- ScriptVar and DmiObject: various fixes and enhancements.
+- Strings: Fixed some bugs in Unicode implementation
+- Strings: Optionals automic converter from and to MFC CString class.
+- Process: fix minor issues.
+- File: list can list files recursivelly
+- DMI: Fixed some issues of DMI calling with named arguments
+  and implemented support for calling with rest and named rest
+- Encoding: Fix length of the encoding tables.
+  
+===========================================================
+4.04 - 4.09 
+Internal releases for a Customer.
+  
+===========================================================
+4.03.0
+- Added classes RollingFileConsumer and TransactionConsumer
+  to acdk::util::logging.
+
+===========================================================
+4.02.1
+- Fixed bug in acdk::lang::String initialized with UTF8 bytes
+- Fixed bug in acdk::lang::String initialized with RuccharArray bytes
+- Fixed shareing bug in String::append.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a>.
+
+
+===========================================================
+4.02.0
+- Introduce ACDKPATH in System and ClassLoader to
+  search additionally libraries.
+- Modified trim to enable also triming control (like "\n").
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+
+- Reorganized DMI ClazzInfo. Flags are available in the 
+  acdk::lang::dmi namespace. Meta Info structures may have
+  parent link.
+- Ajustments to acdkmc and all ACDK modules reflecting the
+  modified ClazzInfo.
+- Fixed bug in acdk::io::FileSystem and acdk::io::StandardFileSystem
+  not closing directory handle on unix platforms.
+
+===========================================================
+4.00.2
+- Because code duplication between acdk_tools_mc and acdk_make
+  created new shared library acdk_cfgscript which contains
+  the tiny CfgScript interpreter. CfgScript is used in
+  ACDK <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_attributes"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Meta Attributes</a> and 
+  in <a  href="../../acdk_make/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Make</a>.
+  Improved CfgScript interpreter.
+- Introduce ACDK_TOOLS_HOME env and -acdk-tools-home command
+  line options to enable acdk tools running outside ACDKHOME.
+  
+===========================================================
+acdk_core 4.00.1 - unicode
+- add character encoding in to acdk::locale:
+  US-ASCII, AsciiUtf, ByteAscii, C-Escape, 8859-1, LATIN-1, 
+  8859-2, 8859-3, 8859-4, 8859-5, 8859-6, 8859-7, 8859-8, 
+  8859-9, 8859-10, 8859-13, 8859-14, 8859-15, 8859-16, 
+  CP1250, CP1251, CP1252, CP1253, CP1254, CP1255, CP1256, 
+  CP1257, CP1258, IBM-850, UCS2, UCS2-LE, UCS2-BE, UTF8
+- class acdk::lang::String can hold ASCII, UCS2, UTF8. Will
+  be enhanced with UCS4 and Ansi encodings later
+- Introduced new acdk::io::CharReader/Writer classes, to read/
+  write character strings from acdk::io::Readers
+- add class acdk::lang::UnicodeCharacter
+- Reorganized meta info. The extended meta info for a 
+  class can now be stored in external dlls. acdk_core
+  contains only base definitions of the classes and for
+  garbage collections.
+  acdk_core_metainf contains information for the members, 
+  of the class. The acdk_core_metainf will be loaded 
+  dynamically if needed (using DMI functionality for example).
+- acdk::lang::dmi::ClazzInfo and other classes reoganized.
+- acdkmc: Metainfo will also be generated for Enumerations.
+- Support for gcc 3.1, 3.2 and 3.3
+
+
+===========================================================
+acdk_core 2.01.3
+- acdk::lang::System::getEnvironment returns the
+  original environment
+- Fixed Bugs in acdk::lang::Process.
+- Initial version of templated version of the collection
+  framework. Unfortunatelly gcc 2.92.* crashes (gcc 3.* works
+  fine). The performance improvements of the templated version
+  and the Object based version is about 20 - 30 %.
+
+===========================================================
+acdk_core 2.01.2
+
+- Fixed bug in ObjectArrayImpl::equals in case of Nil.
+- Implemented clone() for the standard value Objects String,
+  StringBuffer, Boolean, Character, Byte, Integer, etc.
+- Fixed wrong exported template, which results in a linker
+  problem with VC7.
+- Borland C++ doesn't like method throw declaration like 
+  'void foo() throw RThrowable, RException'. It results
+  in strange error message "Unresolved external __tpdsc__ ...".
+  The THORWSx expands now to empty strings for borland compiler.
+- Other Borland C++ compatibility fixed.
+  
+  
+===========================================================
+acdk_core 2.01.1
+
+- Introduces class attribute ACDK_WITH_DMIPROXY for interfaces
+  which direct the meta compiler to generate a DMI'able Proxy.
+  This enables to use scripting and distribution languages to
+  implement an ACDK Interface.
+- In the AbstractObjectRader/Writer the flag SerializeJoinedStrings 
+  will manage the Strings written in a dictonary. Equal Strings 
+  will only written once into the stream. This has following 
+  advantages: If the content written to stream contains many 
+  equal strings (like XML or source code) the size of the stream 
+  is much smaller. Deserialized into an Object the complete 
+  structure in RAM is much smaller, because all equal Strings 
+  shares one instance of the String. 
+- fixed bug in acdk::lang::Process implementation for Windows.
+  Detached processes can not catch in, err and out.
+- new method acdk::io::Reader::readIntoString()
+- implemented acdk::io::File::createTempFile()
+- acdk::io::CharArrayWriter::toString() bug fixed.
+- removed outdated acdk::lang::Logger interface.
+- Fixed little bug in ClassLoader in case of VisualStudio + 
+  release target.
+
+===========================================================
+acdk_core 2.00.1
+
+- introduced acdk::lang::sys::core_atomicop 
+  for synchronisation of refcounting.
+  
+- introduced acdk::lang::sys::BackTrace as
+  replacement for the trace macros. 
+  If ACDK is compiled with debugging info,
+  Backtrace can print call stack (will be used
+  in Throwable.
+  
+- introduced Marshaler interfaces for 
+  extended DMI interface. 
+  BYVALIN, BYVALOUT, BYVALINOUT can
+  be used to tag arguments for automatic
+  marshal the Objects in to a stream with
+  the ObjectWriter interface.
+
+- introduced a acdk/io/AbstractObjectReader/Writer
+  which should be used base class for compatible
+  Object serialization.
+  The acdk/io/BinaryObjectReader/Writer is ajusted.
+  the acdk/xml/XMLObjectReader/Writer is ajusted.
+  
+- introduced RefHolderExt.h for passing a 
+  RObject itself as reference argument. 
+  The IN, OUT, and INOUT-Macros can be 
+  used for this.
+  
+- Introduced SBSTR() in acdk/lang/StringBuffer.h 
+  to stream values into a string. Usefull for
+  expection arguments.
+
+- Changed all Writer/Reader interfaces to 
+  byte*/byteArray. 
+  Fixed some related bugs.
+ 
+- acdmc splits large clazzinfo files into chunks
+  of ~ 1/2 MB, to avoid that compiler (especially 
+  with optimation settings) run out of space.
+
+- acdkmc contains a first draft for a ACDK2IDL
+  which generates from a given ACDK interface 
+  corresponding CORBA IDL definitions.
+  
+- intoduced new tags for metainfo:
+  ACDK_WITH_METAINFO generate all information, including
+  script interface.
+  ACDK_WITH_MI_MEMBER generates all information about
+  members, but none about functions.
+  ACDK_WITH_MI_GCINFO generates only information, which
+  may be needed for garbage collection.
+  The metacompiler acdkmc will generate the corresponding
+  functions.
+  
+- acdkmc do generate function information only for 
+  public functions.
+  
+- acdkmc recognise enum as valid type. It will be mapped
+  to an int.
+  
+- New: Class ::acdk::lang::CmdLineParser* for parsing
+  command lines.
+
+- Changed Casting from RObject's to Interfaces a little 
+  bit. Some automatic casts from an RSomeClass to 
+  RSomeInterface does not work longer, and you have
+  to cast explicite with:
+  RSomeInterface si = (RSomeInterface)obj;
+
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a>.
+  
+===========================================================
+acdk_core 1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved Configurations.
+- Fixed bug in acdk::lang::String
+
+
+===========================================================
+acdk_core 1.00.2
+Changed configuration managment.
+
+===========================================================
+acdk_core 1.00
+New initial public revision
+
+
+-----------------------------------------------------------
+acdk_core 0.95
+-----------------------------------------------------------
+- many bugfixes and new implementations e.g. acdk::util::Calendar
+  and related Classes.
+- ClazzInfo structure changed
+
+===========================================================
+-----------------------------------------------------------
+acdk_core 0.0.3 
+-----------------------------------------------------------
+- add support to Sun Solaris 8, gcc 2.95.2 (sunos-gcc).
+- minor documentation fixes
+- acdk::lang::ClassLoader, acdk::lang::Package minor fixes 
+- acdk::lang::String fixed bugs, and minor performance 
+  improvements
+- acdk::lang::sys::BoehmGCAllocator. New Plugin interface for
+  Boehm's Conservative Garbage Collector
+  
+===========================================================
+-----------------------------------------------------------
+2000-26-05 acdk_core 0.0.2 initial public release  </pre>
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | ACDK Core Readme | <a  href="acdk_core_man.html">man acdk_core</a> | <a  href="acdkmc.html">man acdkmc</a> | <a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a> | <a  href="acdk_security_man.html">man acdk_security</a> | <a  href="acdk_tools_mc_man.html">man acdk_tools_mc</a> | <a  href="acdk_tools_testunit_man.html">ACDK Unit Tests</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

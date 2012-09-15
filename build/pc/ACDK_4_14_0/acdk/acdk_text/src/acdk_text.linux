@@ -1,0 +1,220 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_text/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ACDK_TEXT_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/text/acdk_text_Package.cpp \
+	acdk/text/Base64.cpp \
+	acdk/text/DateFormat.cpp \
+	acdk/text/DateFormatSymbols.cpp \
+	acdk/text/DecimalFormat.cpp \
+	acdk/text/DecimalFormatSymbols.cpp \
+	acdk/text/FieldPosition.cpp \
+	acdk/text/Format.cpp \
+	acdk/text/NumberFormat.cpp \
+	acdk/text/ParsePosition.cpp \
+	acdk/text/RegExp.cpp \
+	acdk/text/SimpleDateFormat.cpp \
+	acdk/text/Template.cpp \
+	acdk/text/text_metainf_base.cpp \
+	acdk/text/regexp/pcre/maketables.c \
+	acdk/text/regexp/pcre/pcre.c \
+	acdk/text/regexp/pcre/pcreposix.c \
+
+HEADER= 	acdk/text/AbstractFormatedOutput.h \
+	acdk/text/Base64.h \
+	acdk/text/Config.h \
+	acdk/text/DateFormat.h \
+	acdk/text/DateFormatSymbols.h \
+	acdk/text/DecimalFormat.h \
+	acdk/text/DecimalFormatSymbols.h \
+	acdk/text/FieldPosition.h \
+	acdk/text/Format.h \
+	acdk/text/FormatedOutput.h \
+	acdk/text/HTMLFormatedOutput.h \
+	acdk/text/NumberFormat.h \
+	acdk/text/ParseException.h \
+	acdk/text/ParsePosition.h \
+	acdk/text/RegExp.h \
+	acdk/text/SimpleDateFormat.h \
+	acdk/text/Template.h \
+	acdk/text/text.h \
+	acdk/text/TextFormatedOutput.h \
+	acdk/text/text_all.h \
+
+OBJECTS= 	../tobj/acdk_text/linux/acdk_text_Package.o \
+	../tobj/acdk_text/linux/Base64.o \
+	../tobj/acdk_text/linux/DateFormat.o \
+	../tobj/acdk_text/linux/DateFormatSymbols.o \
+	../tobj/acdk_text/linux/DecimalFormat.o \
+	../tobj/acdk_text/linux/DecimalFormatSymbols.o \
+	../tobj/acdk_text/linux/FieldPosition.o \
+	../tobj/acdk_text/linux/Format.o \
+	../tobj/acdk_text/linux/NumberFormat.o \
+	../tobj/acdk_text/linux/ParsePosition.o \
+	../tobj/acdk_text/linux/RegExp.o \
+	../tobj/acdk_text/linux/SimpleDateFormat.o \
+	../tobj/acdk_text/linux/Template.o \
+	../tobj/acdk_text/linux/text_metainf_base.o \
+	../tobj/acdk_text/linux/maketables.o \
+	../tobj/acdk_text/linux/pcre.o \
+	../tobj/acdk_text/linux/pcreposix.o \
+
+
+FINALTARGET=../../bin/libacdk_text.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_text.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_text.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_text.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_text/linux/acdk_text_Package.o: acdk/text/acdk_text_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/acdk_text_Package.o -c acdk/text/acdk_text_Package.cpp
+
+../tobj/acdk_text/linux/Base64.o: acdk/text/Base64.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/Base64.o -c acdk/text/Base64.cpp
+
+../tobj/acdk_text/linux/DateFormat.o: acdk/text/DateFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/DateFormat.o -c acdk/text/DateFormat.cpp
+
+../tobj/acdk_text/linux/DateFormatSymbols.o: acdk/text/DateFormatSymbols.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/DateFormatSymbols.o -c acdk/text/DateFormatSymbols.cpp
+
+../tobj/acdk_text/linux/DecimalFormat.o: acdk/text/DecimalFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/DecimalFormat.o -c acdk/text/DecimalFormat.cpp
+
+../tobj/acdk_text/linux/DecimalFormatSymbols.o: acdk/text/DecimalFormatSymbols.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/DecimalFormatSymbols.o -c acdk/text/DecimalFormatSymbols.cpp
+
+../tobj/acdk_text/linux/FieldPosition.o: acdk/text/FieldPosition.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/FieldPosition.o -c acdk/text/FieldPosition.cpp
+
+../tobj/acdk_text/linux/Format.o: acdk/text/Format.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/Format.o -c acdk/text/Format.cpp
+
+../tobj/acdk_text/linux/NumberFormat.o: acdk/text/NumberFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/NumberFormat.o -c acdk/text/NumberFormat.cpp
+
+../tobj/acdk_text/linux/ParsePosition.o: acdk/text/ParsePosition.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/ParsePosition.o -c acdk/text/ParsePosition.cpp
+
+../tobj/acdk_text/linux/RegExp.o: acdk/text/RegExp.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/RegExp.o -c acdk/text/RegExp.cpp
+
+../tobj/acdk_text/linux/SimpleDateFormat.o: acdk/text/SimpleDateFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/SimpleDateFormat.o -c acdk/text/SimpleDateFormat.cpp
+
+../tobj/acdk_text/linux/Template.o: acdk/text/Template.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/Template.o -c acdk/text/Template.cpp
+
+../tobj/acdk_text/linux/text_metainf_base.o: acdk/text/text_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/text_metainf_base.o -c acdk/text/text_metainf_base.cpp
+
+../tobj/acdk_text/linux/maketables.o: acdk/text/regexp/pcre/maketables.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/maketables.o -c acdk/text/regexp/pcre/maketables.c
+
+../tobj/acdk_text/linux/pcre.o: acdk/text/regexp/pcre/pcre.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/pcre.o -c acdk/text/regexp/pcre/pcre.c
+
+../tobj/acdk_text/linux/pcreposix.o: acdk/text/regexp/pcre/pcreposix.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/linux/pcreposix.o -c acdk/text/regexp/pcre/pcreposix.c
+
+
+
+metainfo:
+	$(ACDKMC) acdk/text;\
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_text.so $(OBJECTS)
+
+  

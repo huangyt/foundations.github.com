@@ -1,0 +1,85 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+
+*/
+
+foreach (String k in acdk.lang.System.getProperties().propertyNames())
+  out.println(k + ":" + acdk.lang.System.getProperty(k));
+
+foreach (int i in [ 1, 2, 3, 4, 5, 6, 7 ])
+{
+  out.println("i: " + i);
+  bool ignoreTest = false;
+  foreach (int j  in [ 4, 5 ])
+  {
+    out.println("j: " + j);
+    if (i == j)
+    {
+      if (i % 2)
+        ignoreTest = true;
+      break;
+    }
+  }
+  if (ignoreTest == true)
+    continue;
+  if (i == 5)
+    out.println("TEST FAILED");
+  out.println("X: " + i);
+}
+  
+{
+  int erg = 3 % 2;
+  if (erg == 0)
+    out.println("TEST FAILED");
+} 
+
+
+
+col = new acdk.util.ArrayList();
+col.add("A");
+col.add("B");
+col.add("C");
+out.println("foreach ArrayList");
+foreach (String s in col)
+{
+  out.println("foreach: " + s);
+}
+
+
+StringArray sa = new StringArray(2);
+sa.set(0, "A");
+sa.set(1, "B");
+out.println("foreach StringArray");
+
+foreach (s in sa)
+{
+  out.println("foreach: " + s);
+}
+
+
+
+out.println("foreach intArray");
+intArray array = [ 1, 2, 3, 4, 5, 6, 7 ];
+
+bool reachedEnd = false;
+foreach (i in array)
+{
+ 
+  if (i == 2)
+    continue;
+  out.println("foreach: " + i);
+  if (i == 4)
+  {
+    reachedEnd = true;
+    break;
+  }
+  if (i == 5)
+    reachedEnd = false;
+}
+
+
+if (reachedEnd == false)
+  out.println("TEST FAILED");
+else
+  out.println("TEST OK");

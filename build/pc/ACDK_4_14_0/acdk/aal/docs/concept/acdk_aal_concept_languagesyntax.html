@@ -1,0 +1,276 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL syntax</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;AAL syntax
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | AAL syntax | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL syntax</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL syntax</h1> -->
+<p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | AAL syntax | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p>
+<p class="PageIntro">
+Syntax of the ALL (snapshot).
+</p>
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Block<br>
+:&nbsp;'{'&nbsp;Statements&nbsp;'}'<br>
+;<br>
+<br>
+MultiplicativeExpr<br>
+:&nbsp;UnaryExpr&nbsp;(&nbsp;(&nbsp;'*'&nbsp;|&nbsp;'%'&nbsp;|&nbsp;'/'&nbsp;)&nbsp;UnaryExpr&nbsp;$&nbsp;)*<br>
+;<br>
+<br>
+StandardParams<br>
+:&nbsp;Parameter&nbsp;[&nbsp;','&nbsp;StandardParams&nbsp;]<br>
+;<br>
+<br>
+FunctionDeclParamList<br>
+:&nbsp;'('&nbsp;')'&nbsp;|&nbsp;'('&nbsp;StandardParams&nbsp;')'<br>
+;<br>
+<br>
+TypeDeclDef<br>
+:&nbsp;TypeName&nbsp;Identifier&nbsp;(&nbsp;';'&nbsp;|&nbsp;TypeInitializer&nbsp;';'&nbsp;)<br>
+;<br>
+<br>
+Parameter<br>
+:&nbsp;TypeName&nbsp;VarName<br>
+;<br>
+<br>
+Arguments<br>
+:&nbsp;'('&nbsp;')'&nbsp;|&nbsp;'('&nbsp;ArgumentList&nbsp;')'<br>
+;<br>
+<br>
+FunctionDecl<br>
+:&nbsp;TypeName&nbsp;VarName&nbsp;FunctionDeclParamList&nbsp;$<br>
+;<br>
+<br>
+Expression<br>
+:&nbsp;AssignmentExpr&nbsp;(&nbsp;','&nbsp;AssignmentExpr&nbsp;)*<br>
+;<br>
+<br>
+ObjCallSuffix<br>
+:&nbsp;'.'&nbsp;Identifier&nbsp;[&nbsp;Arguments&nbsp;]&nbsp;|&nbsp;'['&nbsp;Expression&nbsp;']'&nbsp;|&nbsp;Arguments<br>
+;<br>
+<br>
+BitwiseORExpr<br>
+:&nbsp;BitwiseXORExpr&nbsp;(&nbsp;'|'&nbsp;BitwiseXORExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+CaseStatement<br>
+:&nbsp;'switch'&nbsp;'('&nbsp;Expression&nbsp;')'&nbsp;'{'&nbsp;(&nbsp;CaseClause&nbsp;)*&nbsp;'}'&nbsp;$<br>
+;<br>
+<br>
+EqualityExpr<br>
+:&nbsp;RelationalExpr&nbsp;(&nbsp;(&nbsp;'=='&nbsp;|&nbsp;'!='&nbsp;)&nbsp;RelationalExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+TypeInitializer<br>
+:&nbsp;'='&nbsp;(&nbsp;AssignmentExpr&nbsp;|&nbsp;ConditionalExpr&nbsp;)<br>
+;<br>
+<br>
+CallExpr<br>
+:&nbsp;'new'&nbsp;TypeName&nbsp;Arguments<br>
+|&nbsp;CoreExpr&nbsp;(&nbsp;ObjCallSuffix&nbsp;)*<br>
+;<br>
+<br>
+PostfixExpr<br>
+:&nbsp;CallExpr&nbsp;[&nbsp;'++'&nbsp;|&nbsp;'--'&nbsp;]&nbsp;%<br>
+;<br>
+<br>
+ShiftExpr<br>
+:&nbsp;AdditiveExpr&nbsp;(&nbsp;(&nbsp;'&gt;&gt;'&nbsp;|&nbsp;'&lt;&lt;'&nbsp;)&nbsp;AdditiveExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+DoStatement<br>
+:&nbsp;'do'&nbsp;Statement&nbsp;'while'&nbsp;'('&nbsp;Expression&nbsp;')'&nbsp;';'&nbsp;$<br>
+;<br>
+<br>
+CoreExpr<br>
+:&nbsp;&nbsp;'('&nbsp;AssignmentExpr&nbsp;')'&nbsp;|&nbsp;Identifier&nbsp;|&nbsp;Literal<br>
+;<br>
+<br>
+BitwiseANDExpr<br>
+:&nbsp;EqualityExpr&nbsp;(&nbsp;'&amp;'&nbsp;EqualityExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+LeftHandSideExpr<br>
+:&nbsp;CallExpr<br>
+;<br>
+<br>
+ExprStatement<br>
+:&nbsp;Expression&nbsp;';'<br>
+;<br>
+<br>
+AdditiveExpr<br>
+:&nbsp;MultiplicativeExpr&nbsp;(&nbsp;(&nbsp;'+'&nbsp;|&nbsp;'-'&nbsp;)&nbsp;MultiplicativeExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+UnaryExpr<br>
+:&nbsp;'++'&nbsp;UnaryExpr<br>
+|'--'&nbsp;UnaryExpr<br>
+|'-'&nbsp;UnaryExpr<br>
+|'+'&nbsp;UnaryExpr<br>
+|'~'&nbsp;UnaryExpr<br>
+|'!'&nbsp;UnaryExpr<br>
+|PostfixExpr<br>
+;<br>
+<br>
+Statements<br>
+:&nbsp;(&nbsp;Statement&nbsp;)*<br>
+;<br>
+<br>
+TypeDeclWithInitializer:<br>
+|&nbsp;TypeDeclDef<br>
+|&nbsp;ClassDeclDef<br>
+|&nbsp;FunctionDeclDef<br>
+;<br>
+LogicalANDExpr<br>
+:&nbsp;[&nbsp;BitwiseORExpr&nbsp;(&nbsp;'||'&nbsp;&nbsp;BitwiseORExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+ClassDef<br>
+:&nbsp;SuperDef&nbsp;Block<br>
+;<br>
+<br>
+AssignmentExpr<br>
+:&nbsp;LeftHandSideExpr&nbsp;'='&nbsp;AssignmentExpr&nbsp;$&nbsp;|&nbsp;ConditionalExpr<br>
+;<br>
+<br>
+ElseStatement<br>
+:&nbsp;'else'&nbsp;Statement&nbsp;$<br>
+;<br>
+<br>
+FunctionDeclDef<br>
+:&nbsp;FunctionDecl&nbsp;(&nbsp;';'&nbsp;|&nbsp;FunctionBody&nbsp;)<br>
+;<br>
+<br>
+ReturnStatement<br>
+:&nbsp;'return'&nbsp;Expression&nbsp;';'&nbsp;$<br>
+;<br>
+<br>
+FunctionBody<br>
+:&nbsp;Block&nbsp;$<br>
+;<br>
+<br>
+ConditionalExpr<br>
+:&nbsp;LogicalORExpr&nbsp;[&nbsp;'?'&nbsp;AssignmentExpr&nbsp;':'&nbsp;AssignmentExpr&nbsp;]&nbsp;%<br>
+;<br>
+<br>
+CaseClause<br>
+:&nbsp;(&nbsp;'case'&nbsp;Expression&nbsp;|&nbsp;'default'&nbsp;)&nbsp;':'&nbsp;(&nbsp;Statement&nbsp;)*&nbsp;$<br>
+;<br>
+<br>
+ArgumentList<br>
+:&nbsp;AssignmentExpr&nbsp;(&nbsp;','&nbsp;AssignmentExpr&nbsp;)*<br>
+;<br>
+<br>
+Statement<br>
+:&nbsp;Block<br>
+|ReturnStatement<br>
+|IfStatement<br>
+|ContinueStatement<br>
+|BreakStatement<br>
+|DoStatement<br>
+|WhileStatement<br>
+|CaseStatement<br>
+|ExprStatement<br>
+;<br>
+<br>
+ContinueStatement<br>
+:&nbsp;'continue'&nbsp;';'&nbsp;$<br>
+;<br>
+<br>
+BitwiseXORExpr<br>
+:&nbsp;BitwiseANDExpr&nbsp;(&nbsp;'^'&nbsp;BitwiseANDExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+RelationalExpr<br>
+:&nbsp;ShiftExpr&nbsp;(&nbsp;(&nbsp;'&lt;'&nbsp;|&nbsp;'&gt;'&nbsp;|&nbsp;'&lt;='&nbsp;|&nbsp;'&gt;='&nbsp;)&nbsp;ShiftExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+BreakStatement<br>
+:&nbsp;'break'&nbsp;';'&nbsp;$<br>
+;<br>
+<br>
+CodeText<br>
+:&nbsp;Globals&nbsp;|&nbsp;Statements<br>
+;<br>
+<br>
+Globals<br>
+:&nbsp;TypeDeclWithInitializer<br>
+;<br>
+<br>
+WhileStatement<br>
+:&nbsp;'while'&nbsp;'('&nbsp;Expression&nbsp;')'&nbsp;Statement&nbsp;$<br>
+;<br>
+<br>
+IfStatement<br>
+:&nbsp;'if'&nbsp;'('&nbsp;Expression&nbsp;')'&nbsp;Statement&nbsp;[&nbsp;ElseStatement&nbsp;]&nbsp;&nbsp;$<br>
+;<br>
+<br>
+LogicalORExpr<br>
+:&nbsp;LogicalANDExpr&nbsp;(&nbsp;'&amp;&amp;'&nbsp;&nbsp;LogicalANDExpr&nbsp;)*&nbsp;%<br>
+;<br>
+<br>
+ClassDeclDef<br>
+:&nbsp;'class'&nbsp;TypeName&nbsp;(ClassDef&nbsp;|&nbsp;';')<br>
+;<br>
+<br></font>
+</td></tr></table>
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | AAL syntax | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

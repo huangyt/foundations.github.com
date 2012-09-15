@@ -1,0 +1,71 @@
+%id: acdk_sql_man_inst
+%title: ACDK SQL Installation
+%shorttitle: Installation
+%keywords: SQL, ODBC, Installation
+%seealso: acdk_general_install
+
+%body:
+<chapterline/>
+<pageintro>
+How to install acdk_sql_odbc.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+<jump1>General Installation</jump1>
+Please refer to %ref[acdk_general_install] for general installation notice
+for ACDK.
+
+<jump1>ACDK SQL ODBC Installation</jump1>
+To make use of acdk_sql_odbc an ODBC driver for your database has to be installed.
+
+<jump2>Windows Platform</jump2>
+Use the ODBC Datasource configuration provided by the operation system to configure an
+ODBC data source. 
+
+Currently acdk_sql_odbc is tested with
+<fl>
+<f> MS SQL 2000
+<f> Oracle 9
+<f> MS Access
+</fl>
+
+<jump2>Unix (Linux, Solaris, FreeBSD)</jump2>
+The acdk::sql::odbc driver uses the free unixODBC 
+driver kit. 
+
+unixODBC-1.8.8 or newer (Linux & Solaris)
+%ref[http://www.unixodbc.org/, http://www.unixodbc.org/].
+
+Make and install this package.
+
+
+Currently acdk_sql_odbc is tested with
+<fl>
+<f> mySQL
+<f> PostgreSQL (the stored procedure tests failes, because PostgreSQL has a different syntax)
+<f> Informix
+<f> Oracle.
+</fl>
+
+<jump1>Test your Database connection</jump1>
+
+The best way is just to run the acdk_sql_Test unit test.
+
+Create a database, f.e. named acdk and grant all rights
+to create tables, stored procedures and so on to you an user.
+
+Configure a ODBC datasource with ODBCConfig (unix) or the 
+Datasource in system control (Windows) named f.e. also acdk.
+
+Before running you have to ajust your database connection values
+in the configuration file <c>cfg/tests/acdk/sql/odbc/Connection.properties</c>
+
+After ajust these values, compile and run the executable.
+If all tests passes and no errors are displayed, the database
+connection should be OK.
+
+
+
+.

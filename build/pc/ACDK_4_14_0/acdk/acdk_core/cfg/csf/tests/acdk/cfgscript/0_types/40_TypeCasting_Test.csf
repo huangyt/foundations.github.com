@@ -1,0 +1,24 @@
+using acdk.cfgscript.ScriptGlobals;
+#pragma strict
+
+int i;
+i = 4.2;
+if (i != 4)
+  out.println("TEST FAILED 1");
+out.println("i: " + i);
+out.println("class1: " + int.GetClass().getName());
+out.println("class1a: " + 42i.getClass().getName());
+out.println("class2: " + castTo(i, short.GetClass()).GetClass().getName());
+out.println("class3: " + i.GetClass().getName());
+
+  
+try {
+  i = "42";
+  out.println("TEST FAILED 2");
+} catch (DmiException ex) {
+  out.println("TEST OK");
+}
+
+Any j = 1;
+j = "AB";
+out.println("TEST OK");

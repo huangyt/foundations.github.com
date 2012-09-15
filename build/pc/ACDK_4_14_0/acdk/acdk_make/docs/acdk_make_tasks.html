@@ -1,0 +1,277 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Make Tasks</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Make</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_make_man.html">ACDK Make manual</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Tasks<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/url_html.gif" alt="down">&nbsp;<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__Task"><img border="0" src="./../../docs\images/url_html.gif">&nbsp;acdk::make::Task</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_make_features.html">acdkmake features</a> | <a  href="acdk_make_targets.html">ACDK Make targets</a> | Tasks | <a  href="acdk_make_concepts.html">ACDK Make concepts</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Make Tasks</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Make Tasks</h1> -->
+
+<br>
+<p class="PageIntro">
+acdkmake provides build in Tasks for most common 
+used build functions.<br>
+</p>
+<br>
+<br>
+<a name="jumptable79"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Task Types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Task Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Base Task Types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Base Task Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Task"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Task</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AbstractTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AbstractTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ProjectTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ProjectTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#File related classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;File related classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#DirExists"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;DirExists</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#FileCopyTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FileCopyTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#FileDeleteTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FileDeleteTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#FileDependTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;FileDependTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#LookupFileTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;LookupFileTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#C++ related classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;C++ related classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#CompileTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CompileTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#CppSourceDependTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CppSourceDependTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Generic Execution Task"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Generic Execution Task</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ScriptExecuteTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ScriptExecuteTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#ShellExecuteTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ShellExecuteTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ACDK specific Tasks"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ACDK specific Tasks</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AcdkBinaryTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AcdkBinaryTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AcdkExeTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AcdkExeTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AcdkLibTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AcdkLibTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AcdkMetainfLibTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AcdkMetainfLibTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AcdkTestExeTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AcdkTestExeTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#AcdkProjectTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;AcdkProjectTask</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Java specific Tasks"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Java specific Tasks</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#JavaCompileTask"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;JavaCompileTask</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Task Types">Task Types</a></h2>
+To tell amake to to a job a Task has to be created.<br>
+For different jobs different Tasks can be created:<br>
+<br>
+<li> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_tutorial_types#Namespaces"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Namespaces</a>.<br>
+<br>
+<h3><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Base Task Types">Base Task Types</a></h3>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Task">Task</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__Task"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::Task</a> is the base interface
+for all acdkmake tasks.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AbstractTask">AbstractTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AbstractTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AbstractTask</a> is the abstract
+class implementation on which most builin amake
+Tasks are based on.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ProjectTask">ProjectTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__ProjectTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::ProjectTask</a> is a wrapper
+to other Tasks. Normally it simple executes
+its sub tasks.<br>
+<br>
+<br>
+<h3><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="File related classes">File related classes</a></h3>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="DirExists">DirExists</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__DirExistsTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::DirExistsTask</a> ensures that
+a directory exists.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FileCopyTask">FileCopyTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__FileCopyTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::FileCopyTask</a> copy/install
+    a collection of Files.<br>
+ 
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FileDeleteTask">FileDeleteTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__FileDeleteTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::FileDeleteTask</a> removes
+    a collection of Files.<br>
+ 
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="FileDependTask">FileDependTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__FileDependTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::FileDependTask</a> checks if
+    source file(s) is/are newer than target file.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="LookupFileTask">LookupFileTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__LookupFileTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::LookupFileTask</a> try to locate
+a given type of file.<br>
+<br>
+<h3><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="C++ related classes">C++ related classes</a></h3>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CompileTask">CompileTask</a></h4>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__CompileTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::CompileTask</a> compiles an
+    C++ source.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CppSourceDependTask">CppSourceDependTask</a></h4>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__CppSourceDependTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::CppSourceDependTask</a> checks
+for include dependencies of a C++ source.<br>
+If a source file includes a header and this
+header has a younger modification time as 
+the target object file, the source has to
+be recompiled.<br>
+<br>
+CppSourceDependTask does not use an external
+C preprocessor but uses an own build in parser.<br>
+This internal parser does not regard defines, but
+evaluates all include files. This has the effect, 
+that also #included header are evaluated which 
+are deactivated by #define.<br>
+<br>
+In normal mode CppSourceDependTask follows all
+header, included by <code>#include "Header.h"</code>
+and <code>#include <Header.h></code> recursivelly.<br>
+With the constructor arguments <code>checkRecursive</code>
+the recursive parsing (also parse the included 
+headers for includes can be switched off.<br>
+With the constructor argument <code>onlyDirectIncludes</code>
+only includes with the form <code>#include "Header.h"</code>
+are parsed (which are normally project own header files), 
+whereas <code>#include <Header.h></code> are ignored.<br>
+<br>
+With the acdkmc comandline option <code>-dd</code> only
+direct includes will be parsed. The acdk command line
+<code>-dn</code> the CompileTask will not check for source
+dependencies.<br>
+<br>
+Different to external C++ parsers the CppSourceDependTask
+caches all parsed dependencies for a header file, so
+parsing all headers should consume much time.<br>
+The CompileTask caches the pre-parsed dependency try
+over all sources of the project.<br>
+<br>
+<br>
+<h3><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Generic Execution Task">Generic Execution Task</a></h3>
+<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ScriptExecuteTask">ScriptExecuteTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__ScriptExecuteTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::ScriptExecuteTask</a> executes
+a given CfgScript file.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ShellExecuteTask">ShellExecuteTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__ShellExecuteTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::ShellExecuteTask</a> executes
+a given executable.<br>
+<br>
+<br>
+<h3><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK specific Tasks">ACDK specific Tasks</a></h3>
+The tasks starting with Acdk are specific tasks which
+collect the standard tasks to compile and install
+ACDK projects.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AcdkBinaryTask">AcdkBinaryTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AcdkBinaryTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AcdkBinaryTask</a> creates
+an ACDK binary. 
+This task is the base class for AcdkLibTask and AcdkExeTask.<br>
+<br>
+An AcdkBinary tasks asumes that the sources are
+organized following way:<br>
+<pre>
+./acdk_prj           -> Project directory
+./acdk_prj/build.csf -> amake file.
+./acdk_prj/src/namespace1/namespace2/Source.cpp -> sources are in src sub directory
+./acdk_prj/tobj/*     -> object files will stored here
+./acdk_prj/cfg        -> Project configuration files
+./bin                 -> acdk binary directory
+./include             -> install target of sources (./include/namespac1/namespace2/Source.cpp)
+./cfg                 -> install target of cfg from ./acdk_prj/cfg
+</pre>
+<br>
+An AcdkBinaryTasks devides from two sources:<br>
+Ordinary sources (files and directories) and 
+Module directories.<br>
+For modules the <a  href="../../acdk_core/docs/acdkmc.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;man acdkmc</a> meta compiler
+will parse the header and generates metainf files.<br>
+In the subdirectory metainf_modulename cpp files 
+will be generated containing extended metainfo.<br>
+<br>
+If for example AcdkBinaryTask is named my_package 
+AcdkBinaryTask defines the preprocessor value
+USE_MY_PACKAGE.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AcdkExeTask">AcdkExeTask</a></h4>
+<br>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AcdkExeTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AcdkExeTask</a> creates an 
+ACDK executable.<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AcdkLibTask">AcdkLibTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AcdkLibTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AcdkLibTask</a> creates an 
+ACDK libarary (static or shared).<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AcdkMetainfLibTask">AcdkMetainfLibTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AcdkMetainfLibTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AcdkMetainfLibTask</a> creates 
+a library containing the extended metainfo 
+created by <a  href="../../acdk_core/docs/acdkmc.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;man acdkmc</a> for a given AcdkLibTask.<br>
+<br>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AcdkTestExeTask">AcdkTestExeTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AcdkTestExeTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AcdkTestExeTask</a> creates an ACDK test executable.<br>
+Different to the AcdkBinaryTask the directory layout is:<br>
+<pre>
+Source: 
+./acdk_prj/tests/namespace1/namespace2/namespace1_namespace2_Source_Test.cpp
+
+Installed Source: 
+./include/tests/namespace1/namespace2/namespace1_namespace2_Source_Test.cpp
+</pre>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="AcdkProjectTask">AcdkProjectTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__AcdkProjectTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::AcdkProjectTask</a> is derived
+from ProjectTask. AcdkProjectTask installes
+the cfg files (from ./cfg) into $ACDKHOME/cfg.<br>
+<br>
+<br>
+<h3><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Java specific Tasks">Java specific Tasks</a></h3>
+<br>
+<h4><a href="#jumptable79"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="JavaCompileTask">JavaCompileTask</a></h4>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__make__JavaCompileTask"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::make::JavaCompileTask</a> compiles a
+java file.<br>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_make_features.html">acdkmake features</a> | <a  href="acdk_make_targets.html">ACDK Make targets</a> | Tasks | <a  href="acdk_make_concepts.html">ACDK Make concepts</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

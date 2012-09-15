@@ -1,0 +1,144 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_python, Install">
+<title>Install acdk_python</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Python</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Compile acdk_python<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../docs/acdk_general_install.html">Installation</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Python Readme</a> | Compile acdk_python | <a  href="acdk_python_man.html">acdk_python Manual</a> | <a  href="acdkpython_man.html">acdkpython Manual</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Install acdk_python</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Install acdk_python</h1> -->
+<br>
+<p class="PageIntro">
+Describe how to compile/install <m>acdk_python</m>
+</p>
+<br>
+<a name="jumptable97"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Download and compile Python"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Download and compile Python</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#On Unix:"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;On Unix:</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#On Windows:"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;On Windows:</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Configure ACDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configure ACDK</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compile acdk_python"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Compile acdk_python</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Running executables using acdk_python"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Running executables using acdk_python</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable97"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Download and compile Python">Download and compile Python</a></h2>
+To compile and rund acdkperl you need the Python 2.1 (or later) package
+<br>
+<a  href="ftp://ftp.python.org/pub/python"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ftp://ftp.python.org/pub/python</a>
+<h3><a href="#jumptable97"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="On Unix:">On Unix:</a></h3>
+<br>
+<pre>
+- [g]tar zxf Python-2.1.1.tgz
+- cd Python-2.1.1
+- ./configure 
+- make
+- su 
+- make install
+</pre>
+Optional you may have to specifiy following options to <code>./configure</code>
+<ul class="FeatureList">
+  <li class="Feature"> --prefix=/artefaktur/extsrc (where to install python)
+  <li class="Feature"> --enable-shared
+  <li class="Feature"> --enable-unicode=ucs2
+</ul>
+<br>
+<br>
+<h3><a href="#jumptable97"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="On Windows:">On Windows:</a></h3>
+<pre>
+- use gtar or winzip to extract Python-2.1.1.tgz
+- Open the workspace .\Python-2.1.1\PCbuild\pcbuild.dsw
+- Compile Debug and Release target.
+- You may have to copy the python DLL's somewhere into the
+  path or expand the path to python DLL's directory.
+</pre>
+<br>
+If you have already installed a runtime version of Python
+it may work to this, but there may missing includes/libs.<br>
+<br>
+<h2><a href="#jumptable97"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configure ACDK">Configure ACDK</a></h2>
+After compiling Python you probably have to ajust some
+configuration in acdk:<br>
+<ul class="FeatureList">
+  <li class="Feature"> Unix: open <code>acdk_globals.[your platform]</code> in the ACDK root directory and 
+      ajust the <code>ACDK_PYTHON_*</code> values to point
+      to the correct directories and library names.<br>
+      
+  <li class="Feature"> Windows: open the <code>acdkenv.cmd</code> ACDK root directory and ajust the 
+      <code>ACDK_PYTHON*</code> values.<br>
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <code>startvstudio6.cmd</code>).<br>
+      Alternately you can also add these environment variables into your global
+      environment. 
+</ul>
+<br>
+<h2><a href="#jumptable97"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compile acdk_python">Compile acdk_python</a></h2>
+If the environment variables are set correctly <m>acdk_python</m> can be compiled.<br>
+<br>
+<h2><a href="#jumptable97"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Running executables using acdk_python">Running executables using acdk_python</a></h2>
+To run an executble using <m>acdk_python</m> you may have set
+environment variables (<code>PATH</code> on Windows and <code>LD_LIBRARY_PATH</code>)
+to point to ACDK <code>bin</code> directory and the directory of the shared libraries
+of Python.<br>
+<br>
+On windows you can use the <code>acdkenv.cmd</code> for this purpose.<br>
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <code>acdkenv.[platform]</code> before executing the application.<br>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Python Readme</a> | Compile acdk_python | <a  href="acdk_python_man.html">acdk_python Manual</a> | <a  href="acdkpython_man.html">acdkpython Manual</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

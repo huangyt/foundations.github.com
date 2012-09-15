@@ -1,0 +1,136 @@
+
+// Perl Header ===============================================================================
+
+lf = new acdk.make.LookupFileTask("perl", acdk.make.Executable);
+if (lf.execute("", buildprops) == true)
+{
+  perlexec = lf.foundPath();
+  perlexec = "perl";
+  System.out.println("Perl executable: " + perlexec);
+  sexec = new ShellExecuteTask("perl cflags", 
+                               "requesting cflags", 
+                               perlexec + " -MExtUtils::Embed -e ccopts", 
+                               acdk.make.SExecUseShell + acdk.make.SExecNoOut);
+  sexec.execute("", buildprops);
+  perlcflags = sexec.getOutString().trim();
+  System.out.println("Perl cflags: " + perlcflags);
+  __props.setStringVal("CCC_EXT_COPTS", perlcflags);
+  if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+  {
+     /*
+     filter away
+     -nologo -Gf -W3 -MD -Zi -DNDEBUG -O1 -DWIN32 -D_CONSOLE -DNO_STRICT -DHAVE_DES_FCRYPT  -DPERL_IMPLICIT_CONTEXT -DPERL_I
+    MPLICIT_SYS -DUSE_PERLIO -DPERL_MSVCRT_READFIX  -I"D:\programr\lang\perl\interpreter\Perl58AS\lib\CORE"
+    */
+    re = new acdk.text.RegExp("\\-nologo \\-Gf \\-W3 \\-MD \\-Zi \\-DNDEBUG \\-O1 \\-DWIN32 \\-D_CONSOLE(.*)");
+    sa = re.match(perlcflags);
+    if (sa.length() > 1)
+    {
+      //System.out.println("Stripped CFL: " + sa.get(1));
+      __props.setStringVal("CCC_EXT_COPTS", sa.get(1));
+      //__props.setStringVal("CCC_EXT_COPTS", perlcflags);
+      
+    }
+    else
+    {
+      //System.out.println("does not match");
+    }
+  }
+  sexec = new ShellExecuteTask("perl ldflags", 
+                               "requesting ldflags", 
+                               perlexec + " -MExtUtils::Embed -e ldopts", 
+                                acdk.make.SExecUseShell + acdk.make.SExecNoOut);
+  sexec.execute("", buildprops);
+  perlldflags = sexec.getOutString().trim();
+  String perllib = "";
+  if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+  {
+    /*perlldflags = perlldflags.replace("-nologo ", "")
+                              .replace("-nodefaultlib ", "")
+                              .replace("-debug ", "");
+    */
+    libpath = (new acdk.text.RegExp("\\-libpath\\:\\\"(.*?)\\\"")).match(perlldflags).get(1);
+    System.out.println("libpath match: " + libpath);
+    
+    sa = (new acdk.io.File(libpath)).list(new acdk.io.GlobFilenameFilter("perl*.lib"));
+    if (sa.length() > 0)
+    {
+      perllib = libpath + "\\" + sa.get(0);
+    }
+    else
+    {
+      perllib = "";
+    }
+    System.out.println("perlib : " + perllib);
+    perlldflags = "-opt:ref,icf  -libpath:\"" + libpath + "\" " + perllib;
+   
+    __props.setStringVal("CCC_EXT_LDFLAGS", perlldflags);
+  }
+  else
+  {
+    __props.setStringVal("CCC_EXT2_LDFLAGS", perlldflags);
+  }
+  System.out.println("Perl ldlags: [" + perlldflags + "]");
+}
+else // try to figure out by myself
+{
+  lf = new acdk.make.LookupFileTask("EXTERN.h", acdk.make.Header);
+lf.addLookupPath("unix", "/usr/lib/perl5/5.6.1/i586-linux/CORE");
+lf.addLookupPath("unix", "/usr/local/lib/perl5/5.6.0/i686-linux/CORE");
+lf.addLookupPath("unix", "/usr/perl5/5.00503/sun4-solaris/CORE");
+lf.addLookupPath("unix", "/usr/lib/perl5/5.6.1/i386-linux/CORE");
+lf.addLookupPath("unix", "/usr/lib/perl5/5.8.0/i586-linux-thread-multi/CORE");
+lf.addLookupPath("windows", "D:/programr/lang/perl/interpreter/perl-5.6.0/lib/CORE");
+lf.addLookupPath("windows", "C:/programr/lang/perl/interpreter/perl-5.6.0/lib/CORE");
+
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate PERL header. Add path to the file $ACDKHOME/amake_perl_config.cfg");
+__props.appendStringArrayVal("CCC_EXT_INCLUDE_LIST", lf.foundParentDir());
+
+// Perl library ===============================================================================
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  lf = new acdk.make.LookupFileTask("perl56", 7);
+  lf.addLookupPath("windows", "D:\\programr\\lang\\perl\\interpreter\\perl-5.6.0\\lib\\CORE");
+  
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "perl56");
+} 
+else 
+{ 
+  lf = new acdk.make.LookupFileTask("perl", 7);
+  lf.addLookupPath("unix", "/usr/lib/perl5/5.6.1/i586-linux/CORE");
+  lf.addLookupPath("unix", "/usr/local/lib/perl5/5.6.0/i686-linux/CORE");
+  lf.addLookupPath("unix", "/usr/perl5/5.00503/sun4-solaris/CORE");
+  lf.addLookupPath("unix", "/usr/lib/perl5/5.6.1/i386-linux/CORE");
+  lf.addLookupPath("unix", "/usr/lib/perl5/5.8.0/i586-linux-thread-multi/CORE");
+  lf.addLookupPath("unix", "/usr/lib/apache/");
+	
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "perl");
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "crypt");
+}
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate PERL Library. Add path to the file $ACDKHOME/amake_perl_config.cfg");
+__props.appendStringArrayVal("CCC_EXT_LIBPATH_LIST", lf.foundParentDir());                        
+
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "perl56");
+  // for test purpose append path
+  lf = new acdk.make.LookupFileTask("perl56", 3);
+  lf.addLookupPath("windows", "D:\\programr\\lang\\perl\\interpreter\\perl-5.6.0\\bin");
+  __script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate PERL DLL. Add path to the file $ACDKHOME/amake_perl_config.csf");
+                        
+  __props.appendStringVal("Path", lf.foundParentDir(), File_pathSeparator, 4); // 4 = insert at front
+  __props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "Path");
+} 
+else 
+{ 
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "perl");
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", "crypt");
+}
+
+
+}
+out.println("Configuration of Perl OK");

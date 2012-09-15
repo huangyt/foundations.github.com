@@ -1,0 +1,228 @@
+# acdk_globals.linux
+
+#################################################################
+#################################################################
+# library configurations
+
+
+
+#####################################################################
+# wxWidget library
+# ajust library here
+#
+WX_LIBS= -L/artefaktur/wxwidgets/lib -lwx_gtk2ud_xrc-2.6 \
+	 -lwx_gtk2ud_html-2.6 -lwx_gtk2ud_adv-2.6 -lwx_gtk2ud_core-2.6 \
+	 -lwx_baseud_xml-2.6 -lwx_baseud_net-2.6 -lwx_baseud-2.6 \
+	 -lwx_gtk2ud_fl-2.6 -lwx_gtk2ud_stc-2.6
+WX_CFLAGS=-I/artefaktur/wxwidgets/lib/wx/include/gtk2-unicode-debug-2.6 \
+	  -I/artefaktur/wxwidgets/include/wx-2.6 \
+	  -D__WXDEBUG__ -D__WXGTK__ -D_FILE_OFFSET_BITS=64
+
+#WX_LIBS= -L/artefaktur/wxwidgets/lib -lwx_gtk2ud_xrc-2.5 \
+#	 -lwx_gtk2ud_html-2.5 -lwx_gtk2ud_adv-2.5 -lwx_gtk2ud_core-2.5 \
+#	 -lwx_baseud_xml-2.5 -lwx_baseud_net-2.5 -lwx_baseud-2.5 \
+#	 -lwx_gtk2ud_fl-2.5 -lwx_gtk2ud_stc-2.5
+#WX_CFLAGS=-I/artefaktur/wxwidgets/lib/wx/include/gtk2-unicode-debug-2.5 \
+#	  -I/artefaktur/wxwidgets/include/wx-2.5 \
+#	  -D__WXDEBUG__ -D__WXGTK__ -D_FILE_OFFSET_BITS=64
+
+
+#
+# when using the debug version of wxWidgets
+#WX_CFLAGS=-DACDK_USE_WX_DEBUG -I /artefaktur/wxwidgets/include -D_LARGE_FILES
+#WX_LIBS=-lwx_gtk2-2.4 
+#WX_LIBS=-lwx_baseud-2.5  -lwx_gtk2ud_core-2.5 -lwx_gtk2ud_html-2.5 \
+#	 -lwx_gtk2ud_adv-2.5 -L /artefaktur/wxwidgets/src/wxGTK-2.5.3/lib
+
+#####################################################################
+# OpenSSL
+ACDK_OPENSSL_INCLUDE=.
+#ACDK_OPENSSL_LIBPATH=. 
+ACDK_OPENSSL_LIBS=-lssl
+
+
+#####################################################################
+# liberty may be used to demangle C++ names
+# ACDK_HAS_LIBERTY should be defined. 
+# -liberty
+SYSLIBRARIES=-lpthread -lm -ldl
+
+#####################################################################
+# Tcl
+ACDK_TCL_LDFLAGS=-ltcl8.4
+ACDK_TCL_CFLAGS=
+
+#####################################################################
+# Perl
+# No settings needed
+
+#####################################################################
+# Python
+ACDK_PYTHON_CFLAGS=-I /usr/include/python2.3
+ACDK_PYTHON_LDFLAGS=-lutil -lpython2.3
+
+#####################################################################
+# Java JDK
+ACDK_JAVA_INCLUDE=/usr/lib/SunJava2-1.4.2/include
+ACDK_JAVA_CFLAGS=-I $(ACDK_JAVA_INCLUDE) -I $(ACDK_JAVA_INCLUDE)/linux
+ACDK_JAVA_LIBDIR=/usr/lib/SunJava2-1.4.2/jre/lib/i386
+ACDK_JAVA_LDFLAGS=-L $(ACDK_JAVA_LIBDIR) -L $(ACDK_JAVA_LIBDIR)/client \
+		     -L$(ACDK_JAVA_LIBDIR)/native_threads \
+		     -ljvm -lverify -ljava
+		     
+#####################################################################
+# Unix ODBC
+ACDK_SQL_ODBC_LDFLAGS=-l odbc
+ACDK_SQL_ODBC_CFLAGS=
+
+
+#####################################################################
+#####################################################################
+# Compilation settings
+#
+# if set, will overwritten
+ifndef CCOPTS
+ifeq ($(BUILD), release)
+CCOPTS=-fpic -O2
+SYSLDFLAGS=-fpic
+else
+CCOPTS=-fpic -ggdb
+SYSLDFLAGS=-g -fpic
+endif
+endif
+
+
+
+# On single CPU machines
+# the -D__SMP__ can be 
+# deactivated
+XDEFINES=-DACDK_HAS_LIBERTY -D__SMP__
+
+
+# will be before to the default CCOPTS
+XCCOPTS=
+
+# will be after the default CCOPTS
+CCOPTSX= 
+
+# command argument when executing test target
+AUNIT_TESTOPTS=-test-htmlreport
+
+
+##################################################################
+# used internally
+WINPERL=/c/programr/lang/perl/interpreter/perl-5.6.0/bin/perl
+SHELL=bash
+SRC2HTML=src2html
+WEBHOME=/artefaktur/wweb/acdk/modules
+GENWEBHOME=../../genweb
+WINGENWEBHOME=..\\..\\genweb
+INSTALL=/usr/bin/install -c
+INSTALL_PROGRAM=${INSTALL}
+INSTALL_SCRIPT=${INSTALL_PROGRAM}
+INSTALL_DATA=${INSTALL} -m 644
+MAN_PATH=/usr/local/man
+ACDKLISP=$(ACDKHOME)/bin/acdklisp
+TEMPFILES = '*.o' '*.tmp'
+#GENWEB_FWDID=-fwdid 'http://rogwork/wweb/phpincl/gw/fwdid.php?id='
+GENWEB_FWDID=-fwdid 'http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id='
+PERL=perl
+#PERL5LIB=d:/artefaktur/genweb/bin
+
+
+
+gdefault:: default
+
+
+# changelog
+clog:
+	$(PERL) ../../genweb/bin/cvs2cl.pl
+	
+
+distrib:
+	TPWD="`pwd`"; \
+	set -x; \
+	ACDKHOME=$$TPWD/$(ACDKHOME); \
+	$(SHELL) $$ACDKHOME/bin/dos2unix.sh; \
+  ln -s $$ACDKHOME/../acdk $$ACDKHOME/../acdk-$(DISTRIBVERSION); \
+	$(PERL) $$ACDKHOME/bin/makedistr2.pl -src '.' \
+	  -prefix acdk -name $(PACKAGENAME)-src -pv $(PACKAGEVERSION) -dv $(DISTRIBVERSION); \
+  rm $$ACDKHOME/../acdk-$(DISTRIBVERSION);
+
+ddistrib:
+	TPWD="`pwd`"; \
+  ACDKHOME=$$TPWD/$(ACDKHOME); \
+	$(SHELL) $$ACDKHOME/bin/unix2dos.sh; \
+	ln -s $$ACDKHOME/../acdk $$ACDKHOME/../acdk-$(DISTRIBVERSION); \
+	$(PERL) $$ACDKHOME/bin/makedistr2.pl -zip -src '.' \
+	  -prefix acdk -name $(PACKAGENAME)-src -pv $(PACKAGEVERSION) -dv $(DISTRIBVERSION); \
+	$(SHELL) $$ACDKHOME/bin/dos2unix.sh; \
+	rm $$ACDKHOME/../acdk-$(DISTRIBVERSION);
+
+pdistrib::
+	cd ../..; \
+	ln -s ./acdk ./acdk-$(DISTRIBVERSION); \
+	if test "$(PACKAGENAME)" == "acdk_core"; then \
+	  $(PERL) ./genweb/bin/backup.pl \
+      --nostdp \
+      '-P.+/.*' +Pacdk_core '+P^bin' +Pinclude/note.txt +Pcfg/general \
+      --stdpattern --exclbin --exclcvs --distignore \
+      -eclass \
+      --name $(PACKAGENAME)-src-$(PACKAGEVERSION) \
+      acdk-$(DISTRIBVERSION); \
+  else \
+	  $(PERL) ./genweb/bin/backup.pl \
+      --nostdp \
+      '-P.*' '+P^$(PACKAGENAME)' \
+      --stdpattern --exclbin --exclcvs --distignore \
+      --name $(PACKAGENAME)-src-$(PACKAGEVERSION) \
+      acdk-$(DISTRIBVERSION); \
+  fi; \
+  rm ./acdk-$(DISTRIBVERSION)
+
+HTML2TEXT="html2text -nobs -style pretty -rcfile $(GENWEBHOME)/html2textrc"
+WHTML2TEXT="$(GENWEBHOME)/windows/html2text.exe -nobs -style pretty -rcfile $(GENWEBHOME)/html2textrc"
+doc::
+	export GENWEBHOME=$(GENWEBHOME); \
+	export SRC2HTML=$(SRC2HTML); \
+	export PERL5LIB=$(GENWEBHOME):$(GENWEBHOME)/bin:$(PERL5LIB); export PATH=$(GENWEBHOME)/bin:$(PATH); \
+	export GENWEBHOME=$(GENWEBHOME)/bin; \
+	$(PERL) $(GENWEBHOME)/bin/genweb.pl -genweb-home $(GENWEBHOME)/bin -gw -imagesource docs/images \
+	                                    -nosourcehtmls \
+	                                    -noimages \
+	                                    -src2html $(SRC2HTML) \
+	                                    -trace 0 \
+	                                    -root $(PACKAGENAME) \
+	                                    $(GENWEB_FWDID) \
+	                                    -template $(GENWEBHOME)/images/acdk_readme_html_template.htmt; \
+  $(PERL) $(GENWEBHOME)/bin/genweb.pl -genweb-home $(GENWEBHOME)/bin -gw -noimages \
+	                                    -nosourcehtmls \
+	                                    -src2html $(SRC2HTML) -html2text $(HTML2TEXT) \
+	                                    -ignoreorg -fileext '.txt' -format txt \
+	                                    -root $(PACKAGENAME) \
+	                                    -template $(GENWEBHOME)/images/acdk_readme_txt_template.htmt; \
+
+wdoc::
+	export GENWEBHOME=$(WINGENWEBHOME); \
+	export SRC2HTML=$(SRC2HTML); \
+	export PERL5LIB=$(WINGENWEBHOME):$(WINGENWEBHOME)/bin:$(PERL5LIB); export PATH=$(WINGENWEBHOME)/bin:$(PATH); \
+	export GENWEBHOME=$(WINGENWEBHOME)\\bin; \
+	$(WINPERL) $(WINGENWEBHOME)/bin/genweb.pl -genweb-home $(WINGENWEBHOME)\\bin -gw -imagesource docs/images -ignoreorg \
+	                                    -src2html $(SRC2HTML) \
+					    -src2html $(WSRC2HTML) \
+	                                    $(GENWEB_FWDID) \
+	                                    -template $(GENWEBHOME)/images/acdk_readme_html_template.htmt; \
+  $(WINPERL) $(WINGENWEBHOME)/bin/genweb.pl -genweb-home $(WINGENWEBHOME)\\bin -gw -noimages \
+	                                    -src2html $(SRC2HTML) \
+	                                    -ignoreorg -fileext '.txt' -format txt \
+	                                    -template
+	$(GENWEBHOME)/images/acdk_readme_txt_template.htmt; \
+
+rpmbuild:
+	TPWD="`pwd`"; \
+	set -x; \
+	ACDKHOME=$$TPWD/$(ACDKHOME); \
+	ln -s $$ACDKHOME/../acdk $$ACDKHOME/../acdk-4.01; \
+	$(PERL) $$ACDKHOME/bin/makedistr2.pl -src '.' \
+	  -prefix acdk -name acdk-4.01; \
+	rm $$ACDKHOME/../acdk-4.01;

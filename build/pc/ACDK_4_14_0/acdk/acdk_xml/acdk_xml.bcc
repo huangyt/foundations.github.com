@@ -1,0 +1,303 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_xml
+
+default: all
+all:: install compile
+
+compile:: org_xml org_xml_metainf acdk_xml acdk_xml_metainf acdk_xml_XMLObjectReaderWriter_Test acdk_xml_sax_Test acdk_xml_dom_Test 
+clean:: org_xml-clean org_xml_metainf-clean acdk_xml-clean acdk_xml_metainf-clean acdk_xml_XMLObjectReaderWriter_Test-clean acdk_xml_sax_Test-clean acdk_xml_dom_Test-clean 
+metainfo:: org_xml-metainfo org_xml_metainf-metainfo acdk_xml-metainfo acdk_xml_metainf-metainfo acdk_xml_XMLObjectReaderWriter_Test-metainfo acdk_xml_sax_Test-metainfo acdk_xml_dom_Test-metainfo 
+org_xml:  
+	cd src
+	$(MAKE) -f org_xml.bcc
+	cd ..
+
+
+org_xml-clean:
+	cd src
+	$(MAKE) -f org_xml.bcc clean
+	cd ..
+
+
+org_xml-metainfo:
+	cd src
+	$(MAKE) -f org_xml.bcc metainfo
+	cd ..
+
+
+org_xml_metainf:  org_xml
+	cd src
+	$(MAKE) -f org_xml_metainf.bcc
+	cd ..
+
+
+org_xml_metainf-clean:
+	cd src
+	$(MAKE) -f org_xml_metainf.bcc clean
+	cd ..
+
+
+org_xml_metainf-metainfo:
+	cd src
+	$(MAKE) -f org_xml_metainf.bcc metainfo
+	cd ..
+
+
+acdk_xml:  org_xml
+	cd src
+	$(MAKE) -f acdk_xml.bcc
+	cd ..
+
+
+acdk_xml-clean:
+	cd src
+	$(MAKE) -f acdk_xml.bcc clean
+	cd ..
+
+
+acdk_xml-metainfo:
+	cd src
+	$(MAKE) -f acdk_xml.bcc metainfo
+	cd ..
+
+
+acdk_xml_metainf:  org_xml acdk_xml
+	cd src
+	$(MAKE) -f acdk_xml_metainf.bcc
+	cd ..
+
+
+acdk_xml_metainf-clean:
+	cd src
+	$(MAKE) -f acdk_xml_metainf.bcc clean
+	cd ..
+
+
+acdk_xml_metainf-metainfo:
+	cd src
+	$(MAKE) -f acdk_xml_metainf.bcc metainfo
+	cd ..
+
+
+acdk_xml_XMLObjectReaderWriter_Test:  org_xml acdk_xml
+	cd tests/acdk/xml
+	$(MAKE) -f acdk_xml_XMLObjectReaderWriter_Test.bcc
+	cd ../../..
+
+
+acdk_xml_XMLObjectReaderWriter_Test-clean:
+	cd tests/acdk/xml
+	$(MAKE) -f acdk_xml_XMLObjectReaderWriter_Test.bcc clean
+	cd ../../..
+
+
+acdk_xml_XMLObjectReaderWriter_Test-metainfo:
+	cd tests/acdk/xml
+	$(MAKE) -f acdk_xml_XMLObjectReaderWriter_Test.bcc metainfo
+	cd ../../..
+
+
+acdk_xml_sax_Test:  org_xml acdk_xml
+	cd tests/acdk/xml/sax
+	$(MAKE) -f acdk_xml_sax_Test.bcc
+	cd ../../../..
+
+
+acdk_xml_sax_Test-clean:
+	cd tests/acdk/xml/sax
+	$(MAKE) -f acdk_xml_sax_Test.bcc clean
+	cd ../../../..
+
+
+acdk_xml_sax_Test-metainfo:
+	cd tests/acdk/xml/sax
+	$(MAKE) -f acdk_xml_sax_Test.bcc metainfo
+	cd ../../../..
+
+
+acdk_xml_dom_Test:  org_xml acdk_xml
+	cd tests/acdk/xml/dom
+	$(MAKE) -f acdk_xml_dom_Test.bcc
+	cd ../../../..
+
+
+acdk_xml_dom_Test-clean:
+	cd tests/acdk/xml/dom
+	$(MAKE) -f acdk_xml_dom_Test.bcc clean
+	cd ../../../..
+
+
+acdk_xml_dom_Test-metainfo:
+	cd tests/acdk/xml/dom
+	$(MAKE) -f acdk_xml_dom_Test.bcc metainfo
+	cd ../../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_xml_XMLObjectReaderWriter_Test $(AUNIT_TESTOPTS)
+
+	$(ACDKHOME)\bin\acdk_xml_sax_Test $(AUNIT_TESTOPTS)
+
+	$(ACDKHOME)\bin\acdk_xml_dom_Test $(AUNIT_TESTOPTS)
+
+
+
+
+org_xml-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src cbx
+
+org_xml_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src cbx
+
+acdk_xml-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src cbx
+
+acdk_xml_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src cbx
+
+acdk_xml_XMLObjectReaderWriter_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml cbx
+
+acdk_xml_sax_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax cbx
+
+acdk_xml_dom_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom cbx
+
+
+makemake:: org_xml-makemake org_xml_metainf-makemake acdk_xml-makemake acdk_xml_metainf-makemake acdk_xml_XMLObjectReaderWriter_Test-makemake acdk_xml_sax_Test-makemake acdk_xml_dom_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\org_xml_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_xml_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml\acdk_xml_XMLObjectReaderWriter_Test.lsp -pdir tests/acdk/xml cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/sax\acdk_xml_sax_Test.lsp -pdir tests/acdk/xml/sax cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/xml/dom\acdk_xml_dom_Test.lsp -pdir tests/acdk/xml/dom cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_xml.lsp
+
+

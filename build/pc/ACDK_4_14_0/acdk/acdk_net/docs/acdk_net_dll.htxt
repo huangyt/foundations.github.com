@@ -1,0 +1,14 @@
+%id: acdk_net_dll_man
+%title: acdk_net manual
+%keywords: acdk_net
+%body:
+<pageintro>
+  <greptag fname="../acdk_net_dll.xml" tag="shortdescription"/>
+</pageintro>
+
+There is no special documentation here.
+
+Please refer to reference documentation 
+%ref[Namespace ::acdk::net, namespace_acdk__net].
+
+.

@@ -1,0 +1,23 @@
+
+#include "amake_config.csf"
+
+acdk_tcl = new acdk.make.AcdkLibTask("acdk_tcl");
+acdk_tcl.addModule("src/acdk/tcl");
+acdk_tcl.addAcdkLib("acdk_core");
+acdk_tcl.addModuleConfigTask("amake_tcl_config");
+
+acdk_tcl_Test = new acdk.make.AcdkTestExeTask("acdk_tcl_Test");
+acdk_tcl_Test.setBaseDir("tests/acdk/tcl");
+acdk_tcl_Test.addSource("tests/acdk/tcl");
+acdk_tcl_Test.addAcdkLib("acdk_core");
+acdk_tcl_Test.addAcdkLib("acdk_tcl");
+acdk_tcl_Test.addAcdkLib("acdk_tools_aunit");
+acdk_tcl_Test.addSubTask("acdk_tcl");
+acdk_tcl_Test.addModuleConfigTask("amake_tcl_config");
+
+acdk_tcl_prj = new acdk.make.AcdkProjectTask("acdk_tcl_prj");
+acdk_tcl_prj.registerTask("default");
+acdk_tcl_prj.addSubTask("acdk_tcl");
+acdk_tcl_prj.addSubTask("acdk_tcl_Test");
+
+

@@ -1,0 +1,230 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+
+
+###############################################################################
+Project: "acdk_net"=src\acdk_net.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_metainf"=src\acdk_net_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_ftp"=src\acdk_net_ftp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_srfsys"=src\acdk_net_srfsys.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_srsync"=src\acdk_net_srsync.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_net_srfsys
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_Test"=tests/acdk/net\acdk_net_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_ftp_Test"=tests/acdk/net/ftp\acdk_net_ftp_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_net_ftp
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_EchoClient_Test"=tests/acdk/net\acdk_net_EchoClient_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_EchoServer_Test"=tests/acdk/net\acdk_net_EchoServer_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_net_srfsys_Test"=tests/acdk/net/srfsys\acdk_net_srfsys_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_net_srfsys
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkx_net_ssl"=src\acdkx_net_ssl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkx_net_ssl_metainf"=src\acdkx_net_ssl_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdkx_net_ssl_Test"=tests/acdkx/net/ssl\acdkx_net_ssl_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_net
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdkx_net_ssl
+    End Project Dependency
+}}}
+
+
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

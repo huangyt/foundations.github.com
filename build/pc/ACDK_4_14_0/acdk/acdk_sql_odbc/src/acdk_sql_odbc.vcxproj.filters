@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{39f8f380-e05a-4110-9c61-42bf4ff43409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql">
+      <UniqueIdentifier>{9f48fae3-6f5e-4a81-957c-00adba8dbfe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql\odbc">
+      <UniqueIdentifier>{dd335541-4d76-4137-aa39-8dd0f1bb39d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql\odbc\odbc_metainf">
+      <UniqueIdentifier>{2005dc25-7fbb-4f68-9a0b-799403f32d48}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\sql\odbc\Config.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\odbc.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCArray.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCCallableStatement.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCColumn.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCConnection.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCDatabaseMetaData.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCDriver.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCHandle.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCPreparedStatement.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCResultSet.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCResultSetMetaData.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\odbc\ODBCStatement.h">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\sql\odbc\ODBCCallableStatement.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCColumn.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCConnection.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCDatabaseMetaData.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCDriver.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCHandle.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCPreparedStatement.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCResultSet.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCResultSetMetaData.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\ODBCStatement.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\odbc_metainf_base.cpp">
+      <Filter>acdk\sql\odbc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\odbc_metainf\odbc_metainf_ext.cpp">
+      <Filter>acdk\sql\odbc\odbc_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\odbc_metainf\odbc_metainf_ext1.cpp">
+      <Filter>acdk\sql\odbc\odbc_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\odbc_metainf\odbc_metainf_ext2.cpp">
+      <Filter>acdk\sql\odbc\odbc_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\odbc\odbc_metainf\odbc_metainf_ext3.cpp">
+      <Filter>acdk\sql\odbc\odbc_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

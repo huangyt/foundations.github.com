@@ -1,0 +1,32 @@
+
+
+WEBHOME=c:\d\artefaktur\wweb\acdk\modules
+#WEBHOME=c:\d\artefaktur\wweb\acdk\modules
+GENWEB_FWDID=-fwdid http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=
+WINPERL=C:\programr\lang\perl\interpreter\perl-5.6.0\bin\perl
+GENWEBHOME=..\genweb
+SRC2HTML=src2html 
+TEMPFILES=*.obj *.o *.sbr *.idb *.exp *.ilk BuildLog.htm vc60.pdb
+AUNIT_TESTOPTS=-test-htmlreport
+
+!if !defined(ACDKLISP)
+ACDKLISP=$(ACDKHOME)\bin\acdklisp_r.exe
+!endif
+
+# only ALL valid, because MSDEV doesn't understand DEBUG or RELEASE here
+ACDK_BUILD_TYPE = ALL
+
+doc::
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin \
+	                                    -gw -imagesource docs\images -ignoreorg \
+	                                    -trace 0 -src2html $(SRC2HTML) \
+	                                    $(GENWEB_FWDID) \
+	                                    -template $(GENWEBHOME)\images\acdk_readme_html_template.htmt
+	                                    
+doctext::
+	echo "make text"
+	$(WINPERL) $(GENWEBHOME)\bin\genweb.pl -genweb-home $(GENWEBHOME)\bin -gw -noimages \
+	                                    -src2html $(SRC2HTML) \
+	                                    -ignoreorg  -fileext .txt -format txt \
+	                                    -template $(GENWEBHOME)\images\acdk_readme_txt_template.htmt
+	echo "make text finished"

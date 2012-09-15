@@ -1,0 +1,19 @@
+%id: acdk_packages
+%title: ACDK Packages
+%shorttitle: Packages
+%keywords: Packages, Modules
+%chapter: acdk_packages_deps, acdk_core, acdk_cfgscript_hb, acdk_boot, acdk_text, acdk_net, acdk_xml, acdk_vfile, \
+          acdk_wx, acdk_lisp, acdk_make, \
+          acdk_java, acdk_perl, acdk_tcl, acdk_python, \
+          acdkx_orb, acdkx_com, \
+          acdk_sql, acdk_sql_sqlite, acdk_sql_odbc, acdkx_rdmi, \
+          if[gw::isInContent('acdk_handbook') == false && gw::isInContent('acdk_help_docs') == false;; acdk_testreports], \
+          ifnid[acdk_handbook: aal], ifnid[acdk_handbook: acdk_tools_java2acdk]
+
+%body:
+<pageintro>
+The ACDK is split into packages.
+</pageintro>
+<subschapterstable/>
+
+.

@@ -1,0 +1,77 @@
+/**
+The configuration file is defined with CfgScript
+it orignal location is acdk/acdk_wx/cfg/guitestrunner.csf
+and will be installed to acdk/cfg/guitestrunner.csf
+*/
+
+// testCfg is already set as Props
+
+testCfg.tests = 
+{
+  // an array of Props with the name of each
+  // test or substr of the test executable name
+  acdk_net_EchoClient_Test: 
+  { 
+    // acdk_net_EchoClient_Test executable is not 
+    // a valid unit test executable
+    ignore: true 
+  },
+  acdk_net_EchoServer_Test: 
+  { 
+    ignore: true 
+  },
+  acdk_lang_sys_RefHolder_Test: 
+  { 
+    ignore: true 
+  },
+  acdk_xml_XMLObjectReaderWriter_Test: 
+  { 
+    ignore: true 
+  }
+};
+
+// from where the test executable should be loaded
+testCfg.testDir = acdk.lang.System.getAcdkHome() + "/bin";
+// testCfg.testDir = "m:\\bin";
+
+if (System.getPlatformFlags() & acdk.lang.PfWin32)
+  // which executable should be asumed to be unit test executables
+  testCfg.testPattern =  "*Test_d.exe";
+else
+  testCfg.testPattern = "*_Test";
+// testCfg.testPattern = "*_Test.exe";
+
+testCfg.path = new StringArray(0);
+if (System.getPlatformFlags() & acdk.lang.PfWin32)
+{
+  // some test executables needs extended PATH environment
+  StringArray pl =
+  [
+    // PERL library/dll/so path
+    "C:/programr/lang/perl/interpreter/perl-5.6.0/bin" ,
+    "C:\\programr\\lang\\python\\Python-2.1.1\\PCbuild",
+    "C:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\bin",
+    "c:\\programr\\lang\\java\\jdk\\jdk1.3.1\\jre\\bin\\classic"
+  ];
+  testCfg.path = pl;
+}
+else
+{
+  //testCfg.path = 
+  StringArray pl = 
+  [
+    "/usr/lib/perl5/5.8.0/i586-linux-thread-multi/CORE",
+    "/usr/lib/perl5/5.6.1/i386-linux/CORE",
+    "/usr/perl5/5.00503/sun4-solaris/CORE",
+    "/usr/local/lib/perl5/5.6.0/i686-linux/CORE",
+    "/usr/lib/perl5/5.6.1/i586-linux/CORE",
+    "/usr/lib/jdk1.3.1/jre/lib/i386/classic",
+    "/usr/lib/jdk1.3.1/jre/lib/i386/classic"
+  ];
+  testCfg.path = pl;
+}
+// additionally environment variables 
+testCfg.environ =
+{
+  CLASSPATH: acdk.lang.System.getAcdkHome() + acdk.io.File.separator() + "bin"
+};

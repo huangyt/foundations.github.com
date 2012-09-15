@@ -1,0 +1,97 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_net
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_net_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_net_Test failed; exit 1; 
+
+
+
+acdk_net-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net.lsp -pdir src bcc
+
+acdk_net_srfsys-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srfsys.lsp -pdir src bcc
+
+acdk_net_srsync-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_net_srsync.lsp -pdir src bcc
+
+acdk_net_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_Test.lsp -pdir tests/acdk/net bcc
+
+acdk_net_EchoClient_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoClient_Test.lsp -pdir tests/acdk/net bcc
+
+acdk_net_EchoServer_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net\acdk_net_EchoServer_Test.lsp -pdir tests/acdk/net bcc
+
+acdk_net_srfsys_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/net/srfsys\acdk_net_srfsys_Test.lsp -pdir tests/acdk/net/srfsys bcc
+
+
+makemake:: acdk_net-makemake acdk_net_srfsys-makemake acdk_net_srsync-makemake acdk_net_Test-makemake acdk_net_EchoClient_Test-makemake acdk_net_EchoServer_Test-makemake acdk_net_srfsys_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_net.lsp
+
+

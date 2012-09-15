@@ -1,0 +1,14 @@
+
+
+class IncludedClass
+{
+  static void foo()
+  {
+    throw new Exception("don't call this, Go Away!");
+  }
+  static void bar(int i)
+  {
+    foo();
+  }
+}
+

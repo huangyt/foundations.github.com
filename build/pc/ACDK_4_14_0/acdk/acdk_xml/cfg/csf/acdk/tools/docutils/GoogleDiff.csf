@@ -1,0 +1,299 @@
+/**
+  
+  This script make diffs from google searches to get a quick overview
+  which pages are new in the Google index.
+  
+  Syntax:
+  acdkcfgscript GoogleDiff.csf <xmlfile>
+  
+  Start this script in the directory, where <xmlfile> is located.
+  
+  The XML file has following syntax (f.e. artefaktur-search.xml):
+<?xml version="1.0"?>
+<GoogleSearch>
+  <search url="http://www.google.com/search"
+          query="artefaktur -wiener -site:acdk.sourceforge.net -site:acdk.de -site:artefaktur.com -site:artefaktur.ch"
+  />
+  <LastResults>
+  </LastResults>
+</GoogleSearch>
+
+  in the GoogleSearch/search/url put "http://www.google.com/search" for web search or 
+  "http://groups-beta.google.com/groups" for news group search.
+  
+  In the query attribute insert a Google search expression
+  
+  After executed the script creates in the same directory 2 files:
+  
+  2005-03-03T13-42-26_artefaktur-search.xml 
+    used as database for last search results
+  2005-03-03T13-42-26_artefaktur-search.xml.html
+    for viewing the diff between this and the last query.
+  
+  Re-Execute the script with the same <xmlfile> to retrive diffs from the last query.
+  
+  This script is a good example for:
+  - Using CfgScript, including implementing C++ interfaces in CfgScript
+  - Using acdk XML with parsing HTML, XML using XPath expressions and
+    writing XML and HTML files.
+  
+  Written by Roger Rene Kommer  
+*/
+using acdk.xml.libxmldom;
+using org.xml; 
+using org.w3c.dom;
+using acdk.io;
+using acdk.net;
+
+class GoogleEntry
+      implements acdk.lang.Comparable
+{
+  int position;
+  String url;
+  String title = "";
+  String summary = "";
+  bool isNew;
+  int oldPosition;
+  GoogleEntry() {}
+  int compareTo(Object entry)
+  {
+    return position - entry.position;
+  }
+}
+
+class GoogleDiff
+{
+  String _url = "";
+  String _query = "";
+  acdk.util.HashMap _results = new acdk.util.HashMap();
+  acdk.util.HashMap _existant = new acdk.util.HashMap();
+  String _lastDate;
+  String _currentDate;// = (new acdk.util.SysDate()).toString();
+  String _orgConfigFileName;
+  
+  GoogleDiff(String xmlFile, String orgConfigFileName)
+  {
+    _currentDate = (new SysDate()).toString();
+    _orgConfigFileName = orgConfigFileName;
+    compareAgainst(xmlFile);
+  }
+  void fetch()
+  {
+    int pos = 0;
+    int npos = 0;
+    do {
+      bool erg = fetch(pos);
+      if (erg == false)
+        break;
+      pos = pos + 100;
+    } while (true);
+      
+  }
+  bool fetchGroups(LibXMLDocument acdkdoc, int pos)
+  {
+    NodeList p = acdkdoc.selectNodes("//a");
+    foreach (Node n in p.iterator())
+    {
+      String href = n.getAttribute("href");
+      if (href.indexOf("browse_thread") == -1)
+        continue;
+      
+      GoogleEntry entry = new GoogleEntry();
+      entry.url = "http://groups-beta.google.com" + href;
+      StringBuffer sb = new StringBuffer();
+      Node cn = n.getFirstChild();
+      while (cn != Nil)
+      {
+        sb.append(cn.toXML());
+        cn = cn.getNextSibling();
+      }
+      entry.title = sb.toString();
+      entry.position = pos;
+      _results.put(entry.url, entry);
+      
+      ++pos;
+    }
+    Node nextn = acdkdoc.selectNode("//img[@src = '/img/nav_next.gif']");
+    return nextn != Nil;
+  }
+  bool fetch(int pos)
+  {
+    String qq = URLEncoding.getURLEncoding().getEncoder().encode(_query);
+    String surl = _url + "?num=100&hl=en&lr=&start=" + pos + "&q=" + qq;
+    out.println("fetch: " + surl);
+    RHttpURLConnectionImpl urlconnection = new HttpURLConnectionImpl(new URL(surl));
+    RReader in = urlconnection->getInputStream();
+    
+    LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+    int flags = acdk.xml.sax.XMLRF_PARSE_HTML_FLAGS;
+    docBuilder->setExtendedFlags(flags);
+    LibXMLDocument acdkdoc = docBuilder.parse(in, surl);
+    Node divn = acdkdoc.selectNode("//div");
+    if (divn == Nil)
+      return pos;
+    NodeList p = divn.selectNodes("//p[@class='g']");
+    if (p == Nil || p.getLength() == 0)
+    {
+      return fetchGroups(acdkdoc, pos);
+    }
+    foreach (Node n in p.iterator())
+    {
+      ++pos;
+      GoogleEntry entry = new GoogleEntry();
+      entry.summary = n.toXML();
+      entry.position = pos;
+      Element a = n.getFirstChild();
+      entry.url = a.getAttribute("href");
+      RNode tn = a.getFirstChild();
+      if (tn != Nil)
+        entry.title = tn.toXML();
+      _results.put(entry.url, entry);
+    }
+    Node nextn = acdkdoc.selectNode("//span[text() = 'Next']");
+    if (nextn != Nil)
+      return true;
+    return false;
+  }
+  void loadExistant(File f)
+  {
+    LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+    LibXMLDocument doc = docBuilder.parse(f.getReader(), f.getName());
+      
+    _url = doc.selectNode("/GoogleSearch/search").getAttribute("url");
+    _query = doc.selectNode("/GoogleSearch/search").getAttribute("query");
+    _lastDate = doc.selectNode("/GoogleSearch/search").getAttribute("date");
+    Node lastResults = doc.selectNode("/GoogleSearch/LastResults");
+    if (lastResults == Nil)
+      return;
+    NodeList p = lastResults.selectNodes("GoogleEntry");
+    foreach (Element gen in p.iterator())
+    {
+      GoogleEntry entry = new GoogleEntry();
+      entry.url = gen.getAttribute("url");
+      entry.isNew = gen.getAttribute("isNew");
+      String posstring = gen.getAttribute("position");
+      if (posstring != Nil && posstring.length() > 0)
+        entry.position = Integer.decode(posstring);
+      Node titleNode = gen.selectNode("title");
+      if (titleNode != Nil)
+        entry.title = titleNode.toXML();
+      _existant.put(entry.url, entry);
+    }
+  }
+  void compareOldWithNew()
+  {
+    foreach (String k in _results.keySet().iterator())
+    {
+      if (_existant.containsKey(k) == false)
+        _results.get(k).isNew = true;
+    }
+  }
+  void compareAgainst(String xmlFile)
+  {
+    File f = new File(xmlFile);
+    if (f.exists() == false)
+    {
+      out.println("File doesn't exists: " + xmlFile);
+      return;
+    }
+    loadExistant(f);
+    fetch();
+    compareOldWithNew();
+  }
+  RDocument buildDocument()
+  {
+    LibXMLDocumentBuilder docBuilder = new LibXMLDocumentBuilder();
+    RDocument doc = docBuilder.newDocument();
+    Element gsN = doc.addElement("GoogleSearch");
+    Element searchN = gsN.addElement("search");
+    searchN.setAttribute("url", _url);
+    searchN.setAttribute("query", _query);
+    searchN.setAttribute("date", _currentDate);
+    Element lastResultsN = gsN.addElement("LastResults");
+    foreach (String k in _results.keySet().iterator())
+    {
+      GoogleEntry entry = _results.get(k);
+      Element geN = lastResultsN.addElement("GoogleEntry");
+      geN.setAttribute("url", entry.url);
+      geN.setAttribute("position", entry.position.toString());
+      geN.setAttribute("oldPosition", entry.oldPosition.toString());
+      geN.addElement("title").addText(entry.title);
+      geN.addElement("summary").addText(entry.summary);
+      
+    }
+    return doc;
+  }
+  void writeResultAsHtml(String toFile)
+  {
+    StringBuffer sb = new StringBuffer();
+    sb << "<html><body>\n"
+       << "<h1>GoogleDiff</h1>\n"
+       << "<pre>\n"
+       << "url: " << _url << "\n"
+       << "query: " << _query << "\n"
+       << "last Date: " 
+       << "<a href=\"./" << _lastDate.replace(":", "-") << "_" << _orgConfigFileName << ".html\">" << _lastDate  << "</a>\n"
+       << "current Date: " << _currentDate << "\n"
+       << "</pre><hr>\n"
+      ;
+      
+    //acdk.util.Set s = _results.keySet();
+    TreeSet ts = new TreeSet(_results.values());
+    sb << "Found enties: " << ts.size() << "<br>\n";
+    int newItems = 0;
+    foreach (GoogleEntry entry in ts.iterator())
+    {
+      //GoogleEntry entry = _results.get(k);
+      if (entry.isNew == false)
+        continue;
+      sb << entry.position << " <a href=\"" << entry.url << "\">" << entry.title << "</a>: " << entry.url << "\n"
+         << "<ul>\n"
+         << entry.summary << "\n</ul>\n"
+         ;
+      ++newItems;
+    }
+    sb << "<br/>NewItems: " << newItems << "\n";
+    sb << "</body></html>\n";
+    
+    File f = new File(toFile);
+    f.getWriter().getCharWriter().writeString(sb.toString());
+  }
+  void writeResultsAsXml(String toFile)
+  {
+    File f = new File(toFile);
+    RDocument doc = buildDocument();
+    DOMWriter writer = new DOMWriter(f.getWriter(), DOMWriterFormat.createPretty());
+    writer.writeDocument(doc);
+  }
+  static void compareWithLast(String configFileName)
+  {
+    String orgConfigFileName = configFileName;
+    File dir = new File(".");
+    String lastFile = "";
+    FileArray fa = dir.listFiles(new GlobFilenameFilter("*_" + configFileName));
+    if (fa == Nil || fa.length() == 0)
+    {
+      lastFile = configFileName;
+    }
+    else
+    {
+      acdk.util.ArraysImpl.sort(fa);
+      configFileName = fa.get(fa.length() - 1).getName();
+    }
+    out.println("select last config: " + configFileName);
+    GoogleDiff gparser = new GoogleDiff(configFileName, orgConfigFileName);
+    gparser.writeResultsAsXml(gparser._currentDate.replace(":", "-") + "_" + orgConfigFileName);
+    gparser.writeResultAsHtml(gparser._currentDate.replace(":", "-") + "_" + orgConfigFileName + ".html");
+  }
+}
+
+
+StringArray args = System.getArguments();
+if (args.length() < 3)
+{
+  out.println("need config XML file as argument");
+  return;
+}
+
+String config = args.get(2);
+GoogleDiff.compareWithLast(config);

@@ -1,0 +1,456 @@
+
+
+/*
+  Generic settings
+*/
+with (AMAKE_TARGET_PROPS.generic = new acdk.cfgscript.Props("generic"))
+{
+  .AMAKE_TARGET = "generic";
+  .DIRSEP = "/";
+  .CMDLINE_QUOTE_CHAR = "'";
+  .CMDLINE_QUOTE_CHAR = "'";
+  
+  /**
+    C/C++ Settings
+    ------------------------------------------------
+  */
+  /**
+    Base name of the compiler to search
+  */
+  .CCC_COMPILER_BASENAME = "";
+  /**
+    Base name of the linker to search
+  */
+  .CCC_LINKER_BASENAME = "";
+  /**
+    Base name to create static libraries
+  */
+  .CCC_AR_BASENAME = "";
+  
+  /** 
+    Language C 
+    Generates an Include command line
+  */
+  .CCC_IncludeFileMask = "-I${.IncludeFile}";
+  /** 
+    Makes a define 
+  */
+  .CCC_DefineMask = "-D${.DefineToken}";
+  /**
+    Define specific to operation system
+  */
+  .CCC_OS_DEFINES = "";
+  /** 
+    Holds the defines to export/import shared libraries
+  */
+  .CCC_ACDK_DEFINES = "";
+  /**
+    List of external defines as key=value
+  */
+
+  //.CCC_EXT_DEFINES_LIST = "";
+  /**
+    External defines used in this project
+    Set by project configuration
+  */
+  .CCC_EXT_DEFINES = "";
+  /** 
+    All defines 
+  */
+  .CCC_DEFINES = "${CCC_OS_DEFINES} ${CCC_ACDK_DEFINES} ${CCC_EXT_DEFINES}";
+  
+  .CCC_STATIC_DEFINES = "-DACDK_STATIC_LIB ${CCC_OS_DEFINES} ${CCC_EXT_DEFINES}";
+  
+  /**
+    Includes for acdk unit headers
+  */
+  .CCC_ACDK_INCLUDES = "";
+  
+  /**
+    Includes for external unit headers
+    Set by project 
+  */
+  .CCC_EXT_INCLUDES = "";
+  
+  /**
+    List of directories
+  */
+  // CCC_ACDK_INCLUDE_LIST
+  /**
+    All includes
+  */
+  .CCC_INCLUDES = "${CCC_EXT_INCLUDES} ${CCC_ACDK_INCLUDES}";
+  
+  /**   
+    common compiler options
+  */
+  .CCC_COMMON_COPTS = "";
+  /**
+    Debug related compiler opts
+  */
+  .CCC_DBG_COPTS = ""; 
+  /**
+    manually set copts
+  */
+  .CCC_EXT_COPTS = "";
+  .CCC_DBG_COPPS_DEBUG = "-DACDK_DEBUG";
+  /**
+    All options
+  */
+  .CCC_COPTS = "${CCC_COMMON_COPTS} ${CCC_DBG_COPTS} ${CCC_INCLUDES} ${CCC_DEFINES} ${CCC_EXT_COPTS}";
+  /**
+    C flags?
+  */
+  .CCC_CFLAGS = "";
+  /**
+    Suffix for a unspec files
+  */
+  .CCC_FILE_SUFFIX = "";
+  /**
+    Suffix for executable files
+  */
+  .CCC_EXE_FILE_SUFFIX = "";
+  /**
+    Suffix for object files
+  */
+  .CCC_OBJECT_FILE_SUFFIX = ".o";
+  /** 
+    Suffix for shared objects
+  */
+  .CCC_LIB_SHARED_FILE_SUFFIX = ".so";
+  /** 
+    Suffix for static library
+  */
+  .CCC_LIB_STATIC_FILE_SUFFIX = ".a";
+  /**
+    Suffix for import libraries
+  */
+  .CCC_LIB_SHARED_IMPLIB_FILE_SUFFIX = ".so";
+  /**
+    Files, which should be collected as C++ sources
+  */
+  .CCC_SOURCE_FILE_PATTERN = Props.makeStringArray("*.cpp", "*.cxx", "*.c");
+  /**
+    Files, which should be collected as C++ headers
+  */
+  .CCC_HEADER_FILE_PATTERN = Props.makeStringArray("*.h", "*.hxx", "*.hpp");
+  
+  /**
+    Appendix to file name to distiquish build types
+  */
+  .CCC_BUILDTYPE_APPENDIX = "";
+  .CCC_DEBUG_BUILDTYPE_APPENDIX = "_d";
+  .CCC_RELEASE_BUILDTYPE_APPENDIX = "_r";
+  .CCC_STATIC_DEBUG_BUILDTYPE_APPENDIX = "_sd";
+  .CCC_STATIC_RELEASE_BUILDTYPE_APPENDIX = "_sr";
+  .CCC_BOEHMGC_DEBUG_BUILDTYPE_APPENDIX = "_gd";
+  .CCC_BOEHMGC_RELEASE_BUILDTYPE_APPENDIX = "_gr";
+  /**
+     for example lib in libLibName.a
+  */
+  .CCC_BUILDTYPE_SUFFIX = "";
+  /**
+    Used to try to locate an ACDK executable
+    In case there are different appendix to libs/executable
+    for static/debug/release versions of executables
+  */
+  .CCC_BUILDTYPE_APPENDIX_LIST = Props.makeStringArray("");
+  /**
+    Mask to generated a LD_LIBRARY_PATH
+  */
+  .CCC_LinkPathMask = "-L${.LinkPath}";
+  /**
+    a Library import linker command 
+  */
+  .CCC_LinkPathMask = "-L${.LinkPath}";
+  /**
+    a Library import linker command 
+  */
+  .CCC_LinkLibMask = "-l${.LibFile}";
+  /** 
+    same with ACDK lbirarys
+  */
+  .CCC_LinkAcdkLibMask = "-l${.LibFile}${CCC_BUILDTYPE_APPENDIX}";
+  /**
+    File name of the resulting binary
+  */
+  .CCC_OUTFILE_NAME = "${CCC_BUILDTYPE_SUFFIX}${.BinUnitName}${CCC_BUILDTYPE_APPENDIX}${CCC_FILE_SUFFIX}";
+  /**
+    outfile without file extension
+  */
+  .CCC_OUTFILE_BASENAME = "${.BinUnitName}${CCC_BUILDTYPE_APPENDIX}";
+  
+  /**
+    The common linker flags
+  */
+  .CCC_STD_LDFLAGS = "";
+  
+  /**
+    The linker flags to generate a binary (exe so lib)
+  */
+  .CCC_BIN_LDFLAGS = "";
+  
+  .CCC_EXT_LDFLAGS = "";
+  /**
+    ext 2 LDFLAGS
+    will be the last argument to link mask.
+  */
+  .CCC_EXT2_LDFLAGS = "";
+  /**
+    Mask to generate a compile statement
+  */
+  .CCC_COMPILE_MASK = "${CCC_COMPILER} ${CCC_COPTS} ${CCC_CFLAGS} -o ${OBJDIR}${DIRSEP}${OBJFILE} -c ${SOURCEFILE}";
+  
+  /**
+    Standard link libraries
+  */
+  .CCC_STD_SYS_LIBS = "";
+  /**
+    Mask to generate link statement
+  */
+  .CCC_LINK_MASK = "${CCC_LINKER} ${CCC_BIN_LDFLAGS} ${CCC_EXT_LDFLAGS} -o ${BINDIR}${DIRSEP}${CCC_OUTFILE_NAME} @{OBJECTFILES}  ${CCC_ACDK_LIBS} ${CCC_PROJECT_LIBS} ${CCC_STD_SYS_LIBS} ${CCC_EXT2_LDFLAGS}";
+  /**
+    Mask to generate static link statement
+  */
+  .CCC_AR_MASK = "${CCC_AR} rcs ${BINDIR}${DIRSEP}${CCC_OUTFILE_NAME} @{OBJECTFILES}";
+  
+  /**
+    External Library Path
+  */
+  //.CCC_EXT_LIBPATH_LIST = 0 };
+  
+  /**
+    Hold the fq compiler executable
+  */
+  // CCC_COMPILER 
+
+  /**
+    Hold the fq linker executable
+  */
+  // CCC_COMPILER 
+
+  /**
+    Hold the fq shell executable
+  */
+  // SHELL
+  
+  /**
+    The name of shell (bash, cmd, sh)
+  */
+  // SHELL_BASENAME
+  /**
+    Option parameter to shell for executing command line
+  */
+  //SHELL_EXECUTE_OPTION
+
+  /**
+    Will be inserted to path list in ShellExecuteTask
+  */
+  //SHELL_EXT_PATH_LIST
+  /**
+    Shell path devider (':' on unix, ';' on windows
+  */
+  // SHELL_ENV_PATH_DIVIDER
+  /**
+    contains the fq path of the acdkmc 
+  */
+  // ACDKMC
+  
+  .JAVA_COMPILE_MASK = "${JAVAC} -classpath ${CLASSPATH} -d ${JAVA_OUTDIR} ${SOURCE}";
+}
+
+with (AMAKE_TARGET_PROPS.unix = new acdk.cfgscript.Props("unix")) 
+{
+  ._parent = Props.makeStringArray("generic"); // _parent marks base settings
+  .AMAKE_TARGET = "unix";
+  .SHELL_BASENAME = "sh";
+  .SHELL_EXECUTE_OPTION = "-c";
+  .SHELL_ENV_PATH_DIVIDER = ":";
+}
+  
+with (AMAKE_TARGET_PROPS.windows = new acdk.cfgscript.Props("windows")) 
+{
+  ._parent = Props.makeStringArray("generic");
+  .AMAKE_TARGET = "windows";
+  .DIRSEP = "\\";
+  .CMDLINE_QUOTE_CHAR = "\"";
+  .CCC_OBJECT_FILE_SUFFIX = ".obj";
+  .CCC_EXE_FILE_SUFFIX = ".exe";
+  .CCC_LIB_SHARED_FILE_SUFFIX = ".dll";
+  .CCC_LIB_SHARED_IMPLIB_FILE_SUFFIX = ".lib";
+  .CCC_LIB_STATIC_FILE_SUFFIX = ".lib";
+  .SHELL_BASENAME = "cmd.exe";
+  .SHELL_EXECUTE_OPTION = "/C";
+  .SHELL_ENV_PATH_DIVIDER = ";";
+}
+
+with (AMAKE_TARGET_PROPS.vc = new acdk.cfgscript.Props("vc")) 
+{
+  ._parent = Props.makeStringArray("generic", "windows"); // _parent marks base settings
+  .AMAKE_TARGET = "vc";
+  .CCC_COMPILER_BASENAME = "cl.exe";
+  .CCC_LINKER_BASENAME = "link.exe";
+  .CCC_AR_BASENAME = "lib.exe";
+  /*
+  .CCC_DEBUG_BUILDTYPE_APPENDIX = "_d";
+  .CCC_BUILDTYPE_APPENDIX = "_d";
+  .CCC_RELEASE_BUILDTYPE_APPENDIX = "_r";
+  */
+  .CCC_DefineMask = "/D${.DefineToken}";
+  .CCC_IncludeFileMask = "/I${.IncludeFile}";
+  .CCC_LinkLibMask = "${.LibFile}.lib";
+  .CCC_LinkAcdkLibMask = "${.LibFile}${CCC_BUILDTYPE_APPENDIX}.lib";
+  .CCC_LinkPathMask = "/LIBPATH:${.LinkPath}";
+  .CCC_COMMON_COPTS = "/Zm400 /nologo /GR /GX ";
+  .DEBUG_CCC_DBG_COPTS =  "/MDd /Od /Gm /Fd${OBJDIR}${DIRSEP}${OBJFILE}.pdb /Zi /D_DEBUG /DACDK_DEBUG"; // /Gm doesn't like multiple jobs
+  .RELEASE_CCC_DBG_COPTS = "/MD /O2 /DNDEBUG"; 
+  .CCC_BUILDTYPE_APPENDIX_LIST = Props.makeStringArray("_sr", "_r", "_sd", "_d");
+  .CCC_COMPILE_MASK = "${CCC_COMPILER} ${CCC_CFLAGS} ${CCC_COPTS}  /c ${SOURCEFILE} /Fo${OBJDIR}${DIRSEP}${OBJFILE} ";
+  .CCC_DBG_LDFLAGS = "";
+  .CCC_DBG_LDFLAGS_DEBUG = "/debug";
+  .CCC_BIN_LDFLAGS_EXE = "${CCC_DBG_LDFLAGS} /out:${BINDIR}\\${CCC_OUTFILE_NAME}";
+  .CCC_BIN_LDFLAGS_LIB_SHARED = "${CCC_DBG_LDFLAGS} /dll /out:${BINDIR}\\${CCC_OUTFILE_NAME} /implib:${BINDIR}\\${CCC_OUTFILE_BASENAME}.lib";
+  .CCC_BIN_LDFLAGS_LIB_STATIC = "${CCC_DBG_LDFLAGS} /out:${BINDIR}\\${CCC_OUTFILE_NAME}";
+  .CCC_STD_LDFLAGS = "/nologo /machine:I386 /incremental:no";
+  .CCC_STD_SYS_LIBS = "kernel32.lib user32.lib wsock32.lib";
+  .CCC_LINK_WIN_DEF_MASK = "/DEF:${.DefFile}";
+  .CCC_LINK_MASK = "${CCC_LINKER} @{OBJECTFILES} ${CCC_ACDK_LIBS} ${CCC_PROJECT_LIBS} ${CCC_STD_SYS_LIBS} ${CCC_WIN_DEF_LDFLAGS} ${CCC_EXT_LDFLAGS} ${CCC_STD_LDFLAGS} ${CCC_BIN_LDFLAGS} ${CCC_EXT2_LDFLAGS}";
+  .CCC_STD_ARFLAGS = "";
+  .CCC_AR_MASK = "${CCC_AR} @{OBJECTFILES} ${CCC_STD_ARFLAGS} /out:${BINDIR}\\${CCC_OUTFILE_NAME}";
+  .GENMAKE_TARGETTYPE_EXE = "\"Win32 (x86) Console Application\" 0x0103";
+  .GENMAKE_TARGETTYPE_LIB_SHARED = "\"Win32 (x86) Dynamic-Link Library\" 0x0102";
+  .GENMAKE_TARGETTYPE2_EXE = "Win32 (x86) Console Application";
+  .GENMAKE_TARGETTYPE2_LIB_SHARED = "Win32 (x86) Dynamic-Link Library";
+}
+
+with (AMAKE_TARGET_PROPS.vc7 = new acdk.cfgscript.Props("vc7")) 
+{
+  ._parent = Props.makeStringArray("vc"); // _parent marks base settings
+  .AMAKE_TARGET = "vc7";
+  .CCC_STD_SYS_LIBS_DEBUG = "msvcrtd.lib kernel32.lib user32.lib wsock32.lib";
+  .CCC_STD_SYS_LIBS = "msvcrt.lib kernel32.lib user32.lib wsock32.lib";
+}
+
+/*
+  Settings for gcc
+*/
+with (AMAKE_TARGET_PROPS.gcc = new acdk.cfgscript.Props("gcc")) 
+{
+  .AMAKE_TARGET = "gcc";
+  .CCC_SHARED_CFLAGS = "";
+  .CCC_COMPILER_BASENAME = "g++";
+  .CCC_LINKER_BASENAME = "g++";
+  .CCC_AR_BASENAME = "ar";
+  .CCC_DEBUG_BUILDTYPE_APPENDIX = "";
+  .CCC_SHARED_CFLAGS_LIB_SHARED = "-fpic";
+  .CCC_COMMON_COPTS = "${CCC_SHARED_CFLAGS} -Wall -Wno-unused -D__SMP__ -D${OS_DEFINE} -D_REENTRANT -DACDK_HAS_LIBERTY";
+  .DEBUG_CCC_DBG_COPTS =  "-g -D_DEBUG -DACDK_DEBUG";
+  .RELEASE_CCC_DBG_COPTS = "-O3 -DRELEASE"; 
+  .CCC_STD_LDFLAGS = "";
+  .CCC_BIN_LDFLAGS_LIB_SHARED = "-shared -g -fpic";
+  .CCC_BIN_LDFLAGS_LIB_STATIC = "";
+  .CCC_BIN_LDFLAGS = "-Wl,-Bdynamic ";
+  .CCC_BUILDTYPE_SUFFIX = "";
+  .CCC_BUILDTYPE_SUFFIX_LIB = "lib";
+}
+
+with (AMAKE_TARGET_PROPS.linux = new acdk.cfgscript.Props("linux")) 
+{
+  ._parent = Props.makeStringArray("unix", "gcc");
+  .AMAKE_TARGET = "linux";
+  .OS_DEFINE = "OS_LINUX";
+  .CCC_STD_SYS_LIBS = "-lpthread -lm -ldl";
+}
+
+with (AMAKE_TARGET_PROPS.bsd = new acdk.cfgscript.Props("bsd")) 
+{
+  ._parent = Props.makeStringArray("unix", "gcc");
+  .AMAKE_TARGET = "bsd";
+  .OS_DEFINE = "OS_BSD";
+  .CCC_STD_SYS_LIBS = "-lc_r -lm";
+}
+
+with (AMAKE_TARGET_PROPS.sungcc = new acdk.cfgscript.Props("sungcc")) 
+{
+  ._parent = Props.makeStringArray("unix", "gcc");
+  .AMAKE_TARGET = "sungcc";
+  .OS_DEFINE = "OS_SOLARIS";
+  .CCC_SHARED_CFLAGS_LIB_SHARED = "-fPIC";
+  .CCC_BIN_LDFLAGS_LIB_SHARED = "-Wl,-G -Wl,-t -Wl,-R -Wl,:${ACDKHOME}/bin";
+  .CCC_STD_SYS_LIBS = "-lpthread -lm -ldl -lposix4 -lsocket -lnsl";
+}
+with (AMAKE_TARGET_PROPS.bcc = new acdk.cfgscript.Props("bcc")) 
+{
+  ._parent = Props.makeStringArray("windows");
+  .AMAKE_TARGET = "bcc";
+  .CCC_COMPILER_BASENAME = "bcc32.exe";
+  .CCC_LINKER_BASENAME = "ilink32.exe";
+  .CCC_AR_BASENAME = "tlib.exe";
+  
+  .CCC_BUILDTYPE_APPENDIX = "";
+  .CCC_DEBUG_BUILDTYPE_APPENDIX = "";
+  .CCC_RELEASE_BUILDTYPE_APPENDIX = "";
+  .CCC_DefineMask = "-D${.DefineToken}";
+  .CCC_IncludeFileMask = "-I${.IncludeFile}";
+  .CCC_LinkLibMask = "${.LibFile}.lib";
+  .CCC_LinkAcdkLibMask = "${.LibFile}${CCC_BUILDTYPE_APPENDIX}.lib";
+  .CCC_LinkPathMask = "-L${.LinkPath}";
+  .CCC_WARN_COPTS = "-w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066";
+  .CCC_DBG_COPTS_DEBUG = "-v -R -Od -D_DEBUG";
+  .CCC_DBG_COPTS_RELEASE = "-O2 -DNDEBUG";
+  .CCC_COMMON_COPTS_LIB_SHARED = "${CCC_DBG_COPTS} -tWD -tWR -tWM -q ${CCC_WARN_COPTS}";
+  .CCC_COMMON_COPTS_LIB_STATIC = "${CCC_DBG_COPTS} -tWR -tWM -q ${CCC_WARN_COPTS}";
+  .CCC_COMMON_COPTS_EXE = "${CCC_DBG_COPTS} ${CCC_WARN_COPTS} -tWC -tWR -tWM";
+  
+  .CCC_COMPILE_MASK = "${CCC_COMPILER} ${CCC_CFLAGS} ${CCC_COPTS}  -n${OBJDIR} -c ${SOURCEFILE}  ";
+  .CCC_DBG_LDFLAGS = "";
+  .CCC_DBG_LDFLAGS_DEBUG = "/v";
+  .CCC_DBG_LDFLAGS_RELEASE = "";
+  .CCC_BIN_LDFLAGS_EXE = "-Tpe -ap -c  ${CCC_DBG_LDFLAGS}";
+  .CCC_BIN_LDFLAGS_LIB_SHARED = "-Tpd -aa -c -Gi -D\"\" ${CCC_DBG_LDFLAGS}";
+  .CCC_BIN_LDFLAGS_LIB_STATIC = "-Tpd -aa -c -Gi -D\"\" ${CCC_DBG_LDFLAGS}";
+  .CCC_STD_LDFLAGS = "";
+  .CCC_STD_SYS_LIBS = "import32.lib cw32mt.lib";
+  .CCC_LINK_MASK_LIB = "${CCC_LINKER} ${CCC_STD_LDFLAGS} ${CCC_EXT_LDFLAGS} ${CCC_BIN_LDFLAGS} @{OBJECTFILES} c0d32.obj, ${BINDIR}\\${CCC_OUTFILE_NAME},, ${CCC_STD_SYS_LIBS} ${CCC_PROJECT_LIBS} ${CCC_ACDK_LIBS}, , ";
+  .CCC_LINK_MASK_EXE = "${CCC_LINKER} ${CCC_STD_LDFLAGS} ${CCC_EXT_LDFLAGS} ${CCC_BIN_LDFLAGS} @{OBJECTFILES} c0x32.obj, ${BINDIR}\\${CCC_OUTFILE_NAME},, ${CCC_STD_SYS_LIBS} ${CCC_PROJECT_LIBS} ${CCC_ACDK_LIBS}, , ";
+  .CCC_AR_MASK = "${CCC_AR} /u ${BINDIR}\\${CCC_OUTFILE_NAME} @{OBJECTFILES}";
+}
+with (AMAKE_TARGET_PROPS.mingw = new acdk.cfgscript.Props("mingw")) 
+{
+  ._parent = Props.makeStringArray("windows", "gcc");
+  .AMAKE_TARGET = "mingw";
+  .CCC_OS_DEFINES = "-DWIN32_THREADS -DACDK_MINGW";
+  .OS_DEFINE = "OS_WIN32";
+  .CCC_SHARED_CFLAGS_LIB_SHARED = "";
+  .CCC_BIN_LDFLAGS_LIB_SHARED = "-shared -g";
+  .CCC_LIB_SHARED_IMPLIB_FILE_SUFFIX = ".a";
+  .CCC_LIB_STATIC_FILE_SUFFIX = ".a";
+}
+with (AMAKE_TARGET_PROPS.intelcc = new acdk.cfgscript.Props("intelcc")) 
+{
+  .AMAKE_TARGET = "intelcc";
+  .CCC_SHARED_CFLAGS = "";
+  .CCC_COMPILER_BASENAME = "icc";
+  .CCC_LINKER_BASENAME = "icc";
+  .CCC_AR_BASENAME = "ar";
+  .CCC_DEBUG_BUILDTYPE_APPENDIX = "";
+  .CCC_SHARED_CFLAGS_LIB_SHARED = "-fpic";
+  .CCC_COMMON_COPTS = "${CCC_SHARED_CFLAGS}  -D__SMP__ -D${OS_DEFINE} -D_REENTRANT -DACDK_HAS_LIBERTY";
+  .DEBUG_CCC_DBG_COPTS =  "-g -D_DEBUG -DACDK_DEBUG";
+  .RELEASE_CCC_DBG_COPTS = "-O3 -DRELEASE"; 
+  .CCC_STD_LDFLAGS = "";
+  .CCC_BIN_LDFLAGS_LIB_SHARED = "-shared -g -fPIC";
+  .CCC_BIN_LDFLAGS_LIB_STATIC = "";
+  .CCC_BIN_LDFLAGS = "-Wl,-Bdynamic ";
+  .CCC_BUILDTYPE_SUFFIX = "";
+  .CCC_BUILDTYPE_SUFFIX_LIB = "lib";
+}
+with (AMAKE_TARGET_PROPS.lintel = new acdk.cfgscript.Props("lintel")) 
+{
+  ._parent = Props.makeStringArray("unix", "intelcc");
+  .AMAKE_TARGET = "lintel";
+  .OS_DEFINE = "OS_LINUX";
+  .CCC_STD_SYS_LIBS = "-lpthread -lm -ldl";
+}
+
+System.out.println("Loaded acdkmake configuration");

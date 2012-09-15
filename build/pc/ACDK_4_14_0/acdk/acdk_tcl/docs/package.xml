@@ -1,0 +1,131 @@
+<package>
+<name>acdk_tcl</name>
+
+<title>
+ACDK Tcl (acdk_tcl)
+</title>
+
+<shortdescription>
+  acdk_tcl enables to embed Tcl scripting 
+  code into your ACDK application, controling
+  all ACDK Objects via DMI.
+</shortdescription>
+<description>
+With %ref[<m>acdk_tcl</m>, acdk_tcl_dll_man] you can instrument an Tcl interpreter
+inside your ACDK application. 
+<source>
+// C++/ACDK
+RTclInterpreter pi = new TclInterpreter();
+pi->parse(new acdk::io::File("~/mytcl.tlc"));
+</source>
+
+In the Tcl script you can call all ACDK classes with
+the standard ACDK Dynamic Method Invokation (DMI) methods:
+
+<source lang="tcl">
+proc foo{ string1 string2 }{
+  set sb [acdk_new "acdk/lang/StringBuffer" $string1 ] 
+  acdk_invoke $sb append $string2
+  return [acdk_invoke $sb toString]
+}
+acdk_invoke [ acdk_peek_static "acdk/lang/System" out ] println [ foo "Hello Tcl" " from ACDK"]
+</source>
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+  ACDK Free Edition License.
+</license>
+
+<dependencies>
+  acdk_core
+  acdk_text
+</dependencies>
+
+<namespaces>
+  acdk::tcl
+  acdk::tcl::interpreter
+</namespaces>
+
+<plattforms>
+  At the moment tested on Windows 2000 and
+  Linux.
+</plattforms>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- Nothing important
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+- Ajustments the new DMI.
+- More documentation.
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved Configurations.
+===========================================================
+1.00.2.
+- Initial revision.
+
+</changes>
+
+<notes>
+  <htmlauto>
+    You need the Tcl-Libraries from Scriptics.
+    %ref[http://www.scriptics.com/].
+    
+    Please ajust the library and include path
+    to your Tcl-Libraries and headers.
+  </htmlauto>
+</notes>
+
+<sf-notes>
+acdk_tcl enables to embed Tcl scripting 
+code into your ACDK application, controling
+all ACDK Objects via DMI.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/tcl">http://acdk.sourceforge.net/acdk/tcl</a>
+
+</sf-notes>
+<sf-changes>
+- Ajustments the new DMI.
+- More documentation.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_tcl/docs/readme-en.html#Changes">Changes</a>
+</sf-changes>
+
+</package>

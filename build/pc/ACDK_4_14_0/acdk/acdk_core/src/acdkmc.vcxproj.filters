@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{aef6eba4-181b-486c-86f0-43cffd60bf6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{cd738e2e-fd63-48ae-b60a-fb7312ce5785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\acdkmc">
+      <UniqueIdentifier>{70e389b7-3997-48ac-a8c8-69375dceeefe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\acdkmc\ClassInfo.h">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\acdkmc\MetaInfoGenDispatch.h">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\acdkmc\stringstream.h">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\acdkmc\acdkmc.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\acdkmc\GenARB.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\acdkmc\GenORB.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\acdkmc\GenORBIDL.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\acdkmc\MetaInfoGenDispatch.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\acdkmc\MetaInfoGenDispatchEx.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\acdkmc\MetaInfoParse.cpp">
+      <Filter>acdk\tools\acdkmc</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

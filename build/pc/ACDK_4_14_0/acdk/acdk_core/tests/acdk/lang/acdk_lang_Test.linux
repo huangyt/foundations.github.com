@@ -1,0 +1,214 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../../../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=./tobj/acdk_lang_Test/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT  $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_tools_aunit 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk_lang_Test.cpp \
+	acdk_lang_ObjectBase_Test.cpp \
+	acdk_lang_ObjectArray_Test.cpp \
+	acdk_lang_Character_Test.cpp \
+	acdk_lang_String_Test.cpp \
+	acdk_lang_String2_Test.cpp \
+	acdk_lang_StringBuffer_Test.cpp \
+	acdk_lang_Throwable_Test.cpp \
+	acdk_lang_Thread_Test.cpp \
+	acdk_lang_Thread_Test2.cpp \
+	acdk_lang_ThreadLocal_Test.cpp \
+	acdk_lang_ClassLoader_Test.cpp \
+	acdk_lang_Integer_Test.cpp \
+	acdk_lang_Double_Test.cpp \
+	acdk_lang_Float_Test.cpp \
+	acdk_lang_Number_Test.cpp \
+	acdk_lang_Runtime_Test.cpp \
+	acdk_lang_ExtObject_Test.cpp \
+	acdk_lang_CmdLineParser_Test.cpp \
+	acdk_lang_System_Test.cpp \
+
+HEADER= 
+OBJECTS= 	./tobj/acdk_lang_Test/linux/acdk_lang_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_ObjectBase_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_ObjectArray_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Character_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_String_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_String2_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_StringBuffer_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Throwable_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Thread_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Thread_Test2.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_ThreadLocal_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_ClassLoader_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Integer_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Double_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Float_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Number_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_Runtime_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_ExtObject_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_CmdLineParser_Test.o \
+	./tobj/acdk_lang_Test/linux/acdk_lang_System_Test.o \
+
+
+FINALTARGET=../../../../bin/acdk_lang_Test
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../../../bin/acdk_lang_Test: $(OBJECTS)
+	$(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../../../bin/acdk_lang_Test $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_lang_Test.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Test.o: acdk_lang_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Test.o -c acdk_lang_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_ObjectBase_Test.o: acdk_lang_ObjectBase_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_ObjectBase_Test.o -c acdk_lang_ObjectBase_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_ObjectArray_Test.o: acdk_lang_ObjectArray_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_ObjectArray_Test.o -c acdk_lang_ObjectArray_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Character_Test.o: acdk_lang_Character_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Character_Test.o -c acdk_lang_Character_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_String_Test.o: acdk_lang_String_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_String_Test.o -c acdk_lang_String_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_String2_Test.o: acdk_lang_String2_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_String2_Test.o -c acdk_lang_String2_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_StringBuffer_Test.o: acdk_lang_StringBuffer_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_StringBuffer_Test.o -c acdk_lang_StringBuffer_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Throwable_Test.o: acdk_lang_Throwable_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Throwable_Test.o -c acdk_lang_Throwable_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Thread_Test.o: acdk_lang_Thread_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Thread_Test.o -c acdk_lang_Thread_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Thread_Test2.o: acdk_lang_Thread_Test2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Thread_Test2.o -c acdk_lang_Thread_Test2.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_ThreadLocal_Test.o: acdk_lang_ThreadLocal_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_ThreadLocal_Test.o -c acdk_lang_ThreadLocal_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_ClassLoader_Test.o: acdk_lang_ClassLoader_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_ClassLoader_Test.o -c acdk_lang_ClassLoader_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Integer_Test.o: acdk_lang_Integer_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Integer_Test.o -c acdk_lang_Integer_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Double_Test.o: acdk_lang_Double_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Double_Test.o -c acdk_lang_Double_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Float_Test.o: acdk_lang_Float_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Float_Test.o -c acdk_lang_Float_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Number_Test.o: acdk_lang_Number_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Number_Test.o -c acdk_lang_Number_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_Runtime_Test.o: acdk_lang_Runtime_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_Runtime_Test.o -c acdk_lang_Runtime_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_ExtObject_Test.o: acdk_lang_ExtObject_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_ExtObject_Test.o -c acdk_lang_ExtObject_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_CmdLineParser_Test.o: acdk_lang_CmdLineParser_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_CmdLineParser_Test.o -c acdk_lang_CmdLineParser_Test.cpp
+
+./tobj/acdk_lang_Test/linux/acdk_lang_System_Test.o: acdk_lang_System_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_lang_Test/linux/acdk_lang_System_Test.o -c acdk_lang_System_Test.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../../../bin/acdk_lang_Test $(OBJECTS)
+
+  

@@ -1,0 +1,107 @@
+%id: acdk_aci_concept_scanner
+%title: ACI Concept Scanner
+%shorttitle: ACI Concept Scanner
+%body:
+<pageintro>
+Conceptional thinking about Scanner design of ACI.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Basic Requirements</jump1>
+<fl>
+<f> Scanner has to be able to read text or binary formats.
+<f> Scanner handle white spaces and comments
+<f> In current implementation Scanner caches readed terminals.
+    These Terminals are fixed (Comments, Strings, etc.)
+    This is probably difficult if regular expressions are
+    used.
+<f> Scanner has to be configured via ParseNodes.
+<f> Maybe Scanner is superflous, because all should be done
+    via ParseNode and a CodeSource.
+<f> Scanner has to handle keywords ('if' must not be used as identifier)
+<f> Scanner has 
+</fl>
+<source>
+
+class CodeSourceLocation
+{
+};
+
+
+interface ScannerTerminal
+{
+  /** keywords and literals return true */
+  virtual bool isUnambiguously() = 0;
+  virtual RAstNode scan(IN(RSourceCode) source) = 0;
+  virtual byte getScanPrio() = 0;
+  virtual bool isWhiteSpace() { return false; }
+};
+
+class RegExpParseNode
+: extends ParseNode
+, implements ScannerTerminal
+{
+  virtual bool isUnambiguously() { return false; }
+  byte getScanPrio() { return 2; }
+  
+};
+
+class CIdentifierParseNode
+: extends RegExpParseNode
+, implements ScannerTerminal
+{
+  byte getScanPrio() { return 3; }
+  virtual RAstNode scan(IN(RSourceCode) source)
+  {
+    byte b = source->read();
+    if (Character::isIdentifierStart(b) == false)
+      return Nil;
+    //...
+    return getDefaultCode(this);
+  }
+};
+
+class KeywordParseNode
+: extends CIdentifierParseNode
+{
+  byte getScanPrio() { return 8; }
+  virtual bool isUnambiguously() { return true; }
+  virtual RAstNode scan(IN(RScanner) source)
+  {
+    CodeLocation begin = source->getCodeLocation();
+    //...
+    return getDefaultCode(this, begin, source->getCodeLocation())
+  }
+};
+
+class WhiteSpaceParseNode
+: extends RegExpParseNode
+, implements ScannerTerminal
+{
+  
+};
+
+
+interface CodeSource
+{
+  virtual byte nextByte() = 0;
+  virtual CodeSourceLocation getCurrentLocation() = 0;
+  virtual Scanner createScannerFromFile(IN(RString) source) = 0;
+};
+
+interface Scanner
+{
+  CodeSource getCodeSource();
+  virtual RAstNode scanNext(IN(RScannerTerminal) pn) = 0;
+  virtual void unread();
+  virtual void registerScannerTerminal(IN(RScannerTerminal) pn) = 0;
+};
+
+class TextScanner
+implements Scanner
+{
+};
+</source>
+.

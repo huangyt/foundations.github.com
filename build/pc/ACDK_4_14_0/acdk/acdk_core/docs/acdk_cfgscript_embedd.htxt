@@ -1,0 +1,79 @@
+%id: acdk_cfgscript_embedd
+%title: Embedding the CfgScript Interpreter in C++
+%shorttitle: Embedding
+%keywords: interpreter, embedding
+%body:
+<chapterline/>
+<pageintro>
+CfgScript can easily be embedded into a C++ application.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Using acdk::cfgscript::Script</jump1>
+Embedding the CfgScript into a ACDK application is quite easy:
+
+Two classes are mainly used to control the Script:
+%cref[acdk::cfgscript::Props] for the internal (and also external)
+heap/'stack' of the interpreter and the class %cref[acdk::cfgscript::Script] 
+for executing a script.
+
+<source>
+#include <acdk/cfgscript/Script.h>
+
+	::acdk::cfgscript::RScript script = new ::acdk::cfgscript::Script("<mem>");
+  ::acdk::cfgscript::RProps props = new ::acdk::cfgscript::Props();
+  // pass variable to the interpreter
+  props->setObjectVal("sb", new StringBuffer("CfgScript"));
+  
+  RString code =
+  	"String retString = \"Hallo\" + sb.toString();\n"
+    "acdk.lang.System.out.println(retString);\n"
+  ;
+  // ScriptReadWriteParent allows the interpreter to write into 
+  // the given props
+  script->eval(code, &props, ::acdk::cfgscript::ScriptReadWriteParent);
+  // get the resulting string
+  RString retString = props->getStringVal("retString");
+</source>
+
+<jump1>Using acdk::cfgscript::Props</jump1>
+Much more simple is to use the embedded Props evaluations functions:
+<source>
+#include <acdk/cfgscript/Props.h>
+// ...
+	::acdk::cfgscript::RProps props = new ::acdk::cfgscript::Props();
+  props->setIntVal("i", 42);
+  props->setIntVal("j", 1);
+  // ${expr} where expr is either a Props key or a CfgScript expression
+  RString s = props->eval("${i + j}");
+  testAssert(s->equals("43"));
+	// !{ script }! 
+	// script will be evaluated as CfgScript script. 
+	// the !{ script }! will be replaced with the output 
+	// written by the script to 'out'
+  s = props->eval("!{ out.print(i + j); }!");
+  testAssert(s->equals("43"));
+</source>
+
+Another example:
+<source>
+RProps props = new Props();
+props.setIntVal("i", 42);
+RString erg = props.eval("$i");
+erg->equals("42") == true;
+
+// inline expression
+props.eval("!{ if (i < 42) erg = \"isSmaller\" else erg = \"isGreaterOrSame\" }");
+props->getStringVal("erg")->equals("isGreaterOrSame") == true;
+</source>
+
+<jump1>ACDK applications make useage of CfgScript</jump1>
+The CfgScript interpreter is embedded in following ACDK applications:
+<fl>
+<f> %ref[acdkmc, acdkmc_man] uses CfgScript to implement %ref[ACDK Class attributes, acdk_hb_mi_attributes]
+<f> %ref[acdkmake, acdk_make_man] uses CfgScript as make language implementation.
+</fl>
+.

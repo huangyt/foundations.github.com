@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{2afcf1ea-8bcb-4c32-a096-1d0c3b44fafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx">
+      <UniqueIdentifier>{7d0b0553-47a1-4314-a892-ef6f66c1e1ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx\ide">
+      <UniqueIdentifier>{d09d1776-2806-45d1-8b88-7af2aecf8c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx\ide\ide_metainf">
+      <UniqueIdentifier>{d916f8a1-80fb-4c5d-b68e-c741b43cb49f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx\ide\inspector">
+      <UniqueIdentifier>{34505719-d2ca-4f80-b46a-4365ca4086e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx\ide\inspector\inspector_metainf">
+      <UniqueIdentifier>{f3126d5b-3575-40a9-954d-7205b07ffb93}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\wx\ide\Config.h">
+      <Filter>acdk\wx\ide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\FrameLayout.h">
+      <Filter>acdk\wx\ide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\ide.h">
+      <Filter>acdk\wx\ide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\StyledTextCtrl.h">
+      <Filter>acdk\wx\ide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\TextOutputCtrl.h">
+      <Filter>acdk\wx\ide</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\inspector\CfgScriptConsole.h">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\inspector\ClassTreeCtrl.h">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\inspector\inspector.h">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\wx\ide\inspector\ObjectTreeCtrl.h">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\wx\ide\ide_metainf_base.cpp">
+      <Filter>acdk\wx\ide</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\StyledTextCtrl.cpp">
+      <Filter>acdk\wx\ide</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\ide_metainf\ide_metainf_ext.cpp">
+      <Filter>acdk\wx\ide\ide_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\ide_metainf\ide_metainf_ext1.cpp">
+      <Filter>acdk\wx\ide\ide_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\inspector\CfgScriptConsole.cpp">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\inspector\ClassTreeCtrl.cpp">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\inspector\inspector_metainf_base.cpp">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\inspector\ObjectTreeCtrl.cpp">
+      <Filter>acdk\wx\ide\inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\ide\inspector\inspector_metainf\inspector_metainf_ext.cpp">
+      <Filter>acdk\wx\ide\inspector\inspector_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

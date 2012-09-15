@@ -1,0 +1,74 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_ACI_GUIDBG_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_aci.lib" "..\..\bin\acdk_wx.lib" $(ACDK_WX_WXLIBS_DEBUG)
+
+OUTFILE="..\..\bin\acdk_aci_guidbg.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_aci_guidbg\bcc"
+SOURCES= 	"acdk\aci\guidbg\CodeTreeCtrl.cpp" \
+	"acdk\aci\guidbg\SyntaxTreeCtrl.cpp" \
+
+HEADER= 	"acdk\aci\guidbg\CodeTreeCtrl.h" \
+	"acdk\aci\guidbg\Config.h" \
+	"acdk\aci\guidbg\guidbg.h" \
+	"acdk\aci\guidbg\SyntaxTreeCtrl.h" \
+
+OBJECTS= 	"..\tobj\acdk_aci_guidbg\bcc\CodeTreeCtrl.obj" \
+	"..\tobj\acdk_aci_guidbg\bcc\SyntaxTreeCtrl.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_aci_guidbg\bcc\CodeTreeCtrl.obj": "acdk\aci\guidbg\CodeTreeCtrl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci_guidbg\bcc" "acdk\aci\guidbg\CodeTreeCtrl.cpp"
+
+"..\tobj\acdk_aci_guidbg\bcc\SyntaxTreeCtrl.obj": "acdk\aci\guidbg\SyntaxTreeCtrl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci_guidbg\bcc" "acdk\aci\guidbg\SyntaxTreeCtrl.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_aci_guidbg.dll"
+	del "..\tobj\acdk_aci_guidbg\bcc\CodeTreeCtrl.obj"
+	del "..\tobj\acdk_aci_guidbg\bcc\SyntaxTreeCtrl.obj"
+
+

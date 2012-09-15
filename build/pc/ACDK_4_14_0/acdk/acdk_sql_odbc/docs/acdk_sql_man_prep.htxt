@@ -1,0 +1,33 @@
+%id: acdk_sql_man_prep
+%title: ACDK SQL Prepared Statements
+%shorttitle: Prepared Statements
+%keywords: Prepared Statements
+%body:
+<chapterline/>
+
+<pageintro>
+  To improve performance, use prepared statments
+</pageintro>
+
+<htmlauto/>
+
+Use <c>prepareStament</c> create a Prepared SQL Statement:
+
+<source>
+    RString sql = "SELECT intcol, realcol, stringcol FROM acdk_PreparedStatement_Test WHERE intcol < ?";
+    RPreparedStatement statement = connection->prepareStatement(sql); 
+    statement->setInt(1, 2); // 1 = first '?'
+
+    RResultSet rset = statement->executeQuery();
+    int count = 0;
+    while (rset->next() == true)
+    {
+      int intcol = rset->getInt(1);
+      float floatcol = rset->getFloat("realcol"); 
+      RString sval = rset->getString("stringcol");
+      ++count;
+    }
+</source>
+
+
+.

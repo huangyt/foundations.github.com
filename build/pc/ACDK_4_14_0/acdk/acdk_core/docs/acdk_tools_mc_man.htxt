@@ -1,0 +1,22 @@
+%id: acdk_tools_mc_man
+%title: acdk_tools_mc - Manual
+%shorttitle: man acdk_tools_mc
+%keywords: ACDK MetaCompiler, acdkmc, MetaCompiler, 
+%seealso: acdkmc_man
+%body:
+<pageintro>
+The man page of acdk_tool_mc the package for
+MetaInfo Compiler.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/><p></p>
+
+<jump1>Purpose</jump1>
+acdk_tools_mc provides the interface/base classes
+for the ACDK MetaCompiler.
+
+See also %ref[acdkmc_man].
+
+.

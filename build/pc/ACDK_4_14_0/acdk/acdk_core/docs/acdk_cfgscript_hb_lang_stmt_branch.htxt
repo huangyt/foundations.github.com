@@ -1,0 +1,202 @@
+%id: acdk_cfgscript_hb_lang_stmt_branch
+%title: CfgScript Branch Statements
+%shorttitle: Branch Statements
+%keywords: if, switch, return, break, continue, throw, catch, finally
+%body:
+<chapterline/>
+<pageintro>
+Branches are conditional or unconditinal
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+<jump1>BranchStatement</jump1>
+<pre>
+UnconditionalBranchStatement
+: %ref[ConditinalBranchStatement, #ConditinalBranchStatement]
+| %ref[UnconditionalBranchStatement, #UnconditionalBranchStatement]
+;
+</pre>
+
+<jump2>ConditinalBranchStatement</jump2>
+<pre>
+ConditinalBranchStatement
+: %ref[IfStatement, #IfStatement]
+| %ref[SwitchStatement, #SwitchStatement]
+;
+</pre>
+
+<jump3>IfStatement</jump3>
+<pre>
+IfStatement
+: 'if' '(' %ref[Expression, acdk_cfgscript_hb_lang_expr] ')' Statement [ 'else' Statement ]
+</pre>
+
+<jump3>SwitchStatement</jump3>
+<pre>
+SwitchStatement
+: 'switch' '(' Expression ')' 
+  '{'
+    CaseStatement*
+    [ DefaultCaseStatement ]
+   '}'
+;
+
+CaseStatement
+: 'case' ExpressionList ':' Statement*
+;
+
+ExpressionList
+: Expression [ ',' ExpressionList ]
+;
+
+DefaultCaseStatement 
+: 'default' ':' Statement*
+;
+</pre>
+
+The <c>switch</c> statement is a little bit different to
+C++:
+<fl>
+<f> The <c>case</c> branches will be tested from top to down.
+    The first <c>case</c> branch matches will be executed.
+<f> Exceptional to this <c>default</c> branches will be executed
+    only if no other <c>case</c> branch match, independent to
+    its location.
+<f> The <c>case</c> expressions are normal expressions, not
+    constant expressions. 
+<f> a <c>case</c> branch can have multiple expressions, separated
+    by a ','.
+<f> If a <c>case</c> expression itself contains a ',' which is 
+    not surrounded by '( )' has to be bracket with '( )'.
+<f> A <c>case</c> expression starting with an non-postfix operator 
+    the expression will be evaluated as operator expression with
+    the <c>case</c> expression as left site argument.
+    If the <c>case</c> expression want to access a global variable
+    or an <c>with</c> statement, the expression has to be bracket
+    with '( )'.
+<f> <c>case</c> branches will be fall through next <c>case</c> branch
+    if it is not terminated by <c>break;</c>.
+</fl>
+
+Sample using expression:
+<source>
+bool switchOk = false;
+
+switch(42)
+{
+  case 1, 2, 3: // test for 1 or 2 or 3
+    break;
+  case .toString().equals("41"): // calls 42.toString().equals("41")
+    switchOk = false;
+    break;
+  case >= 41: // calls 42 >= 41
+    switchOk = true;
+    break;
+  default:
+    switchOk = false;
+    break;
+}
+</source>
+Sample: %srcref[csf_tests_acdk_cfgscript_2_statements_70_Switch_Test_csf].
+
+<jump2>UnconditionalBranchStatement</jump2>
+<pre>
+UnconditionalBranchStatement
+: %ref[ReturnStatement, #ReturnStatement]
+| %ref[BreakStatement, #BreakStatement]
+| %ref[ContinueStatement, #ContinueStatement]
+| %ref[GotoStatement, #GotoStatement]
+| %ref[ThrowStatement, #ThrowStatement]
+| %ref[TryCatchStatement, #TryCatchStatement]
+;
+</pre>
+
+
+<jump3>ReturnStatement</jump3>
+<pre>
+ReturnStatement
+: 'return' [ %ref[Expression, acdk_cfgscript_hb_lang_expr] ] ';'
+</pre>
+
+<jump3>BreakStatement</jump3>
+<pre>
+BreakStatement
+: 'break' ';'
+</pre>
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_loop].
+
+<jump3>ContinueStatement</jump3>
+<pre>
+ContinueStatement
+: 'continue' ';'
+</pre>
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_loop].
+
+<jump3>GotoStatement</jump3>
+goto is not implemented.
+
+<jump3>ThrowStatement</jump3>
+<pre>
+ThrowStatement
+: 'throw' %ref[Expression, acdk_cfgscript_hb_lang_expr] ';'
+;
+</pre>
+The throw statement throws an exception.
+Exception can be caught by the try catch statement.
+Because the implementation of exceptions in CfgScript uses native C++ exceptions, it
+is possible to catch exceptions thrown in C++ in CfgScript and vice versa.
+
+Sample:
+<source>
+try {
+  StringArray sa = new StringArray(0);
+  String s = sa[1];
+} catch (acdk.lang.IndexOutOfBoundsException ex) {
+  out.println(ex.getMessage());
+}
+</source>
+A side effect of the construction of the CfgScript interpreter you also can catch
+exceptions caused by interpreter failures. See also %ref[acdk_cfgscript_hb_debug].
+
+<jump3>TryCatchStatement</jump3>
+<pre>
+TryCatchStatement
+: 'try' Statement ( 'catch' '(' TypeName VarName ')' Statement )* [ 'finally' Statement ]
+;
+</pre>
+
+The try catch statement works the same way like in Java.
+
+Different to C++ and Java the <c>catch</c> will be tested in the same order 
+as they declared:
+<source>
+  try {
+    throw new RuntimeError("asdf"); 
+  } catch (Throwable ex) {
+    // this catch branch will be executed
+  } catch (RuntimeException ex) {
+    // never reach here
+  }
+</source>
+
+The <f>finally</f> block will be executed unrelated if an exception was
+thrown in the <c>try</c> block and independed if the exception was handled
+by a <c>catch</c> block.
+
+<source>
+  try {
+    
+  } catch (RuntimeException ex) {
+  } finally {
+    // this code block will be executed independ if inside try block an exception
+    // was thrown or the the exception was handled in a catch block
+  }
+</source>
+
+If an exception should be re-thrown in a catch Exception block <code>throw ex;</code> should
+be used (<c>throw;</c> doesn't work).
+
+.

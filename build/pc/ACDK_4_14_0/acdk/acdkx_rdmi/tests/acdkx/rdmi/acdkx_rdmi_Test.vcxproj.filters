@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include=".">
+      <UniqueIdentifier>{52ad59fd-77da-4a92-afdf-9142163d4d68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx_rdmi_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_rdmi_Basic_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

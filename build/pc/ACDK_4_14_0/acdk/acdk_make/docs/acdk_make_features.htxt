@@ -1,0 +1,207 @@
+%id: acdk_make_features
+%title: ACDK Make features
+%shorttitle: acdkmake features
+%body:
+
+<htmlauto/>
+
+<pageintro>
+An overview to the features of acdkmake.
+</pageintro>
+
+
+<jumptable/>
+<jump1>Overall purpose</jump1>
+<b>acdkmake</b> was developed on the background of ACDK, 
+a portable C++ library, which provides an higher level object model
+and connects several middle ware and scripting technologies.
+
+Building ACDK has several challenges:
+<fl>
+<f> Supporting multiple platforms.
+<f> Supporting multiple compilers.
+<f> Supporting multiple compile modes (debug/release, dynamic/static)
+<f> Instrumenting sources with meta compiler
+<f> Automatic self tests
+<f> Compile again several interpreter (Java, perl, tcl, python)
+</fl>
+
+<jump2>Alternatives</jump2>
+
+<jump3>acdk_lisp</jump3>
+ACDK uses still a set of lisp files which are interpreted
+by the <b>%ref[acdk_lisp_man]</b> interpreter and generates make files
+for several platforms.
+
+As long <b>acdkmake</b> cannot create platform make files
+the acdk_lisp make framework will supported for ACDK.
+
+<jump3>autoconf/automake</jump3>
+automake is limited traditional unix environments and
+not useable for other platforms.
+
+<jump3>Ant</jump3>
+Ant was developed for compiling Java projects
+and becomes a de facto standard.
+Unfortunately Ant has no support for C++.
+
+acdkmake uses some ideas from ant, but differs
+also in some aspects.
+
+<jump2>Construction of acdkmake</jump2>
+<jump3>Tasks</jump3>
+
+The base construct in acdkmake is a Task.
+See: %cref[acdk::make::Task].
+A Task is simply a class which has an execute method.
+
+An build process is build as an tree of Tasks, starting
+with the the Task named "default". This Task has children
+task, which may build executable, and so on.
+
+<pre>
+%cref[acdk.make.ProjectTask] ("default").
+ -> (depends on) acdk.make.AcdkLibTask("acdk_make").
+    -> %cref[acdk.make.LookupFileTask] (find matching sources, compiler, etc. ).
+    -> %cref[acdk.make.CompileTask] ( .cpp -> .o ).
+      -> %cref[acdk.make.FileDependTask] (check if .c is newer then .o).
+      -> %cref[acdk.make.CppSourceDependTask] (check .cpp #include).
+        -> %cref[acdk.make.FileDependTask] (check if .h is newer then .o).
+      -> %cref[acdk.make.JobExecuterTask] (starts multiple compile tasks parallel).
+        -> %cref[acdk.make.ShellExecuteTask] ( starts compiler ).
+    -> %cref[acdk.make.ShellExecuteTask] ( starts linker ).
+</pre>
+
+An important difference to traditional make's the task dependencies are
+not static, but can be created dynamically by a task. 
+Actually it is up to an Task, which sub-Task it starts.
+
+See on %ref[acdk_make_tasks] for more information about Tasks.
+
+<jump3>acdmake notation</jump3>
+
+<b>Traditional make</b> uses declarative statments with
+very limited evaluation possibilities. In the execution
+part of a traditional normally a shell interpreter is 
+used.
+<b>Ant</b> uses XML as notation. This has the advantage
+that it is more general, but XML is not the easiest way
+to read and write by humans.
+
+<b>acdkmake</b> uses a very simple scripting language, which
+mainly just invokes ACDK C++ classes (or other DMI server).
+%ref[CfgScript, acdk_cfgscript_hb] is also used by %ref[acdkmc_man] to
+code class attributes (see %ref[Meta Attributes, acdk_hb_mi_attributes]).
+
+The main purpose of CfgScript to call ACDK classes via DMI.
+
+<jump3>Configuration</jump3>
+If an project needs external ressources, like shared libries,
+headers, compilers, etc. the build system has to know where
+to find these files.
+In traditional make files the locations of these ressources
+are often defined as variables at the top of the Makefile or
+the Makefile asumes that the variables are defined in the
+environment. The 
+user of the project has to ajust these values fitting to his
+platform.
+
+Autoconf/automake is a generator, which looks and tests if all
+prerequistist can be located. 
+
+acdkmake merged the configuration step into the build process.
+
+
+
+<jump1>Feature Table</jump1>
+<ul>
+<li> <b>Configuration</b>
+  <ul>
+  <li> check environment (ACDKHOME) (done)
+  <li> Check platform and compiler compatibility (done for NT and Linux)
+  <li> find needed tools (done for NT and Linux)
+  <li> find needed header
+  <li> find needed libs
+  <li> setup environment (done for NT and Linux)
+  <li> Conditions (uses scripting engine)
+  </ul>
+<li> <b>Grouping Sources</b>
+  <ul>
+  <li> Make list after pattern (done)
+  </ul>
+<li> <b>Variables</b>
+  <ul>
+  <li> Overwritable Variables (make cannot overwrite Variables) (done)
+  <li> Evaluation $(VAR) (done)
+  <li> Concenation (done)
+  <li> String Replacement (done)
+  </ul>
+  
+<li> <b>Dependencies Rules</b>
+  <ul>
+  <li> Execute Task if file does not exist, is newer. (done)
+  </ul>
+<li> <b>Targets</b>
+  <ul>
+  <li> Execute Targets, common in makes. (done)
+  </ul>
+<li> <b>platform abstract standard tasks</b>
+  <ul>
+  <li> Compiling (done)
+  <li> Linking (done)
+  <li> support for modification like DEBUG, RELEASE, SHARED, STATIC etc. (done)
+  <li> compile with multiple threads.
+  </ul>
+
+<li> <b>Generate Sources</b>
+  <ul>
+  <li> Start acdkmc depending to change of .h (done)
+  </ul>
+<li> <b>Compile Sources</b>
+  <ul>
+  <li> C-header include dependencies (done)
+  <li> Compile java 
+  </ul>
+<li> <b>Installing</b>
+  <ul>
+  <li> install to directory, generate needed dirs, only write file if newer. (done)
+  <li> chmod to files.
+  </ul>
+<li> <b>Testing</b>
+  <ul>
+  <li> setting environment before testing (see also configuration)
+  <li> execute tests and make reports.
+  </ul>
+<li> <b>General purpose Scripting</b>
+  <ul>
+  <li> File manipulation
+  <li> statement based scripts
+  <li> contitional and iteration statements
+  </ul>
+  
+<li> <b>Generating Project files</b>
+  <ul>
+  <li> generate standard make files (corresponding to current solution)
+  <li> generate Project files for IDEs
+  </ul>
+<li> <b>Generic Targets</b>
+  <ul>
+  <li> For common tasks, like Project settings (done for acdk projects)
+  <li> Metatargets with abstract rules
+  </ul>
+
+<li> <b>Template support for generating files</b>
+  <ul>
+  <li> For example for project files (like realized to generate make and 
+       project files in current solution).
+  </ul>
+
+<li> <b>Script integration</b> (done for lisp)
+  <ul>
+  <li> Integrate Script elements (list, perl, etc).
+  </ul>
+</ul>
+
+
+
+.

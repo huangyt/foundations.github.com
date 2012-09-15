@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{d99a763f-dfbe-4f82-a65f-e83a52f17c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci">
+      <UniqueIdentifier>{afcc8ecc-c422-44fa-97c6-1eeacb9a47e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\ast">
+      <UniqueIdentifier>{7d90fa2c-245f-4e66-ae85-b021ea5f49af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\ast\ast_dmiproxy">
+      <UniqueIdentifier>{ad56f4ce-482e-4de4-b1bd-07d24e3abf6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\parser">
+      <UniqueIdentifier>{83bdbcb7-24a5-407c-9566-ff00c97e78aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\aci\parser\parser_dmiproxy">
+      <UniqueIdentifier>{b0fc07b2-4054-40e1-ada5-cfe92f0b72d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\aci\ast\ast_dmiproxy\ast_dmiproxy.cpp">
+      <Filter>acdk\aci\ast\ast_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\parser_dmiproxy\parser_dmiproxy.cpp">
+      <Filter>acdk\aci\parser\parser_dmiproxy</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

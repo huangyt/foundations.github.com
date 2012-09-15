@@ -1,0 +1,3 @@
+sb = new StringBuffer("a");
+sb.append("b");
+s = sb.toString();

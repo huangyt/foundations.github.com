@@ -1,0 +1,105 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="preprocessor">
+<title>CfgScript Preprocessor statements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Preprocessor<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_pre_include.html">IncludeStatement</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html">Pragma weak/strong</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html">Pragma cast</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | Preprocessor | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Preprocessor statements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Preprocessor statements</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | Preprocessor | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p>
+<p class="PageIntro">
+With the include preprocessor statement other <code>.csf</code> files can 
+be included into another script file.
+</p>
+
+<br>
+<br>
+<pre>
+PreprocessorStatement
+: <a  href="acdk_cfgscript_hb_lang_pre_include.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;IncludeStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;PragmaStrictWeakStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;PragmaCastStatement</a>
+;
+</pre>
+<br>
+<br>
+Note: This are no real preprocessor statements (which are pre processed by a pre-processor) 
+in the scripting language. These statements are only named as preprocessor statement, because
+they have similar syntax as preprocessor statements in C/C++ and controls the behavior of the
+interpreter.<br>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_pre_include.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript include other script files</a></p><p class="pagesummary">
+With the include preprocessor statement other <c>.csf</c> files can 
+be included into another script file.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_pre_pragma_weakstrong.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Weak/Strong Pragma</a></p><p class="pagesummary">
+The <c>pragma weak/strong</c> controls how type declarations
+are requested by the CfgScript interpreter.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Pragma cast directions</a></p><p class="pagesummary">
+The pragma 'cast' directive controls how the interpreter
+does automatically casting types from one type to another.
+</p></td></tr></table><!-- subchaptersframe -->
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | Preprocessor | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | <a  href="acdk_cfgscript_hb_lang_stmt.html">Statements</a> | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

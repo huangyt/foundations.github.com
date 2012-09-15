@@ -1,0 +1,301 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.mingw
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_net/mingw
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -O2  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_WIN32 -D_REENTRANT -DWIN32_THREADS -DACDK_OS_WIN32 -DACDK_MINGW -DIN_ACDK_NET_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lkernel32 -lwsock32
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR)  -lacdk_core
+CFLAGSX=
+
+SOURCES= 	acdk/net/acdk_net_Package.cpp \
+	acdk/net/Authenticator.cpp \
+	acdk/net/DatagramSocket.cpp \
+	acdk/net/FileURLConnection.cpp \
+	acdk/net/HeaderFieldHelper.cpp \
+	acdk/net/HttpURLConnection.cpp \
+	acdk/net/HttpURLConnectionImpl.cpp \
+	acdk/net/InetAddress.cpp \
+	acdk/net/InetURLConnection.cpp \
+	acdk/net/MimeTypeMapper.cpp \
+	acdk/net/net_metainf_base.cpp \
+	acdk/net/ServerSocket.cpp \
+	acdk/net/Socket.cpp \
+	acdk/net/SocketException.cpp \
+	acdk/net/SocketImpl.cpp \
+	acdk/net/SocketImplFactory.cpp \
+	acdk/net/SocketLogConsumer.cpp \
+	acdk/net/SocketOptions.cpp \
+	acdk/net/TCPSocket.cpp \
+	acdk/net/TCPSocketFactory.cpp \
+	acdk/net/TransRateReader.cpp \
+	acdk/net/TransRateWriter.cpp \
+	acdk/net/URL.cpp \
+	acdk/net/URLConnection.cpp \
+	acdk/net/URLDecoder.cpp \
+	acdk/net/URLEncoder.cpp \
+	acdk/net/URLEncoding.cpp \
+	acdk/net/UrlFileSystem.cpp \
+	acdk/net/URLStreamHandler.cpp \
+	acdk/net/URLStreamHandlerFactory.cpp \
+
+HEADER= 	acdk/net/Authenticator.h \
+	acdk/net/Config.h \
+	acdk/net/ContentHandler.h \
+	acdk/net/ContentHandlerFactory.h \
+	acdk/net/DatagramPacket.h \
+	acdk/net/DatagramSocket.h \
+	acdk/net/FileNameMap.h \
+	acdk/net/FileURLConnection.h \
+	acdk/net/HeaderFieldHelper.h \
+	acdk/net/HttpURLConnection.h \
+	acdk/net/HttpURLConnectionImpl.h \
+	acdk/net/InetAddress.h \
+	acdk/net/InetSocketAddress.h \
+	acdk/net/InetURLConnection.h \
+	acdk/net/MalformedURLException.h \
+	acdk/net/MimeTypeMapper.h \
+	acdk/net/net.h \
+	acdk/net/netsysincl.h \
+	acdk/net/PasswordAuthentication.h \
+	acdk/net/ProtocolException.h \
+	acdk/net/ServerSocket.h \
+	acdk/net/Socket.h \
+	acdk/net/SocketAddress.h \
+	acdk/net/SocketException.h \
+	acdk/net/SocketImpl.h \
+	acdk/net/SocketImplFactory.h \
+	acdk/net/SocketLogConsumer.h \
+	acdk/net/SocketOptions.h \
+	acdk/net/TCPSocket.h \
+	acdk/net/TCPSocketFactory.h \
+	acdk/net/TransRateReader.h \
+	acdk/net/TransRateWriter.h \
+	acdk/net/UnknownServiceException.h \
+	acdk/net/URL.h \
+	acdk/net/URLConnection.h \
+	acdk/net/URLDecoder.h \
+	acdk/net/URLEncoder.h \
+	acdk/net/URLEncoding.h \
+	acdk/net/UrlFileSystem.h \
+	acdk/net/URLInterface.h \
+	acdk/net/URLStreamHandler.h \
+	acdk/net/URLStreamHandlerFactory.h \
+
+OBJECTS= 	../tobj/acdk_net/mingw/acdk_net_Package.o \
+	../tobj/acdk_net/mingw/Authenticator.o \
+	../tobj/acdk_net/mingw/DatagramSocket.o \
+	../tobj/acdk_net/mingw/FileURLConnection.o \
+	../tobj/acdk_net/mingw/HeaderFieldHelper.o \
+	../tobj/acdk_net/mingw/HttpURLConnection.o \
+	../tobj/acdk_net/mingw/HttpURLConnectionImpl.o \
+	../tobj/acdk_net/mingw/InetAddress.o \
+	../tobj/acdk_net/mingw/InetURLConnection.o \
+	../tobj/acdk_net/mingw/MimeTypeMapper.o \
+	../tobj/acdk_net/mingw/net_metainf_base.o \
+	../tobj/acdk_net/mingw/ServerSocket.o \
+	../tobj/acdk_net/mingw/Socket.o \
+	../tobj/acdk_net/mingw/SocketException.o \
+	../tobj/acdk_net/mingw/SocketImpl.o \
+	../tobj/acdk_net/mingw/SocketImplFactory.o \
+	../tobj/acdk_net/mingw/SocketLogConsumer.o \
+	../tobj/acdk_net/mingw/SocketOptions.o \
+	../tobj/acdk_net/mingw/TCPSocket.o \
+	../tobj/acdk_net/mingw/TCPSocketFactory.o \
+	../tobj/acdk_net/mingw/TransRateReader.o \
+	../tobj/acdk_net/mingw/TransRateWriter.o \
+	../tobj/acdk_net/mingw/URL.o \
+	../tobj/acdk_net/mingw/URLConnection.o \
+	../tobj/acdk_net/mingw/URLDecoder.o \
+	../tobj/acdk_net/mingw/URLEncoder.o \
+	../tobj/acdk_net/mingw/URLEncoding.o \
+	../tobj/acdk_net/mingw/UrlFileSystem.o \
+	../tobj/acdk_net/mingw/URLStreamHandler.o \
+	../tobj/acdk_net/mingw/URLStreamHandlerFactory.o \
+
+
+FINALTARGET=../../bin/libacdk_net.dll
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_net.dll: $(OBJECTS)
+	$(LINK) -Wl,--enable-auto-image-base -Wl,--out-implib,../../bin/libacdk_net.a $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_net.dll $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+
+DEPSFILE=acdk_net.mingw.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_net/mingw/acdk_net_Package.o: acdk/net/acdk_net_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/acdk_net_Package.o -c acdk/net/acdk_net_Package.cpp
+
+../tobj/acdk_net/mingw/Authenticator.o: acdk/net/Authenticator.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/Authenticator.o -c acdk/net/Authenticator.cpp
+
+../tobj/acdk_net/mingw/DatagramSocket.o: acdk/net/DatagramSocket.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/DatagramSocket.o -c acdk/net/DatagramSocket.cpp
+
+../tobj/acdk_net/mingw/FileURLConnection.o: acdk/net/FileURLConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/FileURLConnection.o -c acdk/net/FileURLConnection.cpp
+
+../tobj/acdk_net/mingw/HeaderFieldHelper.o: acdk/net/HeaderFieldHelper.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/HeaderFieldHelper.o -c acdk/net/HeaderFieldHelper.cpp
+
+../tobj/acdk_net/mingw/HttpURLConnection.o: acdk/net/HttpURLConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/HttpURLConnection.o -c acdk/net/HttpURLConnection.cpp
+
+../tobj/acdk_net/mingw/HttpURLConnectionImpl.o: acdk/net/HttpURLConnectionImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/HttpURLConnectionImpl.o -c acdk/net/HttpURLConnectionImpl.cpp
+
+../tobj/acdk_net/mingw/InetAddress.o: acdk/net/InetAddress.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/InetAddress.o -c acdk/net/InetAddress.cpp
+
+../tobj/acdk_net/mingw/InetURLConnection.o: acdk/net/InetURLConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/InetURLConnection.o -c acdk/net/InetURLConnection.cpp
+
+../tobj/acdk_net/mingw/MimeTypeMapper.o: acdk/net/MimeTypeMapper.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/MimeTypeMapper.o -c acdk/net/MimeTypeMapper.cpp
+
+../tobj/acdk_net/mingw/net_metainf_base.o: acdk/net/net_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/net_metainf_base.o -c acdk/net/net_metainf_base.cpp
+
+../tobj/acdk_net/mingw/ServerSocket.o: acdk/net/ServerSocket.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/ServerSocket.o -c acdk/net/ServerSocket.cpp
+
+../tobj/acdk_net/mingw/Socket.o: acdk/net/Socket.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/Socket.o -c acdk/net/Socket.cpp
+
+../tobj/acdk_net/mingw/SocketException.o: acdk/net/SocketException.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/SocketException.o -c acdk/net/SocketException.cpp
+
+../tobj/acdk_net/mingw/SocketImpl.o: acdk/net/SocketImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/SocketImpl.o -c acdk/net/SocketImpl.cpp
+
+../tobj/acdk_net/mingw/SocketImplFactory.o: acdk/net/SocketImplFactory.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/SocketImplFactory.o -c acdk/net/SocketImplFactory.cpp
+
+../tobj/acdk_net/mingw/SocketLogConsumer.o: acdk/net/SocketLogConsumer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/SocketLogConsumer.o -c acdk/net/SocketLogConsumer.cpp
+
+../tobj/acdk_net/mingw/SocketOptions.o: acdk/net/SocketOptions.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/SocketOptions.o -c acdk/net/SocketOptions.cpp
+
+../tobj/acdk_net/mingw/TCPSocket.o: acdk/net/TCPSocket.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/TCPSocket.o -c acdk/net/TCPSocket.cpp
+
+../tobj/acdk_net/mingw/TCPSocketFactory.o: acdk/net/TCPSocketFactory.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/TCPSocketFactory.o -c acdk/net/TCPSocketFactory.cpp
+
+../tobj/acdk_net/mingw/TransRateReader.o: acdk/net/TransRateReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/TransRateReader.o -c acdk/net/TransRateReader.cpp
+
+../tobj/acdk_net/mingw/TransRateWriter.o: acdk/net/TransRateWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/TransRateWriter.o -c acdk/net/TransRateWriter.cpp
+
+../tobj/acdk_net/mingw/URL.o: acdk/net/URL.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URL.o -c acdk/net/URL.cpp
+
+../tobj/acdk_net/mingw/URLConnection.o: acdk/net/URLConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URLConnection.o -c acdk/net/URLConnection.cpp
+
+../tobj/acdk_net/mingw/URLDecoder.o: acdk/net/URLDecoder.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URLDecoder.o -c acdk/net/URLDecoder.cpp
+
+../tobj/acdk_net/mingw/URLEncoder.o: acdk/net/URLEncoder.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URLEncoder.o -c acdk/net/URLEncoder.cpp
+
+../tobj/acdk_net/mingw/URLEncoding.o: acdk/net/URLEncoding.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URLEncoding.o -c acdk/net/URLEncoding.cpp
+
+../tobj/acdk_net/mingw/UrlFileSystem.o: acdk/net/UrlFileSystem.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/UrlFileSystem.o -c acdk/net/UrlFileSystem.cpp
+
+../tobj/acdk_net/mingw/URLStreamHandler.o: acdk/net/URLStreamHandler.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URLStreamHandler.o -c acdk/net/URLStreamHandler.cpp
+
+../tobj/acdk_net/mingw/URLStreamHandlerFactory.o: acdk/net/URLStreamHandlerFactory.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net/mingw/URLStreamHandlerFactory.o -c acdk/net/URLStreamHandlerFactory.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_net.dll $(OBJECTS)
+
+  

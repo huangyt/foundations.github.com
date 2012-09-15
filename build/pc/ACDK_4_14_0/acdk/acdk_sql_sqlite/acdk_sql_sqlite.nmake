@@ -1,0 +1,123 @@
+###
+### This file is part of ACDK
+### Copyrighted (c) 2000-2005 by Roger Rene Kommer - artefaktur
+### 
+
+
+ACDKHOME = ..
+
+
+PACKAGE = acdk_sql_sqlite
+
+all: install compile 
+
+!include "$(ACDKHOME)\acdk_globals.nmake"
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_sql_sqlite_Test_d $(AUNIT_TESTOPTS)
+
+
+
+acdk_sql_sqlite-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src cbx
+
+sqlite3-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src cbx
+
+acdk_sql_sqlite_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src cbx
+
+acdk_sql_sqlite_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite cbx
+
+
+makemake:: acdk_sql_sqlite-makemake sqlite3-makemake acdk_sql_sqlite_metainf-makemake acdk_sql_sqlite_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\sqlite3.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_sql_sqlite_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/sql/sqlite\acdk_sql_sqlite_Test.lsp -pdir tests/acdk/sql/sqlite cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_sql_sqlite.lsp
+
+
+

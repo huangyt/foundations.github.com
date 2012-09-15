@@ -1,0 +1,37 @@
+
+
+#include "amake_config.csf"
+
+// Create a standard ACDK library named acdk_boot
+acdk_aal = new acdk.make.AcdkLibTask("acdk_aal");
+acdk_aal.addModule("src/acdk/aci");
+acdk_aal.addSource("src/acdk/aci/aci_metainf");
+acdk_aal.addModule("src/acdk/aal");
+acdk_aal.addSource("src/acdk/aal/aal_metainf");
+acdk_aal.addAcdkLib("acdk_core");
+acdk_aal.addAcdkLib("acdk_text");
+
+acdk_aci_Test = new acdk.make.AcdkTestExeTask("acdk_aci_Test");
+acdk_aci_Test.setBaseDir("tests/acdk/aci");
+acdk_aci_Test.addSource("tests/acdk/aci");
+acdk_aci_Test.addAcdkLib("acdk_core");
+acdk_aci_Test.addAcdkLib("acdk_tools_aunit");
+acdk_aci_Test.addAcdkLib("acdk_text");
+acdk_aci_Test.addAcdkLib("acdk_aal");
+
+acdk_aal_Test = new acdk.make.AcdkTestExeTask("acdk_aal_Test");
+acdk_aal_Test.setBaseDir("tests/acdk/aal");
+acdk_aal_Test.addSource("tests/acdk/aal");
+acdk_aal_Test.addAcdkLib("acdk_core");
+acdk_aal_Test.addAcdkLib("acdk_tools_aunit");
+acdk_aal_Test.addAcdkLib("acdk_text");
+acdk_aal_Test.addAcdkLib("acdk_aal");
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("default");
+default.addSubTask("acdk_aal");
+default.addSubTask("acdk_aci_Test");
+default.addSubTask("acdk_aal_Test");
+default.registerTask("aal_prj");

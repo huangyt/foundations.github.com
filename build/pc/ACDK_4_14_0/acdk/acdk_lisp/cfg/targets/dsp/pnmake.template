@@ -1,0 +1,35 @@
+###
+### This file is part of ACDK
+### Copyrighted (c) 2000-2005 by Roger Rene Kommer - artefaktur
+### 
+
+
+ACDKHOME = %[acdk-home]%
+
+
+PACKAGE = %[acdkmake-project-name]%
+
+all: install compile 
+
+!include "$(ACDKHOME)\acdk_globals.nmake"
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+%[(acdk-pmake-generate-tests)]%
+
+%[(acdk-pmake-generate-meta-make)]%
+

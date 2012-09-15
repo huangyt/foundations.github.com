@@ -1,0 +1,65 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_perl
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_perl_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_perl_Test failed; exit 1; 
+
+
+
+acdk_perl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src bcc
+
+acdkperl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src bcc
+
+acdk_perl_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl bcc
+
+
+makemake:: acdk_perl-makemake acdkperl-makemake acdk_perl_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_perl.lsp
+
+

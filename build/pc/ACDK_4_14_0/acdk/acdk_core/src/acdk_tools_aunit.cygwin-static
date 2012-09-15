@@ -1,0 +1,162 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDKHOME)
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_tools_aunit/cygwin-static
+
+# where to store the .a, .so and executables
+BINDIR=../../bin
+
+CCOMPILER=g++ -Wall -Wno-unused
+CCOPTS=-g
+CFLAGSX=
+CCINCLUDE= -I ../src  -I ../include  -I ../../include 
+DEFINES= -DOS_CYGWIN32 -D_REENTRANT -DIN_ACDK_TOOLS_TESTUNIT_LIB
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+LINK=g++ -shared
+LDFLAGS=-g
+SYSLIBRARIES=
+LIBS = $(SYSLIBRARIES)   ../../bin/acdk_core.a
+AR=ar rc
+RANLIB=ranlib
+
+SOURCES= 	acdk/tools/aunit/aunit_metainf_base.cpp \
+	acdk/tools/aunit/CfgScriptTestSuite.cpp \
+	acdk/tools/aunit/DmiTestClass.cpp \
+	acdk/tools/aunit/ProcessTestSuite.cpp \
+	acdk/tools/aunit/TestConsoleListener.cpp \
+	acdk/tools/aunit/TestDebuggerListener.cpp \
+	acdk/tools/aunit/TestHtmlReport.cpp \
+	acdk/tools/aunit/TestResult.cpp \
+	acdk/tools/aunit/TestRunner.cpp \
+	acdk/tools/aunit/TestTextReport.cpp \
+	acdk/tools/aunit/TestUnit.cpp \
+
+HEADER= 	acdk/tools/aunit/aunit.h \
+	acdk/tools/aunit/CfgScriptTestSuite.h \
+	acdk/tools/aunit/Config.h \
+	acdk/tools/aunit/core_test.h \
+	acdk/tools/aunit/DmiTestClass.h \
+	acdk/tools/aunit/DmiTestException.h \
+	acdk/tools/aunit/DmiTestInterface.h \
+	acdk/tools/aunit/McConfigTest.h \
+	acdk/tools/aunit/ProcessTestSuite.h \
+	acdk/tools/aunit/SayHelloInterface.h \
+	acdk/tools/aunit/Test.h \
+	acdk/tools/aunit/TestCollectorListener.h \
+	acdk/tools/aunit/TestConsoleListener.h \
+	acdk/tools/aunit/TestDebuggerListener.h \
+	acdk/tools/aunit/TestException.h \
+	acdk/tools/aunit/TestFailure.h \
+	acdk/tools/aunit/TestHtmlReport.h \
+	acdk/tools/aunit/TestListener.h \
+	acdk/tools/aunit/TestReport.h \
+	acdk/tools/aunit/TestResult.h \
+	acdk/tools/aunit/TestRunner.h \
+	acdk/tools/aunit/TestTextReport.h \
+	acdk/tools/aunit/TestUnit.h \
+
+OBJECTS= 	../tobj/acdk_tools_aunit/cygwin-static/aunit_metainf_base.o \
+	../tobj/acdk_tools_aunit/cygwin-static/CfgScriptTestSuite.o \
+	../tobj/acdk_tools_aunit/cygwin-static/DmiTestClass.o \
+	../tobj/acdk_tools_aunit/cygwin-static/ProcessTestSuite.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestConsoleListener.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestDebuggerListener.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestHtmlReport.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestResult.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestRunner.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestTextReport.o \
+	../tobj/acdk_tools_aunit/cygwin-static/TestUnit.o \
+
+
+FINALTARGET=../../bin/acdk_tools_aunit.a
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/acdk_tools_aunit.a: $(OBJECTS)
+	$(AR) $@ $(OBJECTS)
+	-@ ($(RANLIB) $@ || true) >/dev/null 2>&1
+
+DEPSFILE=acdk_tools_aunit.cygwin-static.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CC) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_tools_aunit/cygwin-static/aunit_metainf_base.o: acdk/tools/aunit/aunit_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/aunit_metainf_base.o -c acdk/tools/aunit/aunit_metainf_base.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/CfgScriptTestSuite.o: acdk/tools/aunit/CfgScriptTestSuite.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/CfgScriptTestSuite.o -c acdk/tools/aunit/CfgScriptTestSuite.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/DmiTestClass.o: acdk/tools/aunit/DmiTestClass.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/DmiTestClass.o -c acdk/tools/aunit/DmiTestClass.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/ProcessTestSuite.o: acdk/tools/aunit/ProcessTestSuite.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/ProcessTestSuite.o -c acdk/tools/aunit/ProcessTestSuite.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestConsoleListener.o: acdk/tools/aunit/TestConsoleListener.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestConsoleListener.o -c acdk/tools/aunit/TestConsoleListener.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestDebuggerListener.o: acdk/tools/aunit/TestDebuggerListener.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestDebuggerListener.o -c acdk/tools/aunit/TestDebuggerListener.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestHtmlReport.o: acdk/tools/aunit/TestHtmlReport.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestHtmlReport.o -c acdk/tools/aunit/TestHtmlReport.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestResult.o: acdk/tools/aunit/TestResult.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestResult.o -c acdk/tools/aunit/TestResult.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestRunner.o: acdk/tools/aunit/TestRunner.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestRunner.o -c acdk/tools/aunit/TestRunner.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestTextReport.o: acdk/tools/aunit/TestTextReport.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestTextReport.o -c acdk/tools/aunit/TestTextReport.cpp
+
+../tobj/acdk_tools_aunit/cygwin-static/TestUnit.o: acdk/tools/aunit/TestUnit.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_aunit/cygwin-static/TestUnit.o -c acdk/tools/aunit/TestUnit.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_tools_aunit.a $(OBJECTS)
+
+  

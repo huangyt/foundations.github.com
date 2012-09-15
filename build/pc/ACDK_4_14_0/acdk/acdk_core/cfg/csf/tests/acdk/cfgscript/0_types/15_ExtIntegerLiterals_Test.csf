@@ -1,0 +1,8 @@
+
+int i = 0x0001;
+int j = 0x0010;
+int k = 010;
+if (i == 1 && j == 16 && k == 8)
+ out.println("TEST OK");
+else
+  out.println("TEST FAILED");

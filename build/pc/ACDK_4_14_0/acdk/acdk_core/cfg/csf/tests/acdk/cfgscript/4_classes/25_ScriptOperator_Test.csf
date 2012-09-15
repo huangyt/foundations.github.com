@@ -1,0 +1,23 @@
+class Average
+extends acdk.lang.Object
+{
+  int count;
+  double average;
+  
+  Average operator+(int v)
+  {
+    average = (average * count + v) / (count + 1);
+    count = count + 1;
+    return this;
+  }
+  Average(int v) 
+  { 
+    count = 1;
+    average = v;
+  }
+  int getAverage() { return average; }
+}
+
+Average av = new Average(2);
+av = av + 1 + 6; // calls Average.operator+()
+out.println("Average of 2, 1 and 6 is " + av.getAverage());

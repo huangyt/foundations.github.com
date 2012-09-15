@@ -1,0 +1,49 @@
+%id: acdk_core_locale_encoding
+%title: String Encoding
+%keywords: String Encoding, Encoding, Encoder, Decoder
+%seealso: acdk_hb_lang_string
+%body:
+<pageintro>
+ACDK supports Unicode strings with many encodings.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Interfaces</jump1>
+The class %cref[acdk::locale::Encoder] translates a String into
+a byte stream.
+The class %cref[acdk::locale::Decoder] translates a String into
+a byte stream.
+
+Both interfaces are available via the %cref[acdk::locale::Encoding] 
+factory interface.
+Using <c>acdk::locale::Encoding::getEncoding(IN(RString) name)</c>
+an encoding can be received by name.
+
+<jump1>Implementations</jump1>
+Following encodings are currently available:
+<fl>
+<f> UTF8
+<f> UCS2: 2 bytes unicode character. Endianess is platform depending
+<f> UCS2-LE: 2 bytes little endian unicode character
+<f> UCS2-BE: 2 bytes big endian unicode character
+<f> US-ASCII: 7 bit ASCII
+<f> ByteAscii: 8 bit ASCII
+<f> 8859-1, LATIN-1, 8859-2, 8859-3, 8859-4, 8859-5, 8859-6,
+    8859-7, 8859-8, 8859-9, 8859-10, 8859-13, 8859-14, 8859-15, 8859-16: ISO code pages
+<f> CP1250, CP1251, CP1252, CP1253, CP1254, CP1255, CP1256, CP1257, CP1258, IBM-850, IBM code pages
+<f> C-Escape: Escapes non-printable chars as C-Escapes, like '\n' for new line.
+<f> AsciiUtf: US-ASCII with escapes for chars > 128 < '\uFFFF'.
+</fl>
+
+Please refer to %ref[acdk_hb_lang_string] how to use unicode literals in the source code.
+
+<jump1>Configure default encoding</jump1>
+At startup of an application ACDK tries to evaluate the locale from the underlying system.
+This value can be overwritten either via configuration file or command line.
+The default encoding will be used for example to read and write from a concole.
+
+See %ref[acdk_core_man_config] for more details.
+
+.

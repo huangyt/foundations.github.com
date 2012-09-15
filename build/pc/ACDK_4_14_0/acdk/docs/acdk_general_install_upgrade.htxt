@@ -1,0 +1,59 @@
+%id: acdk_general_install_upgrade
+%title: Upgrade ACDK Libraries
+%shorttitle: Upgrade ACDK
+%body:
+
+<htmlauto>
+<pageintro>
+Describes what to do to upgrade ACDK from a previous version.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>General Notes</jump1>
+Please refer in the package 'readmes' for functional changes (for example: %ref[acdk_core_readme]).
+A summary is also available at %ref[http://sourceforge.net/docman/display_doc.php?docid=5800&group_id=15364, http://sourceforge.net/docman/display_doc.php?docid=5800&group_id=15364].
+
+<jump1>Upgrade from 4.13 to 4.14</jump1>
+<jump2>Overall Changes</jump2>
+Build System:
+<fl>
+  <f> For a more flexible support of external libraries (see also %ref[acdk_packages_deps])
+      some batch files are introduced. 
+      Most settings are configured in <c>acdkenv.cmd</c> for Windows platform
+      For the Visual Studio IDEs there is also an startscript <c>startvstudio6.cmd</c>
+      which automatically load the <c>acdkenv.cmd</c>.
+      For the unix platforms you may have to ajust the external libraries in the 
+      file <c>acdk_global.*</c> (for example <c>acdk_gloabls.linux </c>). 
+      The <c>acdkenv.*</c> are shell script, which defines additionally path names
+      which may be ajusted and 'sourced' before launching an ACDK executable.
+      
+  <f> The <c>acdkmake</c> is not tested/supported in this release .
+    
+Compiler / Platforms:
+</fl>
+<fl>
+  <f> Most packages has mayor changes and enhancements.
+  <f> Support for Solaris 10 intel added.
+  <f> Support for Suse 9.1, 9.2, 9.3 added
+  <f> Support for Fedora Core 3 and 4 beta added
+  <f> Support for FreeBSD 5.3 added.
+  <f> Support Visual Studio 2005 Beta 1 and Beta 2 added.
+      Removed the Visual Studio 2003 project files. 
+      Please use the <c>.dsw</c> files for Visual Studio versions.
+  <f> Support for GCC 4 
+  <f> Support of Borland compiler is not complete or stable. 
+      I probably will drop the support Borland compiler, because
+      I was not able to receive stables results with this compiler.
+</fl>
+
+<jump2>Necessary changes in your code</jump2>
+<fl>
+  <f> You have to regenerated the meta info (using <c>acdkmc</c>) of your
+      project, because the format has been changed.
+  <f> You have to re-compile your sources.
+  <f> Add/create/modify an <c>acdk.cfg</c> in the <c>$ACDKHOME/cfg</c> path.
+</fl>
+
+.

@@ -1,0 +1,10 @@
+
+using acdk.cfgscript.ScriptGlobals;
+/*
+int i = 42;
+int i2 = inOf(i);
+int i3 = outOf(i);
+i3 = 41;
+out.println("i: " + i);
+*/
+acdk.io.Writer wr = byRefAs(out.getWriter(), acdk.io.Writer.GetClass());

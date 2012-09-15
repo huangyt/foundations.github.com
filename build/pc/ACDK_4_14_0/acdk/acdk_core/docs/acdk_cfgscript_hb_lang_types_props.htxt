@@ -1,0 +1,92 @@
+%id: acdk_cfgscript_hb_lang_types_props
+%title: CfgScript Properties Type
+%shorttitle: Props Type
+%keywords: Props, dictionary, acdk::cfgscript::Props
+%body:
+<chapterline/>
+<pageintro>
+Property provides an hierarchical string indexed container.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>The Props class</jump1>
+The %cref[acdk::cfgscript::Props] class implements the basic
+structures as dictionaries in CfgScript. 
+
+Although designed for usage in CfgScript, the Props class is also
+very handy to be used directly in C++ as an enhanced property class.
+
+<source>
+Props myprops = new Props();
+myprops.set("first", 1);
+myprops.set("second", new StringBuffer("asdf"));
+</source>
+
+The same can be expressed in more easier way:
+
+<source>
+Props myprops = new Props();
+myprops.first =  1;
+myprops.second =  new StringBuffer("asdf");
+</source>
+
+The implementation of local variables and member variables CfgScript classes
+are implemented as Props.
+Inside a script the variable <c>__props</c> represents all local
+defined variables:
+<source>
+// demonstration that local variables are just
+// entries in the __props Props
+int i = 43;
+{
+  // local variable
+  int i = 42;
+  // local variable
+  String s = "Hallo";
+  __script.assertTest(__props.i == i); // always true
+  __script.assertTest(i  == __props.get("i"));// always true
+  // accessing the parent scope 
+  __script.assertTest(43 == __props.getParentProps().i);
+}
+</source>
+
+C++ DMI Note:
+Props overload the peek and poke (reading and writing
+object member) to access directly the contained property
+values, whereas the keys are mapped as object members.
+
+<jump1>PropsLiteral</jump1>
+<pre>
+PropsLiteral
+: '{' [ PropsLiterals ] '}'
+;
+
+PropsLiterals
+: PropsLiteralValue [ ',' PropsLiterals ]
+;
+
+PropsLiteralValue
+: Identifier ':' %ref[Expression, acdk_cfgscript_hb_lang_expr]
+;
+
+</pre>
+
+<jump1>Samples</jump1>
+<source>
+Props props  = {
+  a: 1, // contains atomar type
+  b: [ 42, 43 ], // contains an array
+  
+  c: { 
+    d: "ACDK",
+    e: [ "a", "b", "c" ],
+    f: "${a.b}",
+    g: "${place.getLocation()}"
+  } // contains a substructur
+};
+out.println(props.asCfgScriptLiteral("Test"));
+</source>
+
+.

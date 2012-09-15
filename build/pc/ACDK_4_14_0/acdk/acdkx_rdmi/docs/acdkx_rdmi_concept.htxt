@@ -1,0 +1,157 @@
+%id: acdkx_rdmi_concept
+%title: Concept about Remote DMI
+%body:
+<jumptable/>
+
+<jump1>Design Goals</jump1>
+<fl>
+<f> <b>Usage</b>
+<sfl>
+  <f> No need to derive from Remoting interfaces (like CORBA, RDMI)
+      or explicit signatures (with Remoting excpetions).
+  <f> No IDL needed, but working directly with reflection information.
+  <f> Every interface/class can be invoked by RDMI.
+  <f> Support of in, out, inout, byref and byval.
+  <f> Weak invocation doesn't need the type information on the client
+      if something is wrong with arguments, the server will respond with exception.
+      out, inout parameters are not available for weak invocation.
+      Weak invocation uses a opaque Object as client object.
+  <f> Strong invocation uses type information to map in, out, byval byref
+      to parameter set.
+      Remote references can be casted to native Interfaces. Client and Server 
+      code doesn't make difference between remote and local objects.
+  <f> The weak and strong uses the standard DMI mechanism with New, invoke, 
+      static_invoke, peek, poke, static_peek, static_poke.
+  <f> Selection, if parameter are tranfered by value or by (remote-) reference
+      can be declared by the the parameter attributes of the interface definition.
+  <f> If no interface definition is available, Throwable, Strings, Serializables and basic
+      types are transfered by value, all others by reference.
+  <f> 3 ways to identify how to transfer arguments:
+  <sfl>
+    <f> implicit by type of parameter
+    <f> by declaration of interfaces.
+    <f> by using byRef(), byVal() operators in client code.
+  </sfl>
+  <f> Thrown Exception are transfered transparent from client to server.
+  <f> Remote class loading is not possible for native C++ classes.
+      In a later version interfaces and classes maybe transfered CfgScript.
+</sfl>
+<f> <b>Protocol</b>
+<sfl>
+  <f> Multiple transport and protocol possible, like
+      binary over TCP, HTTP/XML, etc.
+  <f> Using standard reference based GC (no need for explicit calls
+      to dispose objects).
+  <f> Standard references lifes as long a connection lifes.
+      This has to be emulated in connectionless transports like HTTP.
+  <f> Objects independed from connection may be allocated.
+  <f> No need for nameservices.
+  <f> A client is also a server, which enables callback scenarios.
+  <f> Security: In the first version RDMI is only designed to run 
+      on trusted environmnet, mostly running even on the same platform.
+      
+</sfl>
+</fl>
+The RDMIServer and RDMIClient should provide a simple remote DMI call interface
+on TCP/IP basis.
+All interfaces with DmiProxy available are handled transparent.
+
+<jump1>Scribble</jump1>
+
+<jump2>Sample code</jump2>
+<source>
+RRdmiClient client = new RdmiClient("localhost:1111");
+RMyInterface iface = (RMyInterface)client->New("my.Class", MyInterface::getClass(), arg1);
+RMyObject = iface->myFunction(arg1);
+RMyOtherInterface mo = new MyOtherClass("asdf");
+iface->registerMyListener(mo);
+iface->iterThroughtListener(); // remote server may call back client 
+</source>
+
+Client/Server impl:
+<source>
+void RdmiServer::call(...)
+{
+  while (true)
+  {
+    RDmiRequest req = requestFromCall(...);
+    RDmiRequest resp = sendReceive(req);
+    if (resp->isReturnOrEx() == true) // remote call returned immediatelly
+    {
+      responseToCall(resp, ...);
+      return;
+    }
+    // recursive back call
+    RRdmiRequest respresp = resp->handle();
+    sendReceive(respresp);
+  }
+    
+}
+void
+RdmiServer::run()
+{
+  while (true)
+  {
+    RRdmiRequest req = server->nextRequest();
+    if (req->isShootdown() == true)
+      break;
+    RRdmiRequest resp = req->handle();
+    server->send(resp);
+  }
+}
+</source>
+<jump1>Protocoll</jump1>
+<source>
+RDMICall: Header CallOrReturn
+
+Header
+  Call    0
+  Return  1 
+
+Return
+: 0 Return
+| 1 Exception
+;
+
+returnValue
+: ValueOrException
+;  
+
+Value
+: enum RemoteRefId, ClassName
+| enum BasicValue TypeChar Value
+| enum ObjectValue SerializedObject
+;
+  
+enum InvokeCmd {
+  ShootDown,
+  AddRef,
+  /** 
+    @param remoteObjectId 
+    @return ReturnValue, int refCount after release
+  */
+  ReleaseRef,
+  /** 
+    @param ClassName
+    @param Args 
+    @return ReturnValue
+  */
+  New,
+  /**
+    @param remoteObjectId
+    @param methodName
+    @param Args
+    @return ReturnValue
+  Invoke,
+  ....
+}
+// server
+RRemoteDmiServer server = new RemoteDmiServer(portNo); // listen at port
+
+// client
+RRemoteDmiClient client = new RemoteDmiClient(portNo);
+RStringBuffer sb = (RStringBuffer)client->New("acdk/lang/StringBuffer", "Hello");
+RString s = sb->toString();
+</source>
+
+.

@@ -1,0 +1,13 @@
+intArrayArray ia = [ [ 1, 2 ] ];
+
+StringArray sa = new StringArray(2);
+sa.set(0, "A");
+sa.set(1, "B");
+
+try {
+  sa.append(new Object());
+  out.println("TEST FAILED");
+} catch (ClassCastException ex) {
+  out.println("expected ParamsMismatchException: " + ex.getMessage());
+  out.println("TEST OK");
+}

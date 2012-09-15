@@ -1,0 +1,97 @@
+%id: acdk_wx_hb_events
+%title: acdk_wx Events
+%shorttitle: Events
+%body:
+<pageintro>
+How to react on Events.
+</pageintro>
+<htmlauto/>
+
+Using events in CfgScript:
+<source>
+using acdk.wx;
+
+
+class MyFrame
+extends Frame
+{
+  MyFrame() 
+  {
+    super("Event Sample");
+    connect(SizeEvent.EvtSize, -1, delegate onSize); // using delegate to connect member method onSize
+    connect(MoveEvent.EvtMove, -1, lambda[this] { out.println("on Move"); }); // using lambda expression
+    connect(CloseEvent.EvtCloseWindow, -1, 
+      lambda[this] // the new anonomous function is member of MyFrame
+        void (CloseEvent event) 
+        { 
+          out.println("on Close"); 
+          close(); // call this.close()
+        }
+    );
+  }
+  void onSize(SizeEvent event)
+  {
+    out.println("onSize");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame()).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);
+</source>
+
+Using Events in ACDK C++:
+<source>
+
+ACDK_DECL_CLASS(MyFrame);
+class MyFrame
+: public Frame
+{
+public:
+  MyFrame(IN(RString) str) 
+  : Frame(str) 
+  {
+    connect(MoveEvent.EvtMove, -1, (ObjectEventFunction)&MyFrame::onMove);
+  }
+  void onMove(IN(RMoveEvent) event)
+  {
+    RPoint pt = event->getPosition();
+    acdk::lang::System::out->println("OnMove");
+  }
+};
+
+class Main 
+: extends App
+{
+public:
+  bool onInit()
+  {
+    (new MyFrame("Hello Wx"))->show(true);
+    return true;
+  }
+};
+
+int
+main(int argc, char* argv[], char** envptr)
+{
+  RStringArray args = new StringArray(0);
+  return App::createGui(new MyApp(), args);
+} 
+</source>
+<note>
+The event object instance given in a event handler method lifes only
+inside the event handler method. 
+
+</note>
+
+.

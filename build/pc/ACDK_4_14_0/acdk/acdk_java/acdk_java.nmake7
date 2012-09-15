@@ -1,0 +1,79 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_java
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_java_serialization_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_java_serialization_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_java_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_java_Test failed; exit 1; 
+
+
+
+acdk_java_serialization-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_serialization.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_serialization.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_serialization.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_serialization.lsp -pdir src bsd
+
+acdk_java_serialization_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java/serialization\acdk_java_serialization_Test.lsp -pdir tests/acdk/java/serialization dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java/serialization\acdk_java_serialization_Test.lsp -pdir tests/acdk/java/serialization linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java/serialization\acdk_java_serialization_Test.lsp -pdir tests/acdk/java/serialization sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java/serialization\acdk_java_serialization_Test.lsp -pdir tests/acdk/java/serialization bsd
+
+acdk_java_rmi-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_rmi.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_rmi.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_rmi.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java_rmi.lsp -pdir src bsd
+
+acdk_java-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_java.lsp -pdir src bsd
+
+acdkjava-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkjava.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkjava.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkjava.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkjava.lsp -pdir src bsd
+
+acdk_java_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java\acdk_java_Test.lsp -pdir tests/acdk/java dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java\acdk_java_Test.lsp -pdir tests/acdk/java linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java\acdk_java_Test.lsp -pdir tests/acdk/java sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/java\acdk_java_Test.lsp -pdir tests/acdk/java bsd
+
+
+makemake:: acdk_java_serialization-makemake acdk_java_serialization_Test-makemake acdk_java_rmi-makemake acdk_java-makemake acdkjava-makemake acdk_java_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_java.lsp
+
+

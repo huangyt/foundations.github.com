@@ -1,0 +1,179 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.mingw
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_core_dmiproxy/mingw
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -O2  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_WIN32 -D_REENTRANT -DWIN32_THREADS -DACDK_OS_WIN32 -DACDK_MINGW  $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lkernel32 -lwsock32
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR)  -lacdk_core
+CFLAGSX=
+
+SOURCES= 	acdk/lang/lang_dmiproxy/lang_dmiproxy.cpp \
+	acdk/lang/lang_dmiproxy/lang_dmiproxy1.cpp \
+	acdk/lang/lang_dmiproxy/lang_dmiproxy2.cpp \
+	acdk/lang/dmi/dmi_dmiproxy/dmi_dmiproxy.cpp \
+	acdk/lang/ref/ref_dmiproxy/ref_dmiproxy.cpp \
+	acdk/lang/reflect/reflect_dmiproxy/reflect_dmiproxy.cpp \
+	acdk/io/io_dmiproxy/io_dmiproxy.cpp \
+	acdk/io/io_dmiproxy/io_dmiproxy1.cpp \
+	acdk/io/io_dmiproxy/io_dmiproxy2.cpp \
+	acdk/util/util_dmiproxy/util_dmiproxy.cpp \
+	acdk/util/util_dmiproxy/util_dmiproxy1.cpp \
+	acdk/util/util_dmiproxy/util_dmiproxy2.cpp \
+	acdk/util/logging/logging_dmiproxy/logging_dmiproxy.cpp \
+	acdk/locale/locale_dmiproxy/locale_dmiproxy.cpp \
+
+HEADER= 
+OBJECTS= 	../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy1.o \
+	../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy2.o \
+	../tobj/acdk_core_dmiproxy/mingw/dmi_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/ref_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/reflect_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy1.o \
+	../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy2.o \
+	../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy1.o \
+	../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy2.o \
+	../tobj/acdk_core_dmiproxy/mingw/logging_dmiproxy.o \
+	../tobj/acdk_core_dmiproxy/mingw/locale_dmiproxy.o \
+
+
+FINALTARGET=../../bin/libacdk_core_dmiproxy.dll
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_core_dmiproxy.dll: $(OBJECTS)
+	$(LINK) -Wl,--enable-auto-image-base -Wl,--out-implib,../../bin/libacdk_core_dmiproxy.a $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_core_dmiproxy.dll $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+
+DEPSFILE=acdk_core_dmiproxy.mingw.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy.o: acdk/lang/lang_dmiproxy/lang_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy.o -c acdk/lang/lang_dmiproxy/lang_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy1.o: acdk/lang/lang_dmiproxy/lang_dmiproxy1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy1.o -c acdk/lang/lang_dmiproxy/lang_dmiproxy1.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy2.o: acdk/lang/lang_dmiproxy/lang_dmiproxy2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/lang_dmiproxy2.o -c acdk/lang/lang_dmiproxy/lang_dmiproxy2.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/dmi_dmiproxy.o: acdk/lang/dmi/dmi_dmiproxy/dmi_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/dmi_dmiproxy.o -c acdk/lang/dmi/dmi_dmiproxy/dmi_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/ref_dmiproxy.o: acdk/lang/ref/ref_dmiproxy/ref_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/ref_dmiproxy.o -c acdk/lang/ref/ref_dmiproxy/ref_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/reflect_dmiproxy.o: acdk/lang/reflect/reflect_dmiproxy/reflect_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/reflect_dmiproxy.o -c acdk/lang/reflect/reflect_dmiproxy/reflect_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy.o: acdk/io/io_dmiproxy/io_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy.o -c acdk/io/io_dmiproxy/io_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy1.o: acdk/io/io_dmiproxy/io_dmiproxy1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy1.o -c acdk/io/io_dmiproxy/io_dmiproxy1.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy2.o: acdk/io/io_dmiproxy/io_dmiproxy2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/io_dmiproxy2.o -c acdk/io/io_dmiproxy/io_dmiproxy2.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy.o: acdk/util/util_dmiproxy/util_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy.o -c acdk/util/util_dmiproxy/util_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy1.o: acdk/util/util_dmiproxy/util_dmiproxy1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy1.o -c acdk/util/util_dmiproxy/util_dmiproxy1.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy2.o: acdk/util/util_dmiproxy/util_dmiproxy2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/util_dmiproxy2.o -c acdk/util/util_dmiproxy/util_dmiproxy2.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/logging_dmiproxy.o: acdk/util/logging/logging_dmiproxy/logging_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/logging_dmiproxy.o -c acdk/util/logging/logging_dmiproxy/logging_dmiproxy.cpp
+
+../tobj/acdk_core_dmiproxy/mingw/locale_dmiproxy.o: acdk/locale/locale_dmiproxy/locale_dmiproxy.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_core_dmiproxy/mingw/locale_dmiproxy.o -c acdk/locale/locale_dmiproxy/locale_dmiproxy.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_core_dmiproxy.dll $(OBJECTS)
+
+  

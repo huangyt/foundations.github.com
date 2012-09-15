@@ -1,0 +1,73 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_net.lib" "..\..\bin\acdk_net_srfsys.lib"
+
+OUTFILE="..\..\bin\acdk_net_srsync.exe"
+OUTDIR = "..\..\bin"
+INTDIR = ".\tobj\acdk_net_srsync\bcc"
+SOURCES= 	"acdk\net\srsync\srsync.cpp" \
+	"acdk\net\srsync\SyncFileOperation.cpp" \
+
+HEADER= 	"acdk\net\srsync\srsync.h" \
+	"acdk\net\srsync\SyncFileOperation.h" \
+
+OBJECTS= 	".\tobj\acdk_net_srsync\bcc\srsync.obj" \
+	".\tobj\acdk_net_srsync\bcc\SyncFileOperation.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_net_srsync\bcc\srsync.obj": "acdk\net\srsync\srsync.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_net_srsync\bcc" "acdk\net\srsync\srsync.cpp"
+
+".\tobj\acdk_net_srsync\bcc\SyncFileOperation.obj": "acdk\net\srsync\SyncFileOperation.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_net_srsync\bcc" "acdk\net\srsync\SyncFileOperation.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_net_srsync.exe"
+	del ".\tobj\acdk_net_srsync\bcc\srsync.obj"
+	del ".\tobj\acdk_net_srsync\bcc\SyncFileOperation.obj"
+
+

@@ -1,0 +1,167 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="SQL, connect, select, insert, create, drop">
+<title>ACDK SQL Basic Operations</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK SQL ODBC</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_sql_man.html">ACDK SQL Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Basic Operations
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | Basic Operations | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK SQL Basic Operations</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK SQL Basic Operations</h1> -->
+<p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | Basic Operations | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p>
+<p class="PageIntro">
+  Basic JDBC-like Operations supported.
+</p>
+
+<br>
+<br>
+<a name="jumptable119"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Using standard SQL in ACDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using standard SQL in ACDK</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Open a connection"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Open a connection</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Select statement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Select statement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Insert Statement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Insert Statement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Create Table"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Create Table</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Drop Table"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Drop Table</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Cleanup"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Cleanup</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h3><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using standard SQL in ACDK">Using standard SQL in ACDK</a></h3>
+<br>
+ACDK SQL classes are quite similar to the JDBC (Java Database Connection) standard.<br>
+<h4><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Open a connection">Open a connection</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <I><FONT COLOR="#B22222">// This Statement is currently needed to load the ODBC-DLL.
+</FONT></I>  <I><FONT COLOR="#B22222">// If no Class from acdk::sql::odbc is used, Class::forName will fail!
+</FONT></I>  <I><FONT COLOR="#B22222">// So let's start with a dummy line ...
+</FONT></I>  RDriver tdriver = (RDriver)Class::forName(<B><FONT COLOR="#BC8F8F">&quot;acdk::sql::odbc::ODBCDriver&quot;</FONT></B>)-&gt;newInstance();
+  RString url = <B><FONT COLOR="#BC8F8F">&quot;jdbc:odbc:acdk/user=acdk/password=acdk&quot;</FONT></B>;
+  RDriver driver = DriverManager::getDriver(url);
+  <B><FONT COLOR="#A020F0">if</FONT></B> (driver == Nil)
+    testAssertComment(false, <B><FONT COLOR="#BC8F8F">&quot;Cannot load driver: &quot;</FONT></B> + url);
+  
+  <I><FONT COLOR="#B22222">// get a connection
+</FONT></I>  RConnection connection = driver-&gt;connect(url, Nil);
+</PRE></td></tr></table>  
+<h4><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Select statement">Select statement</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    <I><FONT COLOR="#B22222">// create a statment from the connection
+</FONT></I>    RStatement statement = connection-&gt;createStatement();
+    RString sql = <B><FONT COLOR="#BC8F8F">&quot;SELECT intcol, realcol, stringcol FROM acdk_select_test&quot;</FONT></B>; 
+    RResultSet rset = statement-&gt;executeQuery(sql);
+    <B><FONT COLOR="#A020F0">while</FONT></B> (rset-&gt;next() == true) 
+    { 
+      <I><FONT COLOR="#B22222">// read a column via position (starts with 1, not 0)
+</FONT></I>      <B><FONT COLOR="#228B22">int</FONT></B> intcol = rset-&gt;getInt(1);
+      <I><FONT COLOR="#B22222">// read a column via name
+</FONT></I>      <B><FONT COLOR="#228B22">float</FONT></B> floatcol = rset-&gt;getFloat(<B><FONT COLOR="#BC8F8F">&quot;realcol&quot;</FONT></B>);
+      RString sval = rset-&gt;getString(<B><FONT COLOR="#BC8F8F">&quot;stringcol&quot;</FONT></B>);
+    }
+  }
+</PRE></td></tr></table>
+<br>
+<h4><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Insert Statement">Insert Statement</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+{
+    <I><FONT COLOR="#B22222">// insert some data into the table
+</FONT></I>    <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i = 0; i &lt; 2; i++)
+    {
+      <B><FONT COLOR="#228B22">float</FONT></B> f = i + 0.5;
+      RString sql = SBSTR(<B><FONT COLOR="#BC8F8F">&quot;INSERT INTO acdk_select_test VALUES ( &quot;</FONT></B> &lt;&lt; i &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, &quot;</FONT></B> &lt;&lt; f &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, &quot;</FONT></B> &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;'stm: &quot;</FONT></B> &lt;&lt; i &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;')&quot;</FONT></B>
+                          );
+      RStatement statement = connection-&gt;createStatement();
+      <B><FONT COLOR="#228B22">int</FONT></B> rows = statement-&gt;executeUpdate(sql);
+    }
+  }
+</PRE></td></tr></table>
+<br>
+<h4><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Create Table">Create Table</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    <I><FONT COLOR="#B22222">// create a table
+</FONT></I>    RString sql = <B><FONT COLOR="#BC8F8F">&quot;CREATE TABLE acdk_select_test ( intcol int, realcol real, stringcol Varchar(100) )&quot;</FONT></B>;
+    RStatement statement = connection-&gt;createStatement();
+    statement-&gt;executeUpdate(sql);
+</PRE></td></tr></table>
+<br>
+<h4><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Drop Table">Drop Table</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    {
+    <I><FONT COLOR="#B22222">// delete a table, if it already exists
+</FONT></I>    RStatement statement;
+    <B><FONT COLOR="#A020F0">try</FONT></B> {
+      RString sql = <B><FONT COLOR="#BC8F8F">&quot;DROP TABLE acdk_select_test&quot;</FONT></B>;
+      RStatement statement = connection-&gt;createStatement();
+      <B><FONT COLOR="#228B22">int</FONT></B> rows = statement-&gt;executeUpdate(sql);
+    } <B><FONT COLOR="#A020F0">catch</FONT></B> (RSQLException ex) { 
+     
+    }
+</PRE></td></tr></table>
+<h4><a href="#jumptable119"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Cleanup">Cleanup</a></h4>
+If the ODBC driver is no longer needed you can call:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  <B><FONT COLOR="#5F9EA0">DriverManager</FONT></B>::deregisterDriver(tdriver);  
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | Basic Operations | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

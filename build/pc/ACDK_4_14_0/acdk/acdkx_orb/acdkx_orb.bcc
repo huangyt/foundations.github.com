@@ -1,0 +1,299 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdkx_orb
+
+default: all
+all:: install compile
+
+compile:: acdkx_orb acdkx_orb_namesrv acdkx_orb_mc acdkorbidl acdkx_orb_Test AdressServer AdressClient 
+clean:: acdkx_orb-clean acdkx_orb_namesrv-clean acdkx_orb_mc-clean acdkorbidl-clean acdkx_orb_Test-clean AdressServer-clean AdressClient-clean 
+metainfo:: acdkx_orb-metainfo acdkx_orb_namesrv-metainfo acdkx_orb_mc-metainfo acdkorbidl-metainfo acdkx_orb_Test-metainfo AdressServer-metainfo AdressClient-metainfo 
+acdkx_orb:  
+	cd src
+	$(MAKE) -f acdkx_orb.bcc
+	cd ..
+
+
+acdkx_orb-clean:
+	cd src
+	$(MAKE) -f acdkx_orb.bcc clean
+	cd ..
+
+
+acdkx_orb-metainfo:
+	cd src
+	$(MAKE) -f acdkx_orb.bcc metainfo
+	cd ..
+
+
+acdkx_orb_namesrv:  acdkx_orb
+	cd src
+	$(MAKE) -f acdkx_orb_namesrv.bcc
+	cd ..
+
+
+acdkx_orb_namesrv-clean:
+	cd src
+	$(MAKE) -f acdkx_orb_namesrv.bcc clean
+	cd ..
+
+
+acdkx_orb_namesrv-metainfo:
+	cd src
+	$(MAKE) -f acdkx_orb_namesrv.bcc metainfo
+	cd ..
+
+
+acdkx_orb_mc:  
+	cd src
+	$(MAKE) -f acdkx_orb_mc.bcc
+	cd ..
+
+
+acdkx_orb_mc-clean:
+	cd src
+	$(MAKE) -f acdkx_orb_mc.bcc clean
+	cd ..
+
+
+acdkx_orb_mc-metainfo:
+	cd src
+	$(MAKE) -f acdkx_orb_mc.bcc metainfo
+	cd ..
+
+
+acdkorbidl:  
+	cd src
+	$(MAKE) -f acdkorbidl.bcc
+	cd ..
+
+
+acdkorbidl-clean:
+	cd src
+	$(MAKE) -f acdkorbidl.bcc clean
+	cd ..
+
+
+acdkorbidl-metainfo:
+	cd src
+	$(MAKE) -f acdkorbidl.bcc metainfo
+	cd ..
+
+
+acdkx_orb_Test:  acdkx_orb
+	cd tests/acdkx/orb
+	$(MAKE) -f acdkx_orb_Test.bcc
+	cd ../../..
+
+
+acdkx_orb_Test-clean:
+	cd tests/acdkx/orb
+	$(MAKE) -f acdkx_orb_Test.bcc clean
+	cd ../../..
+
+
+acdkx_orb_Test-metainfo:
+	cd tests/acdkx/orb
+	$(MAKE) -f acdkx_orb_Test.bcc metainfo
+	cd ../../..
+
+
+AdressServer:  acdkx_orb
+	cd tests/acdkx/orb/acdk
+	$(MAKE) -f AdressServer.bcc
+	cd ../../../..
+
+
+AdressServer-clean:
+	cd tests/acdkx/orb/acdk
+	$(MAKE) -f AdressServer.bcc clean
+	cd ../../../..
+
+
+AdressServer-metainfo:
+	cd tests/acdkx/orb/acdk
+	$(MAKE) -f AdressServer.bcc metainfo
+	cd ../../../..
+
+
+AdressClient:  acdkx_orb
+	cd tests/acdkx/orb/acdk
+	$(MAKE) -f AdressClient.bcc
+	cd ../../../..
+
+
+AdressClient-clean:
+	cd tests/acdkx/orb/acdk
+	$(MAKE) -f AdressClient.bcc clean
+	cd ../../../..
+
+
+AdressClient-metainfo:
+	cd tests/acdkx/orb/acdk
+	$(MAKE) -f AdressClient.bcc metainfo
+	cd ../../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdkx_orb_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdkx_orb-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src cbx
+
+acdkx_orb_namesrv-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src cbx
+
+acdkx_orb_mc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src cbx
+
+acdkorbidl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src cbx
+
+acdkx_orb_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb cbx
+
+AdressServer-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk cbx
+
+AdressClient-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk cbx
+
+
+makemake:: acdkx_orb-makemake acdkx_orb_namesrv-makemake acdkx_orb_mc-makemake acdkorbidl-makemake acdkx_orb_Test-makemake AdressServer-makemake AdressClient-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_namesrv.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_orb_mc.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkorbidl.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb\acdkx_orb_Test.lsp -pdir tests/acdkx/orb cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressServer.lsp -pdir tests/acdkx/orb/acdk cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/orb/acdk\AdressClient.lsp -pdir tests/acdkx/orb/acdk cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdkx_orb.lsp
+
+

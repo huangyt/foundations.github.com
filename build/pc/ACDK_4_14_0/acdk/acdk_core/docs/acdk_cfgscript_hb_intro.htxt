@@ -1,0 +1,259 @@
+%id: acdk_cfgscript_hb_intro
+%title: CfgScript Introduction
+%shorttitle: Introduction
+%body:
+<chapterline/>
+<pageintro>
+CfgScript is a full featured scripting language
+based on ACDK. CfgScript is used in the 
+the ACDK Metacompiler and the ACDK Make.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>About CfgScript</jump1>
+
+CfgScript is a typed scripting language with similarities to Java and C#.
+
+Nearly all that can be done with ACDK in C++ can also be done in CfgScript.
+The same classes are used C++ as in CfgScript.
+
+Of course some specific features of C++, like pointers, templates, and stack variables
+are not supported in the scripting language, but for compensation CfgScript provides
+high-level language constructs - missing in C++, like <c>foreach loops</c>, lamda expressions,
+backtick evaluation, multimethods and complex type literals.
+
+CfgScript has a similar relationship to ACDK C++ as Tcl has to C. 
+In component based development C++ classes can be tied by CfgScript together to
+an application.
+
+CfgScript can also serve configuration components to an C++ application, communicating
+via C++ interfaces.
+ 
+Complete Applications can be build in CfgScript in various domains, like multi threaded
+network application, handling XML files, accessing SQL databases and easily and fast 
+written rich GUI applications.
+
+<jump1>Use Cases</jump1>
+
+CfgScript can be used for many purposes.
+
+<jump2>Prototypes</jump2>
+On the basis of the ACDK libraries prototypes can be implemented 
+very fast. 
+<fl>
+<f> No creation of make files is needed.
+<f> No compilation of the script needed.
+<f> One click/enter to run the application.
+<f> Easy translation from CfgScript to C++ if the prototype should
+		be transformed to a compiled application.
+</fl>
+<jump2>Tools</jump2>
+Often Prototypes lives longer than originally was planned.
+Simple tools - which are somewhere between shell scripts and C++/Java - can 
+be easily developed.
+
+<jump2>Testing</jump2>
+For a given ACDK C++ library (or of course also CfgScript class libraries) 
+test driver can be %ref[implemented in CfgScript, acdk_tools_aunit_man#Using CfgScript as Unit Tests].
+ 
+In the ACDK library %ref[acdk_wx] most test applications are not in C++, but in CfgScript.
+
+<jump2>Component glue</jump2>
+Because of the neat integration of CfgScript with components implemented C++, COM, CORBA
+CfgScript is a good choice to connect these components with some scripting (see also below).
+
+<jump2>Configuration</jump2>
+The standard configuration mechanism in ACDK for configuration are <c>properties</c> files
+with the same format known from Java.
+But the properties files are limited to <c>key=value</c> string pairs.
+CfgScript can be used to create typed, hierarchical structured configuration sets.
+See in %ref[Properties Type, acdk_cfgscript_hb_lang_types_props#Samples].
+
+<jump2>Customization</jump2>
+Many complex software systems needs more than static data for configuration.
+Configuration with dynamic parts (program code) often called Customization.
+
+CfgScript can also be used as extended configuration with does not only setup some
+configuration data, but setup and glue components to a customized application.
+
+<jump1>Some features</jump1>
+<fl>
+<f> Java/C# like %ref[syntax, acdk_cfgscript_hb_lang_syntax], with same constructs as in ACDK C++.
+<f> Alternatively also ACDK C++  like syntax can be parsed. This is usable to use CfgScript
+    as prototype language, which may transferred later to C++.
+<f> Runs on Windows, Linux, Solaris, FreeBSD
+<f> common %ref[basic types, acdk_cfgscript_hb_lang_types_basic], like bool char, short, int, long, float, double.
+<f> %ref[Any-Type, acdk_cfgscript_hb_lang_types_any].
+<f> container types like %ref[arrays, acdk_cfgscript_hb_lang_types_arrays] and dictionaries.
+<f> Literal support for %ref[Props, acdk_cfgscript_hb_lang_types_props] (basically a hierarchical dictionary)
+    and %ref[arrays, acdk_cfgscript_hb_lang_types_arrays#ArrayLiteral].
+<f> Fully %ref[object oriented, acdk_cfgscript_hb_lang_class].
+<f> Support for %ref[operation overloading, acdk_cfgscript_hb_lang_class_method#OperatorMethod].
+<f> Customizable %ref[casting rules, acdk_cfgscript_hb_lang_pre_pragma_cast] from strict (Java like) to lazy (Perl like)
+<f> Support for %ref[lamda, acdk_cfgscript_hb_lang_expr_lambda] expressions.
+<f> Support for %ref[delegates, acdk_cfgscript_hb_lang_expr_delegate] directly assigned from a lamda
+    expression of a object/class method.
+<f> Support for %ref[enumerations, acdk_cfgscript_hb_lang_types_enum].
+<f> common %ref[control structures, acdk_cfgscript_hb_lang_stmt] like: if, for, do, while, foreach, switch, break, return, continue, with
+<f> Support for %ref[unicode character, acdk_cfgscript_hb_lang_expr_literal#StringLiteral].
+<f> Supports %ref[evaluate embedded variables in string, acdk_cfgscript_hb_lang_expr_backtick] like perl, tcl or sh
+<f> %ref[Exceptions, acdk_cfgscript_hb_lang_stmt_branch#TryCatchStatement]: throw, catch, finally
+<f> Java like, %ref[multithreading support, acdk_cfgscript_hb_lang_stmt_sync] (synchronized)
+<f> support for namespaces and modules, including %ref[using, acdk_cfgscript_hb_lang_stmt_using] and
+    %ref[typealiase, acdk_cfgscript_hb_lang_stmt_typealias].
+<f> Seamless %ref[integration of the interpreter into C++, acdk_cfgscript_embedd]. 
+<f> Seamless %ref[using C++ classes in CfgScript, acdk_cfgscript_hb_lib#Available Classes].
+<f> Seamless %ref[using CfgScript classes in C++, acdk_cfgscript_hb_lib#Using CfgScript Classes in C++].
+<f> Seamless integration of %ref[other DMI Server like COM, #Using third part frameworks and scripting languages].
+<f> %ref[ClassLoader, acdk_cfgscript_hb_lib] for CfgScript files, C++ ACDK libraries, COM, JAVA and CORBA servers.
+<f> Different to Java or C# CfgScript not compiled, but a true interpreted language.
+<f> Integrated %ref[logging, acdk_cfgscript_hb_lang_logging].
+<f> Integrated %ref[debugger, acdk_cfgscript_hb_debug].
+<f> Integrated %ref[JSP like templates, acdk_cfgscript_templates].
+</fl>
+
+<jump2>Object Oriented Language</jump2>
+<fl>
+<f> Same object model as Java, C# with owner defined:
+<f> Classes
+<f> Interfaces
+<f> Enums
+</fl>
+
+<jump2>Rich call interface</jump2>
+<fl>
+<f> user defined operator overloading
+<f> in, out, inout parameter attributes
+<f> byref, byval parameter attributes for remoting
+<f> Polymorphic functions
+<f> called by named parameters
+<f> default value for parameter
+<f> Call with rest (like ... in C/C++)
+<f> Call with named rest (similar to ..., but the elements are named parameters)
+<f> Delegates for signal/slot constructions
+<f> lambda expressions for in place function definition
+</fl>
+
+<jump2>Instrumenting C++-Classes in scripting code</jump2>
+Every in ACDK defined C++-class, interface and Enumeration 
+can be used inside the script as naturally and seamless.
+
+<source>
+// CfgScript
+// StringBuffer is an ACDK-C++ class
+acdk.lang.StringBuffer sb = new acdk.lang.StringBuffer("asdf");
+sb.append("asdf");
+acdk.lang.System.out.println(sb.toString());
+</source>
+
+CfgScript uses the ACDK C++ Classes as default library framework, which 
+supports things like:
+<fl>
+<f> Reflection mechanism
+<f> IO
+<f> collections
+<f> regular expression
+<f> logging
+<f> networking
+<f> and many other libraries
+</fl>
+
+
+<jump2>Using third part frameworks and scripting languages</jump2>
+ACDK has object integration of following frameworks:
+<fl>
+<f> Java
+<f> COM
+<f> CORBA
+</fl>
+
+Object from these technology frameworks can be used inside CfgScript
+in a seamless way.
+Example:
+<source>
+// create a Com Object, like Microsoft Word
+word = new acdkx.com.ComObject("Word.Application");
+// use this object, like it is own
+word.Visible = 1;
+doc = word.Documents.add();
+sel = word.ActiveWindow.Selection;
+sel.TypeText("This is ");
+sel.Font.Bold =  1;
+sel.TypeText("ACDK");
+sel.Font.Bold = 0;
+sel.TypeText(" instrumenting Word through acdk_cfgscript");
+acdk.lang.Thread.sleep(3000);
+word.Quit(0);
+</source> 
+
+<jump2>Derive C++ in Scripting language</jump2>
+CfgScript can be used extend C++ classes. The extended
+class / implemented interface can be used inside C++ code, 
+like it is a own native C++ class 
+A common sample is:
+<source>
+class MyElement
+extends acdk.lang.Object
+implements acdk.lang.Comparable
+{
+  int _el;
+  MyElement(int e) { _el = e; }
+  int getElement() { return _el; }
+  int compareTo(acdk.lang.Object other) { return _el - other._el; }
+}
+acdk.util.Collection coll = new acdk.util.TreeSet(); // TreeSet is a native C++-Class
+coll.add(new MyElement(1)); // C++ implementation calls the native C++ 
+                            // interface method compareTo() to inserted the element sorted
+coll.add(new MyElement(3));
+coll.add(new MyElement(2));
+it = coll.iterator();
+while (it.hasNext() == true)
+{
+  out.println(it.next().getElement());
+}
+</source>
+
+
+<jump2>Server Objects implemented in CfgScript</jump2>
+Classes/Objects implemented in CfgScript can be used
+by other component languages:
+<source>
+// MyElement.csf
+class MyElement
+extends acdk.lang.Object
+{
+  int _el;
+  MyElement(int e) { _el = e; }
+  int getElement() { return _el; }
+  acdk.lang.String toString() { return String.valueOf(_el); }
+  void addElement(int i) { _el = _el + i; }
+}
+</source>
+
+Now in VBScript:
+<source>
+Dim acdk
+Set acdk = CreateObject("Acdk.Object")
+dim script
+' load script
+set script = acdk.New("acdk.cfgscript.Script", "MyElement.csf")
+
+' class MyElement is now available as ActiveX component
+Dim myElement
+Set myElement = acdk.New("MyElement", 42)
+dim i
+i = myElement.getElement()
+myElement.addElement 42
+dim s
+s = myElement.toString()
+</source>
+
+
+<jump2>CfgScript and GUI</jump2>
+I started a project %ref[acdk_wx] to provide GUI functionality
+to ACDK and CfgScript.
+
+.

@@ -1,0 +1,121 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Type mappings in the ACDKX COM</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDKX COM+</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdkx_com_man.html">acdkx_com man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Type mappings
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdkx_com_install.html">Install</a> | <a  href="acdkx_com_ComObject_man.html">acdkx::com::ComObject man</a> | <a  href="acdkx_com_AcdkObject_man.html">acdkx::com::AcdkObject</a> | Type mappings |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Type mappings in the ACDKX COM</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Type mappings in the ACDKX COM</h1> -->
+<p class="curchapterline"> | <a  href="acdkx_com_install.html">Install</a> | <a  href="acdkx_com_ComObject_man.html">acdkx::com::ComObject man</a> | <a  href="acdkx_com_AcdkObject_man.html">acdkx::com::AcdkObject</a> | Type mappings |</p>
+<br>
+<p class="PageIntro">
+How the types and interfaces of the COM word will
+be transated into the ACDK world.<br>
+</p>
+<br>
+<a name="jumptable111"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Basic Types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Basic Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Strings"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Strings</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Object types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Object types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Exceptions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Exceptions</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Enhanced DMI functions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Enhanced DMI functions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Overloading"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Overloading</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Named Parameters"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Named Parameters</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#OUT"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;OUT</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#BYVAL"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;BYVAL</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basic Types">Basic Types</a></h3>
+Basic types will be passed with a COM VARIANT in the best fitting 
+type.<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Strings">Strings</a></h3>
+COM BSTR will be converted tino acdk::lang::Strings and vice versa.<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Object types">Object types</a></h3>
+COM Objects (IDispatch*) will be wrapped with a 
+<a  href="acdkx_com_ComObject_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdkx::com::ComObject</a> and vice versa.<br>
+ACDK Objects will be wrapped into <a  href="acdkx_com_AcdkObject_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;IAcdkObject</a> 
+("Acdk.Object") and vice versa.<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Exceptions">Exceptions</a></h3>
+Exceptions are not supported by COM. In the Interface an Error information
+for the COM side will be generated.<br>
+<br>
+<h2><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Enhanced DMI functions">Enhanced DMI functions</a></h2>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overloading">Overloading</a></h3>
+COM doesn't support overloading.<br>
+ACDK supports alternative names for ambigious names.<br>
+You can use the <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_attributes"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Attribute MethodAltNameAttribute</a> 
+to set the alternative unique method name.<br>
+<br>
+<br>
+<jump2>Default values for parameters<jump2>
+AcdkObject supports default values for parameters.<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Named Parameters">Named Parameters</a></h3>
+Not supported.<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OUT">OUT</a></h3>
+OUT-Parameters are supported in both ways with all supported types.<br>
+<br>
+<h3><a href="#jumptable111"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="BYVAL">BYVAL</a></h3>
+Not supported yet.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdkx_com_install.html">Install</a> | <a  href="acdkx_com_ComObject_man.html">acdkx::com::ComObject man</a> | <a  href="acdkx_com_AcdkObject_man.html">acdkx::com::AcdkObject</a> | Type mappings |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

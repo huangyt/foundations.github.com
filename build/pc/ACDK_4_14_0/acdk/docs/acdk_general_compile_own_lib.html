@@ -1,0 +1,352 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>How create own Library</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_general_install.html">Installation</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Create own Library
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_general_compile_acdk.html">Compile ACDK</a> | <a  href="acdk_general_install_upgrade.html">Upgrade ACDK</a> | <a  href="acdk_general_compile_own_executable.html">Create own Executable</a> | Create own Library |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>How create own Library</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>How create own Library</h1> -->
+
+<htmlauto>
+<p class="PageIntro">
+How to create your own library on base of the ACDK libraries.
+</p>
+
+
+<a name="jumptable5"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Standard layout"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Standard layout</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Makefiles"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Makefiles</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Sources"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Sources</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Source for shared library"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Source for shared library</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#General Header"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;General Header</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#The Classes"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;The Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Generated source"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Generated source</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Source for executable"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Source for executable</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+
+<h2><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Standard layout">Standard layout</a></h2>
+In ACDK the package has a standard layout:
+<pre>
+MyLib/                              is the package directory
+MyLib/Makefile                      wrapper makefile
+MyLib/src/                          Location of the standard libraries and executables
+MyLib/src/com_sample_project.linux  Linux makefile for library
+MyLib/src/executable.linux          Linux makefile for executable using com_sample_project library
+</pre>
+
+<h2><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Makefiles">Makefiles</a></h2>
+<jump2>Wrapper Makefile</jump1>
+MyLib/Makefile:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#5F9EA0">default</FONT></B>: 
+%::
+	@target=$@; \
+	cd src; \
+	$(MAKE) -f com_sample_project.linux $$target; \
+	$(MAKE) -f executable.linux $$target
+</PRE></td></tr></table>
+
+<jump2>Makefile for shared library</jump1>
+MyLib/src/com_sample_project.linux
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+# <B><FONT COLOR="#5F9EA0">where</FONT></B> <FONT COLOR="#B8860B">is</FONT> <FONT COLOR="#B8860B">your</FONT> <FONT COLOR="#B8860B">ACDK</FONT> <FONT COLOR="#B8860B">installed</FONT>
+ACDKHOME=/artefaktur/acdk
+
+CCOMPILER=g++ -Wall -Wno-unused -g -D_REENTRANT -I .  -I $(ACDKHOME)/include
+
+# <B><FONT COLOR="#5F9EA0">system</FONT></B> <FONT COLOR="#B8860B">libraries</FONT>. <FONT COLOR="#B8860B">These</FONT> <FONT COLOR="#B8860B">are</FONT> <FONT COLOR="#B8860B">needed</FONT> <FONT COLOR="#B8860B">by</FONT> <FONT COLOR="#B8860B">ACDK</FONT> <FONT COLOR="#B8860B">at</FONT> <FONT COLOR="#B8860B">least</FONT>
+SYSLIBRARIES=-lpthread -lm -ldl
+ACDKLIBS=-lacdk_core
+
+# <B><FONT COLOR="#5F9EA0">all</FONT></B> <FONT COLOR="#B8860B">libs</FONT> <FONT COLOR="#B8860B">together</FONT>
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(ACDKHOME)/bin $(ACDKLIBS)
+
+EXECUTABLE=../libcom_sample_project.so
+
+# <B><FONT COLOR="#5F9EA0">want</FONT></B> <FONT COLOR="#B8860B">maybe</FONT> <FONT COLOR="#B8860B">to</FONT> <FONT COLOR="#B8860B">debug</FONT>
+SYSLDFLAGS=-g
+LINK=g++ -shared
+
+OBJECTS = com/sample/project/MyClass.o com/sample/project/project_metainf_base.o \
+	 com/sample/project/project_metainf/project_metainf_ext.o
+
+<B><FONT COLOR="#5F9EA0">default</FONT></B>: $(EXECUTABLE)
+
+# <B><FONT COLOR="#5F9EA0">builds</FONT></B> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">executable</FONT> <FONT COLOR="#B8860B">itself</FONT>
+# <B><FONT COLOR="#5F9EA0">don't</FONT></B> <FONT COLOR="#B8860B">forget</FONT> <FONT COLOR="#B8860B">to</FONT> <FONT COLOR="#B8860B">export</FONT> <FONT COLOR="#B8860B">LD_LIBRARY_PATH</FONT>=/<FONT COLOR="#B8860B">artefaktur</FONT>/<FONT COLOR="#B8860B">acdk</FONT>/<FONT COLOR="#B8860B">bin</FONT> <FONT COLOR="#B8860B">before</FONT> <FONT COLOR="#B8860B">execute</FONT> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">binary</FONT>
+$(EXECUTABLE): $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBS) 
+
+
+%.o: %.cpp
+	$(CCOMPILER) -c $&lt; -o $@
+
+<B><FONT COLOR="#5F9EA0">clean</FONT></B>:
+	rm $(OBJECTS) $(EXECUTABLE)
+
+PROJECT_METAINF_HEADERS = com/sample/project/MyClass.h
+
+# <B><FONT COLOR="#5F9EA0">generate</FONT></B> <FONT COLOR="#B8860B">meta</FONT> <FONT COLOR="#B8860B">info</FONT> <FONT COLOR="#B8860B">if</FONT> <FONT COLOR="#B8860B">an</FONT> <FONT COLOR="#B8860B">header</FONT> <FONT COLOR="#B8860B">was</FONT> <FONT COLOR="#B8860B">changed</FONT>
+com/sample/project/project_metainf_base.cpp: $(PROJECT_METAINF_HEADERS)
+	$(ACDKHOME)/bin/acdkmc com/sample/project
+	
+# <B><FONT COLOR="#5F9EA0">empty,</FONT></B> <FONT COLOR="#B8860B">because</FONT> <FONT COLOR="#B8860B">cannot</FONT> <FONT COLOR="#B8860B">run</FONT>
+<B><FONT COLOR="#5F9EA0">run</FONT></B>:
+	
+</PRE></td></tr></table>
+<jump2>Makefile for executable</jump1>
+MyLib/src/executable.linux 
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+# <B><FONT COLOR="#5F9EA0">where</FONT></B> <FONT COLOR="#B8860B">is</FONT> <FONT COLOR="#B8860B">your</FONT> <FONT COLOR="#B8860B">ACDK</FONT> <FONT COLOR="#B8860B">installed</FONT>
+ACDKHOME=/artefaktur/acdk
+
+CCOMPILER=g++ -Wall -Wno-unused -g -D_REENTRANT -I .  -I $(ACDKHOME)/include
+
+# <B><FONT COLOR="#5F9EA0">system</FONT></B> <FONT COLOR="#B8860B">libraries</FONT>. <FONT COLOR="#B8860B">These</FONT> <FONT COLOR="#B8860B">are</FONT> <FONT COLOR="#B8860B">needed</FONT> <FONT COLOR="#B8860B">by</FONT> <FONT COLOR="#B8860B">ACDK</FONT> <FONT COLOR="#B8860B">at</FONT> <FONT COLOR="#B8860B">least</FONT>
+SYSLIBRARIES=-lpthread -lm -ldl
+ACDKLIBS=-lacdk_core
+USERLIBS=-L.. -lcom_sample_project
+
+# <B><FONT COLOR="#5F9EA0">all</FONT></B> <FONT COLOR="#B8860B">libs</FONT> <FONT COLOR="#B8860B">together</FONT>
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(ACDKHOME)/bin  $(ACDKLIBS) $(USERLIBS)
+
+# <B><FONT COLOR="#5F9EA0">want</FONT></B> <FONT COLOR="#B8860B">maybe</FONT> <FONT COLOR="#B8860B">to</FONT> <FONT COLOR="#B8860B">debug</FONT>
+SYSLDFLAGS=-g
+
+
+OBJECTS = com/sample/executable/executable.o
+
+EXECUTABLE=../executable
+
+<B><FONT COLOR="#5F9EA0">default</FONT></B>: $(EXECUTABLE)
+
+# <B><FONT COLOR="#5F9EA0">builds</FONT></B> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">executable</FONT> <FONT COLOR="#B8860B">itself</FONT>
+# <B><FONT COLOR="#5F9EA0">don't</FONT></B> <FONT COLOR="#B8860B">forget</FONT> <FONT COLOR="#B8860B">to</FONT> <FONT COLOR="#B8860B">export</FONT> <FONT COLOR="#B8860B">LD_LIBRARY_PATH</FONT>=/<FONT COLOR="#B8860B">artefaktur</FONT>/<FONT COLOR="#B8860B">acdk</FONT>/<FONT COLOR="#B8860B">bin</FONT> <FONT COLOR="#B8860B">before</FONT> <FONT COLOR="#B8860B">execute</FONT> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">binary</FONT>
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(SYSLDFLAGS)  $(OBJECTS) -o  $(EXECUTABLE) $(LIBS)
+
+%.o: %.cpp
+	$(CCOMPILER) -c $&lt; -o $@
+
+<B><FONT COLOR="#5F9EA0">clean</FONT></B>:
+	rm $(OBJECTS) $(EXECUTABLE)
+
+<B><FONT COLOR="#5F9EA0">run</FONT></B>:
+	export LD_LIBRARY_PATH=$(ACDKHOME):..:$(LD_LIBRARY_PATH); \
+	../executable
+</PRE></td></tr></table>
+
+<h2><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sources">Sources</a></h2>
+<h3><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Source for shared library">Source for shared library</a></h3>
+<h4><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General Header">General Header</a></h4>
+
+Each module needs a header named like the right part of the module:
+MyLib/src/com/sample/project/project.h:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;Config.h&quot;</FONT></B>
+
+</PRE></td></tr></table>
+
+The Config.h normally defines some macros for compiling it under Windows:
+
+MyLib/src/com/sample/project/Config.h
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- </FONT></I>
+#<B><FONT COLOR="#5F9EA0">ifndef</FONT></B> <FONT COLOR="#B8860B">com_sample_project_Config_h</FONT>
+#<B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">com_sample_project_Config_h</FONT>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+
+<I><FONT COLOR="#B22222">/*
+  these macro defintions are only needed when 
+  creating Windows .dll. Otherwise they are ignored
+*/</FONT></I>
+#<B><FONT COLOR="#5F9EA0">if</FONT></B> <B><FONT COLOR="#5F9EA0">defined</FONT></B>(<FONT COLOR="#B8860B">ACDK_NEED_DLLEXPORT</FONT>)
+# <B><FONT COLOR="#5F9EA0">if</FONT></B> <B><FONT COLOR="#5F9EA0">defined</FONT></B>(<FONT COLOR="#B8860B">IN_COM_SAMPLE_PROJECT_LIB</FONT>)
+#   <B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">ACDK_COM_SAMPLE_PROJECT_PUBLIC</FONT> __declspec(dllexport)
+# <B><FONT COLOR="#5F9EA0">elif</FONT></B> <B><FONT COLOR="#5F9EA0">defined</FONT></B>(<FONT COLOR="#B8860B">ACDK_STATIC_LIB</FONT>)
+# 	<B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">ACDK_COM_SAMPLE_PROJECT_PUBLIC</FONT>
+# <B><FONT COLOR="#5F9EA0">else</FONT></B>
+#   <B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">ACDK_COM_SAMPLE_PROJECT_PUBLIC</FONT> __declspec(dllimport)
+# <B><FONT COLOR="#5F9EA0">endif</FONT></B>
+#<B><FONT COLOR="#5F9EA0">else</FONT></B>
+# <B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">ACDK_COM_SAMPLE_PROJECT_PUBLIC</FONT>
+#<B><FONT COLOR="#5F9EA0">endif</FONT></B>
+
+#<B><FONT COLOR="#5F9EA0">endif</FONT></B> //<FONT COLOR="#B8860B">com_sample_project_Config_h</FONT>
+</PRE></td></tr></table>
+
+<h4><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The Classes">The Classes</a></h4>
+MyLib/src/com/sample/project/MyClass.h:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- </FONT></I>
+#<B><FONT COLOR="#5F9EA0">ifndef</FONT></B> <FONT COLOR="#B8860B">com_sample_project_MyClass_h</FONT>
+#<B><FONT COLOR="#5F9EA0">define</FONT></B> <FONT COLOR="#B8860B">com_sample_project_MyClass_h</FONT>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;project.h&quot;</FONT></B>
+
+namespace com {
+namespace sample {
+namespace project {
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_CLASS</FONT></B>(MyClass);
+
+<I><FONT COLOR="#B22222">// the macro ACDK_COM_SAMPLE_PROJECT_PUBLIC is only needed for Windows platform
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> ACDK_COM_SAMPLE_PROJECT_PUBLIC MyClass 
+: extends acdk::lang::Object
+{
+  <I><FONT COLOR="#B22222">// with this and acdkmc you generate metainfo
+</FONT></I>  <I><FONT COLOR="#B22222">// if you don't want have metainfo just delete it
+</FONT></I>  ACDK_WITH_METAINFO(MyClass) 
+    
+<B><FONT COLOR="#228B22">private</FONT></B>:
+  RString _text;
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  MyClass(IN(acdk::lang::RString) txt)
+    : _text(txt)
+  {
+  }
+  RString getText() { <B><FONT COLOR="#A020F0">return</FONT></B> _text; }
+  <B><FONT COLOR="#228B22">void</FONT></B> printIt();
+};
+
+} <I><FONT COLOR="#B22222">// project
+</FONT></I>} <I><FONT COLOR="#B22222">// sample
+</FONT></I>} <I><FONT COLOR="#B22222">// com</FONT></I>
+
+#<B><FONT COLOR="#5F9EA0">endif</FONT></B> //<FONT COLOR="#B8860B">com_sample_project_MyClass_h</FONT>
+</PRE></td></tr></table>
+
+And corresponding implementation file:
+MyLib/src/com/sample/project/MyClass.cpp:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- </FONT></I>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;MyClass.h&quot;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/lang/System.h&gt;</FONT></B>
+
+namespace com {
+namespace sample {
+namespace project {
+
+
+<B><FONT COLOR="#228B22">void</FONT></B>
+<B><FONT COLOR="#0000FF">MyClass::printIt</FONT></B>()
+{
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;from MyClass::printIt: &quot;</FONT></B> + _text);
+}
+
+
+} <I><FONT COLOR="#B22222">// project
+</FONT></I>} <I><FONT COLOR="#B22222">// sample
+</FONT></I>} <I><FONT COLOR="#B22222">// com
+</FONT></I></PRE></td></tr></table>
+<h4><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Generated source">Generated source</a></h4>
+Following files will be generated by <a  href="../acdk_core/docs/acdkmc.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;man acdkmc</a> and are not listed:
+<code>MyLib/src/com/sample/project/project_metainf_base.cpp</code> and
+<code>MyLib/src/com/sample/project/project_metainf/project_metainf_ext.cpp</code>
+
+<h3><a href="#jumptable5"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Source for executable">Source for executable</a></h3>
+The following source uses the class defined in the shared library.
+<code>MyLib/src/com/sample/executable/executable.cpp</code>:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/lang/System.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;../project/MyClass.h&quot;</FONT></B>
+
+using namespace acdk::lang;
+using namespace com::sample::project;
+
+<B><FONT COLOR="#228B22">class</FONT></B> MiniAcdkSample
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> acdkmain(RStringArray args)
+  {
+      <I><FONT COLOR="#B22222">// this is library class
+</FONT></I>      RMyClass myClass = <B><FONT COLOR="#A020F0">new</FONT></B> MyClass(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+      myClass-&gt;printIt();
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;myClass is from Class: &quot;</FONT></B> + myClass-&gt;getClass()-&gt;getName());
+      <B><FONT COLOR="#A020F0">return</FONT></B> 0;
+  }
+};
+
+<B><FONT COLOR="#228B22">int</FONT></B>
+<B><FONT COLOR="#0000FF">main</FONT></B>(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>* argv[], <B><FONT COLOR="#228B22">char</FONT></B>** envptr)
+{
+  <B><FONT COLOR="#A020F0">return</FONT></B> acdk::lang::System::main(MiniAcdkSample::acdkmain, argc, argv, envptr);
+}
+
+</PRE></td></tr></table>
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_general_compile_acdk.html">Compile ACDK</a> | <a  href="acdk_general_install_upgrade.html">Upgrade ACDK</a> | <a  href="acdk_general_compile_own_executable.html">Create own Executable</a> | Create own Library |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

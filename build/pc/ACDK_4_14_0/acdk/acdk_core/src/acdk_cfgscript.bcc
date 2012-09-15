@@ -1,0 +1,177 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_CFGSCRIPT_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib"
+
+OUTFILE="..\..\bin\acdk_cfgscript.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_cfgscript\bcc"
+SOURCES= 	"acdk\cfgscript\cfgscript_metainf_base.cpp" \
+	"acdk\cfgscript\Delegate.cpp" \
+	"acdk\cfgscript\ExecutionStack.cpp" \
+	"acdk\cfgscript\Props.cpp" \
+	"acdk\cfgscript\Script.cpp" \
+	"acdk\cfgscript\Script2.cpp" \
+	"acdk\cfgscript\ScriptClassLoader.cpp" \
+	"acdk\cfgscript\ScriptDebug.cpp" \
+	"acdk\cfgscript\ScriptEval.cpp" \
+	"acdk\cfgscript\ScriptExpr.cpp" \
+	"acdk\cfgscript\ScriptObject.cpp" \
+	"acdk\cfgscript\ScriptSource.cpp" \
+	"acdk\cfgscript\ScriptStatements.cpp" \
+	"acdk\cfgscript\ShellExecutor.cpp" \
+	"acdk\cfgscript\SourceTokenizer.cpp" \
+	"acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext.cpp" \
+	"acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext1.cpp" \
+
+HEADER= 	"acdk\cfgscript\cfgscript.h" \
+	"acdk\cfgscript\ChDir.h" \
+	"acdk\cfgscript\Config.h" \
+	"acdk\cfgscript\ExecutionStack.h" \
+	"acdk\cfgscript\Props.h" \
+	"acdk\cfgscript\Script.h" \
+	"acdk\cfgscript\ScriptClassLoader.h" \
+	"acdk\cfgscript\ScriptDebug.h" \
+	"acdk\cfgscript\ScriptEval.h" \
+	"acdk\cfgscript\ScriptException.h" \
+	"acdk\cfgscript\ScriptExpr.h" \
+	"acdk\cfgscript\ScriptGlobals.h" \
+	"acdk\cfgscript\ScriptObject.h" \
+	"acdk\cfgscript\ScriptSource.h" \
+	"acdk\cfgscript\ShellExecutor.h" \
+	"acdk\cfgscript\SourceTokenizer.h" \
+
+OBJECTS= 	"..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_base.obj" \
+	"..\tobj\acdk_cfgscript\bcc\Delegate.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ExecutionStack.obj" \
+	"..\tobj\acdk_cfgscript\bcc\Props.obj" \
+	"..\tobj\acdk_cfgscript\bcc\Script.obj" \
+	"..\tobj\acdk_cfgscript\bcc\Script2.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptClassLoader.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptDebug.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptEval.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptExpr.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptObject.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptSource.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ScriptStatements.obj" \
+	"..\tobj\acdk_cfgscript\bcc\ShellExecutor.obj" \
+	"..\tobj\acdk_cfgscript\bcc\SourceTokenizer.obj" \
+	"..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_ext.obj" \
+	"..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_ext1.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_base.obj": "acdk\cfgscript\cfgscript_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\cfgscript_metainf_base.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\Delegate.obj": "acdk\cfgscript\Delegate.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\Delegate.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ExecutionStack.obj": "acdk\cfgscript\ExecutionStack.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ExecutionStack.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\Props.obj": "acdk\cfgscript\Props.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\Props.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\Script.obj": "acdk\cfgscript\Script.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\Script.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\Script2.obj": "acdk\cfgscript\Script2.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\Script2.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptClassLoader.obj": "acdk\cfgscript\ScriptClassLoader.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptClassLoader.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptDebug.obj": "acdk\cfgscript\ScriptDebug.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptDebug.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptEval.obj": "acdk\cfgscript\ScriptEval.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptEval.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptExpr.obj": "acdk\cfgscript\ScriptExpr.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptExpr.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptObject.obj": "acdk\cfgscript\ScriptObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptObject.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptSource.obj": "acdk\cfgscript\ScriptSource.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptSource.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ScriptStatements.obj": "acdk\cfgscript\ScriptStatements.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ScriptStatements.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\ShellExecutor.obj": "acdk\cfgscript\ShellExecutor.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\ShellExecutor.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\SourceTokenizer.obj": "acdk\cfgscript\SourceTokenizer.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\SourceTokenizer.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_ext.obj": "acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext.cpp"
+
+"..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_ext1.obj": "acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_cfgscript\bcc" "acdk\cfgscript\cfgscript_metainf\cfgscript_metainf_ext1.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_cfgscript.dll"
+	del "..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_base.obj"
+	del "..\tobj\acdk_cfgscript\bcc\Delegate.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ExecutionStack.obj"
+	del "..\tobj\acdk_cfgscript\bcc\Props.obj"
+	del "..\tobj\acdk_cfgscript\bcc\Script.obj"
+	del "..\tobj\acdk_cfgscript\bcc\Script2.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptClassLoader.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptDebug.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptEval.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptExpr.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptObject.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptSource.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ScriptStatements.obj"
+	del "..\tobj\acdk_cfgscript\bcc\ShellExecutor.obj"
+	del "..\tobj\acdk_cfgscript\bcc\SourceTokenizer.obj"
+	del "..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_ext.obj"
+	del "..\tobj\acdk_cfgscript\bcc\cfgscript_metainf_ext1.obj"
+
+

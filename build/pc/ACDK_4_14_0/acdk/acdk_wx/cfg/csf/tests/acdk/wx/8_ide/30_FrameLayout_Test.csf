@@ -1,0 +1,92 @@
+
+using acdk.wx;
+using acdk.wx.ide;
+
+enum MyCtrlIds
+{
+  ID_SCINTILLA  = 130
+}
+
+enum MyMenuIds
+{
+  ID_MENUBase = 1000,
+  ID_MENU_CLOSE,
+  ID_MENU_LOADPREFS,
+  ID_MENU_DEBUG_INSERT_BREAK,
+  ID_MENU_DEBUG_REMOVE_BREAK
+}
+
+
+class MyFrame
+extends MDIParentFrame
+{
+  FrameLayout layout;
+  MyFrame(String title) 
+  {
+    super(Nil, -1, title);
+    MDIClientWindow client = getClientWindow(); 
+    layout = new FrameLayout(this, client); 
+    layout.pushDefaultPlugins(); 
+    layout.addPlugins(SimpleCustomizationPlugin | BarHintsPlugin | AntiflickerPlugin);
+    layout.addBar(new TextCtrl(this, -1),  new DimInfo(50,50,50,50,50,50), 
+                  FlAlignTop, CbarDockedHorizontally /*| CbarFloating*/); 
+                  
+    DynamicToolBar toolBar = new DynamicToolBar(this, -1);
+    //toolBar.addTool( 1001, "test",  Bitmap.getNullBitmap());
+    toolBar.addControl(new TextCtrl(toolBar, -1));
+    /*
+    pToolBar->AddTool( 1002, BMP_DIR "open.bmp" );
+    pToolBar->AddTool( 1003, BMP_DIR "save.bmp" );
+    
+    pToolBar->AddTool( 1004, BMP_DIR "cut.bmp" );
+    pToolBar->AddTool( 1005, BMP_DIR "copy.bmp" );
+    pToolBar->AddTool( 1006, BMP_DIR "paste.bmp" );
+    */
+    layout.addBar(toolBar,             // bar window (can be NULL)
+                      new DimInfo( 150,35, // when docked horizontally      
+                      150,85, // when docked vertically        
+                      175,35, // when floated                  
+                      true,   // the bar is not fixed-size
+                      4,      // vertical gap (bar border)
+                      4       // horizontal gap (bar border)
+                    ), 
+                    FlAlignTop, // alignment ( 0-top,1-bottom, etc)
+                    CbarDockedVertically,
+                      0,                    // insert into 0th row (vert. position)
+                      0,                    // offset from the start of row (in pixels)
+                      "ToolBar2",           // name for reference in customization pop-ups
+                      false
+                    );
+
+    createMenu();
+    layout.enableFloating(true);
+
+  }
+  void createMenu()
+  {
+    Menu file_menu = new Menu(); 
+    file_menu->append(ID_MENU_CLOSE, "E&xit"); 
+    connect(CommandEvent.EvtCommandMenuSelected, ID_MENU_CLOSE, 
+            lambda[this]  { close(true);  } 
+            );
+    MenuBar menu_bar = new MenuBar(); 
+    menu_bar->append(file_menu, "&File"); 
+    setMenuBar(menu_bar); 
+    createStatusBar(); 
+
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame("IDE test")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

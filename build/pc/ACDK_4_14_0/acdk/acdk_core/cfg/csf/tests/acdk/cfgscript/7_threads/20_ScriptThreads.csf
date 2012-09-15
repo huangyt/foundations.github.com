@@ -1,0 +1,29 @@
+
+class MyRunnable
+  implements acdk.cfgscript.core.ScriptRunnable
+{
+  MyRunnable() {}
+  void runScript()
+  {
+    Thread.sleep(1000);
+    throw new RuntimeException("Just look if exception will be catched");
+  }
+}
+
+class MyScriptThread
+extends acdk.cfgscript.core.ScriptThread
+{
+  MyScriptThread() {}
+  void runScript()
+  {
+    Thread.sleep(1000);
+    throw new RuntimeException("Just look if exception will be catched");
+  }
+}
+acdk.cfgscript.core.ScriptThread sth = new acdk.cfgscript.core.ScriptThread(new MyRunnable());
+MyScriptThread th = new MyScriptThread();
+
+th.start();
+sth.start();
+th.join();
+sth.join();

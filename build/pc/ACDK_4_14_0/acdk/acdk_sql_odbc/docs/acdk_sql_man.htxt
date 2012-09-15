@@ -1,0 +1,13 @@
+%id: acdk_sql_man
+%title: ACDK SQL Manual
+%shorttitle: ACDK SQL Man
+%keywords: SQL, ODBC
+%chapter: acdk_sql_man_inst, acdk_sql_man_types, acdk_sql_man_basics, acdk_sql_man_prep, acdk_sql_man_callable, acdk_sql_man_dbinfo
+%body:
+<pageintro>
+How to use acdk_sql.
+</pageintro>
+
+<subschapterstable/>
+
+.

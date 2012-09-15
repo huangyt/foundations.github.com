@@ -1,0 +1,133 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="SQL, ODBC, Installation">
+<title>ACDK SQL Installation</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK SQL ODBC</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_sql_man.html">ACDK SQL Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Installation<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../docs/acdk_general_install.html">Installation</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Installation | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK SQL Installation</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK SQL Installation</h1> -->
+<p class="curchapterline"> | Installation | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p>
+<p class="PageIntro">
+How to install acdk_sql_odbc.
+</p>
+
+<br>
+<br>
+<a name="jumptable117"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General Installation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General Installation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ACDK SQL ODBC Installation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ACDK SQL ODBC Installation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Windows Platform"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Windows Platform</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Unix (Linux, Solaris, FreeBSD)"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Unix (Linux, Solaris, FreeBSD)</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Test your Database connection"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Test your Database connection</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable117"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General Installation">General Installation</a></h2>
+Please refer to <a  href="../../docs/acdk_general_install.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Installation</a> for general installation notice
+for ACDK.<br>
+<br>
+<h2><a href="#jumptable117"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK SQL ODBC Installation">ACDK SQL ODBC Installation</a></h2>
+To make use of acdk_sql_odbc an ODBC driver for your database has to be installed.<br>
+<br>
+<h3><a href="#jumptable117"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Windows Platform">Windows Platform</a></h3>
+Use the ODBC Datasource configuration provided by the operation system to configure an
+ODBC data source. 
+<br>
+Currently acdk_sql_odbc is tested with
+<ul class="FeatureList">
+<li class="Feature"> MS SQL 2000
+<li class="Feature"> Oracle 9
+<li class="Feature"> MS Access
+</ul>
+<br>
+<h3><a href="#jumptable117"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Unix (Linux, Solaris, FreeBSD)">Unix (Linux, Solaris, FreeBSD)</a></h3>
+The acdk::sql::odbc driver uses the free unixODBC 
+driver kit. 
+<br>
+unixODBC-1.8.8 or newer (Linux & Solaris)
+<a  href="http://www.unixodbc.org/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://www.unixodbc.org/</a>.<br>
+<br>
+Make and install this package.<br>
+<br>
+<br>
+Currently acdk_sql_odbc is tested with
+<ul class="FeatureList">
+<li class="Feature"> mySQL
+<li class="Feature"> PostgreSQL (the stored procedure tests failes, because PostgreSQL has a different syntax)
+<li class="Feature"> Informix
+<li class="Feature"> Oracle.<br>
+</ul>
+<br>
+<h2><a href="#jumptable117"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Test your Database connection">Test your Database connection</a></h2>
+<br>
+The best way is just to run the acdk_sql_Test unit test.<br>
+<br>
+Create a database, f.e. named acdk and grant all rights
+to create tables, stored procedures and so on to you an user.<br>
+<br>
+Configure a ODBC datasource with ODBCConfig (unix) or the 
+Datasource in system control (Windows) named f.e. also acdk.<br>
+<br>
+Before running you have to ajust your database connection values
+in the configuration file <code>cfg/tests/acdk/sql/odbc/Connection.properties</code>
+<br>
+After ajust these values, compile and run the executable.<br>
+If all tests passes and no errors are displayed, the database
+connection should be OK.<br>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Installation | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | <a  href="acdk_sql_man_callable.html">Stored Procedures</a> | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

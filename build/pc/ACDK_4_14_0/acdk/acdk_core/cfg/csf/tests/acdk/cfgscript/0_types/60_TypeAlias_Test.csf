@@ -1,0 +1,10 @@
+
+typealias acdk.lang.String mytype;
+
+mytype s = "asdf";
+{
+  typealias acdk.lang.Integer mytype;
+  mytype is = new Integer(42); 
+}
+// now is mytype a string again
+s = "asdf";

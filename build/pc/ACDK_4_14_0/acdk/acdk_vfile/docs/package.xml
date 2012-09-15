@@ -1,0 +1,112 @@
+<package>
+<name>acdk_vfile</name>
+
+<title>
+ACDK Virtual Files (acdk_vfile)
+</title>
+
+<shortdescription>
+acdk_vfile implements virtual file systems for
+zip and tar files, which can used as plugin
+for the ACDK File framework.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<description>
+
+<m>acdk_vfile</m> provides implements %ref[virtual file systems, acdk_io_FileSystem] for 
+the %cref[acdk::io::File] fassade for transparent access to
+<b>zip</b> and <b>tar</b> files.
+
+Please refer to %ref[acdk_vfile_man] for examples.
+
+The utility %ref[<m>acdk_vfile_file2rc</m>, acdk_vfile_file2rc_man]
+transfer any binary data to a C-Struktur to link it to an application
+accessible via the  %cref[acdk::io::RessourceFileSystem].
+
+The little utility %ref[<m>acdk_vfile_convert</m>, acdk_vfile_convert_man] is 
+a ZIP and TAR unpacker, uses just as a little demo for the zip and tar
+file system plugin features.
+
+Another File plugin is available for FTP servers in the %ref[<m>acdk_net</m>, acdk_net] package.
+
+</description>
+
+<license>
+ACDK Free Edition License (%ref[acdk_license]).
+<br>
+and zlib licsence (%ref[acdk_vfile_zlib_license]).
+</license>
+
+<dependencies>
+acdk_core
+</dependencies>
+
+<namespaces>
+acdk::vfile
+</namespaces>
+
+<plattforms>
+All.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+
+Copyright (C) 1995-1998 Jean-loup Gailly and Mark Adler (zlib)
+</authors>
+
+<todo>
+Beta version.
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+- make FileSystem plugin for tar and zip loadable via
+	ClassLoader.
+- Fix in parsing TAR headers (name was not truncated to right
+	length.
+- Fix in tar and zip file system: If a file is reference, which
+	is not existant in zip/tar file return a file instance not
+	Nil.
+	
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.10.0
+- Minor fixes.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+
+===========================================================
+2.00.1
+Intial revision.
+
+
+</changes>
+
+<notes>
+From the original ZLIB distribution I have changed the 
+function declarations from the K&R style to the modern
+ANSI style. This enables also C++ compiler to compile 
+the code.
+</notes>
+</package>

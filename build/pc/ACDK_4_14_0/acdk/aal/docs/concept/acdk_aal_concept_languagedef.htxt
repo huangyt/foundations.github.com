@@ -1,0 +1,467 @@
+%id: acdk_aal_concept_languagedef
+%title: AAL definition
+%body:
+<chapterline/>
+<pageintro>
+Spec of the language.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Code Unit</jump1>
+
+<jump2>Comments</jump2>
+Enable C and C++ comments.
+
+<jump1>Types</jump1>
+
+The standard type system of ACDK should be supported:
+<fl>
+<f> Basic Types (int, char, etc.)
+<f> Class/Object Types
+<f> Function (implemented as anon Classes with operator()
+</fl>
+
+<jump2>Other Types</jump2>
+<fl>
+<f> Arrays of basic types and Objects (may implemented as object)
+<f> Enumerations (mapped to type?)
+<f> Const/static values (may implement a 'freeze' features of Objects)
+<f> Unions (probably not)
+</fl>
+
+<jump3>Arrays</jump3>
+<rs>
+// aal
+String[][] ds = String[][](2);
+// acdk
+StringArrayArray ds = StringArrayArray(2);
+ds[0] = new StringArray(0);
+ds[1] = new StringArray(0);
+
+</rs>
+<jump2>Coercion</jump2>
+Which Types should be automatically converted:
+<fl>
+<f> int -> long (widen to long)
+<f> long -> int (error?, but castable)
+<f> int -> float (error?, but castable)
+<f> flot -> int (error, but castable)
+<f> int -> Object (Integer)
+<f> Object -> int (error, but castable)
+</fl>
+
+<jump2>Storage types of values</jump2>
+<fl>
+<f> Basic types as value by default.
+<f> Object types as reference by default.
+<f> in, out, inout, byval, byref modifier.
+</fl>
+
+<jump2>Allocator</jump2>
+Support for Allocator, similar to C++/ACDK.
+Maybe use attributes for the 'new' operator?
+<rs>
+Class A { /* ... */ }
+A a = [OnStack] new A();
+// or
+A a =  new [OnStack] A();
+</rs>
+The allocator concept is quite difficult to implement, may not
+implementable for all back ends (Java-ByteCode).
+<jump1>Module / Namespace</jump1>
+
+<jump2>Syntax</jump2>
+Form 1:
+<rs>
+namespace unit {
+// all declaration in this block are part of unit
+}
+</rs>
+
+Form 2:
+<rs>
+package unit;
+// all further declaration are part of unit
+</rs>
+<jump2>Implementation</jump2>
+Problem: 
+- Should be implemented as Class with public static members?
+- Or should be implemented as namespace (using Unit)?
+
+
+<jump2>Imports</jump2>
+imports just make the types of the given unit
+available in current scope. It is equivalent
+to 'using namespace unit;' of C++.
+
+<rs>
+namespace unit {
+  import anotherunit;
+}
+</rs>
+
+<jump2>Globals</jump2>
+
+<rs>
+int myGlobalInt = 42;
+any myGlobalAny = initFunc();
+</rs>
+
+
+<jump1>Functions</jump1>
+<jump2>Syntax</jump2>
+<rs>
+int foo(int i, String s)
+{
+}
+</rs>
+
+Sample to implement a single method interface:
+<rs>
+interface IFace
+{
+  public int foo(int i, String s);
+}
+int foo(int i, String s) implements IFace;
+int foo(int i, String s) implements IFace.foo;
+
+</rs>
+
+<jump2>Implementation</jump2>
+Alternatives:
+<fl>
+<f> Each free standing function has an assiated Class.
+    <rs>
+    int foo(int i, String s);
+    //is mapped to 
+    class foo 
+    { 
+      public static int operator()(int i, String s);
+      
+      /* alt
+      public static int __call_static(int i , String s); 
+      public int __call_dynamic(int i , String s); 
+      */
+    }
+    </rs>
+   Pro: Can be used as Object in Callback situation.
+   Pro: Can be used to implement Interfaces.
+   Con: Overhead of ClazzInfos
+<f> Functions are public static methods of the surounding unit.
+    Pro/Con: opposite to free standing classes.
+</fl>
+
+<jump1>Classes</jump1>
+<jump2>Syntax</jump2>
+<rs>
+class AClass
+extends AnotherClass
+implements AInterface
+{
+  int _myVar;
+  AClass(int ival)
+  : _myVar(ival)
+  {
+    _myVar = ival;
+    this._myVar = ival;
+  }
+}
+</rs>
+Allowing different flavor (Java, C++).
+
+<jump2>Implementation</jump2>
+For each class a DClazzInfo instance will be generated, which is compatible with DMI ClazzInfo.
+This enables full DMI Server and Client functionality of Script Classes.
+
+<jump2>Extend class methods/overwrite methods</jump2>
+<rs>
+class AClass
+{
+  public int foo(int i) { return i; }
+}
+AClass a = new AClass();
+
+// extend the class with bar
+extend int AClass.bar(int i) { return i; }
+
+// extend instance with method
+extend int a.bar(int i) { return i; }
+
+// overwrite instance method
+overwrite int a.foo(int i) { return i + 1; }
+
+// overwrite class method
+overwrite int AClass.foo(int i) { return i + 1; }
+
+// failure, because incompatible signature
+overwrite int AClass.foo(long i) { return i + 1; 
+
+</rs>
+
+<jump2>External Classes</jump2>
+By default all ACDK and aal classes defined in current source file are available.
+To include the definition of other classes, a type of import functionality has 
+to be provided:
+<rs>
+[ // these will be evaluated while compile time
+  use AcdkLib("acdk/net");
+  use AcdkClass("acdk/net/SocketServer");
+  use JavaClass("java/util/HashMap");
+  use ComClass("Ms.Word");
+}
+</rs>
+
+<jump1>Functions and Methods</jump1>
+<jump2>Parameters</jump2>
+<fl>
+<f> attributes in, out, inout: <rs> void foo(in int ival, out int oval);</rs>
+<f> named attributes <rs>foo(str := "asdf", ival := 42);</rs>
+<f> default attributes <rs>void foo(int ival = 42);</rs>
+<f> Rest-Collector as Array: <rs>void foo(int ival, rest ObjectArray args);</rs>
+<f> Rest-Collector as Hash: <rs>void foo(int ival, rest Params args);</rs>
+</fl>
+
+<jump3>Rest parameter types</jump3>
+<rs>
+// ACDK
+typedef ScriptVarArray RestArgs;
+typedef core_vector<NamedArg> NamedRestArgs;
+
+class AClass
+{
+  void foo(int i, IN(acdk::lang::dmi::RDmiObjectArray) rest);
+  void bar(int i, IN(acdk::lang::dmi::RDNamedArgArray) rest);
+};
+
+AClass::standardDispatch( const char* classname, const char* fname
+                          , ScriptVar& ret
+                          , ScriptVarArray& args
+                          , DmiClient& dc
+                          , IN(::acdk::lang::RStringArray) namedArgs
+                          , int flags
+                          , const ClazzInfo* clazzinfo
+                          , const ClazzMethodInfo* methinf/* = 0*/)
+{
+  // incase of foo
+    foo(args[0].getIntVar(), getRest(1, args, namedArgs));
+  // in case of bar
+    foo(args[0].getIntVar(), getNamedRest(1, args, namedArgs));
+};
+
+ClazzMethodInfo* findFunction(...)
+{
+  if (arg->isRest())
+    return meth;
+  if (args->isNamedRest())
+    checkEnoughNamedParameter()
+    
+    
+}
+</rs>
+
+<rs>
+// aal
+class AClass
+{
+  void foo(int i, DmiObject[] rest);
+  void foo(int i, DmiNamedArgs rest);
+}
+</rs>
+
+
+<jump2>Operators</jump2>
+Enable to create operators for classes:
+<rs>
+class A
+{
+  A(String str);
+  String toString();
+  A operator+(A a) { return new A(toString() + a.toString()); }
+  // internal name of this operator: 'operator_plus'
+  void operator()(int i);
+  // internal name of this operator: 'operator_call'
+}
+</rs>
+
+Rules for operators:
+An operator is a stream of chars except:
+<fl>
+<f> char '(' except it is the first character in operator
+<f> any legal identifier char (A-Za-z0-9_)
+<f> white spaces
+</fl>
+<rs>
+class A
+{
+  // not very reasonable operator '(/^$\|@#%.,?'
+  operator (/^$\|@#%.,?(int a);
+}
+</rs>
+
+Operators can have none or one parameter and follows the rules of C++.
+The corresponding DMI methods for an operator are named by following
+rule:
+
+<jump3>Assocation of operators</jump3>
+
+By default all operators are associated with 
+the left hand operant.
+<rs>
+class AClass
+{
+  // left hand operator
+  AClass operator+(AClass cls);
+  // aclass1 + aclass2 -> aclass1.operator+(aclass2)
+  AClass operator++();
+  // aclass1++ aclass2 -> aclass1.operator++()
+  
+  // implicit right hand operator in C++
+  AClass operator++(int); // C++
+  // aclass1++ aclass2 -> aclass2.operator++() // C++ only
+  
+  // right hand operator
+  AClass rhoperator+();
+  // ++aclass1-> aclass1.operator++() // C++ only
+}
+
+</rs>
+If calling an operator, first an matching operatant
+on the left side of the operator will be found. If 
+non found, an matching rhoperator will be searched for
+the operant on the right side.
+
+This will be done on runtime in case of dynamic binding
+or at compile time in case of static binding.
+
+<jump3>Operator precendence</jump3>
+<rs>
+obj.member+a; // obj.operator.(member).operator+(a)
+a+obj.member; // a.operator+(obj).operator.(member) // not the right way
+</rs>
+List predefined operators in order of strength:
+<rs>
+(...)
+[...]
+.&nbsp;
+++ --
+* /
++ -
+
+</rs>
+<jump3>Name mapping for operators</jump3>
+<rs>
+operator >=(...);
+// is
+operator_gt_eq(...);
+</rs>
+List of known operator with its corresponding names:
+<rs>
+dt . dot
+eq = equal
+lt < lessthen
+gt > greaterthen
+nt ! not
+cm , comma
+pl + plus
+hs # hash
+ps % per[s]cent
+as * asterix
+mi - minus
+sl / slash
+bo [ bracketopen
+bc ] bracketclose
+dp : double point
+bs \ backslash
+vb | verticalbar
+rf ^ roof
+qs ? question
+la & logical and
+po ( parantesisopen
+pc ) parantesisclose
+tl ~ tilde
+at @ at
+pg § paragraph
+dl $ dollar
+co { closure open
+cc } closure close
+</rs>
+If no name mapping was found for a operator sign, the ascii code of the sign will 
+be used.
+
+
+
+<jump1>Closures</jump1>
+
+<jump1>Defun</jump1>
+<jump2>Intro</jump2>
+Working with closures it may not very handy always to 
+define an interface for each method/operator.
+
+For the operator definitions of an interface, class or closure should
+automatically the typed interface available:
+<rs>
+class AClass
+{
+  public int operator()(String s, int i) { ... }
+  public static int operator()(String s, int i) { ... }
+  public int doSomeThing(String s, int i) { ... }
+  public static int staticMethod(int i) { ... }
+}
+
+defun AnCall int (String s, int i);
+// or alias
+defun AnCall int operator()(String s, int i);
+defun AnPlusCall int operator+(String s, int i);
+defun AnStaticCall static int (int i);
+
+void foo(AnCall callable)
+{
+  callable("asdf", 42);
+}
+
+void bar(AnStaticCall callable)
+{
+  callable(42);
+}
+
+AnCall callable = new AClass(); // using operator()(String s, int i)
+AnCall callable = new AClass().doSomeThing; // use doSomeThing(String s, int i)
+AnCall callable = new () { int operator()(String s, int i) { ... } };
+AnCall callable = AClass; // using static int AClass.operator()(String s, int i);
+foo(callable);
+AnStaticCall staticcall = AClass.staticMethod;
+bar(staticcall);
+
+</rs>
+
+<jump2>Implementation</jump2>
+May be support from DMI, which allows
+to generate ClazzInfos for Functions.
+<rs>
+ACDK_DECL_FUNC(StringAdder);
+class StringAdder
+{
+  ACDK_WITH_FUNC_METAINFO
+public:
+  RString operator+(IN(RString) s);
+};
+</rs>
+Which generates ClazzInfo for the operator+.
+
+
+
+<jump1>Statement</jump1>
+<jump2>Left Hand Expression Assignments</jump2>
+<rs>
+// has to push outOf the variable of 
+// foo.bar 
+foo.bar = x;
+
+// or more complex
+(x, b) = x;
+
+</rs>
+.
+  

@@ -1,0 +1,45 @@
+<package>
+<name>acdkmc</name>
+
+<title>
+  ACDK Metacompiler
+</title>
+
+<shortdescription>
+The ACDK Metacompiler is used to generate meta information 
+for ACDK classes.
+</shortdescription>
+
+<description>
+acdkmc is the compiler that generates %ref[metainfo, acdk_hb_mi]
+for acdk-classes. The metainfo will be used for Garbage Collection,
+Serialization, %ref[DMI, acdk_hb_dmi] and Middleware support.
+</description>
+
+<license>
+  ACDK Free Edition License.
+</license>
+<dependencies>
+  
+</dependencies>
+
+<namespaces>
+acdk::mc;
+</namespaces>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+ARB and ORB is not stable.
+</todo>
+
+<changes>
+- please refer package documentaion
+</changes>
+
+<notes>
+
+</notes>
+</package>

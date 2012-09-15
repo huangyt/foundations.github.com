@@ -1,0 +1,191 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>How create own Executable</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_general_install.html">Installation</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Create own Executable<br>See also:<br>&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_general_install.html">Installation</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_general_compile_acdk.html">Compile ACDK</a> | <a  href="acdk_general_install_upgrade.html">Upgrade ACDK</a> | Create own Executable | <a  href="acdk_general_compile_own_lib.html">Create own Library</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>How create own Executable</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>How create own Executable</h1> -->
+
+<htmlauto>
+<p class="PageIntro">
+How to create your own executable using the ACDK libraries.
+</p>
+
+
+<jump1>How to create own Executable/Library Project</jump1>
+Currently there are multiple ways to create your own Project
+using the ACDK libraries.
+
+<a name="jumptable4"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Minimal Makefile sample for Unix"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Minimal Makefile sample for Unix</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Minimal build.csf sample for all platforms"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Minimal build.csf sample for all platforms</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Use acdk_boot as sample"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Use acdk_boot as sample</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Generate own Makefiles/Project using acdklisp"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Generate own Makefiles/Project using acdklisp</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+
+<h2><a href="#jumptable4"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Minimal Makefile sample for Unix">Minimal Makefile sample for Unix</a></h2>
+In an empty directory create the file <code>minacdksample.cpp</code>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/lang/System.h&gt;</FONT></B>
+
+using namespace acdk::lang;
+
+<I><FONT COLOR="#B22222">// minimal example, which just says hello
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> MiniAcdkSample
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> acdkmain(RStringArray args)
+  {
+    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Hello from miniacdksample&quot;</FONT></B>);
+    <B><FONT COLOR="#A020F0">return</FONT></B> 0;
+  }
+};
+
+<B><FONT COLOR="#228B22">int</FONT></B>
+<B><FONT COLOR="#0000FF">main</FONT></B>(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>* argv[], <B><FONT COLOR="#228B22">char</FONT></B>** envptr)
+{
+  <B><FONT COLOR="#A020F0">return</FONT></B> acdk::lang::System::main(MiniAcdkSample::acdkmain, argc, argv, envptr);
+}
+</PRE></td></tr></table>
+
+Create the corresponding <code>Makefile</code> for unix/gcc:
+
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+# <B><FONT COLOR="#5F9EA0">where</FONT></B> <FONT COLOR="#B8860B">is</FONT> <FONT COLOR="#B8860B">your</FONT> <FONT COLOR="#B8860B">ACDK</FONT> <FONT COLOR="#B8860B">installed</FONT>
+ACDKHOME=/artefaktur/acdk
+
+CCOMPILER=g++ -Wall -Wno-unused -g -D_REENTRANT -I .  -I $(ACDKHOME)/include
+
+# <B><FONT COLOR="#5F9EA0">system</FONT></B> <FONT COLOR="#B8860B">libraries</FONT>. <FONT COLOR="#B8860B">These</FONT> <FONT COLOR="#B8860B">are</FONT> <FONT COLOR="#B8860B">needed</FONT> <FONT COLOR="#B8860B">by</FONT> <FONT COLOR="#B8860B">ACDK</FONT> <FONT COLOR="#B8860B">at</FONT> <FONT COLOR="#B8860B">least</FONT>
+SYSLIBRARIES=-lpthread -lm -ldl
+ACDKLIBS=-lacdk_core
+
+# <B><FONT COLOR="#5F9EA0">all</FONT></B> <FONT COLOR="#B8860B">libs</FONT> <FONT COLOR="#B8860B">together</FONT>
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(ACDKHOME)/bin $(ACDKLIBS)
+
+# <B><FONT COLOR="#5F9EA0">want</FONT></B> <FONT COLOR="#B8860B">maybe</FONT> <FONT COLOR="#B8860B">to</FONT> <FONT COLOR="#B8860B">debug</FONT>
+SYSLDFLAGS=-g
+
+
+OBJECTS = minacdksample.o
+
+# <B><FONT COLOR="#5F9EA0">builds</FONT></B> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">executable</FONT> <FONT COLOR="#B8860B">itself</FONT>
+# <B><FONT COLOR="#5F9EA0">don't</FONT></B> <FONT COLOR="#B8860B">forget</FONT> <FONT COLOR="#B8860B">to</FONT> <FONT COLOR="#B8860B">export</FONT> <FONT COLOR="#B8860B">LD_LIBRARY_PATH</FONT>=/<FONT COLOR="#B8860B">artefaktur</FONT>/<FONT COLOR="#B8860B">acdk</FONT>/<FONT COLOR="#B8860B">bin</FONT> <FONT COLOR="#B8860B">before</FONT> <FONT COLOR="#B8860B">execute</FONT> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">binary</FONT>
+<B><FONT COLOR="#5F9EA0">minacdksample</FONT></B>: $(OBJECTS)
+	g++ $(SYSLDFLAGS)  $(OBJECTS) -o minacdksample $(LIBS)
+
+%.o: %.cpp
+	$(CCOMPILER) -c $&lt; -o $@
+
+<B><FONT COLOR="#5F9EA0">clean</FONT></B>:
+	rm *.o minacdksample
+</PRE></td></tr></table>
+
+That is all. Just make.
+
+<h2><a href="#jumptable4"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Minimal build.csf sample for all platforms">Minimal build.csf sample for all platforms</a></h2>
+<a  href="../acdk_make/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Make</a> is a platform independ make substitution.
+Currently it is in experimental state. 
+
+Create a <code>build.csf</code> in our directory:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<I><FONT COLOR="#B22222">/*
+  Just execute acdkmake in this directory
+*/</FONT></I>
+
+<I><FONT COLOR="#B22222">// needed for base definitions
+</FONT></I>#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&quot;amake_config.csf&quot;</FONT></B>
+
+<I><FONT COLOR="#B22222">// Create a standard ACDK console executable 
+</FONT></I>minacdksample = <B><FONT COLOR="#A020F0">new</FONT></B> acdk.make.AcdkExeTask(<B><FONT COLOR="#BC8F8F">&quot;minacdksample&quot;</FONT></B>);
+
+<I><FONT COLOR="#B22222">//  add a single source. This also excepts pattern
+</FONT></I><I><FONT COLOR="#B22222">//  like &quot;src/acdk/bla/*.cpp&quot; 
+</FONT></I><I><FONT COLOR="#B22222">//  or   &quot;src/acdk/blub/**/*.cpp&quot;
+</FONT></I>minacdksample.addSource(<B><FONT COLOR="#BC8F8F">&quot;minacdksample.cpp&quot;</FONT></B>);
+
+<I><FONT COLOR="#B22222">// this uses acdk_core library
+</FONT></I>minacdksample.addAcdkLib(<B><FONT COLOR="#BC8F8F">&quot;acdk_core&quot;</FONT></B>);
+
+<I><FONT COLOR="#B22222">// make a project
+</FONT></I><B><FONT COLOR="#A020F0">default</FONT></B> = <B><FONT COLOR="#A020F0">new</FONT></B> acdk.make.AcdkProjectTask(<B><FONT COLOR="#BC8F8F">&quot;default&quot;</FONT></B>);
+<B><FONT COLOR="#A020F0">default</FONT></B>.addSubTask(<B><FONT COLOR="#BC8F8F">&quot;minacdksample&quot;</FONT></B>);
+</PRE></td></tr></table>
+
+Execute acdkmake in the directory.
+
+<h2><a href="#jumptable4"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Use acdk_boot as sample">Use acdk_boot as sample</a></h2>
+The package <a  href="../acdk_boot/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Boot</a> is small sample project which, which can be used
+as a template for creating own projects.
+
+<h2><a href="#jumptable4"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Generate own Makefiles/Project using acdklisp">Generate own Makefiles/Project using acdklisp</a></h2>
+
+Currently ACDK uses a lisp files to generate platform make files.
+In the future this will replaced with acdkmake.
+
+Please refer to <a  href="acdk_general_install.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;Installation</a>.
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_general_compile_acdk.html">Compile ACDK</a> | <a  href="acdk_general_install_upgrade.html">Upgrade ACDK</a> | Create own Executable | <a  href="acdk_general_compile_own_lib.html">Create own Library</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

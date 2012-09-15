@@ -1,0 +1,115 @@
+%id: acdk_aal_concept_opcode_dmi
+%title: AAL OpCode DMI Interface
+%shorttitle: DMI Interface
+%body:
+<chapterline/>
+<pageintro>
+Intermediate OpCode for AAL.
+</pageintro>
+
+
+<jumptable/>
+<jump1>Basics</jump1>
+
+In connection with the StandardDispatch DMI interface
+an connector as DMI Server and DMI client should be used.
+
+In the first implementation of internal AAL objects this 
+interface should also be used for internal object invocation.
+
+<jump1>Implementation</jump1>
+A ClazzInfo can have an Attribute 
+__acdk_cls_rtext which holds static
+extension of the class.
+ClazzInfo->attributeRes[instd_acdk_dmi][objaddrs] == attributeRes
+
+and
+__acdk_obj_rtext which holds instance
+related extensions:
+<rs>
+
+class InstanceAttributeData
+: acdk::lang::Object
+{
+  typedef core_vector<KeyValue<Object*, ClazzAttributesRes> InstanceAttrMap;
+  InstanceAttrMap _data;
+  ~InstanceAttributeData()
+  {
+  }
+  KeyValue<StringRes, ClazzAttributeResValue> getAttribute(MetaInfo* mi, Object* o, IN(RString) key)
+  {
+    
+  }
+  void releaseObject(Object* o)
+  {
+    InstanceAttrMap::iterator it = find(o);
+    if (it == _data.end())
+      return;
+    _data.erase(it, it);
+  }
+};
+
+class DmiRuntimeExt 
+{
+  RObject _dmiServer;
+  RDClazzInfo _clazzInfo;
+  core_vector<pair<name, ScriptVar> > _static_fields;
+}
+</rs>
+
+<rs>
+extend acdk.lang.Object with String foo(int i) { return i; }
+//will add the method to the acdk.lang.Object class
+acdk.lang.Object o = new acdk.lang.Object();
+extend o with String foo(int i) { return i; }
+// will add the method to object instance o only.
+
+</rs>
+
+
+
+<jump1>DMI Client</jump1>
+<jump2>invoke</jump2>
+<rs>
+Top of Stack before call
+----------------------------
+int       Invocation flags
+obj       Target Object to call
+method    String of Method name
+arg n     Last Argument
+arg n-1
+arg 0     First Argument
+
+Top of Stack after call
+----------------------------
+any       return value of method (can be void)
+</rs>
+
+<rs>
+// method with 2 arguments
+str.substr(0, 1);
+
+push 1
+push 0
+push "substr"
+push Var(str)
+push 2 // count of arguments and flags
+invoke
+pop // return value
+</rs>
+<jump2>peek</jump2>
+<jump2>peek_static</jump2>
+<rs>
+Top of Stack before call
+----------------------------
+int       Invocation flags
+str       ClassName
+str       MemberName
+
+Top of Stack after call
+----------------------------
+any       return value of member
+</rs>
+<jump1>DMI Server</jump1>
+
+.

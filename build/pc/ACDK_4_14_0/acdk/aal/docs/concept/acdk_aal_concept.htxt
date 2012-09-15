@@ -1,0 +1,295 @@
+%id: acdk_aal_concept
+%chapter: acdk_aal_ip, acdk_aci_concept, acdk_aal_concept_languagedef, \
+          acdk_aal_concept_languagesyntax, acdk_aal_concept_parser, \
+          acdk_aal_concept_objects, acdk_aal_concept_opcode, \
+          acdk_aal_concept_links
+%title: AAL Concept
+%shorttitle: Concept
+%body:
+<pageintro>
+Conceptional thinking about design of AAL.
+</pageintro>
+
+Note: These papers are only result on my brainstorming about
+concepts, definitions and implementations of the AAL.
+
+<subschapterstable/>
+
+<h2>Steps</h2>
+(Task - percent implemented yet)
+<fl>
+<f> Compiler-Interpreter framework
+<fl>
+  <f> Scanner framework using regular expressions 
+      and user defined scanner plugins (C++-commets, etc) - 70%
+  <f> Parser framework using extended BNF syntax - 70%
+  <f> SymbolTable - 50%
+</fl>
+<f> OpCode Interpreter
+<fl>
+  <f> Standard OpCodes - 30%
+  <f> DMI Client Interface - 20%
+  <f> DMI Server Interface - 20%
+</fl>
+<f> AAL language
+<fl>
+  <f> Standard AAL syntax definition - 40%
+  <f> Semantik parser - 60%
+  <f> OpCode generator - 50%
+  <f> Language Details<br>
+  
+  <fl>
+    <f> Object related things
+    <fl>
+      <f> allow fully qualified names (acdk.lang.System.out.println("asdf");) - 90%
+      <f> preparse all declarations of class before body - 100%
+      <f> Namespace definitions - 60%
+      <f> using declarations - 60%
+      <f> using also for classes, methods and fields - 0%
+      <f> Interfaces - 50%
+      <fl>
+        <f> Check if all abstract interfaces are implemented in NewExpression - 0%
+      </fl>
+      <f> Abstract Classes - 50%
+      <f> Allow member access inside class without this. prefix - 70%
+      <f> User defined operators - 40%
+      <f> static class member - 80%
+      <f> property similar to C# - 0%
+      <f> Stacked Object variables (maybe only possible for AAL objects, not for ACDK Objects) - 0%
+        <fl>
+          <f> Redesign of Stack/Heap to allow typed values (currently only ScriptVar are allowed).
+          <f> need raw_sizeof(Class) at runtime - 0%
+          <f> DMI Constructor interface with allocator - 0%
+        </fl>
+      <f> AalObject as DMI Server - 10%
+      <fl>
+        <f> Allow AalObject to derive from ACDK Object - 50%.
+        <f> Overwrite (virtual) method call in AllObject derived from ACDK object
+            - only possible with external DMI thunked version of the classes.
+      </fl>
+      <f> Allow call undefined DMI Server classes (weak binding) - 100%
+      <f> Declare classes as weak, dispatching/overloading on object types, not on class types.
+          method calls may return DoesNotUnderstand.
+          obj.call() static call if possible, dynamic call if necessary
+          obj->call() forced dynamic call 
+          This also can be used as implementation of multimethods
+          - 80%
+      <f> public/private class members access, checking at run time - 40%
+      <f> public/private class members access, checking at compile time - 30%
+      <f> public/protected/private for unit access - 0%
+      
+      <f> explicit Super invocation (class A { void foo(); } class B extends A { void foo() { A.foo(); } - 50%
+      <f> Implicit default super constructor invocation - 100%
+      <f> Class Constructor (static ClassName() {}) - 100%
+      <f> super alias for parent class - 0%
+      <f> Generate default constructor if no constructor is defined - 100%.
+      <f> Automatic constant object wrapper to allow "asdf".length(), 42.toString() - 10%
+      <f> Read only member - 0%
+      <f> Free standing functions - 30%
+      <f> Overwrite/Extend classes/objects at compile time - 0%
+      <f> Protect classes from Overwrite/Extend. All ACDK classes are sealed - 0%.
+      <f> Add fields at runtime (static fields, on all new created object of an class, to a single instance) - 0%
+      <f> Accessing global variables - 0%
+      <f> Local type (classes, functions) definitions with access attributes - 0%
+      <f> byval field members - 0%
+      <f> multiple inheritance by forwarding ('using' type) - 0%
+    </fl>
+    <f> Call interface
+    <fl>
+      <f> Standard parameters - 60%
+      <f> named parameters - 70%
+      <f> in, out, inout parameters - 0%
+      <f> byval parameters - 0%
+      <f> weak interfaces (like perl, tcl, etc.) - 0%
+      <f> rest parameters - 0%
+      <f> Ad hoc named and unnamed tuples (structs/arrays/hashes) for parameter and return types
+          using rest parameters
+      <f> 
+      <f> build in method/field invokation not using dmi - (not needed) 0%
+    </fl>
+    <f> Types
+    <fl>
+      <f> Buildin basic types - 30%
+      <fl>
+        <f> constant right sizes (12 = byte, 1234 = short, etc) - 80%
+        <f> parse dec constants - 100%
+        <f> parse hex constants - 0%
+        <f> parse postfixed number constants "0L"- 100%
+      </fl>
+      <f> Strings - 30%
+      <fl>
+        <f> standard strings - 100%
+        <f> String concation: "a" "b" => "ab" - 100%
+        <f> Multiline strings: "
+                                " - 0%
+        <f> String::operator+() - 100%
+        <f> StringBuffer::operator+=() - 100%
+      </fl>
+      <f> any type - 0%
+      <f> Enumeration - 0%
+      <f> Derived enumerations - 0%
+      <f> Constants (maybe implemented with readonly variables) - 0%
+      <f> Buildin array types - 50%
+      <fl>
+        <f> Basic type arrays - 80%
+        <f> Object type arrays - 70%
+        <f> static initialization of arrays "int[] iarr = { 1, 2, 3};" - 0%
+        <f> multi dimensional arrays  - 0%
+        <f> array slicing - 0%
+      </fl>
+      <f> Buildin hash types - 0%
+      <f> Value types - 0%
+    </fl>
+    <f> Expressions:
+    <fl>
+      <f> Assignment operator - 30%
+      <f> Type checking for assigment - 0%
+      <fl>
+        <f> := operator for value assignment - 0%
+      </fl>
+      <f> Resolve user defined class operators - 25%
+      <f> Short cicuit boolean evaluation (a.foo() == true && b.foo() == true) - 100%
+      <f> Relational Expression - 80%
+      <f> ! not operator - 100%
+      <f> Bitwise operators |, &, ^, ~ - 100%
+      <f> Assignments chain (a = b = c) - 100%
+      <f> operator=== to compare if two Objects are equals - 100%.
+      <f> operator<=> to compare if two Objects via compareTo - 0%.
+      <f> Additive operators - 20%
+      <f> Cast expression for objects - 60%
+      <f> Cast expression for basic types - 0%
+      <f> C++-like casts (int(32), String(other) - 0%
+      <f> Boxing casts ((int)integer; Object(42) - 0%
+      <f> Type conversion/coercion (short + long == long) - 0%
+      <f> Multiplicative operators - 100%
+      <f> modulo operator on floats (C++ doesn't support this, but Java) - %
+      <f> Prefix and Postfix operator - 70%
+      <fl>
+        <f> Buildin ops - 80%
+        <f> overloaded ops - 0%
+        <f> single -/+ Prefix - 0%
+      </fl>
+      <f> Shift operator - 100%
+      <f> >>> shift operator - 100%
+      <f> Expression if (test ? true : false) - 100%
+      <f> Comma seperated expressions (often used in for loops) - 0%
+      <f> Empty Expression (used in for loops) - 100%
+      <f> Buildin expressions 
+      <fl>
+        <f> instanceof - 0%
+      </fl>
+    </fl>
+    <f> Metainfo
+    <fl>
+      <f> Standard Metainfo using ACDK DMI and acdk.lang.reflect
+    </fl>
+    <f> Statements:
+    <fl>
+      <f> If statement - 100%
+      <f> While statement - 100%
+      <f> return statement - 100%
+      <f> Scoped Blocks - 60%
+      <f> Do statement - 100%
+      <f> for statement - 100%
+      <f> foreach statement for arrays (foreach (iterator, container, condition) Statement (from kiev) - 0%
+      <f> foreach statement on maps - 0%
+      <f> switch statement - 100%
+      <f> swtich statement with expressions - 100%
+      <f> break, continue statement - 100%
+      <f> goto, check if var initialization will be crossed - 70%
+      <f> goto needs at least one statement behind. "void foo() { goto endoffoo; endoffoo: }" does not work - 100%
+      <f> empty statement - 100%
+      <f> Synchronization - 0%
+      <f> with expression (similar to VB) - 0%      
+    </fl>
+    <f> Exceptions
+    <fl>
+      <f> throw/catch/finally statement - 100%
+      <f> Handle AAL orginator and AAL catcher - 100%
+      <f> Handle AAL orginator and ACDK catcher - 0%
+      <f> Handle ACDK orginator and AAL catcher - 100%
+      <f> Handle ACDK orginator and ACDK catcher - 0%
+      <f> [re-] throw exception - 0%
+      <f> call function in catch blocks (which allows rethrow] - 0%
+      <f> throws method declaration - 0%
+      <f> throwable class - 100%
+      <f> Backtrace - 0%.
+    </fl>
+    <f> Closures
+    <fl>
+      <f> standard closures - 50%
+      <f> named parameter: new (firstVar: Expression) { int expression() { return firstVar; } }; - 0%
+    </fl>
+    <f> Free standing Functions - 80%
+    <f> Defun (higher order functions)
+    <fl>
+      <f> static defun (defun Function static int (int i); Function f = obj.method;  f(42); )- 0%
+      <f> object defun (defun Function int (int i); Function f = AClass.method; obj.f(42); ) - 0%
+      <f> way to use defun inplace without name it (see pizza) - 0%
+    </fl>
+    <f> Templates
+    <fl>
+      <f> standard class templates for collection - 0%
+      <f> restricted template types (<A implements Comparable<T> > - 0%
+      <f> Parse Templates - 0%
+      <f> Template persistence database - 0%
+    </fl>
+    <f> Custom Attributes
+    <fl>
+      <f> Standard ACDK Attributes - 0%
+      <f> Compiler interface - 0%
+    </fl>
+    <f> Compiler-Interpreter
+    <fl>
+      <f> Basic Metacompiling feature (reg-exp syntax "string =~ /bla/" as sample - 0%
+      <f> Compiler plugins for code weaving (AOP, assertions, logging, serialization, synchronization) - 0%
+      <f> Compiler plugin for Java compatibility - 0%
+      <f> Compiler plugin for ACDK compatibility - 0%
+      <f> Compiler plugin for Lisp - 0%
+    </fl>
+    <f> Assembler
+    <fl>
+      <f> inline assembler statments for AAL runtime (aasm push "asdf") - 0%
+      <f> inline assembler statments for Java runtime (jasm push) - 0%
+      <f> inline assembler statments for .NET runtime (nasm push) - 0%
+    </fl>
+    <f> Praeprocessor, may implemented via compiler-interpreter
+    <fl>
+      <f> define / defined
+      <f> if
+      <f> error
+    </fl>
+  </fl>
+  <f> Runtime
+  <fl>
+    <f> ClassLoader for AAL scripts - 0%
+    <f> ClassLoader for external DMI classes (Java, Perl, CORBA, etc) - 0%
+    <f> Interpreter - Interface
+    <fl>
+      <f> Interface to allow set/get variables from executed environment - 40%
+    </fl>
+    <f> Debugger
+    <fl>
+      <f> Breakpoints - 0%
+      <f> Print code line - 0%.
+      <f> Call stack trace - 0%
+      <f> local variables trace - 0%
+    </fl>
+    <f> Code generation - 20%
+    <f> Usefull compiler error/warning messages - 20%
+    <f> DClazzInfo persistence - 0%
+    <f> AalClazzFormat - 0%
+    <f> Runtime executor - 0%
+    <f> Resolve classnames, methods and fields at load time - 0%
+    <f> Java VM code generation - 0%
+      <fl>
+        <f> DMI stubs for foreign objects (ACDK, Perl, etc)
+        <f> Direct call interface for Java Objects.
+      </fl>
+    <f> .NET VM code generation - 0%
+    <f> GCC frontend - 0%
+  </fl>
+</fl>
+</fl>
+
+.

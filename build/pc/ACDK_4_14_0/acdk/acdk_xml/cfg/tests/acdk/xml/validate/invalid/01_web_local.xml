@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "web-app_2_3.dtd"> -->
+<!DOCTYPE web-app SYSTEM "web-app_2_3.dtd">
+<web-app>
+  <display-name>sampleapp.war</display-name>
+  <wrong_servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>com.artefaktur.acdk.xml.SampleServlet</servlet-class>
+    <init-param>
+      <param-name>validate</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>application</param-name>
+      <param-value>com.artefaktur.acdk.xml.util.MessageRessource</param-value>
+    </init-param>
+    <init-param>
+      <param-name>factory</param-name>
+      <param-value>com.artefaktur.acdk.xml.util.MessageRessourceFactory</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>0</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>0</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </wrong_servlet>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+
+  <!-- error -->
+  <error-page>
+	<exception-type>java.lang.Throwable</exception-type>
+    <location>/jsp/error.html</location>
+  </error-page>
+
+  <!-- taglibs -->
+  <taglib>
+    <taglib-uri>/WEB-INF/nol.tld</taglib-uri>
+    <taglib-location>/WEB-INF/nol.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+    <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+  </taglib>
+  <taglib>
+    <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+    <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+  </taglib>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>nexttonline_realm</realm-name>
+  </login-config>
+  <security-role>
+    <description>neXtt Online Role</description>
+    <role-name>nexttonline_role</role-name>
+  </security-role>
+  <env-entry>
+      <env-entry-name>NexttUrl</env-entry-name>
+      <env-entry-value>https://secure2.examind.com:8443/nexttjlib/nexttservlet</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+ </env-entry>
+</web-app>

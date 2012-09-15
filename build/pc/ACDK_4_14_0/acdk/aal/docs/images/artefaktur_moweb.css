@@ -1,0 +1,504 @@
+
+A:link
+{
+    COLOR: black
+}
+A:visited
+{
+    COLOR: black
+}
+A:active
+{
+    COLOR: black
+}
+A
+{
+    COLOR: black
+}
+UL
+{
+    LIST-STYLE: square outside;
+    MARGIN-LEFT: 0.45cm
+}
+OL
+{
+    MARGIN-LEFT: 0.45cm;
+    MARGIN-TOP: -0.5cm
+}
+#IndentSL
+{
+    MARGIN-LEFT: 0.45cm;
+    TEXT-INDENT: -0.45cm
+}
+.navleiste
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, SansSerif, Helvetica;
+    FONT-SIZE: 10pt;
+    #FONT-STYLE: normal;
+    #FONT-VARIANT: normal;
+    #FONT-WEIGHT: normal;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.navleiste A
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.navleiste A:active
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.navleiste A:link
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.navleiste A:visited
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.leditedheader
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    TEXT-ALIGN: right;
+    TEXT-DECORATION: none
+}
+.navleistegr
+{
+    COLOR: gray;
+    FONT-FAMILY: Arial, Helvetica, SansSerif;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    TEXT-ALIGN: right;
+    TEXT-DECORATION: none
+}
+.navleistegr A
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.navleistegr A:active
+{
+    COLOR: black
+}
+.navleistegr A:link
+{
+    COLOR: black
+}
+.navleistegr A:visited
+{
+    COLOR: black
+}
+.leditedheadergr
+{
+    COLOR: gray;
+    FONT-FAMILY: 'Verdana', 'Sans Serif';
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: right;
+    TEXT-DECORATION: none
+}
+.senkrechterstrichzelle
+{
+    BACKGROUND-COLOR: black
+}
+.senkrechterstrichzellegr
+{
+    BACKGROUND-COLOR: gray
+}
+BODY
+{
+  FONT-FAMILY: Arial, SansSerif, Helvetica;
+  BACKGROUND-COLOR: white
+}
+.entrytitel
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+H1
+{
+    COLOR: black;
+    FONT-FAMILY: 'Courier New', monospace, SansSerif, Helvetica, Arial;
+    FONT-SIZE: 20pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: left;
+
+}
+H2
+{
+  background-color:#F0F0F0;
+  border-top-width:1px;
+  border-top-style:solid;
+  border-color:black;
+    FONT-FAMILY: 'Courier New', monospace, SansSerif, Helvetica, Arial;
+    FONT-SIZE: 16pt
+}
+H3
+{
+  background-color:#F0F0F0;
+  border-top-width:1px;
+  border-top-style:solid;
+  border-color:black;
+    COLOR: black;
+    FONT-FAMILY: 'Courier New', monospace, SansSerif, Helvetica, Arial;
+    FONT-SIZE: 14pt;
+    FONT-WEIGHT: bold
+}
+H4
+{
+  background-color:#F0F0F0;
+  border-top-width:1px;
+  border-top-style:solid;
+  border-color:black;
+  
+    COLOR: black;
+    FONT-FAMILY: 'Courier New', monospace, SansSerif, Helvetica, Arial;
+    FONT-SIZE: 12pt;
+    FONT-WEIGHT: bold
+}
+H5
+{
+  border-top-width:1px;
+  border-top-style:solid;
+  border-color:black;
+  
+    FONT-FAMILY: monospace, 'Courier New', SansSerif, Helvetica, Arial;
+    FONT-SIZE: 12pt;
+    FONT-STYLE: italic
+}
+HR
+{
+    BORDER-BOTTOM: black;
+    BORDER-LEFT: black;
+    BORDER-RIGHT: black;
+    BORDER-TOP: black;
+    COLOR: black
+}
+.filelist
+{
+    BORDER-BOTTOM: white thin;
+    BORDER-LEFT: white thin;
+    BORDER-RIGHT: white thin;
+    BORDER-TOP: white thin;
+    FONT-FAMILY: Courier New, monospace;
+    FONT-SIZE: 10pt
+}
+HR.waagerechterstring
+{
+    BORDER-BOTTOM: black thick solid;
+    BORDER-LEFT: black thick solid;
+    BORDER-RIGHT: black thick solid;
+    BORDER-TOP: black thick solid;
+    COLOR: black
+}
+.Linktool
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Arial, Helvetica;
+    FONT-WEIGHT: normal
+}
+.LinkBar
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold
+}
+.LinkBar A
+{
+    COLOR: black;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+.LinkBar A:active
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.LinkBar A:link
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.LinkBar A:visited
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.elsic
+{
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    FONT-SIZE: 9pt
+}
+
+.ProjektTitle
+{
+    COLOR: black;
+    FONT-FAMILY: Verdana, SansSerif;
+    FONT-SIZE: 14pt
+}
+.FeatureTitle
+{
+    FONT-SIZE: larger;
+    FONT-WEIGHT: bolder;
+    LETTER-SPACING: 1pt
+}
+.Feature
+{
+    LIST-STYLE: square outside
+}
+.SubFeatureList
+{
+    MARGIN-LEFT: 1cm
+}
+.SubFeature
+{
+    LIST-STYLE: square outside;
+    
+}
+.Featurealt
+{
+    LIST-STYLE: square inside;
+    WIDTH: 500px
+}
+.PageIntro
+{
+    FONT-FAMILY: Arial, SansSerif, Helvetica;
+    FONT-WEIGHT: bolder;
+    MARGIN-LEFT: 1cm;
+    TEXT-INDENT: 0cm
+}
+.jumptarget
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.jumptable
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.image
+{
+    TEXT-ALIGN: center
+}
+.imagetitle
+{
+    FONT-SIZE: larger;
+    FONT-STYLE: italic;
+    TEXT-ALIGN: center;
+    TEXT-INDENT: 1cm
+}
+.chapterentry
+{
+    TEXT-DECORATION: none
+}
+.horizontalnav
+{
+    FONT-SIZE: 8pt;
+    FONT-STYLE: italic
+}
+.marke
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, SansSerif;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: 900;
+    TEXT-DECORATION: none
+}
+.MarkeFirstChar
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, SansSerif;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: 900;
+    TEXT-DECORATION: none
+}
+.producttable
+{
+    BORDER-BOTTOM: black thin;
+    BORDER-LEFT: black thin;
+    BORDER-RIGHT: black thin;
+    BORDER-TOP: black thin
+}
+.producttableinner
+{
+    BORDER-BOTTOM: medium none;
+    BORDER-LEFT: medium none;
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none
+}
+.producttableinneralt
+{
+    BORDER-BOTTOM: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid
+}
+.tfont
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    FONT-SIZE: 8pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: left
+}
+.stdtable
+{
+}
+LI
+{
+}
+.StdPage
+{
+}
+.MOMarkeM
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+.MOMarkeO
+{
+    COLOR: black;
+    FONT-FAMILY: SansSerif, Helvetica, Arial;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+.curchapterline
+{
+    FONT-SIZE: 11pt;
+    FONT-WEIGHT: 600
+}
+.curchapterline A
+{
+    COLOR: black;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none
+}
+.curchapterline A:active
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.curchapterline A:link
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.curchapterline A:visited
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.news
+{
+    BACKGROUND-COLOR: #ffcc01;
+    BORDER-BOTTOM: blue;
+    BORDER-LEFT: blue;
+    BORDER-RIGHT: blue;
+    BORDER-TOP: blue;
+    FONT-WEIGHT: lighter;
+    MARGIN: 0px;
+    TEXT-ALIGN: left
+}
+.newstitle
+{
+    BACKGROUND-COLOR: darkgray;
+    COLOR: white;
+    FONT-WEIGHT: bolder;
+    TEXT-DECORATION: underline
+}
+P
+{
+    FONT-FAMILY: Arial, SansSerif, Helvetica
+}
+TD
+{
+    FONT-FAMILY: Arial, SansSerif, Helvetica
+}
+.pagesummary
+{
+    FONT-FAMILY: Arial, SansSerif, Helvetica;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 28px;
+    MARGIN-TOP: 0cm
+}
+.subchapterlink
+{
+    FONT-SIZE: 12pt;
+    MARGIN-BOTTOM: 0cm
+}
+.jumptable1
+{
+    LINE-HEIGHT: normal;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.jumptable2
+{
+    LINE-HEIGHT: normal;
+    MARGIN-LEFT: 0.5cm;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.jumptable3
+{
+    LINE-HEIGHT: normal;
+    MARGIN-LEFT: 1cm;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.jumptable4
+{
+    LINE-HEIGHT: normal;
+    MARGIN-LEFT: 1.5cm;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.jumptable5
+{
+    LINE-HEIGHT: normal;
+    MARGIN-LEFT: 2cm;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.jumptableframe
+{
+  background-color:#F0F0F0;
+  border-width:1px;
+  border-style:solid;
+  border-color:black;
+  padding:1mm;
+  text-align:justify; 
+}
+
+
+.subchaptersframe
+{
+  background-color:#F0F0F0;
+  border-width:1px;
+  border-style:solid;
+  border-color:black;
+  padding:1mm;
+  text-align:justify; 
+}

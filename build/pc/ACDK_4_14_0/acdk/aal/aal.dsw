@@ -1,0 +1,149 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNUNG: DIESE ARBEITSBEREICHSDATEI DARF NICHT BEARBEITET ODER GELÖSCHT WERDEN!
+
+
+
+###############################################################################
+Project: "acdk_aci"=src\acdk_aci.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_aci_metainf"=src\acdk_aci_metainf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_aci_dmiproxy"=src\acdk_aci_dmiproxy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci_dmiproxy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_aal"=src\acdk_aal.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_aci_guidbg"=src\acdk_aci_guidbg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acidbg"=src\acidbg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci_guidbg
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_aci_Test"=tests/acdk/aci\acdk_aci_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+}}}
+
+
+###############################################################################
+Project: "acdk_aal_Test"=tests/acdk/aal\acdk_aal_Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name acdk_aci
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name acdk_aal
+    End Project Dependency
+}}}
+
+
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

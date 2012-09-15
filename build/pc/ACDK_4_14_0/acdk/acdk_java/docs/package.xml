@@ -1,0 +1,143 @@
+<package>
+<name>acdk_java</name>
+
+<title>
+ACDK Java (acdk_java)
+</title>
+
+<shortdescription>
+acdk_java makes ACDK Objects accessible to Java
+and Java classes to C++.
+acdk_java integrate an Java virtual machine into acdk.
+acdk_java also provides Java compatible serialization
+of C++ classes.
+</shortdescription>
+
+<description>
+<m>acdk_java</m> connects ACDK Objects with Java objects without
+the necessarity to write own Java Native Interface (JNI) code.
+
+
+Using the standard %ref[ACDK DMI, acdk_hb_dmi] features, 
+<m>acdk_java</m> provides following features:
+  <fl>
+  <f> Java can act as an %ref[DMI client for all ACDK DMI server, acdk_java_man_javaobject]
+      applications.
+  <f> Java can act as a DMI server, makes all Java classes
+      acccessible to all ACDK DMI clients.
+      See also %lref[acdk_java_man_acdkobject].
+  <f> Embedd a Java Virtual Machine inside ACDK C++ applications.
+      See also %lref[acdk_java_man].
+  <f> With the package %ref[acdk_java_serialization_man] a Java compatible 
+      serialization of ACDK C++ Objects is provided.
+      See also %lref[acdk_java_serialization_man].
+  </fl>
+  
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+  ACDK Free Edition License.
+</license>
+
+<dependencies>
+  acdk_core
+</dependencies>
+
+<namespaces>
+  acdk::java
+  acdk::java::serialization
+</namespaces>
+
+<plattforms>
+Windows.
+Linux.
+Note for GCC users: 
+acdk_java doesn't seem to work with GCJ header/libraries.
+You have to install/use the Java SDK.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+
+</todo>
+
+<changes>
+===========================================================
+4.10.0
+- Unicode related bugs fixed
+
+See also %ref[../ChangeLog].
+
+===========================================================
+4.02.1
+- Fixed bug in unicode handing in java serialization
+- Add sample for java serialization
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo
+
+===========================================================
+acdk_java 2.00.1
+- Redesigned acdk_java for new DMI
+- Simple sample to demonstrate the usage Java Swing GUI in ACDK.
+- Implement Java to ACDK connectors for AWT listeners.
+- New cref[acdk_java_man_javaobject] to control Java classes
+  in ACDK.
+- New acdk.java.AcdkObject to control ACDK Objects in Java.
+- New package acdk_java_serialization for Java compatible 
+  Object serialization.
+
+===========================================================
+acdk_java 1.01.0
+
+- Improved configurations.
+
+===========================================================
+acdk_java 1.00.2.
+Initial revision.
+</changes>
+
+<notes>
+  Please refer to %lref[acdk_java_man_installation] for 
+  installation instructions.
+</notes>
+<sf-notes>
+acdk_java makes ACDK Objects accessible to Java
+and Java classes to C++.
+acdk_java integrate an Java virtual machine into acdk.
+acdk_java also provides Java compatible serialization
+of C++ classes.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/java">http://acdk.sourceforge.net/acdk/java</a>  
+</sf-notes>
+<sf-changes>
+- Redesigned acdk_java for new DMI
+- Simple sample to demonstrate the usage Java Swing GUI in ACDK.
+- Implement Java to ACDK connectors for AWT listeners.
+- New %cref[acdk::java::JavaObject] to control Java classes
+  in ACDK.
+- New acdk.java.AcdkObject to control ACDK Objects in Java.
+- New package acdk_java_serialization for Java compatible 
+  Object serialization.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_java/docs/readme-en.html#Changes>Changes</a>
+
+</sf-changes>
+</package>

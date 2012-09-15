@@ -1,0 +1,183 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Static ORB Proxy and Skeleton for ACDK</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK ORB</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Static Proxy and Skeleton
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDKX ORB Readme</a> | Static Proxy and Skeleton | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | <a  href="acdkxorbidl_man.html">acdkorbidl</a> | <a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Static ORB Proxy and Skeleton for ACDK</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Static ORB Proxy and Skeleton for ACDK</h1> -->
+<p class="PageIntro">
+With th acdkmc plugin static skeleton/proxies
+can be created from ACDK classes.
+</p>
+<br>
+<br>
+<br>
+Please refer to the AddressServer and AddressClient project
+in the acdkx_orb package.<br>
+<br>
+<a name="jumptable101"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Generate static skeletons and proxy"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Generate static skeletons and proxy</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Implement the server object"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Implement the server object</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#start the server"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;start the server</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Implement the client"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Implement the client</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Using ACDK as CORBA value type"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using ACDK as CORBA value type</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable101"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Generate static skeletons and proxy">Generate static skeletons and proxy</a></h2>
+The project acdkx_orb_mc project contains a 
+acdkmc plugin to generate static proxies for CORBA.<br>
+<br>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_INTERFACE</FONT></B>(AdressBook);
+
+<I><FONT COLOR="#B22222">/** 
+  call the acdk plugin OrbDispatchAttribute to
+  generate the static CORBA proxy
+*/</FONT></I>
+<B><FONT COLOR="#0000FF">ACDK_CLASSATTRIBUTE</FONT></B>(acdkx.orb.mc.OrbDispatchAttribute())
+<B><FONT COLOR="#228B22">class</FONT></B> AdressBook 
+: implements ::org::omg::CORBA::portable::InvokeHandler
+{
+  ACDK_WITH_METAINFO(AdressBook)
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  ACDK_CORBA_INTERFACE(AdressBook)
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> ping() = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> testArray(IN(RintArray) longs, OUT(RStringArray) strings) = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> RAdressInfo getAddressInfoA(RString name) = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> getAddressInfoB(RString name, OUT(RAdressInfo) adressinfo) = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> setAddressInfo(RString name, IN(RAdressInfo) adressinfo) = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> RAdressInfoArray getAllAdressInfos() = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> setOtherAdressBook(IN(RAdressBook) other) = 0;
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> getOtherAdressBook(OUT(RAdressBook) other) = 0;
+};
+</PRE></td></tr></table>
+<br>
+This will generate AdressBook_Skel class and the AdressBook::_invoke() 
+in the *_metainf_ext.cpp file.<br>
+<br>
+<h2><a href="#jumptable101"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implement the server object">Implement the server object</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> AdressBookImpl
+: extends ::acdkx::orb::ServerDelegate,
+  implements AdressBook
+{
+  <I><FONT COLOR="#B22222">// implementation of the interface
+</FONT></I>};
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable101"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="start the server">start the server</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    RORB orb = ORB::init();
+    RAdressBookImpl adressimpl = <B><FONT COLOR="#A020F0">new</FONT></B> AdressBookImpl();
+    orb-&gt;impl_is_ready((::acdk::lang::RObject)adressimpl);
+
+    RString ostr = orb-&gt;object_to_string((::org::omg::CORBA::RObject)adressimpl);
+    {
+      RString fname = <B><FONT COLOR="#BC8F8F">&quot;./AdressBook.ref&quot;</FONT></B>;
+      ::acdk::io::FileWriter f(fname);
+      f.write(ostr-&gt;getBytes());
+      <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(ostr);
+    }
+    orb-&gt;run();
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable101"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implement the client">Implement the client</a></h2>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+RString refid;
+RString fname = <B><FONT COLOR="#BC8F8F">&quot;./AdressBook.ref&quot;</FONT></B>;
+::acdk::io::InputReader f(<B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::io::FileReader(fname));
+refid = f.readString();
+System::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Calling refid: &quot;</FONT></B> + refid);
+RAdressBook obj = (RAdressBook)orb-&gt;string_to_object(refid); <I><FONT COLOR="#B22222">// get the object
+</FONT></I>obj-&gt;ping(); <I><FONT COLOR="#B22222">// call the server object.
+</FONT></I></PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable101"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using ACDK as CORBA value type">Using ACDK as CORBA value type</a></h2>
+<br>
+ACDK_DECL_CLASS(AdressInfo);<br>
+// next attribute gives a hint, that AdressInfo should be uses
+// as structure, which will be transfered as value
+ACDK_CLASSATTRIBUTE(acdk.tools.mc.StringTagAttribute("acdkx_orb_StructType"))
+class AdressInfo
+: extends ::acdk::lang::Object
+{
+  ACDK_WITH_METAINFO(AdressInfo)
+public:<br>
+  AdressInfo() : Object() { }
+  RString name;<br>
+  RString street;<br>
+  int streetnumber;<br>
+  RString toString()
+  {
+    return "name=[" + name + "]; street=[" + street + RString("]; streetnumber=[") + streetnumber + "];";<br>
+  }
+};<br>
+</source>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDKX ORB Readme</a> | Static Proxy and Skeleton | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | <a  href="acdkxorbidl_man.html">acdkorbidl</a> | <a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

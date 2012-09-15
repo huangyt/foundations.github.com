@@ -1,0 +1,128 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk::tcl, Tcl">
+<title>ACDK Tcl</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../docs/packages.html">Packages</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Tcl<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/readme.html">ACDK Tcl Readme</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_tcl_install.html">Compile acdk_tcl</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdktcl.html">acdktcl - manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_tcl_dll.html">acdk_tcl_dll - manual</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/ACDK-FreeLicense.html">License</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | ACDK Tcl | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Tcl</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Tcl</h1> -->
+<br>
+<p class="PageIntro">
+acdk_tcl enables to embed Tcl scripting 
+  code into your ACDK application, controling
+  all ACDK Objects via DMI.</p>
+<br>
+<p></p>
+With <a  href="docs/acdk_tcl_dll.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_tcl</m></a> you can instrument an Tcl interpreter
+inside your ACDK application. 
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// C++/ACDK
+</FONT></I>RTclInterpreter pi = <B><FONT COLOR="#A020F0">new</FONT></B> TclInterpreter();
+pi-&gt;parse(<B><FONT COLOR="#A020F0">new</FONT></B> acdk::io::File(<B><FONT COLOR="#BC8F8F">&quot;~/mytcl.tlc&quot;</FONT></B>));
+</PRE></td></tr></table>
+<br>
+In the Tcl script you can call all ACDK classes with
+the standard ACDK Dynamic Method Invokation (DMI) methods:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> foo{ string1 string2 }{
+  <B><FONT COLOR="#A020F0">set</FONT></B> sb [acdk_new <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B> $<FONT COLOR="#B8860B">string1</FONT> ] 
+  acdk_invoke $<FONT COLOR="#B8860B">sb</FONT> <B><FONT COLOR="#A020F0">append</FONT></B> $<FONT COLOR="#B8860B">string2</FONT>
+  <B><FONT COLOR="#A020F0">return</FONT></B> [acdk_invoke $<FONT COLOR="#B8860B">sb</FONT> toString]
+}
+acdk_invoke [ acdk_peek_static <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B> out ] println [ foo <B><FONT COLOR="#BC8F8F">&quot;Hello Tcl&quot;</FONT></B> <B><FONT COLOR="#BC8F8F">&quot; from ACDK&quot;</FONT></B>]
+</PRE></td></tr></table><p></p>
+<p></p>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="docs/readme.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Tcl Readme</a></p><p class="pagesummary">
+ACDK Tcl (acdk_tcl)acdk_tcl enables to embed Tcl scripting 
+  code into your ACDK application, controling
+  all ACDK Objects via DMI.</p><p class="subchapterlink"><a  href="docs/acdk_tcl_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;Compile acdk_tcl</a></p><p class="pagesummary">
+  How to compile and use acdk_tcl.
+</p><p class="subchapterlink"><a  href="docs/acdktcl.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdktcl - manual</a></p><p class="pagesummary">
+The acdktcl is a simple command line
+Tcl interpreter.</p><p class="subchapterlink"><a  href="docs/acdk_tcl_dll.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_tcl_dll - manual</a></p><p class="pagesummary">
+  acdk_tcl_dll enables to embed Tcl scripting 
+code into your ACDK application.</p><p class="subchapterlink"><a  href="../docs/ACDK-FreeLicense.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;The ACDK License Terms, LGPL</a></p><p class="pagesummary">
+ACDK is available under the LGPL license.
+</p></td></tr></table><!-- subchaptersframe -->
+
+<br>
+Please refer also to:<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/</a> (Web at Sourceforge).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.com/</a> (Home of Artefaktur).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.ch/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.ch/</a> (Mirror)
+<li class="Feature"> <a  href="http://sourceforge.net/projects/acdk/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/projects/acdk/</a> (Support at Sourceforge).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/tcl/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/tcl/</a> (Home of this project).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__tcl.html"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__tcl.html</a> (Online reference).<br>
+<li class="Feature"> <a  href="mailto:kommer@artefaktur.com"><img border="0" src="./../docs\images/url_mailto.gif" alt="mailto">&nbsp;Roger Rene Kommer</a> (Mail Author).<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_core/docs/packages_deps.html">Dependencies</a> | <a  href="../acdk_core/index.html">ACDK Core</a> | <a  href="../acdk_core/docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | ACDK Tcl | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

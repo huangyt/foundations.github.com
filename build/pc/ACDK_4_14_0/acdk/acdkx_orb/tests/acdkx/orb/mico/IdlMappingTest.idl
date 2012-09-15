@@ -1,0 +1,31 @@
+
+module tests {
+module acdkx {
+module orb {
+
+struct AdressInfo
+{
+  string name;
+  string street;
+  long streetnumber;
+};
+typedef sequence<AdressInfo> AdressInfoSeq;
+
+interface AdressBook
+{
+  void ping();
+  
+  typedef sequence<long> longseq;
+  typedef sequence<string> stringseq;
+  void testArray(in longseq longs, out stringseq strings);
+  AdressInfo getAddressInfoA(in string name);
+  void getAddressInfoB(in string name, out AdressInfo adressinfo);
+  void setAddressInfo(in string name, in AdressInfo adressinfo);
+  AdressInfoSeq getAllAdressInfos();
+  void setOtherAdressBook(in AdressBook other);
+  void getOtherAdressBook(out AdressBook other);
+};
+
+}; // module orb 
+}; // module acdkx
+}; // module tests 

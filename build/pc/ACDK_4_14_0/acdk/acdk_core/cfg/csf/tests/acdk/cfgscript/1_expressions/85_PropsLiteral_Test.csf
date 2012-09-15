@@ -1,0 +1,42 @@
+// create a property with name: value
+a  = {
+  a: 1, // contains atomor type
+  b: [ 42, 43 ], // contains an array
+  c: { d: "ACDK" } // contains a substructur
+};
+  
+// access structur direcly with member access notation
+x1 = a.c.d;
+// access structure with getter methods
+x2 = a.get("c").get("d"); 
+if (x1.equals(x2) == false)
+{
+  out.println("TEST FAILED");
+  return;
+}
+
+// building props via member acces
+a = {}; // create empty Props
+
+// next not working on linux
+a.b = 1; // not existant slots will created automaticall
+a.setIntVal("b", 1); // executes same code as a.b = 1;
+a.c = {};
+a.c.d = 2;
+out.println(a.toString());
+
+out.println("TEST OK");
+
+// demonstration that local variables are just
+// entries in the __props Props
+int i = 43;
+{
+  // local variable
+  int i = 42;
+  // local variable
+  String s = "Hallo";
+  __script.assertTest(__props.i == i); // always true
+  __script.assertTest(i  == __props.get("i"));// always true
+  // accessing the parent scope 
+  __script.assertTest(43 == __props.getParentProps().i);
+}

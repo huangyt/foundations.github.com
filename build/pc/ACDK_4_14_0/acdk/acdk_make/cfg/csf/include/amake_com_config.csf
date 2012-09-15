@@ -1,0 +1,8 @@
+
+__script.assertTrue(__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"), 
+      "acdk_com (ACDK COM DMI Interface) is only supported for windows platform");
+
+task.addExtLib("ole32");
+task.addExtLib("oleaut32");
+//advapi32.lib shell32.lib 
+task.addExtLib("advapi32");

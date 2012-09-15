@@ -1,0 +1,231 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_tools_aunit, unit tests, testing, acdk::tools::aunit">
+<title>ACDK Unit Test - Manual</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Unit Tests<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/url_html.gif" alt="down">&nbsp;<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__tools__aunit"><img border="0" src="./../../docs\images/url_html.gif">&nbsp;acdk::tools::aunit</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/url_html.gif" alt="down">&nbsp;<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=group_acdkaunit"><img border="0" src="./../../docs\images/url_html.gif">&nbsp;Classes functions and macros</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Core Readme</a> | <a  href="acdk_core_man.html">man acdk_core</a> | <a  href="acdkmc.html">man acdkmc</a> | <a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a> | <a  href="acdk_security_man.html">man acdk_security</a> | <a  href="acdk_tools_mc_man.html">man acdk_tools_mc</a> | ACDK Unit Tests | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Unit Test - Manual</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Unit Test - Manual</h1> -->
+<p class="PageIntro">
+  ACDK Unit Test (acdk_tools_aunit) is a library to create regression tests for
+  acdk classes. It is inspired by the Xtrem Programming tool from
+  Kent Beck.
+</p>
+
+<br>
+<a name="jumptable51"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Write a Test"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Write a Test</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#The main()"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The main()</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#A Class Test case"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;A Class Test case</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Run the tests"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Run the tests</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#HTML reports"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;HTML reports</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#More options"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;More options</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Using CfgScript as Unit Tests"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using CfgScript as Unit Tests</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#API documentation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;API documentation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#GUI Test Runner"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;GUI Test Runner</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Write a Test">Write a Test</a></h2>
+The idea for unit tests is to write an executable 
+for a unit, which make a self test for each class
+in this unit. A unit is mostly identical to the collection
+of classes of a C++ namespace.<br>
+<br>
+In ACDK projects tests can be found in the ./tests
+directory.<br>
+<br>
+<br>
+<h3><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The main()">The main()</a></h3>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">//begin our_unit_Test.cpp
+</FONT></I>#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/tools/aunit/TestRunner.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/lang/System.h&gt;</FONT></B>
+
+ACDK_TEST_MAIN
+
+<I><FONT COLOR="#B22222">//end our_unit_Test.cpp
+</FONT></I></PRE></td></tr></table>
+<br>
+<br>
+<h3><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="A Class Test case">A Class Test case</a></h3>
+For each class in the unit create a .cpp file,
+which contains the tests for this class.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// begin our_unit_FirstClass.cpp
+</FONT></I>#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/tools/aunit/TestRunner.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;your/unit/FirstClass.h&gt;</FONT></B>
+
+namespace tests {
+namespace our {
+namespace unit {
+  
+<B><FONT COLOR="#0000FF">BEGIN_DECLARE_TEST</FONT></B>( FirstClass_Test )
+  DECLARE_TEST( constructors )
+  DECLARE_TEST( method1 )
+  <I><FONT COLOR="#B22222">// more tests here
+</FONT></I><B><FONT COLOR="#0000FF">END_DECLARE_TEST</FONT></B>( FirstClass_Test  )
+
+<B><FONT COLOR="#0000FF">BEGIN_DEFINE_TEST</FONT></B>( FirstClass_Test )
+  ADD_TEST( FirstClass_Test, constructors ) 
+  ADD_TEST( FirstClass_Test, method1  ) 
+  <I><FONT COLOR="#B22222">// more tests here
+</FONT></I><B><FONT COLOR="#0000FF">END_DEFINE_TEST</FONT></B>( FirstClass_Test )
+
+using namespace acdk::lang;
+using namespace your::unit;
+
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">FirstClass_Test::constructors</FONT></B>()
+{
+  RFirstClass fc = <B><FONT COLOR="#A020F0">new</FONT></B> FirstClass();
+  testAssert(fc != Nil);
+  testAssert(fc-&gt;isOk());
+  <I><FONT COLOR="#B22222">//etc.
+</FONT></I>}
+
+
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">FirstClass_Test::method1</FONT></B>  ()
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> expectedVal = 42;
+  RFirstClass fc = <B><FONT COLOR="#A020F0">new</FONT></B> FirstClass();
+  testAssert(fc-&gt;method1() == expectedVal);
+}
+
+} <I><FONT COLOR="#B22222">// namespace unit 
+</FONT></I>} <I><FONT COLOR="#B22222">// namespace our 
+</FONT></I>} <I><FONT COLOR="#B22222">// namespace tests 
+</FONT></I>  
+
+<I><FONT COLOR="#B22222">// end our_unit_FirstClass.cpp
+</FONT></I></PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Run the tests">Run the tests</a></h2>
+A test executable normally should run without arguments and
+exit with 0 if all tests succeeded.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+./our_unit_Test
+</PRE></td></tr></table>
+<br>
+For debugging reasons it may usefull to start a single test.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+# <B><FONT COLOR="#5F9EA0">test</FONT></B> <FONT COLOR="#B8860B">the</FONT> <FONT COLOR="#B8860B">class</FONT> <FONT COLOR="#B8860B">FirstClass</FONT>
+./our_unit_Test FirstClass_Test 
+
+# <B><FONT COLOR="#5F9EA0">test</FONT></B> <FONT COLOR="#B8860B">only</FONT> <FONT COLOR="#B8860B">method</FONT> <FONT COLOR="#B8860B">FirstClass_Test</FONT>.<FONT COLOR="#B8860B">method1</FONT>
+./our_unit_Test FirstClass_Test.method1
+</PRE></td></tr></table>
+<br>
+To list all available tests in a executable you can type:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+./our_unit_Test -test-list
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="HTML reports">HTML reports</a></h3>
+If you start a unit test with the option <code>-test-htmlreport</code>
+HTML report pages are generated for the test in <code>$ACDKHOME/testreports</code>.<br>
+<br>
+<h3><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="More options">More options</a></h3>
+Run your test executable with the option <code>-help</code> to receive
+all available options.<br>
+<br>
+<h2><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using CfgScript as Unit Tests">Using CfgScript as Unit Tests</a></h2>
+ACDK C++ libraries, which includes Metainfo, may also be tested
+via CfgScript files. 
+<br>
+Insert this into a CPP for the test driver:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// C++
+</FONT></I>using namespace acdk::tools::aunit;
+TestRunnerStaticAdder <B><FONT COLOR="#0000FF">scriptTests</FONT></B>(<B><FONT COLOR="#A020F0">new</FONT></B> CfgScriptTestSuite(<B><FONT COLOR="#BC8F8F">&quot;$(ACDKHOME)/acdk_sql_sqlite/cfg/csf/tests/acdk/sql/sqlite&quot;</FONT></B>, true));
+</PRE></td></tr></table>
+will execute all CfgScript in the directory <code>$(ACDKHOME)/acdk_sql_sqlite/cfg/csf/tests/acdk/sql/sqlite</code> (and subdirectories)
+which ends with <code>_Test.csf</code> as unit test.<br>
+<br>
+<h3><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="API documentation">API documentation</a></h3>
+<br>
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=group_acdkaunit"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;API documentation</a>.<br>
+<br>
+<h2><a href="#jumptable51"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="GUI Test Runner">GUI Test Runner</a></h2>
+To run ACDK Unit test, there is also a GUI runner avaible.<br>
+To run the AcdkTestRunner you have also to compile the <a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK WX</a> module.<br>
+Then type:<br>
+<code>acdkcfgscript[_d.exe|_r.exe] acdk_core/cfg/csf/lib/test/AcdkTestRunner.csf</code>.<br>
+<br>
+<p class="image"><img src="AcdkTestRunner.gif"></p>
+<br>
+<p class="imagetitle">GUI to run ACDK Unit Tests</p>
+<br>
+This application is written with <a  href="acdk_cfgscript_hb.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a> and <a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK WX</a>.<br>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Core Readme</a> | <a  href="acdk_core_man.html">man acdk_core</a> | <a  href="acdkmc.html">man acdkmc</a> | <a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a> | <a  href="acdk_security_man.html">man acdk_security</a> | <a  href="acdk_tools_mc_man.html">man acdk_tools_mc</a> | ACDK Unit Tests | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

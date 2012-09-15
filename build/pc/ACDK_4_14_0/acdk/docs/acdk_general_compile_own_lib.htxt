@@ -1,0 +1,275 @@
+%id: acdk_general_compile_own_lib
+%title: How create own Library
+%shorttitle: Create own Library
+%body:
+
+<htmlauto>
+<pageintro>
+How to create your own library on base of the ACDK libraries.
+</pageintro>
+
+
+<jumptable/>
+
+
+<jump1>Standard layout</jump1>
+In ACDK the package has a standard layout:
+<pre>
+MyLib/                              is the package directory
+MyLib/Makefile                      wrapper makefile
+MyLib/src/                          Location of the standard libraries and executables
+MyLib/src/com_sample_project.linux  Linux makefile for library
+MyLib/src/executable.linux          Linux makefile for executable using com_sample_project library
+</pre>
+
+<jump1>Makefiles</jump1>
+<jump2>Wrapper Makefile</jump1>
+MyLib/Makefile:
+<source>
+default: 
+%::
+	@target=$@; \
+	cd src; \
+	$(MAKE) -f com_sample_project.linux $$target; \
+	$(MAKE) -f executable.linux $$target
+</source>
+
+<jump2>Makefile for shared library</jump1>
+MyLib/src/com_sample_project.linux
+<source>
+
+# where is your ACDK installed
+ACDKHOME=/artefaktur/acdk
+
+CCOMPILER=g++ -Wall -Wno-unused -g -D_REENTRANT -I .  -I $(ACDKHOME)/include
+
+# system libraries. These are needed by ACDK at least
+SYSLIBRARIES=-lpthread -lm -ldl
+ACDKLIBS=-lacdk_core
+
+# all libs together
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(ACDKHOME)/bin $(ACDKLIBS)
+
+EXECUTABLE=../libcom_sample_project.so
+
+# want maybe to debug
+SYSLDFLAGS=-g
+LINK=g++ -shared
+
+OBJECTS = com/sample/project/MyClass.o com/sample/project/project_metainf_base.o \
+	 com/sample/project/project_metainf/project_metainf_ext.o
+
+default: $(EXECUTABLE)
+
+# builds the executable itself
+# don't forget to export LD_LIBRARY_PATH=/artefaktur/acdk/bin before execute the binary
+$(EXECUTABLE): $(OBJECTS)
+	$(LINK) $(SYSLDFLAGS) $(LDFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(LIBS) 
+
+
+%.o: %.cpp
+	$(CCOMPILER) -c $< -o $@
+
+clean:
+	rm $(OBJECTS) $(EXECUTABLE)
+
+PROJECT_METAINF_HEADERS = com/sample/project/MyClass.h
+
+# generate meta info if an header was changed
+com/sample/project/project_metainf_base.cpp: $(PROJECT_METAINF_HEADERS)
+	$(ACDKHOME)/bin/acdkmc com/sample/project
+	
+# empty, because cannot run
+run:
+	
+</source>
+<jump2>Makefile for executable</jump1>
+MyLib/src/executable.linux 
+<source>
+# where is your ACDK installed
+ACDKHOME=/artefaktur/acdk
+
+CCOMPILER=g++ -Wall -Wno-unused -g -D_REENTRANT -I .  -I $(ACDKHOME)/include
+
+# system libraries. These are needed by ACDK at least
+SYSLIBRARIES=-lpthread -lm -ldl
+ACDKLIBS=-lacdk_core
+USERLIBS=-L.. -lcom_sample_project
+
+# all libs together
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(ACDKHOME)/bin  $(ACDKLIBS) $(USERLIBS)
+
+# want maybe to debug
+SYSLDFLAGS=-g
+
+
+OBJECTS = com/sample/executable/executable.o
+
+EXECUTABLE=../executable
+
+default: $(EXECUTABLE)
+
+# builds the executable itself
+# don't forget to export LD_LIBRARY_PATH=/artefaktur/acdk/bin before execute the binary
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(SYSLDFLAGS)  $(OBJECTS) -o  $(EXECUTABLE) $(LIBS)
+
+%.o: %.cpp
+	$(CCOMPILER) -c $< -o $@
+
+clean:
+	rm $(OBJECTS) $(EXECUTABLE)
+
+run:
+	export LD_LIBRARY_PATH=$(ACDKHOME):..:$(LD_LIBRARY_PATH); \
+	../executable
+</source>
+
+<jump1>Sources</jump1>
+<jump2>Source for shared library</jump2>
+<jump3>General Header</jump3>
+
+Each module needs a header named like the right part of the module:
+MyLib/src/com/sample/project/project.h:
+<source>
+
+#include "Config.h"
+
+</source>
+
+The Config.h normally defines some macros for compiling it under Windows:
+
+MyLib/src/com/sample/project/Config.h
+<source>
+// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- 
+
+#ifndef com_sample_project_Config_h
+#define com_sample_project_Config_h
+
+#include <acdk.h>
+
+/*
+  these macro defintions are only needed when 
+  creating Windows .dll. Otherwise they are ignored
+*/
+#if defined(ACDK_NEED_DLLEXPORT)
+# if defined(IN_COM_SAMPLE_PROJECT_LIB)
+#   define ACDK_COM_SAMPLE_PROJECT_PUBLIC __declspec(dllexport)
+# elif defined(ACDK_STATIC_LIB)
+# 	define ACDK_COM_SAMPLE_PROJECT_PUBLIC
+# else
+#   define ACDK_COM_SAMPLE_PROJECT_PUBLIC __declspec(dllimport)
+# endif
+#else
+# define ACDK_COM_SAMPLE_PROJECT_PUBLIC
+#endif
+
+#endif //com_sample_project_Config_h
+</source>
+
+<jump3>The Classes</jump3>
+MyLib/src/com/sample/project/MyClass.h:
+<source>
+// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- 
+
+#ifndef com_sample_project_MyClass_h
+#define com_sample_project_MyClass_h
+
+#include "project.h"
+
+namespace com {
+namespace sample {
+namespace project {
+
+ACDK_DECL_CLASS(MyClass);
+
+// the macro ACDK_COM_SAMPLE_PROJECT_PUBLIC is only needed for Windows platform
+class ACDK_COM_SAMPLE_PROJECT_PUBLIC MyClass 
+: extends acdk::lang::Object
+{
+  // with this and acdkmc you generate metainfo
+  // if you don't want have metainfo just delete it
+  ACDK_WITH_METAINFO(MyClass) 
+    
+private:
+  RString _text;
+public:
+  MyClass(IN(acdk::lang::RString) txt)
+    : _text(txt)
+  {
+  }
+  RString getText() { return _text; }
+  void printIt();
+};
+
+} // project
+} // sample
+} // com
+
+
+#endif //com_sample_project_MyClass_h
+</source>
+
+And corresponding implementation file:
+MyLib/src/com/sample/project/MyClass.cpp:
+<source>
+// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- 
+
+#include "MyClass.h"
+#include <acdk/lang/System.h>
+
+namespace com {
+namespace sample {
+namespace project {
+
+
+void
+MyClass::printIt()
+{
+  System::out->println("from MyClass::printIt: " + _text);
+}
+
+
+} // project
+} // sample
+} // com
+</source>
+<jump3>Generated source</jump3>
+Following files will be generated by %ref[acdkmc_man] and are not listed:
+<c>MyLib/src/com/sample/project/project_metainf_base.cpp</c> and
+<c>MyLib/src/com/sample/project/project_metainf/project_metainf_ext.cpp</c>
+
+<jump2>Source for executable</jump2>
+The following source uses the class defined in the shared library.
+<c>MyLib/src/com/sample/executable/executable.cpp</c>:
+<source>
+
+#include <acdk.h>
+#include <acdk/lang/System.h>
+#include "../project/MyClass.h"
+
+using namespace acdk::lang;
+using namespace com::sample::project;
+
+class MiniAcdkSample
+{
+public:
+  static int acdkmain(RStringArray args)
+  {
+      // this is library class
+      RMyClass myClass = new MyClass("asdf");
+      myClass->printIt();
+      System::out->println("myClass is from Class: " + myClass->getClass()->getName());
+      return 0;
+  }
+};
+
+int
+main(int argc, char* argv[], char** envptr)
+{
+  return acdk::lang::System::main(MiniAcdkSample::acdkmain, argc, argv, envptr);
+}
+
+</source>
+.

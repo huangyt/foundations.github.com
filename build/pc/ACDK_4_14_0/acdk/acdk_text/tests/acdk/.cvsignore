@@ -1,0 +1,7 @@
+*.deps
+*.o
+*.obj
+*.sbr
+*.tmp
+obj
+

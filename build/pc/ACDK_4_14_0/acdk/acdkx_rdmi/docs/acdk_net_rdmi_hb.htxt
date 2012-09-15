@@ -1,0 +1,470 @@
+%id: acdkx_rdmi_hb
+%title: Remote Dynamic Method Invocation Handbook
+%shorttitle: RDMI Handbook
+%keywords: Remote DMI, DMI, rdmi
+%body:
+<htmlauto/>
+<pageintro>
+RDMI or Remote DMI is a remoting interfacing
+for ACDK similar to Java RMI.
+</pageintro>
+
+<jumptable/>
+<jump1>Introduction</jump1>
+
+<jump2>First look</jump2>
+acdkx_rdmi is a simple solution for object oriented remote calls.
+
+The client and the server communicates over network (by default).
+
+Here the sample code for a Remote DMI Server written in CfgScript.
+
+<source>
+// create a RDMI server using binary protocol and TCP as transport protocol
+RemoteDmiServer server = new RemoteDmiServer(new TcpServer(1111), new BinaryProtocol());
+// starts the server in a background thread
+server.startInBackground();
+
+out.println("RemoteDmiServer started on port 1111");
+// wait for finishing server
+// this only happens if a client request for shuting down the server
+server.join();
+
+out.println("RemoteDmiServer terminates");
+</source>
+
+<source>
+// create a client connecting to server
+RemoteDmiServer client = new RemoteDmiServer(new TcpServer(InetAddress::getLocalHost(), 1111), new BinaryProtocol());
+// create an object with 'new acdk.lang.StringBuffer("hello")' on 
+// the server and return the object as remote object
+Object o = client.createRemote("acdk.lang.StringBuffer", "hello");
+// call the append function on the remote object
+o.append(" from remote");
+// call the toString method on the remote object
+out.println(o.toString());
+</source>
+
+Similar client code for C++
+<source>
+  RRemoteDmiServer client = new RemoteDmiServer(new TcpServer(::acdk::net::InetAddress::getLocalHost(), 1111), new BinaryProtocol());
+  RObject remSb = client->createRemoteObject("acdk/lang/StringBuffer", "acdk/lang/Object", inOf("Hello"));
+  System::out->println((RString)remSb->invoke("toString"));
+</source>
+See %ref[acdkx_rdmi_concept].
+
+<jump2>Principles</jump2>
+<jump3>Which classes can be used remote</jump3>
+Every class, which is loaded via ClassLoader and supports MetaInfo can be used
+as a remote object. This inludes f.e. nearly every C++ ACDK class and all CfgScript classes.
+
+<note>
+  In a later version of RDMI, the classes available as remote object, may be restricted
+  by the server.
+</note>
+
+<jump3>How to access Remote Objects</jump3>
+Basically RDMI using the standard DMI (dynamic method invocation) mechanism of ACDK. 
+DMI is used to interconnect the different object worlds of C++, CfgScript, CORBA, 
+Java, Perl, Python, Tcl, Lisp, COM, ...).
+All these different implementation of the DMI protocoll are also enabled to work remote
+using RDMI.
+
+
+<jump4>Client Object Proxies</jump4>
+
+If an object will be created remote:
+<source>
+Object o = client.createRemote("acdk.lang.StringBuffer", "hello");
+</source>
+not the real object will be returned, but a proxy for the object. The object
+itself will life on the server.
+
+All calls to the proxy object will be forwarded to the remote object, so
+that the code of the method will be executed on the server.
+
+
+There are two different ways to retrive remote objects and invoke theire methods.
+
+<jump4>Weak Types/Invocation</jump4>
+Weak objects are opaque. Basically opaque objects are from a generic Type, like acdk::lang::Object
+and does not provide futher metainfo (reflection). 
+
+The connection of calling a method with the corresponding method code will not be done by
+a compiler and linker, but will be evaluated at runtime.
+
+<source>
+// C++
+// Weak object
+RObject object = client.createRemote("acdk.lang.StringBuffer", "hello");
+// make a weak call.
+// If the object doesn't provide the toString method
+// an exception will be thrown
+RString erg = (RString)object->invoke("toString");
+</source>
+
+Some scripting languages solely relies on weak invokation.
+CfgScript support both (strong and weak) objects/invokations, but
+hides the details behind the scene:
+<source>
+// o is a weak object
+Object o = client.createRemote("acdk.lang.StringBuffer", "hello");
+// CfgScript knowns, that o is a weak type
+// so the method call append will be tranformed to a weak call
+o.append(" from remote");
+</source>
+
+
+
+<jump4>Strong Types/Invocation</jump4>
+Strong types are interesting in languages, which itself relies
+on strong types, like C++.
+The remote object is not an opaque type, but a typed interface:
+
+<source>
+// C++
+// constructor are still called via the weak interface
+acdk::io::RPrintWriter rout = 
+  (acdk::io::RPrintWriter)client->peekStaticAs("acdk/lang/System", "acdk/io/PrintWriter", "out");
+// as result a native interface can be used with no difference in the call syntax to
+// local object invocations
+rout->println("Hello");
+
+</source>
+Because all calls to the (remote) typed object has to be forwarded to the remote object
+there are some limitation:
+<fl>
+<f> Remote types can only be interfaces.
+<f> It does not work with non virtual methods
+<f> The dmiproxy metainfo has to be generated with acdkmc.
+</fl>
+
+
+<jump4>Comparing Strong and Weak Types/Invocation</jump4>
+
+Weak types/invocation has following advantages:
+<fl>
+<f> works directly with objects, not only via interfaces
+<f> All methods - including static and non-virtual methods
+    can be invoked remotly.
+<f> Fields can be read and written.
+<f> Do explictly DmiProxy has to be generated for usage in C++.
+<f> transparent in scripting langauges like CfgScript
+</fl>
+
+The advantages of types/invocation can be found in using them
+in C++:
+<fl>
+<f> Strong typed remote proxies can be used in C++ transparent
+    to local object. Neither server nor client code doesn't directly
+    recognise, that the object is a remote object.
+<f> No casting of return types with inOf() for parameters is needed for
+    C++.
+<f> Having the advantages of strong typed languages. Misstyping/use (for example
+    wrong function name or parameter type) will be recognise by the C++ compiler
+    and not later at runtime.
+</fl>
+If you use strong types on client side, you still can use weak invocation:
+<source>
+// C++ sample
+RComparable cmp = (RComparable)client->createRemoteAs("acdk/lang/StringBuffer", "acdk/lang/Comparable", "hello");
+// the interface Comparable only support the compareTo method
+// with weak invocation the other methods of the real remote object
+// can be addressed
+cmp->invoke("append", " to remote");
+
+</source>
+
+
+
+<jump3>Parameters and Return Values</jump3>
+Parameters and return values can be tranfered on two ways:
+<fl>
+<f> By value: The complete object will be serialized and transfered
+    to the other side. 
+<f> By (remote) reference: A weak or strong proxy identifier
+</fl>
+
+<jump4>Serialized values</jump4>
+All basic types - like int, char, float, etc. are transfered
+by value.
+By default also all classes which directly or indirectly implements
+the acdk::io::Serializable interface are transfered by value.
+The classes are serialized with the standard ACDK serialization mechanism
+and transported as (more or less structured) stream to the server
+
+On the server side this stream is deserialized to a local real instance
+of the serialized class.
+
+<jump4>Remote References</jump4>
+A remote reference contains following information:
+<fl>
+<f> The server signature, where this object lifes.
+    For example: "inet:/192.168.0.95:1111"
+<f> An opaque object identifier as integer. 
+    This enables the server to associate the remote reference to
+    a real object.
+<f> Optionally a class name like "acdk/io/PrintWriter" identifies an interface.
+    This is used by the client to create an strong typed (C++) Proxy for 
+    this interface.
+</fl>
+
+<jump3>Selection when to transfer by value or by reference</jump3>
+
+There are multiple answers to the question wether a parameter or return type
+will be transfered by value or by reference.
+The anwer also depends on whether the remote object is held as strong or weak
+type by the client.
+
+<fl>
+<f> In case of weak invocation (or CfgScript) using an argument modifier (byVal, byRef, byRefAs, etc.)
+<f> In case of strong typed invocation selection made by argument modifier in the method signature (byval, byref, etc.).
+<f> In case of weak invocation by the real type of the argument: Basic and serializable types will be transfered
+    as value, all other as remote reference.
+<f> In case of strong typed invocation by the declared type of the argument: Basic and serializable types will be transfered
+    as value, all other by remote reference.
+</fl>
+
+<jump3>Parameter</jump3>
+<jump4>IN, OUT, INOUT</jump4>
+<m>acdkx_rdmi</m> supports also the IN, OUT, INOUT (in, out, inout in CfgScript) 
+parameter attributes in the method signature.
+<fl>
+<f> Parameter with the IN attribute (parameter without any directional are also IN parameters)
+    are send from caller (client) to callee (server).
+<f> Parameter with the OUT attribute are only send from the callee back to the caller.
+    These parameter works like additionally return values.
+<f> Parameter with the INOUT attribute are transfered from the caller to the callee
+    and while returning from callee also back to caller.
+</fl>
+
+IN, OUT and INOUT parameter can be transfered either by value or by (remote) reference.
+
+<jump4>Selection by the parameter types of the method declararation</jump4>
+Given method signature
+<source>
+  // C++
+class XY
+{
+  int callFoo(IN(RStringBuffer) sb, OUT(RComparable) cmp)
+  {
+    cmp = (RComparable)sb;
+    return sb->length();
+  }
+  // ...
+  // or CfgScript
+  int callFoo(StringBuffer sb, out Comparable cmp)
+  {
+    cmp = sb;
+    return sb.length();
+  }
+  // ...
+  
+// client code
+RStringBuffer sb1 = new StringBuffer();
+RComparable cmp;
+int i = remoteObject->callFoo(sb1, cmp);
+</source>
+<fl>
+<f> StringBuffer implements the Serializable interface, 
+    so the sb parameter is tranfered from caller (client) to callee (server) by value.
+<f> Comparable is not derived from Serializable, so this parameter will be
+    tranfered from callee to caller (because it has the OUT attribute) as remote references.
+<f> int is a basic type, so this value is tranfered from calle to caller by value.
+<f> After the call the client holds an remote object reference to a a copy of the StringBuffer
+    held by the server.
+</fl>
+
+
+<jump4>Selection by the parameter attributes of the method declararation</jump4>
+
+It is also possible to add an attribute in the method signature to signal
+if a parameter shell be tranfered by reference or by value.
+
+<source>
+  // C++
+class XY
+{
+  int callFoo(INBYVAL(RStringBuffer) sb, OUTREF(RStringBuffer) sb2)
+  {
+    sb2 = sb;
+    return sb->length();
+  }
+  // ...
+  // or CfgScript
+  int callFoo(StringBuffer sb, out byref StringBuffer sb2)
+  {
+    sb2 = sb;
+    return sb.length();
+  }
+  // ...
+</source>
+Athough the second parameter also is serializable the method attribute tells that
+the parameter should be tranfered by reference.
+
+Note 1:
+<note>
+  These additionally attributes has only limited use in C++
+  <fl>
+    <f> The returned byref StringBuffer may be casted to StringBuffer, but
+        all calls of non virtual methods are not dispatched to remote object.
+    <f> Forcing serialization of objects, which doesn't implement the Serializable
+        interface may result in errors either rised by the remoting protocol or
+        results in incorrectly initialized objects.
+  </fl>
+</note>
+Note 2:
+<note>
+  Local calls of methods with the byval attribute will not serialize/deserialize its
+  parameters and so the the local call does not really pass its parameter by value.
+</note>
+
+<jump4>Selection by the the caller in case of weak invocation</jump4>
+
+In case of weak objects - where the client only holds a opaque object type with no 
+further knowledge about methods and parameter the in, out, inout and byval, byref 
+attributes can be given in the object call:
+<source>
+  // C++ & CfgScript
+  RStringBuffer sb  = new StringBuffer("asdf");
+  RObject objremote;
+  // C++
+  sb->invoke("callFoo", inOf(sb), byRef(outOf(objremote)));
+  // CfgScript
+  sb.callFoo(inOf(sb), byRef(outOf(objremote)));
+</source>
+
+In many cases it is also important, that the types matched:
+<source>
+  // C++
+  sb->invoke("callFoo", byValAs(inOf(sb), StringBuffer::getClass()), byRefAs(outOf(objremote), Comparable::GetClass()));
+  // CfgScript
+  using acdk.cfgscript.ScriptGlobals;
+  sb.callFoo(byValAs(inOf(sb), StringBuffer.getClass()), byRefAs(outOf(objremote), Comparable.GetClass()));
+</source>
+
+<jump3>Return values</jump3>
+
+<source>
+// CfgScript
+Object o = ...;
+o.toString__byRefAs("acdk/lang/Comparable");
+// C++
+RObject o = ...;
+RComparable rcomp = o->invoke("toString__byRefAs", "acdk/lang/Comparable");
+</source>
+
+<jump3>Exceptions</jump3>
+<m>acdkx_rdmi</m> supports Exceptions in a transparent way equally to local calls.
+Important for exception types is, that metainfo is available for the thrown exceptions.
+
+Here a sample in CfgScript:
+<source>
+Object o = client.createRemote("acdk.lang.StringBuffer", "hello");
+try {
+  String s = o.substring(-2, 2004); // misuse: the server throws IndexOutOfBoundsException
+                                    // The exception will be transfered serialized to client
+                                    // and will (re-)thrown in the client
+} catch (IndexOutOfBoundsException ex) {
+  out.println(ex.getMessage());
+}
+</source>
+
+
+
+
+<jump3>Call models</jump3>
+In the first release of acdkx_rdmi only the synchronous call convention is supported.
+
+A remote method call returns, if the server returned from the call.
+
+Different to other remoting protocoll acdkx_rdmi also supports reentrant calls.
+
+To illustrate this following sample in CfgScript:
+<source>
+// common source, known by server and client
+interface Callback 
+{
+  void callIt(String s) = 0;
+}
+interface CallCallback 
+{
+  void callForEach(Callback cb) = 0;
+}
+
+// A server object
+class MyServerObject
+  implements CallCallback
+{
+  StringArray sa = [ "a", "b", "c" ];
+  MyServerObject() {}
+  void callForEach(Callback cb)
+  {
+    foreach (String s in sa)
+    {
+      cb.callIt(s);
+    }
+  }
+}
+
+// use it in client
+class MyCallback
+  implements Callback
+{
+  MyCallback() {}
+  void callIt(String s)
+  {
+    out.println("MyCallback.callIt: " + s);
+  }
+}
+MyCallback mycb = new MyCallback();
+
+CallCallback cb =  client.createRemoteAs("MyServerObject", "CallCallback");
+cb.callForEach(mycb);
+</source>
+What happens here?
+
+<c>cb.callForEach(mycb);</c> make a remote call to MyServerObject.
+Inside the <c>callForEach</c> on the server remote calls back to the client
+will be done for each element in sa.
+After this the remove call <c>cb.callForEach(mycb);</c> returns back to client.
+
+Resume:
+<fl>
+<f> an RDMI Server can also invoke remote objects from client.
+    In this case the client automatically also works as RDMI Server.
+<f> The control flow in calling a remote method is the same, like normal
+    local method calls.
+</fl>
+
+<jump3>Parameters and Return Values</jump3>
+Parameters and return values can be tranfered on two ways:
+<fl>
+<f> By value: The complete object will be serialized and transfered
+    to the other side. 
+<f> By (remote) reference: A weak or strong proxy identifier
+</fl>
+
+<jump2>Remote Garbage Collection</jump2>
+The remote garbace collection depends on concret protocoll. By
+default a statefull TCP/IP connection between client and server
+is used (in contrast to stateless HTTP connections).
+
+<image descr="" src="./rdmi_rgc_protocol.gif">
+
+<ol>
+<li> A remote construction of a object creates the object instance on the server side.
+<li> This server object instance will be registered in pool connected with its connection.
+<li> The remote reference will be returned to client. The client creates a local proxy.
+<li> On the client the garbage collection will work the normal way on client side.
+<li> If the local proxy will be deleted, the client sends a message to the server, which
+     owns the object, that the object can be released.
+<li> On the server side the object will be released from the pool.
+<li> In case the connection between client and server will be closed (f.e. because
+     client dies) 
+<li> all objects in the server object pool connected with this connection
+     will be released.
+</ol>
+
+
+.

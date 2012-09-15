@@ -1,0 +1,136 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acdkcsfide
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT  $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) $(WX_LIBS) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_cfgscript -lacdk_text -lacdk_wx -lacdk_wx_ide 
+CFLAGSX= $(WX_CFLAGS)
+LDFLAGSX = 
+
+SOURCES= 	acdk/tools/csfide/CsfDebugger.cpp \
+	acdk/tools/csfide/Editor.cpp \
+	acdk/tools/csfide/Main.cpp \
+
+HEADER= 	acdk/tools/csfide/BackTraceCtrl.h \
+	acdk/tools/csfide/CsfDebugger.h \
+	acdk/tools/csfide/Editor.h \
+	acdk/tools/csfide/LocalVarsCtrl.h \
+	acdk/tools/csfide/Main.h \
+	acdk/tools/csfide/OutputWindow.h \
+
+OBJECTS= 	../tobj/acdkcsfide/CsfDebugger.o \
+	../tobj/acdkcsfide/Editor.o \
+	../tobj/acdkcsfide/Main.o \
+
+
+FINALTARGET=../../bin/acdkcsfide
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/acdkcsfide: $(OBJECTS)
+	$(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../bin/acdkcsfide $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdkcsfide.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdkcsfide/CsfDebugger.o: acdk/tools/csfide/CsfDebugger.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkcsfide/CsfDebugger.o -c acdk/tools/csfide/CsfDebugger.cpp
+
+../tobj/acdkcsfide/Editor.o: acdk/tools/csfide/Editor.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkcsfide/Editor.o -c acdk/tools/csfide/Editor.cpp
+
+../tobj/acdkcsfide/Main.o: acdk/tools/csfide/Main.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkcsfide/Main.o -c acdk/tools/csfide/Main.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdkcsfide $(OBJECTS)
+
+  

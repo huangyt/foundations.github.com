@@ -1,0 +1,35 @@
+
+
+using acdk.util;
+using acdk.io;
+Properties props = new Properties();
+String f = System.getAcdkHome() + "/cfg/acdk/locale/LocaleInfo.properties";
+props.load((new File(f)).getReader());
+
+Writer bout = new FileWriter("WindowsLocalTable.txt");
+PrintWriter fout = new PrintWriter(bout, 
+																	acdk.locale.Encoding.getUnicodeEscapeEncoding().getEncoder());
+Map m = props.getMapProperty("territories");
+
+byte nl = '\n';
+int len = m.size();
+fout.print("char territories_table[" + len + "][2]  = {");
+bout.write(nl);
+foreach (MapEntry me in m.entrySet().iterator())
+{
+	fout.print("{ \"" + me.getKey() + "\", \"" + me.getValue() + "\" },");
+	bout.write(nl);
+}
+fout.print("};"); bout.write(nl);
+
+m = props.getMapProperty("languages");
+len = m.size();
+
+fout.print("char languages_table[" + len + "][2] = {");
+bout.write(nl);
+foreach (MapEntry me in m.entrySet().iterator())
+{
+	fout.print("{ \"" + me.getKey() + "\", \"" + me.getValue() + "\" },");
+	bout.write(nl);
+}
+fout.print("};"); bout.write(nl);

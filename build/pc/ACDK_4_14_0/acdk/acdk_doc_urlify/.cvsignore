@@ -1,0 +1,8 @@
+*.deps
+*.ncb
+*.opt
+bin
+obj
+*.suo
+ids.db
+ChangeLog

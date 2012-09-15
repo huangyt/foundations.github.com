@@ -1,0 +1,21 @@
+'\n';
+
+c1 = 'a';
+c2 = '\n';
+if ("a".equals(String.valueOf(c1)) == true && "\n".equals(String.valueOf(c2)) == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+if (UnicodeCharacter.toUpperCase('\u00e4') == '\u00c4')
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+String s = "ue=\u00fc; ae=\u00e4; oe=\u00f6";
+String us = s.toUpperCase();
+out.println("lc: " + s + "; uc: " + us + "; = " + "UE=\u00dc; AE=\u00c4; OE=\u00d6");
+
+if (us.equals("UE=\u00dc; AE=\u00c4; OE=\u00d6") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

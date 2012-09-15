@@ -1,0 +1,30 @@
+int i = 42;
+// evaluating via variable name resolution
+String s = `"i is ${i}"`;
+if (s.equals("i is 42") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+// evaluating via expression evaluation
+s = `"i + 1 is ${i + 1}"`;
+out.println(s);
+if (s.equals("i + 1 is 43") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+// evaluating via complete scripts and out
+s = `"i + 1 is !{ out.print(i + 1); }!"`;
+if (s.equals("i + 1 is 43") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+
+StringArray args = [ "a", "b" ];
+s = `"args is @{args}"`;
+if (s.equals("args is a b") == true)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+

@@ -1,0 +1,225 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_python, Python, DMI Client Python">
+<title>acdk_python Manual</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Python</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk_python Manual<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdkpython_man.html">acdkpython Manual</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Python Readme</a> | <a  href="acdk_python_install.html">Compile acdk_python</a> | acdk_python Manual | <a  href="acdkpython_man.html">acdkpython Manual</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_python Manual</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_python Manual</h1> -->
+<br>
+<p class="PageIntro">
+acdk_python contains an interface to an Pyton interperter
+and the DMI code to script ACDK objects from Python code.<br>
+</p>
+<br>
+<a name="jumptable98"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Hello World Sample"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Hello World Sample</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Installation & Compiling of acdk_python & acdkpyton"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Installation & Compiling of acdk_python & acdkpyton</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ACDK / Python"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ACDK / Python</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Type mapping"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Type mapping</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: sub acdk.Object("s|args")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: sub acdk.Object("s|args")</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: acdk.Object.invoke("s|args")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: acdk.Object.invoke("s|args")</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: acdk.invoke_static("ss|args")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: acdk.invoke_static("ss|args")</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: acdk.Object.peek("S")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: acdk.Object.peek("S")</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: acdk.Object.poke("SO")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: acdk.Object.poke("SO")</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: acdk.peek_static("SS")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: acdk.peek_static("SS")</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#command: acdk.poke_static("SSO")"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;command: acdk.poke_static("SSO")</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Hello World Sample">Hello World Sample</a></h2>
+<br>
+Here the standard hello world sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">def</FONT></B> <B><FONT COLOR="#0000FF">foo</FONT></B>(string1, string2):
+  sb = acdk.Object(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, string1)
+  sb.append(string2)
+  <B><FONT COLOR="#A020F0">return</FONT></B> sb.toString()
+  
+acdk.peek_static(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;out&quot;</FONT></B>).println(foo(<B><FONT COLOR="#BC8F8F">&quot;Hello Python&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot; from ACDK&quot;</FONT></B>))
+
+</PRE></td></tr></table>
+<br>
+Other sample using an COM-Object
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">import</FONT></B> acdk
+classloader = acdk.Object(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/ClassLoader&quot;</FONT></B>)
+classloader.findClass(<B><FONT COLOR="#BC8F8F">&quot;acdkx/com/ComObject&quot;</FONT></B>)    
+word = acdk.invoke_static(<B><FONT COLOR="#BC8F8F">&quot;acdkx/com/ComObject&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;New&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Word.Application&quot;</FONT></B>)
+word.poke(<B><FONT COLOR="#BC8F8F">&quot;Visible&quot;</FONT></B>, 1)
+doc = word.peek(<B><FONT COLOR="#BC8F8F">&quot;Documents&quot;</FONT></B>).Add()
+sel = word.peek(<B><FONT COLOR="#BC8F8F">&quot;ActiveWindow&quot;</FONT></B>).peek(<B><FONT COLOR="#BC8F8F">&quot;Selection&quot;</FONT></B>)
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>)
+sel.peek(<B><FONT COLOR="#BC8F8F">&quot;Font&quot;</FONT></B>).poke(<B><FONT COLOR="#BC8F8F">&quot;Bold&quot;</FONT></B>, 1)
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>)
+sel.peek(<B><FONT COLOR="#BC8F8F">&quot;Font&quot;</FONT></B>).poke(<B><FONT COLOR="#BC8F8F">&quot;Bold&quot;</FONT></B>, 0)
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot; instrumenting Word through acdk_python&quot;</FONT></B>)
+acdk.invoke_static(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/Thread&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;sleep&quot;</FONT></B>, 3000)
+word.Quit(0)
+</PRE></td></tr></table>
+<br>
+<br>
+<h2><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Installation & Compiling of acdk_python & acdkpyton">Installation & Compiling of acdk_python & acdkpyton</a></h2>
+<br>
+To compile and rund acdkperl you need the Perl 2.1 (or later) package
+<br>
+<a  href="ftp://ftp.python.org/pub/python/2.1.1/Python-2.1.1.tgz"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ftp://ftp.python.org/pub/python/2.1.1/Python-2.1.1.tgz</a>
+<br>
+On Unix:<br>
+<pre>
+- [g]tar zxf Python-2.1.1.tgz
+- cd Python-2.1.1
+- ./configure
+- make
+- su 
+- make install
+</pre>
+On Windows:<br>
+<pre>
+- use gtar or winzip to extract Python-2.1.1.tgz
+- Open the workspace .\Python-2.1.1\PCbuild\pcbuild.dsw
+- Compile Debug and Release target.
+- You may have to copy the python DLL's somewhere into the
+  path or expand the path to python DLL's directory.
+</pre>
+<br>
+If you have already installed a runtime version of Python
+it may work to this, but there may missing includes/libs.<br>
+<br>
+You may have to change some path in the acdk_python/python_cfg.lsp
+file and remake the Makefiles.<br>
+<pre>
+acdk_python/ > [n]make -f acdk_perl.<target> makemake
+</pre>
+<br>
+<br>
+<h2><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK / Python">ACDK / Python</a></h2>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Type mapping">Type mapping</a></h3>
+<li class="Feature"> Python: number <-> ACDK: int/Integer
+<li class="Feature"> Python: double <-> ACDK: double/Double
+<li class="Feature"> Python: string <-> ACDK: String
+<br>
+Note may added more mappings later.<br>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: sub acdk.Object("s|args")">command: sub acdk.Object("s|args")</a></h3>
+acdk::Object() creates a new ACDK-Object.<br>
+argument 1: The fully qualified ACDK-Class name like "acdk/lang/StringBuffer".<br>
+argument 2 - n: Arguments for the class constructor.<br>
+return: a new acdk.Object with wrapps an ACDK object
+Usage:<br>
+%sb
+## Python
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+%se
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: acdk.Object.invoke("s|args")">command: acdk.Object.invoke("s|args")</a></h3>
+acdk.Object.invoke invokes a method. 
+argument 1: the name of the method.<br>
+argument 2-n: arguments of the method.<br>
+return: returns the result of the method.<br>
+<br>
+Instead of using invoke, you can also use the direcly 
+the methodname
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">## Python
+</FONT></I><B><FONT COLOR="#A020F0">import</FONT></B> acdk
+sb = acdk.Object(<B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Hallo &quot;</FONT></B>)
+erg = sb.invoke(<B><FONT COLOR="#BC8F8F">&quot;toString&quot;</FONT></B>)
+<I><FONT COLOR="#B22222"># the same as 
+</FONT></I>erg = sb.toString()
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: acdk.invoke_static("ss|args")">command: acdk.invoke_static("ss|args")</a></h3>
+acdk.invoke_static calls a static method.<br>
+argument 1: name of the class as string.<br>
+argument 2: name of the method as string.<br>
+arguments 3-n: arguments of the method.<br>
+return: returns the result of the method.<br>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: acdk.Object.peek("S")">command: acdk.Object.peek("S")</a></h3>
+reads a member of an ACDK class.<br>
+argument 1: name of the member as string.<br>
+return: the readed value.<br>
+<br>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: acdk.Object.poke("SO")">command: acdk.Object.poke("SO")</a></h3>
+writes a member of an ACDK class.<br>
+argument 1: name of the member as string.<br>
+argument 2: The value to set.<br>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: acdk.peek_static("SS")">command: acdk.peek_static("SS")</a></h3>
+reads a static member of an ACDK class.<br>
+argument 1: name of the class as string.<br>
+argument 2: name of the member as string.<br>
+return: the readed value.<br>
+<br>
+<h3><a href="#jumptable98"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="command: acdk.poke_static("SSO")">command: acdk.poke_static("SSO")</a></h3>
+writes a static member of an ACDK class.<br>
+argument 1: name of the class as string.<br>
+argument 2: name of the member as string.<br>
+argument 3: The value to set.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Python Readme</a> | <a  href="acdk_python_install.html">Compile acdk_python</a> | acdk_python Manual | <a  href="acdkpython_man.html">acdkpython Manual</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

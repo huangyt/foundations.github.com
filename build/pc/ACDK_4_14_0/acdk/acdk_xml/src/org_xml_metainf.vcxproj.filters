@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="org">
+      <UniqueIdentifier>{ef3fe7e2-f203-4d24-b866-a453bec8c927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c">
+      <UniqueIdentifier>{b3bb0aa7-3df4-4cbc-a6e7-0773431bd9d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom">
+      <UniqueIdentifier>{ecaa37b5-b1e3-4d67-b6fe-c5b68cd05c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\dom_metainf">
+      <UniqueIdentifier>{fad1ef82-42ea-4dc6-84d8-2a5ec85ddf5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\xpath">
+      <UniqueIdentifier>{0a9139e7-00f4-4e60-9548-0f4ea492a582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\xpath\xpath_metainf">
+      <UniqueIdentifier>{10c85656-21fc-4c59-9b2f-9334a2e4bdad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\traversal">
+      <UniqueIdentifier>{df1e76f1-05e0-48d1-9526-f61f6f84a831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\traversal\traversal_metainf">
+      <UniqueIdentifier>{356a6af0-ff57-4a15-bbae-0fc8d6a65426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml">
+      <UniqueIdentifier>{ec707e51-3ee9-4bde-85cb-696314d8f9f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml\sax">
+      <UniqueIdentifier>{b3449289-fc24-40fb-9f92-02e65db61ddc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml\sax\sax_metainf">
+      <UniqueIdentifier>{8c70d877-cc9f-4782-9126-978b1167981a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml\sax\helpers">
+      <UniqueIdentifier>{3906f21d-2097-40e5-b7d2-693ad32a2f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml\sax\helpers\helpers_metainf">
+      <UniqueIdentifier>{c9b2d1d3-ab50-4970-be99-401578795dcd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="org\w3c\dom\dom_metainf\dom_metainf_ext.cpp">
+      <Filter>org\w3c\dom\dom_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\xpath\xpath_metainf\xpath_metainf_ext.cpp">
+      <Filter>org\w3c\dom\xpath\xpath_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\traversal\traversal_metainf\traversal_metainf_ext.cpp">
+      <Filter>org\w3c\dom\traversal\traversal_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\sax_metainf\sax_metainf_ext.cpp">
+      <Filter>org\xml\sax\sax_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\helpers_metainf\helpers_metainf_ext.cpp">
+      <Filter>org\xml\sax\helpers\helpers_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

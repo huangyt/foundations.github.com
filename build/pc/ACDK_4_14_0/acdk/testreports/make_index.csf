@@ -1,0 +1,62 @@
+/**
+  Little helper to generate  acdk_tests.html on the
+  files of all generated test reports
+
+*/
+
+class HtmlWriterHelper
+{
+  static void printInBox(PrintWriter out, String text, String color)
+  {
+    out << "<table border=0 width=\"100%\"><tr><td bgcolor=\"" << color << "\">" << text << "</td></tr></table>\n";
+  }
+  static String readStringFile(String fname)
+  {
+    acdk.locale.Decoder dec = acdk.locale.AsciiEncoding.getAsciiEncoding().getDecoder();
+    return (new ByteToCharReader((new File(fname)).getReader(), dec)).readString();
+  }
+}
+
+fout = new PrintWriter(new CharToByteWriter(new FileWriter("index.html")));
+
+fout << "
+<html>
+<body>
+<h1>ACDK Unit Tests</h1>
+<p>
+<a href=\"../../docs/acdk_testreports.html\">Back to all platform tests</a>
+</p>
+";
+if (scriptarguments.length() > 0)
+  fout << "<p>" + scriptarguments.get(0) + "</p>
+  ";
+
+StringArray list = (new File(".")).list(new GlobFilenameFilter("*.html"));
+acdk.util.ArraysImpl.sort(list);
+foreach (String fn in list)
+{
+  if (fn.equals("index.html") == true)
+  {
+    out.println("Equals: " + fn);
+    continue;
+  } else {
+  out.println(fn);
+  StringBuffer sb = new StringBuffer();
+  sb << "<a href=\"./" << fn << "\">" << fn << "</a>";
+  String fcont = HtmlWriterHelper.readStringFile(fn);
+  if (fcont.indexOf("TEST FAILED") != -1)
+  {
+    HtmlWriterHelper.printInBox(fout, "TEST FAILED: " + sb.toString(), "#FF8080");
+  }
+  else
+  {
+    HtmlWriterHelper.printInBox(fout, "TEST OK: " + sb.toString(), "ltgreen");
+  }
+}
+}
+
+
+fout << "
+</body>
+</html>
+";

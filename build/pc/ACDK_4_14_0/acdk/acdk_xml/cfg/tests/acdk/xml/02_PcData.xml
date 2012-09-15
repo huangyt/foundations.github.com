@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<book><![CDATA[
+  void foo()
+  {
+    ++i; "PCDATA";
+  }]]>
+</book>

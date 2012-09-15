@@ -1,0 +1,266 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>CfgScript Class Method</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_class.html">Class</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Class Methods<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_class_call.html">Calling Interface</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_class_decl.html">ClassDeclaration</a> | Class Methods | <a  href="acdk_cfgscript_hb_lang_class_member.html">Class Members</a> | <a  href="acdk_cfgscript_hb_lang_class_call.html">Calling Interface</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Class Method</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Class Method</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_class_decl.html">ClassDeclaration</a> | Class Methods | <a  href="acdk_cfgscript_hb_lang_class_member.html">Class Members</a> | <a  href="acdk_cfgscript_hb_lang_class_call.html">Calling Interface</a> |</p>
+<p class="PageIntro">
+CfgScript provides static and nonstatic methods, Constructors and operator overloading.
+</p>
+<br>
+<br>
+<a name="jumptable41"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#ClassMethod"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ClassMethod</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Constructor"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Constructor</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Destructor/finalize"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Destructor/finalize</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Method"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Method</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ParameterDecl"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;ParameterDecl</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#OperatorMethod"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;OperatorMethod</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Free Functions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Free Functions</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ClassMethod">ClassMethod</a></h2>
+<pre>
+ClassMethod
+: <a  href="acdk_cfgscript_hb_lang_class_method.html#Constructor"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Constructor</a>
+| <a  href="acdk_cfgscript_hb_lang_class_method.html#Destructor"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Destructor</a>
+| <a  href="acdk_cfgscript_hb_lang_class_method.html#Method"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Method</a>
+| <a  href="acdk_cfgscript_hb_lang_class_method.html#OperatorMethod"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;OperatorMethod</a>
+;
+</pre>
+<br>
+<h3><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Constructor">Constructor</a></h3>
+<pre>
+Constructor
+: Identifier '(' <a  href="acdk_cfgscript_hb_lang_class_method.html#ParameterDecl"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ParameterDecl</a> ') <a  href="acdk_cfgscript_hb_lang_stmt_block.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BlockStatement</a>
+;
+</pre>
+A constructor method has the same name as the Class.<br>
+It can be used to intialize a new object.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyClass
+extends MyBaseClass
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> ivar;
+  MyClass(<B><FONT COLOR="#228B22">int</FONT></B> intitval) 
+  { 
+    super(<B><FONT COLOR="#BC8F8F">&quot;initValForMyBase&quot;</FONT></B>); <I><FONT COLOR="#B22222">// call MyBaseClass constructor
+</FONT></I>    ivar = intitval;
+  }
+  
+}
+</PRE></td></tr></table>
+<br>
+Base class initialization must be the first statement in the MethodBody of the 
+constructor.<br>
+<br>
+<br>
+<h3><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Destructor/finalize">Destructor/finalize</a></h3>
+An destructor is implemented as a virtual method named finalize.<br>
+This <code>finalize()</code> method will be called once before the object will be destroyed.<br>
+Equally to Java you have to call the super.finalize().<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> AClass {
+  AClass() {}
+  <B><FONT COLOR="#228B22">void</FONT></B> finalize()
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;AClass.finalize()&quot;</FONT></B>);
+  }
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> BClass
+extends AClass
+{
+  BClass() { super(); }
+  <B><FONT COLOR="#228B22">void</FONT></B> finalize()
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;BClass.finalize()&quot;</FONT></B>);
+    super.finalize();
+  }
+}
+AClass cls = <B><FONT COLOR="#A020F0">new</FONT></B> BClass();
+cls = Nil;
+</PRE></td></tr></table>
+The output will be:<br>
+<pre>
+BClass.finalize()
+AClass.finalize()
+</pre>
+<br>
+<h3><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Method">Method</a></h3>
+<pre>
+Method
+: (MethodAttribute)* TypeName Identifier '(' ParameterDecl ') <a  href="acdk_cfgscript_hb_lang_stmt_block.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BlockStatement</a>
+;
+
+ParameterDecl
+: 'public'
+| 'protected'
+| 'private'
+| 'static'
+;
+</pre>
+Static methods can be called without an object instance.<br>
+<br>
+<code>public, protected, private</code> are currently not supported.<br>
+<br>
+Please refer also to <a  href="acdk_cfgscript_hb_lang_class_call.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Calling Interface</a>.<br>
+<br>
+<h3><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ParameterDecl">ParameterDecl</a></h3>
+<pre>
+ParameterDecl
+: [ NormalParameter ( ',' NormalParameter )* ( ', ' InitializedParameter )*
+;
+
+NormalParameter:
+: ParameterAttribute*  TypeName Identifier
+;
+
+InitializedParameter:
+: TypeName Identifier '=' Expression
+;
+
+ParameterAttribute
+: 'in'      // parameter is a in parameter. 
+            // A parameter without Attribute is also an in parameter
+| 'out'     // out parameter (value can changed by callee)
+| 'inout'   // combination of in and out
+| 'byref'   // only used in rdmi: Parameter should be tranfered by reference
+| 'byval'   // only used by rdmi: Parameter should be tranfered by value
+;
+</pre>
+<br>
+Please refer also to <a  href="acdk_cfgscript_hb_lang_class_call.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Calling Interface</a>.<br>
+<br>
+<h3><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OperatorMethod">OperatorMethod</a></h3>
+<pre>
+OperatorMethod
+: (MethodAttribute)* TypeName 'operator' Operator '(' ParameterDecl ') <a  href="acdk_cfgscript_hb_lang_stmt_block.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BlockStatement</a>
+;
+</pre>
+Sample:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> Average
+extends acdk.lang.Object
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> count;
+  <B><FONT COLOR="#228B22">double</FONT></B> average;
+  
+  <I><FONT COLOR="#B22222">// a + operator should return this to be chainable
+</FONT></I>  <I><FONT COLOR="#B22222">// see below where this operator will be used
+</FONT></I>  Average <B><FONT COLOR="#A020F0">operator</FONT></B>+(<B><FONT COLOR="#228B22">int</FONT></B> v) <I><FONT COLOR="#B22222">// defines the + operator
+</FONT></I>  {
+    average = (average * count + v) / (count + 1);
+    count = count + 1;
+    <B><FONT COLOR="#A020F0">return</FONT></B> <B><FONT COLOR="#A020F0">this</FONT></B>; 
+  }
+  Average(<B><FONT COLOR="#228B22">int</FONT></B> v) 
+  { 
+    count = 1;
+    average = v;
+  }
+  <B><FONT COLOR="#228B22">int</FONT></B> getAverage() { <B><FONT COLOR="#A020F0">return</FONT></B> average; }
+  <B><FONT COLOR="#228B22">int</FONT></B> getCount()  <B><FONT COLOR="#A020F0">return</FONT></B> ivar; 
+}
+
+Average av = <B><FONT COLOR="#A020F0">new</FONT></B> Average(2);
+av = av + 1 + 6; <I><FONT COLOR="#B22222">// calls Average.operator+(1).operator+(6)
+</FONT></I>out.println(<B><FONT COLOR="#BC8F8F">&quot;Average of 2, 1 and 6 is &quot;</FONT></B> + av.getAverage());
+</PRE></td></tr></table>
+<br>
+<br>
+<br>
+Please refer also to <a  href="acdk_cfgscript_hb_lang_class_call.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Calling Interface</a>.<br>
+<br>
+<h2><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Free Functions">Free Functions</a></h2>
+Functions, which are not elements of a class, are not supported by
+CfgScript.<br>
+<br>
+But you can receive a quite similar result using the <a  href="acdk_cfgscript_hb_lang_stmt_using.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;using statement</a>.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// some global functions
+</FONT></I>using acdk.cfgscript.ScriptGlobals;
+
+<I><FONT COLOR="#B22222">// byRef is a static function of ScriptGlobals
+</FONT></I>MyClass.staticFunction(byRef(42));
+</PRE></td></tr></table>
+<br>
+<br>
+<br>
+<h2><a href="#jumptable41"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=dir_csf_tests_acdk_cfgscript_4_classes"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;dir_csf_tests_acdk_cfgscript_4_classes</a>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_class_decl.html">ClassDeclaration</a> | Class Methods | <a  href="acdk_cfgscript_hb_lang_class_member.html">Class Members</a> | <a  href="acdk_cfgscript_hb_lang_class_call.html">Calling Interface</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

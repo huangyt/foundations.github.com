@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-05-01T14:49:05</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 6; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#TransactionConsumer_Test.standard">TransactionConsumer_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#TransactionConsumer_Test.exception">TransactionConsumer_Test.exception</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#RollingFileAppender_Test.standard">RollingFileAppender_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.standard">Logging_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.parameters">Logging_Test.parameters</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Logging_Test.hierarchical">Logging_Test.hierarchical</a> <br>
+</td></tr></table>
+<h2><a id="TransactionConsumer_Test.standard">TransactionConsumer_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][TransactionConsumer_Test.standard] Start Test
+[AUNIT:STRT] Start Test: TransactionConsumer_Test.standard
+2005-05-01T14:49:04|I|39087|134692864|acdk_util_logging_TransactionConsumer_Test.cpp:85|Blub3
+2005-05-01T14:49:04|I|39087|134692864|acdk_util_logging_TransactionConsumer_Test.cpp:86|Blub4
+2005-05-01T14:49:04|E|39087|134692864|acdk_util_logging_TransactionConsumer_Test.cpp:87|An error
+</pre>
+<h2><a id="TransactionConsumer_Test.exception">TransactionConsumer_Test.exception</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][TransactionConsumer_Test.standard] End Test
+[AUNIT:ENDT] End Test: TransactionConsumer_Test.standard
+[AUNIT:STRT][TransactionConsumer_Test.exception] Start Test
+[AUNIT:STRT] Start Test: TransactionConsumer_Test.exception
+2005-05-01T14:49:04|[|39087|134692864|acdk/util/logging/TransactionConsumer.cpp:67|Start LogTrans: Transact 2
+2005-05-01T14:49:04|I|39087|134692864|acdk_util_logging_TransactionConsumer_Test.cpp:109|Blub3
+2005-05-01T14:49:04|I|39087|134692864|acdk_util_logging_TransactionConsumer_Test.cpp:110|Blub4
+2005-05-01T14:49:04|~|39087|134692864|acdk/util/logging/TransactionConsumer.cpp:83|Failed LogTrans (4 ms):Transact 2
+</pre>
+<h2><a id="RollingFileAppender_Test.standard">RollingFileAppender_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][TransactionConsumer_Test.exception] End Test
+[AUNIT:ENDT] End Test: TransactionConsumer_Test.exception
+[AUNIT:STRT][RollingFileAppender_Test.standard] Start Test
+[AUNIT:STRT] Start Test: RollingFileAppender_Test.standard
+</pre>
+<h2><a id="Logging_Test.standard">Logging_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][RollingFileAppender_Test.standard] End Test
+[AUNIT:ENDT] End Test: RollingFileAppender_Test.standard
+[AUNIT:STRT][Logging_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Logging_Test.standard
+F: Bla
+F: Bla
+2005-05-01T14:49:05|F|39087|134692864|acdk_util_logging_Basics_Test.cpp:84|Bla
+F: Blub
+2005-05-01T14:49:05|F|39087|134692864|acdk_util_logging_Basics_Test.cpp:85|Blub
+</pre>
+<h2><a id="Logging_Test.parameters">Logging_Test.parameters</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Logging_Test.standard] End Test
+[AUNIT:ENDT] End Test: Logging_Test.standard
+[AUNIT:STRT][Logging_Test.parameters] Start Test
+[AUNIT:STRT] Start Test: Logging_Test.parameters
+E: A Message with 1 parameters: String=[<string value>]; 
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:97|A Message with 1 parameters: String=[<string value>]; 
+E: A Message with 1 parameters: int=[42]; 
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:98|A Message with 1 parameters: int=[42]; 
+E: A Message with 1 parameters: Comparable=[42]; 
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:99|A Message with 1 parameters: Comparable=[42]; 
+E: A Message with 1 parameters: boolean=[true]; 
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:100|A Message with 1 parameters: boolean=[true]; 
+E: A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:103|A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+E: A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:105|A Message with 2 parameters: String=[<string value>]; Integer=[42]; 
+</pre>
+<h2><a id="Logging_Test.hierarchical">Logging_Test.hierarchical</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Logging_Test.parameters] End Test
+[AUNIT:ENDT] End Test: Logging_Test.parameters
+[AUNIT:STRT][Logging_Test.hierarchical] Start Test
+[AUNIT:STRT] Start Test: Logging_Test.hierarchical
+E: Should appear
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:112|Should appear
+E: Should appear also
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:113|Should appear also
+E: Should appear also
+2005-05-01T14:49:05|E|39087|134692864|acdk_util_logging_Basics_Test.cpp:114|Should appear also
+E: Should not appear
+E: Should not appear
+</pre>
+</body></html>

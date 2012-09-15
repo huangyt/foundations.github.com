@@ -1,0 +1,212 @@
+%id: acdk_cfgscript_hb_lang_expr_operator
+%title: CfgScript Operator Expressions
+%shorttitle: Operator
+%keywords: operator
+%seealso: acdk_cfgscript_hb_lang_class_method
+%body:
+<chapterline/>
+<pageintro>
+An Operator is a special function connected to a Object
+or class.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>How does CfgScript supports Operators</jump1>
+
+CfgScript has very few really 'build in' operators. 
+
+<jump2>Most Operators are simple class/object method</jump2>
+Most operators are only a shortcut for a simply method call.
+So for example the expression <c>1 + 2</c> is not evaluated
+by the CfgScript interpreter itself, but delegated to a an object:
+
+<source>
+1 + 2 
+// CfgScript will interpret this as
+1.operator+(2)
+</source>
+whereas <c>1</c> is a object instance (of %cref[acdk::lang::dmi::DmiObject]) 
+which implements the method:
+<source>
+RDmiObject operator+(IN(RDmiObject) other);
+</source>
+
+You can also create your %ref[own operator implementations, acdk_cfgscript_hb_lang_class_method#OperatorMethod] 
+in CfgScript.
+
+<jump2>Buildin Operator</jump2>
+Not all operators can are implemented as operator method calls.
+These operators are directly implemented by the CfgScript interpreter:
+<fl>
+<f> '=': Assignment operator
+<f> '&&', '||': relational operators has a special meaning (because shortcut boolean evaluation).
+<f> '.', '::' '->': for defining component names or <c>object_or_class.method_or_field</c> 
+</fl>
+
+<jump1>OperatorExpression</jump1>
+
+<pre>
+OperatorExpression
+: %ref[PreFixOperator, #PreFixOperator]
+| %ref[PostFixOperator, #PreFixOperator]
+| %ref[InfixOperator, #InfixOperator]
+| %ref[OutfixOperator, #OutfixOperator]
+;
+</pre>
+
+The operator are ordered into priorities. The priority follows
+the syntax rules of C/C++/Java.
+
+Operators with
+same priority will be evaluated from left to right:
+<c>a + b + c</c>;
+will be evaluated:
+<c>a + b => temp1; temp1 + c => result</c>
+
+If two operators has different priorities the expression
+with the higher priority will be evaluated first:
+<c>a + b * c</c>
+will be evaluated:
+<c>b * c => temp1; a + temp1 => result</c>
+
+Most operation expression will be mapped to corresponding
+Class/Object methods. 
+<c>"A" + "B"</c>
+will result in:
+<c>(new String("a")).operator+("B")</c>
+or other sample:
+<c>1 * 2<c>
+will be 
+<c>(new DmiObject(1)).operator*(2)</c>
+
+<jump1>PreFixOperator</jump1>
+<pre>
+PreFixOperator
+: '+' Expression // has no effect
+| '-' Expression // negate the value of the expression
+| '++' Expression // increment the expression with 1
+| '--' Expression // decrement the expression with 1
+;
+</pre>
+
+The code:
+<c>-42</c> will be result in:
+<c>(new DmiObject(42)).operator-()</c>
+The resulting expression is the result of the negation, incrementation or decrementation.
+
+<jump1>PostFixOperator</jump1>
+<pre>
+PreFixOperator
+: Expression '++' 
+| Expression '--' 
+;
+</pre>
+Different to the PreFixOperation ++ and -- the resulting value is the orinal 
+value of Expression (as in Java/C#/C++).
+
+<jump1>InfixOperator</jump1>
+<pre>
+PreFixOperator
+: Expression InfixOperator Expression
+;
+
+InfixOperator
+: Expression '.' FunctionOrMember       // access operator
+| Expression '-&gt;' FunctionOrMember // alias for access operator
+| Expression '*' Expression         // multiply
+| Expression '/' Expression         // divide
+| Expression '+' Expression         // addition
+| Expression '-' Expression         // substraction
+| Expression '&lt;&lt;<' Expression // shift
+| Expression '&gt;&gt;' Expression  // shift
+| Expression '&lt;' Expression      // less than
+| Expression '&gt;' Expression      // greater than
+| Expression '&gt;=' Expression     // greater or equal
+| Expression '&lt;=' Expression     // less or equal
+| Expression '==' Expression        // equal/identical
+| Expression '!=' Expression        // not equal
+| Expression'&' Expression          // bitwise and
+| Expression '^' Expression         // bitwise nor
+| Expression '|' Expression         // bitwise or
+| Expression '&&'                   // logical and, see Logical Operators
+| Expression '||' Expression        // logical or, see Logical Operators
+;
+</pre>
+
+The infix operators '.', '-&gt;' will evaluated as namespace.class, namespace.class.method
+or namespace.class.member, obj.member, obj.method.
+
+The infix operators '==' and '!=' will work on basic types different as to object
+types:
+
+<source>
+int a = 1;
+int b = 1;
+// compare with == and != on basic types is equal to 
+// equals() call and compare the values.
+
+__script.testAssert(a == b);
+  
+// different to Java basic types
+// also support equals() method
+__script.testAssert(a.equals(b) == true);
+
+
+Integer i1 = new Integer(1);
+Integer i2 = new Integer(1);
+
+// compare with == and != on object types
+// compares not for equality, but for identy
+__script.testAssert(i1 != i2);
+__script.testAssert((i1 == i2) == false);
+
+// to test two object for equality, use the equals() method
+__script.testAssert(i1.equals(i2) == true);
+
+</source>
+
+Beside logical operators (see below) all other infix operator will invoked as an operator call
+<source>
+a - b; 
+// will be evaluated as
+a.operator-(b)
+</source>
+
+<jump2>Logical Operators && and ||</jump2>
+The logical operators <c>&&</c> and <c>||</c> are build in
+and not be delegated to the left hand argument.
+The <c>&&</c> and <c>||</c> can be used to implement expressional
+if expressions:
+
+<source>
+// second expression 'obj.toString().equals("") == false' will
+// only be evaluated if first expression 'obj != Nil' is true.
+if (obj != Nil && obj.toString().equals("") == false)
+{
+  //
+}
+</source>
+
+<jump1>OutfixOperator</jump1>
+<pre>
+OutfixOperator
+: %ref[GroupOperator, #GroupOperator]
+| %ref[BacktickOperator, acdk_cfgscript_hb_lang_expr_backtick]
+;
+</pre>
+
+<jump2>GroupOperator</jump2>
+<pre>
+GroupOperator
+: '(' Expression ')'
+;
+</pre>
+The <c>( ... )</c> will be used to group expressions with lower priority the same
+way like in Java/C++. 
+Cast expression like <c>other = (MyClass)obj</c> are not supported.
+
+
+
+.

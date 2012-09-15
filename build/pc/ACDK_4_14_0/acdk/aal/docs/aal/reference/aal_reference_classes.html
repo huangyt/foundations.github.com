@@ -1,0 +1,261 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="class, constructor, fields, methods">
+<title>AAL Classes</title>
+<link rel="stylesheet" type="text/css" href="./../../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../../index.html">ACDK</a><br>
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../../docs/packages.html">Packages</a><br>
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">AAL</a><br>
+<img src="./../../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="aal_reference.html">Reference</a><br>
+<img src="./../../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Classes
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="aal_reference_sourcecode.html">Source Code</a> | <a  href="aal_reference_praeprocessor.html">Preprocessor</a> | <a  href="aal_reference_comments.html">Comments</a> | <a  href="aal_reference_literal.html">Literals</a> | Classes | <a  href="aal_reference_closures.html">Closures</a> | <a  href="aal_reference_functions.html">Functions</a> | <a  href="aal_reference_defun.html">Function Types</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL Classes</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL Classes</h1> -->
+<p class="curchapterline"> | <a  href="aal_reference_sourcecode.html">Source Code</a> | <a  href="aal_reference_praeprocessor.html">Preprocessor</a> | <a  href="aal_reference_comments.html">Comments</a> | <a  href="aal_reference_literal.html">Literals</a> | Classes | <a  href="aal_reference_closures.html">Closures</a> | <a  href="aal_reference_functions.html">Functions</a> | <a  href="aal_reference_defun.html">Function Types</a> |</p>
+<p class="PageIntro">
+The object modell of AAL is a mixture of the Java and the C++ modell
+</p>
+
+
+<a name="jumptable128"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Class definition"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Class definition</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Simple class definition"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Simple class definition</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Samples"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Derived Classes"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Derived Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Fields member"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Fields member</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Instance Field Members"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Instance Field Members</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Static Field Members"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Static Field Members</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Constructor"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Constructor</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Instance Constructor"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Instance Constructor</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Automatic Instance Constructor Generation"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Automatic Instance Constructor Generation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Automatic Super Instance Constructor Invocation"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Automatic Super Instance Constructor Invocation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Static Class Constructor"><img border="0" src="./../../../../docs\images/arrow_down_stop.gif">&nbsp;Static Class Constructor</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Class definition">Class definition</a></h2>
+<h3><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Simple class definition">Simple class definition</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;ClassName&nbsp;[extends&nbsp;SuperClass]&nbsp;(implements&nbsp;InterfaceName)*<br>
+{<br>
+&nbsp;&nbsp;Constructors<br>
+&nbsp;&nbsp;Fields<br>
+&nbsp;&nbsp;Methods<br>
+&nbsp;&nbsp;Operators<br>
+}<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;private&nbsp;int&nbsp;_ival;<br>
+&nbsp;&nbsp;public&nbsp;AClass(int&nbsp;i)&nbsp;:&nbsp;_ival(i)&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;getIVal()&nbsp;{&nbsp;return&nbsp;_ival;&nbsp;}<br>
+}<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Derived Classes">Derived Classes</a></h3>
+A class can be derives from another class via
+the 'extends' keyword.
+If a class has no 'extends' keyword it is automatically
+derived from the class acdk.lang.Object.
+
+Only one super class derivation is allowed.
+
+<small>
+Note:
+Later a multi derivation feature via keyword 'using' is planned.
+</small> 
+
+<h3><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Fields member">Fields member</a></h3>
+<h4><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Instance Field Members">Instance Field Members</a></h4>
+Instance field member (not static) are bound to the the instance
+of a class. 
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;//&nbsp;[attributes]&nbsp;Type&nbsp;Name;<br>
+&nbsp;&nbsp;private&nbsp;int&nbsp;_ival;<br>
+}<br></font>
+</td></tr></table>
+By default the values of the fields are initialized with
+<ul class="FeatureList">
+<li class="Feature"> integer numbers: 0
+<li class="Feature"> float numbers: 0.0
+<li class="Feature"> character: 0
+<li class="Feature"> boolean: false
+<li class="Feature"> Object references: Nil
+</ul>
+Instance field members cannot have initializer:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass&nbsp;<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;value&nbsp;=&nbsp;42;&nbsp;//&nbsp;illegal<br>
+}<br></font>
+</td></tr></table>
+
+See below <a  href="aal_reference_classes.html#Instance Constructor"><img border="0" src="./../../../../docs\images/url_rhtm.gif" alt="">&nbsp;Instance Constructor</a> how to initialize field members
+via constructors.
+<h4><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Static Field Members">Static Field Members</a></h4>
+Static field members are bound to a class. All instances of the class
+shares the same value of a static field member.
+
+The static field member can have an initializer.
+If no initializer for a static field member is declared
+the fields will be initialized to its default value (see <a  href="aal_reference_classes.html#Instance Field Members"><img border="0" src="./../../../../docs\images/url_rhtm.gif" alt="">&nbsp;Instance Field Members</a>).
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;int&nbsp;ival&nbsp;=&nbsp;42;&nbsp;//&nbsp;static&nbsp;field&nbsp;with&nbsp;initializer<br>
+}<br>
+AClass&nbsp;cls1&nbsp;=&nbsp;new&nbsp;AClass();<br>
+AClass&nbsp;cls2&nbsp;=&nbsp;new&nbsp;AClass();<br>
+cls1.ival&nbsp;==&nbsp;42;&nbsp;//&nbsp;-&gt;&nbsp;true<br>
+AClass.ival&nbsp;==&nbsp;42;&nbsp;//&nbsp;-&gt;&nbsp;true&nbsp;//&nbsp;access&nbsp;via&nbsp;class&nbsp;identifier<br>
+cls2.ival&nbsp;=&nbsp;41;&nbsp;<br>
+cls1.ival&nbsp;==&nbsp;41;&nbsp;//&nbsp;-&gt;&nbsp;true<br>
+AClass.ival&nbsp;==&nbsp;41;&nbsp;//&nbsp;-&gt;&nbsp;true<br></font>
+</td></tr></table>
+More sofisticated initialization can be done via a
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=Static+Class+Constructor"><img border="0" src="./../../../../docs\images/url_html.gif" alt="">&nbsp;Static Class Constructor</a>.
+
+<h3><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Constructor">Constructor</a></h3>
+<h4><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Instance Constructor">Instance Constructor</a></h4>
+All support the C++ style constructor initialization:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass&nbsp;<br>
+{&nbsp;<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;_avar;&nbsp;<br>
+&nbsp;&nbsp;protected&nbsp;AClass()&nbsp;<br>
+&nbsp;&nbsp;:&nbsp;_avar(1)&nbsp;//&nbsp;initialize&nbsp;member&nbsp;with&nbsp;1<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_avar&nbsp;=&nbsp;1;&nbsp;//&nbsp;alternative&nbsp;notation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this._avar&nbsp;=&nbsp;1;&nbsp;//&nbsp;alternative&nbsp;notation<br>
+&nbsp;&nbsp;}&nbsp;<br>
+&nbsp;&nbsp;protected&nbsp;AClass(int&nbsp;av)&nbsp;<br>
+&nbsp;&nbsp;:&nbsp;_avar(av)&nbsp;<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+class&nbsp;BClass&nbsp;extends&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;_ivar;<br>
+&nbsp;&nbsp;public&nbsp;BClass(int&nbsp;iv,&nbsp;int&nbsp;av)<br>
+&nbsp;&nbsp;:&nbsp;AClass(av)&nbsp;//&nbsp;call&nbsp;super&nbsp;constructor<br>
+&nbsp;&nbsp;,&nbsp;_ivar(iv)&nbsp;//&nbsp;initialize&nbsp;own&nbsp;member<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;}<br>
+}<br>
+&lt;h4&gt;&lt;a&nbsp;href="#jumptable128"&gt;&lt;img&nbsp;border="0"&nbsp;src="./../../../../docs\images/arrow_up_stop.gif"&gt;&amp;nbsp;&lt;/a&gt;&lt;a&nbsp;class="jumptarget"&nbsp;name="Automatic&nbsp;Instance&nbsp;Constructor&nbsp;Generation"&gt;Automatic&nbsp;Instance&nbsp;Constructor&nbsp;Generation&lt;/a&gt;&lt;/h4&gt;<br>
+If&nbsp;an&nbsp;super&nbsp;class&nbsp;has&nbsp;no&nbsp;constructor,&nbsp;Aal&nbsp;provides&nbsp;an<br>
+default&nbsp;constructor&nbsp;for&nbsp;this&nbsp;class.<br>
+The&nbsp;default&nbsp;constructor&nbsp;has&nbsp;no&nbsp;arguements.<br>
+&lt;rs&gt;<br>
+class&nbsp;AClass&nbsp;<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;foo()&nbsp;{&nbsp;return&nbsp;0;&nbsp;}<br>
+}<br>
+class&nbsp;BClass&nbsp;extends&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;BClass()&nbsp;<br>
+&nbsp;&nbsp;:&nbsp;AClass()&nbsp;//&nbsp;legal,&nbsp;because&nbsp;Aal&nbsp;generate&nbsp;an&nbsp;default&nbsp;constructor&nbsp;for&nbsp;the&nbsp;AClass<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;}<br>
+}<br></font>
+</td></tr></table>
+<h4><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Automatic Super Instance Constructor Invocation">Automatic Super Instance Constructor Invocation</a></h4>
+In case the super class provides a default constructor (explicit
+declared or automatically generated) this constructor will be 
+called from the derived instance constructor if no other constructor
+of the derived class will be explictelly be called:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;protected&nbsp;AClass()&nbsp;{&nbsp;acdk.lang.System.out.println("AClass.AClass()&nbsp;called");<br>
+}<br>
+class&nbsp;BClass&nbsp;extends&nbsp;AClass<br>
+{<br>
+}<br>
+//&nbsp;call&nbsp;the&nbsp;automatic&nbsp;generated&nbsp;Constructor&nbsp;BClass.BClass()<br>
+//&nbsp;This&nbsp;BClass.BClass()&nbsp;constructor&nbsp;will&nbsp;call&nbsp;the&nbsp;default<br>
+//&nbsp;constructor&nbsp;AClass.AClass()<br>
+BClass&nbsp;bcls&nbsp;=&nbsp;new&nbsp;BClass();<br>
+output&gt;&nbsp;AClass.AClass()&nbsp;called<br></font>
+</td></tr></table>
+
+<h4><a href="#jumptable128"><img border="0" src="./../../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Static Class Constructor">Static Class Constructor</a></h4>
+In a class definition also an constructor can be declared
+which be called at load time. The constructor must
+have the static attribute and must not have any parameters:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;static&nbsp;acdk.lang.String&nbsp;stringVal;<br>
+&nbsp;&nbsp;//&nbsp;will&nbsp;be&nbsp;called&nbsp;once&nbsp;at&nbsp;load&nbsp;time<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;AClass()<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stringVal&nbsp;=&nbsp;"asdf";<br>
+&nbsp;&nbsp;}<br>
+}<br></font>
+</td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="aal_reference_sourcecode.html">Source Code</a> | <a  href="aal_reference_praeprocessor.html">Preprocessor</a> | <a  href="aal_reference_comments.html">Comments</a> | <a  href="aal_reference_literal.html">Literals</a> | Classes | <a  href="aal_reference_closures.html">Closures</a> | <a  href="aal_reference_functions.html">Functions</a> | <a  href="aal_reference_defun.html">Function Types</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

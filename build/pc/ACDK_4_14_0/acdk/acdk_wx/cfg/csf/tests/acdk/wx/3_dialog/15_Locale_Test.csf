@@ -1,0 +1,63 @@
+
+using acdk.wx;
+using acdk.util;
+
+enum MyIds
+{
+  ID_Start = 1000,
+  ID_CHOICE
+}
+
+class MyDialog
+extends acdk.wx.Dialog
+{
+  Choice m_choice;
+  TextCtrl months;
+  acdk.util.RLocaleArray locals;
+  MyDialog()
+  {
+    super(Nil, -1, "Hello, Text Dialog", Point.defaultPosition(), new
+    Size(400, 300));
+    
+    months = new TextCtrl(this, -1, "", new Point(10, 40), new Size(360, 40), TeMultiline);
+    //TextCtrl text = new TextCtrl(this, -1, "Hello");
+    //StringArray choices = [ "first", "second" ];
+    locals = acdk.util.Locale.getAvailableLocals();
+    StringArray choices = new StringArray(locals.length());
+    for (int i = 0; i < choices.length(); ++i)
+    {
+      choices.set(i, locals.get(i).toString());
+    }
+    m_choice = new Choice(this, ID_CHOICE, new Point(10,20), new Size(120,120), 0, choices );
+    connect(CommandEvent.EvtCommandChoiceSelected, ID_CHOICE, 
+      lambda[this] void (CommandEvent event) 
+      {
+        setLocal(locals.get(m_choice.getSelection()));
+        //messageBox("ACDK WX/CfgScript Controls sample", m_choice.getStringSelection(), MbOk);
+        
+      }
+            );
+  }
+  void setLocal(Locale local)
+  {
+    RResourceBundle resb =  ResourceBundle::getBundle("acdk.locale.LocaleInfo", local);
+    StringArray month = resb->getStringArray("month");
+    months->setValue(String.join(month, ", "));
+    //System::out->println("month: " + month->toString());
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    Dialog win = new MyDialog();
+    win.showModal();
+    return false; // don't continue
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

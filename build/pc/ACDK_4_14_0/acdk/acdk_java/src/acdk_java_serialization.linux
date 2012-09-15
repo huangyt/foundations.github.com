@@ -1,0 +1,155 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_java_serialization/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ACDK_JAVA_SERIALIZATION_LIB $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/java/serialization/a2jser_java_io.cpp \
+	acdk/java/serialization/a2jser_java_lang.cpp \
+	acdk/java/serialization/a2jser_java_util.cpp \
+	acdk/java/serialization/ClassDescription.cpp \
+	acdk/java/serialization/ClassTypeMapping.cpp \
+	acdk/java/serialization/JavaObjectReader.cpp \
+	acdk/java/serialization/JavaObjectWriter.cpp \
+
+HEADER= 	acdk/java/serialization/ClassDescription.h \
+	acdk/java/serialization/ClassTypeMapping.h \
+	acdk/java/serialization/Config.h \
+	acdk/java/serialization/JavaObjectReader.h \
+	acdk/java/serialization/JavaObjectWriter.h \
+	acdk/java/serialization/serialization.h \
+
+OBJECTS= 	../tobj/acdk_java_serialization/linux/a2jser_java_io.o \
+	../tobj/acdk_java_serialization/linux/a2jser_java_lang.o \
+	../tobj/acdk_java_serialization/linux/a2jser_java_util.o \
+	../tobj/acdk_java_serialization/linux/ClassDescription.o \
+	../tobj/acdk_java_serialization/linux/ClassTypeMapping.o \
+	../tobj/acdk_java_serialization/linux/JavaObjectReader.o \
+	../tobj/acdk_java_serialization/linux/JavaObjectWriter.o \
+
+
+FINALTARGET=../../bin/libacdk_java_serialization.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_java_serialization.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_java_serialization.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_java_serialization.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_java_serialization/linux/a2jser_java_io.o: acdk/java/serialization/a2jser_java_io.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/a2jser_java_io.o -c acdk/java/serialization/a2jser_java_io.cpp
+
+../tobj/acdk_java_serialization/linux/a2jser_java_lang.o: acdk/java/serialization/a2jser_java_lang.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/a2jser_java_lang.o -c acdk/java/serialization/a2jser_java_lang.cpp
+
+../tobj/acdk_java_serialization/linux/a2jser_java_util.o: acdk/java/serialization/a2jser_java_util.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/a2jser_java_util.o -c acdk/java/serialization/a2jser_java_util.cpp
+
+../tobj/acdk_java_serialization/linux/ClassDescription.o: acdk/java/serialization/ClassDescription.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/ClassDescription.o -c acdk/java/serialization/ClassDescription.cpp
+
+../tobj/acdk_java_serialization/linux/ClassTypeMapping.o: acdk/java/serialization/ClassTypeMapping.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/ClassTypeMapping.o -c acdk/java/serialization/ClassTypeMapping.cpp
+
+../tobj/acdk_java_serialization/linux/JavaObjectReader.o: acdk/java/serialization/JavaObjectReader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/JavaObjectReader.o -c acdk/java/serialization/JavaObjectReader.cpp
+
+../tobj/acdk_java_serialization/linux/JavaObjectWriter.o: acdk/java/serialization/JavaObjectWriter.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_java_serialization/linux/JavaObjectWriter.o -c acdk/java/serialization/JavaObjectWriter.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_java_serialization.so $(OBJECTS)
+
+  

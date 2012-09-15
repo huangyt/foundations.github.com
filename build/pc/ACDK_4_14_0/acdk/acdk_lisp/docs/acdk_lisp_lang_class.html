@@ -1,0 +1,180 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Lisp, class, defclass, make-instance">
+<title>ACDK Lisp Classes</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Lisp</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_lisp_man.html">acdk_lisp Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Lisp Classes
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Lisp Classes | <a  href="acdk_lisp_lang_macros.html">Lisp Macros</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Lisp Classes</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Lisp Classes</h1> -->
+<br>
+<p class="PageIntro">
+The ACDK Lisp Object system is similar to the Common Lisp Object System.<br>
+</p>
+<br>
+<a name="jumptable73"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Define a Class in Lisp"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Define a Class in Lisp</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Slots"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Slots</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Create a Class in Lisp"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Create a Class in Lisp</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Accessing Slots"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Accessing Slots</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Object Methods"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Object Methods</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h3><a href="#jumptable73"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Define a Class in Lisp">Define a Class in Lisp</a></h3>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(defclass ClassName (SuperClasses) 
+ (SlotDefinitions)
+)
+</PRE></td></tr></table>
+<ul class="FeatureList">
+<li class="Feature"> defclass: keyword for define a class
+<li class="Feature"> ClassName: a name for the new class
+<li class="Feature"> (SuperClasses): List of previosly defined classes.<br>
+<li class="Feature"> (SlotDefintions): List of definitions of slots (member/methods).<br>
+</ul>
+<h4><a href="#jumptable73"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Slots">Slots</a></h4>
+In notation of the Common Lisp Object System (CLOS) Slots are 
+members of a class.<br>
+<br>
+Slot definitions can be a simple identifier or a list:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  (SlotName <B><FONT COLOR="#5F9EA0">:initform</FONT></B> InitValue <B><FONT COLOR="#5F9EA0">:initarg</FONT></B> <B><FONT COLOR="#5F9EA0">:InitArgname</FONT></B> <B><FONT COLOR="#5F9EA0">:allocation</FONT></B> <B><FONT COLOR="#5F9EA0">:class</FONT></B>)
+</PRE></td></tr></table>
+<ul class="FeatureList">
+<li class="Feature"> SlotName: Name of member or method. This is required. All other are optional.<br>
+<li class="Feature"> :initform InitValue: On creation of an object of this class 
+    the slot will be initialized with this value.<br>
+<li class="Feature"> :initarg :InitArgname: Named argument in make-instance will be used
+    to initialize this slot at creation. 
+    Note: a slot will first be initialized with :initform and then with the argument
+    given with make-instance.<br>
+    Slots without :initform or :initarg will be Nil.<br>
+<li class="Feature"> :allocation :class: The slot is 'static' 
+</ul>
+<br>
+<h3><a href="#jumptable73"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Create a Class in Lisp">Create a Class in Lisp</a></h3>
+make-instance creates an object instance of a previosly defined class (using defclass).<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(make-instance 'ClassName &amp;rest named-args)
+</PRE></td></tr></table>
+<ul class="FeatureList">
+<li class="Feature"> make-instance: build in method to create an object instance
+<li class="Feature"> 'ClassName: name of the Class previosly defined with defclass
+<li class="Feature"> &rest named-args: a list of named args. The named args must match
+    To one of the slot difinition of the class or its superclasses.<br>
+</ul>
+<br>
+<h3><a href="#jumptable73"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Accessing Slots">Accessing Slots</a></h3>
+The solution for accessing slots is different CLOS.<br>
+CLOS defines the function slot-value and the :accessor attribute 
+for slot defintions. These methods are not used in ACDK lisps.<br>
+To reflect the syntax of common languages like C++, Java, Perl, Python, etc.<br>
+the object instance is directly callable:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(defclass AClass ()
+  ( 
+    (foo <B><FONT COLOR="#5F9EA0">:initform</FONT></B> 2) 
+    (bar <B><FONT COLOR="#5F9EA0">:initarg</FONT></B> <B><FONT COLOR="#5F9EA0">:bar</FONT></B>)
+  )
+)
+(setf lobj (make-instance 'AClass <B><FONT COLOR="#5F9EA0">:bar</FONT></B> 4))
+(lobj 'foo) <I><FONT COLOR="#B22222">;; reads slot -&gt; 2
+</FONT></I>(lobj 'bar) <I><FONT COLOR="#B22222">;; reads slot -&gt; 4
+</FONT></I>(lobj 'bar 6) <I><FONT COLOR="#B22222">;; sets slot -&gt; 6
+</FONT></I></PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable73"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Object Methods">Object Methods</a></h3>
+The keyword defmethod from CLOS is not supported in ACDK Lisp.<br>
+For a better interaction with other ACDK DMI components the object
+system is designed to be compatible with ACDK Object system.<br>
+<br>
+To implement member methods for a class just set a slotvalue
+to a function.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(<B><FONT COLOR="#A020F0">defun</FONT></B> <B><FONT COLOR="#0000FF">AClass-foo-method</FONT></B> (self a b)
+  (+ a b (self 'number))
+)
+(defclass AClass ()
+  (
+    (number <B><FONT COLOR="#5F9EA0">:initarg</FONT></B> <B><FONT COLOR="#5F9EA0">:number</FONT></B>)
+    <I><FONT COLOR="#B22222">; set foo to external defined function
+</FONT></I>    (foo <B><FONT COLOR="#5F9EA0">:initform</FONT></B> AClass-foo-method) 
+    <I><FONT COLOR="#B22222">; use lamba to define an anon function
+</FONT></I>    (bar <B><FONT COLOR="#5F9EA0">:initform</FONT></B> (<B><FONT COLOR="#A020F0">lambda</FONT></B> (self a b) 
+                          (+ a b (self 'number))))
+  )
+)
+(setf lobj (make-instance 'AClass <B><FONT COLOR="#5F9EA0">:number</FONT></B> 3))
+<I><FONT COLOR="#B22222">; calling foo method
+</FONT></I>(lobj 'foo 3 4) <I><FONT COLOR="#B22222">; -&gt; 10
+</FONT></I><I><FONT COLOR="#B22222">; calling bar method
+</FONT></I>(lobj 'bar 3 4) <I><FONT COLOR="#B22222">; -&gt; 10
+</FONT></I></PRE></td></tr></table>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Lisp Classes | <a  href="acdk_lisp_lang_macros.html">Lisp Macros</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

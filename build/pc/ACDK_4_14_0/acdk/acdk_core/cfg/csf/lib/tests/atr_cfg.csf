@@ -1,0 +1,60 @@
+
+// testCfg is already set
+
+testCfg.tests = 
+{
+  acdk_net_EchoClient_Test: 
+  { 
+    ignore: true 
+  },
+  acdk_net_EchoServer_Test: 
+  { 
+    ignore: true 
+  },
+  acdk_lang_sys_RefHolder_Test: 
+  { 
+    ignore: true 
+  },
+  acdk_xml_XMLObjectReaderWriter_Test: 
+  { 
+    ignore: true 
+  }
+};
+testCfg.testDir = acdk.lang.System.getAcdkHome() + "/bin";
+// testCfg.testDir = "m:\\bin";
+
+if (System.getPlatformFlags() & acdk.lang.PfWin32)
+  testCfg.testPattern =  "*Test_d.exe";
+else
+  testCfg.testPattern = "*_Test";
+// testCfg.testPattern = "*_Test.exe";
+
+
+if (System.getPlatformFlags() & acdk.lang.PfWin32)
+{
+  testCfg.path = 
+  [
+    // PERL library/dll/so path
+    "C:/programr/lang/perl/interpreter/perl-5.6.0/bin" ,
+    "C:\\programr\\lang\\python\\Python-2.1.1\\PCbuild",
+    "C:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\bin",
+    "c:\\programr\\lang\\java\\jdk\\jdk1.3.1\\jre\\bin\\classic"
+  ];
+}
+else
+{
+  testCfg.path = 
+  [
+    "/usr/lib/perl5/5.8.0/i586-linux-thread-multi/CORE",
+    "/usr/lib/perl5/5.6.1/i386-linux/CORE",
+    "/usr/perl5/5.00503/sun4-solaris/CORE",
+    "/usr/local/lib/perl5/5.6.0/i686-linux/CORE",
+    "/usr/lib/perl5/5.6.1/i586-linux/CORE",
+    "/usr/lib/jdk1.3.1/jre/lib/i386/classic",
+    "/usr/lib/jdk1.3.1/jre/lib/i386/classic"
+  ];
+}
+testCfg.environ =
+{
+  CLASSPATH: acdk.lang.System.getAcdkHome() + acdk.io.File.separator() + "bin"
+};

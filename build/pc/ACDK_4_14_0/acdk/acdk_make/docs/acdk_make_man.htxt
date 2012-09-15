@@ -1,0 +1,142 @@
+%id: acdk_make_man
+%title: ACDK Make manual
+%chapter: acdk_make_features, acdk_make_targets, acdk_make_tasks, acdk_make_concepts
+%keywords: acdkmake, make, CfgScript, ACDK_TOOLS_HOME, ACDKHOME
+%body:
+<htmlauto/>
+<pageintro>
+ACDK Make is a platform neutral make
+utility.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Introduction</jump1>
+The makefiles are named build.csf and 
+are written in a simple scripting language
+called %ref[CfgScript, acdk_cfgscript_hb].
+The build.csf has no special syntax for make files,
+but uses dmi to create and configure Tasks.
+
+It was designed to compile ACDK projects, but can be
+used as general replacement for other make tools.
+
+<jump2>Environment</jump2>
+Two basic environmet variable has to be set using acdkmake:
+<jump3>ACDK_TOOLS_HOME</jump3>
+The installation directory of the ACDK tools including acdkmake.
+
+If this environmnent variable is not set, or not passed
+as command line argument (see %ref[acdk_core_man]) 
+will be asumed as parent directory of current binary
+directory.
+
+The acdkmake has to be found in:
+<pre>
+# Unix
+$ACDK_TOOLS_HOME/bin/acdkmake
+# Win32
+%ACDK_TOOLS_HOME%/bin/acdkmake_r.exe
+</pre>
+In the $ACDK_TOOLS_HOME/bin directory also the ACDK shared libraries
+can be found.
+
+<jump3>ACDKHOME</jump3>
+The ACDKHOME environment variable is used while
+compiling ACDK projects.
+
+
+<jump2>Command line options</jump2>
+<jump3>Options</jump3>
+<fl>
+<f> <c>-j numberofjobs<c>: Parallize the compile jobs.
+
+<f> <c>-f buildfile</c>:   Load build file. If not given
+    try to load build.csf in current directory.
+
+<f> <c>-dn</c>: No source dependemcies.
+
+<f> <c>-dd</c>: Only source dependencies which are
+    included via #include "file.h" not via #include &lt;file.h&gt;.
+
+<f> <c>-df</c>: Full include dependencies.
+
+<f> <c>-k</c>: Don't abort if an task fails.
+
+<f> <c>-D &lt;LABEL[=VALUE]&gt;</c>: Add define passed to compile tasks.
+
+<f> <c>-I &lt;include path&gt;</c>: Add include path passed to compile tasks.
+
+<f> <c>-L &lt;library path&gt;</c>: Add library search path passed to link tasks.
+
+<f> <c>-PATH &lt;execution path&gt;</c>: Add path to execution search path.
+
+<f> <c>-dump-tasks</c>: print task definitions before starting.
+
+<f> <c>-dump-targets</c>: print targets known by this acdkmake installation.
+
+<f> <c>-dump-target &lt;targetname&gt;</c>: Dump target definitions.
+
+<f> <c>-dump-sel-target</c>: Dump target definitions choosen by acdkmake.
+
+</fl>
+
+<jump3>General ACDK command line options</jump3>
+<fl>
+<f> <c>-acdk-home &lt;ACDKHOME&gt;</c>.
+
+<f> <c>-acdk-tools-home &lt;ACDK_TOOLS_HOME&gt;</c>.
+
+<f> <c>-loglevel &lt;Threshold log level&gt;</c>: suppress all logging below this log level.
+</fl>
+
+<jump3>Targets</jump3>
+<c>[TaskName [TaskTargetTags] [TaskCommand]] [TaskName [TaskTargetTags] [TaskCommand]] </c>
+Where
+<fl>
+<f> <b>TaskName</b>: The name of the task. If no TaskName is specified 
+    The first task specified or a task with the name "default" will 
+    be executed. If an amake argument is not found as task it will
+    be interpreted as TaskTargetTags.
+    
+<f> <b>TaskTargetTags</b> are modifier like <b>DEBUG, RELEASE, STATIC, SHARED</b>.
+    If an amake argument is not found as TaskTargetTags it will
+    be passed as TaskCommand to the task while executing the
+    task.
+<f> <b>TaskCommand</b> are string which are passed to the tasks. Some
+    Task ignores the command, other requires the TaskCommand.
+    If the Task want to have a valid TaskCommand it should
+    also support the TaskCommand "help".
+</fl>
+
+<jump3>Samples</jump3>
+given build.csf:
+<source>
+#include "amake_config.cfg"
+/* create a library acdk_boot */
+acdk_boot = new acdk.make.AcdkLibTask("acdk_boot");
+acdk_boot.addModule("src/acdk/boot");
+acdk_boot.addAcdkLib("acdk_core");
+acdk_boot.addAcdkLib("acdk_text");
+
+HelloWorld = new acdk.make.AcdkExeTask("HelloWorld");
+HelloWorld.addSource("src/acdk/HelloWorld.cpp");
+HelloWorld.addAcdkLib("acdk_core");
+HelloWorld.addAcdkLib("acdk_text");
+HelloWorld.addAcdkLib("acdk_boot");
+HelloWorld.addSubTask("acdk_boot");
+</source>
+
+<fl>
+<f>make acdk_boot (DEBUG SHARED):
+<c>amake</c>
+
+<f>Clean acdk_boot STATIC (DEBUG) files:
+  <c>amake acdk_boot STATIC clean</c>
+<f>build and install acdk_boot and HelloWorld:
+   <c>amake acdk_boot all HelloWorld all</c>
+</fl>
+
+
+.

@@ -1,0 +1,163 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_perl
+
+default: all
+all:: install compile
+
+compile:: acdk_perl acdkperl acdk_perl_Test 
+clean:: acdk_perl-clean acdkperl-clean acdk_perl_Test-clean 
+metainfo:: acdk_perl-metainfo acdkperl-metainfo acdk_perl_Test-metainfo 
+acdk_perl:  
+	cd src
+	$(MAKE) -f acdk_perl.bcc
+	cd ..
+
+
+acdk_perl-clean:
+	cd src
+	$(MAKE) -f acdk_perl.bcc clean
+	cd ..
+
+
+acdk_perl-metainfo:
+	cd src
+	$(MAKE) -f acdk_perl.bcc metainfo
+	cd ..
+
+
+acdkperl:  acdk_perl
+	cd src
+	$(MAKE) -f acdkperl.bcc
+	cd ..
+
+
+acdkperl-clean:
+	cd src
+	$(MAKE) -f acdkperl.bcc clean
+	cd ..
+
+
+acdkperl-metainfo:
+	cd src
+	$(MAKE) -f acdkperl.bcc metainfo
+	cd ..
+
+
+acdk_perl_Test:  acdk_perl
+	cd tests/acdk/perl
+	$(MAKE) -f acdk_perl_Test.bcc
+	cd ../../..
+
+
+acdk_perl_Test-clean:
+	cd tests/acdk/perl
+	$(MAKE) -f acdk_perl_Test.bcc clean
+	cd ../../..
+
+
+acdk_perl_Test-metainfo:
+	cd tests/acdk/perl
+	$(MAKE) -f acdk_perl_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_perl_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_perl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src cbx
+
+acdkperl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src cbx
+
+acdk_perl_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl cbx
+
+
+makemake:: acdk_perl-makemake acdkperl-makemake acdk_perl_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_perl.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkperl.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/perl\acdk_perl_Test.lsp -pdir tests/acdk/perl cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_perl.lsp
+
+

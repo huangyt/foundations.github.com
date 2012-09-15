@@ -1,0 +1,13 @@
+
+Props props  = {
+  a: 1, // contains atomar type
+  b: [ 42, 43 ], // contains an array
+  
+  c: { 
+    d: "ACDK",
+    e: [ "a", "b", "c" ],
+    f: "${a.b}",
+    g: "${place.getLocation()}"
+  } // contains a substructur
+};
+out.println(props.asCfgScriptLiteral("Test"));

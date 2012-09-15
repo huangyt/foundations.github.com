@@ -1,0 +1,71 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_MAKE_DMIPROXY_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_make.lib"
+
+OUTFILE="..\..\bin\acdk_make_dmiproxy.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_make_dmiproxy\bcc"
+SOURCES= 	"acdk\make\make_dmiproxy\make_dmiproxy.cpp" \
+	"acdk\make\make_dmiproxy\make_dmiproxy1.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_make_dmiproxy\bcc\make_dmiproxy.obj" \
+	"..\tobj\acdk_make_dmiproxy\bcc\make_dmiproxy1.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_make_dmiproxy\bcc\make_dmiproxy.obj": "acdk\make\make_dmiproxy\make_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make_dmiproxy\bcc" "acdk\make\make_dmiproxy\make_dmiproxy.cpp"
+
+"..\tobj\acdk_make_dmiproxy\bcc\make_dmiproxy1.obj": "acdk\make\make_dmiproxy\make_dmiproxy1.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_make_dmiproxy\bcc" "acdk\make\make_dmiproxy\make_dmiproxy1.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_make_dmiproxy.dll"
+	del "..\tobj\acdk_make_dmiproxy\bcc\make_dmiproxy.obj"
+	del "..\tobj\acdk_make_dmiproxy\bcc\make_dmiproxy1.obj"
+
+

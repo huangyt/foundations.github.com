@@ -1,0 +1,301 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_util_logging, logging, acdk::util::logging">
+<title>ACDK Logging framework</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_core_man.html">man acdk_core</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Logging framework<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/url_html.gif" alt="down">&nbsp;<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__util__logging"><img border="0" src="./../../docs\images/url_html.gif">&nbsp;acdk::util::logging</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/url_html.gif" alt="down">&nbsp;<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=group_acdklogging"><img border="0" src="./../../docs\images/url_html.gif">&nbsp;Classes and macros</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_core_man_config.html">Runtime Configuration</a> | <a  href="acdk_core_io-concept.html">Reader / Writer</a> | <a  href="acdk_io_FileSystem.html">acdk::io::FileSystem</a> | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | ACDK Logging framework |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Logging framework</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Logging framework</h1> -->
+<p class="PageIntro">
+  The ACDK packages follows in may aspects the 
+  Java 1.4 java.util.logging package.
+</p>
+
+<br>
+<a name="jumptable13"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Overview"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Overview</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Using Logging in Code"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using Logging in Code</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Named Logger"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Named Logger</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Named Parameter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Named Parameter</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configuration</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Quick and dirty via command line"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Quick and dirty via command line</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Configuration via properties file"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configuration via properties file</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Configuration in Source file"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configuration in Source file</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#API documentation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;API documentation</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overview">Overview</a></h2>
+The classes for the ACDK Logging are organized in the namespace
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__util__logging"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging</a>. 
+<br>
+<ul class="FeatureList">
+<li class="Feature"> Every logging generates a <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__LogRecord"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::LogRecord</a></b> which holds
+    the information, like Level, String message, file, line, etc.<br>
+<li class="Feature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__LogConsumer"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::LogConsumer</a></b> accepts and processes LogRecords. It can write
+    LogRecords to Files, to a Socket Server, etc.<br>
+    Available LogConsumer:<br>
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__FileConsumer"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::FileConsumer</a></b> writes the LogEntries to a file.<br>
+      <li class="SubFeature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__ConsoleConsumer"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::ConsoleConsumer</a></b> writes the LogEntries to System::out.<br>
+    </ul>
+<li class="Feature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__Formatter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::Formatter</a></b> formats a LogRecord to stream.<br>
+    LogConsumer will be parameterized with a Formatter.<br>
+    Available Formatter:<br>
+    <ul class="SubFeatureList">
+      <li class="SubFeature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__StdFormatter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::StdFormatter</a></b> standard format for 1 line per LogRecord.<br>
+      <li class="SubFeature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__SimpleFormatter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::SimpleFormatter</a></b> less verbouse format for 1 line per LogRecord.<br>
+    </ul>
+<li class="Feature"> A log level is a integer which categorieses a LogRecord into a verbosity level.<br>
+    Please refer to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__Level"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::Level</a> for some standard values.<br>
+<li class="Feature"> A <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__Logger"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::Logger</a></b> is a named assemble of specified 
+    LogLevel, one or more LogConsumer and corresponding Formatter. 
+<li class="Feature"> <b><a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__logging__LogManager"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::logging::LogManager</a></b> is a static class, which manages 
+    the named Logger.<br>
+</ul>
+<br>
+<br>
+<br>
+<h2><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using Logging in Code">Using Logging in Code</a></h2>
+<br>
+For minimal overhead and ease to use a few macros are provided
+to insert logging in our code:<br>
+<br>
+<code>#define ACDK_LOG(level, a1)</code>: Use the standard root logger to trace the 
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">foo</FONT></B>()
+{
+  ACDK_LOG(Info, <B><FONT COLOR="#BC8F8F">&quot;Information about foo&quot;</FONT></B>);
+}
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Named Logger">Named Logger</a></h3>
+By default the ACDK_LOG(...) uses the Root Logger.<br>
+Named Logger can be configured in the configuration file
+(see above in the configuration sample the logger named 'acdk.logger.test').<br>
+<br>
+In the source code you can use the ACDK_NLOG macros:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// retrieve the logger
+</FONT></I>RLogger log = ::acdk::util::logging::LogManager::getLogger(<B><FONT COLOR="#BC8F8F">&quot;acdk.logger.test&quot;</FONT></B>);
+
+<I><FONT COLOR="#B22222">// Log 'Bla'
+</FONT></I>log-&gt;log(::acdk::util::logging::Fatal, <B><FONT COLOR="#BC8F8F">&quot;Bla&quot;</FONT></B>, __FILE__, __LINE__);
+
+
+<I><FONT COLOR="#B22222">// Same as above using the LOGNx macro
+</FONT></I><B><FONT COLOR="#0000FF">ACDK_NLOG</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk.logger.test&quot;</FONT></B>, Fatal, <B><FONT COLOR="#BC8F8F">&quot;Blub&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Named Parameter">Named Parameter</a></h3>
+<br>
+Log message can have named parameters:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// Root log with 2 parameters
+</FONT></I><B><FONT COLOR="#0000FF">ACDK_LOGP</FONT></B>(Error, <B><FONT COLOR="#BC8F8F">&quot;A Message with 2 parameters&quot;</FONT></B>, 
+                  NamedArg(<B><FONT COLOR="#BC8F8F">&quot;The Name&quot;</FONT></B>, (<B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>*)<B><FONT COLOR="#BC8F8F">&quot;Kommer&quot;</FONT></B>) &lt;&lt; 
+                  NamedArg(<B><FONT COLOR="#BC8F8F">&quot;Year&quot;</FONT></B>, 1966));
+
+RInteger count = <B><FONT COLOR="#A020F0">new</FONT></B> Integer(42);      
+<I><FONT COLOR="#B22222">// named log with 1 parameter
+</FONT></I><I><FONT COLOR="#B22222">// RObject's has to be casted to Object* via '&amp;'
+</FONT></I><B><FONT COLOR="#0000FF">ACDK_NLOGP</FONT></B>(<B><FONT COLOR="#BC8F8F">&quot;acdk.logger.test&quot;</FONT></B>, Error, <B><FONT COLOR="#BC8F8F">&quot;A Message with 1 parameters&quot;</FONT></B>, 
+                                      NamedArg(<B><FONT COLOR="#BC8F8F">&quot;Count&quot;</FONT></B>, &amp;count));
+                  
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configuration">Configuration</a></h2>
+<h3><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Quick and dirty via command line">Quick and dirty via command line</a></h3>
+All acdk programs understand some basic command line options
+regarding logging configurations.<br>
+<br>
+Optionally a a logging category with <code>-logcat</code> can be passed.<br>
+The following <code>-loglevel</code>  and <code>-logto</code> options will be
+used for this category.<br>
+<br>
+The option <code>-loglevel</code> with a following number or 
+log level identifier ajust the lower filter log level.<br>
+For example <code>-loglevel Info</code> filters all log entries
+lower Info (like Trace or Debug) away and only log entries
+with equal or higher level (like Info, Warn, Error) will be
+written to a consumer.<br>
+<br>
+<br>
+<br>
+Also you need a consumer, which configure where to log the
+log entries.<br>
+<br>
+At the command line this can be configured with the <code>-logto</code>
+option. 
+<ul class="FeatureList">
+<li class="Feature"> <code>-logto out</code>: Write log entries on System::out in a simple format.<br>
+<li class="Feature"> <code>-logto err</code>: Write log entries on System::err in a simple format.<br>
+<li class="Feature"> <code>-logto dbg</code>: Write log entries to the debug out (which is a call to OutputDebugStringA() 
+    on Win32 platforms and printf() on others) and in a format, which enables double click
+    in the debuggers windows to jump to corresponding line in the editor.<br>
+<li class="Feature"> <code>-logto other</code>: all other identifier will be interpreted as file name, and
+    the log entries will be written into this file with the standard log format.<br>
+</ul>
+<br>
+Here some samples:<br>
+<pre>
+-loglevel Info -logto out
+</pre>
+will set the root logger (all categories) to the log level Info and add a consumer
+to out.<br>
+<br>
+<pre>
+-logcat acdk.net -loglevel Debug -logto network.log
+</pre>
+creates a logger for the category <code>acdk.net</code> set log level to Debug and write
+the logs into a a file network.<br>
+<br>
+<pre>
+-logcat acdk.net -loglevel Info -logto network.log -logcat acdk.net \
+	-loglevel Warn -logto out -logcat acdk.lang.sys -loglevel Debug -logto out
+</pre>
+writes Info (and above) for the category <code>acdk.net</code> to the log file network.log,
+writes Warn (and above) for the category <code>acdk.net</code> to System::out and
+writes Debug (and above) for the category <code>acdk.lang.sys</code> to System::out.<br>
+<br>
+<h3><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configuration via properties file">Configuration via properties file</a></h3>
+More detailed configuration, using different logging formats and consumers
+can be configured in a configuration file or directly in the source code.<br>
+<br>
+In the the normal ACDK Configuration Properties the Logger
+of a process can be configured.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222"># Which message should pass through?
+</FONT></I><I><FONT COLOR="#B22222"># 'All' All message will be passed
+</FONT></I>acdk.util.logging.threshold = All
+
+<I><FONT COLOR="#B22222"># define a consumer named coutlog of the type acdk.util.logging.ConsoleConsumer
+</FONT></I>acdk.util.logging.consumer.coutlog = acdk.util.logging.ConsoleConsumer
+
+<I><FONT COLOR="#B22222"># define a consumer named stdlogfile of the type acdk.util.logging.FileConsumer
+</FONT></I>acdk.util.logging.consumer.stdlogfile = acdk.util.logging.FileConsumer
+
+<I><FONT COLOR="#B22222"># configure the Formatter of the coutlog consumer
+</FONT></I>acdk.util.logging.consumer_cfg.coutlog.formatter = acdk.util.logging.SimpleFormatter
+
+<I><FONT COLOR="#B22222"># configure the filename stdlogfile Consumer
+</FONT></I>acdk.util.logging.consumer_cfg.stdlogfile.filename = acdk_util_logging_Test.<B><FONT COLOR="#A020F0">log</FONT></B>
+
+<I><FONT COLOR="#B22222"># Configure the Root Logger
+</FONT></I><I><FONT COLOR="#B22222"># pass all LogRecords Level &gt;= 10
+</FONT></I>acdk.util.logging.logger.root = 10
+
+<I><FONT COLOR="#B22222"># Set consumer 1 to coutlog
+</FONT></I>acdk.util.logging.logger_cfg.root.consumer1 = coutlog
+
+<I><FONT COLOR="#B22222"># Set consumer 2 to stdlogfile
+</FONT></I>acdk.util.logging.logger_cfg.root.consumer2 = stdlogfile
+
+<I><FONT COLOR="#B22222"># Set up a logger named 'acdk.logger.test'
+</FONT></I><I><FONT COLOR="#B22222"># pass all LogRecords Level &gt;= 10
+</FONT></I>acdk.util.logging.logger.acdk.logger.test = 10
+
+<I><FONT COLOR="#B22222"># Set coutlog as consumer to this logger
+</FONT></I>acdk.util.logging.logger_cfg.acdk.logger.test.consumer1 = coutlog
+
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configuration in Source file">Configuration in Source file</a></h3>
+At the startup of the program you can configure the logging
+also directly in the source file:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+  // create  a logger listening all named logging entries starting with &quot;acdkx.rdmi&quot;
+ ::acdk::util::logging::RLogger <B><FONT COLOR="#A020F0">log</FONT></B> = ::acdk::util::logging::LogManager::getCreateLogger(<B><FONT COLOR="#BC8F8F">&quot;acdkx.rdmi&quot;</FONT></B>);
+ // this logs should be written to console with a simplified format
+  <B><FONT COLOR="#A020F0">log</FONT></B>-&gt;addConsumer(<B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::util::logging::ConsoleConsumer(<B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::util::logging::SimpleFormatter()));
+ // set global treshold to debugging
+  ::acdk::util::logging::LogManager::MinLevel = ::acdk::util::logging::LogManager::Threshold 
+    = ::acdk::util::logging::Debug;
+</PRE></td></tr></table>
+<br>
+Alternativelly in CfgScript:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+using acdk.util.logging;
+RLogger <B><FONT COLOR="#A020F0">log</FONT></B> = LogManager::getCreateLogger(<B><FONT COLOR="#BC8F8F">&quot;acdkx.rdmi&quot;</FONT></B>);
+<B><FONT COLOR="#A020F0">log</FONT></B>-&gt;addConsumer(<B><FONT COLOR="#A020F0">new</FONT></B> ConsoleConsumer(<B><FONT COLOR="#A020F0">new</FONT></B> SimpleFormatter()));
+LogManager::MinLevel = Debug;
+LogManager::Threshold  = Debug;
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable13"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="API documentation">API documentation</a></h3>
+<br>
+Please refer to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=group_acdklogging"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Logging classes and macros</a> for an
+overview.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_core_man_config.html">Runtime Configuration</a> | <a  href="acdk_core_io-concept.html">Reader / Writer</a> | <a  href="acdk_io_FileSystem.html">acdk::io::FileSystem</a> | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | ACDK Logging framework |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

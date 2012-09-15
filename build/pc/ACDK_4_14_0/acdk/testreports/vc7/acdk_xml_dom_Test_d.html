@@ -1,0 +1,924 @@
+<html><body>
+<h1>Unit Test 2004-11-28T19:18:36</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 17; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.standard">DomBasic_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.files">DomBasic_Test.files</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.invalideXml">DomBasic_Test.invalideXml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DomBasic_Test.singleFile">DomBasic_Test.singleFile</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.standard">LibXML_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.files">LibXML_Test.files</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.invalideXml">LibXML_Test.invalideXml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.invalideValidatedXml">LibXML_Test.invalideValidatedXml</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.singleFile">LibXML_Test.singleFile</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.selectNodes">LibXML_Test.selectNodes</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.selectNodesTyped">LibXML_Test.selectNodesTyped</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.xpath">LibXML_Test.xpath</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.xmlWriter">LibXML_Test.xmlWriter</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.buildDocument">LibXML_Test.buildDocument</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.manipulateDocument">LibXML_Test.manipulateDocument</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.createDocument">LibXML_Test.createDocument</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#LibXML_Test.createDocument2">LibXML_Test.createDocument2</a> <br>
+</td></tr></table>
+<h2><a id="DomBasic_Test.standard">DomBasic_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][DomBasic_Test.standard] Start Test
+</pre>
+<h2><a id="DomBasic_Test.files">DomBasic_Test.files</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.standard] End Test
+[AUNIT:STRT][DomBasic_Test.files] Start Test
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    This is the text
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(body2): 
+[XMLCharacterData: "
+  void foo()
+  {
+    ++i; "CDATA";
+  }"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(body3): 
+[XMLCharacterData: "
+  void foo()
+  {
+    ++i; "CDATA";
+  }"]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    This is the text
+  </body>
+
+    <body2>
+  void foo()
+  {
+    ++i; "CDATA";
+  }</body2>
+
+    <body3>
+  void foo()
+  {
+    ++i; "CDATA";
+  }</body3>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  void foo()
+  {
+    ++i; "PCDATA";
+  }
+"]]
+<?xml version="1.0"?>
+ <book>
+  void foo()
+  {
+    ++i; "PCDATA";
+  }
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(entries): 
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: strval="asdf" XMLAttr: intval="12345" XMLAttr: floatval="0.4"]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry): 
+[XMLCharacterData: "
+    asdf
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="stringval"
+[XMLCharacterData: "asdf"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="intval"
+[XMLCharacterData: "12345"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="floatval"
+[XMLCharacterData: "12.123"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(entry):  XMLAttr: type="boolval"
+[XMLCharacterData: "true"]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <entries>
+    <entry strval="asdf" intval="12345" floatval="0.4"/>
+
+    <entry>
+    asdf
+  </entry>
+
+    <entry type="stringval">asdf</entry>
+
+    <entry type="intval">12345</entry>
+
+    <entry type="floatval">12.123</entry>
+
+    <entry type="boolval">true</entry>
+
+</entries>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    This is the text
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    This is the text
+  </body>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+Parsed: XMLDocument: 
+[XMLElement(person):  XMLAttr: xmlns="http://xml.oreilly.com/person"
+[XMLCharacterData: "
+  "]
+[XMLElement(name:name):  XMLAttr: xmlns:name="http://xml.oreilly.com/name"
+[XMLCharacterData: "
+    "]
+[XMLElement(name:first): 
+[XMLCharacterData: "Sydney"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(name:last): 
+[XMLCharacterData: "Lee"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(assignment):  XMLAttr: project_id="p2"]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <person xmlns="http://xml.oreilly.com/person">
+    <name:name xmlns:name="http://xml.oreilly.com/name">
+       <name:first>Sydney</name:first>
+
+       <name:last>Lee</name:last>
+
+  </name:name>
+
+    <assignment project_id="p2"/>
+
+</person>
+
+Parsed: XMLDocument: 
+[XMLElement(web-app): 
+[XMLCharacterData: "
+  "]
+[XMLElement(display-name): 
+[XMLCharacterData: "MyApp.war"]]
+[XMLCharacterData: "
+  "]
+[XMLElement(servlet): 
+[XMLCharacterData: "
+    "]
+[XMLElement(servlet-name): 
+[XMLCharacterData: "action"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(servlet-class): 
+[XMLCharacterData: "com.artefaktur.sample.MyApp.NOLActionServlet"]]
+[XMLCharacterData: "
+
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "validate"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "true"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "config"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "/WEB-INF/struts-config.xml"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "application"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "com.artefaktur.sample.MyApp.util.NOLMessageResources"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "factory"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "com.artefaktur.sample.MyApp.util.NOLMessageResourcesFactory"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "debug"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "0"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(init-param): 
+[XMLCharacterData: "
+      "]
+[XMLElement(param-name): 
+[XMLCharacterData: "detail"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(param-value): 
+[XMLCharacterData: "0"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(load-on-startup): 
+[XMLCharacterData: "2"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(servlet-mapping): 
+[XMLCharacterData: "
+    "]
+[XMLElement(servlet-name): 
+[XMLCharacterData: "action"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(url-pattern): 
+[XMLCharacterData: "*.do"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(session-config): 
+[XMLCharacterData: "
+    "]
+[XMLElement(session-timeout): 
+[XMLCharacterData: "10"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(welcome-file-list): 
+[XMLCharacterData: "
+    "]
+[XMLElement(welcome-file): 
+[XMLCharacterData: "index.html"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+
+
+  
+  "]
+[XMLElement(error-page): 
+[XMLCharacterData: "
+	"]
+[XMLElement(exception-type): 
+[XMLCharacterData: "java.lang.Throwable"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(location): 
+[XMLCharacterData: "/jsp/error.html"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+
+  
+  "]
+[XMLElement(taglib): 
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-uri): 
+[XMLCharacterData: "/WEB-INF/nol.tld"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-location): 
+[XMLCharacterData: "/WEB-INF/nol.tld"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(taglib): 
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-uri): 
+[XMLCharacterData: "/WEB-INF/struts-html.tld"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-location): 
+[XMLCharacterData: "/WEB-INF/struts-html.tld"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(taglib): 
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-uri): 
+[XMLCharacterData: "/WEB-INF/struts-logic.tld"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(taglib-location): 
+[XMLCharacterData: "/WEB-INF/struts-logic.tld"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+
+  
+  "]
+[XMLElement(security-constraint): 
+[XMLCharacterData: "
+    "]
+[XMLElement(web-resource-collection): 
+[XMLCharacterData: "
+      "]
+[XMLElement(web-resource-name): 
+[XMLCharacterData: "Sample Online JSPs"]]
+[XMLCharacterData: "
+      "]
+[XMLElement(url-pattern): 
+[XMLCharacterData: "*.jsp"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+    "]
+[XMLElement(auth-constraint): 
+[XMLCharacterData: "
+      "]
+[XMLElement(role-name): 
+[XMLCharacterData: "MyApp_role"]]
+[XMLCharacterData: "
+    "]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(login-config): 
+[XMLCharacterData: "
+    "]
+[XMLElement(auth-method): 
+[XMLCharacterData: "BASIC"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(realm-name): 
+[XMLCharacterData: "MyApp_realm"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+  "]
+[XMLElement(security-role): 
+[XMLCharacterData: "
+    "]
+[XMLElement(description): 
+[XMLCharacterData: "MyApp Online Role"]]
+[XMLCharacterData: "
+    "]
+[XMLElement(role-name): 
+[XMLCharacterData: "MyApp_role"]]
+[XMLCharacterData: "
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <web-app>
+    <display-name>MyApp.war</display-name>
+
+    <servlet>
+       <servlet-name>action</servlet-name>
+
+       <servlet-class>com.artefaktur.sample.MyApp.NOLActionServlet</servlet-class>
+
+
+       <init-param>
+          <param-name>validate</param-name>
+
+          <param-value>true</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>config</param-name>
+
+          <param-value>/WEB-INF/struts-config.xml</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>application</param-name>
+
+          <param-value>com.artefaktur.sample.MyApp.util.NOLMessageResources</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>factory</param-name>
+
+          <param-value>com.artefaktur.sample.MyApp.util.NOLMessageResourcesFactory</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>debug</param-name>
+
+          <param-value>0</param-value>
+
+    </init-param>
+
+       <init-param>
+          <param-name>detail</param-name>
+
+          <param-value>0</param-value>
+
+    </init-param>
+
+       <load-on-startup>2</load-on-startup>
+
+  </servlet>
+
+    <servlet-mapping>
+       <servlet-name>action</servlet-name>
+
+       <url-pattern>*.do</url-pattern>
+
+  </servlet-mapping>
+
+    <session-config>
+       <session-timeout>10</session-timeout>
+
+  </session-config>
+
+    <welcome-file-list>
+       <welcome-file>index.html</welcome-file>
+
+  </welcome-file-list>
+
+
+
+  
+    <error-page>
+	   <exception-type>java.lang.Throwable</exception-type>
+
+       <location>/jsp/error.html</location>
+
+  </error-page>
+
+
+  
+    <taglib>
+       <taglib-uri>/WEB-INF/nol.tld</taglib-uri>
+
+       <taglib-location>/WEB-INF/nol.tld</taglib-location>
+
+  </taglib>
+
+    <taglib>
+       <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+
+       <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+
+  </taglib>
+
+    <taglib>
+       <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+
+       <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+
+  </taglib>
+
+
+  
+    <security-constraint>
+       <web-resource-collection>
+          <web-resource-name>Sample Online JSPs</web-resource-name>
+
+          <url-pattern>*.jsp</url-pattern>
+
+    </web-resource-collection>
+
+       <auth-constraint>
+          <role-name>MyApp_role</role-name>
+
+    </auth-constraint>
+
+  </security-constraint>
+
+    <login-config>
+       <auth-method>BASIC</auth-method>
+
+       <realm-name>MyApp_realm</realm-name>
+
+  </login-config>
+
+    <security-role>
+       <description>MyApp Online Role</description>
+
+       <role-name>MyApp_role</role-name>
+
+  </security-role>
+
+</web-app>
+
+</pre>
+<h2><a id="DomBasic_Test.invalideXml">DomBasic_Test.invalideXml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.files] End Test
+[AUNIT:STRT][DomBasic_Test.invalideXml] Start Test
+Parsing file failed: C:\d\artefaktur\vc7acdk\acdk_xml\cfg\tests\acdk\xml\invalid\10_NotWellFormed.xml: ] at 4,2: not well-formed (invalid token)
+Parsing file failed: C:\d\artefaktur\vc7acdk\acdk_xml\cfg\tests\acdk\xml\invalid\11_NotWellFormed.xml: ] at 4,2: not well-formed (invalid token)
+</pre>
+<h2><a id="DomBasic_Test.singleFile">DomBasic_Test.singleFile</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.invalideXml] End Test
+[AUNIT:STRT][DomBasic_Test.singleFile] Start Test
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+
+    Roger René Kommer;
+    Dörnbergstraße 11
+  
+Parsed: XMLDocument: 
+[XMLElement(book): 
+[XMLCharacterData: "
+  
+  "]
+[XMLElement(title):  XMLAttr: value="This is the Title"]
+[XMLCharacterData: "
+  "]
+[XMLElement(body): 
+[XMLCharacterData: "
+    Roger René Kommer;
+    Dörnbergstraße 11
+  "]]
+[XMLCharacterData: "
+"]]
+<?xml version="1.0"?>
+ <book>
+  
+    <title value="This is the Title"/>
+
+    <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+
+</book>
+
+
+    Roger René Kommer;
+    Dörnbergstraße 11
+  
+</pre>
+<h2><a id="LibXML_Test.standard">LibXML_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DomBasic_Test.singleFile] End Test
+[AUNIT:STRT][LibXML_Test.standard] Start Test
+acdk/xml/libxmldom/LibXMLDocument[version=1.0,standalone=true]
+ acdk/xml/libxmldom/LibXMLElement[tagName=book]
+  acdk/xml/libxmldom/LibXMLElement[tagName=title]
+  acdk/xml/libxmldom/LibXMLElement[tagName=content]
+   acdk/xml/libxmldom/LibXMLText[data=Text of Book]
+</pre>
+<h2><a id="LibXML_Test.files">LibXML_Test.files</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.standard] End Test
+[AUNIT:STRT][LibXML_Test.files] Start Test
+</pre>
+<h2><a id="LibXML_Test.invalideXml">LibXML_Test.invalideXml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.files] End Test
+[AUNIT:STRT][LibXML_Test.invalideXml] Start Test
+Expected Exception: C:\d\artefaktur\vc7acdk\acdk_xml\cfg\tests\acdk\xml\invalid\10_NotWellFormed.xml]: error parsing attribute name
+
+Expected Exception: C:\d\artefaktur\vc7acdk\acdk_xml\cfg\tests\acdk\xml\invalid\11_NotWellFormed.xml]: Unescaped '<' not allowed in attributes values
+
+</pre>
+<h2><a id="LibXML_Test.invalideValidatedXml">LibXML_Test.invalideValidatedXml</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.invalideXml] End Test
+[AUNIT:STRT][LibXML_Test.invalideValidatedXml] Start Test
+Expected Exception: C:\d\artefaktur\vc7acdk\acdk_xml\cfg\tests\acdk\xml\validate\invalid\01_web_local.xml]: No declaration for element wrong_servlet
+
+</pre>
+<h2><a id="LibXML_Test.singleFile">LibXML_Test.singleFile</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.invalideValidatedXml] End Test
+[AUNIT:STRT][LibXML_Test.singleFile] Start Test
+</pre>
+<h2><a id="LibXML_Test.selectNodes">LibXML_Test.selectNodes</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.singleFile] End Test
+[AUNIT:STRT][LibXML_Test.selectNodes] Start Test
+Node: init-param
+Node: init-param
+Node: init-param
+Node: init-param
+Node: init-param
+Node: init-param
+</pre>
+<h2><a id="LibXML_Test.selectNodesTyped">LibXML_Test.selectNodesTyped</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.selectNodes] End Test
+[AUNIT:STRT][LibXML_Test.selectNodesTyped] Start Test
+</pre>
+<h2><a id="LibXML_Test.xpath">LibXML_Test.xpath</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.selectNodesTyped] End Test
+[AUNIT:STRT][LibXML_Test.xpath] Start Test
+</pre>
+<h2><a id="LibXML_Test.xmlWriter">LibXML_Test.xmlWriter</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.xpath] End Test
+[AUNIT:STRT][LibXML_Test.xmlWriter] Start Test
+<?xml version = "1.0" encoding="UTF8"?>
+
+<!-- <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "web-app_2_3.dtd"> -->
+<web-app>  
+  <display-name>sampleapp.war</display-name>  
+  <servlet>    
+    <servlet-name>action</servlet-name>    
+    <servlet-class>com.artefaktur.acdk.xml.SampleServlet</servlet-class>    
+    <init-param>      
+      <param-name>validate</param-name>      
+      <param-value>true</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>config</param-name>      
+      <param-value>/WEB-INF/struts-config.xml</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>application</param-name>      
+      <param-value>com.artefaktur.acdk.xml.util.MessageRessource</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>factory</param-name>      
+      <param-value>com.artefaktur.acdk.xml.util.MessageRessourceFactory</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>debug</param-name>      
+      <param-value>0</param-value>    
+    </init-param>    
+    <init-param>      
+      <param-name>detail</param-name>      
+      <param-value>0</param-value>    
+    </init-param>    
+    <load-on-startup>2</load-on-startup>  
+  </servlet>  
+  <servlet-mapping>    
+    <servlet-name>action</servlet-name>    
+    <url-pattern>*.do</url-pattern>  
+  </servlet-mapping>  
+  <session-config>    
+    <session-timeout>10</session-timeout>  
+  </session-config>  
+  <welcome-file-list>    
+    <welcome-file>index.html</welcome-file>  
+  </welcome-file-list>  
+  <!-- error -->  
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>    
+    <location>/jsp/error.html</location>  
+  </error-page>  
+  <!-- taglibs -->  
+  <taglib>    
+    <taglib-uri>/WEB-INF/nol.tld</taglib-uri>    
+    <taglib-location>/WEB-INF/nol.tld</taglib-location>  
+  </taglib>  
+  <taglib>    
+    <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>    
+    <taglib-location>/WEB-INF/struts-html.tld</taglib-location>  
+  </taglib>  
+  <taglib>    
+    <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>    
+    <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>  
+  </taglib>  
+  <login-config>    
+    <auth-method>BASIC</auth-method>    
+    <realm-name>nexttonline_realm</realm-name>  
+  </login-config>  
+  <security-role>    
+    <description>neXtt Online Role</description>    
+    <role-name>nexttonline_role</role-name>  
+  </security-role>  
+  <env-entry>      
+    <env-entry-name>NexttUrl</env-entry-name>      
+    <env-entry-value>https://secure2.examind.com:8443/nexttjlib/nexttservlet</env-entry-value>      
+    <env-entry-type>java.lang.String</env-entry-type> 
+  </env-entry>
+</web-app>
+
+</pre>
+<h2><a id="LibXML_Test.buildDocument">LibXML_Test.buildDocument</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.xmlWriter] End Test
+[AUNIT:STRT][LibXML_Test.buildDocument] Start Test
+<?xml version = "1.0" encoding="UTF8"?>
+
+<rootNode>
+  <childNode>
+    <!--This is comment-->
+    <listel/>BlaBla
+    <!--This is comment-->
+    <listel/>BlaBla
+    <!--This is comment-->
+    <listel/>BlaBla
+    <!--This is comment-->
+    <listel/>BlaBla
+  </childNode>
+</rootNode>
+
+</pre>
+<h2><a id="LibXML_Test.manipulateDocument">LibXML_Test.manipulateDocument</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.buildDocument] End Test
+[AUNIT:STRT][LibXML_Test.manipulateDocument] Start Test
+</pre>
+<h2><a id="LibXML_Test.createDocument">LibXML_Test.createDocument</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.manipulateDocument] End Test
+[AUNIT:STRT][LibXML_Test.createDocument] Start Test
+Created Document: <?xml version="1.0"?>
+ <Parent>
+  <NewFirst/>
+  <SecondChild/>
+  <ThirdChild/>
+ </Parent>
+
+</pre>
+<h2><a id="LibXML_Test.createDocument2">LibXML_Test.createDocument2</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][LibXML_Test.createDocument] End Test
+[AUNIT:STRT][LibXML_Test.createDocument2] Start Test
+Created Document: <?xml version="1.0"?>
+ <root>
+  <author name="James" location="UK">James Strachan</author>
+  <author name="Bob" location="US">Bob McWhirter</author>
+ </root>
+
+</pre>
+</body></html>

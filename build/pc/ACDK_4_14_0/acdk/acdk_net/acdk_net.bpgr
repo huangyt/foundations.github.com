@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_net.cbx"/>
+  <project path="src/acdk_net_metainf.cbx"/>
+  <project path="src/acdk_net_ftp.cbx"/>
+  <project path="src/acdk_net_srfsys.cbx"/>
+  <project path="src/acdk_net_srsync.cbx"/>
+  <project path="tests/acdk/net/acdk_net_Test.cbx"/>
+  <project path="tests/acdk/net/ftp/acdk_net_ftp_Test.cbx"/>
+  <project path="tests/acdk/net/acdk_net_EchoClient_Test.cbx"/>
+  <project path="tests/acdk/net/acdk_net_EchoServer_Test.cbx"/>
+  <project path="tests/acdk/net/srfsys/acdk_net_srfsys_Test.cbx"/>
+  <project path="src/acdkx_net_ssl.cbx"/>
+  <project path="src/acdkx_net_ssl_metainf.cbx"/>
+  <project path="tests/acdkx/net/ssl/acdkx_net_ssl_Test.cbx"/>
+
+</projectgroup>

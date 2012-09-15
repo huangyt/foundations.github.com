@@ -1,0 +1,140 @@
+<package>
+<name>acdkx_orb</name>
+
+<title>
+ACDKX ORB (acdkx_orb)
+</title>
+
+<shortdescription>
+ACDKX ORB provides a lean/fast/easy to use CORBA ORB for ACDK.
+</shortdescription>
+<description>
+<m>acdkx_orb</m> implements a CORBA ORB for ACDK Objects.
+
+It is designed to fit into the ACDK DMI concept, which
+means that each CORBA object can be controled by any 
+ACDK DMI Client (ACDK C++, CfgScript, COM, Perl, Lisp, Python, 
+Tcl, Java) and each ACDK Server (ACDK C++, CfgScript, COM, Lisp, Java)
+can provide its interfaces as CORBA components.  
+
+Different to official C++ language binding, the %ref[ACDK binding, acdkx_orb_mapping]
+is much more simple. 
+
+<m>acdkx_orb</m> provides a %ref[acdkmc, acdkmc_man] plugin to generated %ref[static skeletons, acdkx_orb_static_skel]
+directly from source (not IDL). For usage with other orbs the %ref[<m>acdkxorbidl</m>, acdkxorbidl_man] can be used
+to generade IDL definitions from ACDK C++ headers.
+
+An experimental %ref[dynamic binding, acdkx_orb_dynamic_proxy] can be used to comunikate via IIOP without any
+static skeleton.
+
+</description>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+  ACDK Free Edition License.
+</license>
+
+<dependencies>
+%ref[acdk_core]
+%ref[acdk_text]
+%ref[acdk_xml]
+</dependencies>
+
+<namespaces>
+%nsref[org::omg]
+%nsref[acdkx::arb]
+%nsref[acdkx::orb]
+</namespaces>
+
+<plattforms>
+  At the moment tested on Windows and
+  Linux.
+</plattforms>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  This is version is beta. Some things works,
+  some other not.
+</todo>
+
+<changes>
+===========================================================
+4.13.0
+- added -c option to acdkorbidl.
+- fixed CDRObjectReader::readString() memory overwrite bug.
+- implement dynamic dispatching using DmiProxy
+
+===========================================================
+4.10.0
+
+Please refer also to %ref[../ChangeLog].
+- Minor compilation problems fixed.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+- Start Integration into ACDK DMI.
+  Corba Objects can act as DMI Server and
+  all ACDK DMI Server objects can be addressed
+  with CORBA clients. 
+- Introduced connection pooling.
+- Make some unit tests.
+
+- Not stable at the moment
+
+
+===========================================================
+1.01.0
+
+- initial revision
+</changes>
+
+<notes>
+  Panta rei.
+</notes>
+
+<sf-notes>
+ACDKX ORB is a CORBA ORB for distributed components.
+It is designed to fit into the ACDK DMI concept, which
+means that each CORBA object can be controled by any 
+ACDK DMI Client (ACDK C++, COM, Perl, Lisp, Python, 
+Tcl, Java) and each ACDK Server (ACDK C++, COM, Lisp, Java)
+provides its interfaces as CORBA components.
+  
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdkx/orb">http://acdk.sourceforge.net/acdkx/orb</a>
+
+</sf-notes>
+<sf-changes>
+Started integration into ACDK 2 DMI. Corba Objects can act as DMI Server and
+all ACDK DMI Server objects can be addressed with CORBA clients. 
+Introduced connection pooling. Made some unit tests.
+
+- Not stable at the moment
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdkx_orb/docs/readme-en.html#Changes">Changes</a>
+
+</sf-changes>
+
+</package>

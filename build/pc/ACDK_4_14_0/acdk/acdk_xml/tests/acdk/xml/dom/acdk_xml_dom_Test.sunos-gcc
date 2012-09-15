@@ -1,0 +1,130 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../../../../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=./tobj/acdk_xml_dom_Test/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../../../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../../../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT  $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_tools_aunit -lacdk_text -lacdk_net -lorg_xml -lacdk_xml 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk_xml_dom_Test.cpp \
+	acdk_xml_dom_Basic.cpp \
+	acdk_xml_dom_LibXML_Test.cpp \
+
+HEADER= 
+OBJECTS= 	./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_Test.o \
+	./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_Basic.o \
+	./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_LibXML_Test.o \
+
+
+FINALTARGET=../../../../../bin/acdk_xml_dom_Test
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../../../../bin/acdk_xml_dom_Test: $(OBJECTS)
+	$(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../../../../bin/acdk_xml_dom_Test $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_xml_dom_Test.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_Test.o: acdk_xml_dom_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_Test.o -c acdk_xml_dom_Test.cpp
+
+./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_Basic.o: acdk_xml_dom_Basic.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_Basic.o -c acdk_xml_dom_Basic.cpp
+
+./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_LibXML_Test.o: acdk_xml_dom_LibXML_Test.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/acdk_xml_dom_Test/sunos-gcc/acdk_xml_dom_LibXML_Test.o -c acdk_xml_dom_LibXML_Test.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../../../../bin/acdk_xml_dom_Test $(OBJECTS)
+
+  

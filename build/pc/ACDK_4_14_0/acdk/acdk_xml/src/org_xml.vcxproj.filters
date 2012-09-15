@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="org">
+      <UniqueIdentifier>{b8cefe01-d8e0-4dd3-8270-bd205cf650e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml">
+      <UniqueIdentifier>{0f05dea6-7859-462e-bb4b-28c3d2f81e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml\sax">
+      <UniqueIdentifier>{3ca6c6bf-cb14-42eb-8266-7751a21a854c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\xml\sax\helpers">
+      <UniqueIdentifier>{32abe694-aab2-49da-a32f-5b0f75a75597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c">
+      <UniqueIdentifier>{a02b861c-fb60-472a-87ba-c12de607b39a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom">
+      <UniqueIdentifier>{c5b12a24-3d72-47ff-909a-216cb39910d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\xpath">
+      <UniqueIdentifier>{689a1ea7-9b5b-451e-8f28-d9d3eb608dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="org\w3c\dom\traversal">
+      <UniqueIdentifier>{c851ca72-e567-42c3-92e0-e9f84c71dbcc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="org\xml\sax\AttributeList.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\Attributes.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\Config.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\ContentHandler.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\DeclHandler.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\DocumentHandler.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\DTDHandler.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\EntityResolver.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\ErrorHandler.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\HandlerBase.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\InputSource.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\LexicalHandler.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\Locator.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\Parser.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\sax.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\SAXException.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\SAXNotRecognizedException.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\SAXNotSupportedException.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\SAXParseException.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\XMLFilter.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\XMLReader.h">
+      <Filter>org\xml\sax</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\AttributesImpl.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\CollectiveErrorHandler.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\DefaultHandler.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\helpers.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\LocatorImpl.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\MiscXmlUtils.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\NamespaceSupport.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\StdErrorHandler.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\xml\sax\helpers\XMLFilterImpl.h">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Attr.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Branch.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\CDATASection.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\CharacterData.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Comment.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Document.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DocumentFragment.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DocumentType.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\dom.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMConfiguration.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMError.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMErrorHandler.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMException.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMImplementation.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMLocator.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\DOMWriter.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Element.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Entity.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\EntityReference.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\NamedNodeMap.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Node.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\NodeList.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Notation.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\ProcessingInstruction.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\Text.h">
+      <Filter>org\w3c\dom</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\xpath.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\XPathEvaluator.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\XPathException.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\XPathExpression.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\XPathNamespace.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\XPathNSResolver.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\xpath\XPathResult.h">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\traversal\DocumentTraversal.h">
+      <Filter>org\w3c\dom\traversal</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\traversal\NodeFilter.h">
+      <Filter>org\w3c\dom\traversal</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\traversal\NodeIterator.h">
+      <Filter>org\w3c\dom\traversal</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\traversal\traversal.h">
+      <Filter>org\w3c\dom\traversal</Filter>
+    </ClInclude>
+    <ClInclude Include="org\w3c\dom\traversal\TreeWalker.h">
+      <Filter>org\w3c\dom\traversal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="org\xml\sax\sax_metainf_base.cpp">
+      <Filter>org\xml\sax</Filter>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\AttributesImpl.cpp">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\helpers_metainf_base.cpp">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\MiscXmlUtils.cpp">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\NamespaceSupport.cpp">
+      <Filter>org\xml\sax\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\DOMWriter.cpp">
+      <Filter>org\w3c\dom</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\dom_metainf_base.cpp">
+      <Filter>org\w3c\dom</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\Node.cpp">
+      <Filter>org\w3c\dom</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\xpath\xpath_metainf_base.cpp">
+      <Filter>org\w3c\dom\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\traversal\traversal_metainf_base.cpp">
+      <Filter>org\w3c\dom\traversal</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

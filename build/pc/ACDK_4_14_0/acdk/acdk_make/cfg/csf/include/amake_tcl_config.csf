@@ -1,0 +1,80 @@
+
+// tcl Header ===============================================================================
+lf = new acdk.make.LookupFileTask("tcl.h", acdk.make.Header);
+lf.addLookupPath("unix", "/usr/include");
+lf.addLookupPath("unix", "/usr/local/include");
+lf.addLookupPath("unix", "/usr/sfw/include"); // sunos on cf.sf.net
+
+lf.addLookupPath("windows", "D:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\include");
+lf.addLookupPath("windows", "C:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\include");
+
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate tcl header. Add path to the file $ACDK_TOOLS_HOME/cfg/csf/include/amake_tcl_config.csf");
+__props.appendStringArrayVal("CCC_EXT_INCLUDE_LIST", lf.foundParentDir());
+
+
+  
+
+tcllibname = "tcl8.3";
+
+// tcl library ===============================================================================
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  tcllibname = "tcl83d";
+  lf = new acdk.make.LookupFileTask(acdk.make.ImportLibrary);
+  lf.addFileName("windows", tcllibname);
+  lf.addFileName("windows", "tcl83");
+  lf.addLookupPath("windows", "D:\\src\\tcl8.3.3\\win\\Debug");
+  lf.addLookupPath("windows", "D:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\lib");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\lib");
+} 
+else 
+{ 
+  tcllibname = "tcl8.3";
+  lf = new acdk.make.LookupFileTask(tcllibname, acdk.make.ImportLibrary);
+  lf.addLookupPath("unix", "/usr/lib");
+  lf.addLookupPath("unix", "/usr/local/lib");
+  lf.addLookupPath("unix", "/usr/sfw/lib"); // solaris on cf.sf.net
+  if (lf.execute("",  buildprops) == false)
+  {
+    tcllibname = "tcl8.4";
+    lf = new acdk.make.LookupFileTask(tcllibname, acdk.make.ImportLibrary	);
+    lf.addLookupPath("unix", "/usr/lib");
+    lf.addLookupPath("unix", "/usr/local/lib");
+    __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", tcllibname);
+  }
+}
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate tcl Library. Add path to the file $ACDK_TOOLS_HOME/cfg/csf/include/amake_tcl_config.csf");
+tcllibname = lf.foundFile();
+__props.appendStringArrayVal("CCC_EXT_LIBPATH_LIST", lf.foundParentDir());                        
+
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", tcllibname);
+  // for test purpose append path
+  lf = new acdk.make.LookupFileTask(tcllibname, 3);
+  lf.addLookupPath("windows", "D:\\src\\tcl8.3.3\\win\\Debug");
+  lf.addLookupPath("windows", "D:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\lib");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\lib");
+  lf.addLookupPath("windows", "C:\\programr\\lang\\tcl\\Tcl\\Tcl_8.3\\bin");
+  
+  __script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate tcl DLL. Add path to the file $ACDK_TOOLS_HOME/cfg/csf/include/amake_tcl_config.csf");
+                        
+  __props.appendStringVal("Path", lf.foundParentDir(), File_pathSeparator, 4); // 4 = insert at front
+  __props.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "Path");
+} 
+else 
+{ 
+  __props.appendStringArrayVal("CCC_EXT_LIBARIES_LIST", tcllibname);
+}
+
+
+
+                        
+out.println("Configuration of tcl OK");
+acdkhome = __props.getStringVal("ACDKHOME");
+acdbin =  acdkhome + File_separator + "bin";
+

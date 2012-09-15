@@ -1,0 +1,27 @@
+
+
+acdk_text = new acdk.make.AcdkLibTask("acdk_text");
+acdk_text.addModule("src/acdk/text");
+acdk_text.addSource("src/acdk/text/regexp/pcre/maketables.c");
+acdk_text.addSource("src/acdk/text/regexp/pcre/pcre.c");
+acdk_text.addSource("src/acdk/text/regexp/pcre/pcreposix.c");
+acdk_text.addSource("src/acdk/text/regexp/pcre/pcre.h");
+acdk_text.addSource("src/acdk/text/regexp/pcre/pcre_config.h");
+acdk_text.addAcdkLib("acdk_core");
+
+// ----------        acdk_core_metainf  ---------------------------
+acdk_text_metainf = new acdk.make.AcdkMetainfLibTask("acdk_text_metainf", acdk_text);
+
+acdk_text_Test = new acdk.make.AcdkTestExeTask("acdk_text_Test");
+acdk_text_Test.setBaseDir("tests/acdk/text");
+acdk_text_Test.addSource("tests/acdk/text");
+acdk_text_Test.addAcdkLib("acdk_core");
+acdk_text_Test.addAcdkLib("acdk_text");
+acdk_text_Test.addAcdkLib("acdk_tools_aunit");
+
+default = new acdk.make.AcdkProjectTask("default");
+default.addSubTask("acdk_text");
+default.addSubTask("acdk_text_metainf");
+default.addSubTask("acdk_text_Test");
+
+default.registerTask("acdk_text_prj");

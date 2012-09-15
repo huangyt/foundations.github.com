@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_boot.cbx"/>
+  <project path="src/HelloWorld.cbx"/>
+  <project path="tests/acdk/boot/acdk_boot_Test.cbx"/>
+
+</projectgroup>

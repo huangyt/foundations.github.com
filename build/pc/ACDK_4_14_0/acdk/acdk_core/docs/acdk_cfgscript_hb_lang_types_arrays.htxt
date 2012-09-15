@@ -1,0 +1,57 @@
+%id: acdk_cfgscript_hb_lang_types_arrays
+%title: CfgScript Array Types
+%shorttitle: Array Types
+%keywords: array
+%body:
+<chapterline/>
+<pageintro>
+Array types are implemented as an Array of Elements.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Using Arrays</jump1>
+Arrays are the CfgScript corresponding type to build in
+Array types on ACDK/Java
+On a given type an Array type can be used as following:
+<source>
+int i = 42;
+intArray iarray = new intArray(1);
+iarray.set(0, 1);
+iarray.append(2);
+int j = iarray.get(1);
+j == 2;
+
+acdk.lang.IntegerArray integerArray = new acdk.lang.IntegerArray(1);
+integerArray.set(0, new acdk.lang.Integer(1));
+integerArray.append(new acdk.lang.Integer(2));
+
+integerArray.get(1).equals(new acdk.lang.Integer(2)) == true);
+
+</source>
+<jump2>ArrayLiteral</jump2>
+<pre>
+ArrayLiteral
+: '[' [ ElementList ] ']'
+;
+
+ElementList
+: Expression [ ',' ElementList ]
+;
+</pre>
+
+<source>
+array1 = [ 1, 2, 3, 3 + 1 ];
+array2 = [ 1, "Text", [ 'a', 'b' ], new acdk.lang.StringBuffer("asdf") ];
+
+</source>
+
+<jump1>[] operator</jump1>
+Access via the [] operator is currently not implemented.
+
+<jump1>Samples</jump1>
+<fl>
+<f> %srcref[csf_tests_acdk_cfgscript_0_types_30_Arrays_Test_csf]
+</fl>
+.

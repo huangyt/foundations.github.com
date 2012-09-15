@@ -1,0 +1,24 @@
+%layout: newpage
+%status: l
+%id: allindex
+%Title-de: Index
+%title: Index
+%body:
+<pageintro>
+Keywords and Crossreferences.
+</pageintro>
+
+<perleval>
+return wm::generateHtmlXRefs();
+</perleval>
+
+.
+
+%body-de:
+<pageintro>
+Schlagwortverzeichnis.
+</pageintro>
+<perleval>
+return wm::generateHtmlXRefs();
+</perleval>
+.

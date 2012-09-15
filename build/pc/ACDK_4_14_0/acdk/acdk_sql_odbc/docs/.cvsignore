@@ -1,0 +1,9 @@
+*.deps
+*.html
+*.txt
+
+bin
+obj
+*.opt
+*.ncb
+filelist.lst

@@ -1,0 +1,197 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+
+PACKAGE = acdk_make
+
+default: all
+all:: install compile
+
+compile:: acdk_make acdkmake acdk_make_dmiproxy acdk_make_Test 
+clean:: acdk_make-clean acdkmake-clean acdk_make_dmiproxy-clean acdk_make_Test-clean 
+metainfo:: acdk_make-metainfo acdkmake-metainfo acdk_make_dmiproxy-metainfo acdk_make_Test-metainfo 
+acdk_make:  
+	cd src
+	$(MAKE) -f acdk_make.bcc
+	cd ..
+
+
+acdk_make-clean:
+	cd src
+	$(MAKE) -f acdk_make.bcc clean
+	cd ..
+
+
+acdk_make-metainfo:
+	cd src
+	$(MAKE) -f acdk_make.bcc metainfo
+	cd ..
+
+
+acdkmake:  acdk_make
+	cd src
+	$(MAKE) -f acdkmake.bcc
+	cd ..
+
+
+acdkmake-clean:
+	cd src
+	$(MAKE) -f acdkmake.bcc clean
+	cd ..
+
+
+acdkmake-metainfo:
+	cd src
+	$(MAKE) -f acdkmake.bcc metainfo
+	cd ..
+
+
+acdk_make_dmiproxy:  acdk_make
+	cd src
+	$(MAKE) -f acdk_make_dmiproxy.bcc
+	cd ..
+
+
+acdk_make_dmiproxy-clean:
+	cd src
+	$(MAKE) -f acdk_make_dmiproxy.bcc clean
+	cd ..
+
+
+acdk_make_dmiproxy-metainfo:
+	cd src
+	$(MAKE) -f acdk_make_dmiproxy.bcc metainfo
+	cd ..
+
+
+acdk_make_Test:  acdk_make
+	cd tests/acdk/make
+	$(MAKE) -f acdk_make_Test.bcc
+	cd ../../..
+
+
+acdk_make_Test-clean:
+	cd tests/acdk/make
+	$(MAKE) -f acdk_make_Test.bcc clean
+	cd ../../..
+
+
+acdk_make_Test-metainfo:
+	cd tests/acdk/make
+	$(MAKE) -f acdk_make_Test.bcc metainfo
+	cd ../../..
+
+
+
+
+
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  @if not exist "$(ACDKHOME)\include" mkdir "$(ACDKHOME)\include"
+  @if exist src xcopy /D /S /Y src\*.h $(ACDKHOME)\include
+  @if exist src xcopy /D /S /Y src\*.cpp $(ACDKHOME)\include
+  @if exist cfg xcopy /D /S /Y cfg\*.* $(ACDKHOME)\cfg 
+
+test::
+	$(ACDKHOME)\bin\acdk_make_Test $(AUNIT_TESTOPTS)
+
+
+
+
+acdk_make-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src cbx
+
+acdkmake-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src cbx
+
+acdk_make_dmiproxy-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src cbx
+
+acdk_make_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make cbx
+
+
+makemake:: acdk_make-makemake acdkmake-makemake acdk_make_dmiproxy-makemake acdk_make_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkmake.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_make_dmiproxy.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/make\acdk_make_Test.lsp -pdir tests/acdk/make cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_make.lsp
+
+

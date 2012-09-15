@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{c0434ec8-4f9a-409b-b8d9-de5c10bdb2b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{11e938f1-da92-4790-a08c-156031a766d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\mc">
+      <UniqueIdentifier>{170445d2-ebca-4337-9f1b-d7a971bc8c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\mc\mc_metainf">
+      <UniqueIdentifier>{4d2dac84-dbec-4e44-b8b7-0a04c12a5dcb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\mc\ArgumentInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\ClassInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\ClassInitAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\ClazzFlagAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\ClazzNameAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\CMCException.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\CodeAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\CodeInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\Config.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\DispatchForwardAttributeTest.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\DmiProxyAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\DmiProxyGenerator.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\DmiProxyGeneratorExt.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\EnumArgAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\EnumInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\FieldInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\InvokeForwardAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\mc.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\McConfigAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\MetaCompiler.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\MethodAltNameAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\MethodInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\ModuleInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\SetDispatchAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\StringTagAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\SuperInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\ThrowableAttribute.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\TokenStack.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\TypeScope.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\tools\mc\UnitInfo.h">
+      <Filter>acdk\tools\mc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\mc\ArgumentInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\ClassInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\ClassInitAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\ClazzFlagAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\ClazzNameAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\CodeAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\CodeInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\DmiProxyAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\DmiProxyGenerator.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\DmiProxyGeneratorExt.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\EnumArgAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\EnumInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\FieldInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\InvokeForwardAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\McConfigAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\mc_metainf_base.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\MetaCompiler.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\MethodAltNameAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\MethodInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\ModuleInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\SetDispatchAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\StringTagAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\SuperInfo.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\ThrowableAttribute.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\TypeScope.cpp">
+      <Filter>acdk\tools\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\mc\mc_metainf\mc_metainf_ext.cpp">
+      <Filter>acdk\tools\mc\mc_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

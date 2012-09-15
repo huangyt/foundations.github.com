@@ -1,0 +1,29 @@
+
+
+
+class AClass
+extends acdk.lang.Object
+implements acdk.lang.Comparable
+{
+  int _numb;
+  public AClass(int number) { _numb = number; }
+  int compareTo(Object other) 
+  { 
+    return _numb - other._numb; 
+  }
+}
+
+Integer cls = new Integer(42);
+acdk.lang.Comparable comp1;
+{
+  comp1 = new AClass(42);
+}
+
+if ((comp1 instanceof AClass) == false)
+  throw new acdk.tools.aunit.TestException("instanceof seems not to work 1");
+acdk.lang.Comparable comp2 = new String("bla");
+if ((comp2 instanceof acdk.lang.Comparable) == false)
+  throw new acdk.tools.aunit.TestException("instanceof seems not to work 2");
+
+comp1.compareTo(new AClass(cls)); // convert it automatically from Integer to int
+out.println("TEST OK");

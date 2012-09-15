@@ -1,0 +1,153 @@
+%id: acdk_python_man
+%title: acdk_python Manual
+%seealso: acdkpython_man
+%keywords: acdk_python, Python, DMI Client Python
+%body:
+<htmlauto/>
+<pageintro>
+acdk_python contains an interface to an Pyton interperter
+and the DMI code to script ACDK objects from Python code.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Hello World Sample</jump1>
+
+Here the standard hello world sample:
+<source lang="python">
+def foo(string1, string2):
+  sb = acdk.Object("acdk/lang/StringBuffer", string1)
+  sb.append(string2)
+  return sb.toString()
+  
+acdk.peek_static("acdk/lang/System", "out").println(foo("Hello Python", " from ACDK"))
+
+</source>
+
+Other sample using an COM-Object
+<source>
+import acdk
+classloader = acdk.Object("acdk/lang/ClassLoader")
+classloader.findClass("acdkx/com/ComObject")    
+word = acdk.invoke_static("acdkx/com/ComObject", "New", "Word.Application")
+word.poke("Visible", 1)
+doc = word.peek("Documents").Add()
+sel = word.peek("ActiveWindow").peek("Selection")
+sel.TypeText("This is ")
+sel.peek("Font").poke("Bold", 1)
+sel.TypeText("ACDK")
+sel.peek("Font").poke("Bold", 0)
+sel.TypeText(" instrumenting Word through acdk_python")
+acdk.invoke_static("acdk/lang/Thread", "sleep", 3000)
+word.Quit(0)
+</source>
+
+
+<jump1>Installation & Compiling of acdk_python & acdkpyton</jump1>
+
+To compile and rund acdkperl you need the Perl 2.1 (or later) package
+
+%ref[ftp://ftp.python.org/pub/python/2.1.1/Python-2.1.1.tgz, ftp://ftp.python.org/pub/python/2.1.1/Python-2.1.1.tgz]
+
+On Unix:
+<pre>
+- [g]tar zxf Python-2.1.1.tgz
+- cd Python-2.1.1
+- ./configure
+- make
+- su 
+- make install
+</pre>
+On Windows:
+<pre>
+- use gtar or winzip to extract Python-2.1.1.tgz
+- Open the workspace .\Python-2.1.1\PCbuild\pcbuild.dsw
+- Compile Debug and Release target.
+- You may have to copy the python DLL's somewhere into the
+  path or expand the path to python DLL's directory.
+</pre>
+
+If you have already installed a runtime version of Python
+it may work to this, but there may missing includes/libs.
+
+You may have to change some path in the acdk_python/python_cfg.lsp
+file and remake the Makefiles.
+<pre>
+acdk_python/ > [n]make -f acdk_perl.<target> makemake
+</pre>
+
+
+<jump1>ACDK / Python</jump1>
+
+<jump2>Type mapping</jump2>
+<f> Python: number <-> ACDK: int/Integer
+<f> Python: double <-> ACDK: double/Double
+<f> Python: string <-> ACDK: String
+
+Note may added more mappings later.
+
+<jump2>command: sub acdk.Object("s|args")</jump2>
+acdk::Object() creates a new ACDK-Object.
+argument 1: The fully qualified ACDK-Class name like "acdk/lang/StringBuffer".
+argument 2 - n: Arguments for the class constructor.
+return: a new acdk.Object with wrapps an ACDK object
+Usage:
+%sb
+## Python
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+%se
+
+<jump2>command: acdk.Object.invoke("s|args")</jump2>
+acdk.Object.invoke invokes a method. 
+argument 1: the name of the method.
+argument 2-n: arguments of the method.
+return: returns the result of the method.
+
+Instead of using invoke, you can also use the direcly 
+the methodname
+
+<source lang="python">
+## Python
+import acdk
+sb = acdk.Object("acdk/lang/StringBuffer", "Hallo ")
+erg = sb.invoke("toString")
+# the same as 
+erg = sb.toString()
+</source>
+
+<jump2>command: acdk.invoke_static("ss|args")</jump2>
+acdk.invoke_static calls a static method.
+argument 1: name of the class as string.
+argument 2: name of the method as string.
+arguments 3-n: arguments of the method.
+return: returns the result of the method.
+
+<jump2>command: acdk.Object.peek("S")</jump2>
+reads a member of an ACDK class.
+argument 1: name of the member as string.
+return: the readed value.
+
+
+<jump2>command: acdk.Object.poke("SO")</jump2>
+writes a member of an ACDK class.
+argument 1: name of the member as string.
+argument 2: The value to set.
+
+<jump2>command: acdk.peek_static("SS")</jump2>
+reads a static member of an ACDK class.
+argument 1: name of the class as string.
+argument 2: name of the member as string.
+return: the readed value.
+
+<jump2>command: acdk.poke_static("SSO")</jump2>
+writes a static member of an ACDK class.
+argument 1: name of the class as string.
+argument 2: name of the member as string.
+argument 3: The value to set.
+
+
+.
+
+
+

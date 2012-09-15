@@ -1,0 +1,217 @@
+%id: acdk_aal_concept_languagesyntax
+%title: AAL syntax
+%body:
+<chapterline/>
+<pageintro>
+Syntax of the ALL (snapshot).
+</pageintro>
+
+
+<rs>
+Block
+: '{' Statements '}'
+;
+
+MultiplicativeExpr
+: UnaryExpr ( ( '*' | '%' | '/' ) UnaryExpr $ )*
+;
+
+StandardParams
+: Parameter [ ',' StandardParams ]
+;
+
+FunctionDeclParamList
+: '(' ')' | '(' StandardParams ')'
+;
+
+TypeDeclDef
+: TypeName Identifier ( ';' | TypeInitializer ';' )
+;
+
+Parameter
+: TypeName VarName
+;
+
+Arguments
+: '(' ')' | '(' ArgumentList ')'
+;
+
+FunctionDecl
+: TypeName VarName FunctionDeclParamList $
+;
+
+Expression
+: AssignmentExpr ( ',' AssignmentExpr )*
+;
+
+ObjCallSuffix
+: '.' Identifier [ Arguments ] | '[' Expression ']' | Arguments
+;
+
+BitwiseORExpr
+: BitwiseXORExpr ( '|' BitwiseXORExpr )* %
+;
+
+CaseStatement
+: 'switch' '(' Expression ')' '{' ( CaseClause )* '}' $
+;
+
+EqualityExpr
+: RelationalExpr ( ( '==' | '!=' ) RelationalExpr )* %
+;
+
+TypeInitializer
+: '=' ( AssignmentExpr | ConditionalExpr )
+;
+
+CallExpr
+: 'new' TypeName Arguments
+| CoreExpr ( ObjCallSuffix )*
+;
+
+PostfixExpr
+: CallExpr [ '++' | '--' ] %
+;
+
+ShiftExpr
+: AdditiveExpr ( ( '>>' | '<<' ) AdditiveExpr )* %
+;
+
+DoStatement
+: 'do' Statement 'while' '(' Expression ')' ';' $
+;
+
+CoreExpr
+:  '(' AssignmentExpr ')' | Identifier | Literal
+;
+
+BitwiseANDExpr
+: EqualityExpr ( '&' EqualityExpr )* %
+;
+
+LeftHandSideExpr
+: CallExpr
+;
+
+ExprStatement
+: Expression ';'
+;
+
+AdditiveExpr
+: MultiplicativeExpr ( ( '+' | '-' ) MultiplicativeExpr )* %
+;
+
+UnaryExpr
+: '++' UnaryExpr
+|'--' UnaryExpr
+|'-' UnaryExpr
+|'+' UnaryExpr
+|'~' UnaryExpr
+|'!' UnaryExpr
+|PostfixExpr
+;
+
+Statements
+: ( Statement )*
+;
+
+TypeDeclWithInitializer:
+| TypeDeclDef
+| ClassDeclDef
+| FunctionDeclDef
+;
+LogicalANDExpr
+: [ BitwiseORExpr ( '||'  BitwiseORExpr )* %
+;
+
+ClassDef
+: SuperDef Block
+;
+
+AssignmentExpr
+: LeftHandSideExpr '=' AssignmentExpr $ | ConditionalExpr
+;
+
+ElseStatement
+: 'else' Statement $
+;
+
+FunctionDeclDef
+: FunctionDecl ( ';' | FunctionBody )
+;
+
+ReturnStatement
+: 'return' Expression ';' $
+;
+
+FunctionBody
+: Block $
+;
+
+ConditionalExpr
+: LogicalORExpr [ '?' AssignmentExpr ':' AssignmentExpr ] %
+;
+
+CaseClause
+: ( 'case' Expression | 'default' ) ':' ( Statement )* $
+;
+
+ArgumentList
+: AssignmentExpr ( ',' AssignmentExpr )*
+;
+
+Statement
+: Block
+|ReturnStatement
+|IfStatement
+|ContinueStatement
+|BreakStatement
+|DoStatement
+|WhileStatement
+|CaseStatement
+|ExprStatement
+;
+
+ContinueStatement
+: 'continue' ';' $
+;
+
+BitwiseXORExpr
+: BitwiseANDExpr ( '^' BitwiseANDExpr )* %
+;
+
+RelationalExpr
+: ShiftExpr ( ( '<' | '>' | '<=' | '>=' ) ShiftExpr )* %
+;
+
+BreakStatement
+: 'break' ';' $
+;
+
+CodeText
+: Globals | Statements
+;
+
+Globals
+: TypeDeclWithInitializer
+;
+
+WhileStatement
+: 'while' '(' Expression ')' Statement $
+;
+
+IfStatement
+: 'if' '(' Expression ')' Statement [ ElseStatement ]  $
+;
+
+LogicalORExpr
+: LogicalANDExpr ( '&&'  LogicalANDExpr )* %
+;
+
+ClassDeclDef
+: 'class' TypeName (ClassDef | ';')
+;
+
+</rs>
+.
+  

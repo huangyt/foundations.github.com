@@ -1,0 +1,173 @@
+%id: acdkx_orb_mapping
+%title: Mapping of ACDK
+%body:
+<pageintro>
+ACDK provides its own mapping to CORBA types,
+which follows quite close to the Java definition.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Basic Value</jump1>
+<jump2>Numbers</jump2>
+For the basic types the same type mapping
+will be used as Java.
+Not supported are:
+<fl>
+<f> Fixed
+<f> Wchar
+<f> Wstring
+<f> Enum
+<f> Any
+</fl>
+
+<jump2>string</jump2>
+IDL type string will be translated to ::acdk::lang::RString
+
+<jump2>Enum</jump2>
+The type Enum is currently not supported.
+Use the int representative instead.
+
+<jump1>Constructed Values</jump1>
+<jump2>Arrays</jump2>
+Arrays are not supported. Use sequence instead.
+
+<jump2>Sequence</jump2>
+Sequences are encoded as ACDK arrays (typeArray).
+
+For the basic value types you can use the corresponding
+array classes (RintArray, RdoubleArray, RboolArray, etc.)
+
+For string and constructed values you can also use the
+array classes (RStringArrray, etc.)
+
+
+<source>
+//IDL
+  void foo(in sequence<string> vals, out sequence<long> indice);
+</source>
+
+will be in ACDK:
+
+<source>
+//ACDK
+  void foo(RStringArray vals, OUT(RintArray) indice);
+  
+</source>
+
+
+<jump2>structs</jump2>
+<source>
+//IDL
+  struct BunchOfValues
+  {
+    string label;
+    int index;
+  };
+  void foo(in BunchOfValues vals);
+  
+</source>
+Structs will implemented as normal classes, which
+should be transfered by value:
+
+<source>
+// ACDK
+  class BunchOfValues
+  : extends ::acdk::lang::Object,
+    implements ::acdk::io::Serializable
+  {
+  ACDK_WITH_METAINFO(BunchOfValues) // needed for serialisation
+  public:
+    /**
+      needed for create a new instance.
+      alternativally create_instance() should be defined.
+    */
+    BunchOfValues()  
+    : Object()
+    {
+    }
+    
+    string label;
+    int index;
+  };
+  
+  void foo(in BunchOfValues vals);
+  
+</source>
+<jump2>Union</jump2>
+Are not supported yet.
+
+<jump1>Object Reference</jump1>
+
+Object References are implemented in org::omg::CORBA::Object
+
+<jump1>Value Types</jump1>
+
+Value types are supported using ACDK's standard serialization
+feature. 
+Value types (including the mapped struct) should be derived
+from the ::acdk::io::Serializable interface.
+
+<jump1>Attributes</jump1>
+
+To support attributes, accessor methods should be implemented:
+
+<source>
+interface Foo
+{
+  attribute int ivalue;
+  readonly attribute string svalue;
+};
+</source>
+
+will be mapped in ACDK:
+
+<source>
+class Foo
+: implements ::org::omg::CORBA::portable::InvokeHandler
+{
+private:
+  int _ivalue;
+  RString _svalue;
+public:
+  int _get_ivalue() { return _ivalue; }
+  void _set_ivalue(int ival) { _ivalue = ival; }
+  RString _get_svalue() { return _svalue; }
+  // no setter for svalue because readonly
+};
+</source>
+
+
+
+<jump1>Argument specifier</jump1>
+<jump2>in / out / inout</jump2>
+
+
+<source>
+// IDL
+  int foo(in int ini, out int outi, inout int inouti);
+// acdk
+  int foo(IN(int) ini, OUT(int) outi, INOUT(int) inouti);
+
+</source>
+
+If no IN/OUT/INOUT is given automatically an in value will be
+asumed.
+
+<jump3>IN</jump3>
+IN - values are passed by value, normally basic types or
+RObject's.
+
+<jump3>OUT and INOUT</jump3>
+OUT and INOUT values are passed by reference.
+<source>
+void foo(IN(RString) istr, OUT(RString) ostr)
+{
+  istr = "modified"; // has no effect for the caller
+  ostr = "modified";// has effect for the caller
+}
+</source>
+
+.

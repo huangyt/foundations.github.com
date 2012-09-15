@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{03206053-26d8-453d-a8d4-7028c1fb5aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net">
+      <UniqueIdentifier>{90b9e6a5-a371-425b-905b-7d34a1566e44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\net\Authenticator.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\Config.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ContentHandler.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ContentHandlerFactory.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\DatagramPacket.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\DatagramSocket.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\FileNameMap.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\FileURLConnection.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\HeaderFieldHelper.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\HttpURLConnection.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\HttpURLConnectionImpl.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\InetAddress.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\InetSocketAddress.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\InetURLConnection.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\MalformedURLException.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\MimeTypeMapper.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\net.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\netsysincl.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\PasswordAuthentication.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ProtocolException.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ServerSocket.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\Socket.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\SocketAddress.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\SocketException.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\SocketImpl.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\SocketImplFactory.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\SocketLogConsumer.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\SocketOptions.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\TCPSocket.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\TCPSocketFactory.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\TransRateReader.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\TransRateWriter.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\UnknownServiceException.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URL.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLConnection.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLDecoder.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLEncoder.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLEncoding.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\UrlFileSystem.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLInterface.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLStreamHandler.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\URLStreamHandlerFactory.h">
+      <Filter>acdk\net</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\net\acdk_net_Package.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\Authenticator.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\DatagramSocket.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\FileURLConnection.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\HeaderFieldHelper.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\HttpURLConnection.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\HttpURLConnectionImpl.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\InetAddress.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\InetURLConnection.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\MimeTypeMapper.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\net_metainf_base.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ServerSocket.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\Socket.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketException.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketImpl.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketImplFactory.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketLogConsumer.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\SocketOptions.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TCPSocket.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TCPSocketFactory.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TransRateReader.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\TransRateWriter.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URL.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLConnection.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLDecoder.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLEncoder.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLEncoding.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\UrlFileSystem.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLStreamHandler.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\URLStreamHandlerFactory.cpp">
+      <Filter>acdk\net</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

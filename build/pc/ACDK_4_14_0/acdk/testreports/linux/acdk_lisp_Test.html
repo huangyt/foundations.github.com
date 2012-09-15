@@ -1,0 +1,603 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-04-25T22:28:40</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 11; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Binary_Test.standard">Binary_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Dmi_Test.standard">Dmi_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Dmi_Test.implementInterface">Dmi_Test.implementInterface</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.standard">StdLisp_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.misc">StdLisp_Test.misc</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.lamda">StdLisp_Test.lamda</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.quote">StdLisp_Test.quote</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.comma">StdLisp_Test.comma</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.defmacro">StdLisp_Test.defmacro</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.parseCode">StdLisp_Test.parseCode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdLisp_Test.defclass">StdLisp_Test.defclass</a> <br>
+</td></tr></table>
+<h2><a id="Binary_Test.standard">Binary_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Binary_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Binary_Test.standard
+[AUNIT:SUCC]: Binary_Test.standard:
+acdk_lisp_BinaryLisp.cpp(73): ival == 3
+</pre>
+<h2><a id="Dmi_Test.standard">Dmi_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Binary_Test.standard] End Test
+[AUNIT:ENDT] End Test: Binary_Test.standard
+[AUNIT:STRT][Dmi_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Dmi_Test.standard
+Load image: autoload.limg
+init finished
+Parsed code [(setf t (make-instance 'EMyClass :bar 3))(t 'foo 2 5)] to [LispObject]
+[AUNIT:SUCC]: Dmi_Test.standard:
+acdk_lisp_Dmi.cpp(79): erg == 10
+</pre>
+<h2><a id="Dmi_Test.implementInterface">Dmi_Test.implementInterface</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Dmi_Test.standard] End Test
+[AUNIT:ENDT] End Test: Dmi_Test.standard
+[AUNIT:STRT][Dmi_Test.implementInterface] Start Test
+[AUNIT:STRT] Start Test: Dmi_Test.implementInterface
+**  Dmi_Test for Lisp currently not working
+</pre>
+<h2><a id="StdLisp_Test.standard">StdLisp_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Dmi_Test.implementInterface] End Test
+[AUNIT:ENDT] End Test: Dmi_Test.implementInterface
+[AUNIT:STRT][StdLisp_Test.standard] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.standard
+Load image: autoload.limg
+init finished
+bindGlobal: [*eol]=["
+"]
+bindGlobal: [*eol]=["
+"]
+bindGlobal: [*eol*]=["
+"]
+bindGlobal: [*eol*]=["
+"]
+bindGlobal: [*EPERM]=[1]
+bindGlobal: [*EPERM]=[1]
+bindGlobal: [*ENOENT]=[2]
+bindGlobal: [*ENOENT]=[2]
+bindGlobal: [*ESRCH]=[3]
+bindGlobal: [*ESRCH]=[3]
+bindGlobal: [*EINTR]=[4]
+bindGlobal: [*EINTR]=[4]
+bindGlobal: [*EIO]=[5]
+bindGlobal: [*EIO]=[5]
+bindGlobal: [*ENXIO]=[6]
+bindGlobal: [*ENXIO]=[6]
+bindGlobal: [*E2BIG]=[7]
+bindGlobal: [*E2BIG]=[7]
+bindGlobal: [*ENOEXEC]=[8]
+bindGlobal: [*ENOEXEC]=[8]
+bindGlobal: [*EBADF]=[9]
+bindGlobal: [*EBADF]=[9]
+bindGlobal: [*ECHILD]=[10]
+bindGlobal: [*ECHILD]=[10]
+bindGlobal: [*EAGAIN]=[11]
+bindGlobal: [*EAGAIN]=[11]
+bindGlobal: [*ENOMEM]=[12]
+bindGlobal: [*ENOMEM]=[12]
+bindGlobal: [*EACCES]=[13]
+bindGlobal: [*EACCES]=[13]
+bindGlobal: [*EFAULT]=[14]
+bindGlobal: [*EFAULT]=[14]
+bindGlobal: [*ENOTBLK]=[15]
+bindGlobal: [*ENOTBLK]=[15]
+bindGlobal: [*EBUSY]=[16]
+bindGlobal: [*EBUSY]=[16]
+bindGlobal: [*EEXIST]=[17]
+bindGlobal: [*EEXIST]=[17]
+bindGlobal: [*EXDEV]=[18]
+bindGlobal: [*EXDEV]=[18]
+bindGlobal: [*ENODEV]=[19]
+bindGlobal: [*ENODEV]=[19]
+bindGlobal: [*ENOTDIR]=[20]
+bindGlobal: [*ENOTDIR]=[20]
+bindGlobal: [*EISDIR]=[21]
+bindGlobal: [*EISDIR]=[21]
+bindGlobal: [*EINVAL]=[22]
+bindGlobal: [*EINVAL]=[22]
+bindGlobal: [*ENFILE]=[23]
+bindGlobal: [*ENFILE]=[23]
+bindGlobal: [*EMFILE]=[24]
+bindGlobal: [*EMFILE]=[24]
+bindGlobal: [*ENOTTY]=[25]
+bindGlobal: [*ENOTTY]=[25]
+bindGlobal: [*ETXTBSY]=[26]
+bindGlobal: [*ETXTBSY]=[26]
+bindGlobal: [*EFBIG]=[27]
+bindGlobal: [*EFBIG]=[27]
+bindGlobal: [*ENOSPC]=[28]
+bindGlobal: [*ENOSPC]=[28]
+bindGlobal: [*ESPIPE]=[29]
+bindGlobal: [*ESPIPE]=[29]
+bindGlobal: [*EROFS]=[30]
+bindGlobal: [*EROFS]=[30]
+bindGlobal: [*EMLINK]=[31]
+bindGlobal: [*EMLINK]=[31]
+bindGlobal: [*EPIPE]=[32]
+bindGlobal: [*EPIPE]=[32]
+bindGlobal: [*EDOM]=[33]
+bindGlobal: [*EDOM]=[33]
+bindGlobal: [*ERANGE]=[34]
+bindGlobal: [*ERANGE]=[34]
+bindGlobal: [*EDEADLK]=[35]
+bindGlobal: [*EDEADLK]=[35]
+bindGlobal: [*ENAMETOOLONG]=[36]
+bindGlobal: [*ENAMETOOLONG]=[36]
+bindGlobal: [*ENOLCK]=[37]
+bindGlobal: [*ENOLCK]=[37]
+bindGlobal: [*ENOSYS]=[38]
+bindGlobal: [*ENOSYS]=[38]
+bindGlobal: [*ENOTEMPTY]=[39]
+bindGlobal: [*ENOTEMPTY]=[39]
+bindGlobal: [*ELOOP]=[40]
+bindGlobal: [*ELOOP]=[40]
+bindGlobal: [*EWOULDBLOCK]=[0]
+bindGlobal: [*EWOULDBLOCK]=[0]
+bindGlobal: [*ENOMSG]=[42]
+bindGlobal: [*ENOMSG]=[42]
+bindGlobal: [*EIDRM]=[43]
+bindGlobal: [*EIDRM]=[43]
+bindGlobal: [*ECHRNG]=[44]
+bindGlobal: [*ECHRNG]=[44]
+bindGlobal: [*EL2NSYNC]=[45]
+bindGlobal: [*EL2NSYNC]=[45]
+bindGlobal: [*EL3HLT]=[46]
+bindGlobal: [*EL3HLT]=[46]
+bindGlobal: [*EL3RST]=[47]
+bindGlobal: [*EL3RST]=[47]
+bindGlobal: [*ELNRNG]=[48]
+bindGlobal: [*ELNRNG]=[48]
+bindGlobal: [*EUNATCH]=[49]
+bindGlobal: [*EUNATCH]=[49]
+bindGlobal: [*ENOCSI]=[50]
+bindGlobal: [*ENOCSI]=[50]
+bindGlobal: [*EL2HLT]=[51]
+bindGlobal: [*EL2HLT]=[51]
+bindGlobal: [*EBADE]=[52]
+bindGlobal: [*EBADE]=[52]
+bindGlobal: [*EBADR]=[53]
+bindGlobal: [*EBADR]=[53]
+bindGlobal: [*EXFULL]=[54]
+bindGlobal: [*EXFULL]=[54]
+bindGlobal: [*ENOANO]=[55]
+bindGlobal: [*ENOANO]=[55]
+bindGlobal: [*EBADRQC]=[56]
+bindGlobal: [*EBADRQC]=[56]
+bindGlobal: [*EBADSLT]=[57]
+bindGlobal: [*EBADSLT]=[57]
+bindGlobal: [*EDEADLOCK]=[0]
+bindGlobal: [*EDEADLOCK]=[0]
+bindGlobal: [*EBFONT]=[59]
+bindGlobal: [*EBFONT]=[59]
+bindGlobal: [*ENOSTR]=[60]
+bindGlobal: [*ENOSTR]=[60]
+bindGlobal: [*ENODATA]=[61]
+bindGlobal: [*ENODATA]=[61]
+bindGlobal: [*ETIME]=[62]
+bindGlobal: [*ETIME]=[62]
+bindGlobal: [*ENOSR]=[63]
+bindGlobal: [*ENOSR]=[63]
+bindGlobal: [*ENONET]=[64]
+bindGlobal: [*ENONET]=[64]
+bindGlobal: [*ENOPKG]=[65]
+bindGlobal: [*ENOPKG]=[65]
+bindGlobal: [*EREMOTE]=[66]
+bindGlobal: [*EREMOTE]=[66]
+bindGlobal: [*ENOLINK]=[67]
+bindGlobal: [*ENOLINK]=[67]
+bindGlobal: [*EADV]=[68]
+bindGlobal: [*EADV]=[68]
+bindGlobal: [*ESRMNT]=[69]
+bindGlobal: [*ESRMNT]=[69]
+bindGlobal: [*ECOMM]=[70]
+bindGlobal: [*ECOMM]=[70]
+bindGlobal: [*EPROTO]=[71]
+bindGlobal: [*EPROTO]=[71]
+bindGlobal: [*EMULTIHOP]=[72]
+bindGlobal: [*EMULTIHOP]=[72]
+bindGlobal: [*EDOTDOT]=[73]
+bindGlobal: [*EDOTDOT]=[73]
+bindGlobal: [*EBADMSG]=[74]
+bindGlobal: [*EBADMSG]=[74]
+bindGlobal: [*EOVERFLOW]=[75]
+bindGlobal: [*EOVERFLOW]=[75]
+bindGlobal: [*ENOTUNIQ]=[76]
+bindGlobal: [*ENOTUNIQ]=[76]
+bindGlobal: [*EBADFD]=[77]
+bindGlobal: [*EBADFD]=[77]
+bindGlobal: [*EREMCHG]=[78]
+bindGlobal: [*EREMCHG]=[78]
+bindGlobal: [*ELIBACC]=[79]
+bindGlobal: [*ELIBACC]=[79]
+bindGlobal: [*ELIBBAD]=[80]
+bindGlobal: [*ELIBBAD]=[80]
+bindGlobal: [*ELIBSCN]=[81]
+bindGlobal: [*ELIBSCN]=[81]
+bindGlobal: [*ELIBMAX]=[82]
+bindGlobal: [*ELIBMAX]=[82]
+bindGlobal: [*ELIBEXEC]=[83]
+bindGlobal: [*ELIBEXEC]=[83]
+bindGlobal: [*EILSEQ]=[84]
+bindGlobal: [*EILSEQ]=[84]
+bindGlobal: [*ERESTART]=[85]
+bindGlobal: [*ERESTART]=[85]
+bindGlobal: [*ESTRPIPE]=[86]
+bindGlobal: [*ESTRPIPE]=[86]
+bindGlobal: [*EUSERS]=[87]
+bindGlobal: [*EUSERS]=[87]
+bindGlobal: [*ENOTSOCK]=[88]
+bindGlobal: [*ENOTSOCK]=[88]
+bindGlobal: [*EDESTADDRREQ]=[89]
+bindGlobal: [*EDESTADDRREQ]=[89]
+bindGlobal: [*EMSGSIZE]=[90]
+bindGlobal: [*EMSGSIZE]=[90]
+bindGlobal: [*EPROTOTYPE]=[91]
+bindGlobal: [*EPROTOTYPE]=[91]
+bindGlobal: [*ENOPROTOOPT]=[92]
+bindGlobal: [*ENOPROTOOPT]=[92]
+bindGlobal: [*EPROTONOSUPPORT]=[93]
+bindGlobal: [*EPROTONOSUPPORT]=[93]
+bindGlobal: [*ESOCKTNOSUPPORT]=[94]
+bindGlobal: [*ESOCKTNOSUPPORT]=[94]
+bindGlobal: [*EOPNOTSUPP]=[95]
+bindGlobal: [*EOPNOTSUPP]=[95]
+bindGlobal: [*EPFNOSUPPORT]=[96]
+bindGlobal: [*EPFNOSUPPORT]=[96]
+bindGlobal: [*EAFNOSUPPORT]=[97]
+bindGlobal: [*EAFNOSUPPORT]=[97]
+bindGlobal: [*EADDRINUSE]=[98]
+bindGlobal: [*EADDRINUSE]=[98]
+bindGlobal: [*EADDRNOTAVAIL]=[99]
+bindGlobal: [*EADDRNOTAVAIL]=[99]
+bindGlobal: [*ENETDOWN]=[100]
+bindGlobal: [*ENETDOWN]=[100]
+bindGlobal: [*ENETUNREACH]=[101]
+bindGlobal: [*ENETUNREACH]=[101]
+bindGlobal: [*ENETRESET]=[102]
+bindGlobal: [*ENETRESET]=[102]
+bindGlobal: [*ECONNABORTED]=[103]
+bindGlobal: [*ECONNABORTED]=[103]
+bindGlobal: [*ECONNRESET]=[104]
+bindGlobal: [*ECONNRESET]=[104]
+bindGlobal: [*ENOBUFS]=[105]
+bindGlobal: [*ENOBUFS]=[105]
+bindGlobal: [*EISCONN]=[106]
+bindGlobal: [*EISCONN]=[106]
+bindGlobal: [*ENOTCONN]=[107]
+bindGlobal: [*ENOTCONN]=[107]
+bindGlobal: [*ESHUTDOWN]=[108]
+bindGlobal: [*ESHUTDOWN]=[108]
+bindGlobal: [*ETOOMANYREFS]=[109]
+bindGlobal: [*ETOOMANYREFS]=[109]
+bindGlobal: [*ETIMEDOUT]=[110]
+bindGlobal: [*ETIMEDOUT]=[110]
+bindGlobal: [*ECONNREFUSED]=[111]
+bindGlobal: [*ECONNREFUSED]=[111]
+bindGlobal: [*EHOSTDOWN]=[112]
+bindGlobal: [*EHOSTDOWN]=[112]
+bindGlobal: [*EHOSTUNREACH]=[113]
+bindGlobal: [*EHOSTUNREACH]=[113]
+bindGlobal: [*EALREADY]=[114]
+bindGlobal: [*EALREADY]=[114]
+bindGlobal: [*EINPROGRESS]=[115]
+bindGlobal: [*EINPROGRESS]=[115]
+bindGlobal: [*ESTALE]=[116]
+bindGlobal: [*ESTALE]=[116]
+bindGlobal: [*EUCLEAN]=[117]
+bindGlobal: [*EUCLEAN]=[117]
+bindGlobal: [*ENOTNAM]=[118]
+bindGlobal: [*ENOTNAM]=[118]
+bindGlobal: [*ENAVAIL]=[119]
+bindGlobal: [*ENAVAIL]=[119]
+bindGlobal: [*EISNAM]=[120]
+bindGlobal: [*EISNAM]=[120]
+bindGlobal: [*EREMOTEIO]=[121]
+bindGlobal: [*EREMOTEIO]=[121]
+bindGlobal: [*EDQUOT]=[122]
+bindGlobal: [*EDQUOT]=[122]
+bindGlobal: [*ENOMEDIUM]=[123]
+bindGlobal: [*ENOMEDIUM]=[123]
+bindGlobal: [*EMEDIUMTYPE]=[124]
+bindGlobal: [*EMEDIUMTYPE]=[124]
+bindGlobal: [*progress-indicator*]=[-1]
+bindGlobal: [*progress-indicator*]=[-1]
+bindGlobal: [acdkmake-xcompile-enabled]=[NIL]
+bindGlobal: [acdkmake-xcompile-enabled]=[NIL]
+bindLocal: [ $157330052::cond]=[(= (+ 1 2) 3)]
+bindLocal: [ $157330052::cond]=[(= (+ 1 2) 3)]
+bindLocal: [ $157331088::_str]=["evaluate: "]
+bindLocal: [ $157331088::_str]=["evaluate: "]
+bindLocal: [ $157331640::s]=[(= (+ 1 2) 3)]
+bindLocal: [ $157331640::s]=[(= (+ 1 2) 3)]
+bindLocal: [ $157331088::_other]=[("(= (+ 1 2) 3)")]
+bindLocal: [ $157331088::_other]=[("(= (+ 1 2) 3)")]
+bindLocal: [ $157333040::_obj]=["evaluate: "]
+bindLocal: [ $157333040::_obj]=["evaluate: "]
+bindLocal: [ $157331088::_str]=["evaluate: "]
+bindLocal: [ $157331088::_str]=["evaluate: "]
+bindLocal: [ $157331088::_t]=["(= (+ 1 2) 3)"]
+bindLocal: [ $157331088::_t]=["(= (+ 1 2) 3)"]
+bindLocal: [ $157334204::_obj]=["(= (+ 1 2) 3)"]
+bindLocal: [ $157334204::_obj]=["(= (+ 1 2) 3)"]
+bindLocal: [ $157331088::_str]=["evaluate: (= (+ 1 2) 3)"]
+bindLocal: [ $157331088::_str]=["evaluate: (= (+ 1 2) 3)"]
+bindLocal: [ $157331088::_other]=[NIL]
+bindLocal: [ $157331088::_other]=[NIL]
+bindLocal: [ $157330748::_str]=["evaluate: (= (+ 1 2) 3)"]
+bindLocal: [ $157330748::_str]=["evaluate: (= (+ 1 2) 3)"]
+bindLocal: [ $157354296::_obj]=["evaluate: (= (+ 1 2) 3)"]
+bindLocal: [ $157354296::_obj]=["evaluate: (= (+ 1 2) 3)"]
+evaluate: (= (+ 1 2) 3)
+bindLocal: [ $157353804::cond]=[(= (- 1 2) -1)]
+bindLocal: [ $157353804::cond]=[(= (- 1 2) -1)]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157355392::s]=[(= (- 1 2) -1)]
+bindLocal: [ $157355392::s]=[(= (- 1 2) -1)]
+bindLocal: [ $157354840::_other]=[("(= (- 1 2) -1)")]
+bindLocal: [ $157354840::_other]=[("(= (- 1 2) -1)")]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_t]=["(= (- 1 2) -1)"]
+bindLocal: [ $157354840::_t]=["(= (- 1 2) -1)"]
+bindLocal: [ $157357240::_obj]=["(= (- 1 2) -1)"]
+bindLocal: [ $157357240::_obj]=["(= (- 1 2) -1)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (- 1 2) -1)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (- 1 2) -1)"]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354500::_str]=["evaluate: (= (- 1 2) -1)"]
+bindLocal: [ $157354500::_str]=["evaluate: (= (- 1 2) -1)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (- 1 2) -1)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (- 1 2) -1)"]
+evaluate: (= (- 1 2) -1)
+bindLocal: [ $157353804::cond]=[(= (+ 0.250000 0.750000) 1)]
+bindLocal: [ $157353804::cond]=[(= (+ 0.250000 0.750000) 1)]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157355392::s]=[(= (+ 0.250000 0.750000) 1)]
+bindLocal: [ $157355392::s]=[(= (+ 0.250000 0.750000) 1)]
+bindLocal: [ $157354840::_other]=[("(= (+ 0.250000 0.750000) 1)")]
+bindLocal: [ $157354840::_other]=[("(= (+ 0.250000 0.750000) 1)")]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_t]=["(= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157354840::_t]=["(= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157357240::_obj]=["(= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157357240::_obj]=["(= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354500::_str]=["evaluate: (= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $157354500::_str]=["evaluate: (= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (+ 0.250000 0.750000) 1)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (+ 0.250000 0.750000) 1)"]
+evaluate: (= (+ 0.250000 0.750000) 1)
+bindLocal: [ $157353804::cond]=[(= (- 0.750000 0.250000) 0.500000)]
+bindLocal: [ $157353804::cond]=[(= (- 0.750000 0.250000) 0.500000)]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157355392::s]=[(= (- 0.750000 0.250000) 0.500000)]
+bindLocal: [ $157355392::s]=[(= (- 0.750000 0.250000) 0.500000)]
+bindLocal: [ $157354840::_other]=[("(= (- 0.750000 0.250000) 0.500000)")]
+bindLocal: [ $157354840::_other]=[("(= (- 0.750000 0.250000) 0.500000)")]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_t]=["(= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157354840::_t]=["(= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157357240::_obj]=["(= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157357240::_obj]=["(= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354500::_str]=["evaluate: (= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $157354500::_str]=["evaluate: (= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (- 0.750000 0.250000) 0.500000)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (- 0.750000 0.250000) 0.500000)"]
+evaluate: (= (- 0.750000 0.250000) 0.500000)
+bindLocal: [ $157353804::cond]=[(= (/ 20 5) 4)]
+bindLocal: [ $157353804::cond]=[(= (/ 20 5) 4)]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157355392::s]=[(= (/ 20 5) 4)]
+bindLocal: [ $157355392::s]=[(= (/ 20 5) 4)]
+bindLocal: [ $157354840::_other]=[("(= (/ 20 5) 4)")]
+bindLocal: [ $157354840::_other]=[("(= (/ 20 5) 4)")]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_t]=["(= (/ 20 5) 4)"]
+bindLocal: [ $157354840::_t]=["(= (/ 20 5) 4)"]
+bindLocal: [ $157357240::_obj]=["(= (/ 20 5) 4)"]
+bindLocal: [ $157357240::_obj]=["(= (/ 20 5) 4)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (/ 20 5) 4)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (/ 20 5) 4)"]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354500::_str]=["evaluate: (= (/ 20 5) 4)"]
+bindLocal: [ $157354500::_str]=["evaluate: (= (/ 20 5) 4)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (/ 20 5) 4)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (/ 20 5) 4)"]
+evaluate: (= (/ 20 5) 4)
+bindLocal: [ $157353804::cond]=[(= (* 20 5) 100)]
+bindLocal: [ $157353804::cond]=[(= (* 20 5) 100)]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157355392::s]=[(= (* 20 5) 100)]
+bindLocal: [ $157355392::s]=[(= (* 20 5) 100)]
+bindLocal: [ $157354840::_other]=[("(= (* 20 5) 100)")]
+bindLocal: [ $157354840::_other]=[("(= (* 20 5) 100)")]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157356748::_obj]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_str]=["evaluate: "]
+bindLocal: [ $157354840::_t]=["(= (* 20 5) 100)"]
+bindLocal: [ $157354840::_t]=["(= (* 20 5) 100)"]
+bindLocal: [ $157357240::_obj]=["(= (* 20 5) 100)"]
+bindLocal: [ $157357240::_obj]=["(= (* 20 5) 100)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (* 20 5) 100)"]
+bindLocal: [ $157354840::_str]=["evaluate: (= (* 20 5) 100)"]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354840::_other]=[NIL]
+bindLocal: [ $157354500::_str]=["evaluate: (= (* 20 5) 100)"]
+bindLocal: [ $157354500::_str]=["evaluate: (= (* 20 5) 100)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (* 20 5) 100)"]
+bindLocal: [ $146745012::_obj]=["evaluate: (= (* 20 5) 100)"]
+evaluate: (= (* 20 5) 100)
+bindLocal: [ $157354144::cond]=[(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")]
+bindLocal: [ $157354144::cond]=[(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")]
+bindLocal: [ $157355252::_str]=["evaluate: "]
+bindLocal: [ $157355252::_str]=["evaluate: "]
+bindLocal: [ $157355804::s]=[(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")]
+bindLocal: [ $157355804::s]=[(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")]
+bindLocal: [ $157355252::_other]=[("(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")")]
+bindLocal: [ $157355252::_other]=[("(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")")]
+bindLocal: [ $157357160::_obj]=["evaluate: "]
+bindLocal: [ $157357160::_obj]=["evaluate: "]
+bindLocal: [ $157355252::_str]=["evaluate: "]
+bindLocal: [ $157355252::_str]=["evaluate: "]
+bindLocal: [ $157355252::_t]=["(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157355252::_t]=["(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $146744660::_obj]=["(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $146744660::_obj]=["(invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157355252::_str]=["evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157355252::_str]=["evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157355252::_other]=[NIL]
+bindLocal: [ $157355252::_other]=[NIL]
+bindLocal: [ $157354912::_str]=["evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157354912::_str]=["evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157391992::_obj]=["evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+bindLocal: [ $157391992::_obj]=["evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")"]
+evaluate: (invoke (s+ "Hallo " "ACDK") (quote equals) "Hallo ACDK")
+bindLocal: [ $157392344::_str]=["Hallo "]
+bindLocal: [ $157392344::_str]=["Hallo "]
+bindLocal: [ $157392344::_other]=[("ACDK")]
+bindLocal: [ $157392344::_other]=[("ACDK")]
+bindLocal: [ $157393036::_obj]=["Hallo "]
+bindLocal: [ $157393036::_obj]=["Hallo "]
+bindLocal: [ $157392344::_str]=["Hallo "]
+bindLocal: [ $157392344::_str]=["Hallo "]
+bindLocal: [ $157392344::_t]=["ACDK"]
+bindLocal: [ $157392344::_t]=["ACDK"]
+bindLocal: [ $157393528::_obj]=["ACDK"]
+bindLocal: [ $157393528::_obj]=["ACDK"]
+bindLocal: [ $157392344::_str]=["Hallo ACDK"]
+bindLocal: [ $157392344::_str]=["Hallo ACDK"]
+bindLocal: [ $157392344::_other]=[NIL]
+bindLocal: [ $157392344::_other]=[NIL]
+</pre>
+<h2><a id="StdLisp_Test.misc">StdLisp_Test.misc</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.standard] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.standard
+[AUNIT:STRT][StdLisp_Test.misc] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.misc
+Load image: autoload.limg
+init finished
+</pre>
+<h2><a id="StdLisp_Test.lamda">StdLisp_Test.lamda</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.misc] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.misc
+[AUNIT:STRT][StdLisp_Test.lamda] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.lamda
+Load image: autoload.limg
+init finished
+Parsed code [(setf x (lambda (a b) (+ a b)))(x 3 4)] to [7]
+</pre>
+<h2><a id="StdLisp_Test.quote">StdLisp_Test.quote</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.lamda] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.lamda
+[AUNIT:STRT][StdLisp_Test.quote] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.quote
+Load image: autoload.limg
+init finished
+Parsed code [(setf x '(a (1 c)))] to [(a (1 c))]
+Parsed code ['a] to [a]
+</pre>
+<h2><a id="StdLisp_Test.comma">StdLisp_Test.comma</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.quote] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.quote
+[AUNIT:STRT][StdLisp_Test.comma] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.comma
+Load image: autoload.limg
+init finished
+Parsed code [`(a is ,a and b is ,b)] to [(a is 1 and b is (2 3))]
+Parsed code [(setf a 1)(setf b '(2 3))`(a is ,a and b is ,@b inserted)] to [(a is 1 and b is 2 3 inserted)]
+</pre>
+<h2><a id="StdLisp_Test.defmacro">StdLisp_Test.defmacro</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.comma] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.comma
+[AUNIT:STRT][StdLisp_Test.defmacro] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.defmacro
+Load image: autoload.limg
+init finished
+Parsed code [(trace 1)(defmacro doaddition (&rest doaddition_args)  `(+ ,@doaddition_args))] to [(defmacro doaddition (&rest doaddition_args) (backquote (+ (commaat doaddition_args))))]
+bindLocal: [ $1100125136::doaddition_args]=[(1 a 4)]
+bindLocal: [ $1100125136::doaddition_args]=[(1 a 4)]
+bindLocal: [ $173311744::a]=[3]
+bindLocal: [ $173311744::a]=[3]
+Parsed code [(setf a 3)(doaddition 1 a 4)] to [8]
+</pre>
+<h2><a id="StdLisp_Test.parseCode">StdLisp_Test.parseCode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.defmacro] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.defmacro
+[AUNIT:STRT][StdLisp_Test.parseCode] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.parseCode
+Load image: autoload.limg
+init finished
+Parsed code [(- 4 1)(+ 1 2)] to [3]
+</pre>
+<h2><a id="StdLisp_Test.defclass">StdLisp_Test.defclass</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][StdLisp_Test.parseCode] End Test
+[AUNIT:ENDT] End Test: StdLisp_Test.parseCode
+[AUNIT:STRT][StdLisp_Test.defclass] Start Test
+[AUNIT:STRT] Start Test: StdLisp_Test.defclass
+Load image: autoload.limg
+init finished
+Parsed code [(setf x 3)(defclass AMyClass () ((slot-a :initform x) slot-b))] to [LispClass AMyClass]
+Parsed class definition [(defclass BMyClass () ((slot-a :initarg :a :initform "Hallo")(slot-b :initform "ACDK" :allocation :class)))] to [LispClass BMyClass]
+Parsed code [(defclass CMyClass (BMyClass) ((slot-c :initarg :c)))] to [LispClass CMyClass]
+Parsed code [(setf obj (make-instance 'CMyClass))] to [LispObject]
+Parsed code [(setf obj (make-instance 'CMyClass :a "Hello" :c " Lisp"))] to [LispObject]
+Parsed code [(defun methodA (self arg1)(self 'slot-b (self 'slot-a))(self 'slot-b))] to [methodA]
+Parsed code [(defclass DMyClass (CMyClass)((methodA :initform methodA) (methodB :initform methodA)))] to [LispClass DMyClass]
+Parsed code [(setf obj (make-instance 'DMyClass :a "Hello" :c " Lisp"))(obj 'methodB " from Test")] to [Hello]
+Parsed code [(defclass EMyClass () (  (mBar :initarg :bar)  (foo :initform (lambda (self firstint secondint) (+ firstint secondint (self 'mBar))))))] to [LispClass EMyClass]
+Parsed code [((make-instance 'EMyClass :bar 3) 'foo 2 5)] to [10]
+</pre>
+</body></html>

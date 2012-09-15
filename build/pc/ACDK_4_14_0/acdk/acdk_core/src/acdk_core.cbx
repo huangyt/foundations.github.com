@@ -1,0 +1,2324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--C++BuilderX Project-->
+<project>
+  <property category="MinGW.dlltool" name="enabled" value="0"/>
+  <property category="MinGW.g++link" name="option.shared.enabled" value="1"/>
+  <property category="build.config" name="active" value="0"/>
+  <property category="build.config" name="count" value="1"/>
+  <property category="build.config" name="excludedefaultforzero" value="0"/>
+  <property category="build.config.0" name="builddir" value="Debug"/>
+  <property category="build.config.0" name="key" value="Debug_Build"/>
+  <property category="build.config.0" name="name" value="Debug Build"/>
+  <property category="build.config.0" name="settings.MinGW" value="default;debug"/>
+  <property category="build.config.0" name="settings.gnuc++" value="default;debug"/>
+  <property category="build.config.0" name="settings.intelwinia32" value="default;debug"/>
+  <property category="build.config.0" name="settings.mswin32" value="default;debug"/>
+  <property category="build.config.0" name="type" value="Toolset"/>
+  <property category="build.config.0" name="win32.builddir" value="../tobj/acdk_core/cbx"/>
+  <property category="build.config.1" name="key" value="Release_Build"/>
+  <property category="build.config.1" name="name" value="Release Build"/>
+  <property category="build.config.1" name="settings.MinGW" value="default;release"/>
+  <property category="build.config.1" name="settings.gnuc++" value="default;release"/>
+  <property category="build.config.1" name="settings.intelwinia32" value="default;release"/>
+  <property category="build.config.1" name="settings.mswin32" value="default;release"/>
+  <property category="build.config.1" name="type" value="Toolset"/>
+  <property category="build.config.1" name="win32.builddir" value="windows/Release_Build"/>
+  <property category="build.node" name="name" value="acdk_core"/>
+  <property category="build.node" name="type" value="dllproject"/>
+  <property category="build.platform" name="active" value="win32"/>
+  <property category="build.platform" name="linux.Debug_Build.toolset" value="gnuc++"/>
+  <property category="build.platform" name="linux.Release_Build.toolset" value="gnuc++"/>
+  <property category="build.platform" name="linux.default" value="gnuc++"/>
+  <property category="build.platform" name="linux.gnuc++.enabled" value="1"/>
+  <property category="build.platform" name="solaris.Debug_Build.toolset" value="gnuc++"/>
+  <property category="build.platform" name="solaris.Release_Build.toolset" value="gnuc++"/>
+  <property category="build.platform" name="solaris.default" value="gnuc++"/>
+  <property category="build.platform" name="solaris.gnuc++.enabled" value="1"/>
+  <property category="build.platform" name="win32.Debug_Build.toolset" value="win32b"/>
+  <property category="build.platform" name="win32.MinGW.enabled" value="1"/>
+  <property category="build.platform" name="win32.Release_Build.toolset" value="win32b"/>
+  <property category="build.platform" name="win32.default" value="win32b"/>
+  <property category="build.platform" name="win32.gnuc++.enabled" value="0"/>
+  <property category="build.platform" name="win32.intelwinia32.enabled" value="0"/>
+  <property category="build.platform" name="win32.mswin32.enabled" value="0"/>
+  <property category="build.platform" name="win32.win32b.enabled" value="1"/>
+  <property category="cbproject" name="lastnodeid" value="1220"/>
+  <property category="cbproject" name="version" value="X.1.0"/>
+  <property category="classbrowser" name="enable" value="1"/>
+  <property category="generalFormatting" name="continuationIndent" value="2"/>
+  <property category="generalFormatting" name="tabSize" value="2"/>
+  <property category="gnuc++.g++link" name="option.shared.enabled" value="1"/>
+  <property category="intelwinia32.Linker" name="option.DLL.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.I.arg.1" value="\usr\include"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.I.arg.2" value="\usr\include\g++-3"/>
+    <property category="linux.Debug_Build.gnuc++.g++compile" name="option.I.arg.3" value="../src"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.I.arg.4" value="../include"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.I.arg.5" value="../../include"/>
+
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.I.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.MD.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.O0.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.c.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.g.arg" value="2"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.g.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++compile" name="option.o.enabled" value="1"/>
+
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.Xlinker.arg" value=""/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.Xlinker.arg.merge" value="0"/>
+ <property category="linux.Debug_Build.gnuc++.g++link" name="option.L.arg.1" value="../../bin"/>
+
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.L.arg.merge" value="0"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.L.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.l.arg.1" value="pthread"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.l.arg.2" value="m"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.l.arg.3" value="dl"/>
+
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.l.arg.merge" value="0"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.l.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.o.arg.1" value="../../bin/libacdk_core.so"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.o.arg.merge" value="0"/>	
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.o.enabled" value="1"/>
+  <property category="linux.Debug_Build.gnuc++.g++link" name="option.shared.enabled" value="1"/>
+  
+  <property category="linux.gnuc++.Debug_Build" name="saved" value="1"/>
+  <property category="mswin32.Linker" name="option.DLL.enabled" value="1"/>
+  <property category="runtime" name="DefaultConfiguration" value="-1"/>
+  <property category="runtime.0" name="BuildTargetOnRun" value="com.borland.cbuilder.build.CBProjectBuilder$ProjectBuildAction;make"/>
+  <property category="runtime.0" name="ConfigurationName" value="debug"/>
+  <property category="runtime.0" name="RunnableType" value="com.borland.cbuilder.runtime.ExecutableRunner"/>
+  <property category="runtime.0" name="native.exec.path" value="../../bin/acdk_core.dll"/>
+  <property category="runtime.0" name="native.startdir.path" value=""/>
+  <property category="runtime.0" name="native.target.override" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.I.arg.1" value="\usr\include"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.I.arg.2" value="\usr\include\g++-3"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.I.arg.3" value="../src"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.I.arg.4" value="../include"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.I.arg.5" value="../../include"/>
+
+
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.I.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.MD.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.O0.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.c.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.g.arg" value="2"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.g.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++compile" name="option.o.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++link" name="option.o.enabled" value="1"/>
+  <property category="solaris.Debug_Build.gnuc++.g++link" name="option.shared.enabled" value="1"/>
+  <property category="solaris.gnuc++.Debug_Build" name="saved" value="1"/>
+  
+  <property category="unique" name="id" value="1220"/>
+  
+<!-- MinGW.Debug -->
+  <property category="win32.Debug_Build.MinGW.dlltool_def" name="option.export-all.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.dlltool_def" name="option.output-def.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.dlltool_lib" name="option.dllname.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.dlltool_lib" name="option.input-def.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.dlltool_lib" name="option.output-lib.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.B.arg.1" value="$(BCBX)\MinGW\bin"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.B.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.I.arg.1" value="$(BCBX)\mingw\include"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.I.arg.2" value="$(BCBX)\mingw\include\c++\3.2"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.I.arg.3" value="../src"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.I.arg.4" value="../include"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.I.arg.5" value="../../include"/>
+
+	<property category="win32.Debug_Build.MinGW.g++compile" name="option.I.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.I.arg.merge" value="0"/>
+  
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.MD.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.O0.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.c.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.g.arg" value="2"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.g.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.o.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.1" value="WIN32_THREADS"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.2" value="OS_WIN32"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.3" value="WIN32"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.4" value="_WINDOWS"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.5" value="_MT"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.5" value="_DEBUG"/>
+  <property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.enabled" value="1"/>
+<property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.6" value="OS_WIN32"/>
+<property category="win32.Debug_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.7" value="IN_ACDK_CORE_LIB"/>
+
+  
+  <property category="win32.Debug_Build.MinGW.g++link" name="option.B.arg.1" value="$(BCBX)\MinGW\bin"/>
+  <property category="win32.Debug_Build.MinGW.g++link" name="option.B.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++link" name="option.o.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.g++link" name="option.o.arg.1" value="../../bin/acdk_core.dll"/>
+  <property category="win32.Debug_Build.MinGW.g++link" name="option.shared.enabled" value="1"/>
+  <property category="win32.Debug_Build.MinGW.windres" name="option.o.enabled" value="1"/>
+<!-- MinGW.Release -->
+  <property category="win32.MinGW.Release_Build" name="saved" value="1"/>
+  <property category="win32.Release_Build.MinGW.dlltool_def" name="option.export-all.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.dlltool_def" name="option.output-def.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.dlltool_lib" name="option.dllname.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.dlltool_lib" name="option.input-def.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.dlltool_lib" name="option.output-lib.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.B.arg.1" value="$(BCBX)\MinGW\bin"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.B.enabled" value="1"/>
+  
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.I.arg.1" value="$(BCBX)\mingw\include"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.I.arg.2" value="$(BCBX)\mingw\include\c++\3.2"/>
+    <property category="win32.Release_Build.MinGW.g++compile" name="option.I.arg.3" value="../src"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.I.arg.4" value="../include"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.I.arg.5" value="../../include"/>
+
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.I.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.MD.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.c.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.o.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.1" value="WIN32_THREADS"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.2" value="OS_WIN32"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.3" value="WIN32"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.4" value="_WINDOWS"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.5" value="_MT"/>
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.5" value="NDEBUG"/>
+  
+  <property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.6" value="OS_WIN32"/>
+<property category="win32.Release_Build.MinGW.g++compile" name="option.D_MACRO_VALUE.arg.7" value="IN_ACDK_CORE_LIB"/>
+
+  
+  <property category="win32.Release_Build.MinGW.g++link" name="option.B.arg.1" value="$(BCBX)\MinGW\bin"/>
+  <property category="win32.Release_Build.MinGW.g++link" name="option.B.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++link" name="option.o.arg.1" value="../../bin/acdk_core.dll"/>
+  <property category="win32.Release_Build.MinGW.g++link" name="option.o.arg.merge" value="0"/>
+  <property category="win32.Release_Build.MinGW.g++link" name="option.o.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.g++link" name="option.shared.enabled" value="1"/>
+  <property category="win32.Release_Build.MinGW.windres" name="option.o.enabled" value="1"/>
+  
+  <property category="win32.Debug_Build.win32b.bcc32" name="container.SelectedWarnings.option.whid.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="container.SelectedWarnings.option.wlin.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="container.SelectedWarnings.option.wlvc.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="container.SelectedWarnings.option.wpar.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="container.SelectedWarnings.option.wrch.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.D.arg.1" value=";OS_WIN32;IN_ACDK_CORE_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_DEBUG;_USRDLL"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.D.arg.merge" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.D.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.I.arg.1" value="$(BCBX)\include"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.I.arg.2" value="."/>
+    <property category="win32.Debug_Build.win32b.bcc32" name="option.I.arg.3" value="../src"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.I.arg.4" value="../include"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.I.arg.5" value="../../include"/>
+
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.I.arg.merge" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.I.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.Od.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.V.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.a8.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.batchfilecompile.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.c.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.g.arg" value="250"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.g.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.i.arg" value="250"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.i.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.j.arg" value="25"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.j.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.k.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.o.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.r.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.responsefile.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.v.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.vi.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.bcc32" name="option.y.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.brcc32" name="option.F.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.D.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Enn.arg" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Enn.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Gn.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.H:xxxx.arg" value="0x00100000"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.H:xxxx.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Hc:xxxx.arg" value="0x00001000"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Hc:xxxx.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.L.arg.1" value="$(BCBX)\lib"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.L.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.S:xxxx.arg" value="0x00100000"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.S:xxxx.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Sc:xxxx.arg" value="0x00002000"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Sc:xxxx.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Ud.d.arg" value="1.0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Ud.d.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Vd.d.arg" value="0.0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.Vd.d.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.b:xxxx.arg" value="0x00400000"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.b:xxxx.enabled" value="0"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.responsefile.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.v.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="option.x.enabled" value="1"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="param.exefile.1" value="../../bin/acdk_core.dll"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="param.libfiles.1" value="cw32.lib"/>
+  <property category="win32.Debug_Build.win32b.ilink32" name="param.libfiles.2" value="import32.lib"/>
+   
+  
+  
+  <property category="win32.Release_Build.win32b.bcc32" name="container.SelectedWarnings.option.whid.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="container.SelectedWarnings.option.wlin.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="container.SelectedWarnings.option.wlvc.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="container.SelectedWarnings.option.wpar.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="container.SelectedWarnings.option.wrch.enabled" value="0"/>
+	<property category="win32.Release_Build.win32b.bcc32" name="option.D.arg.1" value=";OS_WIN32;IN_ACDK_CORE_LIB;WIN32;NDEBUG;_WINDOWS;_MT;_USRDLL"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.D.arg.merge" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.D.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.I.arg.1" value="$(BCBX)\include"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.I.arg.2" value="."/>
+    <property category="win32.Release_Build.win32b.bcc32" name="option.I.arg.3" value="../src"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.I.arg.4" value="../include"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.I.arg.5" value="../../include"/>
+
+  <property category="win32.Release_Build.win32b.bcc32" name="option.I.arg.merge" value="0"/>
+  
+  <property category="win32.Release_Build.win32b.bcc32" name="option.I.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.O2.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.V.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.a8.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.batchfilecompile.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.c.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.g.arg" value="250"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.g.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.i.arg" value="250"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.i.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.j.arg" value="25"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.j.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.k.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.o.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.r.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.responsefile.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.bcc32" name="option.vi.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.brcc32" name="option.F.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Enn.arg" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Enn.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Gn.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.H:xxxx.arg" value="0x00100000"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.H:xxxx.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Hc:xxxx.arg" value="0x00001000"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Hc:xxxx.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.L.arg.1" value="$(BCBX)\lib"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.L.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.S:xxxx.arg" value="0x00100000"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.S:xxxx.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Sc:xxxx.arg" value="0x00002000"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Sc:xxxx.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Ud.d.arg" value="1.0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Ud.d.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Vd.d.arg" value="0.0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.Vd.d.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.b:xxxx.arg" value="0x00400000"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.b:xxxx.enabled" value="0"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.responsefile.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="option.x.enabled" value="1"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="param.exefile.1" value="../../bin/acdk_core.dll"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="param.libfiles.1" value="cw32.lib"/>
+  <property category="win32.Release_Build.win32b.ilink32" name="param.libfiles.2" value="import32.lib"/>
+   
+  <property category="win32.win32b.Debug_Build" name="saved" value="1"/>
+  <property category="win32.win32b.Release_Build" name="saved" value="1"/>
+  <property category="win32b.bcc32" name="option.tWD.enabled" value="1"/>
+  <property category="win32b.bcc32" name="option.tWM.enabled" value="1"/>
+  <property category="win32b.bcc32" name="option.tWR.enabled" value="1"/>
+  <property category="win32b.ilink32" name="option.Gi.enabled" value="1"/>
+  <property category="win32b.ilink32" name="option.Tpd.enabled" value="1"/>
+  <property category="win32b.ilink32" name="option.Tpe.enabled" value="0"/>
+  <property category="win32b.ilink32" name="option.ap.enabled" value="0"/>
+  <property category="win32b.ilink32" name="option.aa.enabled" value="1"/>
+  <property category="win32b.ilink32" name="param.objfiles.1" value="c0d32.obj"/>
+  <property category="win32b.implib" name="enabled" value="0"/>
+  
+    <node name="acdk" type="Folder">
+  <property category="unique" name="id" value="1000"/>
+  <file path="acdk/acdk.h">
+  <property category="unique" name="id" value="1001"/>
+  </file>
+  <file path="acdk/AcdkCoreConfig.h">
+  <property category="unique" name="id" value="1002"/>
+  </file>
+  <file path="acdk/acdk_all.h">
+  <property category="unique" name="id" value="1003"/>
+  </file>
+  <file path="acdk/Compiler.h">
+  <property category="unique" name="id" value="1004"/>
+  </file>
+  <file path="acdk/Config.h">
+  <property category="unique" name="id" value="1005"/>
+  </file>
+  <file path="acdk/Platform.h">
+  <property category="unique" name="id" value="1006"/>
+  </file>
+  <file path="acdk/Version.h">
+  <property category="unique" name="id" value="1007"/>
+  </file>
+  <node name="lang" type="Folder">
+  <property category="unique" name="id" value="1008"/>
+  <file path="acdk/lang/ArithmeticException.h">
+  <property category="unique" name="id" value="1009"/>
+  </file>
+  <file path="acdk/lang/ArrayIndexOutOfBoundsException.h">
+  <property category="unique" name="id" value="1010"/>
+  </file>
+  <file path="acdk/lang/BasicArray.h">
+  <property category="unique" name="id" value="1011"/>
+  </file>
+  <file path="acdk/lang/BasicArrayInl.h">
+  <property category="unique" name="id" value="1012"/>
+  </file>
+  <file path="acdk/lang/Boolean.h">
+  <property category="unique" name="id" value="1013"/>
+  </file>
+  <file path="acdk/lang/Byte.h">
+  <property category="unique" name="id" value="1014"/>
+  </file>
+  <file path="acdk/lang/ByteBuffer.h">
+  <property category="unique" name="id" value="1015"/>
+  </file>
+  <file path="acdk/lang/Character.h">
+  <property category="unique" name="id" value="1016"/>
+  </file>
+  <file path="acdk/lang/Class.h">
+  <property category="unique" name="id" value="1017"/>
+  </file>
+  <file path="acdk/lang/ClassCastException.h">
+  <property category="unique" name="id" value="1018"/>
+  </file>
+  <file path="acdk/lang/ClassLoader.h">
+  <property category="unique" name="id" value="1019"/>
+  </file>
+  <file path="acdk/lang/ClassNotFoundException.h">
+  <property category="unique" name="id" value="1020"/>
+  </file>
+  <file path="acdk/lang/Cloneable.h">
+  <property category="unique" name="id" value="1021"/>
+  </file>
+  <file path="acdk/lang/CloneNotSupportedException.h">
+  <property category="unique" name="id" value="1022"/>
+  </file>
+  <file path="acdk/lang/CmdLineOption.h">
+  <property category="unique" name="id" value="1023"/>
+  </file>
+  <file path="acdk/lang/CmdLineParseException.h">
+  <property category="unique" name="id" value="1024"/>
+  </file>
+  <file path="acdk/lang/CmdLineParser.h">
+  <property category="unique" name="id" value="1025"/>
+  </file>
+  <file path="acdk/lang/Comparable.h">
+  <property category="unique" name="id" value="1026"/>
+  </file>
+  <file path="acdk/lang/DmiException.h">
+  <property category="unique" name="id" value="1027"/>
+  </file>
+  <file path="acdk/lang/DmiTypeConversionException.h">
+  <property category="unique" name="id" value="1028"/>
+  </file>
+  <file path="acdk/lang/Double.h">
+  <property category="unique" name="id" value="1029"/>
+  </file>
+  <file path="acdk/lang/Error.h">
+  <property category="unique" name="id" value="1030"/>
+  </file>
+  <file path="acdk/lang/Exception.h">
+  <property category="unique" name="id" value="1031"/>
+  </file>
+  <file path="acdk/lang/ExceptionDeclarations.h">
+  <property category="unique" name="id" value="1032"/>
+  </file>
+  <file path="acdk/lang/ExtObject.h">
+  <property category="unique" name="id" value="1033"/>
+  </file>
+  <file path="acdk/lang/Float.h">
+  <property category="unique" name="id" value="1034"/>
+  </file>
+  <file path="acdk/lang/IllegalAccessException.h">
+  <property category="unique" name="id" value="1035"/>
+  </file>
+  <file path="acdk/lang/IllegalArgumentException.h">
+  <property category="unique" name="id" value="1036"/>
+  </file>
+  <file path="acdk/lang/IllegalMonitorStateException.h">
+  <property category="unique" name="id" value="1037"/>
+  </file>
+  <file path="acdk/lang/IllegalStateException.h">
+  <property category="unique" name="id" value="1038"/>
+  </file>
+  <file path="acdk/lang/IllegalThreadStateException.h">
+  <property category="unique" name="id" value="1039"/>
+  </file>
+  <file path="acdk/lang/IndexOutOfBoundsException.h">
+  <property category="unique" name="id" value="1040"/>
+  </file>
+  <file path="acdk/lang/InOutPreDeclaration.h">
+  <property category="unique" name="id" value="1041"/>
+  </file>
+  <file path="acdk/lang/InstantiationException.h">
+  <property category="unique" name="id" value="1042"/>
+  </file>
+  <file path="acdk/lang/Integer.h">
+  <property category="unique" name="id" value="1043"/>
+  </file>
+  <file path="acdk/lang/InterfaceBase.h">
+  <property category="unique" name="id" value="1044"/>
+  </file>
+  <file path="acdk/lang/InterruptedException.h">
+  <property category="unique" name="id" value="1045"/>
+  </file>
+  <file path="acdk/lang/lang.h">
+  <property category="unique" name="id" value="1046"/>
+  </file>
+  <file path="acdk/lang/lang_all.h">
+  <property category="unique" name="id" value="1047"/>
+  </file>
+  <file path="acdk/lang/Long.h">
+  <property category="unique" name="id" value="1048"/>
+  </file>
+  <file path="acdk/lang/Math.h">
+  <property category="unique" name="id" value="1049"/>
+  </file>
+  <file path="acdk/lang/NoSuchDmiElementException.h">
+  <property category="unique" name="id" value="1050"/>
+  </file>
+  <file path="acdk/lang/NoSuchElementException.h">
+  <property category="unique" name="id" value="1051"/>
+  </file>
+  <file path="acdk/lang/NoSuchFieldException.h">
+  <property category="unique" name="id" value="1052"/>
+  </file>
+  <file path="acdk/lang/NoSuchMethodException.h">
+  <property category="unique" name="id" value="1053"/>
+  </file>
+  <file path="acdk/lang/NullPointerException.h">
+  <property category="unique" name="id" value="1054"/>
+  </file>
+  <file path="acdk/lang/Number.h">
+  <property category="unique" name="id" value="1055"/>
+  </file>
+  <file path="acdk/lang/NumberFormatException.h">
+  <property category="unique" name="id" value="1056"/>
+  </file>
+  <file path="acdk/lang/Object.h">
+  <property category="unique" name="id" value="1057"/>
+  </file>
+  <file path="acdk/lang/ObjectArrayBase.h">
+  <property category="unique" name="id" value="1058"/>
+  </file>
+  <file path="acdk/lang/ObjectArrayBaseInl.h">
+  <property category="unique" name="id" value="1059"/>
+  </file>
+  <file path="acdk/lang/ObjectArrayImpl.h">
+  <property category="unique" name="id" value="1060"/>
+  </file>
+  <file path="acdk/lang/ObjectBase.h">
+  <property category="unique" name="id" value="1061"/>
+  </file>
+  <file path="acdk/lang/ObjectDebug.h">
+  <property category="unique" name="id" value="1062"/>
+  </file>
+  <file path="acdk/lang/ObjectImpl.h">
+  <property category="unique" name="id" value="1063"/>
+  </file>
+  <file path="acdk/lang/ObjectInline.h">
+  <property category="unique" name="id" value="1064"/>
+  </file>
+  <file path="acdk/lang/OutOfMemoryError.h">
+  <property category="unique" name="id" value="1065"/>
+  </file>
+  <file path="acdk/lang/Package.h">
+  <property category="unique" name="id" value="1066"/>
+  </file>
+  <file path="acdk/lang/ParamsMismatchException.h">
+  <property category="unique" name="id" value="1067"/>
+  </file>
+  <file path="acdk/lang/Process.h">
+  <property category="unique" name="id" value="1068"/>
+  </file>
+  <file path="acdk/lang/Runnable.h">
+  <property category="unique" name="id" value="1069"/>
+  </file>
+  <file path="acdk/lang/Runtime.h">
+  <property category="unique" name="id" value="1070"/>
+  </file>
+  <file path="acdk/lang/RuntimeException.h">
+  <property category="unique" name="id" value="1071"/>
+  </file>
+  <file path="acdk/lang/SharedLibrary.h">
+  <property category="unique" name="id" value="1072"/>
+  </file>
+  <file path="acdk/lang/Short.h">
+  <property category="unique" name="id" value="1073"/>
+  </file>
+  <file path="acdk/lang/StackFrame.h">
+  <property category="unique" name="id" value="1074"/>
+  </file>
+  <file path="acdk/lang/StackOverflowError.h">
+  <property category="unique" name="id" value="1075"/>
+  </file>
+  <file path="acdk/lang/String.h">
+  <property category="unique" name="id" value="1076"/>
+  </file>
+  <file path="acdk/lang/StringBuffer.h">
+  <property category="unique" name="id" value="1077"/>
+  </file>
+  <file path="acdk/lang/StringConcenator.h">
+  <property category="unique" name="id" value="1078"/>
+  </file>
+  <file path="acdk/lang/StringIndexOutOfBoundsException.h">
+  <property category="unique" name="id" value="1079"/>
+  </file>
+  <file path="acdk/lang/StringInline.h">
+  <property category="unique" name="id" value="1080"/>
+  </file>
+  <file path="acdk/lang/StringInternals.h">
+  <property category="unique" name="id" value="1081"/>
+  </file>
+  <file path="acdk/lang/StringUtf8Utils.h">
+  <property category="unique" name="id" value="1082"/>
+  </file>
+  <file path="acdk/lang/System.h">
+  <property category="unique" name="id" value="1083"/>
+  </file>
+  <file path="acdk/lang/SystemError.h">
+  <property category="unique" name="id" value="1084"/>
+  </file>
+  <file path="acdk/lang/SystemInline.h">
+  <property category="unique" name="id" value="1085"/>
+  </file>
+  <file path="acdk/lang/SystemIntern.h">
+  <property category="unique" name="id" value="1086"/>
+  </file>
+  <file path="acdk/lang/Thread.h">
+  <property category="unique" name="id" value="1087"/>
+  </file>
+  <file path="acdk/lang/ThreadDeath.h">
+  <property category="unique" name="id" value="1088"/>
+  </file>
+  <file path="acdk/lang/ThreadGroup.h">
+  <property category="unique" name="id" value="1089"/>
+  </file>
+  <file path="acdk/lang/ThreadImpl.h">
+  <property category="unique" name="id" value="1090"/>
+  </file>
+  <file path="acdk/lang/ThreadLocal.h">
+  <property category="unique" name="id" value="1091"/>
+  </file>
+  <file path="acdk/lang/ThreadLocalImpl.h">
+  <property category="unique" name="id" value="1092"/>
+  </file>
+  <file path="acdk/lang/Throwable.h">
+  <property category="unique" name="id" value="1093"/>
+  </file>
+  <file path="acdk/lang/UnicodeCharacter.h">
+  <property category="unique" name="id" value="1094"/>
+  </file>
+  <file path="acdk/lang/UnsupportedOperationException.h">
+  <property category="unique" name="id" value="1095"/>
+  </file>
+  <file path="acdk/lang/Void.h">
+  <property category="unique" name="id" value="1096"/>
+  </file>
+  <file path="acdk/lang/acdk_lang_Package.cpp">
+  <property category="unique" name="id" value="1097"/>
+  </file>
+  <file path="acdk/lang/BasicArray.cpp">
+  <property category="unique" name="id" value="1098"/>
+  </file>
+  <file path="acdk/lang/Boolean.cpp">
+  <property category="unique" name="id" value="1099"/>
+  </file>
+  <file path="acdk/lang/Byte.cpp">
+  <property category="unique" name="id" value="1100"/>
+  </file>
+  <file path="acdk/lang/ByteBuffer.cpp">
+  <property category="unique" name="id" value="1101"/>
+  </file>
+  <file path="acdk/lang/Character.cpp">
+  <property category="unique" name="id" value="1102"/>
+  </file>
+  <file path="acdk/lang/Class.cpp">
+  <property category="unique" name="id" value="1103"/>
+  </file>
+  <file path="acdk/lang/ClassCastException.cpp">
+  <property category="unique" name="id" value="1104"/>
+  </file>
+  <file path="acdk/lang/ClassLoader.cpp">
+  <property category="unique" name="id" value="1105"/>
+  </file>
+  <file path="acdk/lang/CmdLineOption.cpp">
+  <property category="unique" name="id" value="1106"/>
+  </file>
+  <file path="acdk/lang/CmdLineParser.cpp">
+  <property category="unique" name="id" value="1107"/>
+  </file>
+  <file path="acdk/lang/Double.cpp">
+  <property category="unique" name="id" value="1108"/>
+  </file>
+  <file path="acdk/lang/Float.cpp">
+  <property category="unique" name="id" value="1109"/>
+  </file>
+  <file path="acdk/lang/Integer.cpp">
+  <property category="unique" name="id" value="1110"/>
+  </file>
+  <file path="acdk/lang/lang_metainf_base.cpp">
+  <property category="unique" name="id" value="1111"/>
+  </file>
+  <file path="acdk/lang/Long.cpp">
+  <property category="unique" name="id" value="1112"/>
+  </file>
+  <file path="acdk/lang/Math.cpp">
+  <property category="unique" name="id" value="1113"/>
+  </file>
+  <file path="acdk/lang/Number.cpp">
+  <property category="unique" name="id" value="1114"/>
+  </file>
+  <file path="acdk/lang/Object.cpp">
+  <property category="unique" name="id" value="1115"/>
+  </file>
+  <file path="acdk/lang/ObjectArrayBase.cpp">
+  <property category="unique" name="id" value="1116"/>
+  </file>
+  <file path="acdk/lang/ObjectArrayImpl.cpp">
+  <property category="unique" name="id" value="1117"/>
+  </file>
+  <file path="acdk/lang/ObjectDebug.cpp">
+  <property category="unique" name="id" value="1118"/>
+  </file>
+  <file path="acdk/lang/Package.cpp">
+  <property category="unique" name="id" value="1119"/>
+  </file>
+  <file path="acdk/lang/Process.cpp">
+  <property category="unique" name="id" value="1120"/>
+  </file>
+  <file path="acdk/lang/Runtime.cpp">
+  <property category="unique" name="id" value="1121"/>
+  </file>
+  <file path="acdk/lang/SharedLibrary.cpp">
+  <property category="unique" name="id" value="1122"/>
+  </file>
+  <file path="acdk/lang/Short.cpp">
+  <property category="unique" name="id" value="1123"/>
+  </file>
+  <file path="acdk/lang/StackFrame.cpp">
+  <property category="unique" name="id" value="1124"/>
+  </file>
+  <file path="acdk/lang/String.cpp">
+  <property category="unique" name="id" value="1125"/>
+  </file>
+  <file path="acdk/lang/StringBuffer.cpp">
+  <property category="unique" name="id" value="1126"/>
+  </file>
+  <file path="acdk/lang/StringOld.cpp">
+  <property category="unique" name="id" value="1127"/>
+  </file>
+  <file path="acdk/lang/StringUtf8Utils.cpp">
+  <property category="unique" name="id" value="1128"/>
+  </file>
+  <file path="acdk/lang/System.cpp">
+  <property category="unique" name="id" value="1129"/>
+  </file>
+  <file path="acdk/lang/SystemError.cpp">
+  <property category="unique" name="id" value="1130"/>
+  </file>
+  <file path="acdk/lang/Thread.cpp">
+  <property category="unique" name="id" value="1131"/>
+  </file>
+  <file path="acdk/lang/ThreadGroup.cpp">
+  <property category="unique" name="id" value="1132"/>
+  </file>
+  <file path="acdk/lang/Throwable.cpp">
+  <property category="unique" name="id" value="1133"/>
+  </file>
+  <file path="acdk/lang/UnicodeCharacter.cpp">
+  <property category="unique" name="id" value="1134"/>
+  </file>
+  <file path="acdk/lang/Void.cpp">
+  <property category="unique" name="id" value="1135"/>
+  </file>
+  <node name="dmi" type="Folder">
+  <property category="unique" name="id" value="1136"/>
+  <file path="acdk/lang/dmi/AcdkDmiClient.h">
+  <property category="unique" name="id" value="1137"/>
+  </file>
+  <file path="acdk/lang/dmi/AcdkStdWeakTypeDmiClient.h">
+  <property category="unique" name="id" value="1138"/>
+  </file>
+  <file path="acdk/lang/dmi/ClazzAttributesRes.h">
+  <property category="unique" name="id" value="1139"/>
+  </file>
+  <file path="acdk/lang/dmi/ClazzInfo.h">
+  <property category="unique" name="id" value="1140"/>
+  </file>
+  <file path="acdk/lang/dmi/ClazzInfoInternals.h">
+  <property category="unique" name="id" value="1141"/>
+  </file>
+  <file path="acdk/lang/dmi/dmi.h">
+  <property category="unique" name="id" value="1142"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiClient.h">
+  <property category="unique" name="id" value="1143"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiDelegate.h">
+  <property category="unique" name="id" value="1144"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiNamedArg.h">
+  <property category="unique" name="id" value="1145"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiObject.h">
+  <property category="unique" name="id" value="1146"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiObjectArray.h">
+  <property category="unique" name="id" value="1147"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiProxy.h">
+  <property category="unique" name="id" value="1148"/>
+  </file>
+  <file path="acdk/lang/dmi/Marshaler.h">
+  <property category="unique" name="id" value="1149"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaAttribute.h">
+  <property category="unique" name="id" value="1150"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaInfo.h">
+  <property category="unique" name="id" value="1151"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaInfoChildsArray.h">
+  <property category="unique" name="id" value="1152"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaInfoFlags.h">
+  <property category="unique" name="id" value="1153"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaObject.h">
+  <property category="unique" name="id" value="1154"/>
+  </file>
+  <file path="acdk/lang/dmi/NamedArgs.h">
+  <property category="unique" name="id" value="1155"/>
+  </file>
+  <file path="acdk/lang/dmi/ScriptInterpreter.h">
+  <property category="unique" name="id" value="1156"/>
+  </file>
+  <file path="acdk/lang/dmi/ScriptVar.h">
+  <property category="unique" name="id" value="1157"/>
+  </file>
+  <file path="acdk/lang/dmi/ScriptVarInl.h">
+  <property category="unique" name="id" value="1158"/>
+  </file>
+  <file path="acdk/lang/dmi/StdDispatch.h">
+  <property category="unique" name="id" value="1159"/>
+  </file>
+  <file path="acdk/lang/dmi/SysFields.h">
+  <property category="unique" name="id" value="1160"/>
+  </file>
+  <file path="acdk/lang/dmi/AcdkDmiClient.cpp">
+  <property category="unique" name="id" value="1161"/>
+  </file>
+  <file path="acdk/lang/dmi/AcdkStdWeakTypeDmiClient.cpp">
+  <property category="unique" name="id" value="1162"/>
+  </file>
+  <file path="acdk/lang/dmi/ClazzInfo.cpp">
+  <property category="unique" name="id" value="1163"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiClient.cpp">
+  <property category="unique" name="id" value="1164"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiDelegate.cpp">
+  <property category="unique" name="id" value="1165"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiObject.cpp">
+  <property category="unique" name="id" value="1166"/>
+  </file>
+  <file path="acdk/lang/dmi/DmiProxy.cpp">
+  <property category="unique" name="id" value="1167"/>
+  </file>
+  <file path="acdk/lang/dmi/dmi_metainf_base.cpp">
+  <property category="unique" name="id" value="1168"/>
+  </file>
+  <file path="acdk/lang/dmi/Marshaler.cpp">
+  <property category="unique" name="id" value="1169"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaAttribute.cpp">
+  <property category="unique" name="id" value="1170"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaInfo.cpp">
+  <property category="unique" name="id" value="1171"/>
+  </file>
+  <file path="acdk/lang/dmi/MetaObject.cpp">
+  <property category="unique" name="id" value="1172"/>
+  </file>
+  <file path="acdk/lang/dmi/ScriptVar.cpp">
+  <property category="unique" name="id" value="1173"/>
+  </file>
+  <file path="acdk/lang/dmi/ScriptVar2.cpp">
+  <property category="unique" name="id" value="1174"/>
+  </file>
+  <file path="acdk/lang/dmi/StdDispatch.cpp">
+  <property category="unique" name="id" value="1175"/>
+  </file>
+  <file path="acdk/lang/dmi/SysFields.cpp">
+  <property category="unique" name="id" value="1176"/>
+  </file>
+  </node>
+  <node name="sys" type="Folder">
+  <property category="unique" name="id" value="1177"/>
+  <file path="acdk/lang/sys/Allocator.h">
+  <property category="unique" name="id" value="1178"/>
+  </file>
+  <file path="acdk/lang/sys/AllocatorInternals.h">
+  <property category="unique" name="id" value="1179"/>
+  </file>
+  <file path="acdk/lang/sys/BackTrace.h">
+  <property category="unique" name="id" value="1180"/>
+  </file>
+  <file path="acdk/lang/sys/BitmapPagedAllocator.h">
+  <property category="unique" name="id" value="1181"/>
+  </file>
+  <file path="acdk/lang/sys/BoehmGC.h">
+  <property category="unique" name="id" value="1182"/>
+  </file>
+  <file path="acdk/lang/sys/BoehmGCAllocator.h">
+  <property category="unique" name="id" value="1183"/>
+  </file>
+  <file path="acdk/lang/sys/ControlPushPopOnStack.h">
+  <property category="unique" name="id" value="1184"/>
+  </file>
+  <file path="acdk/lang/sys/core_alloca.h">
+  <property category="unique" name="id" value="1185"/>
+  </file>
+  <file path="acdk/lang/sys/core_atomicop.h">
+  <property category="unique" name="id" value="1186"/>
+  </file>
+  <file path="acdk/lang/sys/core_atomicop_linux.h">
+  <property category="unique" name="id" value="1187"/>
+  </file>
+  <file path="acdk/lang/sys/core_condition.h">
+  <property category="unique" name="id" value="1188"/>
+  </file>
+  <file path="acdk/lang/sys/core_fastmutex.h">
+  <property category="unique" name="id" value="1189"/>
+  </file>
+  <file path="acdk/lang/sys/core_guard.h">
+  <property category="unique" name="id" value="1190"/>
+  </file>
+  <file path="acdk/lang/sys/core_hashmap.h">
+  <property category="unique" name="id" value="1191"/>
+  </file>
+  <file path="acdk/lang/sys/core_memcheck.h">
+  <property category="unique" name="id" value="1192"/>
+  </file>
+  <file path="acdk/lang/sys/core_memtrace.h">
+  <property category="unique" name="id" value="1193"/>
+  </file>
+  <file path="acdk/lang/sys/core_mutex.h">
+  <property category="unique" name="id" value="1194"/>
+  </file>
+  <file path="acdk/lang/sys/core_pair.h">
+  <property category="unique" name="id" value="1195"/>
+  </file>
+  <file path="acdk/lang/sys/core_prim.h">
+  <property category="unique" name="id" value="1196"/>
+  </file>
+  <file path="acdk/lang/sys/core_ptherror.h">
+  <property category="unique" name="id" value="1197"/>
+  </file>
+  <file path="acdk/lang/sys/core_recursivemutex.h">
+  <property category="unique" name="id" value="1198"/>
+  </file>
+  <file path="acdk/lang/sys/core_semaphore.h">
+  <property category="unique" name="id" value="1199"/>
+  </file>
+  <file path="acdk/lang/sys/core_sharedlib.h">
+  <property category="unique" name="id" value="1200"/>
+  </file>
+  <file path="acdk/lang/sys/core_smartptr.h">
+  <property category="unique" name="id" value="1201"/>
+  </file>
+  <file path="acdk/lang/sys/core_specific.h">
+  <property category="unique" name="id" value="1202"/>
+  </file>
+  <file path="acdk/lang/sys/core_static_vector.h">
+  <property category="unique" name="id" value="1203"/>
+  </file>
+  <file path="acdk/lang/sys/core_string.h">
+  <property category="unique" name="id" value="1204"/>
+  </file>
+  <file path="acdk/lang/sys/core_substring.h">
+  <property category="unique" name="id" value="1205"/>
+  </file>
+  <file path="acdk/lang/sys/core_syslocal.h">
+  <property category="unique" name="id" value="1206"/>
+  </file>
+  <file path="acdk/lang/sys/core_system.h">
+  <property category="unique" name="id" value="1207"/>
+  </file>
+  <file path="acdk/lang/sys/core_sys_static_mutex.h">
+  <property category="unique" name="id" value="1208"/>
+  </file>
+  <file path="acdk/lang/sys/core_threadsys.h">
+  <property category="unique" name="id" value="1209"/>
+  </file>
+  <file path="acdk/lang/sys/core_thread_id.h">
+  <property category="unique" name="id" value="1210"/>
+  </file>
+  <file path="acdk/lang/sys/core_tick.h">
+  <property category="unique" name="id" value="1211"/>
+  </file>
+  <file path="acdk/lang/sys/core_value_scope.h">
+  <property category="unique" name="id" value="1212"/>
+  </file>
+  <file path="acdk/lang/sys/core_vector.h">
+  <property category="unique" name="id" value="1213"/>
+  </file>
+  <file path="acdk/lang/sys/core_winimage.h">
+  <property category="unique" name="id" value="1214"/>
+  </file>
+  <file path="acdk/lang/sys/default_vc_warnings.h">
+  <property category="unique" name="id" value="1215"/>
+  </file>
+  <file path="acdk/lang/sys/disable_vc_warnings.h">
+  <property category="unique" name="id" value="1216"/>
+  </file>
+  <file path="acdk/lang/sys/Garbage_Heap.h">
+  <property category="unique" name="id" value="1217"/>
+  </file>
+  <file path="acdk/lang/sys/HeapFrame.h">
+  <property category="unique" name="id" value="1218"/>
+  </file>
+  <file path="acdk/lang/sys/LocalGcHeap.h">
+  <property category="unique" name="id" value="1219"/>
+  </file>
+  <file path="acdk/lang/sys/ObjectHeap.h">
+  <property category="unique" name="id" value="1220"/>
+  </file>
+  <file path="acdk/lang/sys/ObjectLockPool.h">
+  <property category="unique" name="id" value="1221"/>
+  </file>
+  <file path="acdk/lang/sys/PagedAllocator.h">
+  <property category="unique" name="id" value="1222"/>
+  </file>
+  <file path="acdk/lang/sys/PagedHeap.h">
+  <property category="unique" name="id" value="1223"/>
+  </file>
+  <file path="acdk/lang/sys/RC_GC_Heap.h">
+  <property category="unique" name="id" value="1224"/>
+  </file>
+  <file path="acdk/lang/sys/RC_Heap.h">
+  <property category="unique" name="id" value="1225"/>
+  </file>
+  <file path="acdk/lang/sys/RefHeap.h">
+  <property category="unique" name="id" value="1226"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder.h">
+  <property category="unique" name="id" value="1227"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder1.h">
+  <property category="unique" name="id" value="1228"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder2.h">
+  <property category="unique" name="id" value="1229"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder3.h">
+  <property category="unique" name="id" value="1230"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder3Inl.h">
+  <property category="unique" name="id" value="1231"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder4.h">
+  <property category="unique" name="id" value="1232"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolder5.h">
+  <property category="unique" name="id" value="1233"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolderExt.h">
+  <property category="unique" name="id" value="1234"/>
+  </file>
+  <file path="acdk/lang/sys/RefHolderX.h">
+  <property category="unique" name="id" value="1235"/>
+  </file>
+  <file path="acdk/lang/sys/StackAllocator.h">
+  <property category="unique" name="id" value="1236"/>
+  </file>
+  <file path="acdk/lang/sys/StackHeap.h">
+  <property category="unique" name="id" value="1237"/>
+  </file>
+  <file path="acdk/lang/sys/StaticObjectWrapper.h">
+  <property category="unique" name="id" value="1238"/>
+  </file>
+  <file path="acdk/lang/sys/sys.h">
+  <property category="unique" name="id" value="1239"/>
+  </file>
+  <file path="acdk/lang/sys/SysRefHolder.h">
+  <property category="unique" name="id" value="1240"/>
+  </file>
+  <file path="acdk/lang/sys/TracedRawAllocator.h">
+  <property category="unique" name="id" value="1241"/>
+  </file>
+  <file path="acdk/lang/sys/Allocator.cpp">
+  <property category="unique" name="id" value="1242"/>
+  </file>
+  <file path="acdk/lang/sys/BackTrace.cpp">
+  <property category="unique" name="id" value="1243"/>
+  </file>
+  <file path="acdk/lang/sys/BitmapPagedAllocator.cpp">
+  <property category="unique" name="id" value="1244"/>
+  </file>
+  <file path="acdk/lang/sys/BoehmGC.cpp">
+  <property category="unique" name="id" value="1245"/>
+  </file>
+  <file path="acdk/lang/sys/BoehmGCAllocator.cpp">
+  <property category="unique" name="id" value="1246"/>
+  </file>
+  <file path="acdk/lang/sys/core_condition.cpp">
+  <property category="unique" name="id" value="1247"/>
+  </file>
+  <file path="acdk/lang/sys/core_fastmutex.cpp">
+  <property category="unique" name="id" value="1248"/>
+  </file>
+  <file path="acdk/lang/sys/core_memcheck.cpp">
+  <property category="unique" name="id" value="1249"/>
+  </file>
+  <file path="acdk/lang/sys/core_memtrace.cpp">
+  <property category="unique" name="id" value="1250"/>
+  </file>
+  <file path="acdk/lang/sys/core_mutex.cpp">
+  <property category="unique" name="id" value="1251"/>
+  </file>
+  <file path="acdk/lang/sys/core_recursivemutex.cpp">
+  <property category="unique" name="id" value="1252"/>
+  </file>
+  <file path="acdk/lang/sys/core_semaphore.cpp">
+  <property category="unique" name="id" value="1253"/>
+  </file>
+  <file path="acdk/lang/sys/core_specific.cpp">
+  <property category="unique" name="id" value="1254"/>
+  </file>
+  <file path="acdk/lang/sys/core_system.cpp">
+  <property category="unique" name="id" value="1255"/>
+  </file>
+  <file path="acdk/lang/sys/core_winimage.cpp">
+  <property category="unique" name="id" value="1256"/>
+  </file>
+  <file path="acdk/lang/sys/Garbage_Heap.cpp">
+  <property category="unique" name="id" value="1257"/>
+  </file>
+  <file path="acdk/lang/sys/LocalGcHeap.cpp">
+  <property category="unique" name="id" value="1258"/>
+  </file>
+  <file path="acdk/lang/sys/MarkSweepGc.cpp">
+  <property category="unique" name="id" value="1259"/>
+  </file>
+  <file path="acdk/lang/sys/ObjectHeap.cpp">
+  <property category="unique" name="id" value="1260"/>
+  </file>
+  <file path="acdk/lang/sys/ObjectLockPool.cpp">
+  <property category="unique" name="id" value="1261"/>
+  </file>
+  <file path="acdk/lang/sys/PagedAllocator.cpp">
+  <property category="unique" name="id" value="1262"/>
+  </file>
+  <file path="acdk/lang/sys/PagedHeap.cpp">
+  <property category="unique" name="id" value="1263"/>
+  </file>
+  <file path="acdk/lang/sys/RC_GC_Heap.cpp">
+  <property category="unique" name="id" value="1264"/>
+  </file>
+  <file path="acdk/lang/sys/RC_Heap.cpp">
+  <property category="unique" name="id" value="1265"/>
+  </file>
+  <file path="acdk/lang/sys/StackAllocator.cpp">
+  <property category="unique" name="id" value="1266"/>
+  </file>
+  <file path="acdk/lang/sys/StackHeap.cpp">
+  <property category="unique" name="id" value="1267"/>
+  </file>
+  <file path="acdk/lang/sys/TracedRawAllocator.cpp">
+  <property category="unique" name="id" value="1268"/>
+  </file>
+  </node>
+  <node name="ref" type="Folder">
+  <property category="unique" name="id" value="1269"/>
+  <file path="acdk/lang/ref/NotifyObjectEvent.h">
+  <property category="unique" name="id" value="1270"/>
+  </file>
+  <file path="acdk/lang/ref/PhantomReference.h">
+  <property category="unique" name="id" value="1271"/>
+  </file>
+  <file path="acdk/lang/ref/ref.h">
+  <property category="unique" name="id" value="1272"/>
+  </file>
+  <file path="acdk/lang/ref/Reference.h">
+  <property category="unique" name="id" value="1273"/>
+  </file>
+  <file path="acdk/lang/ref/ReferenceQueue.h">
+  <property category="unique" name="id" value="1274"/>
+  </file>
+  <file path="acdk/lang/ref/SharedOwning.h">
+  <property category="unique" name="id" value="1275"/>
+  </file>
+  <file path="acdk/lang/ref/SoftReference.h">
+  <property category="unique" name="id" value="1276"/>
+  </file>
+  <file path="acdk/lang/ref/WeakReference.h">
+  <property category="unique" name="id" value="1277"/>
+  </file>
+  <file path="acdk/lang/ref/acdk_lang_ref_Package.cpp">
+  <property category="unique" name="id" value="1278"/>
+  </file>
+  <file path="acdk/lang/ref/NotifyObjectEvent.cpp">
+  <property category="unique" name="id" value="1279"/>
+  </file>
+  <file path="acdk/lang/ref/Reference.cpp">
+  <property category="unique" name="id" value="1280"/>
+  </file>
+  <file path="acdk/lang/ref/ReferenceQueue.cpp">
+  <property category="unique" name="id" value="1281"/>
+  </file>
+  <file path="acdk/lang/ref/ref_metainf_base.cpp">
+  <property category="unique" name="id" value="1282"/>
+  </file>
+  <file path="acdk/lang/ref/SharedOwning.cpp">
+  <property category="unique" name="id" value="1283"/>
+  </file>
+  </node>
+  <node name="reflect" type="Folder">
+  <property category="unique" name="id" value="1284"/>
+  <file path="acdk/lang/reflect/AccessibleObject.h">
+  <property category="unique" name="id" value="1285"/>
+  </file>
+  <file path="acdk/lang/reflect/Constructor.h">
+  <property category="unique" name="id" value="1286"/>
+  </file>
+  <file path="acdk/lang/reflect/Enumeration.h">
+  <property category="unique" name="id" value="1287"/>
+  </file>
+  <file path="acdk/lang/reflect/Field.h">
+  <property category="unique" name="id" value="1288"/>
+  </file>
+  <file path="acdk/lang/reflect/InvocationTargetException.h">
+  <property category="unique" name="id" value="1289"/>
+  </file>
+  <file path="acdk/lang/reflect/Member.h">
+  <property category="unique" name="id" value="1290"/>
+  </file>
+  <file path="acdk/lang/reflect/Method.h">
+  <property category="unique" name="id" value="1291"/>
+  </file>
+  <file path="acdk/lang/reflect/Modifier.h">
+  <property category="unique" name="id" value="1292"/>
+  </file>
+  <file path="acdk/lang/reflect/Parameter.h">
+  <property category="unique" name="id" value="1293"/>
+  </file>
+  <file path="acdk/lang/reflect/reflect.h">
+  <property category="unique" name="id" value="1294"/>
+  </file>
+  <file path="acdk/lang/reflect/Unit.h">
+  <property category="unique" name="id" value="1295"/>
+  </file>
+  <file path="acdk/lang/reflect/Constructor.cpp">
+  <property category="unique" name="id" value="1296"/>
+  </file>
+  <file path="acdk/lang/reflect/Enumeration.cpp">
+  <property category="unique" name="id" value="1297"/>
+  </file>
+  <file path="acdk/lang/reflect/Field.cpp">
+  <property category="unique" name="id" value="1298"/>
+  </file>
+  <file path="acdk/lang/reflect/Method.cpp">
+  <property category="unique" name="id" value="1299"/>
+  </file>
+  <file path="acdk/lang/reflect/Modifier.cpp">
+  <property category="unique" name="id" value="1300"/>
+  </file>
+  <file path="acdk/lang/reflect/Parameter.cpp">
+  <property category="unique" name="id" value="1301"/>
+  </file>
+  <file path="acdk/lang/reflect/reflect_metainf_base.cpp">
+  <property category="unique" name="id" value="1302"/>
+  </file>
+  <file path="acdk/lang/reflect/Unit.cpp">
+  <property category="unique" name="id" value="1303"/>
+  </file>
+  </node>
+  </node>
+  <node name="io" type="Folder">
+  <property category="unique" name="id" value="1304"/>
+  <file path="acdk/io/AbstractCharFilterReader.h">
+  <property category="unique" name="id" value="1305"/>
+  </file>
+  <file path="acdk/io/AbstractCharFilterWriter.h">
+  <property category="unique" name="id" value="1306"/>
+  </file>
+  <file path="acdk/io/AbstractCharReader.h">
+  <property category="unique" name="id" value="1307"/>
+  </file>
+  <file path="acdk/io/AbstractCharWriter.h">
+  <property category="unique" name="id" value="1308"/>
+  </file>
+  <file path="acdk/io/AbstractFilterReader.h">
+  <property category="unique" name="id" value="1309"/>
+  </file>
+  <file path="acdk/io/AbstractFilterWriter.h">
+  <property category="unique" name="id" value="1310"/>
+  </file>
+  <file path="acdk/io/AbstractObjectReader.h">
+  <property category="unique" name="id" value="1311"/>
+  </file>
+  <file path="acdk/io/AbstractObjectWriter.h">
+  <property category="unique" name="id" value="1312"/>
+  </file>
+  <file path="acdk/io/AbstractReader.h">
+  <property category="unique" name="id" value="1313"/>
+  </file>
+  <file path="acdk/io/AbstractStorageReader.h">
+  <property category="unique" name="id" value="1314"/>
+  </file>
+  <file path="acdk/io/AbstractStorageWriter.h">
+  <property category="unique" name="id" value="1315"/>
+  </file>
+  <file path="acdk/io/AbstractWriter.h">
+  <property category="unique" name="id" value="1316"/>
+  </file>
+  <file path="acdk/io/ASCIIDataReader.h">
+  <property category="unique" name="id" value="1317"/>
+  </file>
+  <file path="acdk/io/ASCIIDataWriter.h">
+  <property category="unique" name="id" value="1318"/>
+  </file>
+  <file path="acdk/io/BinaryDataReader.h">
+  <property category="unique" name="id" value="1319"/>
+  </file>
+  <file path="acdk/io/BinaryDataWriter.h">
+  <property category="unique" name="id" value="1320"/>
+  </file>
+  <file path="acdk/io/BinaryObjectReader.h">
+  <property category="unique" name="id" value="1321"/>
+  </file>
+  <file path="acdk/io/BinaryObjectWriter.h">
+  <property category="unique" name="id" value="1322"/>
+  </file>
+  <file path="acdk/io/BufferedReader.h">
+  <property category="unique" name="id" value="1323"/>
+  </file>
+  <file path="acdk/io/BufferedWriter.h">
+  <property category="unique" name="id" value="1324"/>
+  </file>
+  <file path="acdk/io/ByteBufferReader.h">
+  <property category="unique" name="id" value="1325"/>
+  </file>
+  <file path="acdk/io/ByteBufferWriter.h">
+  <property category="unique" name="id" value="1326"/>
+  </file>
+  <file path="acdk/io/BytePtrReader.h">
+  <property category="unique" name="id" value="1327"/>
+  </file>
+  <file path="acdk/io/ByteToCharReader.h">
+  <property category="unique" name="id" value="1328"/>
+  </file>
+  <file path="acdk/io/ByteToCharWriter.h">
+  <property category="unique" name="id" value="1329"/>
+  </file>
+  <file path="acdk/io/CharArrayReader.h">
+  <property category="unique" name="id" value="1330"/>
+  </file>
+  <file path="acdk/io/CharArrayWriter.h">
+  <property category="unique" name="id" value="1331"/>
+  </file>
+  <file path="acdk/io/CharReader.h">
+  <property category="unique" name="id" value="1332"/>
+  </file>
+  <file path="acdk/io/CharToByteReader.h">
+  <property category="unique" name="id" value="1333"/>
+  </file>
+  <file path="acdk/io/CharToByteWriter.h">
+  <property category="unique" name="id" value="1334"/>
+  </file>
+  <file path="acdk/io/CharWriter.h">
+  <property category="unique" name="id" value="1335"/>
+  </file>
+  <file path="acdk/io/ConsoleCharReader.h">
+  <property category="unique" name="id" value="1336"/>
+  </file>
+  <file path="acdk/io/ConsoleCharWriter.h">
+  <property category="unique" name="id" value="1337"/>
+  </file>
+  <file path="acdk/io/ConsoleReader.h">
+  <property category="unique" name="id" value="1338"/>
+  </file>
+  <file path="acdk/io/ConsoleWriter.h">
+  <property category="unique" name="id" value="1339"/>
+  </file>
+  <file path="acdk/io/DataReader.h">
+  <property category="unique" name="id" value="1340"/>
+  </file>
+  <file path="acdk/io/DataWriter.h">
+  <property category="unique" name="id" value="1341"/>
+  </file>
+  <file path="acdk/io/EOFException.h">
+  <property category="unique" name="id" value="1342"/>
+  </file>
+  <file path="acdk/io/File.h">
+  <property category="unique" name="id" value="1343"/>
+  </file>
+  <file path="acdk/io/FileAbstractImpl.h">
+  <property category="unique" name="id" value="1344"/>
+  </file>
+  <file path="acdk/io/FileDescriptor.h">
+  <property category="unique" name="id" value="1345"/>
+  </file>
+  <file path="acdk/io/FileFilter.h">
+  <property category="unique" name="id" value="1346"/>
+  </file>
+  <file path="acdk/io/FileImpl.h">
+  <property category="unique" name="id" value="1347"/>
+  </file>
+  <file path="acdk/io/FileInfo.h">
+  <property category="unique" name="id" value="1348"/>
+  </file>
+  <file path="acdk/io/FilenameFilter.h">
+  <property category="unique" name="id" value="1349"/>
+  </file>
+  <file path="acdk/io/FileNotFoundException.h">
+  <property category="unique" name="id" value="1350"/>
+  </file>
+  <file path="acdk/io/FileReader.h">
+  <property category="unique" name="id" value="1351"/>
+  </file>
+  <file path="acdk/io/FileReaderWriterImpl.h">
+  <property category="unique" name="id" value="1352"/>
+  </file>
+  <file path="acdk/io/FileStandardImpl.h">
+  <property category="unique" name="id" value="1353"/>
+  </file>
+  <file path="acdk/io/FileStatus.h">
+  <property category="unique" name="id" value="1354"/>
+  </file>
+  <file path="acdk/io/FileSystem.h">
+  <property category="unique" name="id" value="1355"/>
+  </file>
+  <file path="acdk/io/FileSystemFactory.h">
+  <property category="unique" name="id" value="1356"/>
+  </file>
+  <file path="acdk/io/FileWriter.h">
+  <property category="unique" name="id" value="1357"/>
+  </file>
+  <file path="acdk/io/FilterReader.h">
+  <property category="unique" name="id" value="1358"/>
+  </file>
+  <file path="acdk/io/FilterWriter.h">
+  <property category="unique" name="id" value="1359"/>
+  </file>
+  <file path="acdk/io/GlobFilenameFilter.h">
+  <property category="unique" name="id" value="1360"/>
+  </file>
+  <file path="acdk/io/InputReader.h">
+  <property category="unique" name="id" value="1361"/>
+  </file>
+  <file path="acdk/io/io.h">
+  <property category="unique" name="id" value="1362"/>
+  </file>
+  <file path="acdk/io/IOException.h">
+  <property category="unique" name="id" value="1363"/>
+  </file>
+  <file path="acdk/io/io_all.h">
+  <property category="unique" name="id" value="1364"/>
+  </file>
+  <file path="acdk/io/JoinedReader.h">
+  <property category="unique" name="id" value="1365"/>
+  </file>
+  <file path="acdk/io/LineNumberCharReader.h">
+  <property category="unique" name="id" value="1366"/>
+  </file>
+  <file path="acdk/io/LineNumberReader.h">
+  <property category="unique" name="id" value="1367"/>
+  </file>
+  <file path="acdk/io/MemoryMappedFile.h">
+  <property category="unique" name="id" value="1368"/>
+  </file>
+  <file path="acdk/io/MemReader.h">
+  <property category="unique" name="id" value="1369"/>
+  </file>
+  <file path="acdk/io/MemWriter.h">
+  <property category="unique" name="id" value="1370"/>
+  </file>
+  <file path="acdk/io/NullWriter.h">
+  <property category="unique" name="id" value="1371"/>
+  </file>
+  <file path="acdk/io/ObjectReader.h">
+  <property category="unique" name="id" value="1372"/>
+  </file>
+  <file path="acdk/io/ObjectStreamException.h">
+  <property category="unique" name="id" value="1373"/>
+  </file>
+  <file path="acdk/io/ObjectWriter.h">
+  <property category="unique" name="id" value="1374"/>
+  </file>
+  <file path="acdk/io/OutputDebugStringWriter.h">
+  <property category="unique" name="id" value="1375"/>
+  </file>
+  <file path="acdk/io/PipedReader.h">
+  <property category="unique" name="id" value="1376"/>
+  </file>
+  <file path="acdk/io/PipedWriter.h">
+  <property category="unique" name="id" value="1377"/>
+  </file>
+  <file path="acdk/io/PrintWriter.h">
+  <property category="unique" name="id" value="1378"/>
+  </file>
+  <file path="acdk/io/PushbackCharReader.h">
+  <property category="unique" name="id" value="1379"/>
+  </file>
+  <file path="acdk/io/PushbackReader.h">
+  <property category="unique" name="id" value="1380"/>
+  </file>
+  <file path="acdk/io/RandomAccessFile.h">
+  <property category="unique" name="id" value="1381"/>
+  </file>
+  <file path="acdk/io/Reader.h">
+  <property category="unique" name="id" value="1382"/>
+  </file>
+  <file path="acdk/io/RessourceFileImpl.h">
+  <property category="unique" name="id" value="1383"/>
+  </file>
+  <file path="acdk/io/RessourceFileSystem.h">
+  <property category="unique" name="id" value="1384"/>
+  </file>
+  <file path="acdk/io/Serializable.h">
+  <property category="unique" name="id" value="1385"/>
+  </file>
+  <file path="acdk/io/SerializedObjectDescriptor.h">
+  <property category="unique" name="id" value="1386"/>
+  </file>
+  <file path="acdk/io/StandardFileSystem.h">
+  <property category="unique" name="id" value="1387"/>
+  </file>
+  <file path="acdk/io/Storage.h">
+  <property category="unique" name="id" value="1388"/>
+  </file>
+  <file path="acdk/io/StreamTokenizer.h">
+  <property category="unique" name="id" value="1389"/>
+  </file>
+  <file path="acdk/io/StringReader.h">
+  <property category="unique" name="id" value="1390"/>
+  </file>
+  <file path="acdk/io/StringWriter.h">
+  <property category="unique" name="id" value="1391"/>
+  </file>
+  <file path="acdk/io/SubReader.h">
+  <property category="unique" name="id" value="1392"/>
+  </file>
+  <file path="acdk/io/TeeCharWriter.h">
+  <property category="unique" name="id" value="1393"/>
+  </file>
+  <file path="acdk/io/TeeReader.h">
+  <property category="unique" name="id" value="1394"/>
+  </file>
+  <file path="acdk/io/TeeWriter.h">
+  <property category="unique" name="id" value="1395"/>
+  </file>
+  <file path="acdk/io/Writer.h">
+  <property category="unique" name="id" value="1396"/>
+  </file>
+  <file path="acdk/io/AbstractCharFilterReader.cpp">
+  <property category="unique" name="id" value="1397"/>
+  </file>
+  <file path="acdk/io/AbstractCharReader.cpp">
+  <property category="unique" name="id" value="1398"/>
+  </file>
+  <file path="acdk/io/AbstractCharWriter.cpp">
+  <property category="unique" name="id" value="1399"/>
+  </file>
+  <file path="acdk/io/AbstractFilterWriter.cpp">
+  <property category="unique" name="id" value="1400"/>
+  </file>
+  <file path="acdk/io/AbstractObjectReader.cpp">
+  <property category="unique" name="id" value="1401"/>
+  </file>
+  <file path="acdk/io/AbstractObjectWriter.cpp">
+  <property category="unique" name="id" value="1402"/>
+  </file>
+  <file path="acdk/io/AbstractReader.cpp">
+  <property category="unique" name="id" value="1403"/>
+  </file>
+  <file path="acdk/io/acdk_io_Package.cpp">
+  <property category="unique" name="id" value="1404"/>
+  </file>
+  <file path="acdk/io/ASCIIDataReader.cpp">
+  <property category="unique" name="id" value="1405"/>
+  </file>
+  <file path="acdk/io/ASCIIDataWriter.cpp">
+  <property category="unique" name="id" value="1406"/>
+  </file>
+  <file path="acdk/io/BinaryDataReader.cpp">
+  <property category="unique" name="id" value="1407"/>
+  </file>
+  <file path="acdk/io/BinaryDataWriter.cpp">
+  <property category="unique" name="id" value="1408"/>
+  </file>
+  <file path="acdk/io/BinaryObjectReader.cpp">
+  <property category="unique" name="id" value="1409"/>
+  </file>
+  <file path="acdk/io/BinaryObjectWriter.cpp">
+  <property category="unique" name="id" value="1410"/>
+  </file>
+  <file path="acdk/io/BufferedReader.cpp">
+  <property category="unique" name="id" value="1411"/>
+  </file>
+  <file path="acdk/io/BufferedWriter.cpp">
+  <property category="unique" name="id" value="1412"/>
+  </file>
+  <file path="acdk/io/ByteBufferReader.cpp">
+  <property category="unique" name="id" value="1413"/>
+  </file>
+  <file path="acdk/io/ByteBufferWriter.cpp">
+  <property category="unique" name="id" value="1414"/>
+  </file>
+  <file path="acdk/io/ByteToCharReader.cpp">
+  <property category="unique" name="id" value="1415"/>
+  </file>
+  <file path="acdk/io/CharArrayReader.cpp">
+  <property category="unique" name="id" value="1416"/>
+  </file>
+  <file path="acdk/io/CharArrayWriter.cpp">
+  <property category="unique" name="id" value="1417"/>
+  </file>
+  <file path="acdk/io/CharReader.cpp">
+  <property category="unique" name="id" value="1418"/>
+  </file>
+  <file path="acdk/io/CharToByteWriter.cpp">
+  <property category="unique" name="id" value="1419"/>
+  </file>
+  <file path="acdk/io/ConsoleCharReader.cpp">
+  <property category="unique" name="id" value="1420"/>
+  </file>
+  <file path="acdk/io/ConsoleCharWriter.cpp">
+  <property category="unique" name="id" value="1421"/>
+  </file>
+  <file path="acdk/io/ConsoleReader.cpp">
+  <property category="unique" name="id" value="1422"/>
+  </file>
+  <file path="acdk/io/ConsoleWriter.cpp">
+  <property category="unique" name="id" value="1423"/>
+  </file>
+  <file path="acdk/io/File.cpp">
+  <property category="unique" name="id" value="1424"/>
+  </file>
+  <file path="acdk/io/FileAbstractImpl.cpp">
+  <property category="unique" name="id" value="1425"/>
+  </file>
+  <file path="acdk/io/FileDescriptor.cpp">
+  <property category="unique" name="id" value="1426"/>
+  </file>
+  <file path="acdk/io/FileImpl.cpp">
+  <property category="unique" name="id" value="1427"/>
+  </file>
+  <file path="acdk/io/FileInfo.cpp">
+  <property category="unique" name="id" value="1428"/>
+  </file>
+  <file path="acdk/io/FileReader.cpp">
+  <property category="unique" name="id" value="1429"/>
+  </file>
+  <file path="acdk/io/FileReaderWriterImpl.cpp">
+  <property category="unique" name="id" value="1430"/>
+  </file>
+  <file path="acdk/io/FileStandardImpl.cpp">
+  <property category="unique" name="id" value="1431"/>
+  </file>
+  <file path="acdk/io/FileStatus.cpp">
+  <property category="unique" name="id" value="1432"/>
+  </file>
+  <file path="acdk/io/FileSystem.cpp">
+  <property category="unique" name="id" value="1433"/>
+  </file>
+  <file path="acdk/io/FileWriter.cpp">
+  <property category="unique" name="id" value="1434"/>
+  </file>
+  <file path="acdk/io/GlobFilenameFilter.cpp">
+  <property category="unique" name="id" value="1435"/>
+  </file>
+  <file path="acdk/io/InputReader.cpp">
+  <property category="unique" name="id" value="1436"/>
+  </file>
+  <file path="acdk/io/IOException.cpp">
+  <property category="unique" name="id" value="1437"/>
+  </file>
+  <file path="acdk/io/io_metainf_base.cpp">
+  <property category="unique" name="id" value="1438"/>
+  </file>
+  <file path="acdk/io/JoinedReader.cpp">
+  <property category="unique" name="id" value="1439"/>
+  </file>
+  <file path="acdk/io/LineNumberCharReader.cpp">
+  <property category="unique" name="id" value="1440"/>
+  </file>
+  <file path="acdk/io/LineNumberReader.cpp">
+  <property category="unique" name="id" value="1441"/>
+  </file>
+  <file path="acdk/io/MemoryMappedFile.cpp">
+  <property category="unique" name="id" value="1442"/>
+  </file>
+  <file path="acdk/io/MemReader.cpp">
+  <property category="unique" name="id" value="1443"/>
+  </file>
+  <file path="acdk/io/MemWriter.cpp">
+  <property category="unique" name="id" value="1444"/>
+  </file>
+  <file path="acdk/io/PipedReader.cpp">
+  <property category="unique" name="id" value="1445"/>
+  </file>
+  <file path="acdk/io/PipedWriter.cpp">
+  <property category="unique" name="id" value="1446"/>
+  </file>
+  <file path="acdk/io/PrintWriter.cpp">
+  <property category="unique" name="id" value="1447"/>
+  </file>
+  <file path="acdk/io/PushbackCharReader.cpp">
+  <property category="unique" name="id" value="1448"/>
+  </file>
+  <file path="acdk/io/PushbackReader.cpp">
+  <property category="unique" name="id" value="1449"/>
+  </file>
+  <file path="acdk/io/RandomAccessFile.cpp">
+  <property category="unique" name="id" value="1450"/>
+  </file>
+  <file path="acdk/io/Reader.cpp">
+  <property category="unique" name="id" value="1451"/>
+  </file>
+  <file path="acdk/io/RessourceFileSystem.cpp">
+  <property category="unique" name="id" value="1452"/>
+  </file>
+  <file path="acdk/io/StandardFileSystem.cpp">
+  <property category="unique" name="id" value="1453"/>
+  </file>
+  <file path="acdk/io/StreamTokenizer.cpp">
+  <property category="unique" name="id" value="1454"/>
+  </file>
+  <file path="acdk/io/SubReader.cpp">
+  <property category="unique" name="id" value="1455"/>
+  </file>
+  <file path="acdk/io/Writer.cpp">
+  <property category="unique" name="id" value="1456"/>
+  </file>
+  </node>
+  <node name="util" type="Folder">
+  <property category="unique" name="id" value="1457"/>
+  <file path="acdk/util/AbstractCollection.h">
+  <property category="unique" name="id" value="1458"/>
+  </file>
+  <file path="acdk/util/AbstractList.h">
+  <property category="unique" name="id" value="1459"/>
+  </file>
+  <file path="acdk/util/AbstractListIterator.h">
+  <property category="unique" name="id" value="1460"/>
+  </file>
+  <file path="acdk/util/AbstractListListIterator.h">
+  <property category="unique" name="id" value="1461"/>
+  </file>
+  <file path="acdk/util/AbstractListSubList.h">
+  <property category="unique" name="id" value="1462"/>
+  </file>
+  <file path="acdk/util/AbstractMap.h">
+  <property category="unique" name="id" value="1463"/>
+  </file>
+  <file path="acdk/util/AbstractSequentialList.h">
+  <property category="unique" name="id" value="1464"/>
+  </file>
+  <file path="acdk/util/AbstractSet.h">
+  <property category="unique" name="id" value="1465"/>
+  </file>
+  <file path="acdk/util/acdk_util_classes.h">
+  <property category="unique" name="id" value="1466"/>
+  </file>
+  <file path="acdk/util/ArrayIterator.h">
+  <property category="unique" name="id" value="1467"/>
+  </file>
+  <file path="acdk/util/ArrayList.h">
+  <property category="unique" name="id" value="1468"/>
+  </file>
+  <file path="acdk/util/Arrays.h">
+  <property category="unique" name="id" value="1469"/>
+  </file>
+  <file path="acdk/util/BasicMapEntry.h">
+  <property category="unique" name="id" value="1470"/>
+  </file>
+  <file path="acdk/util/BitSet.h">
+  <property category="unique" name="id" value="1471"/>
+  </file>
+  <file path="acdk/util/Bucket.h">
+  <property category="unique" name="id" value="1472"/>
+  </file>
+  <file path="acdk/util/Calendar.h">
+  <property category="unique" name="id" value="1473"/>
+  </file>
+  <file path="acdk/util/Collection.h">
+  <property category="unique" name="id" value="1474"/>
+  </file>
+  <file path="acdk/util/Collections.h">
+  <property category="unique" name="id" value="1475"/>
+  </file>
+  <file path="acdk/util/Comparator.h">
+  <property category="unique" name="id" value="1476"/>
+  </file>
+  <file path="acdk/util/ConcurrentModificationException.h">
+  <property category="unique" name="id" value="1477"/>
+  </file>
+  <file path="acdk/util/Date.h">
+  <property category="unique" name="id" value="1478"/>
+  </file>
+  <file path="acdk/util/Dictionary.h">
+  <property category="unique" name="id" value="1479"/>
+  </file>
+  <file path="acdk/util/DoubleIterator.h">
+  <property category="unique" name="id" value="1480"/>
+  </file>
+  <file path="acdk/util/EmptyCollectionIterator.h">
+  <property category="unique" name="id" value="1481"/>
+  </file>
+  <file path="acdk/util/Enumeration.h">
+  <property category="unique" name="id" value="1482"/>
+  </file>
+  <file path="acdk/util/EventListener.h">
+  <property category="unique" name="id" value="1483"/>
+  </file>
+  <file path="acdk/util/EventListenerProxy.h">
+  <property category="unique" name="id" value="1484"/>
+  </file>
+  <file path="acdk/util/EventObject.h">
+  <property category="unique" name="id" value="1485"/>
+  </file>
+  <file path="acdk/util/GregorianCalendar.h">
+  <property category="unique" name="id" value="1486"/>
+  </file>
+  <file path="acdk/util/HashMap.h">
+  <property category="unique" name="id" value="1487"/>
+  </file>
+  <file path="acdk/util/HashSet.h">
+  <property category="unique" name="id" value="1488"/>
+  </file>
+  <file path="acdk/util/Hashtable.h">
+  <property category="unique" name="id" value="1489"/>
+  </file>
+  <file path="acdk/util/IdentityHashMap.h">
+  <property category="unique" name="id" value="1490"/>
+  </file>
+  <file path="acdk/util/Iterator.h">
+  <property category="unique" name="id" value="1491"/>
+  </file>
+  <file path="acdk/util/LinkedList.h">
+  <property category="unique" name="id" value="1492"/>
+  </file>
+  <file path="acdk/util/List.h">
+  <property category="unique" name="id" value="1493"/>
+  </file>
+  <file path="acdk/util/ListIterator.h">
+  <property category="unique" name="id" value="1494"/>
+  </file>
+  <file path="acdk/util/ListResourceBundle.h">
+  <property category="unique" name="id" value="1495"/>
+  </file>
+  <file path="acdk/util/Locale.h">
+  <property category="unique" name="id" value="1496"/>
+  </file>
+  <file path="acdk/util/Map.h">
+  <property category="unique" name="id" value="1497"/>
+  </file>
+  <file path="acdk/util/MissingResourceException.h">
+  <property category="unique" name="id" value="1498"/>
+  </file>
+  <file path="acdk/util/NoSuchElementException.h">
+  <property category="unique" name="id" value="1499"/>
+  </file>
+  <file path="acdk/util/Properties.h">
+  <property category="unique" name="id" value="1500"/>
+  </file>
+  <file path="acdk/util/PropertiesListener.h">
+  <property category="unique" name="id" value="1501"/>
+  </file>
+  <file path="acdk/util/PropertyResourceBundle.h">
+  <property category="unique" name="id" value="1502"/>
+  </file>
+  <file path="acdk/util/Random.h">
+  <property category="unique" name="id" value="1503"/>
+  </file>
+  <file path="acdk/util/ResourceBundle.h">
+  <property category="unique" name="id" value="1504"/>
+  </file>
+  <file path="acdk/util/Set.h">
+  <property category="unique" name="id" value="1505"/>
+  </file>
+  <file path="acdk/util/SimpleCalendar.h">
+  <property category="unique" name="id" value="1506"/>
+  </file>
+  <file path="acdk/util/SimpleListResourceBundle.h">
+  <property category="unique" name="id" value="1507"/>
+  </file>
+  <file path="acdk/util/SimpleTimeZone.h">
+  <property category="unique" name="id" value="1508"/>
+  </file>
+  <file path="acdk/util/SingleObjectIterator.h">
+  <property category="unique" name="id" value="1509"/>
+  </file>
+  <file path="acdk/util/SortedMap.h">
+  <property category="unique" name="id" value="1510"/>
+  </file>
+  <file path="acdk/util/SortedSet.h">
+  <property category="unique" name="id" value="1511"/>
+  </file>
+  <file path="acdk/util/StringTokenizer.h">
+  <property category="unique" name="id" value="1512"/>
+  </file>
+  <file path="acdk/util/SynchronizedCollections.h">
+  <property category="unique" name="id" value="1513"/>
+  </file>
+  <file path="acdk/util/SysDate.h">
+  <property category="unique" name="id" value="1514"/>
+  </file>
+  <file path="acdk/util/TAbstractCollection.h">
+  <property category="unique" name="id" value="1515"/>
+  </file>
+  <file path="acdk/util/TAbstractList.h">
+  <property category="unique" name="id" value="1516"/>
+  </file>
+  <file path="acdk/util/TAbstractListIterator.h">
+  <property category="unique" name="id" value="1517"/>
+  </file>
+  <file path="acdk/util/TAbstractListListIterator.h">
+  <property category="unique" name="id" value="1518"/>
+  </file>
+  <file path="acdk/util/TAbstractListSubList.h">
+  <property category="unique" name="id" value="1519"/>
+  </file>
+  <file path="acdk/util/TAbstractMap.h">
+  <property category="unique" name="id" value="1520"/>
+  </file>
+  <file path="acdk/util/TAbstractSet.h">
+  <property category="unique" name="id" value="1521"/>
+  </file>
+  <file path="acdk/util/TArrayList.h">
+  <property category="unique" name="id" value="1522"/>
+  </file>
+  <file path="acdk/util/TBasicMapEntry.h">
+  <property category="unique" name="id" value="1523"/>
+  </file>
+  <file path="acdk/util/TBucket.h">
+  <property category="unique" name="id" value="1524"/>
+  </file>
+  <file path="acdk/util/TCollection.h">
+  <property category="unique" name="id" value="1525"/>
+  </file>
+  <file path="acdk/util/TComparator.h">
+  <property category="unique" name="id" value="1526"/>
+  </file>
+  <file path="acdk/util/TDoubleIterator.h">
+  <property category="unique" name="id" value="1527"/>
+  </file>
+  <file path="acdk/util/THashMap.h">
+  <property category="unique" name="id" value="1528"/>
+  </file>
+  <file path="acdk/util/THashSet.h">
+  <property category="unique" name="id" value="1529"/>
+  </file>
+  <file path="acdk/util/TimeZone.h">
+  <property category="unique" name="id" value="1530"/>
+  </file>
+  <file path="acdk/util/TIterator.h">
+  <property category="unique" name="id" value="1531"/>
+  </file>
+  <file path="acdk/util/TList.h">
+  <property category="unique" name="id" value="1532"/>
+  </file>
+  <file path="acdk/util/TListIterator.h">
+  <property category="unique" name="id" value="1533"/>
+  </file>
+  <file path="acdk/util/TMap.h">
+  <property category="unique" name="id" value="1534"/>
+  </file>
+  <file path="acdk/util/TreeMap.h">
+  <property category="unique" name="id" value="1535"/>
+  </file>
+  <file path="acdk/util/TreeSet.h">
+  <property category="unique" name="id" value="1536"/>
+  </file>
+  <file path="acdk/util/TSet.h">
+  <property category="unique" name="id" value="1537"/>
+  </file>
+  <file path="acdk/util/TSortedMap.h">
+  <property category="unique" name="id" value="1538"/>
+  </file>
+  <file path="acdk/util/TTreeMap.h">
+  <property category="unique" name="id" value="1539"/>
+  </file>
+  <file path="acdk/util/util.h">
+  <property category="unique" name="id" value="1540"/>
+  </file>
+  <file path="acdk/util/util_all.h">
+  <property category="unique" name="id" value="1541"/>
+  </file>
+  <file path="acdk/util/Vector.h">
+  <property category="unique" name="id" value="1542"/>
+  </file>
+  <file path="acdk/util/WeakHashMap.h">
+  <property category="unique" name="id" value="1543"/>
+  </file>
+  <file path="acdk/util/AbstractCollection.cpp">
+  <property category="unique" name="id" value="1544"/>
+  </file>
+  <file path="acdk/util/AbstractList.cpp">
+  <property category="unique" name="id" value="1545"/>
+  </file>
+  <file path="acdk/util/AbstractListSubList.cpp">
+  <property category="unique" name="id" value="1546"/>
+  </file>
+  <file path="acdk/util/AbstractMap.cpp">
+  <property category="unique" name="id" value="1547"/>
+  </file>
+  <file path="acdk/util/AbstractSequentialList.cpp">
+  <property category="unique" name="id" value="1548"/>
+  </file>
+  <file path="acdk/util/AbstractSet.cpp">
+  <property category="unique" name="id" value="1549"/>
+  </file>
+  <file path="acdk/util/acdk_util_Package.cpp">
+  <property category="unique" name="id" value="1550"/>
+  </file>
+  <file path="acdk/util/ArrayList.cpp">
+  <property category="unique" name="id" value="1551"/>
+  </file>
+  <file path="acdk/util/Arrays.cpp">
+  <property category="unique" name="id" value="1552"/>
+  </file>
+  <file path="acdk/util/BitSet.cpp">
+  <property category="unique" name="id" value="1553"/>
+  </file>
+  <file path="acdk/util/Bucket.cpp">
+  <property category="unique" name="id" value="1554"/>
+  </file>
+  <file path="acdk/util/Calendar.cpp">
+  <property category="unique" name="id" value="1555"/>
+  </file>
+  <file path="acdk/util/Collections.cpp">
+  <property category="unique" name="id" value="1556"/>
+  </file>
+  <file path="acdk/util/Date.cpp">
+  <property category="unique" name="id" value="1557"/>
+  </file>
+  <file path="acdk/util/GregorianCalendar.cpp">
+  <property category="unique" name="id" value="1558"/>
+  </file>
+  <file path="acdk/util/HashMap.cpp">
+  <property category="unique" name="id" value="1559"/>
+  </file>
+  <file path="acdk/util/HashSet.cpp">
+  <property category="unique" name="id" value="1560"/>
+  </file>
+  <file path="acdk/util/Hashtable.cpp">
+  <property category="unique" name="id" value="1561"/>
+  </file>
+  <file path="acdk/util/LinkedList.cpp">
+  <property category="unique" name="id" value="1562"/>
+  </file>
+  <file path="acdk/util/ListResourceBundle.cpp">
+  <property category="unique" name="id" value="1563"/>
+  </file>
+  <file path="acdk/util/Locale.cpp">
+  <property category="unique" name="id" value="1564"/>
+  </file>
+  <file path="acdk/util/Properties.cpp">
+  <property category="unique" name="id" value="1565"/>
+  </file>
+  <file path="acdk/util/PropertiesListener.cpp">
+  <property category="unique" name="id" value="1566"/>
+  </file>
+  <file path="acdk/util/PropertyResourceBundle.cpp">
+  <property category="unique" name="id" value="1567"/>
+  </file>
+  <file path="acdk/util/Random.cpp">
+  <property category="unique" name="id" value="1568"/>
+  </file>
+  <file path="acdk/util/ResourceBundle.cpp">
+  <property category="unique" name="id" value="1569"/>
+  </file>
+  <file path="acdk/util/SimpleCalendar.cpp">
+  <property category="unique" name="id" value="1570"/>
+  </file>
+  <file path="acdk/util/SimpleListResourceBundle.cpp">
+  <property category="unique" name="id" value="1571"/>
+  </file>
+  <file path="acdk/util/SimpleTimeZone.cpp">
+  <property category="unique" name="id" value="1572"/>
+  </file>
+  <file path="acdk/util/StringTokenizer.cpp">
+  <property category="unique" name="id" value="1573"/>
+  </file>
+  <file path="acdk/util/SysDate.cpp">
+  <property category="unique" name="id" value="1574"/>
+  </file>
+  <file path="acdk/util/TimeZone.cpp">
+  <property category="unique" name="id" value="1575"/>
+  </file>
+  <file path="acdk/util/TreeMap.cpp">
+  <property category="unique" name="id" value="1576"/>
+  </file>
+  <file path="acdk/util/TreeSet.cpp">
+  <property category="unique" name="id" value="1577"/>
+  </file>
+  <file path="acdk/util/util_metainf_base.cpp">
+  <property category="unique" name="id" value="1578"/>
+  </file>
+  <file path="acdk/util/Vector.cpp">
+  <property category="unique" name="id" value="1579"/>
+  </file>
+  <file path="acdk/util/WeakHashMap.cpp">
+  <property category="unique" name="id" value="1580"/>
+  </file>
+  <node name="logging" type="Folder">
+  <property category="unique" name="id" value="1581"/>
+  <file path="acdk/util/logging/AbstractLogConsumer.h">
+  <property category="unique" name="id" value="1582"/>
+  </file>
+  <file path="acdk/util/logging/ConsoleConsumer.h">
+  <property category="unique" name="id" value="1583"/>
+  </file>
+  <file path="acdk/util/logging/FileConsumer.h">
+  <property category="unique" name="id" value="1584"/>
+  </file>
+  <file path="acdk/util/logging/Formatter.h">
+  <property category="unique" name="id" value="1585"/>
+  </file>
+  <file path="acdk/util/logging/Level.h">
+  <property category="unique" name="id" value="1586"/>
+  </file>
+  <file path="acdk/util/logging/Log.h">
+  <property category="unique" name="id" value="1587"/>
+  </file>
+  <file path="acdk/util/logging/LogConsumer.h">
+  <property category="unique" name="id" value="1588"/>
+  </file>
+  <file path="acdk/util/logging/Logger.h">
+  <property category="unique" name="id" value="1589"/>
+  </file>
+  <file path="acdk/util/logging/logging.h">
+  <property category="unique" name="id" value="1590"/>
+  </file>
+  <file path="acdk/util/logging/LogManager.h">
+  <property category="unique" name="id" value="1591"/>
+  </file>
+  <file path="acdk/util/logging/LogRecord.h">
+  <property category="unique" name="id" value="1592"/>
+  </file>
+  <file path="acdk/util/logging/MsgBoxConsumer.h">
+  <property category="unique" name="id" value="1593"/>
+  </file>
+  <file path="acdk/util/logging/NamedLogArgs.h">
+  <property category="unique" name="id" value="1594"/>
+  </file>
+  <file path="acdk/util/logging/RollingFileConsumer.h">
+  <property category="unique" name="id" value="1595"/>
+  </file>
+  <file path="acdk/util/logging/SimpleFormatter.h">
+  <property category="unique" name="id" value="1596"/>
+  </file>
+  <file path="acdk/util/logging/StdFormatter.h">
+  <property category="unique" name="id" value="1597"/>
+  </file>
+  <file path="acdk/util/logging/TransactionConsumer.h">
+  <property category="unique" name="id" value="1598"/>
+  </file>
+  <file path="acdk/util/logging/Win32DbgConsumer.h">
+  <property category="unique" name="id" value="1599"/>
+  </file>
+  <file path="acdk/util/logging/WriterConsumer.h">
+  <property category="unique" name="id" value="1600"/>
+  </file>
+  <file path="acdk/util/logging/AbstractLogConsumer.cpp">
+  <property category="unique" name="id" value="1601"/>
+  </file>
+  <file path="acdk/util/logging/FileConsumer.cpp">
+  <property category="unique" name="id" value="1602"/>
+  </file>
+  <file path="acdk/util/logging/Level.cpp">
+  <property category="unique" name="id" value="1603"/>
+  </file>
+  <file path="acdk/util/logging/Logger.cpp">
+  <property category="unique" name="id" value="1604"/>
+  </file>
+  <file path="acdk/util/logging/logging_metainf_base.cpp">
+  <property category="unique" name="id" value="1605"/>
+  </file>
+  <file path="acdk/util/logging/LogManager.cpp">
+  <property category="unique" name="id" value="1606"/>
+  </file>
+  <file path="acdk/util/logging/RollingFileConsumer.cpp">
+  <property category="unique" name="id" value="1607"/>
+  </file>
+  <file path="acdk/util/logging/SimpleFormatter.cpp">
+  <property category="unique" name="id" value="1608"/>
+  </file>
+  <file path="acdk/util/logging/StdFormatter.cpp">
+  <property category="unique" name="id" value="1609"/>
+  </file>
+  <file path="acdk/util/logging/TransactionConsumer.cpp">
+  <property category="unique" name="id" value="1610"/>
+  </file>
+  <file path="acdk/util/logging/Win32DbgConsumer.cpp">
+  <property category="unique" name="id" value="1611"/>
+  </file>
+  </node>
+  </node>
+  <node name="locale" type="Folder">
+  <property category="unique" name="id" value="1612"/>
+  <file path="acdk/locale/8859-10_mapping.h">
+  <property category="unique" name="id" value="1613"/>
+  </file>
+  <file path="acdk/locale/8859-13_mapping.h">
+  <property category="unique" name="id" value="1614"/>
+  </file>
+  <file path="acdk/locale/8859-14_mapping.h">
+  <property category="unique" name="id" value="1615"/>
+  </file>
+  <file path="acdk/locale/8859-15_mapping.h">
+  <property category="unique" name="id" value="1616"/>
+  </file>
+  <file path="acdk/locale/8859-16_mapping.h">
+  <property category="unique" name="id" value="1617"/>
+  </file>
+  <file path="acdk/locale/8859-1_mapping.h">
+  <property category="unique" name="id" value="1618"/>
+  </file>
+  <file path="acdk/locale/8859-2_mapping.h">
+  <property category="unique" name="id" value="1619"/>
+  </file>
+  <file path="acdk/locale/8859-3_mapping.h">
+  <property category="unique" name="id" value="1620"/>
+  </file>
+  <file path="acdk/locale/8859-4_mapping.h">
+  <property category="unique" name="id" value="1621"/>
+  </file>
+  <file path="acdk/locale/8859-5_mapping.h">
+  <property category="unique" name="id" value="1622"/>
+  </file>
+  <file path="acdk/locale/8859-6_mapping.h">
+  <property category="unique" name="id" value="1623"/>
+  </file>
+  <file path="acdk/locale/8859-7_mapping.h">
+  <property category="unique" name="id" value="1624"/>
+  </file>
+  <file path="acdk/locale/8859-8_mapping.h">
+  <property category="unique" name="id" value="1625"/>
+  </file>
+  <file path="acdk/locale/8859-9_mapping.h">
+  <property category="unique" name="id" value="1626"/>
+  </file>
+  <file path="acdk/locale/AsciiEncoding.h">
+  <property category="unique" name="id" value="1627"/>
+  </file>
+  <file path="acdk/locale/AsciiUtfEncoding.h">
+  <property category="unique" name="id" value="1628"/>
+  </file>
+  <file path="acdk/locale/ByteAsciiEncoding.h">
+  <property category="unique" name="id" value="1629"/>
+  </file>
+  <file path="acdk/locale/CEscapeEncoding.h">
+  <property category="unique" name="id" value="1630"/>
+  </file>
+  <file path="acdk/locale/CharacterCodingException.h">
+  <property category="unique" name="id" value="1631"/>
+  </file>
+  <file path="acdk/locale/CodingErrorAction.h">
+  <property category="unique" name="id" value="1632"/>
+  </file>
+  <file path="acdk/locale/CP1250_mapping.h">
+  <property category="unique" name="id" value="1633"/>
+  </file>
+  <file path="acdk/locale/CP1251_mapping.h">
+  <property category="unique" name="id" value="1634"/>
+  </file>
+  <file path="acdk/locale/CP1252_mapping.h">
+  <property category="unique" name="id" value="1635"/>
+  </file>
+  <file path="acdk/locale/CP1253_mapping.h">
+  <property category="unique" name="id" value="1636"/>
+  </file>
+  <file path="acdk/locale/CP1254_mapping.h">
+  <property category="unique" name="id" value="1637"/>
+  </file>
+  <file path="acdk/locale/CP1255_mapping.h">
+  <property category="unique" name="id" value="1638"/>
+  </file>
+  <file path="acdk/locale/CP1256_mapping.h">
+  <property category="unique" name="id" value="1639"/>
+  </file>
+  <file path="acdk/locale/CP1257_mapping.h">
+  <property category="unique" name="id" value="1640"/>
+  </file>
+  <file path="acdk/locale/CP1258_mapping.h">
+  <property category="unique" name="id" value="1641"/>
+  </file>
+  <file path="acdk/locale/Decoder.h">
+  <property category="unique" name="id" value="1642"/>
+  </file>
+  <file path="acdk/locale/Encoder.h">
+  <property category="unique" name="id" value="1643"/>
+  </file>
+  <file path="acdk/locale/Encoding.h">
+  <property category="unique" name="id" value="1644"/>
+  </file>
+  <file path="acdk/locale/IBM-850_mapping.h">
+  <property category="unique" name="id" value="1645"/>
+  </file>
+  <file path="acdk/locale/IllegalCharsetNameException.h">
+  <property category="unique" name="id" value="1646"/>
+  </file>
+  <file path="acdk/locale/IsoEncoding.h">
+  <property category="unique" name="id" value="1647"/>
+  </file>
+  <file path="acdk/locale/locale.h">
+  <property category="unique" name="id" value="1648"/>
+  </file>
+  <file path="acdk/locale/UCS2Encoding.h">
+  <property category="unique" name="id" value="1649"/>
+  </file>
+  <file path="acdk/locale/UnicodeTable.h">
+  <property category="unique" name="id" value="1650"/>
+  </file>
+  <file path="acdk/locale/UnmappableCharacterException.h">
+  <property category="unique" name="id" value="1651"/>
+  </file>
+  <file path="acdk/locale/UTF8Encoding.h">
+  <property category="unique" name="id" value="1652"/>
+  </file>
+  <file path="acdk/locale/AsciiEncoding.cpp">
+  <property category="unique" name="id" value="1653"/>
+  </file>
+  <file path="acdk/locale/AsciiUtfEncoding.cpp">
+  <property category="unique" name="id" value="1654"/>
+  </file>
+  <file path="acdk/locale/ByteAsciiEncoding.cpp">
+  <property category="unique" name="id" value="1655"/>
+  </file>
+  <file path="acdk/locale/CEscapeEncoding.cpp">
+  <property category="unique" name="id" value="1656"/>
+  </file>
+  <file path="acdk/locale/Encoding.cpp">
+  <property category="unique" name="id" value="1657"/>
+  </file>
+  <file path="acdk/locale/IsoEncoding.cpp">
+  <property category="unique" name="id" value="1658"/>
+  </file>
+  <file path="acdk/locale/IsoTables.cpp">
+  <property category="unique" name="id" value="1659"/>
+  </file>
+  <file path="acdk/locale/locale_metainf_base.cpp">
+  <property category="unique" name="id" value="1660"/>
+  </file>
+  <file path="acdk/locale/UCS2Encoding.cpp">
+  <property category="unique" name="id" value="1661"/>
+  </file>
+  <file path="acdk/locale/UnicodeTable.cpp">
+  <property category="unique" name="id" value="1662"/>
+  </file>
+  <file path="acdk/locale/UTF8Encoding.cpp">
+  <property category="unique" name="id" value="1663"/>
+  </file>
+  </node>
+  </node>
+
+  
+  
+</project>

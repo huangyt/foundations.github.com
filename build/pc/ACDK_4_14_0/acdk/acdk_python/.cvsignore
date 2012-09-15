@@ -1,0 +1,13 @@
+*.o
+*.obj
+*.sbr
+*.tmp
+obj
+tobj
+*.ncb
+*.opt
+*.txt
+*.html
+*.suo
+ids.db
+ChangeLog

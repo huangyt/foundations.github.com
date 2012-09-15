@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="D:\artefaktur\ucacdk2\bin\acdk_core.dll"/>
+    <OBJFILES value="..\tobj\acdk_core\bcc\Void.obj ..\tobj\acdk_core\bcc\BasicArray.obj 
+      ..\tobj\acdk_core\bcc\Boolean.obj ..\tobj\acdk_core\bcc\Byte.obj 
+      ..\tobj\acdk_core\bcc\Character.obj ..\tobj\acdk_core\bcc\Class.obj 
+      ..\tobj\acdk_core\bcc\ClassCastException.obj 
+      ..\tobj\acdk_core\bcc\ClassLoader.obj 
+      ..\tobj\acdk_core\bcc\CmdLineOption.obj 
+      ..\tobj\acdk_core\bcc\CmdLineParser.obj ..\tobj\acdk_core\bcc\Double.obj 
+      ..\tobj\acdk_core\bcc\Float.obj ..\tobj\acdk_core\bcc\Integer.obj 
+      ..\tobj\acdk_core\bcc\Lang.obj ..\tobj\acdk_core\bcc\lang_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\Long.obj ..\tobj\acdk_core\bcc\Math.obj 
+      ..\tobj\acdk_core\bcc\Object.obj ..\tobj\acdk_core\bcc\ObjectArrayBase.obj 
+      ..\tobj\acdk_core\bcc\ObjectArrayImpl.obj 
+      ..\tobj\acdk_core\bcc\ObjectDebug.obj ..\tobj\acdk_core\bcc\Package.obj 
+      ..\tobj\acdk_core\bcc\Process.obj ..\tobj\acdk_core\bcc\Runtime.obj 
+      ..\tobj\acdk_core\bcc\SharedLibrary.obj ..\tobj\acdk_core\bcc\Short.obj 
+      ..\tobj\acdk_core\bcc\StackTraceElement.obj 
+      ..\tobj\acdk_core\bcc\String.obj ..\tobj\acdk_core\bcc\StringBuffer.obj 
+      ..\tobj\acdk_core\bcc\StringOld.obj 
+      ..\tobj\acdk_core\bcc\StringUtf8Utils.obj ..\tobj\acdk_core\bcc\System.obj 
+      ..\tobj\acdk_core\bcc\SystemError.obj ..\tobj\acdk_core\bcc\Thread.obj 
+      ..\tobj\acdk_core\bcc\ThreadGroup.obj ..\tobj\acdk_core\bcc\Throwable.obj 
+      ..\tobj\acdk_core\bcc\UnicodeCharacter.obj 
+      ..\tobj\acdk_core\bcc\SysFields.obj 
+      ..\tobj\acdk_core\bcc\AcdkDmiClient.obj ..\tobj\acdk_core\bcc\AcdkStdWeakTypeDmiClient.obj 
+      ..\tobj\acdk_core\bcc\ClazzInfo.obj 
+      ..\tobj\acdk_core\bcc\dmi_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\DmiClient.obj ..\tobj\acdk_core\bcc\Marshaler.obj 
+      ..\tobj\acdk_core\bcc\MetaAttribute.obj 
+      ..\tobj\acdk_core\bcc\MetaObject.obj ..\tobj\acdk_core\bcc\ScriptVar2.obj 
+      ..\tobj\acdk_core\bcc\ScriptVar.obj ..\tobj\acdk_core\bcc\StdDispatch.obj 
+      ..\tobj\acdk_core\bcc\ReferenceQueue.obj 
+      ..\tobj\acdk_core\bcc\acdk_lang_ref_Package.obj 
+      ..\tobj\acdk_core\bcc\NotifyObjectEvent.obj 
+      ..\tobj\acdk_core\bcc\ref_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\Reference.obj ..\tobj\acdk_core\bcc\Unit.obj 
+      ..\tobj\acdk_core\bcc\Constructor.obj 
+      ..\tobj\acdk_core\bcc\Enumeration.obj ..\tobj\acdk_core\bcc\Field.obj 
+      ..\tobj\acdk_core\bcc\Method.obj ..\tobj\acdk_core\bcc\Modifier.obj 
+      ..\tobj\acdk_core\bcc\Parameter.obj 
+      ..\tobj\acdk_core\bcc\reflect_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\TracedRawAllocator.obj 
+      ..\tobj\acdk_core\bcc\Allocator.obj ..\tobj\acdk_core\bcc\BackTrace.obj 
+      ..\tobj\acdk_core\bcc\BitmapPagedAllocator.obj 
+      ..\tobj\acdk_core\bcc\BoehmGC.obj 
+      ..\tobj\acdk_core\bcc\BoehmGCAllocator.obj 
+      ..\tobj\acdk_core\bcc\core_condition.obj 
+      ..\tobj\acdk_core\bcc\core_fastmutex.obj 
+      ..\tobj\acdk_core\bcc\core_memcheck.obj 
+      ..\tobj\acdk_core\bcc\core_mutex.obj 
+      ..\tobj\acdk_core\bcc\core_recursivemutex.obj 
+      ..\tobj\acdk_core\bcc\core_semaphore.obj 
+      ..\tobj\acdk_core\bcc\core_specific.obj 
+      ..\tobj\acdk_core\bcc\core_system.obj 
+      ..\tobj\acdk_core\bcc\core_winimage.obj 
+      ..\tobj\acdk_core\bcc\Garbage_Heap.obj 
+      ..\tobj\acdk_core\bcc\ObjectHeap.obj ..\tobj\acdk_core\bcc\ObjectLockPool.obj 
+      ..\tobj\acdk_core\bcc\PagedAllocator.obj 
+      ..\tobj\acdk_core\bcc\PagedHeap.obj ..\tobj\acdk_core\bcc\RC_GC_Heap.obj 
+      ..\tobj\acdk_core\bcc\RC_Heap.obj ..\tobj\acdk_core\bcc\StackAllocator.obj 
+      ..\tobj\acdk_core\bcc\TraceCallStack.obj ..\tobj\acdk_core\bcc\Writer.obj 
+      ..\tobj\acdk_core\bcc\AbstractCharFilterReader.obj 
+      ..\tobj\acdk_core\bcc\AbstractCharFilterWriter.obj 
+      ..\tobj\acdk_core\bcc\AbstractCharReader.obj 
+      ..\tobj\acdk_core\bcc\AbstractCharWriter.obj 
+      ..\tobj\acdk_core\bcc\AbstractFilterWriter.obj 
+      ..\tobj\acdk_core\bcc\AbstractObjectReader.obj 
+      ..\tobj\acdk_core\bcc\AbstractObjectWriter.obj 
+      ..\tobj\acdk_core\bcc\AbstractReader.obj 
+      ..\tobj\acdk_core\bcc\acdk_io_Package.obj 
+      ..\tobj\acdk_core\bcc\ASCIIDataReader.obj 
+      ..\tobj\acdk_core\bcc\ASCIIDataWriter.obj 
+      ..\tobj\acdk_core\bcc\BinaryDataReader.obj 
+      ..\tobj\acdk_core\bcc\BinaryDataWriter.obj 
+      ..\tobj\acdk_core\bcc\BinaryObjectReader.obj 
+      ..\tobj\acdk_core\bcc\BinaryObjectWriter.obj 
+      ..\tobj\acdk_core\bcc\BufferedReader.obj 
+      ..\tobj\acdk_core\bcc\BufferedWriter.obj 
+      ..\tobj\acdk_core\bcc\ByteToCharReader.obj 
+      ..\tobj\acdk_core\bcc\CharArrayReader.obj 
+      ..\tobj\acdk_core\bcc\CharArrayWriter.obj 
+      ..\tobj\acdk_core\bcc\CharReader.obj 
+      ..\tobj\acdk_core\bcc\CharToByteWriter.obj 
+      ..\tobj\acdk_core\bcc\ConsoleCharReader.obj 
+      ..\tobj\acdk_core\bcc\ConsoleCharWriter.obj 
+      ..\tobj\acdk_core\bcc\ConsoleReader.obj 
+      ..\tobj\acdk_core\bcc\ConsoleWriter.obj ..\tobj\acdk_core\bcc\File.obj 
+      ..\tobj\acdk_core\bcc\FileAbstractImpl.obj 
+      ..\tobj\acdk_core\bcc\FileDescriptor.obj 
+      ..\tobj\acdk_core\bcc\FileImpl.obj ..\tobj\acdk_core\bcc\FileReader.obj 
+      ..\tobj\acdk_core\bcc\FileReaderWriterImpl.obj 
+      ..\tobj\acdk_core\bcc\FileStandardImpl.obj 
+      ..\tobj\acdk_core\bcc\FileStatus.obj ..\tobj\acdk_core\bcc\FileSystem.obj 
+      ..\tobj\acdk_core\bcc\FileWriter.obj 
+      ..\tobj\acdk_core\bcc\GlobFilenameFilter.obj 
+      ..\tobj\acdk_core\bcc\InputReader.obj 
+      ..\tobj\acdk_core\bcc\io_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\IOException.obj 
+      ..\tobj\acdk_core\bcc\JoinedReader.obj 
+      ..\tobj\acdk_core\bcc\LineNumberCharReader.obj 
+      ..\tobj\acdk_core\bcc\LineNumberReader.obj 
+      ..\tobj\acdk_core\bcc\MemoryMappedFile.obj 
+      ..\tobj\acdk_core\bcc\MemReader.obj ..\tobj\acdk_core\bcc\MemWriter.obj 
+      ..\tobj\acdk_core\bcc\ObjectReader.obj 
+      ..\tobj\acdk_core\bcc\ObjectWriter.obj 
+      ..\tobj\acdk_core\bcc\PipedReader.obj 
+      ..\tobj\acdk_core\bcc\PipedWriter.obj ..\tobj\acdk_core\bcc\PrintWriter.obj 
+      ..\tobj\acdk_core\bcc\PushbackCharReader.obj 
+      ..\tobj\acdk_core\bcc\PushbackReader.obj 
+      ..\tobj\acdk_core\bcc\RandomAccessFile.obj 
+      ..\tobj\acdk_core\bcc\Reader.obj ..\tobj\acdk_core\bcc\RessourceFileSystem.obj 
+      ..\tobj\acdk_core\bcc\StandardFileSystem.obj 
+      ..\tobj\acdk_core\bcc\StreamTokenizer.obj 
+      ..\tobj\acdk_core\bcc\SubReader.obj ..\tobj\acdk_core\bcc\UTF8Encoding.obj 
+      ..\tobj\acdk_core\bcc\AsciiEncoding.obj 
+      ..\tobj\acdk_core\bcc\AsciiUtfEncoding.obj 
+      ..\tobj\acdk_core\bcc\ByteAsciiEncoding.obj 
+      ..\tobj\acdk_core\bcc\CEscapeEncoding.obj 
+      ..\tobj\acdk_core\bcc\Encoding.obj ..\tobj\acdk_core\bcc\IsoEncoding.obj 
+      ..\tobj\acdk_core\bcc\IsoTables.obj 
+      ..\tobj\acdk_core\bcc\locale_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\LocaleInfo.obj 
+      ..\tobj\acdk_core\bcc\LocaleInfo_de.obj 
+      ..\tobj\acdk_core\bcc\UCS2Encoding.obj 
+      ..\tobj\acdk_core\bcc\UnicodeTable.obj 
+      ..\tobj\acdk_core\bcc\WeakHashMap.obj 
+      ..\tobj\acdk_core\bcc\AbstractCollection.obj 
+      ..\tobj\acdk_core\bcc\AbstractList.obj 
+      ..\tobj\acdk_core\bcc\AbstractListSubList.obj 
+      ..\tobj\acdk_core\bcc\AbstractMap.obj 
+      ..\tobj\acdk_core\bcc\AbstractSequentialList.obj 
+      ..\tobj\acdk_core\bcc\AbstractSet.obj 
+      ..\tobj\acdk_core\bcc\acdk_util_Package.obj 
+      ..\tobj\acdk_core\bcc\ArrayList.obj ..\tobj\acdk_core\bcc\Arrays.obj 
+      ..\tobj\acdk_core\bcc\BitSet.obj ..\tobj\acdk_core\bcc\Bucket.obj 
+      ..\tobj\acdk_core\bcc\Calendar.obj ..\tobj\acdk_core\bcc\Collections.obj 
+      ..\tobj\acdk_core\bcc\Date.obj ..\tobj\acdk_core\bcc\GregorianCalendar.obj 
+      ..\tobj\acdk_core\bcc\HashMap.obj ..\tobj\acdk_core\bcc\HashSet.obj 
+      ..\tobj\acdk_core\bcc\Hashtable.obj ..\tobj\acdk_core\bcc\LinkedList.obj 
+      ..\tobj\acdk_core\bcc\ListResourceBundle.obj 
+      ..\tobj\acdk_core\bcc\Locale.obj ..\tobj\acdk_core\bcc\Properties.obj 
+      ..\tobj\acdk_core\bcc\PropertiesListener.obj 
+      ..\tobj\acdk_core\bcc\PropertyResourceBundle.obj 
+      ..\tobj\acdk_core\bcc\Random.obj ..\tobj\acdk_core\bcc\ResourceBundle.obj 
+      ..\tobj\acdk_core\bcc\SimpleCalendar.obj 
+      ..\tobj\acdk_core\bcc\SimpleListResourceBundle.obj 
+      ..\tobj\acdk_core\bcc\SimpleTimeZone.obj 
+      ..\tobj\acdk_core\bcc\StringTokenizer.obj 
+      ..\tobj\acdk_core\bcc\SysDate.obj ..\tobj\acdk_core\bcc\TimeZone.obj 
+      ..\tobj\acdk_core\bcc\TreeMap.obj ..\tobj\acdk_core\bcc\TreeSet.obj 
+      ..\tobj\acdk_core\bcc\util_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\Vector.obj ..\tobj\acdk_core\bcc\StdFormatter.obj 
+      ..\tobj\acdk_core\bcc\AbstractLogConsumer.obj 
+      ..\tobj\acdk_core\bcc\FileConsumer.obj ..\tobj\acdk_core\bcc\Level.obj 
+      ..\tobj\acdk_core\bcc\Logger.obj 
+      ..\tobj\acdk_core\bcc\logging_metainf_base.obj 
+      ..\tobj\acdk_core\bcc\LogManager.obj 
+      ..\tobj\acdk_core\bcc\SimpleFormatter.obj"/>
+    <RESFILES value="acdk_core.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
+      vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
+      teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
+      dsnapcrba.bpi dsnapcon.bpi bcbsmp.bpi vclie.bpi xmlrtl.bpi inet.bpi 
+      inetdbbde.bpi inetdbxpress.bpi inetdb.bpi nmfast.bpi webdsnap.bpi 
+      bcbie.bpi websnap.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb2kaxserver.bpi"/>
+    <PATHCPP value=".;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\dmi;acdk\lang\ref;acdk\lang\ref;acdk\lang\ref;acdk\lang\ref;acdk\lang\ref;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\reflect;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\lang\sys;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\io;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\locale;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util;acdk\util\logging;acdk\util\logging;acdk\util\logging;acdk\util\logging;acdk\util\logging;acdk\util\logging;acdk\util\logging;acdk\util\logging"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="IN_ACDK_CORE_LIB;ACDK_USE_GC;ACDK_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;_RTLDLL"/>
+    <MAINSOURCE value="acdk_core.bpf"/>
+    <INCLUDEPATH value="acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;D:\programr\lang\bcc551\Include;."/>
+    <LIBPATH value="acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-Iacdk\util\logging -Iacdk\util -Iacdk\locale -Iacdk\io -Iacdk\lang\sys 
+      -Iacdk\lang\reflect -Iacdk\lang\ref -Iacdk\lang\dmi -Iacdk\lang 
+      -ID:\programr\lang\bcc551\Include -I. -src_suffix cpp -DIN_ACDK_CORE_LIB 
+      -DACDK_USE_GC -DACDK_DEBUG -boa"/>
+    <CFLAG1 value="-WD -Od -Vx -Ve -X- -r- -a8 -6 -b- -k -y -v -vi- -tWD -tWM -c"/>
+    <PFLAGS value="-N2D:\artefaktur\ucacdk2\acdk_core\tobj\acdk_core\bcc 
+      -N0D:\artefaktur\ucacdk2\acdk_core\tobj\acdk_core\bcc -$YD -$W -$O- -$A8 
+      -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-lD:\artefaktur\ucacdk2\bin 
+      -ID:\artefaktur\ucacdk2\acdk_core\tobj\acdk_core\bcc -D&quot;&quot; -aa -Tpd -x -Gn 
+      -Gi -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0d32.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32mti.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="acdk_core.res" FORMNAME="" UNITNAME="acdk_core.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk_core.bpf" FORMNAME="" UNITNAME="acdk_core" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Void.cpp" FORMNAME="" UNITNAME="Void.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\BasicArray.cpp" FORMNAME="" UNITNAME="BasicArray.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Boolean.cpp" FORMNAME="" UNITNAME="Boolean.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Byte.cpp" FORMNAME="" UNITNAME="Byte.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Character.cpp" FORMNAME="" UNITNAME="Character.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Class.cpp" FORMNAME="" UNITNAME="Class.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ClassCastException.cpp" FORMNAME="" UNITNAME="ClassCastException.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ClassLoader.cpp" FORMNAME="" UNITNAME="ClassLoader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\CmdLineOption.cpp" FORMNAME="" UNITNAME="CmdLineOption.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\CmdLineParser.cpp" FORMNAME="" UNITNAME="CmdLineParser.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Double.cpp" FORMNAME="" UNITNAME="Double.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Float.cpp" FORMNAME="" UNITNAME="Float.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Integer.cpp" FORMNAME="" UNITNAME="Integer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Lang.cpp" FORMNAME="" UNITNAME="Lang.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\lang_metainf_base.cpp" FORMNAME="" UNITNAME="lang_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Long.cpp" FORMNAME="" UNITNAME="Long.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Math.cpp" FORMNAME="" UNITNAME="Math.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Object.cpp" FORMNAME="" UNITNAME="Object.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ObjectArrayBase.cpp" FORMNAME="" UNITNAME="ObjectArrayBase.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ObjectArrayImpl.cpp" FORMNAME="" UNITNAME="ObjectArrayImpl.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ObjectDebug.cpp" FORMNAME="" UNITNAME="ObjectDebug.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Package.cpp" FORMNAME="" UNITNAME="Package.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Process.cpp" FORMNAME="" UNITNAME="Process.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Runtime.cpp" FORMNAME="" UNITNAME="Runtime.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\SharedLibrary.cpp" FORMNAME="" UNITNAME="SharedLibrary.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Short.cpp" FORMNAME="" UNITNAME="Short.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\StackTraceElement.cpp" FORMNAME="" UNITNAME="StackTraceElement.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\String.cpp" FORMNAME="" UNITNAME="String.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\StringBuffer.cpp" FORMNAME="" UNITNAME="StringBuffer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\StringOld.cpp" FORMNAME="" UNITNAME="StringOld.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\StringUtf8Utils.cpp" FORMNAME="" UNITNAME="StringUtf8Utils.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\System.cpp" FORMNAME="" UNITNAME="System.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\SystemError.cpp" FORMNAME="" UNITNAME="SystemError.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Thread.cpp" FORMNAME="" UNITNAME="Thread.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ThreadGroup.cpp" FORMNAME="" UNITNAME="ThreadGroup.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\Throwable.cpp" FORMNAME="" UNITNAME="Throwable.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\UnicodeCharacter.cpp" FORMNAME="" UNITNAME="UnicodeCharacter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\SysFields.cpp" FORMNAME="" UNITNAME="SysFields.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\AcdkDmiClient.cpp" FORMNAME="" UNITNAME="AcdkDmiClient.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\AcdkStdWeakTypeDmiClient.cpp" FORMNAME="" UNITNAME="AcdkStdWeakTypeDmiClient.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\ClazzInfo.cpp" FORMNAME="" UNITNAME="ClazzInfo.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\dmi_metainf_base.cpp" FORMNAME="" UNITNAME="dmi_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\DmiClient.cpp" FORMNAME="" UNITNAME="DmiClient.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\Marshaler.cpp" FORMNAME="" UNITNAME="Marshaler.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\MetaAttribute.cpp" FORMNAME="" UNITNAME="MetaAttribute.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\MetaObject.cpp" FORMNAME="" UNITNAME="MetaObject.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\ScriptVar2.cpp" FORMNAME="" UNITNAME="ScriptVar2.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\ScriptVar.cpp" FORMNAME="" UNITNAME="ScriptVar.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\dmi\StdDispatch.cpp" FORMNAME="" UNITNAME="StdDispatch.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ref\ReferenceQueue.cpp" FORMNAME="" UNITNAME="ReferenceQueue.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ref\acdk_lang_ref_Package.cpp" FORMNAME="" UNITNAME="acdk_lang_ref_Package.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ref\NotifyObjectEvent.cpp" FORMNAME="" UNITNAME="NotifyObjectEvent.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ref\ref_metainf_base.cpp" FORMNAME="" UNITNAME="ref_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\ref\Reference.cpp" FORMNAME="" UNITNAME="Reference.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Unit.cpp" FORMNAME="" UNITNAME="Unit.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Constructor.cpp" FORMNAME="" UNITNAME="Constructor.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Enumeration.cpp" FORMNAME="" UNITNAME="Enumeration.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Field.cpp" FORMNAME="" UNITNAME="Field.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Method.cpp" FORMNAME="" UNITNAME="Method.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Modifier.cpp" FORMNAME="" UNITNAME="Modifier.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\Parameter.cpp" FORMNAME="" UNITNAME="Parameter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\reflect\reflect_metainf_base.cpp" FORMNAME="" UNITNAME="reflect_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\TracedRawAllocator.cpp" FORMNAME="" UNITNAME="TracedRawAllocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\Allocator.cpp" FORMNAME="" UNITNAME="Allocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\BackTrace.cpp" FORMNAME="" UNITNAME="BackTrace.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\BitmapPagedAllocator.cpp" FORMNAME="" UNITNAME="BitmapPagedAllocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\BoehmGC.cpp" FORMNAME="" UNITNAME="BoehmGC.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\BoehmGCAllocator.cpp" FORMNAME="" UNITNAME="BoehmGCAllocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_condition.cpp" FORMNAME="" UNITNAME="core_condition.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_fastmutex.cpp" FORMNAME="" UNITNAME="core_fastmutex.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_memcheck.cpp" FORMNAME="" UNITNAME="core_memcheck.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_mutex.cpp" FORMNAME="" UNITNAME="core_mutex.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_recursivemutex.cpp" FORMNAME="" UNITNAME="core_recursivemutex.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_semaphore.cpp" FORMNAME="" UNITNAME="core_semaphore.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_specific.cpp" FORMNAME="" UNITNAME="core_specific.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_system.cpp" FORMNAME="" UNITNAME="core_system.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\core_winimage.cpp" FORMNAME="" UNITNAME="core_winimage.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\Garbage_Heap.cpp" FORMNAME="" UNITNAME="Garbage_Heap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\ObjectHeap.cpp" FORMNAME="" UNITNAME="ObjectHeap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\ObjectLockPool.cpp" FORMNAME="" UNITNAME="ObjectLockPool.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\PagedAllocator.cpp" FORMNAME="" UNITNAME="PagedAllocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\PagedHeap.cpp" FORMNAME="" UNITNAME="PagedHeap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\RC_GC_Heap.cpp" FORMNAME="" UNITNAME="RC_GC_Heap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\RC_Heap.cpp" FORMNAME="" UNITNAME="RC_Heap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\StackAllocator.cpp" FORMNAME="" UNITNAME="StackAllocator.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\lang\sys\TraceCallStack.cpp" FORMNAME="" UNITNAME="TraceCallStack.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\Writer.cpp" FORMNAME="" UNITNAME="Writer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractCharFilterReader.cpp" FORMNAME="" UNITNAME="AbstractCharFilterReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractCharFilterWriter.cpp" FORMNAME="" UNITNAME="AbstractCharFilterWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractCharReader.cpp" FORMNAME="" UNITNAME="AbstractCharReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractCharWriter.cpp" FORMNAME="" UNITNAME="AbstractCharWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractFilterWriter.cpp" FORMNAME="" UNITNAME="AbstractFilterWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractObjectReader.cpp" FORMNAME="" UNITNAME="AbstractObjectReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractObjectWriter.cpp" FORMNAME="" UNITNAME="AbstractObjectWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\AbstractReader.cpp" FORMNAME="" UNITNAME="AbstractReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\acdk_io_Package.cpp" FORMNAME="" UNITNAME="acdk_io_Package.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ASCIIDataReader.cpp" FORMNAME="" UNITNAME="ASCIIDataReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ASCIIDataWriter.cpp" FORMNAME="" UNITNAME="ASCIIDataWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\BinaryDataReader.cpp" FORMNAME="" UNITNAME="BinaryDataReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\BinaryDataWriter.cpp" FORMNAME="" UNITNAME="BinaryDataWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\BinaryObjectReader.cpp" FORMNAME="" UNITNAME="BinaryObjectReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\BinaryObjectWriter.cpp" FORMNAME="" UNITNAME="BinaryObjectWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\BufferedReader.cpp" FORMNAME="" UNITNAME="BufferedReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\BufferedWriter.cpp" FORMNAME="" UNITNAME="BufferedWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ByteToCharReader.cpp" FORMNAME="" UNITNAME="ByteToCharReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\CharArrayReader.cpp" FORMNAME="" UNITNAME="CharArrayReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\CharArrayWriter.cpp" FORMNAME="" UNITNAME="CharArrayWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\CharReader.cpp" FORMNAME="" UNITNAME="CharReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\CharToByteWriter.cpp" FORMNAME="" UNITNAME="CharToByteWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ConsoleCharReader.cpp" FORMNAME="" UNITNAME="ConsoleCharReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ConsoleCharWriter.cpp" FORMNAME="" UNITNAME="ConsoleCharWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ConsoleReader.cpp" FORMNAME="" UNITNAME="ConsoleReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ConsoleWriter.cpp" FORMNAME="" UNITNAME="ConsoleWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\File.cpp" FORMNAME="" UNITNAME="File.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileAbstractImpl.cpp" FORMNAME="" UNITNAME="FileAbstractImpl.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileDescriptor.cpp" FORMNAME="" UNITNAME="FileDescriptor.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileImpl.cpp" FORMNAME="" UNITNAME="FileImpl.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileReader.cpp" FORMNAME="" UNITNAME="FileReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileReaderWriterImpl.cpp" FORMNAME="" UNITNAME="FileReaderWriterImpl.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileStandardImpl.cpp" FORMNAME="" UNITNAME="FileStandardImpl.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileStatus.cpp" FORMNAME="" UNITNAME="FileStatus.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileSystem.cpp" FORMNAME="" UNITNAME="FileSystem.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\FileWriter.cpp" FORMNAME="" UNITNAME="FileWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\GlobFilenameFilter.cpp" FORMNAME="" UNITNAME="GlobFilenameFilter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\InputReader.cpp" FORMNAME="" UNITNAME="InputReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\io_metainf_base.cpp" FORMNAME="" UNITNAME="io_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\IOException.cpp" FORMNAME="" UNITNAME="IOException.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\JoinedReader.cpp" FORMNAME="" UNITNAME="JoinedReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\LineNumberCharReader.cpp" FORMNAME="" UNITNAME="LineNumberCharReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\LineNumberReader.cpp" FORMNAME="" UNITNAME="LineNumberReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\MemoryMappedFile.cpp" FORMNAME="" UNITNAME="MemoryMappedFile.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\MemReader.cpp" FORMNAME="" UNITNAME="MemReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\MemWriter.cpp" FORMNAME="" UNITNAME="MemWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ObjectReader.cpp" FORMNAME="" UNITNAME="ObjectReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\ObjectWriter.cpp" FORMNAME="" UNITNAME="ObjectWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\PipedReader.cpp" FORMNAME="" UNITNAME="PipedReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\PipedWriter.cpp" FORMNAME="" UNITNAME="PipedWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\PrintWriter.cpp" FORMNAME="" UNITNAME="PrintWriter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\PushbackCharReader.cpp" FORMNAME="" UNITNAME="PushbackCharReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\PushbackReader.cpp" FORMNAME="" UNITNAME="PushbackReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\RandomAccessFile.cpp" FORMNAME="" UNITNAME="RandomAccessFile.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\Reader.cpp" FORMNAME="" UNITNAME="Reader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\RessourceFileSystem.cpp" FORMNAME="" UNITNAME="RessourceFileSystem.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\StandardFileSystem.cpp" FORMNAME="" UNITNAME="StandardFileSystem.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\StreamTokenizer.cpp" FORMNAME="" UNITNAME="StreamTokenizer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\io\SubReader.cpp" FORMNAME="" UNITNAME="SubReader.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\UTF8Encoding.cpp" FORMNAME="" UNITNAME="UTF8Encoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\AsciiEncoding.cpp" FORMNAME="" UNITNAME="AsciiEncoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\AsciiUtfEncoding.cpp" FORMNAME="" UNITNAME="AsciiUtfEncoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\ByteAsciiEncoding.cpp" FORMNAME="" UNITNAME="ByteAsciiEncoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\CEscapeEncoding.cpp" FORMNAME="" UNITNAME="CEscapeEncoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\Encoding.cpp" FORMNAME="" UNITNAME="Encoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\IsoEncoding.cpp" FORMNAME="" UNITNAME="IsoEncoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\IsoTables.cpp" FORMNAME="" UNITNAME="IsoTables.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\locale_metainf_base.cpp" FORMNAME="" UNITNAME="locale_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\LocaleInfo.cpp" FORMNAME="" UNITNAME="LocaleInfo.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\LocaleInfo_de.cpp" FORMNAME="" UNITNAME="LocaleInfo_de.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\UCS2Encoding.cpp" FORMNAME="" UNITNAME="UCS2Encoding.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\locale\UnicodeTable.cpp" FORMNAME="" UNITNAME="UnicodeTable.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\WeakHashMap.cpp" FORMNAME="" UNITNAME="WeakHashMap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\AbstractCollection.cpp" FORMNAME="" UNITNAME="AbstractCollection.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\AbstractList.cpp" FORMNAME="" UNITNAME="AbstractList.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\AbstractListSubList.cpp" FORMNAME="" UNITNAME="AbstractListSubList.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\AbstractMap.cpp" FORMNAME="" UNITNAME="AbstractMap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\AbstractSequentialList.cpp" FORMNAME="" UNITNAME="AbstractSequentialList.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\AbstractSet.cpp" FORMNAME="" UNITNAME="AbstractSet.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\acdk_util_Package.cpp" FORMNAME="" UNITNAME="acdk_util_Package.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\ArrayList.cpp" FORMNAME="" UNITNAME="ArrayList.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Arrays.cpp" FORMNAME="" UNITNAME="Arrays.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\BitSet.cpp" FORMNAME="" UNITNAME="BitSet.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Bucket.cpp" FORMNAME="" UNITNAME="Bucket.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Calendar.cpp" FORMNAME="" UNITNAME="Calendar.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Collections.cpp" FORMNAME="" UNITNAME="Collections.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Date.cpp" FORMNAME="" UNITNAME="Date.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\GregorianCalendar.cpp" FORMNAME="" UNITNAME="GregorianCalendar.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\HashMap.cpp" FORMNAME="" UNITNAME="HashMap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\HashSet.cpp" FORMNAME="" UNITNAME="HashSet.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Hashtable.cpp" FORMNAME="" UNITNAME="Hashtable.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\LinkedList.cpp" FORMNAME="" UNITNAME="LinkedList.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\ListResourceBundle.cpp" FORMNAME="" UNITNAME="ListResourceBundle.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Locale.cpp" FORMNAME="" UNITNAME="Locale.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Properties.cpp" FORMNAME="" UNITNAME="Properties.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\PropertiesListener.cpp" FORMNAME="" UNITNAME="PropertiesListener.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\PropertyResourceBundle.cpp" FORMNAME="" UNITNAME="PropertyResourceBundle.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Random.cpp" FORMNAME="" UNITNAME="Random.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\ResourceBundle.cpp" FORMNAME="" UNITNAME="ResourceBundle.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\SimpleCalendar.cpp" FORMNAME="" UNITNAME="SimpleCalendar.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\SimpleListResourceBundle.cpp" FORMNAME="" UNITNAME="SimpleListResourceBundle.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\SimpleTimeZone.cpp" FORMNAME="" UNITNAME="SimpleTimeZone.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\StringTokenizer.cpp" FORMNAME="" UNITNAME="StringTokenizer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\SysDate.cpp" FORMNAME="" UNITNAME="SysDate.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\TimeZone.cpp" FORMNAME="" UNITNAME="TimeZone.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\TreeMap.cpp" FORMNAME="" UNITNAME="TreeMap.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\TreeSet.cpp" FORMNAME="" UNITNAME="TreeSet.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\util_metainf_base.cpp" FORMNAME="" UNITNAME="util_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\Vector.cpp" FORMNAME="" UNITNAME="Vector.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\StdFormatter.cpp" FORMNAME="" UNITNAME="StdFormatter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\AbstractLogConsumer.cpp" FORMNAME="" UNITNAME="AbstractLogConsumer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\FileConsumer.cpp" FORMNAME="" UNITNAME="FileConsumer.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\Level.cpp" FORMNAME="" UNITNAME="Level.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\Logger.cpp" FORMNAME="" UNITNAME="Logger.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\logging_metainf_base.cpp" FORMNAME="" UNITNAME="logging_metainf_base.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\LogManager.cpp" FORMNAME="" UNITNAME="LogManager.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="acdk\util\logging\SimpleFormatter.cpp" FORMNAME="" UNITNAME="SimpleFormatter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <FILES>
+    <FILE type="override" value="acdk\lang\Void.cpp" translator="Auto">
+    </FILE>
+  </FILES>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1031
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=8
+Item0=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;D:\programr\lang\bcc551\Include;.
+Item1=D:\programr\lang\bcc551\Include;.
+Item2=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;.
+Item3=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\include;.
+Item4=$(BCB)\include;.
+Item5=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\include;$(BCB)\include\vcl;.
+Item6=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\include;$(BCB)\include\vcl
+Item7=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;D:\artefaktur\ucacdk2\acdk_core\src\acdk\lang;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;$(BCB)\lib\obj;$(BCB)\lib
+Item1=acdk\util\logging;acdk\util;acdk\locale;acdk\io;acdk\lang\sys;acdk\lang\reflect;acdk\lang\ref;acdk\lang\dmi;acdk\lang;D:\artefaktur\ucacdk2\acdk_core\src\acdk\lang;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=4
+Item0=IN_ACDK_CORE_LIB;ACDK_USE_GC;ACDK_DEBUG
+Item1=OS_WIN32;IN_ACDK_CORE_LIB;WIN32;ACDK_USE_GC;,ACDK_DEBUG;_MT
+Item2=OS_WIN32;IN_ACDK_CORE_LIB;WIN32;ACDK_USE_GC;,ACDK_DEBUG
+Item3=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=1
+Item0=D:\artefaktur\ucacdk2\acdk_core\tobj\acdk_core\bcc
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=D:\artefaktur\ucacdk2\bin\
+Item1=D:\artefaktur\ucacdk2\bin
+
+[HistoryLists\hIBPIOutputDir]
+Count=1
+Item0=D:\artefaktur\ucacdk2\bin
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=1
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+
+[Linker]
+LibPrefix=
+LibSuffix=
+LibVersion=
+  </IDEOPTIONS>
+</PROJECT>

@@ -1,0 +1,60 @@
+%id: acdk_sql_man_callable
+%title: ACDK SQL Stored Procedures
+%shorttitle: Stored Procedures
+%keywords: Stored Procedures
+%body:
+<chapterline/>
+<pageintro>
+  How to invoke stored procedures/functions.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Create the stored procedures</jump1>
+The following code creates a stored procedure with 2 in parameter and 2 out parameter.
+
+<source>
+    RString sql;
+    if (dmd->getDatabaseProductName()->equals("Oracle") == true)
+    {
+      sql = "CREATE PROCEDURE acdk_sql_function(instr in varchar2, innum in integer, outstr out varchar2, outnum out integer) AS\n"
+                    "begin\n"
+                    " outstr:=CONCAT(instr, ' SQL');\n"
+                    " outnum:=innum + 1;\n"
+                    "end;"
+                    ;
+    } 
+    else // asume MS SQL 2000
+    {
+      sql = "CREATE PROCEDURE acdk_sql_function @instr varchar(20), @innum SMALLINT, @outstr varchar(20) OUTPUT, @outnum SMALLINT OUTPUT\n"
+                    "AS\n"
+                    "SET @outstr = @instr + ' SQL'\n"
+                    //"print @outstr\n"
+                    "SET @outnum = @innum + 1\n"
+                    ;
+    }
+    RStatement statement = connection->createStatement(); 
+    int rows = statement->executeUpdate(sql);
+</source>
+
+<jump1>Call the stored procedures</jump1>
+<source>
+    RString sql = "{ CALL acdk_sql_function ( ?, ?, ?, ?) }";
+    RCallableStatement statement = connection->prepareCall(sql);
+    statement->setString(1, "ACDK");  
+    statement->setInt(2, 42);
+    statement->registerOutParameter(3, ::acdk::sql::NativeVarCharSqlType);
+    statement->registerOutParameter(4, ::acdk::sql::IntegerSqlType);  
+    
+    int count = statement->executeUpdate(); 
+    RString serg = statement->getString(3); 
+    //serg = serg->convert(CCAscii);
+    System::out->println("Erg is: " + serg);
+    testAssert(serg->equals("ACDK SQL") == true);
+    int ierg = statement->getInt(4);
+    testAssert(ierg == 43);
+</source>
+
+.

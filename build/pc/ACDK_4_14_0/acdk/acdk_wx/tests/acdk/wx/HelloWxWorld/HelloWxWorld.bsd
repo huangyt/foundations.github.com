@@ -1,0 +1,107 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../../../../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=./tobj/HelloWxWorld/bsd
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../../../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -D_REENTRANT $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I .  -I ../../../../src  -I ../../../../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT  $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++
+SYSLDFLAGS?=-g
+
+CFLAGSX= $(WX_CFLAGS)
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -l$(WX_LIBS) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_wx 
+
+
+SOURCES= 	HelloWxWorld.cpp \
+	ObjectExplorer.cpp \
+
+HEADER= 
+OBJECTS= 	./tobj/HelloWxWorld/bsd/HelloWxWorld.o \
+	./tobj/HelloWxWorld/bsd/ObjectExplorer.o \
+
+
+FINALTARGET=../../../../../bin/HelloWxWorld
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../../../../bin/HelloWxWorld: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKEXE) $(SYSLDFLAGS) $(LDFLAGS)   $(OBJECTS) -o ../../../../../bin/HelloWxWorld $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=HelloWxWorld.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+./tobj/HelloWxWorld/bsd/HelloWxWorld.o: HelloWxWorld.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/HelloWxWorld/bsd/HelloWxWorld.o -c HelloWxWorld.cpp
+
+./tobj/HelloWxWorld/bsd/ObjectExplorer.o: ObjectExplorer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ./tobj/HelloWxWorld/bsd/ObjectExplorer.o -c ObjectExplorer.cpp
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../../../../bin/HelloWxWorld $(OBJECTS)
+
+  

@@ -1,0 +1,210 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_tcl, Tcl, DMI Client Tcl">
+<title>acdk_tcl_dll - manual</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Tcl</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk_tcl_dll - manual<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdktcl.html">acdktcl - manual</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Tcl Readme</a> | <a  href="acdk_tcl_install.html">Compile acdk_tcl</a> | <a  href="acdktcl.html">acdktcl - manual</a> | acdk_tcl_dll - manual | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_tcl_dll - manual</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_tcl_dll - manual</h1> -->
+<br>
+<p class="PageIntro">
+  acdk_tcl_dll enables to embed Tcl scripting 
+code into your ACDK application.</p>
+<br>
+<a name="jumptable95"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Tcl as DMI Client"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Tcl as DMI Client</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Hello World Sample"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Hello World Sample</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Type mapping"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Type mapping</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Synopis Tcl"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Synopis Tcl</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_new"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_new</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_invoke"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_invoke</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_invoke_static"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_invoke_static</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_peek"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_peek</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_peek_static"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_peek_static</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_poke"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_poke</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#acdk_poke_static"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;acdk_poke_static</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Embedded Tcl Interpreter"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Embedded Tcl Interpreter</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Tcl as DMI Client">Tcl as DMI Client</a></h2>
+acdk_tcl provides the ACDK DMI client interface for
+Tcl scripts.<br>
+<br>
+<h3><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Hello World Sample">Hello World Sample</a></h3>
+    <body>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> foo{ string1 string2 }{
+  <B><FONT COLOR="#A020F0">set</FONT></B> sb [acdk_new <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/StringBuffer&quot;</FONT></B> $<FONT COLOR="#B8860B">string1</FONT> ] 
+  acdk_invoke $<FONT COLOR="#B8860B">sb</FONT> <B><FONT COLOR="#A020F0">append</FONT></B> $<FONT COLOR="#B8860B">string2</FONT>
+  <B><FONT COLOR="#A020F0">return</FONT></B> [acdk_invoke $<FONT COLOR="#B8860B">sb</FONT> toString]
+}
+acdk_invoke [ acdk_peek_static <B><FONT COLOR="#BC8F8F">&quot;acdk/lang/System&quot;</FONT></B> out ] println [ foo <B><FONT COLOR="#BC8F8F">&quot;Hello Tcl&quot;</FONT></B> <B><FONT COLOR="#BC8F8F">&quot; from ACDK&quot;</FONT></B>]
+</PRE></td></tr></table>
+<h3><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Type mapping">Type mapping</a></h3>
+The atomic types will be mapped between ACDK and Tcl.<br>
+Strings are also be converted.<br>
+All other object types will not mapped.<br>
+<br>
+<h3><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Synopis Tcl">Synopis Tcl</a></h3>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_new">acdk_new</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_new{classname args}
+</PRE></td></tr></table>
+<br>
+Create an new instance of an ACDK object.<br>
+<ul class="FeatureList">
+<li class="Feature"> ACDK classname should be in form of:<br>
+    <code>"acdk/lang/StringBuffer"</code>.<br>
+<li class="Feature"> args are the arguments of the constructor of 
+    the acdk-Class.<br>
+<li class="Feature"> return value is the handle to the ACDK object.<br>
+</ul>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_invoke">acdk_invoke</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_invoke{object methodename args}
+</PRE></td></tr></table>
+acdk_invoke calls a dynamic method of an ACDK object.<br>
+<ul class="FeatureList">
+<li class="Feature"> object is a ACDK object.<br>
+<li class="Feature"> methodname name of the method to invoke
+<li class="Feature"> args are the arguments of the constructor of 
+    the acdk-Class.<br>
+<li class="Feature"> return value is the return value of the method.<br>
+</ul>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_invoke_static">acdk_invoke_static</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_invoke_static{classname methodename args}
+</PRE></td></tr></table>
+acdk_invoke_static calls a static method of an ACDK object.<br>
+<ul class="FeatureList">
+<li class="Feature"> ACDK classname 
+<li class="Feature"> methodname name of the method to invoke
+<li class="Feature"> args are the arguments of the constructor of 
+    the acdk-Class.<br>
+<li class="Feature"> return value is the return value of the method.<br>
+</ul>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_peek">acdk_peek</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_peek{object membername args}
+</PRE></td></tr></table>
+acdk_peek reads a public member of an ACDK object.<br>
+<ul class="FeatureList">
+<li class="Feature"> object is a ACDK object.<br>
+<li class="Feature"> membername name of the member of the ACDK object.<br>
+<li class="Feature"> return value is value of the member.<br>
+</ul>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_peek_static">acdk_peek_static</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_peek_static{classname membername}
+</PRE></td></tr></table>
+acdk_peek_static reads a static member of an ACDK class.<br>
+<ul class="FeatureList">
+<li class="Feature"> ACDK classname 
+<li class="Feature"> membername name of the member of the ACDK object.<br>
+<li class="Feature"> return value is value of the member.<br>
+</ul>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_poke">acdk_poke</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_poke{object membername newval}
+</PRE></td></tr></table>
+acdk_peek writes a public member of an ACDK object.<br>
+<ul class="FeatureList">
+<li class="Feature"> object is a ACDK object.<br>
+<li class="Feature"> membername name of the member of the ACDK object.<br>
+<li class="Feature"> newval value to write into member.<br>
+<li class="Feature"> return no value.<br>
+</ul>
+<br>
+<h4><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="acdk_poke_static">acdk_poke_static</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">proc</FONT></B> acdk_oke_static{classname membername newval}
+</PRE></td></tr></table>
+acdk_peek_static reads a static member of an ACDK class.<br>
+<ul class="FeatureList">
+<li class="Feature"> ACDK classname 
+<li class="Feature"> membername name of the member of the ACDK object.<br>
+<li class="Feature"> newval value to write into member.<br>
+<li class="Feature"> return no value.<br>
+</ul>
+<br>
+<h2><a href="#jumptable95"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Embedded Tcl Interpreter">Embedded Tcl Interpreter</a></h2>
+The class <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__tcl__TclInterpreter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::tcl::TclInterpreter</a> implements the interpreter.<br>
+Please refer to <a  href="acdktcl.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdktcl - manual</a> how to use it.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Tcl Readme</a> | <a  href="acdk_tcl_install.html">Compile acdk_tcl</a> | <a  href="acdktcl.html">acdktcl - manual</a> | acdk_tcl_dll - manual | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

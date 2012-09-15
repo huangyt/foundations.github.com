@@ -1,0 +1,292 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="operator">
+<title>CfgScript Operator Expressions</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Operator<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_class_method.html">Class Methods</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | Operator | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Operator Expressions</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Operator Expressions</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | Operator | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p>
+<p class="PageIntro">
+An Operator is a special function connected to a Object
+or class.
+</p>
+
+<br>
+<a name="jumptable30"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#How does CfgScript supports Operators"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;How does CfgScript supports Operators</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Most Operators are simple class/object method"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Most Operators are simple class/object method</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Buildin Operator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Buildin Operator</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#OperatorExpression"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;OperatorExpression</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#PreFixOperator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;PreFixOperator</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#PostFixOperator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;PostFixOperator</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#InfixOperator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;InfixOperator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Logical Operators && and ||"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Logical Operators && and ||</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#OutfixOperator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;OutfixOperator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#GroupOperator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;GroupOperator</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="How does CfgScript supports Operators">How does CfgScript supports Operators</a></h2>
+<br>
+CfgScript has very few really 'build in' operators. 
+<br>
+<h3><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Most Operators are simple class/object method">Most Operators are simple class/object method</a></h3>
+Most operators are only a shortcut for a simply method call.<br>
+So for example the expression <code>1 + 2</code> is not evaluated
+by the CfgScript interpreter itself, but delegated to a an object:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+1 + 2 
+<I><FONT COLOR="#B22222">// CfgScript will interpret this as
+</FONT></I>1.<B><FONT COLOR="#A020F0">operator</FONT></B>+(2)
+</PRE></td></tr></table>
+whereas <code>1</code> is a object instance (of <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__lang__dmi__DmiObject"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::dmi::DmiObject</a>) 
+which implements the method:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+RDmiObject <B><FONT COLOR="#A020F0">operator</FONT></B>+(IN(RDmiObject) other);
+</PRE></td></tr></table>
+<br>
+You can also create your <a  href="acdk_cfgscript_hb_lang_class_method.html#OperatorMethod"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;own operator implementations</a> 
+in CfgScript.<br>
+<br>
+<h3><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Buildin Operator">Buildin Operator</a></h3>
+Not all operators can are implemented as operator method calls.<br>
+These operators are directly implemented by the CfgScript interpreter:<br>
+<ul class="FeatureList">
+<li class="Feature"> '=': Assignment operator
+<li class="Feature"> '&&', '||': relational operators has a special meaning (because shortcut boolean evaluation).<br>
+<li class="Feature"> '.', '::' '->': for defining component names or <code>object_or_class.method_or_field</code> 
+</ul>
+<br>
+<h2><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OperatorExpression">OperatorExpression</a></h2>
+<br>
+<pre>
+OperatorExpression
+: <a  href="acdk_cfgscript_hb_lang_expr_operator.html#PreFixOperator"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;PreFixOperator</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_operator.html#PreFixOperator"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;PostFixOperator</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_operator.html#InfixOperator"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;InfixOperator</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_operator.html#OutfixOperator"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;OutfixOperator</a>
+;
+</pre>
+<br>
+The operator are ordered into priorities. The priority follows
+the syntax rules of C/C++/Java.<br>
+<br>
+Operators with
+same priority will be evaluated from left to right:<br>
+<code>a + b + c</code>;<br>
+will be evaluated:<br>
+<code>a + b => temp1; temp1 + c => result</code>
+<br>
+If two operators has different priorities the expression
+with the higher priority will be evaluated first:<br>
+<code>a + b * c</code>
+will be evaluated:<br>
+<code>b * c => temp1; a + temp1 => result</code>
+<br>
+Most operation expression will be mapped to corresponding
+Class/Object methods. 
+<code>"A" + "B"</code>
+will result in:<br>
+<code>(new String("a")).operator+("B")</code>
+or other sample:<br>
+<code>1 * 2<c>
+will be 
+<c>(new DmiObject(1)).operator*(2)</code>
+<br>
+<h2><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="PreFixOperator">PreFixOperator</a></h2>
+<pre>
+PreFixOperator
+: '+' Expression // has no effect
+| '-' Expression // negate the value of the expression
+| '++' Expression // increment the expression with 1
+| '--' Expression // decrement the expression with 1
+;
+</pre>
+<br>
+The code:<br>
+<code>-42</code> will be result in:<br>
+<code>(new DmiObject(42)).operator-()</code>
+The resulting expression is the result of the negation, incrementation or decrementation.<br>
+<br>
+<h2><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="PostFixOperator">PostFixOperator</a></h2>
+<pre>
+PreFixOperator
+: Expression '++' 
+| Expression '--' 
+;
+</pre>
+Different to the PreFixOperation ++ and -- the resulting value is the orinal 
+value of Expression (as in Java/C#/C++).<br>
+<br>
+<h2><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="InfixOperator">InfixOperator</a></h2>
+<pre>
+PreFixOperator
+: Expression InfixOperator Expression
+;
+
+InfixOperator
+: Expression '.' FunctionOrMember       // access operator
+| Expression '-&gt;' FunctionOrMember // alias for access operator
+| Expression '*' Expression         // multiply
+| Expression '/' Expression         // divide
+| Expression '+' Expression         // addition
+| Expression '-' Expression         // substraction
+| Expression '&lt;&lt;<' Expression // shift
+| Expression '&gt;&gt;' Expression  // shift
+| Expression '&lt;' Expression      // less than
+| Expression '&gt;' Expression      // greater than
+| Expression '&gt;=' Expression     // greater or equal
+| Expression '&lt;=' Expression     // less or equal
+| Expression '==' Expression        // equal/identical
+| Expression '!=' Expression        // not equal
+| Expression'&' Expression          // bitwise and
+| Expression '^' Expression         // bitwise nor
+| Expression '|' Expression         // bitwise or
+| Expression '&&'                   // logical and, see Logical Operators
+| Expression '||' Expression        // logical or, see Logical Operators
+;
+</pre>
+<br>
+The infix operators '.', '-&gt;' will evaluated as namespace.class, namespace.class.method
+or namespace.class.member, obj.member, obj.method.<br>
+<br>
+The infix operators '==' and '!=' will work on basic types different as to object
+types:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">int</FONT></B> a = 1;
+<B><FONT COLOR="#228B22">int</FONT></B> b = 1;
+<I><FONT COLOR="#B22222">// compare with == and != on basic types is equal to 
+</FONT></I><I><FONT COLOR="#B22222">// equals() call and compare the values.</FONT></I>
+__script.testAssert(a == b);
+  
+<I><FONT COLOR="#B22222">// different to Java basic types
+</FONT></I><I><FONT COLOR="#B22222">// also support equals() method
+</FONT></I>__script.testAssert(a.equals(b) == true);
+
+
+Integer i1 = <B><FONT COLOR="#A020F0">new</FONT></B> Integer(1);
+Integer i2 = <B><FONT COLOR="#A020F0">new</FONT></B> Integer(1);
+
+<I><FONT COLOR="#B22222">// compare with == and != on object types
+</FONT></I><I><FONT COLOR="#B22222">// compares not for equality, but for identy
+</FONT></I>__script.testAssert(i1 != i2);
+__script.testAssert((i1 == i2) == false);
+
+<I><FONT COLOR="#B22222">// to test two object for equality, use the equals() method
+</FONT></I>__script.testAssert(i1.equals(i2) == true);
+
+</PRE></td></tr></table>
+<br>
+Beside logical operators (see below) all other infix operator will invoked as an operator call
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+a - b; 
+<I><FONT COLOR="#B22222">// will be evaluated as
+</FONT></I>a.<B><FONT COLOR="#A020F0">operator</FONT></B>-(b)
+</PRE></td></tr></table>
+<br>
+<h3><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Logical Operators && and ||">Logical Operators && and ||</a></h3>
+The logical operators <code>&&</code> and <code>||</code> are build in
+and not be delegated to the left hand argument.<br>
+The <code>&&</code> and <code>||</code> can be used to implement expressional
+if expressions:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// second expression 'obj.toString().equals(&quot;&quot;) == false' will
+</FONT></I><I><FONT COLOR="#B22222">// only be evaluated if first expression 'obj != Nil' is true.
+</FONT></I><B><FONT COLOR="#0000FF">if</FONT></B> (obj != Nil &amp;&amp; obj.toString().equals(<B><FONT COLOR="#BC8F8F">&quot;&quot;</FONT></B>) == false)
+{
+  <I><FONT COLOR="#B22222">//
+</FONT></I>}
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OutfixOperator">OutfixOperator</a></h2>
+<pre>
+OutfixOperator
+: <a  href="acdk_cfgscript_hb_lang_expr_operator.html#GroupOperator"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;GroupOperator</a>
+| <a  href="acdk_cfgscript_hb_lang_expr_backtick.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BacktickOperator</a>
+;
+</pre>
+<br>
+<h3><a href="#jumptable30"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="GroupOperator">GroupOperator</a></h3>
+<pre>
+GroupOperator
+: '(' Expression ')'
+;
+</pre>
+The <code>( ... )</code> will be used to group expressions with lower priority the same
+way like in Java/C++. 
+Cast expression like <code>other = (MyClass)obj</code> are not supported.<br>
+<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_expr_literal.html">Literals</a> | <a  href="acdk_cfgscript_hb_lang_expr_assign.html">Assigment</a> | Operator | <a  href="acdk_cfgscript_hb_lang_expr_instanceof.html">Instanceof</a> | <a  href="acdk_cfgscript_hb_lang_expr_delegate.html">Delegates</a> | <a  href="acdk_cfgscript_hb_lang_expr_lambda.html">Lambda</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

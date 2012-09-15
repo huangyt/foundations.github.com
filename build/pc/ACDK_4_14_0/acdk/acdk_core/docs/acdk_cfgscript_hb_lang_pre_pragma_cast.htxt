@@ -1,0 +1,268 @@
+%id: acdk_cfgscript_hb_lang_pre_pragma_cast
+%title: CfgScript Pragma cast directions
+%shorttitle: Pragma cast
+%keywords: pragma, strict, cast
+%body:
+<chapterline/>
+<pageintro>
+The pragma 'cast' directive controls how the interpreter
+does automatically casting types from one type to another.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Cast Pragmas</jump1>
+Cast pragmas controls how the CfgScript interpreter should automatically 
+cast from one type to another.
+
+<jump2>Syntax</jump2>
+<pre>
+PragmaCastStatement
+: '#' 'pragma' 'cast' CastOption ( 'true' | 'false' )
+;
+
+CastOption
+: %ref['c2i2c', #Cast character types from and to integer types]
+| %ref['f2i2f', #Cast integer types from and to float types]
+| %ref['n2b', #Cast number types to boolean type]
+| %ref['b2n', #Cast boolean type to number types]
+| %ref['o2b', #Cast object types to boolean type]
+| %ref['autobox', #Cast basic types to and from object types]
+| %ref['checkoverflow', #Check range overflow in number assignments]
+| %ref['a2s', #Cast any type to string]
+| %ref['s2n', #Cast string to number types]
+;
+</pre>
+
+<jump2>Context of pragma cast</jump2>
+The declaration of a <c>pragma cast</c> is scoped and valid in the scope it is defined:
+<source>
+// default for pragma cast s2n is by default false
+{ // enter a new scope
+  #pragma cast s2n true
+  // from here auto casting from string to a number is on
+} // leaving scope
+// the previous setting for s2n (false) is active again
+
+</source>
+
+<jump2>Cast character types from and to integer types</jump2>
+With the <c>c2i2c</c> cast pragma automatic cast from a character type
+(<c>char, ucchar</c>) to an integer will be allowed or not.
+
+The default setting for the <c>#pragma cast c2i2c</c> in CfgScript is 'false'.
+
+Sample:
+<source>
+
+ucchar c = 'A';
+try {
+	int i = c; // this will throw an exception, because casting a character from/to integer is not allowed
+	__script.testAssertComment(false, "expected throwing DmiTypeConversionException");
+} catch (DmiTypeConversionException ex) {
+	__script.testAssertComment(true, "expected exception: " + ex.getMessage());
+	
+}
+{
+	#pragma cast c2i2c true // allow casting
+	int i = c; // ok, no exception. i contains the unicode character number for the letter 'A'
+}
+</source>
+<jump2>Cast integer types from and to float types</jump2>
+
+With the <c>#pragma cast f2i2f false</c> automatic cast 
+an integer type (byte, short, int, long) from / to a float type (float, double) 
+can be disallowed.
+
+The default setting for the <c>#pragma cast f2i2f</c> in CfgScript is 'true'.
+
+
+
+<jump2>Cast number types to boolean type</jump2>
+
+The <c>#pragma cast n2b false</c> is by default true. 
+This enables for example
+<source>
+	int i = 10;
+	while (i) // while expect expression which evaluates to bool
+		--i; 
+</source>
+Otherwise same has to be written:
+<source>
+	int i = 10;
+	while (i != 0) // while expect expression which evaluates to bool
+		--i; 
+</source>
+Any number expression, which evalutes to zero is false, all other are
+true.
+
+<jump2>Cast boolean type to number types</jump2>
+The <c>#pragma cast n2b false</c> is by default false. 
+<source>
+#pragma cast n2b true
+int i = true; // 1
+float f = false; // 0
+</source>
+
+<jump2>Cast object types to boolean type</jump2>
+The <c>#pragma cast o2b</c> is by default true. 
+If a boolean expression is needed, but the expression
+will be evaluated to a object reference, the object
+reference will be translated to:
+<source>
+
+Object o = giveSomeObjectOrNil();
+if (o) 
+{
+}
+// is equal to 
+#pragma cast o2b false
+if (o != Nil)
+{
+}
+</source>
+
+<jump2>Cast basic types to and from object types</jump2>
+The <c>#pragma cast autobox</c> is by default true. 
+Autoboxing is the ability of the interpreter to convert
+a basic type (for example <c>int</c>) to the corresponding object
+type (<c>acdk.lang.Integer</c>) and vice versa.
+Example:
+<source>
+// default is autobox true
+int i = 2;
+Number o = i; // thats ok, translates the int to acdk.lang.Integer
+short s = o; // unboxing is also ok
+// now the same with autobox false
+#pragma cast autobox false
+int i = 2;
+Number o = new Integer(i);
+short s = o.shortValue();
+</source>
+
+Independed to the pragma cast autobox is the ability to invoke
+methods on basic types:
+<source>
+#pragma cast autobox false
+int i = 2;
+String s = i.toString(); // still possible
+i = i + 1; 
+// will basically call 
+i = (new acdk.lang.dmi.DmiObject(i)).operator+(1).castTo(int.GetClass());
+</source>
+
+<jump2>Check range overflow in number assignments</jump2>
+The <c>#pragma cast checkoverflow</c> is by default false. 
+
+With the pragma cast checkoverflow in assignment from one number type
+to a another the interpreter will check if the value of the right value
+will fit into the type of the left:
+
+<source>
+#pragma cast checkoverflow true
+
+try {
+	short sval = 0xf234567; // this value doesn't fit into a short
+	__script.testAssertComment(false, "never reach here, exception should be thrown");
+} catch (ArithmeticOverflowException ex) {
+	__script.testAssertComment(true, "expected exception: " + ex.getMessage());
+}
+</source>
+This also handles situations in arithmic operations:
+<source>
+{
+	#pragma cast checkoverflow true
+	short sval = Short.MAX_VALUE - 1;
+	try {
+		for (int i = 0; i < 10; ++i)
+			sval = sval + 1;
+	} catch (ArithmeticOverflowException ex) {
+		out.println("last sval was: " + sval);
+	}
+}
+</source>
+
+<jump2>Cast any type to string</jump2>
+The <c>#pragma cast a2s</c> is by default false.
+
+The pragma cast a2s converts automatically any types to a string.
+
+If the type is a basic type it returned the stringified string using
+the corresponding Object wrapper method. If the type is an object
+it will call the to <c>toString()</c> of this method.
+<source>
+{
+	#pragma cast a2s true
+	String s;
+	s = true;
+	out.println("stringified bool true is: " + s);
+}
+</source>
+
+<jump2>Cast string to number types</jump2>
+The <c>#pragma cast s2n</c> is by default false.
+
+The pragma cast s2n converts automatically a string type to a number type.
+This 'duck type cast' (it looks like a duck, it walks like a duck, etc., so it is a duck)
+is also known for example by the Perl language.
+
+<source>
+{
+	try {
+		int i = "32"; // this does not work by default
+		__script.testAssertComment(false, "exception should be thrown");
+	} catch (DmiTypeConversionException ex) {
+	
+	}
+}
+{
+	#pragma cast s2n true
+	// enable parsing numbers
+	int i = "32";
+}
+{
+	#pragma cast s2n true
+	try { 
+		int i = "ba32"; // oops not a number
+	}
+	catch (NumberFormatException ex) {
+	}
+}
+</source>
+<jump2>Combination of cast</jump2>
+The pragma casts can have also combination effects.
+<source>
+{
+	#pragma cast checkoverflow true
+	#pragma cast s2n true
+	try {
+		// s2n will parse to a number
+		// the result number has the int type
+		// casting this to short (which is to small)
+		// will throw ArithmeticOverflowException
+		short sval = "0xf234567"; 
+		__script.testAssertComment(false, "exception should be thrown");
+	} catch (ArithmeticOverflowException ex) {
+		__script.testAssertComment(true, "expected exception: " + ex.getMessage());
+	}
+}
+</source>
+
+<jump1>Forced casts</jump1>
+
+The class %cref[acdk::cfgscript::ScriptGlobals] contains some pseudo
+operators. To make use of these operators just <c>using</c> the class:
+<source>
+// uses static methods ScriptGlobals
+using acdk.cfgscript.ScriptGlobals; 
+
+{
+	ucchar c = 'A';
+	// cast from character type to number type:
+	int i = castTo(c, int.GetClass());
+}
+</source>
+
+
+.

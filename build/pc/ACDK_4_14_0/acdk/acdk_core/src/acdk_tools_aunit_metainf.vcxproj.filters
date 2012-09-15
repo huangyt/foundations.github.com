@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{a128e287-070a-4ae4-b7d4-027135d7d4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{3bf1c918-7489-4901-9068-27a7b069ee5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\aunit">
+      <UniqueIdentifier>{2c19d7c8-0b2a-4697-a629-d7bdc09ab821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\aunit\aunit_metainf">
+      <UniqueIdentifier>{3c962add-18eb-4f8a-9b7a-372efa7a63f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\aunit\aunit_metainf\aunit_metainf_ext.cpp">
+      <Filter>acdk\tools\aunit\aunit_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\tools\aunit\aunit_metainf\aunit_metainf_ext1.cpp">
+      <Filter>acdk\tools\aunit\aunit_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

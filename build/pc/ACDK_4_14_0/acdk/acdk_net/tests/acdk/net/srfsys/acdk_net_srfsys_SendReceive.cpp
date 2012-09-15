@@ -1,0 +1,62 @@
+// -*- mode:C++; tab-width:2; c-basic-offset:2; indent-tabs-mode:nil -*- 
+//
+// Copyright (C) 2000-2005 by Roger Rene Kommer / artefaktur, Kassel, Germany.
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Library General Public License (LGPL).
+// 
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the 
+// License ACDK-FreeLicense document enclosed in the distribution
+// for more for more details.
+
+// This file is part of the Artefaktur Component Development Kit:
+//                         ACDK
+// 
+// Please refer to
+// - http://www.acdk.de
+// - http://www.artefaktur.com
+// - http://acdk.sourceforge.net
+// for more information.
+// 
+// $Header: /cvsroot/acdk/acdk/acdk_net/tests/acdk/net/srfsys/acdk_net_srfsys_SendReceive.cpp,v 1.6 2005/02/05 10:45:30 kommer Exp $
+
+#include <acdk/tools/aunit/TestRunner.h>
+#include <acdk/lang/Throwable.h>
+#include <acdk/lang/System.h>
+#include <acdk/lang/Thread.h>
+#include <acdk/util/Arrays.h>
+#include <acdk/net/srfsys/SRFileSystemClient.h>
+
+namespace tests {
+namespace acdk {
+namespace net {
+namespace srfsys {
+  
+BEGIN_DECLARE_TEST( SendReceive_Test )
+  DECLARE_TEST( standard )
+
+END_DECLARE_TEST( SendReceive_Test  )
+
+BEGIN_DEFINE_TEST( SendReceive_Test )
+  ADD_TEST( SendReceive_Test, standard ) 
+END_DEFINE_TEST( SendReceive_Test )
+
+using namespace ::acdk::lang;
+using namespace ::acdk::net::srfsys;
+
+
+void SendReceive_Test::standard()
+{
+  
+}
+
+} // namespace srfsys 
+} // namespace net
+} // namespace acdk
+} // namespace tests
+
+
+

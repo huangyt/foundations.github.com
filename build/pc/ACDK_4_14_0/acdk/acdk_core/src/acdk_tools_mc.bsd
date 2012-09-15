@@ -1,0 +1,258 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_tools_mc/bsd
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I ../src  -I ../include  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDK_TOOLS_MC_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_cfgscript 
+
+
+SOURCES= 	acdk/tools/mc/ArgumentInfo.cpp \
+	acdk/tools/mc/ClassInfo.cpp \
+	acdk/tools/mc/ClassInitAttribute.cpp \
+	acdk/tools/mc/ClazzFlagAttribute.cpp \
+	acdk/tools/mc/ClazzNameAttribute.cpp \
+	acdk/tools/mc/CodeAttribute.cpp \
+	acdk/tools/mc/CodeInfo.cpp \
+	acdk/tools/mc/DmiProxyAttribute.cpp \
+	acdk/tools/mc/DmiProxyGenerator.cpp \
+	acdk/tools/mc/DmiProxyGeneratorExt.cpp \
+	acdk/tools/mc/EnumArgAttribute.cpp \
+	acdk/tools/mc/EnumInfo.cpp \
+	acdk/tools/mc/FieldInfo.cpp \
+	acdk/tools/mc/InvokeForwardAttribute.cpp \
+	acdk/tools/mc/McConfigAttribute.cpp \
+	acdk/tools/mc/mc_metainf_base.cpp \
+	acdk/tools/mc/MetaCompiler.cpp \
+	acdk/tools/mc/MethodAltNameAttribute.cpp \
+	acdk/tools/mc/MethodInfo.cpp \
+	acdk/tools/mc/ModuleInfo.cpp \
+	acdk/tools/mc/SetDispatchAttribute.cpp \
+	acdk/tools/mc/StringTagAttribute.cpp \
+	acdk/tools/mc/SuperInfo.cpp \
+	acdk/tools/mc/ThrowableAttribute.cpp \
+	acdk/tools/mc/TypeScope.cpp \
+	acdk/tools/mc/mc_metainf/mc_metainf_ext.cpp \
+
+HEADER= 	acdk/tools/mc/ArgumentInfo.h \
+	acdk/tools/mc/ClassInfo.h \
+	acdk/tools/mc/ClassInitAttribute.h \
+	acdk/tools/mc/ClazzFlagAttribute.h \
+	acdk/tools/mc/ClazzNameAttribute.h \
+	acdk/tools/mc/CMCException.h \
+	acdk/tools/mc/CodeAttribute.h \
+	acdk/tools/mc/CodeInfo.h \
+	acdk/tools/mc/Config.h \
+	acdk/tools/mc/DispatchForwardAttributeTest.h \
+	acdk/tools/mc/DmiProxyAttribute.h \
+	acdk/tools/mc/DmiProxyGenerator.h \
+	acdk/tools/mc/DmiProxyGeneratorExt.h \
+	acdk/tools/mc/EnumArgAttribute.h \
+	acdk/tools/mc/EnumInfo.h \
+	acdk/tools/mc/FieldInfo.h \
+	acdk/tools/mc/InvokeForwardAttribute.h \
+	acdk/tools/mc/mc.h \
+	acdk/tools/mc/McConfigAttribute.h \
+	acdk/tools/mc/MetaCompiler.h \
+	acdk/tools/mc/MethodAltNameAttribute.h \
+	acdk/tools/mc/MethodInfo.h \
+	acdk/tools/mc/ModuleInfo.h \
+	acdk/tools/mc/SetDispatchAttribute.h \
+	acdk/tools/mc/StringTagAttribute.h \
+	acdk/tools/mc/SuperInfo.h \
+	acdk/tools/mc/ThrowableAttribute.h \
+	acdk/tools/mc/TokenStack.h \
+	acdk/tools/mc/TypeScope.h \
+	acdk/tools/mc/UnitInfo.h \
+
+OBJECTS= 	../tobj/acdk_tools_mc/bsd/ArgumentInfo.o \
+	../tobj/acdk_tools_mc/bsd/ClassInfo.o \
+	../tobj/acdk_tools_mc/bsd/ClassInitAttribute.o \
+	../tobj/acdk_tools_mc/bsd/ClazzFlagAttribute.o \
+	../tobj/acdk_tools_mc/bsd/ClazzNameAttribute.o \
+	../tobj/acdk_tools_mc/bsd/CodeAttribute.o \
+	../tobj/acdk_tools_mc/bsd/CodeInfo.o \
+	../tobj/acdk_tools_mc/bsd/DmiProxyAttribute.o \
+	../tobj/acdk_tools_mc/bsd/DmiProxyGenerator.o \
+	../tobj/acdk_tools_mc/bsd/DmiProxyGeneratorExt.o \
+	../tobj/acdk_tools_mc/bsd/EnumArgAttribute.o \
+	../tobj/acdk_tools_mc/bsd/EnumInfo.o \
+	../tobj/acdk_tools_mc/bsd/FieldInfo.o \
+	../tobj/acdk_tools_mc/bsd/InvokeForwardAttribute.o \
+	../tobj/acdk_tools_mc/bsd/McConfigAttribute.o \
+	../tobj/acdk_tools_mc/bsd/mc_metainf_base.o \
+	../tobj/acdk_tools_mc/bsd/MetaCompiler.o \
+	../tobj/acdk_tools_mc/bsd/MethodAltNameAttribute.o \
+	../tobj/acdk_tools_mc/bsd/MethodInfo.o \
+	../tobj/acdk_tools_mc/bsd/ModuleInfo.o \
+	../tobj/acdk_tools_mc/bsd/SetDispatchAttribute.o \
+	../tobj/acdk_tools_mc/bsd/StringTagAttribute.o \
+	../tobj/acdk_tools_mc/bsd/SuperInfo.o \
+	../tobj/acdk_tools_mc/bsd/ThrowableAttribute.o \
+	../tobj/acdk_tools_mc/bsd/TypeScope.o \
+	../tobj/acdk_tools_mc/bsd/mc_metainf_ext.o \
+
+
+FINALTARGET=../../bin/libacdk_tools_mc.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_tools_mc.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_tools_mc.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_tools_mc.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdk_tools_mc/bsd/ArgumentInfo.o: acdk/tools/mc/ArgumentInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ArgumentInfo.o -c acdk/tools/mc/ArgumentInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/ClassInfo.o: acdk/tools/mc/ClassInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ClassInfo.o -c acdk/tools/mc/ClassInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/ClassInitAttribute.o: acdk/tools/mc/ClassInitAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ClassInitAttribute.o -c acdk/tools/mc/ClassInitAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/ClazzFlagAttribute.o: acdk/tools/mc/ClazzFlagAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ClazzFlagAttribute.o -c acdk/tools/mc/ClazzFlagAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/ClazzNameAttribute.o: acdk/tools/mc/ClazzNameAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ClazzNameAttribute.o -c acdk/tools/mc/ClazzNameAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/CodeAttribute.o: acdk/tools/mc/CodeAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/CodeAttribute.o -c acdk/tools/mc/CodeAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/CodeInfo.o: acdk/tools/mc/CodeInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/CodeInfo.o -c acdk/tools/mc/CodeInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/DmiProxyAttribute.o: acdk/tools/mc/DmiProxyAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/DmiProxyAttribute.o -c acdk/tools/mc/DmiProxyAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/DmiProxyGenerator.o: acdk/tools/mc/DmiProxyGenerator.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/DmiProxyGenerator.o -c acdk/tools/mc/DmiProxyGenerator.cpp
+
+../tobj/acdk_tools_mc/bsd/DmiProxyGeneratorExt.o: acdk/tools/mc/DmiProxyGeneratorExt.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/DmiProxyGeneratorExt.o -c acdk/tools/mc/DmiProxyGeneratorExt.cpp
+
+../tobj/acdk_tools_mc/bsd/EnumArgAttribute.o: acdk/tools/mc/EnumArgAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/EnumArgAttribute.o -c acdk/tools/mc/EnumArgAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/EnumInfo.o: acdk/tools/mc/EnumInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/EnumInfo.o -c acdk/tools/mc/EnumInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/FieldInfo.o: acdk/tools/mc/FieldInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/FieldInfo.o -c acdk/tools/mc/FieldInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/InvokeForwardAttribute.o: acdk/tools/mc/InvokeForwardAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/InvokeForwardAttribute.o -c acdk/tools/mc/InvokeForwardAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/McConfigAttribute.o: acdk/tools/mc/McConfigAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/McConfigAttribute.o -c acdk/tools/mc/McConfigAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/mc_metainf_base.o: acdk/tools/mc/mc_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/mc_metainf_base.o -c acdk/tools/mc/mc_metainf_base.cpp
+
+../tobj/acdk_tools_mc/bsd/MetaCompiler.o: acdk/tools/mc/MetaCompiler.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/MetaCompiler.o -c acdk/tools/mc/MetaCompiler.cpp
+
+../tobj/acdk_tools_mc/bsd/MethodAltNameAttribute.o: acdk/tools/mc/MethodAltNameAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/MethodAltNameAttribute.o -c acdk/tools/mc/MethodAltNameAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/MethodInfo.o: acdk/tools/mc/MethodInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/MethodInfo.o -c acdk/tools/mc/MethodInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/ModuleInfo.o: acdk/tools/mc/ModuleInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ModuleInfo.o -c acdk/tools/mc/ModuleInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/SetDispatchAttribute.o: acdk/tools/mc/SetDispatchAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/SetDispatchAttribute.o -c acdk/tools/mc/SetDispatchAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/StringTagAttribute.o: acdk/tools/mc/StringTagAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/StringTagAttribute.o -c acdk/tools/mc/StringTagAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/SuperInfo.o: acdk/tools/mc/SuperInfo.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/SuperInfo.o -c acdk/tools/mc/SuperInfo.cpp
+
+../tobj/acdk_tools_mc/bsd/ThrowableAttribute.o: acdk/tools/mc/ThrowableAttribute.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/ThrowableAttribute.o -c acdk/tools/mc/ThrowableAttribute.cpp
+
+../tobj/acdk_tools_mc/bsd/TypeScope.o: acdk/tools/mc/TypeScope.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/TypeScope.o -c acdk/tools/mc/TypeScope.cpp
+
+../tobj/acdk_tools_mc/bsd/mc_metainf_ext.o: acdk/tools/mc/mc_metainf/mc_metainf_ext.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_tools_mc/bsd/mc_metainf_ext.o -c acdk/tools/mc/mc_metainf/mc_metainf_ext.cpp
+
+
+
+metainfo:
+	cd ${.CURDIR}; $(ACDKMC) acdk/tools/mc;\
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_tools_mc.so $(OBJECTS)
+
+  

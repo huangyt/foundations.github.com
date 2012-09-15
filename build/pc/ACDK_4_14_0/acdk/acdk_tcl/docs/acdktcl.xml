@@ -1,0 +1,51 @@
+<package>
+<name>acdktcl</name>
+
+<title>
+  ACDK Tcl Interpreter
+</title>
+
+<shortdescription>
+The acdktcl is a simple command line
+Tcl interpreter.
+</shortdescription>
+
+
+<description>
+<htmlauto>
+acdktcl you can execute Tcl scripts
+or use it to debug/test ACDK classes 
+in an interactive way.
+</htmlauto>
+</description>
+
+<license>
+  ACDK Free Edition License.
+</license>
+
+<dependencies>
+  acdk_core
+  acdk_text
+</dependencies>
+
+<namespaces>
+  acdk::tcl
+</namespaces>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment. 
+  Better Doc.
+</todo>
+
+<changes>
+  Initial releases.
+</changes>
+
+<notes>
+  No notes
+</notes>
+</package>

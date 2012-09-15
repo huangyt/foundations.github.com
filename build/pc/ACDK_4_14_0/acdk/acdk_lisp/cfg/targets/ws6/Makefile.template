@@ -1,0 +1,27 @@
+
+
+CC=%[(acdkmake-get-target-compile)]%
+CCOPTS=%[(acdkmake-get-target-cflags)]%
+CCINCLUDE=%[(acdkmake-get-includes)]%
+DEFINES=%[(acdkmake-get-defines)]%
+
+LINK=%[(acdkmake-get-target-compile)]%
+SYSLIBRARIES=-ldl -lposix4 -lpthread
+
+LDFLAGS=%[(acdkmake-get-target-ldflags)]%
+LIBS = $(SYSLIBRARIES) %[(acdkmake-get-libs)]%
+
+
+
+SOURCES= %[(acdkmake-target-getfilelist acdkmake-project-sources)]%
+HEADER= %[(acdkmake-target-getfilelist acdkmake-project-header)]%
+OBJECTS= %[(acdkmake-target-getfilelist acdkmake-project-objects)]%
+
+
+%[(getBindModule)]%
+
+%[(getMakeObjects)]%
+
+clean::
+	%[(acdkmake-target-get-clean)]%
+

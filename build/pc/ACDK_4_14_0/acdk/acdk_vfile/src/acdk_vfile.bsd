@@ -1,0 +1,217 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_vfile
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDK_VFILE_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core 
+
+
+SOURCES= 	acdk/vfile/DeflateWriter.cpp \
+	acdk/vfile/InflaterReader.cpp \
+	acdk/vfile/tar/TarFileHeader.cpp \
+	acdk/vfile/tar/TarFileImpl.cpp \
+	acdk/vfile/tar/TarFileSystem.cpp \
+	acdk/vfile/tar/tar_metainf_base.cpp \
+	acdk/vfile/zip/LocalFileHeader.cpp \
+	acdk/vfile/zip/ZipFileImpl.cpp \
+	acdk/vfile/zip/ZipFileReader.cpp \
+	acdk/vfile/zip/ZipFileSystem.cpp \
+	acdk/vfile/zip/zip_metainf_base.cpp \
+	acdk/vfile/zlib/adler32.c \
+	acdk/vfile/zlib/crc32.c \
+	acdk/vfile/zlib/deflate.c \
+	acdk/vfile/zlib/infblock.c \
+	acdk/vfile/zlib/infcodes.c \
+	acdk/vfile/zlib/inffast.c \
+	acdk/vfile/zlib/inftrees.c \
+	acdk/vfile/zlib/inflate.c \
+	acdk/vfile/zlib/infutil.c \
+	acdk/vfile/zlib/trees.c \
+	acdk/vfile/zlib/zutil.c \
+
+HEADER= 	acdk/vfile/Config.h \
+	acdk/vfile/DeflateWriter.h \
+	acdk/vfile/InflaterReader.h \
+	acdk/vfile/tar/TarFileHeader.h \
+	acdk/vfile/tar/TarFileImpl.h \
+	acdk/vfile/tar/TarFileSystem.h \
+	acdk/vfile/zip/LocalFileHeader.h \
+	acdk/vfile/zip/ZipFileImpl.h \
+	acdk/vfile/zip/ZipFileReader.h \
+	acdk/vfile/zip/ZipFileSystem.h \
+
+OBJECTS= 	../tobj/acdk_vfile/DeflateWriter.o \
+	../tobj/acdk_vfile/InflaterReader.o \
+	../tobj/acdk_vfile/TarFileHeader.o \
+	../tobj/acdk_vfile/TarFileImpl.o \
+	../tobj/acdk_vfile/TarFileSystem.o \
+	../tobj/acdk_vfile/tar_metainf_base.o \
+	../tobj/acdk_vfile/LocalFileHeader.o \
+	../tobj/acdk_vfile/ZipFileImpl.o \
+	../tobj/acdk_vfile/ZipFileReader.o \
+	../tobj/acdk_vfile/ZipFileSystem.o \
+	../tobj/acdk_vfile/zip_metainf_base.o \
+	../tobj/acdk_vfile/adler32.o \
+	../tobj/acdk_vfile/crc32.o \
+	../tobj/acdk_vfile/deflate.o \
+	../tobj/acdk_vfile/infblock.o \
+	../tobj/acdk_vfile/infcodes.o \
+	../tobj/acdk_vfile/inffast.o \
+	../tobj/acdk_vfile/inftrees.o \
+	../tobj/acdk_vfile/inflate.o \
+	../tobj/acdk_vfile/infutil.o \
+	../tobj/acdk_vfile/trees.o \
+	../tobj/acdk_vfile/zutil.o \
+
+
+FINALTARGET=../../bin/libacdk_vfile.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_vfile.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_vfile.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_vfile.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdk_vfile/DeflateWriter.o: acdk/vfile/DeflateWriter.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/DeflateWriter.o -c acdk/vfile/DeflateWriter.cpp
+
+../tobj/acdk_vfile/InflaterReader.o: acdk/vfile/InflaterReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/InflaterReader.o -c acdk/vfile/InflaterReader.cpp
+
+../tobj/acdk_vfile/TarFileHeader.o: acdk/vfile/tar/TarFileHeader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/TarFileHeader.o -c acdk/vfile/tar/TarFileHeader.cpp
+
+../tobj/acdk_vfile/TarFileImpl.o: acdk/vfile/tar/TarFileImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/TarFileImpl.o -c acdk/vfile/tar/TarFileImpl.cpp
+
+../tobj/acdk_vfile/TarFileSystem.o: acdk/vfile/tar/TarFileSystem.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/TarFileSystem.o -c acdk/vfile/tar/TarFileSystem.cpp
+
+../tobj/acdk_vfile/tar_metainf_base.o: acdk/vfile/tar/tar_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/tar_metainf_base.o -c acdk/vfile/tar/tar_metainf_base.cpp
+
+../tobj/acdk_vfile/LocalFileHeader.o: acdk/vfile/zip/LocalFileHeader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/LocalFileHeader.o -c acdk/vfile/zip/LocalFileHeader.cpp
+
+../tobj/acdk_vfile/ZipFileImpl.o: acdk/vfile/zip/ZipFileImpl.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/ZipFileImpl.o -c acdk/vfile/zip/ZipFileImpl.cpp
+
+../tobj/acdk_vfile/ZipFileReader.o: acdk/vfile/zip/ZipFileReader.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/ZipFileReader.o -c acdk/vfile/zip/ZipFileReader.cpp
+
+../tobj/acdk_vfile/ZipFileSystem.o: acdk/vfile/zip/ZipFileSystem.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/ZipFileSystem.o -c acdk/vfile/zip/ZipFileSystem.cpp
+
+../tobj/acdk_vfile/zip_metainf_base.o: acdk/vfile/zip/zip_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/zip_metainf_base.o -c acdk/vfile/zip/zip_metainf_base.cpp
+
+../tobj/acdk_vfile/adler32.o: acdk/vfile/zlib/adler32.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/adler32.o -c acdk/vfile/zlib/adler32.c
+
+../tobj/acdk_vfile/crc32.o: acdk/vfile/zlib/crc32.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/crc32.o -c acdk/vfile/zlib/crc32.c
+
+../tobj/acdk_vfile/deflate.o: acdk/vfile/zlib/deflate.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/deflate.o -c acdk/vfile/zlib/deflate.c
+
+../tobj/acdk_vfile/infblock.o: acdk/vfile/zlib/infblock.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/infblock.o -c acdk/vfile/zlib/infblock.c
+
+../tobj/acdk_vfile/infcodes.o: acdk/vfile/zlib/infcodes.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/infcodes.o -c acdk/vfile/zlib/infcodes.c
+
+../tobj/acdk_vfile/inffast.o: acdk/vfile/zlib/inffast.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/inffast.o -c acdk/vfile/zlib/inffast.c
+
+../tobj/acdk_vfile/inftrees.o: acdk/vfile/zlib/inftrees.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/inftrees.o -c acdk/vfile/zlib/inftrees.c
+
+../tobj/acdk_vfile/inflate.o: acdk/vfile/zlib/inflate.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/inflate.o -c acdk/vfile/zlib/inflate.c
+
+../tobj/acdk_vfile/infutil.o: acdk/vfile/zlib/infutil.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/infutil.o -c acdk/vfile/zlib/infutil.c
+
+../tobj/acdk_vfile/trees.o: acdk/vfile/zlib/trees.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/trees.o -c acdk/vfile/zlib/trees.c
+
+../tobj/acdk_vfile/zutil.o: acdk/vfile/zlib/zutil.c
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_vfile/zutil.o -c acdk/vfile/zlib/zutil.c
+
+
+
+metainfo:
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_vfile.so $(OBJECTS)
+
+  

@@ -1,0 +1,146 @@
+%id: acdk_cfgscript_templates
+%title: The CfgScript Templates
+%shorttitle: Templates
+%keywords: template, JSP
+%seealso: acdk_cfgscript_hb_lang_expr_backtick
+%body:
+<chapterline/>
+<pageintro>
+CfgScript provides a template language, quite similar to JSP.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Introduction</jump1>
+In scripting language often text files are build
+with static parts (which are not changed) and dynamic parts.
+
+In CfgScript are multiple options to merge this static and
+dynamic parts.
+
+<jump2>Merge strings literals with variables</jump2>
+<source>
+String head = "<html><header><title>Hello</title></header><body>";
+String footer = "</body></html>";
+StringArray hellos = [ "First", "Second", "Third" ];
+StringBuffer sb = new StringBuffer();
+sb.append(head);
+sb.append("<table>");
+foreach (String s in hellos)
+{
+  sb.append("<tr><td>").append(s).append("</td></tr>");
+}
+sb.append("</table>");
+sb.append(footer);
+out.println(sb.toString());
+</source>
+This results in:
+<source>
+<html><header><title>Hello</title></header><body><table><tr><td>First</td></tr><tr><td>Second</td></tr><tr><td>Third</td></tr></table></body></html>
+</source>
+Of course this is very simple example. In normal cases the static part of the text is much more complex:
+
+<jump2>Using backtick string evaluation</jump2>
+A second posibility is to use %ref[acdk_cfgscript_hb_lang_expr_backtick]. 
+<source>
+StringArray hellos = [ "First", "Second", "Third" ];
+String s =
+`"<html>
+  <header>
+    <title>Hello</title>
+  </header>
+  <body>
+    <table>
+  !{ foreach (String s in hellos) out.println(\"<tr><td>\" + s \"</td></tr>\"); }!
+  </table>
+ </body>
+</html>"`;
+out.println(s);
+</source>
+Output:
+<source>
+<html><header><title>Hello</title></header><body><table><tr><td>First</td></tr><tr><td>Second</td></tr><tr><td>Third</td></tr></table></body></html>
+<html>
+  <header>
+    <title>Hello</title>
+  </header>
+  <body>
+    <table>
+  <tr><td>First</td></tr>
+<tr><td>Second</td></tr>
+<tr><td>Third</td></tr>
+
+  </table>
+ </body>
+</html>
+</source>
+
+But for more complex cases this is not always available. Quoting inside the loop is quite complex.
+
+<jump1>CfgScript Templates</jump1>
+
+CfgScript Templates are textfiles, in which CfgScript code can be embedded.
+
+<jump2>Sample</jump2>
+
+<source>
+<html>
+<header>
+  <title>Hello 3</title>
+</header>
+<body> 
+<table>
+<@ foreach (String s in sa) { 
+@>  <tr><td><@= s @></td></tr>
+<@  } @></table>
+</body>
+</html>
+
+</source>
+
+To evalute this such a template you can use following code (CfgScript or C++):
+
+<source>
+// get name of current script, get parent directory
+File dir = (new File(__script.getFileName())).getParentFile();
+// look for all files ends with .cst in this directory
+foreach (File f in dir.listFiles(new GlobFilenameFilter("*.cst")))
+{
+  // create a new script instance
+  Script s = new Script(f.getPath());
+  // execute template.
+  
+  /*
+    Because in __props (which represends all variables the current scope)
+    out is defined, the template writes to out.
+  */
+  StringArray sa = [ "First", "Second", "Third" ];
+  s.evalTemplate(f, __props);
+}
+</source>
+
+<jump2>More details</jump2>
+
+The Script::evalTemplate() function read the given file
+and write it to the writer defined in the variable <c>out</c> of the 
+given Props.
+
+The regions marked with <c>&lt;% %&gt;</c> will be evaluated as Script Code.
+The variables defined in Props given to evalTemplate are also available in this
+Script Code. 
+All text written to <c>out</c> in these section also written to out.
+
+There is no limitation in CfgScript code in the <c>&lt;% %&gt;</c> section.
+It can also contains includes, class definitions, etc.
+
+The regions marked with <c>&lt;%= %&gt;</c> will be evaluated as CfgScript expression.
+To the result of the expession <c>toString()</c> will applied and written to <c>out</c>
+
+The regions marked with <c>&lt;!= %&gt;</c> are comments and will not appear in the output.
+
+As shown in the sample the CfgScript loops can also contains template text. It will be 
+written to <c>out</c> every time the loop will be executed.
+
+
+.

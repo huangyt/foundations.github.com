@@ -1,0 +1,90 @@
+%id: acdk_sql_man_basics
+%title: ACDK SQL Basic Operations
+%shorttitle: Basic Operations
+%keywords: SQL, connect, select, insert, create, drop
+%body:
+<chapterline/>
+<pageintro>
+  Basic JDBC-like Operations supported.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+<jump2>Using standard SQL in ACDK</jump2>
+
+ACDK SQL classes are quite similar to the JDBC (Java Database Connection) standard.
+<jump3>Open a connection</jump3>
+<source>
+  // This Statement is currently needed to load the ODBC-DLL.
+  // If no Class from acdk::sql::odbc is used, Class::forName will fail!
+  // So let's start with a dummy line ...
+  RDriver tdriver = (RDriver)Class::forName("acdk::sql::odbc::ODBCDriver")->newInstance();
+  RString url = "jdbc:odbc:acdk/user=acdk/password=acdk";
+  RDriver driver = DriverManager::getDriver(url);
+  if (driver == Nil)
+    testAssertComment(false, "Cannot load driver: " + url);
+  
+  // get a connection
+  RConnection connection = driver->connect(url, Nil);
+</source>  
+<jump3>Select statement</jump3>
+<source>
+    // create a statment from the connection
+    RStatement statement = connection->createStatement();
+    RString sql = "SELECT intcol, realcol, stringcol FROM acdk_select_test"; 
+    RResultSet rset = statement->executeQuery(sql);
+    while (rset->next() == true) 
+    { 
+      // read a column via position (starts with 1, not 0)
+      int intcol = rset->getInt(1);
+      // read a column via name
+      float floatcol = rset->getFloat("realcol");
+      RString sval = rset->getString("stringcol");
+    }
+  }
+</source>
+
+<jump3>Insert Statement</jump3>
+<source>
+{
+    // insert some data into the table
+    for (int i = 0; i < 2; i++)
+    {
+      float f = i + 0.5;
+      RString sql = SBSTR("INSERT INTO acdk_select_test VALUES ( " << i << ", " << f << ", " << "'stm: " << i << "')"
+                          );
+      RStatement statement = connection->createStatement();
+      int rows = statement->executeUpdate(sql);
+    }
+  }
+</source>
+
+<jump3>Create Table</jump3>
+<source>
+    // create a table
+    RString sql = "CREATE TABLE acdk_select_test ( intcol int, realcol real, stringcol Varchar(100) )";
+    RStatement statement = connection->createStatement();
+    statement->executeUpdate(sql);
+</source>
+
+<jump3>Drop Table</jump3>
+<source>
+    {
+    // delete a table, if it already exists
+    RStatement statement;
+    try {
+      RString sql = "DROP TABLE acdk_select_test";
+      RStatement statement = connection->createStatement();
+      int rows = statement->executeUpdate(sql);
+    } catch (RSQLException ex) { 
+     
+    }
+</source>
+<jump3>Cleanup</jump3>
+If the ODBC driver is no longer needed you can call:
+<source>
+  DriverManager::deregisterDriver(tdriver);  
+</source>
+
+.

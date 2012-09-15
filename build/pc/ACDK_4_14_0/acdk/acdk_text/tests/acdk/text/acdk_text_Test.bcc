@@ -1,0 +1,95 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\bin\acdk_text.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_text_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_text_Test\bcc"
+SOURCES= 	"acdk_text_Test.cpp" \
+	"acdk_text_DateFormat_Test.cpp" \
+	"acdk_text_DecimalFormatSymbols_Test.cpp" \
+	"acdk_text_DecimalFormat_Test.cpp" \
+	"acdk_text_RegExp_Test.cpp" \
+	"acdk_text_Template_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_text_Test\bcc\acdk_text_Test.obj" \
+	".\tobj\acdk_text_Test\bcc\acdk_text_DateFormat_Test.obj" \
+	".\tobj\acdk_text_Test\bcc\acdk_text_DecimalFormatSymbols_Test.obj" \
+	".\tobj\acdk_text_Test\bcc\acdk_text_DecimalFormat_Test.obj" \
+	".\tobj\acdk_text_Test\bcc\acdk_text_RegExp_Test.obj" \
+	".\tobj\acdk_text_Test\bcc\acdk_text_Template_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_text_Test\bcc\acdk_text_Test.obj": "acdk_text_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_text_Test\bcc" "acdk_text_Test.cpp"
+
+".\tobj\acdk_text_Test\bcc\acdk_text_DateFormat_Test.obj": "acdk_text_DateFormat_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_text_Test\bcc" "acdk_text_DateFormat_Test.cpp"
+
+".\tobj\acdk_text_Test\bcc\acdk_text_DecimalFormatSymbols_Test.obj": "acdk_text_DecimalFormatSymbols_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_text_Test\bcc" "acdk_text_DecimalFormatSymbols_Test.cpp"
+
+".\tobj\acdk_text_Test\bcc\acdk_text_DecimalFormat_Test.obj": "acdk_text_DecimalFormat_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_text_Test\bcc" "acdk_text_DecimalFormat_Test.cpp"
+
+".\tobj\acdk_text_Test\bcc\acdk_text_RegExp_Test.obj": "acdk_text_RegExp_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_text_Test\bcc" "acdk_text_RegExp_Test.cpp"
+
+".\tobj\acdk_text_Test\bcc\acdk_text_Template_Test.obj": "acdk_text_Template_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_text_Test\bcc" "acdk_text_Template_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_text_Test.exe"
+	del ".\tobj\acdk_text_Test\bcc\acdk_text_Test.obj"
+	del ".\tobj\acdk_text_Test\bcc\acdk_text_DateFormat_Test.obj"
+	del ".\tobj\acdk_text_Test\bcc\acdk_text_DecimalFormatSymbols_Test.obj"
+	del ".\tobj\acdk_text_Test\bcc\acdk_text_DecimalFormat_Test.obj"
+	del ".\tobj\acdk_text_Test\bcc\acdk_text_RegExp_Test.obj"
+	del ".\tobj\acdk_text_Test\bcc\acdk_text_Template_Test.obj"
+
+

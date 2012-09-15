@@ -1,0 +1,81 @@
+
+
+#include "amake_config.csf"
+
+
+
+acdkx_orb = new acdk.make.AcdkLibTask("acdkx_orb");
+acdkx_orb.addModule("src/org/omg/CORBA");
+acdkx_orb.addSource("src/org/omg/CORBA/CORBA_metainf");
+acdkx_orb.addSource("src/org/omg/CORBA/GIOP");
+acdkx_orb.addSource("src/org/omg/CORBA/IIOP");
+acdkx_orb.addSource("src/org/omg/CORBA/IOP");
+acdkx_orb.addModule("src/org/omg/CORBA/portable");
+acdkx_orb.addSource("src/org/omg/CORBA/portable/portable_metainf");
+acdkx_orb.addModule("src/org/omg/CosNaming");
+acdkx_orb.addSource("src/org/omg/CosNaming/CosNaming_metainf");
+acdkx_orb.addModule("src/org/omg/PortableServer");
+acdkx_orb.addSource("src/org/omg/PortableServer/PortableServer_metainf");
+acdkx_orb.addModule("src/acdkx/orb");
+acdkx_orb.addSource("src/acdkx/orb/orb_metainf");
+acdkx_orb.addModule("src/acdkx/orb/selftests");
+acdkx_orb.addSource("src/acdkx/orb/selftests/selftests_metainf");
+acdkx_orb.addModule("src/acdkx/arb");
+acdkx_orb.addSource("src/acdkx/arb/arb_metainf");
+acdkx_orb.addAcdkLib("acdk_core");
+acdkx_orb.addAcdkLib("acdk_net");
+acdkx_orb.addAcdkLib("acdk_text");
+acdkx_orb.addAcdkLib("org_xml");
+acdkx_orb.addAcdkLib("acdk_xml");
+
+acdkx_orb_namesrv = new acdk.make.AcdkExeTask("acdkx_orb_namesrv");
+acdkx_orb_namesrv.addSource("src/acdkx/orb/namesrv");
+acdkx_orb_namesrv.addAcdkLib("acdk_core");
+acdkx_orb_namesrv.addAcdkLib("acdk_net");
+acdkx_orb_namesrv.addAcdkLib("acdk_text");
+acdkx_orb_namesrv.addAcdkLib("org_xml");
+acdkx_orb_namesrv.addAcdkLib("acdk_xml");
+acdkx_orb_namesrv.addAcdkLib("acdkx_orb");
+acdkx_orb_namesrv.addSubTask("acdkx_orb");
+
+acdkorbidl = new acdk.make.AcdkExeTask("acdkorbidl");
+acdkorbidl.addSource("src/acdkx/orb/idl");
+acdkorbidl.addAcdkLib("acdk_core");
+
+
+
+acdkx_orb_mc = new acdk.make.AcdkLibTask("acdkx_orb_mc");
+acdkx_orb_mc.addModule("src/acdkx/orb/mc");
+acdkx_orb_mc.addSource("src/acdkx/orb/mc/mc_metainf");
+acdkx_orb_mc.addAcdkLib("acdk_core");
+acdkx_orb_mc.addAcdkLib("acdk_cfgscript");
+acdkx_orb_mc.addAcdkLib("acdk_tools_mc");
+
+acdkx_orb_Test = new acdk.make.AcdkTestExeTask("acdkx_orb_Test");
+acdkx_orb_Test.setBaseDir("tests/acdkx/orb");
+acdkx_orb_Test.addSource("tests/acdkx/orb/acdkx_orb_Test.cpp");
+acdkx_orb_Test.addSource("tests/acdkx/orb/acdkx_orb_Basic_Test.cpp");
+acdkx_orb_Test.addSource("tests/acdkx/orb/acdkx_orb_AcdkObject_Test.cpp");
+//acdkx_orb_Test.addHeader("tests/acdkx/orb/TestInterface.h");
+acdkx_orb_Test.addAcdkLib("acdk_core");
+acdkx_orb_Test.addAcdkLib("acdk_net");
+acdkx_orb_Test.addAcdkLib("acdk_tools_aunit");
+acdkx_orb.addAcdkLib("acdk_net");
+acdkx_orb.addAcdkLib("acdk_text");
+acdkx_orb.addAcdkLib("org_xml");
+acdkx_orb.addAcdkLib("acdk_xml");
+acdkx_orb_Test.addAcdkLib("acdkx_orb");
+acdkx_orb_Test.addSubTask("acdkx_orb");
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("acdkx_orb_prj");
+default.registerTask("default");
+default.addSubTask("acdkx_orb");
+default.addSubTask("acdkx_orb_mc");
+default.addSubTask("acdkorbidl");
+default.addSubTask("acdkx_orb_Test");
+default.addSubTask("acdkx_orb_namesrv");
+
+

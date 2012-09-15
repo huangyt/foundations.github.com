@@ -1,0 +1,153 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Core</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../docs/packages.html">Packages</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK Core<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/readme.html">ACDK Core Readme</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_core_man.html">man acdk_core</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdkmc.html">man acdkmc</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_cfgscript_man.html">man acdk_cfgscript</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_security_man.html">man acdk_security</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_tools_mc_man.html">man acdk_tools_mc</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="docs/acdk_tools_testunit_man.html">ACDK Unit Tests</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/acdk_general_install.html">Installation</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../docs/ACDK-FreeLicense.html">License</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="docs/packages_deps.html">Dependencies</a> | ACDK Core | <a  href="docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Core</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Core</h1> -->
+<br>
+<p class="PageIntro">
+acdk_core contains the core distribution of ACDK.</p>
+<br>
+<p></p>
+The ACDK Core package contains the basic tools and libraries of the ACDK framework.<br>
+<br>
+The <m>acdk_core</m> library includes the basic classes in the namespaces <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::lang</a>, 
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__util"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::util</a>, <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__io"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::io</a>, <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__reflect"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::reflect</a>,
+and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__lang__ref"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::ref</a> (corresponds to java.lang, java.io, java.util, etc.)
+and establish a <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_lang"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;powerfull and simple framework</a>, with most <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_about_features"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;features</a> 
+known by Java or C#.<br>
+<br>
+<m>acdk_core</m> also implements the basic <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;reflection</a>, late binding and 
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_dmi"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;object oriented integration of scripting languages</a>.<br>
+<br>
+Additionally <m>acdk_core</m> contains a <a  href="docs/acdk_util_logging.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;logging framework</a> similar
+to frameworks like log4j.<br>
+<br>
+The Metacompiler <a  href="docs/acdkmc.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdkmc</m></a> add <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;Metainfo</a> 
+like runtime type information, support for <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_nameservice"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;ClassLoader</a>
+and attached <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb_mi_attributes"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;Attributes</a> to C++.<br>
+<br>
+Because software quality is direcly connected to the availability of a testing framework
+the <a  href="docs/acdk_tools_testunit_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;unit test framework</a>  <m>acdk_tools_aunit</m> is included
+in the ACDK Core package.<br>
+<br>
+The library <a  href="docs/acdk_security_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdk_security</m></a> contains some basic encryption functions.<br>
+<br>
+The scripting language <a  href="docs/acdk_cfgscript_hb.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a> is a <a  href="docs/acdk_cfgscript_hb_intro.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;full featured</a> 
+object oriented scripting language with Java/ACDK syntax, which does not only allow to instrument all ACDK
+classes in scripts, but also define own ACDK classes.<br>
+<br>
+Detailed documentation about ACDK, with <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_hb"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;handbook</a> and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_reference"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;API reference</a> is available online
+or for <a  href="http://sourceforge.net/project/showfiles.php?group_id=15364&package_id=12244"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;download</a>.<p></p>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="docs/readme.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Core Readme</a></p><p class="pagesummary">
+ACDK Core (acdk_core)acdk_core contains the core distribution of ACDK.</p><p class="subchapterlink"><a  href="docs/acdk_core_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_core - Manual</a></p><p class="pagesummary">
+Basic documentation for the acdk_core package.
+</p><p class="subchapterlink"><a  href="docs/acdkmc.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Metacompiler - Manual</a></p><p class="pagesummary">
+  man pages for <b>acdkmc</b> - ACDK Metacompiler
+</p><p class="subchapterlink"><a  href="docs/acdk_cfgscript_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_cfgscript Manual</a></p><p class="pagesummary">
+acdk_cfgscript contains a scripting language named CfgScript
+with maximum integration into ACDK and C++. acdk_cfgscript is used in the 
+the ACDK Metacompiler and the ACDK Make.
+</p><p class="subchapterlink"><a  href="docs/acdk_security_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_security  - manual</a></p><p class="pagesummary">
+Man page of acdk_security_dll.
+</p><p class="subchapterlink"><a  href="docs/acdk_tools_mc_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;acdk_tools_mc - Manual</a></p><p class="pagesummary">
+The man page of acdk_tool_mc the package for
+MetaInfo Compiler.
+</p><p class="subchapterlink"><a  href="docs/acdk_tools_testunit_man.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK Unit Test - Manual</a></p><p class="pagesummary">
+  ACDK Unit Test (acdk_tools_aunit) is a library to create regression tests for
+  acdk classes. It is inspired by the Xtrem Programming tool from
+  Kent Beck.
+</p><p class="subchapterlink"><a  href="../docs/acdk_general_install.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;ACDK General installation notice</a></p><p class="pagesummary">
+How to install and compile ACDK.
+And how to create your own executable/library to make use of ACDK.
+</p><p class="subchapterlink"><a  href="../docs/ACDK-FreeLicense.html"><img border="0" src="./../docs\images/url_chapter.gif">&nbsp;The ACDK License Terms, LGPL</a></p><p class="pagesummary">
+ACDK is available under the LGPL license.
+</p></td></tr></table><!-- subchaptersframe -->
+
+<br>
+Please refer also to:<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/</a> (Web at Sourceforge).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.com/</a> (Home of Artefaktur).<br>
+<li class="Feature"> <a  href="http://www.artefaktur.ch/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://www.artefaktur.ch/</a> (Mirror)
+<li class="Feature"> <a  href="http://sourceforge.net/projects/acdk/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://sourceforge.net/projects/acdk/</a> (Support at Sourceforge).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/core/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/core/</a> (Home of this project).<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__boot.html"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;http://acdk.sourceforge.net/acdk/docs/ref/namespace_acdk__boot.html</a> (Online reference).<br>
+<li class="Feature"> <a  href="mailto:kommer@artefaktur.com"><img border="0" src="./../docs\images/url_mailto.gif" alt="mailto">&nbsp;Roger Rene Kommer</a> (Mail Author).<br>
+</ul>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="docs/packages_deps.html">Dependencies</a> | ACDK Core | <a  href="docs/acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../acdk_boot/index.html">ACDK Boot</a> | <a  href="../acdk_text/index.html">ACDK Text</a> | <a  href="../acdk_net/index.html">ACDK Net</a> | <a  href="../acdk_xml/index.html">ACDK XML</a> | <a  href="../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../acdk_wx/index.html">ACDK WX</a> | <a  href="../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../acdk_make/index.html">ACDK Make</a> | <a  href="../acdk_java/index.html">ACDK Java</a> | <a  href="../acdk_perl/index.html">ACDK Perl</a> | <a  href="../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../acdk_python/index.html">ACDK Python</a> | <a  href="../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../acdk_sql/index.html">ACDK SQL</a> | <a  href="../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../docs/acdk_testreports.html">Test Reports</a> | <a  href="../aal/index.html">AAL</a> | <a  href="..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

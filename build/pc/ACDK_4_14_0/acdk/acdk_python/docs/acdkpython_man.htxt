@@ -1,0 +1,23 @@
+%id: acdkpython_man
+%title: acdkpython Manual
+%seealso: acdk_python_man
+
+%body:
+<htmlauto/>
+<pageintro>
+acdkpython is a small wrapper to the commanline Python interpreter
+bind to ACDK.
+</pageintro>
+
+<jumptable/>
+
+<jump1>SYNOPSIS</jump1>
+
+<pre><code>
+acdkpython [acdkoptions] [file.py]
+</code></pre>
+
+.
+
+
+

@@ -1,0 +1,19 @@
+
+ACDK_HOME=..
+
+PACKAGE=acdk_sql_odbc
+
+all: compile install
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+
+
+install::
+  @if not exist "$(ACDK_HOME)\include" mkdir "$(ACDK_HOME)\include"
+  @xcopy /D /S src\*.h $(ACDK_HOME)\include
+  @xcopy /D /S src\*.cpp $(ACDK_HOME)\include

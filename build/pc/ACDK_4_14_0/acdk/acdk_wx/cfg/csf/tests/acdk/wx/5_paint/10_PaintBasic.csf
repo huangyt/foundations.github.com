@@ -1,0 +1,38 @@
+
+using acdk.wx;
+
+class MyFrame
+extends Frame
+{
+  MyFrame()
+  {
+    connect(PaintEvent.EvtPaint, -1, 
+      lambda[this] 
+      {
+        PaintDC dc = new PaintDC(this);
+        prepareDC(dc);
+        dc.clear();
+        dc.drawText("Hallo", 20, 20);
+        dc.endDrawing();
+        dc = Nil;
+      }
+    );
+  }
+  
+}
+
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    MyFrame win = new MyFrame();
+    win.show(true);
+    return true;
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

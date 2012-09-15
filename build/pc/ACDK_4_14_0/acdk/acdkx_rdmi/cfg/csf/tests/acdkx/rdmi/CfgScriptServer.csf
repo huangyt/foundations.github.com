@@ -1,0 +1,31 @@
+
+class CfgScriptServer
+      extends acdk.lang.Thread
+{
+  String serverScript;
+  CfgScriptServer(String serverscript)
+  {
+    serverScript = serverscript;
+  }
+  CfgScriptServer startServer()
+  {
+    using acdkx.rdmi;
+    start();
+    Thread.sleep(300);
+    RemoteDmiServer client = new RemoteDmiServer(new TcpServer(InetAddress::getLocalHost(), 1111), new BinaryProtocol());
+    return client;
+  }
+  void run()
+  {
+    using acdk.io;
+    StringArray args = System.getArguments();
+    String scriptInterpreter = args.get(0);
+    String script = args.get(1);
+    File scriptf = new File(script);
+    File serverf = new File(scriptf.getParentFile(), serverScript);
+    using acdk.cfgscript;
+    ShellExecutor shexec = new ShellExecutor(scriptInterpreter + " " + serverf, 0);
+    Props p = new Props();
+    shexec.execute(p);
+  }
+}

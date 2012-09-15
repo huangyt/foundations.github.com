@@ -1,0 +1,388 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL parser</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;AAL parser
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | AAL parser | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL parser</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL parser</h1> -->
+<p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | AAL parser | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p>
+<p class="PageIntro">
+Design of the AAL extensible Parser.
+</p>
+<br>
+<br>
+<a name="jumptable135"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Overview"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Overview</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Scanner"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Scanner</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Symbol Table, Type Library and Type Scope"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Symbol Table, Type Library and Type Scope</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#SymbolTable"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;SymbolTable</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Unresolved TypeDefinitions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Unresolved TypeDefinitions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Correlation between SymbolTable and Interpreter Env"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Correlation between SymbolTable and Interpreter Env</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Parser"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Parser</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#BNF"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;BNF</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sample: Lisp Core"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Sample: Lisp Core</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Problem left recursion"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Problem left recursion</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Terminals"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Terminals</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Regular Expression"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Regular Expression</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Classloading of Rules"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Classloading of Rules</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Embedding Code in Syntax"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Embedding Code in Syntax</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Interpreter and Generator"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Interpreter and Generator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Interpreter"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Interpreter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Interpreter and SymbolTable"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Interpreter and SymbolTable</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#OpCode Generator"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;OpCode Generator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#OpCode Details"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;OpCode Details</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overview">Overview</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Parser should be extensible at runtime.<br>
+<li class="Feature"> Parser will be defined by Code-Fragments. These Code-Fragments 
+    defines the syntax-grammar, the connection to the SymbolTable,
+    the execution in a interpreter environment, the translation to 
+    intermediate code.<br>
+    The Code implementation can be reused with a different Grammar.<br>
+    For example, the standard implementation of AdditiveExpr expects
+    3 sub Code-Fragments, with first argument as Expression, operator (+ or -) and
+    second argument as Expression. The same Code instance can be used for interpretation
+    and intermediate code generation with different language syntax. 
+    So most code for a new language can be reused.<br>
+</ul>
+<br>
+<h2><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Scanner">Scanner</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Lookahead, stacked
+<li class="Feature"> Scanner is not independ, but part of the parser (ParseNode)
+</ul>
+<br>
+<h2><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Symbol Table, Type Library and Type Scope">Symbol Table, Type Library and Type Scope</a></h2>
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="SymbolTable">SymbolTable</a></h3>
+For each declarative element (types, functions)
+an element will be inserted into the Symbol Table.<br>
+<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;global&nbsp;static&nbsp;dictionary<br>
+namespace&nbsp;acdk&nbsp;{&nbsp;<br>
+&nbsp;&nbsp;//&nbsp;acdk.foo_0<br>
+&nbsp;&nbsp;void&nbsp;foo()<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;dictionary&nbsp;acdk.foo_0.X<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;X&nbsp;{}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br></font>
+</td></tr></table>
+<br>
+Variables may be declared in the same SymbolTable:<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(int&nbsp;i)<br>
+{<br>
+&nbsp;&nbsp;int&nbsp;j&nbsp;=&nbsp;i;<br>
+}<br>
+may&nbsp;be:<br>
+SymbolTable.foo_i[0].i<br>
+SymbolTable.foo_i[1].j<br></font>
+</td></tr></table>
+<br>
+Sub-Blocks will have a link to the parent scope
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo()<br>
+{<br>
+&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;i;<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;j&nbsp;=&nbsp;i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;j;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}<br></font>
+</td></tr></table>
+<br>
+Basic Structure of SymbolTable:<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;TypeDefinition&nbsp;{&nbsp;RString&nbsp;name;&nbsp;RDClazzInfo&nbsp;clazzInfo&nbsp;};<br>
+class&nbsp;VarDefinition&nbsp;{&nbsp;RString&nbsp;name;&nbsp;RTypeDefinition&nbsp;typeDef;&nbsp;};<br>
+<br>
+class&nbsp;SymbolTable<br>
+{<br>
+&nbsp;&nbsp;//&nbsp;String&nbsp;-&gt;&nbsp;TypeDefinition&nbsp;|&nbsp;VarDefinition&nbsp;<br>
+&nbsp;&nbsp;HashMap&nbsp;_typeMap;<br>
+&nbsp;&nbsp;HashMap&nbsp;_varMap;<br>
+&nbsp;&nbsp;RSymbolTableArray&nbsp;_seealso;<br>
+};<br></font>
+</td></tr></table>
+<br>
+Dynamic dictionary may also be a static Dictionary link.<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+namespace&nbsp;acdk&nbsp;{<br>
+&nbsp;&nbsp;class&nbsp;X&nbsp;{}<br>
+}<br>
+namespace&nbsp;other&nbsp;{<br>
+&nbsp;&nbsp;//&nbsp;implicit&nbsp;block,&nbsp;which&nbsp;add&nbsp;<br>
+&nbsp;&nbsp;//&nbsp;an&nbsp;entry&nbsp;in&nbsp;the&nbsp;SeeAlso&nbsp;list&nbsp;of&nbsp;the&nbsp;block<br>
+&nbsp;&nbsp;use&nbsp;acdk;<br>
+}<br></font>
+</td></tr></table>
+<br>
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Unresolved TypeDefinitions">Unresolved TypeDefinitions</a></h3>
+To enable soft typing of VarDefintions, an TypeDefinition may
+not resolved. This means, in current compiler state, the TypeDefinition
+is currently not known. 
+<br>
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Correlation between SymbolTable and Interpreter Env">Correlation between SymbolTable and Interpreter Env</a></h3>
+Each Code can have an associated SymbolTable, which will setup in 
+the postParse() step of compilation.<br>
+<br>
+The EvalScope Holds Vars, which contains a VarDefinition and a ScriptVar
+which holds the Value.<br>
+<br>
+<h2><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parser">Parser</a></h2>
+Using a LL(n) parser:<br>
+<b>Pro:</b>
+<ul class="FeatureList">
+<li class="Feature"> Extending the parser at runtime probably difficult for an LR parser.<br>
+<li class="Feature"> Rules for an LR parser are more difficult to understand.<br>
+</ul>
+<b>Con:</b>
+<ul class="FeatureList">
+<li class="Feature"> Left recursion is not allowed.<br>
+<li class="Feature"> Less Performance.<br>
+</ul>
+<br>
+<br>
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="BNF">BNF</a></h3>
+<br>
+The <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__parser__SyntaxParser"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::parser::SyntaxParser</a> uses BNF sytax:<br>
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+#&nbsp;Rulename&nbsp;is&nbsp;the&nbsp;NodeName&nbsp;of&nbsp;the&nbsp;SyntaxParser,&nbsp;the&nbsp;right&nbsp;size&nbsp;of&nbsp;the<br>
+#&nbsp;rule&nbsp;defintion&nbsp;is&nbsp;the&nbsp;syntax&nbsp;of&nbsp;the&nbsp;rule<br>
+RuleName&nbsp;:&nbsp;RuleDef<br>
+<br>
+#&nbsp;RuleDef&nbsp;is&nbsp;true&nbsp;if&nbsp;'text'&nbsp;(terminal&nbsp;token)&nbsp;can&nbsp;find&nbsp;in&nbsp;input&nbsp;stream<br>
+RuleName:&nbsp;'text'<br>
+<br>
+#&nbsp;RuleDef&nbsp;is&nbsp;true&nbsp;if&nbsp;RulDef1&nbsp;and&nbsp;following&nbsp;RulDef2&nbsp;is&nbsp;true<br>
+RuleDef:&nbsp;RulDef1&nbsp;RulDef2<br>
+<br>
+#&nbsp;RuleDef&nbsp;is&nbsp;true&nbsp;if&nbsp;RulDef1&nbsp;or&nbsp;RulDef2&nbsp;is&nbsp;true<br>
+#&nbsp;if&nbsp;first&nbsp;RuleDef1&nbsp;is&nbsp;true,&nbsp;RuleDef2&nbsp;will&nbsp;not&nbsp;be&nbsp;<br>
+#&nbsp;evaluated<br>
+RuleDef:&nbsp;RuleDef1&nbsp;|&nbsp;RuleDef2<br>
+<br>
+<br>
+#&nbsp;Rules&nbsp;can&nbsp;be&nbsp;grouped<br>
+RuleDef:&nbsp;(&nbsp;RulDef1&nbsp;)<br>
+<br>
+&nbsp;<br>
+#&nbsp;Rules&nbsp;in&nbsp;[&nbsp;]&nbsp;are&nbsp;optional<br>
+RuleDef:&nbsp;RuleDef1&nbsp;[&nbsp;RulDef1&nbsp;]<br>
+<br>
+<br>
+#&nbsp;Rules&nbsp;in&nbsp;(&nbsp;)*&nbsp;can&nbsp;occours&nbsp;0&nbsp;-&nbsp;n&nbsp;times<br>
+RuleDef:&nbsp;RuleDef1&nbsp;(&nbsp;RulDef1&nbsp;)*<br>
+<br>
+<br>
+#&nbsp;Rules&nbsp;in&nbsp;(&nbsp;)*&nbsp;can&nbsp;occours&nbsp;1&nbsp;-&nbsp;n&nbsp;times<br>
+RuleDef:&nbsp;RuleDef1&nbsp;(&nbsp;RulDef1&nbsp;)+<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample: Lisp Core">Sample: Lisp Core</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+LispText&nbsp;:&nbsp;(&nbsp;List&nbsp;|&nbsp;Element&nbsp;)<br>
+List&nbsp;:&nbsp;'('&nbsp;(&nbsp;Element&nbsp;)*&nbsp;')'<br>
+Element&nbsp;:&nbsp;[&nbsp;'\''&nbsp;]&nbsp;(&nbsp;List&nbsp;|&nbsp;Atom&nbsp;)<br>
+Atom&nbsp;:&nbsp;Identifier&nbsp;|&nbsp;Constant<br></font>
+</td></tr></table>
+
+Some extension controls generating the Syntax Tree:
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+<br>
+#&nbsp;the&nbsp;$&nbsp;saves&nbsp;the&nbsp;RuleDef&nbsp;as&nbsp;node<br>
+#&nbsp;note&nbsp;RuleDef&nbsp;will&nbsp;only&nbsp;saved&nbsp;if&nbsp;RuleDef2&nbsp;matches<br>
+RuleDef:&nbsp;RuleDef1&nbsp;|&nbsp;RuleDef2&nbsp;$<br>
+#&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;save&nbsp;the&nbsp;rule&nbsp;if&nbsp;<br>
+RuleDef:&nbsp;RuleDef1&nbsp;$&nbsp;|&nbsp;RuleDef2&nbsp;$&nbsp;<br>
+#save&nbsp;if&nbsp;RuleDef1&nbsp;or&nbsp;RuleDef2&nbsp;matches&nbsp;or&nbsp;alternativ:<br>
+RuleDef:&nbsp;(&nbsp;RuleDef1&nbsp;|&nbsp;RuleDef2)&nbsp;$<br>
+<br>
+#&nbsp;%&nbsp;saves&nbsp;RuleDef&nbsp;if&nbsp;last&nbsp;evaluated&nbsp;group&nbsp;(here&nbsp;RuleDef2)<br>
+#&nbsp;will&nbsp;return&nbsp;a&nbsp;Node<br>
+RuleDef:&nbsp;RuleDef1&nbsp;[&nbsp;RuleDef2&nbsp;]&nbsp;%<br>
+<br>
+<br>
+#&nbsp;Same&nbsp;as&nbsp;above<br>
+RuleDef:&nbsp;RuleDef1&nbsp;(&nbsp;RuleDef2&nbsp;)*&nbsp;%<br></font>
+</td></tr></table>
+
+
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Problem left recursion">Problem left recursion</a></h3>
+Left recursion results in not terminating loops:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+A:&nbsp;A&nbsp;[&nbsp;'+'&nbsp;B&nbsp;]&nbsp;//&nbsp;not&nbsp;working<br>
+<br>
+A:&nbsp;B&nbsp;[&nbsp;'+'&nbsp;A&nbsp;]&nbsp;//&nbsp;terminates<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Terminals">Terminals</a></h3>
+To enable lookahead in the syntax, the rules which represents terminals
+should have a rule name (nodeName) with only capital letters should be derived
+from <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__parser__TerminalParseNode"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::parser::TerminalParseNode</a>.
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Regular Expression">Regular Expression</a></h3>
+A syntax can also use regular expression for matching
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Rule&nbsp;:&nbsp;/matchExpr/<br></font>
+</td></tr></table>
+<todo>
+What should the parsed content of the Rule?
+</todo>
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Classloading of Rules">Classloading of Rules</a></h3>
+If a rule cannot be found, the compiler tries to load the Rule via
+ClassLoader.
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Rule&nbsp;:&nbsp;acdk.aci.parser.IdentifierParseNode<br></font>
+</td></tr></table>
+<todo>
+Currently not implemented
+</todo>
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Embedding Code in Syntax">Embedding Code in Syntax</a></h3>
+The text quoted with back ticks will be evaluated
+with the CfgScript language.
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Rule:&nbsp;RuleA&nbsp;!{&nbsp;CfgScript&nbsp;Code&nbsp;}!<br></font>
+</td></tr></table>
+Inside the code following variables are defined:
+<ul class="FeatureList">
+<li class="Feature"> compiler: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__Compiler"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::Compiler</a>, the current compiler
+<li class="Feature"> thisnode: <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__parser__ParseNode"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::parser::ParseNode</a>, the current parse node.
+<li class="Feature"> ...
+</ul>
+Note: The code "CfgScript Code" will only be executed, if RuleA is already parsed successfully.
+<todo>
+This is not implemented yet.
+</todo>
+
+<h2><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Interpreter and Generator">Interpreter and Generator</a></h2>
+The interpreter executes the Code at evaluation time.
+The Generator(s) generates OpCodes for the given Code.
+The interpreter branches through the Code tree multiple times
+(loop, function calls).
+The Generator only iterate once throgh all Code nodes.
+The OpCodes will be added to the Code node.
+Maybe it makes sense, that there is no special interpreter step (Code.execute())
+but a Code generates its OpCode (if not already done) and executes simply this OpCode.
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Interpreter">Interpreter</a></h3>
+To enable evaluation of Code at compile time (and extentions of 
+grammar at compile time) the mayor Code nodes has to implement
+the execute method.
+After the ParseNode's has created the AST (ParseNode.parse()) as Code nodes,
+the SymbolTable will be build in in the Code.postParse() step.
+After then the Code.execute() function of the root node will be called.
+
+<h4><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Interpreter and SymbolTable">Interpreter and SymbolTable</a></h4>
+The first call of a Code with associated SymbolTable should 
+register all user defined classes into the ACDK DMI.
+
+Every call to a Code with associated SymbolTable should 
+create the local variables on the stack.
+
+<h3><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OpCode Generator">OpCode Generator</a></h3>
+The OpCode should regard following issues:
+<ul class="FeatureList">
+<li class="Feature"> Can be executed directly by AAL Virtual Machine.
+<li class="Feature"> Can be stored into a file (including meta information/SymbolTable)
+<li class="Feature"> Can be transformed into:
+<ul class="SubFeatureList">
+  <li class="SubFeature"> Java Byte Code
+  <li class="SubFeature"> .NET ILASM
+  <li class="SubFeature"> other ?
+</ul>
+</ul>
+<h4><a href="#jumptable135"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OpCode Details">OpCode Details</a></h4>
+The OpCode operates only on the stack.
+
+Open Issues:
+<ul class="FeatureList">
+<li class="Feature"> The definitions of Metainfo also as OpCode (ILASM like)
+    or as associated ressource (JavaVM).
+<li class="Feature"> Resolution of method invoke, polymorphic functions, parameter
+    matching.
+    
+</ul>
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | AAL parser | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

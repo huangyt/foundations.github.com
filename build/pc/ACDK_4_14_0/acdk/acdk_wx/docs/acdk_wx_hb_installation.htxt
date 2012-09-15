@@ -1,0 +1,104 @@
+%id: acdk_wx_hb_installation
+%title: acdk_wx Installation
+%shorttitle: Compile acdk_wx
+%seealso: acdk_general_compile_acdk
+%body:
+<pageintro>
+How to install acdk_wx.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+<jump1>Compile acdk libraries</jump1>
+At the first step you have to compile all depending
+ACDK libraries (like <c>acdk_core</c>).
+Please refer to %ref[acdk_general_compile_acdk].
+
+<jump1>Download wxWidgets library</jump1>
+
+You need the wxWindow/wxWidgets library
+from %ref[http://www.wxwidgets.org, http://www.wxwidgets.org/].
+
+Grap the version 2.5.3 or later and compile it.
+
+When compiling acdk_wx you have probably modify some include and
+library path in the project/make files.
+
+I used wxWindows version 2.4.1/2, 2.5.x and 2.6.
+
+Currently acdk_wx was tested on MS Windows and Linux using GTK.
+<jump2>Windows</jump2>
+<jump3>Visual Studio</jump3>
+
+Download the standard MSC package and install it.
+Be care, do not install it into a directory, which has a space.
+
+Compiling wxWidgets with Visual Studio use the project file:
+\build\msw\wx_dll.dsw and compile all enclosing project with
+following targets:
+"Win32 DLL Unicode Release"
+"Win32 DLL Unicode Debug"
+
+Open the contrib\build\fl\fl.dsw
+and compile it with the same targets.
+
+contrib\build\stc\stc.dsw
+and compile it with the same targets.
+
+Now edit the acdkenv.cmd file and ajust the installation
+path (ACDK_WX_PATH) for wxWidgets. 
+
+<note>
+It seems that the dependencies in the wx_dll.dsw has circular reference.
+Try to remove some dependencies from the adv project if you have problem
+to compile all targets.
+</note>
+<jump2>On Linux</jump2>
+
+in wxWidgets use:
+<c>./configure --prefix=/artefaktur/wxwidgets --enable-debug_gdb  --enable-debug --enable-shared --enable-xrc --enable-html --enable-mdi --enable-unicode --disable-no_rtti --disable-no_exceptions</c>
+(you may have to ajust --prefix argument).
+
+Because ACDK uses exceptions you have to ./configure wxWidgets with the
+<c>--disable-no_rtti --disable-no_exceptions </c> otions
+
+Next just <c>make</c> the wxWidgets library.
+Then goto into the contrib directory and <c>make</c>.
+
+It is better not to install the wxWidget package into the standard directories (like <c>/usr</c>), 
+because it may conflict with
+your default wxWidgets installation.
+
+
+<jump1>Configure ACDK</jump1>
+After compiling <m>acdk_wx</m> you probably have to ajust some
+configuration in ACDK:
+<fl>
+  <f> Unix: open <c>acdk_globals.[your platform]</c> in the ACDK root directory and 
+      ajust the <c>WX_LIBS</c> and WX_CFLAGS values to point
+      to the correct directories and library names.
+      
+  <f> Windows: open the <c>acdkenv.cmd</c> ACDK root directory and ajust the 
+      <c>ACDK_WX_*</c> values.
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <c>startvstudio6.cmd</c>).
+      Alternately you can also add these environment variables into your global
+      environment. 
+</fl>
+
+<jump1>Compile acdk_wx</jump1>
+If the environment variables are set correctly <m>acdk_wx</m> can be compiled.
+
+<jump1>Running executables using acdk_wx</jump1>
+To run an executble using <m>acdk_wx</m> you may have set
+environment variables (<c>PATH</c> on Windows and <c>LD_LIBRARY_PATH</c>)
+to point to ACDK <c>bin</c> directory and the directory of the shared libraries
+of wxWidgets.
+On windows you can use the <c>acdkenv.cmd</c> for this purpose.
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <c>acdkenv.[platform]</c> before executing the application.
+
+
+.

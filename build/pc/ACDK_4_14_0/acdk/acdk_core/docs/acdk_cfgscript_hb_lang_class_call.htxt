@@ -1,0 +1,252 @@
+%id: acdk_cfgscript_hb_lang_class_call
+%title: CfgScript Calling Interface
+%shorttitle: Calling Interface
+%seealso: acdk_cfgscript_hb_lang_class_method, acdk_cfgscript_hb_lang_expr_delegate
+%keywords: Call Interface, in, out, inout, rest parameter, named rest parameter, multimethods, double dispatch methods
+%body:
+<chapterline/>
+<pageintro>
+CfgScript support a richt calling interface.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Standard Call Interface</jump1>
+All CfgScript methods are virtual/non-final - except of static methods and constructors.
+
+<jump2>Call with in/out/inout parameters</jump1>
+CfgScript - and ACDK - supports <c>in, out</c> and <c>inout</c> parameter attributes
+<fl>
+<f> <c>in</c> is the default attribute (if no other is given).
+    Values/reference will be passed from caller to callee. Callee may change
+    value (of basic types) or reference (of object types), but callers
+    variable will not be changed.
+<f> <c>out</c> the caller provides an (unitilized) variable
+    the callee can overwrite the value and pass it back to the caller.
+    <c>out</c> parameters can act as additional return values.
+<f> <c>inout</c> is a combination of <c>in</c> and <c>out</c> parameters.
+</fl>
+
+Sample:
+<source>
+
+class AClass 
+{
+  static int foo(in String inS, inout String inoutS, out String erg)
+  {
+    erg = inS + inoutS;
+    inoutS = inS;
+    inS = "X";
+    return erg.length();
+  }
+}
+
+String inS = "A";
+String inoutS = new String("B");
+String outS;
+int erg = AClass.foo(inS, inoutS, outS);
+out.println("inS: " + inS + "; inoutS: " + inoutS + "; outS: " + outS);
+
+if (inS.equals("A") && inoutS.equals("A") && outS.equals("AB"))
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+</source>
+
+<jump2>Call methods with default parameter</jump2>
+<source>
+class MyClass
+{
+  MyClass(int param = 42) { /* ... */ }
+}
+MyClass cls1 = new MyClass(); // uses 42 for param
+MyClass cls2 = new MyClass(1); // 
+</source>
+
+<jump2>Call methods with named parameter</jump2>
+
+Named parameter are useful if a method has many
+parameter with default parameters. 
+
+<source>
+class MyRect
+{
+  static void posRect(int xpos = 0, int ypos = 0, int xsize = 20, int ysize = 30)
+  {
+    out.println("foo called with xpos = " + xpos + ", ypos = " + ypos + ", xsize = " + xsize + ", ysize = " + ysize);
+  }
+}
+
+// call foo with default 
+MyRect.posRect();
+// call with positional parameter using the default size
+MyRect.posRect(10, 10);
+// call with positional parameter using the default size
+MyRect.posRect(10, 10, 12, 14);
+
+// new syntax
+// use default xpos and ypos
+MyRect.posRect(xsize: 40, ysize: 50);
+// old deprecated syntax
+MyRect.posRect(:ypos = 10, :xpos = 50);
+
+</source>
+
+Limits of default parameters:
+<fl>
+<f> default paramter must not have attribute <c>out</c> or <c>inout</c>
+</fl>
+
+<jump2>Call with any parameter</jump2>
+<source>
+  // Any accepts any type, basic or object type
+  static void callAny(Any any)
+  {
+    if (any instanceof float)
+      out.println("called any with float: " + any.toString());
+    else
+      out.println("called any with " + any.getClass().getName() + ": " + any.toString());
+  }
+MyClass.callAny("asdf");
+MyClass.callAny(42.4);
+</source>
+This prints:
+<pre>
+Called any with acdk/lang/String: asdf
+Called any with floating: 42.400002
+</pre>
+
+<jump2>Call method with rest parameter array</jump2>
+If the type of last parameter of a method is DmiObjectArray
+methods can accept variable count of parameters.
+This is similar to <c>void foo(int i, ...);</c> notation
+in C/C++.
+
+<source>
+class MyClass
+{
+  static void variableArgsFunc(int flags, Rest rest)
+  {
+    out.println("Function called with " + String.valueOf(rest.length()) + " rest parameters");
+    foreach (v in rest)
+    {
+      out.println("  " + v.getClass().toString() + ": " + v.toString());
+    }
+  }
+}
+
+// call foo with default 
+MyClass.variableArgsFunc(42);
+MyClass.variableArgsFunc(42, 1, "asdf", new File("testFile"));
+</source>
+
+Limits of rest parameters:
+<fl>
+<f> the paramters before the rest parameter must not bedefault parameter
+</fl>
+The type <c>Rest</c> is a typealias to <c>acdk.lang.dmi.DmiObjectArray</c>.
+
+<jump2>Call method with rest named parameter array</jump2>
+
+<source>
+class MyClass
+{
+  static void variableArgsFunc(int flags, NamedRest rest)
+  {
+    out.println("Function called with " + String.valueOf(rest.length()) + " rest parameters");
+    foreach (v in rest)
+    {
+      out.println("  " + v.name + ": " + v.value);
+    }
+    // convert rest into props to easy access
+    Props restp = new Props(rest);
+    if (restp.hasValue("intParam") == true)
+    {
+      int i = intParam; // named rest paramater directly available, as they would
+                    // be declared in the method signature
+      i = restp.intParam; // alternative access as 'pseudo' member variable
+      
+      out.println("  Has intParam: " + i);
+    }
+    else
+      out.println("  Has No intParam");
+  }
+}
+
+
+MyClass.variableArgsFunc(42, intParam: 1, stringParam: "asdf", fileParam: new File("testFile"));
+MyClass.variableArgsFunc(42);
+</source>
+
+Limits of rest parameters:
+<fl>
+<f> the parameters before the rest named parameter must not bedefault parameter
+<f> the parameters before the rest named parameter must not be called by name
+</fl>
+
+<jump1>Delegates</jump1>
+
+Please refer to %ref[acdk_cfgscript_hb_lang_expr_delegate] for more Information.
+
+<jump1>Multimethods</jump1>
+CfgScript supports Multimethods or double dispatch in method calls:
+
+<source>
+class MyClass
+{
+  void foo(String s) { out.println("called MyClass.foo(String)"); }
+  void foo(Object s) { out.println("called MyClass.foo(Object)"); }
+}
+
+class MyDerivedClass
+{
+  void foo(String s) { out.println("called MyDerivedClass.foo(String)"); }
+  void foo(Object s) { out.println("called MyDerivedClass.foo(Object)"); }
+}
+MyClass c = new MyDerivedClass();
+Object o = new String("asdf");
+c.foo(o); 
+</source>
+
+In static typed languages this little code example will print <c>called MyDerivedClass.foo(Object)</c>.
+Dispatching only works for the <c>this</c> parameter, but not for the argument.
+
+In CfgScript the output will be <c>called MyDerivedClass.foo(String)</c>, the call will be dispatched regarding
+this <b>and</b> the method argument argument. 
+
+<jump1>Weak Invocation</jump1>
+In CfgScript method calls are not necessarily bound to a specific objects class type.
+Some objects are only proxy objects, which represents classes from other
+object domains. In some cases the there is no specific type information
+for these objects avaible - they are weak types.
+Nevertheless it is possible to call methods and access member types of these 
+objects:
+
+<source>
+// create a COM Object, like Microsoft Word
+Any word = new acdkx.com.ComObject("Word.Application");
+// There is no detail metainfo available for this word object
+// but we can access members and call methods for this weak object 
+// type:
+word.Visible = 1;
+Any doc = word.Documents.add();
+Any sel = word.ActiveWindow.Selection;
+sel.TypeText("This is ");
+sel.Font.Bold =  1;
+sel.TypeText("ACDK");
+sel.Font.Bold = 0;
+sel.TypeText(" instrumenting Word through acdk_cfgscript");
+// this a normal ACDK call
+acdk.lang.Thread.sleep(3000);
+word.Quit(0);
+</source> 
+
+<jump1>Samples</jump1>
+<fl>
+<f> %srcref[dir_csf_tests_acdk_cfgscript_4_classes]
+</fl>
+
+
+.
+

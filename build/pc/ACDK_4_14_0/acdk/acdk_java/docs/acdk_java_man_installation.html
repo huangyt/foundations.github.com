@@ -1,0 +1,163 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>acdk_java Installation</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Java</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Compile acdk_java<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../docs/acdk_general_install.html">Installation</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Java Readme</a> | Compile acdk_java | <a  href="acdk_java_man.html">acdk_java</a> | <a  href="acdk_java_serialization_man.html">acdk_java_serialization</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_java Installation</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_java Installation</h1> -->
+<p class="curchapterline"> | <a  href="readme.html">ACDK Java Readme</a> | Compile acdk_java | <a  href="acdk_java_man.html">acdk_java</a> | <a  href="acdk_java_serialization_man.html">acdk_java_serialization</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p>
+<br>
+<p class="PageIntro">
+With the module acdk_java you can access ACDK objects from Java and
+Java objects from ACDK.<br>
+</p>
+<br>
+<a name="jumptable82"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Download / Install JDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Download / Install JDK</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Configure ACDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configure ACDK</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compile acdk_java"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Compile acdk_java</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Running executables using acdk_java"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Running executables using acdk_java</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compile the Java files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Compile the Java files</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Execute the Tests"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Execute the Tests</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Open Issues"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Open Issues</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Download / Install JDK">Download / Install JDK</a></h2>
+You need JDK 1.2 or later. I only have tested it
+with Suns JDK 1.3.x and 1.4.x.<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+  GCC with the GCJ provides  JNI headers, which are <b>not</b> compatible
+  with <m>acdk_java</m>. You need to use JDK headers and libraries.<br>
+</td></tr></table>
+<br>
+<h3><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configure ACDK">Configure ACDK</a></h3>
+After installing the JDK you probably have to ajust some
+configuration in acdk:<br>
+<ul class="FeatureList">
+  <li class="Feature"> Unix: open <code>acdk_globals.[your platform]</code> in the ACDK root directory and 
+      ajust the <code>ACDK_JAVA_*</code> values to point
+      to the correct directories and library names.<br>
+      
+  <li class="Feature"> Windows: open the <code>acdkenv.cmd</code> ACDK root directory and ajust the 
+      <code>ACDK_JAVA_*</code> values.<br>
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <code>startvstudio6.cmd</code>).<br>
+      Alternately you can also add these environment variables into your global
+      environment. 
+</ul>
+<br>
+<h2><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compile acdk_java">Compile acdk_java</a></h2>
+If the environment variables are set correctly acdk_java can be compiled.<br>
+<br>
+<br>
+<br>
+You have to to include the vm-path to your PATH variable.<br>
+For example:<br>
+<ul class="FeatureList">
+<li class="Feature"> NT: c:\jdk1.3.1\jre\bin\classic
+<li class="Feature"> Unix /usr/lib/jdk1.3.1/bin
+</ul>
+<br>
+On Unix plattform you have also to insert the JVM library path
+to you LD_LIBRARY_PATH. The libraries can reside in different 
+sub directories
+<code><small>
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jdk1.3.1/jre/lib/i386/native_threads:/usr/lib/jdk1.3.1/jre/lib/i386/classic:/usr/lib/jdk1.3.1/jre/lib/i386
+<small></code>
+<br>
+<h2><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Running executables using acdk_java">Running executables using acdk_java</a></h2>
+If you want to use the AcdkObject through Java you have to add 
+$ACDK_HOME to our CLASSPATH environment variable.<br>
+<br>
+To run an executble using <m>acdk_java</m> you may have set
+environment variables (<code>PATH</code> on Windows and <code>LD_LIBRARY_PATH</code>)
+to point to ACDK <code>bin</code> directory and the directory of the shared libraries
+of Python.<br>
+<br>
+<h2><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compile the Java files">Compile the Java files</a></h2>
+Beside the standard package build mechanism, there
+is an additionally makefile to build the Java class files:<br>
+<code>
+[n]make -f acdk_java.jmk
+</code>
+The classes are stored below the 
+ACDKHOME/bin directory, so you have to 
+extend our CLASSPATH enviromnent variable with this
+directory.<br>
+<br>
+<h2><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Execute the Tests">Execute the Tests</a></h2>
+<br>
+You have to set the ACDKHOME variable to the 
+root directory of our ACDK installation.<br>
+<br>
+You have to add the path $ACDKHOME/bin to
+your PATH environment variable.<br>
+On windows you can use the <code>acdkenv.cmd</code> for this purpose.<br>
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <code>acdkenv.[platform]</code> before executing the application.<br>
+<br>
+<h2><a href="#jumptable82"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Open Issues">Open Issues</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> More tests of the DMI functions.<br>
+<li class="Feature"> using the acdk_java package will not work with threads.<br>
+</ul>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK Java Readme</a> | Compile acdk_java | <a  href="acdk_java_man.html">acdk_java</a> | <a  href="acdk_java_serialization_man.html">acdk_java_serialization</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

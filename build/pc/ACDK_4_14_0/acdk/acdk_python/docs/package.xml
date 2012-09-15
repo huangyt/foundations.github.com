@@ -1,0 +1,135 @@
+<package>
+
+<name>acdk_python</name>
+
+<title>
+ACDK Python (acdk_python)
+</title>
+
+
+<shortdescription>
+With acdk_python, you can instrument a Python interpreter inside of your acdk application
+and you are able to have access to all ACDK-Objects in your Python environment.
+</shortdescription>
+
+<description>
+
+Beside other interpreter environments (%ref[Lisp, acdk_lisp], %ref[Perl, acdk_perl], %ref[Tcl, acdk_tcl]
+and %ref[CfgScript, acdk_cfgscript_hb]) ACDK also
+supports Python with its Dynamic Method Invokation (DMI) interface.
+
+With the %ref[<m>acdk_python</m>, acdk_python_man] library you can integrate a Python 
+interpreter into ACDK application.
+<source>
+RPythonInterpreter pi = new PythonInterpreter();
+pi->parse("print \"Hello World\"\n");
+</source>
+From inside the Python language all ACDK objects can be easely be accessed
+without generating any futher glue code:
+
+<source lang="python">
+def foo(string1, string2):
+  sb = acdk.Object("acdk/lang/StringBuffer", string1)
+  sb.append(string2)
+  return sb.toString()
+  
+acdk.peek_static("acdk/lang/System", "out").println(foo("Hello Python", " from ACDK"))
+</source>
+<p>
+The executable %ref[acdkpython, acdkpython_man] provides a simple command line Python interpreter.
+</description>
+
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<license>
+%ref[ACDK Free Edition Licens, acdk_license].
+</license>
+<dependencies>
+acdk_core
+acdk_text
+</dependencies>
+
+<namespaces>
+acdk::python;
+</namespaces>
+
+<authors>
+  Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Many parts are not implemented yet.
+</todo>
+
+<changes>
+
+===========================================================
+4.10.0
+- nothing important
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+See also %ref[../ChangeLog].
+
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+acdk_python 2.00.1
+- Ajustments to new DMI.
+
+</changes>
+<notes>
+
+To compile acdk_python on Windows you 
+have to compile Python itself.
+The binary distribution of 2.* doesn't
+work, because there are files missing.<p>
+
+Before compiling acdk_python you probably
+have to ajust the values for Pythons include
+directory and library directory/name.<p>
+
+Therefore edit the acdk_python/python_cfg.lsp
+and remake the make file with:<br>
+> make -f acdk_python.<target> makemake
+
+Therefore you have to compiled and installed
+acdk_lisp.
+
+</notes>
+<sf-notes>
+With acdk_python, you can instrument 
+a Python interpreter inside of your 
+acdk application and you are able to 
+have access to all ACDK-Objects in 
+your Python environment.
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_python/acdk_python-en.html">http://acdk.sourceforge.net/acdk/python</a>
+
+</sf-notes>
+<sf-changes>
+Initial release.
+
+
+Please refer also to:
+<a href="http://acdk.sourceforge.net/acdk/modules/acdk_python/docs/readme-en.html#Changes">Changes</a>
+</sf-changes>
+</package>

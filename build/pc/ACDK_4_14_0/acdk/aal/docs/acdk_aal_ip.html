@@ -1,0 +1,226 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL as Intentional Programming System</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">AAL</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="concept/acdk_aal_concept.html">Concept</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Intentional Programming
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Intentional Programming | <a  href="concept/acdk_aci_concept.html">ACI Concept</a> | <a  href="concept/acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="concept/acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="concept/acdk_aal_concept_parser.html">AAL parser</a> | <a  href="concept/acdk_aal_concept_objects.html">Object Representation</a> | <a  href="concept/acdk_aal_concept_opcode.html">OpCode</a> | <a  href="concept/acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL as Intentional Programming System</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL as Intentional Programming System</h1> -->
+<p class="curchapterline"> | Intentional Programming | <a  href="concept/acdk_aci_concept.html">ACI Concept</a> | <a  href="concept/acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="concept/acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="concept/acdk_aal_concept_parser.html">AAL parser</a> | <a  href="concept/acdk_aal_concept_objects.html">Object Representation</a> | <a  href="concept/acdk_aal_concept_opcode.html">OpCode</a> | <a  href="concept/acdk_aal_concept_links.html">Reference Links</a> |</p>
+<p class="PageIntro">
+How to use AAL as Intentional Programming System.
+</p>
+
+<a name="jumptable132"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Topics"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Topics</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Internal Architecture"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Internal Architecture</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Builin Attributes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Builin Attributes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#User defined Attributes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;User defined Attributes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Type Library interface"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Type Library interface</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Extend Language"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Extend Language</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Language switch"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Language switch</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Code Weafer"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Code Weafer</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Implementation Issues"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Implementation Issues</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Multipass Parser"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Multipass Parser</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Links"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Links</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Topics">Topics</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Multipass Parser.
+<li class="Feature"> Parser allows ambiguitys.
+<li class="Feature"> Parsing allows to modify the Parse Tree.
+<li class="Feature"> Nodes has Attributes to identify the level of
+    Parse/Interpret/Compile pass.
+</ul>
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Internal Architecture">Internal Architecture</a></h2>
+Language definition levels:
+<ul class="FeatureList">
+<li class="Feature"> Abstract Parse Syntax definition (ParseNode).
+    -> generates an Abstract Code Tree (Code).
+    
+<li class="Feature"> Code
+    -> Semantic analysis.
+    -> mapps semantic to Object Representation (ClazzInfo).
+    -> generates SymbolTable .
+    -> generates OpCodes.
+<li class="Feature"> OpCode.
+    -> stack based operations.
+    -> can be executed using ClazzInfo.
+</ul>
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Builin Attributes">Builin Attributes</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+String&nbsp;s&nbsp;=&nbsp;new&nbsp;[StackAlloc]&nbsp;String("asdf");<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="User defined Attributes">User defined Attributes</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(int&nbsp;i)<br>
+{<br>
+}<br>
+[&nbsp;<br>
+&nbsp;&nbsp;compiler.findNode("FunctionDecl").getType().attatchAttribute("Key",&nbsp;"Value);<br>
+]<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Type Library interface">Type Library interface</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+[<br>
+&nbsp;&nbsp;compiler.loadTypeLib(new&nbsp;JavaLib("java/net"));<br>
+&nbsp;&nbsp;//&nbsp;all&nbsp;classes&nbsp;of&nbsp;java.net&nbsp;are&nbsp;available<br>
+]<br>
+java.net.SocketServer&nbsp;ss&nbsp;=&nbsp;new&nbsp;java.net.SocketServer();<br>
+<br></font>
+</td></tr></table>
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Extend Language">Extend Language</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+[&nbsp;<br>
+&nbsp;&nbsp;compiler.pushGrammar();&nbsp;//&nbsp;make&nbsp;new&nbsp;scope&nbsp;block&nbsp;for&nbsp;the&nbsp;grammar<br>
+&nbsp;&nbsp;compiler.registerRule("RegExpExpr",&nbsp;new&nbsp;RegExp("Expression&nbsp;[&nbsp;'=~'&nbsp;REGEX_EXPRESSION&nbsp;]"&nbsp;));&nbsp;<br>
+&nbsp;&nbsp;compiler.replaceRule("Expression",&nbsp;"RegExpExpr");<br>
+]&nbsp;&nbsp;//&nbsp;now&nbsp;this&nbsp;new&nbsp;Grammar&nbsp;element&nbsp;is&nbsp;available<br>
+&nbsp;&nbsp;("asdf"&nbsp;+&nbsp;b)&nbsp;=~&nbsp;/asdf/;<br>
+[<br>
+&nbsp;&nbsp;//&nbsp;remove&nbsp;the&nbsp;Grammar&nbsp;defintion.<br>
+&nbsp;&nbsp;compiler.popGrammar();<br>
+]<br></font>
+</td></tr></table>
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Language switch">Language switch</a></h2>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+[&nbsp;<br>
+&nbsp;&nbsp;compiler.registerToken("END_OF_LISP",&nbsp;"&lt;&lt;EndOfLisp");<br>
+&nbsp;&nbsp;compiler.replaceGrammarUntil(new&nbsp;LispInterpreter(),&nbsp;"END_OF_LISP");<br>
+]<br>
+&nbsp;(defun&nbsp;x&nbsp;(a&nbsp;b)&nbsp;(+&nbsp;a&nbsp;b))<br>
+&lt;&lt;EndOfLisp<br>
+<br>
+acdk.lang.System.println("now&nbsp;back&nbsp;in&nbsp;ACDK");<br>
+//&nbsp;using&nbsp;the&nbsp;method&nbsp;defined&nbsp;in&nbsp;lisp<br>
+acdk.lang.System.println(x(1,&nbsp;2));<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Code Weafer">Code Weafer</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+[<br>
+&nbsp;&nbsp;Code&nbsp;logAdder&nbsp;=&nbsp;new&nbsp;LogInOutAdder(orgRule:&nbsp;compiler.getRule("FunctionBody"),&nbsp;classname:&nbsp;"MyClass",&nbsp;funcname:&nbsp;"foo");<br>
+&nbsp;&nbsp;compiler.replaceRule("FunctionBody",&nbsp;locAdder);<br>
+]<br>
+<br>
+class&nbsp;MyClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;void&nbsp;bar()&nbsp;{}<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;foo(int&nbsp;i)&nbsp;<br>
+&nbsp;&nbsp;{&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;LogInOutAdder&nbsp;whould&nbsp;insert&nbsp;a&nbsp;statement&nbsp;to&nbsp;print&nbsp;out&nbsp;something&nbsp;like&nbsp;"MyClass.foo(42)&nbsp;entered"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;i&nbsp;+&nbsp;1;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br></font>
+</td></tr></table>
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation Issues">Implementation Issues</a></h2>
+<h3><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Multipass Parser">Multipass Parser</a></h3>
+PassLevel:
+<ul class="FeatureList">
+<li class="Feature"> Abstract Syntax Tree (AST): Context Free Tree with Rules and Token
+<li class="Feature"> Language Syntax Tree (LST): AST, but fixed ambiguities.
+<li class="Feature"> Semantik Resolution Tree (SRT): Based on the LST Check and fix semantic issues.
+    For example the construct
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Object&nbsp;o&nbsp;=&nbsp;"asdf";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o.length();&nbsp;//&nbsp;this&nbsp;line&nbsp;will&nbsp;be&nbsp;explained<br></font>
+</td></tr></table>
+    Will translated from Rule "Expression Operator('.') Function" to 
+    "Expression" DmiObjFuncCall Function in case the o is a Object
+    available via DMI functionality.
+    Inlining, static overloading, etc. may be resolved here.
+<li class="Feature"> Interpret Syntax Tree (IST): Does interpret the code.
+<li class="Feature"> CodeGen Syntax Tree (CST): Does generate byte code or asm.
+</ul>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass&nbsp;<br>
+{<br>
+&nbsp;&nbsp;void&nbsp;foo();<br>
+}&nbsp;//&nbsp;commit&nbsp;point&nbsp;to&nbsp;generate&nbsp;LST&nbsp;here&nbsp;fore&nbsp;the&nbsp;class&nbsp;Rule.<br>
+<br>
+[&nbsp;//&nbsp;AClass&nbsp;as&nbsp;LST&nbsp;definition&nbsp;is&nbsp;alrady&nbsp;available&nbsp;<br>
+&nbsp;&nbsp;compiler.dosomething();<br>
+&nbsp;&nbsp;//&nbsp;has&nbsp;to&nbsp;be&nbsp;interpreted.<br>
+]<br>
+<br></font>
+</td></tr></table>
+
+Maybe the transforming from Source to AST to LST to IST and CST may
+be restarted by one Rule, because it modified the ST.
+
+
+<h2><a href="#jumptable132"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Links">Links</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://www.ccs.neu.edu/home/lieber/connection-to-aop.html"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://www.ccs.neu.edu/home/lieber/connection-to-aop.html</a>.
+</ul>
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Intentional Programming | <a  href="concept/acdk_aci_concept.html">ACI Concept</a> | <a  href="concept/acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="concept/acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="concept/acdk_aal_concept_parser.html">AAL parser</a> | <a  href="concept/acdk_aal_concept_objects.html">Object Representation</a> | <a  href="concept/acdk_aal_concept_opcode.html">OpCode</a> | <a  href="concept/acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,265 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Mapping of ACDK</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK ORB</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Mapping of ACDK
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdkx_orb_init.html">acdkx_orb_init</a> | Mapping of ACDK |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Mapping of ACDK</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Mapping of ACDK</h1> -->
+<p class="PageIntro">
+ACDK provides its own mapping to CORBA types,
+which follows quite close to the Java definition.
+</p>
+
+<br>
+<br>
+<a name="jumptable105"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Basic Value"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Basic Value</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Numbers"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Numbers</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#string"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;string</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Enum"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Enum</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Constructed Values"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Constructed Values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Arrays"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Arrays</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sequence"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sequence</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#structs"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;structs</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Union"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Union</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Object Reference"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Object Reference</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Value Types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Value Types</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Attributes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Attributes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Argument specifier"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Argument specifier</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#in / out / inout"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;in / out / inout</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#IN"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;IN</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#OUT and INOUT"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;OUT and INOUT</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basic Value">Basic Value</a></h2>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Numbers">Numbers</a></h3>
+For the basic types the same type mapping
+will be used as Java.<br>
+Not supported are:<br>
+<ul class="FeatureList">
+<li class="Feature"> Fixed
+<li class="Feature"> Wchar
+<li class="Feature"> Wstring
+<li class="Feature"> Enum
+<li class="Feature"> Any
+</ul>
+<br>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="string">string</a></h3>
+IDL type string will be translated to ::acdk::lang::RString
+<br>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Enum">Enum</a></h3>
+The type Enum is currently not supported.<br>
+Use the int representative instead.<br>
+<br>
+<h2><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Constructed Values">Constructed Values</a></h2>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Arrays">Arrays</a></h3>
+Arrays are not supported. Use sequence instead.<br>
+<br>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sequence">Sequence</a></h3>
+Sequences are encoded as ACDK arrays (typeArray).<br>
+<br>
+For the basic value types you can use the corresponding
+array classes (RintArray, RdoubleArray, RboolArray, etc.)
+<br>
+For string and constructed values you can also use the
+array classes (RStringArrray, etc.)
+<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">//IDL
+</FONT></I>  <B><FONT COLOR="#228B22">void</FONT></B> foo(in sequence&lt;string&gt; vals, out sequence&lt;<B><FONT COLOR="#228B22">long</FONT></B>&gt; indice);
+</PRE></td></tr></table>
+<br>
+will be in ACDK:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">//ACDK
+</FONT></I>  <B><FONT COLOR="#228B22">void</FONT></B> foo(RStringArray vals, OUT(RintArray) indice);
+  
+</PRE></td></tr></table>
+<br>
+<br>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="structs">structs</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">//IDL
+</FONT></I>  <B><FONT COLOR="#228B22">struct</FONT></B> BunchOfValues
+  {
+    string label;
+    <B><FONT COLOR="#228B22">int</FONT></B> index;
+  };
+  <B><FONT COLOR="#228B22">void</FONT></B> foo(in BunchOfValues vals);
+  
+</PRE></td></tr></table>
+Structs will implemented as normal classes, which
+should be transfered by value:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// ACDK
+</FONT></I>  <B><FONT COLOR="#228B22">class</FONT></B> BunchOfValues
+  : extends ::acdk::lang::Object,
+    implements ::acdk::io::Serializable
+  {
+  ACDK_WITH_METAINFO(BunchOfValues) <I><FONT COLOR="#B22222">// needed for serialisation
+</FONT></I>  <B><FONT COLOR="#228B22">public</FONT></B>:
+    <I><FONT COLOR="#B22222">/**
+      needed for create a new instance.
+      alternativally create_instance() should be defined.
+    */</FONT></I>
+    BunchOfValues()  
+    : Object()
+    {
+    }
+    
+    string label;
+    <B><FONT COLOR="#228B22">int</FONT></B> index;
+  };
+  
+  <B><FONT COLOR="#228B22">void</FONT></B> foo(in BunchOfValues vals);
+  
+</PRE></td></tr></table>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Union">Union</a></h3>
+Are not supported yet.<br>
+<br>
+<h2><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Object Reference">Object Reference</a></h2>
+<br>
+Object References are implemented in org::omg::CORBA::Object
+<br>
+<h2><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Value Types">Value Types</a></h2>
+<br>
+Value types are supported using ACDK's standard serialization
+feature. 
+Value types (including the mapped struct) should be derived
+from the ::acdk::io::Serializable interface.<br>
+<br>
+<h2><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Attributes">Attributes</a></h2>
+<br>
+To support attributes, accessor methods should be implemented:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+interface Foo
+{
+  attribute <B><FONT COLOR="#228B22">int</FONT></B> ivalue;
+  readonly attribute string svalue;
+};
+</PRE></td></tr></table>
+<br>
+will be mapped in ACDK:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> Foo
+: implements ::org::omg::CORBA::portable::InvokeHandler
+{
+<B><FONT COLOR="#228B22">private</FONT></B>:
+  <B><FONT COLOR="#228B22">int</FONT></B> _ivalue;
+  RString _svalue;
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">int</FONT></B> _get_ivalue() { <B><FONT COLOR="#A020F0">return</FONT></B> _ivalue; }
+  <B><FONT COLOR="#228B22">void</FONT></B> _set_ivalue(<B><FONT COLOR="#228B22">int</FONT></B> ival) { _ivalue = ival; }
+  RString _get_svalue() { <B><FONT COLOR="#A020F0">return</FONT></B> _svalue; }
+  <I><FONT COLOR="#B22222">// no setter for svalue because readonly
+</FONT></I>};
+</PRE></td></tr></table>
+<br>
+<br>
+<br>
+<h2><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Argument specifier">Argument specifier</a></h2>
+<h3><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="in / out / inout">in / out / inout</a></h3>
+<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// IDL
+</FONT></I>  <B><FONT COLOR="#228B22">int</FONT></B> foo(in <B><FONT COLOR="#228B22">int</FONT></B> ini, out <B><FONT COLOR="#228B22">int</FONT></B> outi, inout <B><FONT COLOR="#228B22">int</FONT></B> inouti);
+<I><FONT COLOR="#B22222">// acdk
+</FONT></I>  <B><FONT COLOR="#228B22">int</FONT></B> foo(IN(<B><FONT COLOR="#228B22">int</FONT></B>) ini, OUT(<B><FONT COLOR="#228B22">int</FONT></B>) outi, INOUT(<B><FONT COLOR="#228B22">int</FONT></B>) inouti);
+
+</PRE></td></tr></table>
+<br>
+If no IN/OUT/INOUT is given automatically an in value will be
+asumed.<br>
+<br>
+<h4><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="IN">IN</a></h4>
+IN - values are passed by value, normally basic types or
+RObject's.<br>
+<br>
+<h4><a href="#jumptable105"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OUT and INOUT">OUT and INOUT</a></h4>
+OUT and INOUT values are passed by reference.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">foo</FONT></B>(IN(RString) istr, OUT(RString) ostr)
+{
+  istr = <B><FONT COLOR="#BC8F8F">&quot;modified&quot;</FONT></B>; <I><FONT COLOR="#B22222">// has no effect for the caller
+</FONT></I>  ostr = <B><FONT COLOR="#BC8F8F">&quot;modified&quot;</FONT></B>;<I><FONT COLOR="#B22222">// has effect for the caller
+</FONT></I>}
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdkx_orb_init.html">acdkx_orb_init</a> | Mapping of ACDK |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

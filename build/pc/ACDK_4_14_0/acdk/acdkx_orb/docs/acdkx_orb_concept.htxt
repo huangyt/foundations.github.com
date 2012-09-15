@@ -1,0 +1,286 @@
+%id: acdkx_orb_concept
+%title: Concept of acdkx_orb
+%chapter: acdkx_orb_init, acdkx_orb_mapping
+%body:
+<pageintro>
+Some notes about the basic design ideas and features of ACDK ORB.
+</pageintro>
+<htmlauto/>
+<jumptable/>
+
+<jump1>Current Problems</jump1>
+<jump2>Connection Peer Pool</jump2>
+For each Client-Server connection should only
+one connection held.
+Writing messages must be synchronized.
+This is implemented on client size with a
+ConnectionManager. This manager closes Connection
+when no more Objects are active.
+
+
+<jump1>The Idea</jump1>
+The metacompiler of ACDK provides detailed 
+information for each class, method, argument, etc.
+This enables the Dynamic Method Invocation Interface (DMI) 
+and serialization for each ACDK class.
+It is only a little step to traditional middleware like
+DCOM and CORBA. 
+
+It is not trivial to use CORBA in a project, 
+especially in C++.
+acdkx_orb should provide a very simple way to use 
+ACDK objects as CORBA components.
+
+<jump1>The way</jump1>
+The CORBA specification 2.4 or even 3.0 is
+a monster not only to implement but even to
+understand.
+So I've started with a very simple not-compatible
+ORB called ARB, in which I implement the basic 
+routines I found and understand in CORBA.
+
+To reinvent an alredy invented machines gives 
+a more deep look a the machine.
+
+In the second step I want to implement the CORBA
+2.4 and upcomming 3.0 standards.
+
+
+<jump1>ARB and ORB</jump1>
+
+ARB is a simple build in ORB, which is not CORBA
+compatible. 
+
+<fl>
+<f> ARB uses build in ACDK types in most native way.
+<f> ARB doesn't support struct and sequences, simply
+    because they are superflous using ACDK types and
+    passing them byval.
+<f> In the first version ARB uses an XML type protocoll
+    for better debugging. GIIOP should be implemented later.
+</fl>
+<jump1>ARB</jump1>
+<jump2>ARB Basic implementation concepts</jump2>
+
+ARB interfaces should be implement the acdkx::arb::ArbInterface.
+
+<source>
+// in AnArbInteface.h
+class AnArbInteface
+: implements ::acdkx::arb::ArbInterface
+{
+  // generate Metainfo
+  ACDK_WITH_METAINFO 
+  // generate ARB helper
+  ACDK_CORBA_INTERFACE(AnArbInteface)
+public:
+  // has one public method
+  virtual RString getNameOfAThing(OUT(RString) name, IN(int) size) throw (RException);
+};
+</source>
+
+The ACDK metacompiler acdkmc generates the needed additions:
+<fl>
+<f> The class AnArbInteface_Proxy with used from the client.
+<f> The AnArbInteface::orbDispatch() method, which dispatch incoming
+    calls on the server side.
+</fl>
+
+<jump1>Features</jump1>
+<fl>
+<f> Passing basic types
+<f> Passing Strings
+<f> passing in, out, inout
+<f> Passing Objects by value
+<f> Passing Interfaces
+<f> Exceptions 
+<f> oneway
+<f> calling objects in local process without big overhead
+</fl>
+
+
+<jump1>ORB</jump1>
+<jump2>ORB Basic implementation concepts</jump2>
+Following the CORBA 2.4 standard with a Java type mapping.
+
+<jump2>Sample</jump2>
+
+The interface definition:
+<source>
+ACDK_DECL_INTERFACE(Hello);
+
+/** 
+  class to test with OB orb 
+*/
+class ACDKX_ORB_PUBLIC Hello 
+: implements ::org::omg::CORBA::portable::InvokeHandler
+{
+  ACDK_WITH_METAINFO
+public:
+  ACDK_CORBA_INTERFACE(Hello)
+public:
+  virtual void hello() = 0;
+};
+</source>
+<hr>
+Now the Server implementation:
+<source>
+
+ACDK_DECL_CLASS(HelloImpl);
+
+class HelloImpl
+: extends ::acdkx::orb::ServerDelegate,
+  implements ::Hello
+{
+public:
+  virtual RClass getClass() { return Hello::getClass(); }
+  virtual void hello()
+  {
+    System::out->println("Hello Server");
+  }
+};
+
+</source>
+<hr>
+In the main routine this can be registered:
+<source>
+  RORB orb = ORB::init();
+  RHelloImpl obj = new HelloImpl();
+  orb->impl_is_ready(obj);
+  RString ostr = orb->object_to_string(obj);
+  RString fname = "Hello.ref";
+  ::acdk::io::FileWriter f(fname);
+  f.write(ostr->c_str());
+  System::out->println(ostr);
+  orb->run();
+  
+</source>
+<hr>
+And finally the client usage:
+<source>
+  RORB orb = ORB::init();
+  RString refid;
+  RString fname = "Hello.ref";
+  ::acdk::io::InputReader f(new ::acdk::io::FileReader(fname));
+  refid = f.readString();
+  System::out->println("Calling refid: " + refid);
+  RHello obj = (RHello)orb->string_to_object(refid);
+  obj->hello();
+</source>
+<hr>
+<jump1>The situation</jump1>
+<jump2>ARB</jump2>
+ARB is up and running.
+Just started the implementation of org::omg::CORBA::* interfaces,
+following the Java mapping specifications.
+<jump2>ORB</jump2>
+ORB: I'm just busy on it.
+The very basic functionality is working.
+
+<fl>
+  <f> Oriented at the Java portable class structure.
+  <f> Basic types in, out, inout
+  <f> oneway
+  <f> The operations with a very BOA are running!
+  <f> Basic tests with OB and mico are running!  
+</fl>
+
+The [G|I]IOP-protocols are quite difficult, because and implementation
+has to support all 
+versions (1.0, 1.1, 1.2), so it is quite hard to implement
+them all. 
+I'll try to implement the 1.2 protocol with the mayor messages.
+Later I try add the other messages.
+As far as possible I'll follow the the java mapping
+in the implementation (org.omg.CORBA.*, especially 
+org.omg.CORBA.portable.*).
+
+<jump1>Outlook</jump1>
+<jump2>ACDK as generic CORBA server</jump2>
+With the standard DMI functionality all 
+classes should be provided for other CORBA clients.
+<fl>
+<f> Polymorphic will be solved through alternative method names.
+<f> For standard functions, like New, invoke, invoke_static, peek, poke, etc. will
+    be provided by an extra interface (see AcdkObject idl below).
+<f> Generate IDL-defintions with altnames as methods names.
+<f> For New and the static version of methods/peek/poke
+    Create a Factory class, which exports names by IDL.
+    These Factory classes should be ordinary ACDK Classes.
+</fl>
+
+<jump2>ACDK as generic CORBA client</jump2>
+
+<fl>
+<f> <b>Cannot use standard DMI invoke interface</b> and try to call CORBA services
+    by standard marschaling with the risk of hanging.
+    Main-Problem, there is no hint for the type of the return value.
+    CorObject with hint to an given interface, without generating
+    static skeleton.
+<f> <b>Make use of the DmiProxy</b>!
+    Has to rewrite DmiProxy, to provide DMI-Bridge (calling the server)
+    also ClazzInfo and MethodInfo (for the type of the return value).
+    
+<f> Make use of the Interface-repository?
+
+</fl>
+<jump2>Standard CORBA client DMI interface</jump2>
+<source lang="idl">
+/**
+  Interface definition for calling any ACDK object
+*/
+
+interface AcdkObject
+{
+  typedef sequence<any> Params;
+  AcdkObject New(in string classname, in string constructor, in Params outp, out Params inp);
+  any invoke(in string methodname, in Params outp, out Params inp);
+  any invoke_static(in string classname, in string methodname, in Params outp, out Params inp);
+  any peek(in string membername);
+  any peek_static(in string classname, in string membername);
+  void poke(in string membername, in any value);
+  void poke_static(in string classname, in string membername, in any value);
+};
+
+</source>
+
+<jump2>Following issues has to be clarified:</jump2>
+<fl>
+  <f> Classes for Stup/Proxy
+    <sfl>
+      <sf> How make it simple to implement interfaces without many overhead.
+      <sf> Which classes should be super classes for interfaces?
+      <sf> One base implementation for CORBA/DCOM/SOAP or different?
+      <sf> How to avoid to generade meta information for the implemention, and
+           only for the interfaces.
+    </sfl>
+  <f> Dynamic DMI
+    <sfl>
+      <sf> Replace the old DMI mechanism with new flexible CORBA-DMI mechanism.
+          
+    </sfl>
+  <f> Metainfo
+    <sfl>
+      <sf> Use/enhance acdk Metainfo for IR?
+    </sfl>
+  <f> CORBA Services
+    <sfl>
+      <sf> Which services should be implemented, which used from 3thrd party?
+      <sf> Which services should be implemented first?
+    </sfl>
+  <f> Native ACDK CORBA support
+    <sfl>
+      <sf> Moving the basic CORBA stup/skeleton into the core package
+      <sf> support all classes/interfaces with CORBA-Support
+    </sfl>
+  <f> DCOM and RMI support
+    <sfl>
+      <sf> Implement DCOM support for the CORBA-Classes
+      <sf> Implement RMI support for the CORBA-Classes.
+      <sf> Incompatibilities?
+    </sfl>
+</fl>
+
+Any input appreciated!
+
+.

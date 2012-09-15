@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{cd6c3ca6-c342-49de-8eca-7fa2ac242245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb">
+      <UniqueIdentifier>{8733d8e5-ae25-4ace-888e-16ff21308284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb\mc">
+      <UniqueIdentifier>{5ce0ac14-16c2-4c72-a748-8f5c41f41580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb\mc\mc_metainf">
+      <UniqueIdentifier>{c76cf447-e499-4cdd-8b11-5e9ac5133185}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdkx\orb\mc\Config.h">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\mc\GenOrbIdlAttribute.h">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\mc\mc.h">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\mc\OrbDispatchAttribute.h">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\orb\mc\OrbSetRepId.h">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx\orb\mc\GenOrbIdlAttribute.cpp">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\mc\mc_metainf_base.cpp">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\mc\OrbDispatchAttribute.cpp">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\mc\OrbSetRepId.cpp">
+      <Filter>acdkx\orb\mc</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\orb\mc\mc_metainf\mc_metainf_ext.cpp">
+      <Filter>acdkx\orb\mc\mc_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

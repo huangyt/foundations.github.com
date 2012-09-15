@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{4128572a-48b8-46fb-8d15-3e1fdd60658f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx">
+      <UniqueIdentifier>{b81b8c7b-22de-432f-b02d-8b15e6ab7084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\wx\wx_metainf">
+      <UniqueIdentifier>{c020e7c4-1ba1-4176-a351-d4ade83d87f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext1.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext2.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext3.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext4.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext5.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext6.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext7.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext8.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\wx\wx_metainf\wx_metainf_ext9.cpp">
+      <Filter>acdk\wx\wx_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

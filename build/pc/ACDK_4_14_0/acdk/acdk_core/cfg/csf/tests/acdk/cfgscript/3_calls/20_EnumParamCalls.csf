@@ -1,0 +1,27 @@
+
+enum RetType
+{
+  RetOk,
+  RetFailed
+}
+
+enum ArgType
+{
+  ArgDoIt,
+  ArgFailIt
+}
+
+class AClass
+{
+  AClass() {}
+  RetType foo(ArgType a)
+  {
+    if (a == ArgDoIt)
+      return RetOk;
+    return RetFailed;
+  }
+}
+
+AClass cls = new AClass();
+RetType erg1 = cls.foo(ArgDoIt);
+RetType erg2 = cls.foo(ArgFailIt);

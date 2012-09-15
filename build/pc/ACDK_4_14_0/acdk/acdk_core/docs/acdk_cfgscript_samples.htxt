@@ -1,0 +1,17 @@
+%id: acdk_cfgscript_samples
+%title: The CfgScript Samples
+%shorttitle: Samples
+%body:
+<chapterline/>
+<pageintro>
+Where to to find examples for the CfgScript language
+</pageintro>
+
+<htmlauto/>
+
+<fl>
+<f> Some basic samples are shown in %ref[acdk_cfgscript_hb_intro].
+<f> A good source are the unit test files %ref[csf/tests/acdk/cfgscript, dir_csf_tests_acdk_cfgscript].
+<f> Search for <c>*.csf</c> for more samples written in CfgScript.
+</fl>
+.

@@ -1,0 +1,138 @@
+%id: acdk_vfile_man
+%title: acdk_vfile Manual
+%shorttitle: acdk_vfile man
+%keywords: acdk_vfile, file system, ZIP, TAR, GZIP
+%body:
+<htmlauto/>
+<pageintro>
+acdk_vfile provides acdk::io::File plugins for reading
+tar and zip files.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Introduction</jump1>
+acdk_vfile contains plugin for ACDK virtual file system
+framework. With acdk_vfile such virtual file system for
+tar and zip files are provided.
+
+<jump1>Usage</jump1>
+<jump2>Reading archive files</jump2>
+
+To address the root directory of an archive, you have to 
+add the character '@' at the end of the filename.
+
+On a given Filename:
+<pre>
+/home/roger/myarchive.tar
+or
+d:\home\roger\myarchive.zip
+</pre>
+the filename 
+<pre>
+/home/roger/myarchive.tar@
+or
+d:\home\roger\myarchive.zip@
+</pre>
+represents the root directory of archive.
+
+<source>
+#include <acdk/io/MemWriter.h>
+#include <acdk/io/File.h>
+#include <acdk/vfile/tar/TarFileSystem.h>
+#include <acdk/vfile/zip/ZipFileSystem.h>
+
+RbytArray readFile()
+{
+  // just to make sure that library will be loaded
+  acdk::vfile::zip::ZipFileSystem::loadFileSystem();
+  
+  RString fname = "/home/roger/myarchive.tar@mydir/myfile.c"
+  File archivefile(fname);
+  acdk::io::RReader reader = archivefile.getReader();
+  acdk::io::MemWriter memwriter;
+  reader->trans(&memwriter);
+  return memwriter.getBuffer()
+}
+</source>
+
+<jump2>Writing archive files</jump2>
+Writing archive files is not yet supported.
+
+<jump1>Embedding archive files into ressources</jump1>
+You can integrate a collection of files as archive
+file into your application using the virtual file
+system '.ressource@'.
+
+<fl>
+<f> create an archive containing the files with an external 
+    tool (tar, infozip, WinZip, etc.).
+
+<f> use acdk_vfile_file2rc to convert the archive file into 
+    an c file. 
+    acdk_vfile_file2rc myarchive.zip myarchiv.c
+<f> create the node in the ressource file system.
+<source>
+
+#include <acdk/io/RessourceFileSystem.h>
+#include <acdk/vfile/zip/ZipFileSystem.h>
+
+// include the ressource file
+#include "myarchive.c"
+
+// call this before using ressource
+void initMyRessource()
+{
+  static bool inited = false;
+  if (inited  == true) // don't intilize twice
+    return;
+  
+  acdk::io::RessourceFileSystem::ressourceFileSystem() // get the RessourceFileSystem
+      ->root()                               // Root directory of RessourceFileSystem
+         ->createFile("com/myfirm/my/project/myarchive.zip", 
+                      ressource_array, // use byte array as content of file
+                      ressource_size, 
+                      );
+                         
+  // make sure, that zip file system plugin is loaded
+  acdk::vfile::zip::ZipFileSystem::loadFileSystem();
+}
+</source>
+
+<f> In our code, after initMyRessource called you can the files inside archive:
+    
+<source>
+void foo()
+{
+  initMyRessource();
+  RString myfile = ".ressource@com/myfirm/my/project/myarchive.zip@/mysub/myfile.txt";
+  acdk::io::File zf(myfile);
+  acdk::io::RReader in = zf.getReader();
+  // read content from the file.
+}
+</source>      
+</fl>
+
+
+<jump1>Tar files</jump1>
+Tar files can be readed. 
+Not very good test yet.
+File time, attributes, etc. are not yet implemented.
+
+<jump1>ZIP files</jump1>
+ZIP files can be readed, although some files contains
+unsupported compression algorithms. 
+
+ACDK uses for compression/decompression the zlib library,
+which can be found in the acdk_vfile/src/acdk/vfile/zlib
+directory.
+
+My implementation only reads the local file headers (not the
+central directory located at the end of the zip file). 
+This may also cause problems with some ZIP files.
+
+File time, attributes, etc. are not yet implemented.
+.
+
+
+

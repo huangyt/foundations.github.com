@@ -1,0 +1,137 @@
+
+using acdk.wx;
+
+// IDs for the controls and the menu commands
+enum MyEvents
+{
+    // menu items
+    Event_Quit = 1,
+    Event_About,
+    Event_Connect,
+    Event_Dynamic,
+    Event_Push,
+    Event_Pop,
+    Event_Custom,
+    Event_Test,
+    Event_ObjectExplorer,
+    Event_ListBoxSelected
+}
+
+class AboutDialog
+extends Dialog
+{
+  Button _okButton;
+  StaticText _label;
+  AboutDialog(Window parent)
+  {
+    super(parent, -1, "About", Point.defaultPosition(), new Size(200, 200))
+  
+    setAutoLayout(true);
+    LayoutConstraints layout = new LayoutConstraints();
+    layout.top().sameAs(this, Top, 10);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _label = new StaticText(this, -1, "Hello");
+    _label.setConstraints(layout);
+
+    layout = new LayoutConstraints();
+    layout.top().below(_label);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _okButton = new Button(this, CID_OK, "Close");
+    _okButton.setConstraints(layout);
+  /*
+    RTreeCtrl treectrl = new TreeCtrl(this);
+    RTreeItemId rid = treectrl.addRoot("RootItem");
+    treectrl.appendItem(rid, "First");
+    */
+    ListBox list = new ListBox(this, Event_ListBoxSelected);
+    list.appendAndEnsureVisible("First");
+    list.appendAndEnsureVisible("Second");
+    //list.appendAndEnsureVisible("Third");
+    list.appendAndEnsureVisible("Third");
+    layout = new LayoutConstraints();
+    layout.top().below(_okButton);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().sameAs(this, Width);
+    layout.width().asIs();
+    layout.bottom().sameAs(this, Bottom);
+    list.setConstraints(layout);
+    
+    connect(CommandEvent.EvtCommandListboxSelected, Event_ListBoxSelected, 
+      new acdk.lang.dmi.DmiDelegate(this, "onListBoxSelected"));
+  }
+  void onListBoxSelected(Event event)
+  {
+    Window.messageBox("ListBox selected");
+  }
+}
+
+int foo()
+{
+}
+
+class MyFrame
+extends Frame
+{
+  void connectToThis(EventType type, int command, String method)
+  {
+    out.println("Connect to method: " + method);
+    connect(type, command, new DmiDelegate(this, method));
+  }
+  MyFrame() 
+  {
+    
+    Menu menuFile = new Menu();
+    menuFile.append(Event_About, "&About...\tCtrl-A", "Show about dialog");
+    //menuFile.append(Event_ObjectExplorer, "&Object Explorer...\tCtrl-O", "Show Object Explorer");
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, "E&xit\tAlt-X", "Quit this program");
+    MenuBar menuBar = new MenuBar();
+    menuBar.append(menuFile, "&File");
+    setMenuBar(menuBar);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, new acdk.lang.dmi.DmiDelegate(this, "onQuit"));
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, new acdk.lang.dmi.DmiDelegate(this, "onAbout"));
+    
+    //MyButton buttonControl = new MyButton(this, "hello");
+    setTitle("Test");
+    //createStatusBar();
+    //setStatusText( "Welcome to wxWindows!" );
+
+  }
+  void onQuit(Event event)
+  {
+    out.println("OnQuit");
+    close(true);
+    //disconnectAll();
+  }
+  void onAbout(acdk.wx.CommandEvent event)
+  {
+    //Dialog about = new Dialog(this, 2, "Hello");
+    out.println("onAbout: " + event.toString());
+    AboutDialog about = new AboutDialog(this);
+    //about.setSizeConstraint(1, 1, 300, 400);
+    about.showModal();
+    
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    //MyFrame win = new MyFrame();
+    //Window.messageBox("OnInit");
+    Frame win = new MyFrame();
+    win.show(true);
+    return true;
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);
+//out.println("After Main");

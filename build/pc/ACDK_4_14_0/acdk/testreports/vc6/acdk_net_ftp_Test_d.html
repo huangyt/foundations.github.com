@@ -1,0 +1,35 @@
+<html><body>
+<h1>Unit Test 2004-11-22T22:23:41</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 3; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPClient_Test.standard">FTPClient_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPFileSystem_Test.standard">FTPFileSystem_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#FTPFileSystem_Test.fileOps">FTPFileSystem_Test.fileOps</a> <br>
+</td></tr></table>
+<h2><a id="FTPClient_Test.standard">FTPClient_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][FTPClient_Test.standard] Start Test
+FTPClient test failed: you need a local ftp server and a user acdktest pass testacdk with writing access on the default ftp login directory for this test
+</pre>
+<h2><a id="FTPFileSystem_Test.standard">FTPFileSystem_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][FTPClient_Test.standard] End Test
+[AUNIT:STRT][FTPFileSystem_Test.standard] Start Test
+</pre>
+<h2><a id="FTPFileSystem_Test.fileOps">FTPFileSystem_Test.fileOps</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][FTPFileSystem_Test.standard] End Test
+[AUNIT:STRT][FTPFileSystem_Test.fileOps] Start Test
+I: 127.0.0.1:21; rcv: 220 Microsoft FTP Service
+I: 127.0.0.1:21; snd: FEAT
+I: 127.0.0.1:21; rcv: 500 'FEAT': command not understood
+I: 127.0.0.1:21; snd: USER acdktest
+I: 127.0.0.1:21; rcv: 331 Password required for acdktest.
+I: 127.0.0.1:21; snd: PASS ****
+I: 127.0.0.1:21; rcv: 530 User acdktest cannot log in.
+FTPClient test failed: you need a local ftp server and a user acdktest pass testacdk with writing access on the default ftp login directory for this test
+</pre>
+</body></html>

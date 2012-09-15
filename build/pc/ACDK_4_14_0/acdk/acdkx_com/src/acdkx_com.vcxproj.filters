@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{393c32b4-5e60-489e-8b4c-f7780df8af5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\com">
+      <UniqueIdentifier>{cbc2ce93-367c-4ed5-a1a6-50eae2f44a4a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdkx\com\AbstractCoInterface.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\AcdkObject.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\ActiveScript.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\Co.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\CoException.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\com.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\ComDmiClient.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\ComObject.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\Config.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\CoSys.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\CreateTypeInfo.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\CreateTypeLib.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\IAcdkObject.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\IUnknown.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\RegisterServer.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+    <ClInclude Include="acdkx\com\TypeInfo.h">
+      <Filter>acdkx\com</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx\com\AcdkObject.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\ActiveScript.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\Co.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\CoException.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\ComDmiClient.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\ComObject.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\CoSys.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\CreateTypeInfo.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\CreateTypeLib.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\IUnknown.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\RegisterServer.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+    <ClCompile Include="acdkx\com\TypeInfo.cpp">
+      <Filter>acdkx\com</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="acdkx\com\acdkx_com.def">
+      <Filter>acdkx\com</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

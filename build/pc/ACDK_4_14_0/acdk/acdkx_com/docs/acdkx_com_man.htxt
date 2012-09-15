@@ -1,0 +1,72 @@
+%id: acdkx_com_man
+%title: acdkx_com Manual
+%shorttitle: acdkx_com man
+%chapter: acdkx_com_install, acdkx_com_ComObject_man, acdkx_com_AcdkObject_man, acdkx_com_typemapping
+%keywords: acdkx_com, COM
+%body:
+<htmlauto/>
+<pageintro>
+ACDK COM+ provides an interface from ACDK to Windows COM and vice versa.
+</pageintro>
+
+<subschapterstable/>
+
+<jumptable/>
+
+<jump1>Introduction</jump1>
+ACDK COM implements a DMI server and DMI client for ACDK.
+
+<jump2>COM as generic DMI server</jump2>
+With DMI it is possible to Access COM object through all
+ACDK DMI clients, like C++, Java, Perl, Tcl, Python, Lisp,
+CORBA and so on.
+
+A sample using perl as DMI client to access Ms Office Word application.
+
+<source lang="perl">
+sub require_class($)
+{
+  my ($cls) = @_;
+  my $cl = acdk::new("acdk/lang/ClassLoader");
+  $cl->findClass($cls);
+}
+
+require_class('acdkx/com/ComObject');
+$word = acdk::invoke_static('acdkx/com/ComObject', 'New', 'Word.Application');
+$word->poke('Visible', 1);
+$doc = $word->peek('Documents')->Add();
+$sel = $word->peek('ActiveWindow')->peek('Selection');
+$sel->TypeText("This is ");
+$sel->peek('Font')->poke('Bold', 1);
+$sel->TypeText("ACDK");
+$sel->peek('Font')->poke('Bold', 0);
+$sel->TypeText(" instrumenting Word through acdk_perl");
+acdk::invoke_static('acdk/lang/Thread', 'sleep', 3000);
+$word->Quit(0);
+</source>
+
+<jump2>COM as generic DMI client</jump2>
+On the other side acdkx_com enables all COM clients access
+to all DMI servers like all ACDK Objects, CORBA services, 
+Java classes, and so on.
+
+Sample which just uses an ACDK Object StringBuffer.
+
+<source lang="vba">
+' visual basic HelloWorld example:
+Sub HelloWorld()
+  Dim obj As Object
+  Set obj = CreateObject("Acdk.Object")
+  Dim sb As Object
+  Set sb = obj.New("acdk/lang/StringBuffer", "Hallo")
+  sb.append " from COM"
+  
+  MsgBox sb.toString()
+  'alternativelly also: MsgBox sb.Invoke("toString") 
+End Sub
+</source>
+
+
+.
+
+

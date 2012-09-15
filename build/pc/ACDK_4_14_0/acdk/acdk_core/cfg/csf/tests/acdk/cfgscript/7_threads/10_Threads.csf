@@ -1,0 +1,61 @@
+
+
+class MyObject
+{
+  int _counter = 0;
+  MyObject()
+  {
+  }
+  MyObject operator++()
+  {
+    synchronize(this)
+    {
+      ++_counter;
+      //out.println("c: " + _counter);
+      return this;
+    }
+    return this;
+  }
+}
+
+class MyThread
+extends acdk.lang.Thread
+{
+  int _loops;
+  String _name;
+  MyObject _counter;
+  MyThread(String name, int loops, MyObject cnt)
+  {
+    _name = name;
+    _loops = loops;
+    _counter = cnt;
+  }
+  void run()
+  {
+    out.println("loops: " + _loops);
+    for (int i = 0; i < _loops; ++i)
+    {
+      //Thread.sleep(25);
+      //out.println(_name + ": " + i);
+      ++_counter;
+    }
+  }
+}
+MyObject counter = new MyObject();
+int count1 = 1200;
+int count2 = 1250;
+MyThread thr1 = new MyThread("1", count1, counter);
+MyThread thr2 = new MyThread("2", count2, counter);
+
+thr1.start();
+thr2.start();
+
+thr1.join();
+thr2.join();
+
+out.println("Synchronized counter is: " + counter._counter);
+if (counter._counter == (count1 + count2))
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");
+  

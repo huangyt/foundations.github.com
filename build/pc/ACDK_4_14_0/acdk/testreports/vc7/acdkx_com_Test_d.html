@@ -1,0 +1,110 @@
+<html><body>
+<h1>Unit Test 2004-11-28T19:18:51</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 9; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ActiveScript_Test.standard">ActiveScript_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ActiveScript_Test.globalVars">ActiveScript_Test.globalVars</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ComObject_Test.standard">ComObject_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ComObject_Test.self">ComObject_Test.self</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#CreateTypeInfo_Test.standard">CreateTypeInfo_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#CreateTypeLib_Test.standard">CreateTypeLib_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DmiObject_Test.standard">DmiObject_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DmiObject_Test.dmiTestClass">DmiObject_Test.dmiTestClass</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DmiObject_Test.activeScript">DmiObject_Test.activeScript</a> <br>
+</td></tr></table>
+<h2><a id="ActiveScript_Test.standard">ActiveScript_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][ActiveScript_Test.standard] Start Test
+Evaluate Code:
+set acdk = CreateObject("acdk.Object")
+set sb = acdk.New("acdk/lang/StringBuffer", "Hello ")
+sb.append "from VB"
+set dtc = acdk.New("acdk/tools/aunit/DmiTestClass", "Hello ")
+str = dtc.pubString
+if str <> "Hello " then
+ MsgBox "peek failed"
+End If
+dtc.pubString = "ACDK"
+if dtc.pubString <> "ACDK" then
+ MsgBox "poke failed"
+End If
+acdk.invoke_static "acdk/tools/aunit/DmiTestClass", "setGetPubStaticInt", 61, "Hello ACDK"
+ierg = acdk.invoke_static("acdk/tools/aunit/DmiTestClass", "getPubStaticInt")
+if ierg <> 61 then
+ MsgBox "invoke_static failed"
+End If
+ierg = 1
+str = "ACDK"
+
+</pre>
+<h2><a id="ActiveScript_Test.globalVars">ActiveScript_Test.globalVars</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ActiveScript_Test.standard] End Test
+[AUNIT:STRT][ActiveScript_Test.globalVars] Start Test
+</pre>
+<h2><a id="ComObject_Test.standard">ComObject_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ActiveScript_Test.globalVars] End Test
+[AUNIT:STRT][ComObject_Test.standard] Start Test
+</pre>
+<h2><a id="ComObject_Test.self">ComObject_Test.self</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ComObject_Test.standard] End Test
+[AUNIT:STRT][ComObject_Test.self] Start Test
+</pre>
+<h2><a id="CreateTypeInfo_Test.standard">CreateTypeInfo_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][ComObject_Test.self] End Test
+[AUNIT:STRT][CreateTypeInfo_Test.standard] Start Test
+</pre>
+<h2><a id="CreateTypeLib_Test.standard">CreateTypeLib_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][CreateTypeInfo_Test.standard] End Test
+[AUNIT:STRT][CreateTypeLib_Test.standard] Start Test
+</pre>
+<h2><a id="DmiObject_Test.standard">DmiObject_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][CreateTypeLib_Test.standard] End Test
+[AUNIT:STRT][DmiObject_Test.standard] Start Test
+</pre>
+<h2><a id="DmiObject_Test.dmiTestClass">DmiObject_Test.dmiTestClass</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 6  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DmiObject_Test.standard] End Test
+[AUNIT:STRT][DmiObject_Test.dmiTestClass] Start Test
+</pre>
+<h2><a id="DmiObject_Test.activeScript">DmiObject_Test.activeScript</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DmiObject_Test.dmiTestClass] End Test
+[AUNIT:STRT][DmiObject_Test.activeScript] Start Test
+Evaluate Code:
+set acdk = CreateObject("acdk.Object")
+set sb = acdk.New("acdk/lang/StringBuffer", "Hello ")
+sb.append "from VB"
+set dtc = acdk.New("acdk/tools/aunit/DmiTestClass", "Hello ")
+str = dtc.pubString
+if str <> "Hello " then
+ MsgBox "peek failed"
+End If
+dtc.pubString = "ACDK"
+if dtc.pubString <> "ACDK" then
+ MsgBox "poke failed"
+End If
+acdk.invoke_static "acdk/tools/aunit/DmiTestClass", "setGetPubStaticInt", 61, "Hello ACDK"
+ierg = acdk.invoke_static("acdk/tools/aunit/DmiTestClass", "getPubStaticInt")
+if ierg <> 61 then
+ MsgBox "invoke_static failed"
+End If
+ierg = 1
+str = "ACDK"
+
+</pre>
+</body></html>

@@ -1,0 +1,72 @@
+%id: acdk_cfgscript_hb_lang_pre_include
+%title: CfgScript include other script files
+%shorttitle: IncludeStatement
+%keywords: include
+%seealso: acdk_cfgscript_hb_lib
+%body:
+<chapterline/>
+<pageintro>
+With the include preprocessor statement other <c>.csf</c> files can 
+be included into another script file.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>IncludeStatement</jump1>
+<pre>
+IncludeStatement
+: '#' 'include' StringLiteral
+</pre>
+
+
+<jump1>Usage</jump1>
+To include other files use the include can be used
+<source>
+#include "MyOtherModule.csf"
+
+</source>
+<c>MyOtherModule.csf</c> is a normal CfgScript file.
+The include statment protects for multiple/recursive includes.
+The <c>#ifdef</c> guards, you have to use in C/C++ are not needed.
+
+The include statements search in following file:
+<fl>
+<f> The directory of the current csf file
+<f> The Current working directory
+<f> The pathes in the <c>CSFINCLUDES</c> Environment variable
+<f> <c>$ACDKHOME/cfg/csf/include</c>
+</fl>
+Please refer also to the command line option %ref[-csfinclude / CSFINCLUDES, acdk_cfgscript_interpreter].
+
+
+Alternativelly also can also be used:
+<source>
+bool noDups = true;
+bool changeToDir = false;
+interpreter.include("MyOtherModule.csf", noDups, changeToDir);
+
+</source>
+See also: %cref[acdk::cfgscript::Script].
+
+<jump1>Using ClassLoader instead of include</jump1>
+<note>
+If you want to create CfgScript modules with classes, you can load the CfgScript
+automatically:
+</note>
+<source>
+// MyScript.csf
+
+// will use the classloader to find and load the script
+mytest.MyOtherScript o = new mytest.MyOtherScript();
+</source>
+Please refer to %ref[CfgScript ClassLoader, acdk_cfgscript_hb_lib#CfgScript ClassLoader] for more information.
+
+<jump1>Differences between ClassLoader and include</jump1>
+The <c>include</c> statement works like a C/C++ include statement.
+This has consequence, that global variables defined in the included
+script file is also visible in the script file, which includes the file.
+Module variables in scripts, which are loaded via the ClassLoader are not
+visible outside the module.
+
+.

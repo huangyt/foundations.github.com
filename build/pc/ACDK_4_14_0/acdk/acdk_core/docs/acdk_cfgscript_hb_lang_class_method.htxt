@@ -1,0 +1,188 @@
+%id: acdk_cfgscript_hb_lang_class_method
+%title: CfgScript Class Method
+%shorttitle: Class Methods
+%seealso: acdk_cfgscript_hb_lang_class_call
+%body:
+<chapterline/>
+<pageintro>
+CfgScript provides static and nonstatic methods, Constructors and operator overloading.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>ClassMethod</jump1>
+<pre>
+ClassMethod
+: %ref[Constructor, #Constructor]
+| %ref[Destructor, #Destructor]
+| %ref[Method, #Method]
+| %ref[OperatorMethod, #OperatorMethod]
+;
+</pre>
+
+<jump2>Constructor</jump2>
+<pre>
+Constructor
+: Identifier '(' %ref[ParameterDecl, #ParameterDecl] ') %ref[BlockStatement, acdk_cfgscript_hb_lang_stmt_block]
+;
+</pre>
+A constructor method has the same name as the Class.
+It can be used to intialize a new object.
+<source>
+class MyClass
+extends MyBaseClass
+{
+  int ivar;
+  MyClass(int intitval) 
+  { 
+    super("initValForMyBase"); // call MyBaseClass constructor
+    ivar = intitval;
+  }
+  
+}
+</source>
+
+Base class initialization must be the first statement in the MethodBody of the 
+constructor.
+
+
+<jump2>Destructor/finalize</jump2>
+An destructor is implemented as a virtual method named finalize.
+This <c>finalize()</c> method will be called once before the object will be destroyed.
+Equally to Java you have to call the super.finalize().
+<source>
+class AClass {
+  AClass() {}
+  void finalize()
+  {
+    out.println("AClass.finalize()");
+  }
+}
+
+class BClass
+extends AClass
+{
+  BClass() { super(); }
+  void finalize()
+  {
+    out.println("BClass.finalize()");
+    super.finalize();
+  }
+}
+AClass cls = new BClass();
+cls = Nil;
+</source>
+The output will be:
+<pre>
+BClass.finalize()
+AClass.finalize()
+</pre>
+
+<jump2>Method</jump2>
+<pre>
+Method
+: (MethodAttribute)* TypeName Identifier '(' ParameterDecl ') %ref[BlockStatement, acdk_cfgscript_hb_lang_stmt_block]
+;
+
+ParameterDecl
+: 'public'
+| 'protected'
+| 'private'
+| 'static'
+;
+</pre>
+Static methods can be called without an object instance.
+
+<c>public, protected, private</c> are currently not supported.
+
+Please refer also to %ref[acdk_cfgscript_hb_lang_class_call].
+
+<jump2>ParameterDecl</jump2>
+<pre>
+ParameterDecl
+: [ NormalParameter ( ',' NormalParameter )* ( ', ' InitializedParameter )*
+;
+
+NormalParameter:
+: ParameterAttribute*  TypeName Identifier
+;
+
+InitializedParameter:
+: TypeName Identifier '=' Expression
+;
+
+ParameterAttribute
+: 'in'      // parameter is a in parameter. 
+            // A parameter without Attribute is also an in parameter
+| 'out'     // out parameter (value can changed by callee)
+| 'inout'   // combination of in and out
+| 'byref'   // only used in rdmi: Parameter should be tranfered by reference
+| 'byval'   // only used by rdmi: Parameter should be tranfered by value
+;
+</pre>
+
+Please refer also to %ref[acdk_cfgscript_hb_lang_class_call].
+
+<jump2>OperatorMethod</jump2>
+<pre>
+OperatorMethod
+: (MethodAttribute)* TypeName 'operator' Operator '(' ParameterDecl ') %ref[BlockStatement, acdk_cfgscript_hb_lang_stmt_block]
+;
+</pre>
+Sample:
+<source>
+class Average
+extends acdk.lang.Object
+{
+  int count;
+  double average;
+  
+  // a + operator should return this to be chainable
+  // see below where this operator will be used
+  Average operator+(int v) // defines the + operator
+  {
+    average = (average * count + v) / (count + 1);
+    count = count + 1;
+    return this; 
+  }
+  Average(int v) 
+  { 
+    count = 1;
+    average = v;
+  }
+  int getAverage() { return average; }
+  int getCount()  return ivar; 
+}
+
+Average av = new Average(2);
+av = av + 1 + 6; // calls Average.operator+(1).operator+(6)
+out.println("Average of 2, 1 and 6 is " + av.getAverage());
+</source>
+
+
+
+Please refer also to %ref[acdk_cfgscript_hb_lang_class_call].
+
+<jump1>Free Functions</jump1>
+Functions, which are not elements of a class, are not supported by
+CfgScript.
+
+But you can receive a quite similar result using the %ref[using statement, acdk_cfgscript_hb_lang_stmt_using].
+
+<source>
+// some global functions
+using acdk.cfgscript.ScriptGlobals;
+
+// byRef is a static function of ScriptGlobals
+MyClass.staticFunction(byRef(42));
+</source>
+
+
+
+<jump1>Samples</jump1>
+<fl>
+<f> %srcref[dir_csf_tests_acdk_cfgscript_4_classes]
+</fl>
+.
+

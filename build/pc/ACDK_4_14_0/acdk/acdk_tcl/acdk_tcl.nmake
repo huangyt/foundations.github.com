@@ -1,0 +1,83 @@
+###
+### This file is part of ACDK
+### Copyrighted (c) 2000-2005 by Roger Rene Kommer - artefaktur
+### 
+
+
+ACDKHOME = ..
+
+
+PACKAGE = acdk_tcl
+
+all: install compile 
+
+!include "$(ACDKHOME)\acdk_globals.nmake"
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_tcl_Test_d $(AUNIT_TESTOPTS)
+
+
+
+acdk_tcl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src bsd
+
+acdktcl-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src bsd
+
+acdk_tcl_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl bsd
+
+
+makemake:: acdk_tcl-makemake acdktcl-makemake acdk_tcl_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_tcl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdktcl.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/tcl\acdk_tcl_Test.lsp -pdir tests/acdk/tcl bsd
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_tcl.lsp
+
+
+

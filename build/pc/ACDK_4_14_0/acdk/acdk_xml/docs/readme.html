@@ -1,0 +1,223 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_xml, XML, SAX, DOM">
+<title>ACDK XML Readme</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK XML</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK XML Readme<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="expat_copying.html">COPYING of expat</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="libxml_copying.html">COPYING of libxml2</a>
+<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_xml_man.html">ACDK XML</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | ACDK XML Readme | <a  href="acdk_xml_man.html">ACDK XML</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="expat_copying.html">COPYING of expat</a> | <a  href="libxml_copying.html">COPYING of libxml2</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK XML Readme</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK XML Readme</h1> -->
+<p class="PageIntro">
+ACDK XML (acdk_xml)acdk_xml contains some classes regarding XML, including a XML-serialisation.</p>
+
+
+<a name="jumptable58"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Title"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Title</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Version"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Short Description</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Authors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Authors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#License"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;License</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Description</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Notes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Todo"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Todo</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Changes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Changes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+  <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Title">Title</a></h3>
+    ACDK XML (acdk_xml)  <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Version">Version</a></h3>
+    Distribution version: 4.14.<br>
+    Package version: 4.14.0.
+   
+  <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short Description">Short Description</a></h3>
+    <pre class="quoted">
+  acdk_xml contains some classes regarding XML, including a XML-serialisation.    </pre>
+  <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h3>
+    <pre class="quoted">
+      <a  href="../../acdk_core/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Core</a>
+<a  href="../../acdk_text/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Text</a>
+<a  href="../../acdk_net/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Net</a>
+    </pre>
+  <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+    <pre class="quoted">
+      <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__w3c__dom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::w3c::dom</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__w3c__dom__traversal"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::w3c::dom::traversal</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__w3c__dom__xpath"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::w3c::dom::xpath</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__xml__sax"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::xml::sax</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__xml__sax__helpers"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::xml::sax::helpers</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__sax"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::sax</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__dom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::dom</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__libxmldom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::libxmldom</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__parsers"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::parsers</a>
+    </pre>
+  <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Authors">Authors</a></h3>
+    <pre class="quoted">
+      Roger Rene Kommer (kommer@artefaktur.com).    </pre>
+   <h3><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="License">License</a></h3>
+    <pre class="quoted">
+      ACDK Free Edition License.
+See also: <a  href="expat_copying.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;COPYING of expat</a>.
+See also: <a  href="libxml_copying.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;COPYING of libxml2</a>    </pre>
+<h2><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Description">Description</a></h2>
+  <m>acdk_xml</m> contains a class framework to parse XML and HTML files
+with a SAX or DOM Parser. It also validation, namespaces and XPath
+expressions.
+
+The module <m>org_xml</m> contains the interface defintions following
+Java mapping of the <a  href="http://www.saxproject.org/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;SAX interface</a>
+(defined in <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__xml__sax"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::xml::sax</a> and the Java mapping of the DOM 
+(Document Object Model) by the <a  href="http://www.w3.org/TR/DOM-Level-2-Core/core.html"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;W3C</a>
+(defined in <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__w3c__dom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::w3c::dom</a>).
+
+To make handling with DOM a little bit more comfortable the acdk enrich
+the original DOM interface with methods inspired by the <a  href="http://www.dom4j.org"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;dom4j</a>
+Java library.
+
+Currently two implementation for the SAX and DOM parsers are available:
+
+The first is based on the <a  href="http://expat.sourceforge.net/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;<m>expat</m></a> library
+(which is <a  href="expat_copying.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;included</a> in <m>acdk_xml</m>). 
+It is a lean SAX implementation and has also
+basic DOM support. It can be found in the namespace <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__sax"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::sax</a> and
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__dom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::dom</a>.
+
+The better choice is the <a  href="http://xmlsoft.org/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;<m>libxml2</m></a> implementation, 
+which supports namespaces, DOM Reading and Writing, parsing XML and HTML.
+Access and manipulation to/of a DOM Tree is also possible via XPath expressions.
+The corresponding classes can be found in the namespace <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdk__xml__libxmldom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::libxmldom</a>.
+
+A copy of the underlying libxml2 C library is in <a  href="libxml_copying.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;included</a>.
+
+Sample code can be found in <a  href="acdk_xml_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK XML</a> and the unit tests 
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=tests_acdk_xml_dom_acdk_xml_dom_LibXML_Test_cpp"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk_xml_dom_LibXML_Test.cpp</a>.
+
+<m>acdk_xml</m> also contains some basic object serialization to/from XML 
+(<a  href="man3/acdk_xml_XMLObjectReaderWriter_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;XMLObject[Reader|Writer]</a> and <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__xml__XMLObjectWriter"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::xml::XMLObjectWriter</a>);
+<h2><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes">Notes</a></h2>
+  <pre class="quoted">
+    </pre>
+
+<h2><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Todo">Todo</a></h2>
+  <pre class="quoted">
+    </pre>
+ 
+<h2><a href="#jumptable58"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Changes">Changes</a></h2>
+  <pre class="quoted">
+    ===========================================================
+4.14.0
+- fixed buggy LibXMLNode::cloneNode()
+- Support for parsing HTML to DOM (via LibXMLDocumentBuilder)
+- Node::write support for writing XML or HTML
+- upgrade of libxml2 to version 2.6.17.
+
+===========================================================
+4.13.0
+- Extended the org::w3c::dom classes for more convinience
+  following the dom4j pattern.
+- Added alternative XML Parser and DOM-model using
+  libxml2 implementation, which supports namespaces, 
+  DOM support, XPath and validation.
+- Implemented DOM (acdk::xml::dom).
+
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a>.
+
+===========================================================
+4.10.0
+- Fixed more unicode bugs.
+
+===========================================================
+4.02.1
+- Fixed Unicode compatibilty bugs in interfaces and
+  implementation.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+- Ajustments to ACDK 2.
+- The acdk/xml/XMLObjectReader/Writer is ajusted to
+  the acdk/io/AbstractObjectReader/Writer in acdk_core
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved Configurations.
+===========================================================
+1.00.2.
+- Initial revision.  </pre>
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | ACDK XML Readme | <a  href="acdk_xml_man.html">ACDK XML</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="expat_copying.html">COPYING of expat</a> | <a  href="libxml_copying.html">COPYING of libxml2</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,109 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Mapping between wxWidget and ACDK</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK WX</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_wx_hb.html">acdk_wx Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Mapping
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_installation.html">Compile acdk_wx</a> | Mapping | <a  href="acdk_wx_hb_overview_classes.html">Class Overview</a> | <a  href="acdk_wx_hb_minimal.html">Minimal Sample</a> | <a  href="acdk_wx_sample.html">An ACDK WX Sample</a> | <a  href="acdk_wx_hb_events.html">Events</a> | <a  href="acdk_wx_hb_apps.html">Applications</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Mapping between wxWidget and ACDK</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Mapping between wxWidget and ACDK</h1> -->
+<p class="PageIntro">
+The mapping rules for types on wxWidget and ACDK wrapper classes.
+</p>
+<br>
+<a name="jumptable67"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Difference between wxWidgets and acdk_wx"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Difference between wxWidgets and acdk_wx</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Names"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Names</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Methods"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Methods</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Defines/Enumerations"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Defines/Enumerations</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Free Function"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Free Function</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable67"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Difference between wxWidgets and acdk_wx">Difference between wxWidgets and acdk_wx</a></h2>
+wxWidgets itself is a C++ library, but uses a different
+object modell than ACDK. 
+<br>
+<h3><a href="#jumptable67"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Names">Names</a></h3>
+<h4><a href="#jumptable67"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Classes">Classes</a></h4>
+Most (all?) classes and types starts with <code>wx</code> in wxWidgets.<br>
+acdk_wx uses namespaces:<br>
+<code>wxWindow</code> becomes to <code>acdk::wx::Window</code> in ACDK.<br>
+To avoid conflicts <code>wxObject</code> is not named <code>acdk::wx::Object</code>
+but <code>acdk::wx::WxObject</code>.<br>
+<br>
+<h4><a href="#jumptable67"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Methods">Methods</a></h4>
+The names of Methods starts with upper case in wxWidgets. The methods
+in ACDK WX starts with lower case. This has two reasons: Methods names
+with starting lower case is conforming to ACDK style guide and avoid
+overloading troubles between these two class hierarchies.<br>
+<br>
+<h4><a href="#jumptable67"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Defines/Enumerations">Defines/Enumerations</a></h4>
+ACDK doesn't support defines - of course defines can be used in ACDK,
+but they are not visible as meta info. 
+All int defines of wxWidgets are tranfered to enumerations. 
+wxWidget value <code>wxEVT_COMMAND_CHOICE_SELECTED</code> becomes to <code>CommandEvent::EvtCommandChoiceSelected</code>
+in ACDK WX.<br>
+<br>
+String defines are either used hard coded or are available as static member of the related class
+<br>
+<h4><a href="#jumptable67"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Free Function">Free Function</a></h4>
+wxWidgets provides some functionally, which can be accessed via free functions.<br>
+ACDK meta object modell doesn't support free function. The free function of wxWidgets 
+are available as static member methods in the related classes.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_installation.html">Compile acdk_wx</a> | Mapping | <a  href="acdk_wx_hb_overview_classes.html">Class Overview</a> | <a  href="acdk_wx_hb_minimal.html">Minimal Sample</a> | <a  href="acdk_wx_sample.html">An ACDK WX Sample</a> | <a  href="acdk_wx_hb_events.html">Events</a> | <a  href="acdk_wx_hb_apps.html">Applications</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

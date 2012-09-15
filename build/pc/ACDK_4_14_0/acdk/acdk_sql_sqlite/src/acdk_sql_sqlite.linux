@@ -1,0 +1,325 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+-include $(ACDK_HOME)/acdk_globals.linux
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_sql_sqlite/linux
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fpic  $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_LINUX -D_REENTRANT -DIN_ACDK_SQL_SQLITE_LIB -DTHREADSAFE $(DEFINESX)
+endif
+
+ifndef LINK
+LINK=g++ -shared
+endif
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-g -fpic
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl
+endif
+
+ifndef ACDKMC
+ACDKMC=$(ACDK_HOME)/bin/acdkmc
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_sql 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/sql/sqlite/LiteConnection.cpp \
+	acdk/sql/sqlite/LiteDatabaseMetaData.cpp \
+	acdk/sql/sqlite/LiteResultSet.cpp \
+	acdk/sql/sqlite/LiteStatement.cpp \
+	acdk/sql/sqlite/LiteTable.cpp \
+	acdk/sql/sqlite/sqlite_metainf_base.cpp \
+	sqlitesrc/alter.c \
+	sqlitesrc/attach.c \
+	sqlitesrc/auth.c \
+	sqlitesrc/btree.c \
+	sqlitesrc/build.c \
+	sqlitesrc/date.c \
+	sqlitesrc/delete.c \
+	sqlitesrc/expr.c \
+	sqlitesrc/func.c \
+	sqlitesrc/hash.c \
+	sqlitesrc/insert.c \
+	sqlitesrc/legacy.c \
+	sqlitesrc/main.c \
+	sqlitesrc/opcodes.c \
+	sqlitesrc/os_unix.c \
+	sqlitesrc/os_win.c \
+	sqlitesrc/pager.c \
+	sqlitesrc/parse.c \
+	sqlitesrc/pragma.c \
+	sqlitesrc/printf.c \
+	sqlitesrc/random.c \
+	sqlitesrc/select.c \
+	sqlitesrc/table.c \
+	sqlitesrc/tokenize.c \
+	sqlitesrc/trigger.c \
+	sqlitesrc/update.c \
+	sqlitesrc/utf.c \
+	sqlitesrc/util.c \
+	sqlitesrc/vacuum.c \
+	sqlitesrc/vdbe.c \
+	sqlitesrc/vdbeapi.c \
+	sqlitesrc/vdbeaux.c \
+	sqlitesrc/vdbemem.c \
+	sqlitesrc/where.c \
+
+HEADER= 	acdk/sql/sqlite/Config.h \
+	acdk/sql/sqlite/LiteConnection.h \
+	acdk/sql/sqlite/LiteDatabaseMetaData.h \
+	acdk/sql/sqlite/LiteDriver.h \
+	acdk/sql/sqlite/LitePreparedStatement.h \
+	acdk/sql/sqlite/LiteResultSet.h \
+	acdk/sql/sqlite/LiteResultSetMetaData.h \
+	acdk/sql/sqlite/LiteStatement.h \
+	acdk/sql/sqlite/LiteTable.h \
+	acdk/sql/sqlite/sqlite.h \
+
+OBJECTS= 	../tobj/acdk_sql_sqlite/linux/LiteConnection.o \
+	../tobj/acdk_sql_sqlite/linux/LiteDatabaseMetaData.o \
+	../tobj/acdk_sql_sqlite/linux/LiteResultSet.o \
+	../tobj/acdk_sql_sqlite/linux/LiteStatement.o \
+	../tobj/acdk_sql_sqlite/linux/LiteTable.o \
+	../tobj/acdk_sql_sqlite/linux/sqlite_metainf_base.o \
+	../tobj/acdk_sql_sqlite/linux/alter.o \
+	../tobj/acdk_sql_sqlite/linux/attach.o \
+	../tobj/acdk_sql_sqlite/linux/auth.o \
+	../tobj/acdk_sql_sqlite/linux/btree.o \
+	../tobj/acdk_sql_sqlite/linux/build.o \
+	../tobj/acdk_sql_sqlite/linux/date.o \
+	../tobj/acdk_sql_sqlite/linux/delete.o \
+	../tobj/acdk_sql_sqlite/linux/expr.o \
+	../tobj/acdk_sql_sqlite/linux/func.o \
+	../tobj/acdk_sql_sqlite/linux/hash.o \
+	../tobj/acdk_sql_sqlite/linux/insert.o \
+	../tobj/acdk_sql_sqlite/linux/legacy.o \
+	../tobj/acdk_sql_sqlite/linux/main.o \
+	../tobj/acdk_sql_sqlite/linux/opcodes.o \
+	../tobj/acdk_sql_sqlite/linux/os_unix.o \
+	../tobj/acdk_sql_sqlite/linux/os_win.o \
+	../tobj/acdk_sql_sqlite/linux/pager.o \
+	../tobj/acdk_sql_sqlite/linux/parse.o \
+	../tobj/acdk_sql_sqlite/linux/pragma.o \
+	../tobj/acdk_sql_sqlite/linux/printf.o \
+	../tobj/acdk_sql_sqlite/linux/random.o \
+	../tobj/acdk_sql_sqlite/linux/select.o \
+	../tobj/acdk_sql_sqlite/linux/table.o \
+	../tobj/acdk_sql_sqlite/linux/tokenize.o \
+	../tobj/acdk_sql_sqlite/linux/trigger.o \
+	../tobj/acdk_sql_sqlite/linux/update.o \
+	../tobj/acdk_sql_sqlite/linux/utf.o \
+	../tobj/acdk_sql_sqlite/linux/util.o \
+	../tobj/acdk_sql_sqlite/linux/vacuum.o \
+	../tobj/acdk_sql_sqlite/linux/vdbe.o \
+	../tobj/acdk_sql_sqlite/linux/vdbeapi.o \
+	../tobj/acdk_sql_sqlite/linux/vdbeaux.o \
+	../tobj/acdk_sql_sqlite/linux/vdbemem.o \
+	../tobj/acdk_sql_sqlite/linux/where.o \
+
+
+FINALTARGET=../../bin/libacdk_sql_sqlite.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdk_sql_sqlite.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_sql_sqlite.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_sql_sqlite.linux.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_sql_sqlite/linux/LiteConnection.o: acdk/sql/sqlite/LiteConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/LiteConnection.o -c acdk/sql/sqlite/LiteConnection.cpp
+
+../tobj/acdk_sql_sqlite/linux/LiteDatabaseMetaData.o: acdk/sql/sqlite/LiteDatabaseMetaData.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/LiteDatabaseMetaData.o -c acdk/sql/sqlite/LiteDatabaseMetaData.cpp
+
+../tobj/acdk_sql_sqlite/linux/LiteResultSet.o: acdk/sql/sqlite/LiteResultSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/LiteResultSet.o -c acdk/sql/sqlite/LiteResultSet.cpp
+
+../tobj/acdk_sql_sqlite/linux/LiteStatement.o: acdk/sql/sqlite/LiteStatement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/LiteStatement.o -c acdk/sql/sqlite/LiteStatement.cpp
+
+../tobj/acdk_sql_sqlite/linux/LiteTable.o: acdk/sql/sqlite/LiteTable.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/LiteTable.o -c acdk/sql/sqlite/LiteTable.cpp
+
+../tobj/acdk_sql_sqlite/linux/sqlite_metainf_base.o: acdk/sql/sqlite/sqlite_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/sqlite_metainf_base.o -c acdk/sql/sqlite/sqlite_metainf_base.cpp
+
+../tobj/acdk_sql_sqlite/linux/alter.o: sqlitesrc/alter.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/alter.o -c sqlitesrc/alter.c
+
+../tobj/acdk_sql_sqlite/linux/attach.o: sqlitesrc/attach.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/attach.o -c sqlitesrc/attach.c
+
+../tobj/acdk_sql_sqlite/linux/auth.o: sqlitesrc/auth.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/auth.o -c sqlitesrc/auth.c
+
+../tobj/acdk_sql_sqlite/linux/btree.o: sqlitesrc/btree.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/btree.o -c sqlitesrc/btree.c
+
+../tobj/acdk_sql_sqlite/linux/build.o: sqlitesrc/build.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/build.o -c sqlitesrc/build.c
+
+../tobj/acdk_sql_sqlite/linux/date.o: sqlitesrc/date.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/date.o -c sqlitesrc/date.c
+
+../tobj/acdk_sql_sqlite/linux/delete.o: sqlitesrc/delete.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/delete.o -c sqlitesrc/delete.c
+
+../tobj/acdk_sql_sqlite/linux/expr.o: sqlitesrc/expr.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/expr.o -c sqlitesrc/expr.c
+
+../tobj/acdk_sql_sqlite/linux/func.o: sqlitesrc/func.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/func.o -c sqlitesrc/func.c
+
+../tobj/acdk_sql_sqlite/linux/hash.o: sqlitesrc/hash.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/hash.o -c sqlitesrc/hash.c
+
+../tobj/acdk_sql_sqlite/linux/insert.o: sqlitesrc/insert.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/insert.o -c sqlitesrc/insert.c
+
+../tobj/acdk_sql_sqlite/linux/legacy.o: sqlitesrc/legacy.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/legacy.o -c sqlitesrc/legacy.c
+
+../tobj/acdk_sql_sqlite/linux/main.o: sqlitesrc/main.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/main.o -c sqlitesrc/main.c
+
+../tobj/acdk_sql_sqlite/linux/opcodes.o: sqlitesrc/opcodes.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/opcodes.o -c sqlitesrc/opcodes.c
+
+../tobj/acdk_sql_sqlite/linux/os_unix.o: sqlitesrc/os_unix.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/os_unix.o -c sqlitesrc/os_unix.c
+
+../tobj/acdk_sql_sqlite/linux/os_win.o: sqlitesrc/os_win.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/os_win.o -c sqlitesrc/os_win.c
+
+../tobj/acdk_sql_sqlite/linux/pager.o: sqlitesrc/pager.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/pager.o -c sqlitesrc/pager.c
+
+../tobj/acdk_sql_sqlite/linux/parse.o: sqlitesrc/parse.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/parse.o -c sqlitesrc/parse.c
+
+../tobj/acdk_sql_sqlite/linux/pragma.o: sqlitesrc/pragma.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/pragma.o -c sqlitesrc/pragma.c
+
+../tobj/acdk_sql_sqlite/linux/printf.o: sqlitesrc/printf.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/printf.o -c sqlitesrc/printf.c
+
+../tobj/acdk_sql_sqlite/linux/random.o: sqlitesrc/random.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/random.o -c sqlitesrc/random.c
+
+../tobj/acdk_sql_sqlite/linux/select.o: sqlitesrc/select.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/select.o -c sqlitesrc/select.c
+
+../tobj/acdk_sql_sqlite/linux/table.o: sqlitesrc/table.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/table.o -c sqlitesrc/table.c
+
+../tobj/acdk_sql_sqlite/linux/tokenize.o: sqlitesrc/tokenize.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/tokenize.o -c sqlitesrc/tokenize.c
+
+../tobj/acdk_sql_sqlite/linux/trigger.o: sqlitesrc/trigger.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/trigger.o -c sqlitesrc/trigger.c
+
+../tobj/acdk_sql_sqlite/linux/update.o: sqlitesrc/update.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/update.o -c sqlitesrc/update.c
+
+../tobj/acdk_sql_sqlite/linux/utf.o: sqlitesrc/utf.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/utf.o -c sqlitesrc/utf.c
+
+../tobj/acdk_sql_sqlite/linux/util.o: sqlitesrc/util.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/util.o -c sqlitesrc/util.c
+
+../tobj/acdk_sql_sqlite/linux/vacuum.o: sqlitesrc/vacuum.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/vacuum.o -c sqlitesrc/vacuum.c
+
+../tobj/acdk_sql_sqlite/linux/vdbe.o: sqlitesrc/vdbe.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/vdbe.o -c sqlitesrc/vdbe.c
+
+../tobj/acdk_sql_sqlite/linux/vdbeapi.o: sqlitesrc/vdbeapi.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/vdbeapi.o -c sqlitesrc/vdbeapi.c
+
+../tobj/acdk_sql_sqlite/linux/vdbeaux.o: sqlitesrc/vdbeaux.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/vdbeaux.o -c sqlitesrc/vdbeaux.c
+
+../tobj/acdk_sql_sqlite/linux/vdbemem.o: sqlitesrc/vdbemem.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/vdbemem.o -c sqlitesrc/vdbemem.c
+
+../tobj/acdk_sql_sqlite/linux/where.o: sqlitesrc/where.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_sqlite/linux/where.o -c sqlitesrc/where.c
+
+
+
+metainfo:
+	$(ACDKMC) acdk/sql/sqlite;\
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_sql_sqlite.so $(OBJECTS)
+
+  

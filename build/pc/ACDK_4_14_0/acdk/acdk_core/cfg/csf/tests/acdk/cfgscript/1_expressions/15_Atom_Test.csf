@@ -1,0 +1,12 @@
+out.println("asdf");
+obj = new Atom(5.5);
+out.println(obj);
+erg = obj.addition(4.5);
+out.println(erg);
+erg1 = new Atom(erg).getIntVar();
+if (erg1 != 10)
+  out.println("TEST FAILED");
+else
+  out.println("TEST OK\n");
+tobj = 11;
+

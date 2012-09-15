@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{4c3fe204-f227-4e0e-b87a-4405db6d928f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net">
+      <UniqueIdentifier>{8e577773-76a7-4172-be7e-292f811abfec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net\ftp">
+      <UniqueIdentifier>{e5baad44-ce30-473e-a59d-980005aded25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\net\ftp\ftp_metainf">
+      <UniqueIdentifier>{80217de4-815d-45ed-8492-2d68474383bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\net\ftp\Config.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ftp\ftp.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ftp\FTPClient.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ftp\FTPFileImpl.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ftp\FTPFileSystem.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ftp\FTPURLConnection.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\net\ftp\FTPUrlStreamHandler.h">
+      <Filter>acdk\net\ftp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\net\ftp\FTPClient.cpp">
+      <Filter>acdk\net\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ftp\FTPFileImpl.cpp">
+      <Filter>acdk\net\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ftp\FTPFileSystem.cpp">
+      <Filter>acdk\net\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ftp\FTPURLConnection.cpp">
+      <Filter>acdk\net\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ftp\FTPUrlStreamHandler.cpp">
+      <Filter>acdk\net\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ftp\ftp_metainf_base.cpp">
+      <Filter>acdk\net\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\net\ftp\ftp_metainf\ftp_metainf_ext.cpp">
+      <Filter>acdk\net\ftp\ftp_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,513 @@
+<html><body>
+<h1>Unit Test 2004-03-08T17:04:48</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 37; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Props_Test.standard">Props_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Props_Test.propsViaScript">Props_Test.propsViaScript</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script2_Test.standard">Script2_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.standard">Script_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.basicTypes">Script_Test.basicTypes</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.functions">Script_Test.functions</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.stackFunctionCalls">Script_Test.stackFunctionCalls</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.plus">Script_Test.plus</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.arithmetic">Script_Test.arithmetic</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.complexPlus">Script_Test.complexPlus</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.postAndPrefixOps">Script_Test.postAndPrefixOps</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.newExpression">Script_Test.newExpression</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.namedArgs">Script_Test.namedArgs</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.atom">Script_Test.atom</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.peek_poke">Script_Test.peek_poke</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.statics">Script_Test.statics</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.chainedCalls">Script_Test.chainedCalls</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.equalStm">Script_Test.equalStm</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.syntaxError">Script_Test.syntaxError</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.methods">Script_Test.methods</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.classDecl">Script_Test.classDecl</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.derivedClassDecl">Script_Test.derivedClassDecl</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.strongTypes">Script_Test.strongTypes</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.arrays">Script_Test.arrays</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.typeDecl">Script_Test.typeDecl</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.instanceOfExpr">Script_Test.instanceOfExpr</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.enumerations">Script_Test.enumerations</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Script_Test.misc">Script_Test.misc</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptCom_Test.standard">ScriptCom_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptDebug_Test.standard">ScriptDebug_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.ifCondition">ScriptStatements_Test.ifCondition</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.with">ScriptStatements_Test.with</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.whileStm">ScriptStatements_Test.whileStm</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.doStm">ScriptStatements_Test.doStm</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.forStm">ScriptStatements_Test.forStm</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.usingStm">ScriptStatements_Test.usingStm</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptStatements_Test.tryCatch">ScriptStatements_Test.tryCatch</a> <br>
+</td></tr></table>
+<h2><a id="Props_Test.standard">Props_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT] Start Test: Props_Test.standard
+</pre>
+<h2><a id="Props_Test.propsViaScript">Props_Test.propsViaScript</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Props_Test.standard
+[AUNIT:STRT] Start Test: Props_Test.propsViaScript
+W: : Props::get(): Key [tp] does not exists
+</pre>
+<h2><a id="Script2_Test.standard">Script2_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>This goes to err
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Props_Test.propsViaScript
+[AUNIT:STRT] Start Test: Script2_Test.standard
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\15_ExtIntegerLiterals_Test.csf
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\20_Float_Test.csf
+Erg Double: 0.500000 == 0.500000
+Erg Int: 3
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\23_Character_Test.csf
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\30_Arrays_Test.csf
+expected ParamsMismatchException: Cannot cast type [::acdk::lang::RObject] to [::acdk::lang::RString]
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\40_TypeCasting_Test.csf
+i: 4
+TEST OK
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\50_PragmaStrict_Test.csf
+expected exception: Variable i is not defined in this property scope
+TEST OK
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\0_types\60_TypeAlias_Test.csf
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\1_expressions\40_EqualExpression_Test.csf
+TEST OK
+TEST OK
+TEST OK
+TEST OK
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\1_expressions\50_InstanceOfExpression_Test.csf
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\1_expressions\70_NewExpression_Test.csf
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\1_expressions\80_ArrayLiteral_Test.csf
+[1, 2]
+[1, [2, 3]]
+[ACDK,  Script]
+ | ACDK
+ |  Script
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\1_expressions\85_PropsLiteral_Test.csf
+{ c: { d: 2 },b: 1 }
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\2_statements\1_ForEach_Test.csf
+===================================
+Test for using foreach loops
+
+foreach ArrayList
+foreach: A
+foreach: B
+foreach: C
+foreach StringArray
+foreach: A
+foreach: B
+foreach intArray
+foreach: 1
+foreach: 3
+foreach: 4
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\2_statements\20_With_Test.csf
+Hello in with statement
+This goes to out
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\2_statements\2_Loops_Test.csf
+i: 0
+i: 1
+i: 2
+i: 3
+i: 4
+i: 5
+i: 6
+i: 7
+i: 8
+i: 9
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\2_statements\70_Switch_Test.csf
+Hello
+TEST OK
+here we are
+TEST OK
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\3_calls\21_ScriptMethodPolymorphicFunctions_Test.csf
+===================================
+Test for supporting functions with default argument initializer
+
+erg1: 2; erg2: 3
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\3_calls\22_ScriptMethodWithDefaultArgument_Test.csf
+===================================
+Test for supporting functions with default argument initializer
+
+erg1: 2; erg2: 3
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\3_calls\30_ScriptInOutParameters_Test.csf
+inS: A; inoutS: A; outS: AB
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\3_calls\40_ScriptNamedParameter_Test.csf
+foo called with xpos = 0, ypos = 0, xsize = 20, ysize = 30
+foo called with xpos = 10, ypos = 10, xsize = 20, ysize = 30
+foo called with xpos = 10, ypos = 10, xsize = 12, ysize = 14
+foo called with xpos = 50, ypos = 50, xsize = 20, ysize = 30
+foo called with xpos = 50, ypos = 10, xsize = 20, ysize = 30
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\3_calls\50_ScriptRestParameter_Test.csf
+Function called with 0 rest parameters
+Function called with 3 rest parameters
+  class acdk.lang.dmi.DmiObject: 1
+  class acdk.lang.String: asdf
+  class acdk.io.File: testFile
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\3_calls\55_ScriptNamedRestParameter_Test.csf
+Function called with 3 rest parameters
+  intParam: 1
+  stringParam: asdf
+  fileParam: testFile
+  Has intParam: 1
+Function called with 0 rest parameters
+  Has No intParam
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\10_ClassDecl_Test.csf
+sFoo Called
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\20_ClassOverloading_Test.csf
+===================================
+Test for calling polymorphic functions
+
+call a.foo(s == String)
+called foo(String str)
+call a.foo(o == Object)
+called foo(Object str)
+call a.foo(ostr == Object/String)
+called foo(String str)
+call a.foo(int)
+called foo(int i)
+call a.foo(42)
+called foo(short i)
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\21_DerivedMemberAccess_Test.csf
+===================================
+Test for accessing parent classes members
+
+super._avar: 1; [this.]_bvar: 2
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\22_DerivedVirtualCalls_Test.csf
+===================================
+Test for resolving virtual calls
+
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\23_DerivedVirtualNativeCalls_Test.csf
+===================================
+Test for resolving native virtual calls
+
+You can implement interfaces in the script language
+which can be called from inside a native C++ implemention.
+this enables to implement plugins in a scripting language.
+
+Hello from 'cfgscript_test' from cfgscript AClass implementation
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\24_ScriptMemberInitializer_Test.csf
+===================================
+Test for accessing parent classes members
+
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\25_ScriptOperator_Test.csf
+Average of 2, 1 and 6 is 3.000000
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\26_StaticScriptCalls_Test.csf
+===================================
+Test for accessing static functions and members
+
+
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\30_ScriptEnum_Test.csf
+===================================
+Test for defining enumeration
+
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\40_FreeFunction_Test.csf
+Local function not supported
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\50_Finalize_Test.csf
+Finalizer currently not supported
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\60_MetaInfo_Test.csf
+Class name for class is: class AClass
+Class has following Contructors:
+ class AClass.AClass(int)
+ class AClass.AClass()
+Class has following Members:
+class acdk.lang.String svar
+int ivar
+Class has following Methods:
+ class AClass class AClass.AClass(int)
+ class AClass class AClass.AClass()
+ class acdk.lang.String class AClass.foo()
+ int class AClass.bar()
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\61_NativeCast_Test.csf
+cls = Nil;
+cmp = Nil;
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\80_Delegate_Test.csf
+Hello superb ACDK
+Hallo ACDK
+Hello ACDK
+Hello finest ACDK
+Hello superb ACDK
+Hello ACDK
+Hello finest ACDK
+Hallo ACDK
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\4_classes\85_DelegateNative_Test.csf
+AClass: A Text
+A Text
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\8_misc\10_RegExp_Test.csf
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\8_misc\20_CxxCompait_Test.csf
+asdf
+TEST OK
+Eval Script: c:\d\artefaktur\vc7_acdk\acdk_core\cfg\csf\tests\8_misc\30_CfgClassLoader_Test.csf
+TEST OK
+</pre>
+<h2><a id="Script_Test.standard">Script_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script2_Test.standard
+[AUNIT:STRT] Start Test: Script_Test.standard
+Hallo
+</pre>
+<h2><a id="Script_Test.basicTypes">Script_Test.basicTypes</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 5  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.standard
+[AUNIT:STRT] Start Test: Script_Test.basicTypes
+</pre>
+<h2><a id="Script_Test.functions">Script_Test.functions</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.basicTypes
+[AUNIT:STRT] Start Test: Script_Test.functions
+W: : Props::get(): Key [CMDLINE_QUOTE_CHAR] does not exists
+</pre>
+<h2><a id="Script_Test.stackFunctionCalls">Script_Test.stackFunctionCalls</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.functions
+[AUNIT:STRT] Start Test: Script_Test.stackFunctionCalls
+</pre>
+<h2><a id="Script_Test.plus">Script_Test.plus</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.stackFunctionCalls
+[AUNIT:STRT] Start Test: Script_Test.plus
+</pre>
+<h2><a id="Script_Test.arithmetic">Script_Test.arithmetic</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.plus
+[AUNIT:STRT] Start Test: Script_Test.arithmetic
+</pre>
+<h2><a id="Script_Test.complexPlus">Script_Test.complexPlus</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.arithmetic
+[AUNIT:STRT] Start Test: Script_Test.complexPlus
+</pre>
+<h2><a id="Script_Test.postAndPrefixOps">Script_Test.postAndPrefixOps</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.complexPlus
+[AUNIT:STRT] Start Test: Script_Test.postAndPrefixOps
+</pre>
+<h2><a id="Script_Test.newExpression">Script_Test.newExpression</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.postAndPrefixOps
+[AUNIT:STRT] Start Test: Script_Test.newExpression
+</pre>
+<h2><a id="Script_Test.namedArgs">Script_Test.namedArgs</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.newExpression
+[AUNIT:STRT] Start Test: Script_Test.namedArgs
+</pre>
+<h2><a id="Script_Test.atom">Script_Test.atom</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.namedArgs
+[AUNIT:STRT] Start Test: Script_Test.atom
+</pre>
+<h2><a id="Script_Test.peek_poke">Script_Test.peek_poke</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.atom
+[AUNIT:STRT] Start Test: Script_Test.peek_poke
+</pre>
+<h2><a id="Script_Test.statics">Script_Test.statics</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.peek_poke
+[AUNIT:STRT] Start Test: Script_Test.statics
+</pre>
+<h2><a id="Script_Test.chainedCalls">Script_Test.chainedCalls</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.statics
+[AUNIT:STRT] Start Test: Script_Test.chainedCalls
+</pre>
+<h2><a id="Script_Test.equalStm">Script_Test.equalStm</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.chainedCalls
+[AUNIT:STRT] Start Test: Script_Test.equalStm
+W: : Props::get(): Key [erg3] does not exists
+</pre>
+<h2><a id="Script_Test.syntaxError">Script_Test.syntaxError</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.equalStm
+[AUNIT:STRT] Start Test: Script_Test.syntaxError
+E: <mem>(1):(3): : Expecting '(' after 'if' 
+Caught expected exception: <mem>(1):(3): : Expecting '(' after 'if' 
+Caught expected exception: Method not found: public:  ::acdk::lang::Byte::foobaz(...)
+Caught expected exception: Class cannot be found: blubb
+</pre>
+<h2><a id="Script_Test.methods">Script_Test.methods</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.syntaxError
+[AUNIT:STRT] Start Test: Script_Test.methods
+count: 3, i:0
+count: 3, i:1
+count: 3, i:2
+</pre>
+<h2><a id="Script_Test.classDecl">Script_Test.classDecl</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.methods
+[AUNIT:STRT] Start Test: Script_Test.classDecl
+41
+42
+43
+</pre>
+<h2><a id="Script_Test.derivedClassDecl">Script_Test.derivedClassDecl</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.classDecl
+[AUNIT:STRT] Start Test: Script_Test.derivedClassDecl
+</pre>
+<h2><a id="Script_Test.strongTypes">Script_Test.strongTypes</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.derivedClassDecl
+[AUNIT:STRT] Start Test: Script_Test.strongTypes
+Expected exception: ScriptVar: Cannot convert ::acdk::lang::RString to  type int
+</pre>
+<h2><a id="Script_Test.arrays">Script_Test.arrays</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.strongTypes
+[AUNIT:STRT] Start Test: Script_Test.arrays
+[[41, 42], [43, 44]]
+[[Hallo, ACDK], [Hallo 2, ACDK 2]]
+</pre>
+<h2><a id="Script_Test.typeDecl">Script_Test.typeDecl</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.arrays
+[AUNIT:STRT] Start Test: Script_Test.typeDecl
+</pre>
+<h2><a id="Script_Test.instanceOfExpr">Script_Test.instanceOfExpr</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.typeDecl
+[AUNIT:STRT] Start Test: Script_Test.instanceOfExpr
+instanceof working
+</pre>
+<h2><a id="Script_Test.enumerations">Script_Test.enumerations</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.instanceOfExpr
+[AUNIT:STRT] Start Test: Script_Test.enumerations
+</pre>
+<h2><a id="Script_Test.misc">Script_Test.misc</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.enumerations
+[AUNIT:STRT] Start Test: Script_Test.misc
+</pre>
+<h2><a id="ScriptCom_Test.standard">ScriptCom_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: Script_Test.misc
+[AUNIT:STRT] Start Test: ScriptCom_Test.standard
+Evaluating:
+word = new acdkx.com.ComObject("Word.Application");
+word.Visible = 1;
+doc = word.Documents.add();
+sel = word.ActiveWindow.Selection;
+sel.TypeText("This is ");
+sel.Font.Bold =  1;
+sel.TypeText("ACDK");
+sel.Font.Bold = 0;
+sel.TypeText(" instrumenting Word through acdk_cfgscript");
+acdk.lang.Thread.sleep(3000);
+word.Quit(0);
+
+</pre>
+<h2><a id="ScriptDebug_Test.standard">ScriptDebug_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptCom_Test.standard
+[AUNIT:STRT] Start Test: ScriptDebug_Test.standard
+Skip interactive Test
+</pre>
+<h2><a id="ScriptStatements_Test.ifCondition">ScriptStatements_Test.ifCondition</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptDebug_Test.standard
+[AUNIT:STRT] Start Test: ScriptStatements_Test.ifCondition
+</pre>
+<h2><a id="ScriptStatements_Test.with">ScriptStatements_Test.with</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptStatements_Test.ifCondition
+[AUNIT:STRT] Start Test: ScriptStatements_Test.with
+</pre>
+<h2><a id="ScriptStatements_Test.whileStm">ScriptStatements_Test.whileStm</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptStatements_Test.with
+[AUNIT:STRT] Start Test: ScriptStatements_Test.whileStm
+</pre>
+<h2><a id="ScriptStatements_Test.doStm">ScriptStatements_Test.doStm</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptStatements_Test.whileStm
+[AUNIT:STRT] Start Test: ScriptStatements_Test.doStm
+</pre>
+<h2><a id="ScriptStatements_Test.forStm">ScriptStatements_Test.forStm</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptStatements_Test.doStm
+[AUNIT:STRT] Start Test: ScriptStatements_Test.forStm
+Sum from 0 - 10: 45
+</pre>
+<h2><a id="ScriptStatements_Test.usingStm">ScriptStatements_Test.usingStm</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptStatements_Test.forStm
+[AUNIT:STRT] Start Test: ScriptStatements_Test.usingStm
+Hallo
+</pre>
+<h2><a id="ScriptStatements_Test.tryCatch">ScriptStatements_Test.tryCatch</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptStatements_Test.usingStm
+[AUNIT:STRT] Start Test: ScriptStatements_Test.tryCatch
+catched classcast: ScriptVar: Cannot convert ::acdk::lang::RString to  type int
+expected ex: Just a Test
+finally block called
+finally block called
+after finally
+finally 1 block called
+expected ex: test
+finally 2 block called
+after finally
+</pre>
+</body></html>

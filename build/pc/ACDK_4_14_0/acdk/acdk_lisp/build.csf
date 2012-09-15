@@ -1,0 +1,38 @@
+
+
+#include "amake_config.csf"
+
+acdk_lisp = new acdk.make.AcdkLibTask("acdk_lisp");
+acdk_lisp.addModule("src/acdk/lisp");
+acdk_lisp.addSource("src/acdk/lisp/lisp_metainf");
+acdk_lisp.addAcdkLib("acdk_core");
+acdk_lisp.addAcdkLib("acdk_text");
+
+acdklisp = new acdk.make.AcdkExeTask("acdklisp");
+acdklisp.addSource("src/acdk/lisp/interpreter");
+acdklisp.addAcdkLib("acdk_core");
+acdklisp.addAcdkLib("acdk_text");
+acdklisp.addAcdkLib("acdk_lisp");
+acdklisp.addSubTask("acdk_lisp");
+
+acdk_lisp_Test = new acdk.make.AcdkTestExeTask("acdk_lisp_Test");
+acdk_lisp_Test.setBaseDir("tests/acdk/lisp");
+acdk_lisp_Test.addSource("tests/acdk/lisp");
+acdk_lisp_Test.addAcdkLib("acdk_core");
+acdk_lisp_Test.addAcdkLib("acdk_text");
+acdk_lisp_Test.addAcdkLib("acdk_tools_aunit");
+acdk_lisp_Test.addAcdkLib("acdk_lisp");
+acdk_lisp_Test.addSubTask("acdk_lisp");
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("default");
+default.addSubTask("acdk_lisp");
+default.addSubTask("acdklisp");
+default.addSubTask("acdk_lisp_Test");
+default.registerTask("acdk_lisp_prj");
+
+// what to test will be a task named "test"
+//test = new acdk.make.TestTask("test");
+//test.addTest("acdk_lisp_Test");

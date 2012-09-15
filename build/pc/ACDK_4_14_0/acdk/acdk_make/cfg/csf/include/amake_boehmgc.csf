@@ -1,0 +1,26 @@
+
+
+lf = new acdk.make.LookupFileTask("gc.h", 4);
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "vc"))
+{
+  lf.addLookupPath("windows", "D:\\programr\\lang\\c++\\lib\\gc\\boem-gc\\gc6.0\\include");
+}
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate gc.h header for Boem Collector.");
+__props.appendStringArrayVal("CCC_EXT_INCLUDE_LIST", lf.foundParentDir());
+
+__props.appendStringArrayVal("CCC_EXT_DEFINES_LIST", "ACDK_HAS_BOEHMGC");
+
+lf = new acdk.make.LookupFileTask("gc", 7);
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "vc"))
+{
+  lf.addLookupPath("windows", "D:\\programr\\lang\\c++\\lib\\gc\\boem-gc\\gc6.0\\Release");
+}
+
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate gc library for Boem Collector.");
+                        
+__props.appendStringArrayVal("CCC_EXT_LIBPATH_LIST", lf.foundParentDir());
+__props.appendStringArrayVal("EXT_LIBARIES_LIST", "gc");

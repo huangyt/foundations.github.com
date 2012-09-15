@@ -1,0 +1,23 @@
+%status: l
+%id: content
+%title-de: Inhalt
+%title-en: Content
+%shortTitle-de: Inhalt
+%shortTitle-en: Content
+%body-de:
+<pageintro>
+Alle Seiten dieser Webseite im Überblick.
+</pageintro>
+<perleval>
+  return wm::getContent();
+</perleval>
+.
+%body:
+<pageintro>
+An overview of all pages of this site.
+</pageintro>
+<perleval>
+  return wm::getContent();
+</perleval>
+
+.

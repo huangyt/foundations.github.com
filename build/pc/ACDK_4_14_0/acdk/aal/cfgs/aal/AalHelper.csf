@@ -1,0 +1,30 @@
+
+using acdk.aci.ast;
+using acdk.aci.parser;
+using acdk.aci.vm;
+
+class AalHelper
+{
+  static String parseNodeTempl = 
+"
+class aal.XXXParseNode
+extends SyntaxParseNode
+{
+  XXXParseNode(String nodeName, SyntaxNode sn, String syntax, String help = \"\")
+  {
+    super(nodeName, sn, syntax, help);
+  }
+  AstNode createStandardAstNode() { return new XXX(Nil, this, getNodeName()); }
+}
+";
+  /**
+    implement some type of macro to define standard ParseNode
+  */
+  static void defineParseNode(String name)
+  {
+    String code = AalHelper.parseNodeTempl.replace("XXX", name);
+    acdk.lang.System.out.println("Eval code: " + code);
+    __props.execScript(code);
+  }
+} 
+

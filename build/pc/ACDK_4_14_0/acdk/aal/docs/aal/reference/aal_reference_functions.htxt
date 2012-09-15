@@ -1,0 +1,49 @@
+%id: aal_reference_functions
+%title: AAL Functions
+%shorttitle: Functions
+%body:
+<chapterline/>
+<pageintro>
+Functions are free standing methods not bound to 
+a class.
+</pageintro>
+
+
+<jumptable/>
+<jump1>Defintion</jump1>
+<rs>
+  ReturnType TypeName Arguments Body
+</rs>
+<jump1>Sample</jump1>
+<rs>
+using acdk.lang;
+String foo(String s, int i)
+{
+  return s.substr(i);
+} 
+</rs>
+
+<jump1>Implementation</jump1>
+Freestanding function will translated into
+classes:
+<rs>
+using acdk.lang;
+String foo(String s, int i)
+{
+  return s.substr(i);
+} 
+foo("Hallo", 1);
+
+// will be translated into
+class foo 
+{
+  public static String operator()(String s, int i)
+  {
+    return s.substr(i);
+  }
+}
+foo.operator()("Hallo", 1);
+</rs>
+
+
+.

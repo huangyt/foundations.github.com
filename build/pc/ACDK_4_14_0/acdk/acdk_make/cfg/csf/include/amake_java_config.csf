@@ -1,0 +1,117 @@
+
+/*
+  Find / Locate Java interpreter
+*/
+
+lf = new acdk.make.LookupFileTask("java", 1);
+erg = lf.execute("", buildprops);
+__script.assertTrue(erg, "Cannot locate java executable");
+globals.setQuotedStringVal("JAVA", lf.foundPath());
+
+lf = new acdk.make.LookupFileTask("javac", 1);
+lf.addLookupPath("windows", "d:\\programr\\lang\\java\\jdk\\jdk1.3.1\\bin");
+lf.addLookupPath("windows", "c:\\programr\\lang\\java\\jdk\\jdk1.3.1\\bin");
+
+erg = lf.execute("", buildprops);
+__script.assertTrue(erg, "Cannot locate javac executable. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.csf");
+globals.setQuotedStringVal("JAVAC", lf.foundPath());
+
+lf = new acdk.make.LookupFileTask("jni.h", 4);
+lf.addLookupPath("unix", "/usr/local/j2sdk1.3.0/include");
+lf.addLookupPath("unix", "/usr/lib/jdk1.3.1/include");
+lf.addLookupPath("unix", "/usr/lib/SunJava2-1.4.1/include");
+lf.addLookupPath("windows", "d:/programr/lang/java/jdk/jdk1.3.1/include");
+lf.addLookupPath("windows", "d:/programr/lang/java/jdk/jdk1.3.1/include/windows");
+lf.addLookupPath("windows", "c:/programr/lang/java/jdk/jdk1.3.1/include");
+lf.addLookupPath("windows", "c:/programr/lang/java/jdk/jdk1.3.1/include/windows");
+
+//erg = lf.execute("",  buildprops);
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate jni header. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.csf");
+__props.appendStringArrayVal("CCC_JAVA_INCLUDE_LIST", lf.foundParentDir());
+//task.addExtIncludeDir(lf.foundParentDir());
+
+lf = new acdk.make.LookupFileTask("jni_md.h", 4);
+lf.addLookupPath("windows", "d:/programr/lang/java/jdk/jdk1.3.1/include/win32");
+lf.addLookupPath("windows", "c:/programr/lang/java/jdk/jdk1.3.1/include/win32");
+lf.addLookupPath("unix", "/usr/lib/jdk1.3.1/include/linux");
+lf.addLookupPath("unix", "/usr/local/j2sdk1.3.0/include/linux");
+lf.addLookupPath("unix", "/usr/lib/SunJava2-1.4.1/include/linux");
+
+__script.assertTrue(lf.execute("",  buildprops), 
+                        "Cannot locate jni_md.h header. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.csf");
+__props.appendStringArrayVal("CCC_JAVA_INCLUDE_LIST", lf.foundParentDir());
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  System.out.println("Java Configuration for Windows");
+  lf = new acdk.make.LookupFileTask("jvm", 7);
+  lf.addLookupPath("windows", "d:\\programr\\lang\\java\\jdk\\jdk1.3.1\\lib");
+  lf.addLookupPath("windows", "c:\\programr\\lang\\java\\jdk\\jdk1.3.1\\lib");
+  erg = lf.execute("",  buildprops);
+  __script.assertTrue(erg, "Cannot jvm.lib. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.csf");
+  __props.appendStringArrayVal("CCC_JAVA_LIBPATH_LIST", lf.foundParentDir());
+
+    // list of env variables to export
+  
+  globals.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "Path");
+  __props.appendStringArrayVal("JAVA_JNI_LIBRARY_LIST", "jvm");
+} 
+else 
+{
+  System.out.println("Java Configuration for Unix");
+  lf = new acdk.make.LookupFileTask("java", 3);
+  lf.addLookupPath("linux", "/usr/local/j2sdk1.3.0/jre/lib/i386/native_threads");
+  lf.addLookupPath("linux", "/usr/local/j2sdk1.3.0/jre/lib/i386/classic");
+  lf.addLookupPath("linux", "/usr/lib/jdk1.3.1/jre/lib/i386");
+  lf.addLookupPath("linux",  "/usr/lib/SunJava2-1.4.1/jre/lib/i386"); // suse
+  erg = lf.execute("",  buildprops);
+  __script.assertTrue(erg, "Cannot locate library libjava.so. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.cfg");
+  __props.appendStringArrayVal("CCC_JAVA_LIBPATH_LIST", lf.foundParentDir());
+  //task.addLibraryPath(lf.foundParentDir());
+  
+  lf = new acdk.make.LookupFileTask("hpi", 3);
+  lf.addLookupPath("linux", "/usr/lib/jdk1.3.1/jre/lib/i386/native_threads");
+  lf.addLookupPath("linux", "/usr/lib/SunJava2-1.4.1/jre/lib/i386/native_threads");
+  erg = lf.execute("",  buildprops);
+  __script.assertTrue(erg, "Cannot libhpi.so. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.cfg");
+  __props.appendStringArrayVal("CCC_JAVA_LIBPATH_LIST", lf.foundParentDir());
+
+  __props.appendStringArrayVal("JAVA_JNI_LIBRARY_LIST", "hpi");
+  __props.appendStringArrayVal("JAVA_JNI_LIBRARY_LIST", "jvm");
+  __props.appendStringArrayVal("JAVA_JNI_LIBRARY_LIST", "verify");
+  __props.appendStringArrayVal("JAVA_JNI_LIBRARY_LIST", "java"); 
+
+} 
+
+lf = new acdk.make.LookupFileTask("jvm", 3);
+lf.addLookupPath("windows", "d:\\programr\\lang\\java\\jdk\\jdk1.3.1\\jre\\bin\\classic");
+lf.addLookupPath("windows", "c:\\programr\\lang\\java\\jdk\\jdk1.3.1\\jre\\bin\\classic");
+lf.addLookupPath("unix", "/usr/lib/jdk1.3.1/jre/lib/i386/classic");
+lf.addLookupPath("unix", "/usr/lib/SunJava2-1.4.1/jre/lib/i386/client");
+
+erg = lf.execute("",  buildprops);
+__script.assertTrue(erg, "Cannot jvm. Add path to the file $ACDK_TOOLS_HOME/cfg/cfgincludes/amake_java_config.cfg");
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  globals.appendStringVal("Path", lf.foundParentDir(), File_pathSeparator, 4); // 4 = insert at front
+
+}
+__props.appendStringArrayVal("CCC_JAVA_LIBPATH_LIST", lf.foundParentDir());
+
+acdkhome = __props.getStringVal("ACDKHOME");
+acdbin =  acdkhome + acdk.io.File.separator() + "bin";
+
+globals.appendStringVal("CLASSPATH", 
+                                acdbin, 
+                                File_pathSeparator, 4);
+globals.appendStringArrayVal("SHELL_EXPORT_ENV_LIST", "CLASSPATH");
+
+out.println("Configuration of Java OK");
+
+
+
+
+
+

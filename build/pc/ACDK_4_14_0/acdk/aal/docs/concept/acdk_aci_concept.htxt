@@ -1,0 +1,451 @@
+%id: acdk_aci_concept
+%title: ACI Concept
+%shorttitle: ACI Concept
+%seealso: acdk_aal_concept_parser, acdk_aci_compiled
+%body:
+<pageintro>
+Conceptional thinking about design of ACI.
+</pageintro>
+
+<jumptable/>
+<jump1>Important classes of the compiler framework</jump1>
+<jump2>Parsing States</jump2>
+States for building ASTs:
+<fl>
+<f> Syntax using ParseNodes
+<f> Semantic resolutions
+    Parses declaration, declared types are available
+<f> Definition of types are parsed and defined.
+    Statements and expressions are evaluated
+<f> Generating OpCodes
+<f> Collecting OpCodes
+</fl>
+<source>
+
+interface ParseSource
+{
+  
+};
+
+
+class Compiler
+{
+public:
+ /**
+    @param listener callback
+    @param state TransformState or 0
+    @param codeName name of code or Nil
+    @param listenerState one of TransformListenerState
+  */
+  
+  void registerCodeTransformListener(IN(RCodeTransformListener) listener);
+  
+  
+};
+
+/**
+  Alternativelly to enumerations
+  the queries on AST may be strings
+*/
+enum TransformState
+{
+  DetectSource,
+  BuildSyntax,
+  InvalidSyntax,
+  BuildDeclSemantic,
+  InvalidDeclSemantic,
+  BuildDefSemantic,
+  InvalidDefSemantic,
+  BuildOpCode,
+  InvalidOpCode,
+  CollectOpCode
+};
+
+enum ParseState
+{
+  PSSyntax    = 0x00010,
+  PSSemantic  = 0x00020,
+  PSOpCode    = 0x00040
+};
+
+enum CodeType
+{
+  CTSyntax    = 0x00002,
+  CTSemantic  = 0x00004,
+  CTOpCode    = 0x00008
+  
+};
+
+enum TransformListenerState
+{
+  UnknownTransform = 0x00,
+  BeforeTransform = 0x01,
+  AfterTransform 
+};
+
+class CodeTransformListener 
+{
+  void onTransform(TransformListenerState transState, IN(RCode) code, int state, IN(RCompiler) comp)
+};
+
+class Code
+{
+  Code* _parent;
+  int _codeType;
+ 
+  
+  void defaultActionOnChields(int state, IN(RCompiler) comp)
+  {
+    for (int i = 0; i < _childs->length(); ++i)
+    _childs[i]->transform(state, comp);
+  }
+  void transform(int state, IN(RCompiler) comp)
+  {
+    callBeforeListener(state, comp);
+    doTransform(state, comp);
+    callAfterListener(state, comp);
+  }
+  virtual void doTransform(int state, IN(RCompiler) comp)
+  {
+    switch (state)
+    {
+    case InvalidSyntax:
+      defaultActionOnChields(state, comp);
+      if (_codeType >= CTSyntax)
+        childs = new CodeArray(0);
+      break;
+    default:
+      defaultActionOnChields(state, comp);
+      break;
+    }
+  }
+  /*
+    return semantic element of the tree
+    This may be a type or part of type.
+    A method returns the Metainfo of the method (DClazzMethodInfo)
+  */
+  RSemantic getSem(){ return Nil }
+  /**
+    return the semantic of the current Node.
+    A method returns the type of the return value
+  */
+  RSemantic getExpressionSem() { return Nil }
+  RCode getParent() { return _parent; }
+  int getChildCount() { return 0; }
+  RCode getNthChild(int i) { THROW1(Exception, "has no child" }; }
+  
+};
+
+class Executor
+{
+  virtual void execute(IN(RCompiler) comp, IN(REvalEnv) env) = 0;
+};
+
+class OpCode 
+: extends Code
+, implements Executor
+{
+};
+
+class CodeWithChilds : extends Code
+{
+  RCodeArray _childs;
+};
+
+class CodeWithST : extends CodeWithChilds
+{
+  RSymbolTable _st;
+};
+
+class MyCode : extends Code
+{
+  void doTransform(int state, IN(RCompiler) comp)
+  {
+    switch (state)
+    {
+    case BuildDeclSemantic:
+      parseSemantic(comp);
+      break;
+    default:
+      Code::doTransform(state, comp);
+      break;
+    }
+  }
+};
+</source>
+<jump2>Scanning, Parsing</jump2>
+
+%cref[acdk::aci::ParseNode] contains a parsing rule. (This class may
+be renamed later to SyntaxNode.)
+The general version of ParseNode uses BNF syntax to genrates instances of %cref[acdk::aci::Code]
+which are leafes of an AST (Abstract Syntax Tree).
+
+The first step of the compiler builds the AST.
+
+Open issues:
+<fl>
+<f> Whitespaces and Comments should be also available
+    as AstNodes.
+</fl>
+
+<jump2>Transforming</jump2>
+Open Issues:
+<fl>
+<f> Modifing AstNodes (replace/insert/delete childs):
+    The orginal AST should be available. The replaces/deleted
+    AstNodes should still be available.
+    <pre>
+    foreach (ElementType el in collection) 
+    { 
+    /* Operate on el */
+    } 
+    results in
+    ForeachStatement
+      LVarDecl
+      Expression(1)
+      Block(1)
+    will be modified to:
+    {
+      Iterator tempVarIt = collection.iterator();
+      while (tempVarIt.hasNext() == true)
+      {
+        ElementType el = tempVarIt.next();
+        {
+          /* Operate on el */
+        }
+      }
+    }
+    Block // synthetic org -> ForeachStatement
+      LVarDecl  // synthetic
+        Initializer (modified Expression(1))
+      WhileStatement //synthetic
+        Expression //synthetic
+        Block // syntetic
+          LvarDecl //synthetic
+            Initializer 
+          Block -> Block(1)
+    </pre>
+    To make this Transformation a ForEachParseNode has to be registered
+    which generates the initial AST for <c>foreach</c>.
+    After analysing semantics a AstNodeListener has to transform
+    the original ForEachStatement AST to a Block with enclosing
+    WhileStatement.
+    
+</fl>
+See Eval Bocks below.
+
+<jump2>Compiling, Execution</jump2>
+The base class of higher language parsing/evaluation will be done
+by %cref[acdk::aci::Code] implementation. 
+
+The second step of the compiler transform the AST.
+A traditional task on this step is to generate executable (pseudo-) code 
+from the grammar. 
+
+<jump1>Eval Blocks</jump1>
+Before text will be parsed the Eval Block will be parsed and executed.
+
+<source>
+[ normal code ]
+
+</source>
+Inside the EvalBlock the Compiler can be modified.
+If the EvalBlock is defined on module level, the modifications of the 
+Compiler are valid until end of the module (source text).
+<source>
+// MyModule1
+
+unit myunit;
+[ 
+  // modify compiler
+]
+
+// MyModule2
+[
+  using myunit.MyModule1;
+  // use Compiler modifications from MyModule1
+]
+</source>
+
+Scoped block should also be possible:
+<source>
+{
+  {
+    [ .... ]
+    // compiler modifications should only be valid in this block.
+  }
+}
+</source>
+
+Nested Evaluations:
+<source>
+[
+  [
+    SubEval block.
+  ]
+  Eval block 
+]
+Normal Code
+</source>
+Before Normal Code will be parsed Eval Block will be executed.
+Bore Eval Block will be parsed SubEval block will be executed.
+
+Importing rule scope:
+<source>
+// acdk/aal/regexp/RegExp.aal
+
+package acdk.aal.regexp;
+class RegExpParseNode
+extends acdk.aci.ParseNode
+{
+  // ....
+}
+[
+  compiler.registerParseNode(new acdk.lang.reflect.Unit("acdk.aal.RegExp"), new RegExpParseNode());
+]
+
+// MyFile.aal
+{
+  [ use syntax acdk.aal.RegExp;  ] // should import library namespace and corresponding Compiler plugings
+  String s = "asdf";
+  s =~ s/a/A/g;
+}
+String s = "asdf";
+s =~ s/a/A/g; // this should give a syntax error, because regexp syntax is not available
+</source>
+
+<jump2>Attributes</jump2>
+<source>
+[> /* Code access following AST */ ]
+class MyClass
+{
+}
+</source>
+<jump1>Sample: Transformation of free functions</jump1>
+ACDK itself doesn't support free functions. With a 
+AAL plugin global function can be supported.
+
+<source>
+[
+  // pseudo
+  class FreeFunctionParseNode
+  extends ParseNode
+  {
+    public FreeFunctionParseNode(...) {}
+    void postParse(Compiler comp)
+    {
+      // operate on AST and generate Class with name of function and operator
+    }
+  }
+  Compiler comp = Compiler.getCompiler().
+  comp.registerRule(new FreeFunctionParseNode("FreeFunctionParseNode", "ClassDeclMethod $"));
+  
+  //ParseNode pn = comp.findRule("TypeDecl");
+  //pn.setSyntax(pn.getSyntax() + " | FreeFunctionParseNode");
+  
+  comp.registerRule(new ParseNode("TypeDecl", "FreeFunctionParseNode"));
+]
+int add(int i, int j) { return i + j; }
+
+//  ============================================================================
+//  will transfered to
+class add
+{
+	public static int operator()(int i, int j) { return i + j; }
+}
+// in the transform/postparse step
+</source>
+
+<jump1>Inject debugging</jump1>
+<source>
+[ compiler.applyAfterPostParse(new DebugListener()); ] // loading 
+
+int j = 0;
+j = j + 1;
+
+will tranfered to:
+__debug_brk_stm();
+int j = 0;
+__debug_brk_stm();
+j = j + 1;
+__debug_brk_stm();
+</source>
+
+
+<jump1>Build in and plugin language features</jump1>
+Following features has to be build in:
+<fl>
+<f> Basic type system
+<f> Object representation
+<f> Object calls
+<f> Basic ParseNodes like Expression, Statement, LVarDecl, IfStatement, WhileStatement, GotoStatement, etc.
+</fl>
+
+Following features can be implemented as compiler plugin:
+<fl>
+<f> Free functions
+<f> named parameter in call
+<f> Debugging, breakpoints
+<f> lambda expressions (as anon delegates)
+<f> All statements
+<f> All expressions
+<f> code inlining
+<f> SQL expressions
+<f> Regular Expressions
+<f> Attributes (see also ACDK Attributes)
+<f> Here documents
+<f> new statements like <c>foreach</c>
+<f> user type conversion, like automatic literale object wrapping
+<f> Parsing comment strings for documentation (javadoc)
+<f> Assembler nodes
+<f> Transpiler (java .class, .net ILM, Parrot, etc.)
+<f> GUI description language
+<f> Optimizing like Constand Folding, Unroll Loops, Inlining, Call optimizing (non-virtual)
+<f> Macros/Templates
+<f> Alternative Language (Lisp for example)
+</fl>
+
+<jump1>OpCode is just also an branch in Code Tree</jump1>
+<pre>
+int i = 2 + (3 * 4);
+
+Statement
+	Assignment
+		VarName i
+			op clvr	(0)
+			op push 0
+			op store 0
+		Assign
+			PlusOp
+				Literal 2
+					op push 2
+				MultiOp
+					Literal 3
+						Op push 3
+					Literal 4
+						Op push 4
+					Op mul
+				op add
+			Op loadref 0
+			Op assign
+	pop
+			
+resulting ops
+0: clvr 0 // i
+1: push 0 // initialize local value
+2: store 0 // initialize local value
+3: push 2 // Terminal
+4: push 3 // Terminal
+5: push 4 // Terminal
+6: mul
+7: add
+8: loadref 0 // i
+9: assign
+10: pop // discarge expression result for ExprStatement
+</pre>
+
+
+<jump1>Thinking about compiled format</jump1>
+See %ref[acdk_aci_compiled].
+
+.

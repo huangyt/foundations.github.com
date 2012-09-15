@@ -1,0 +1,17 @@
+%id: acdk_cfgscript_hb_lang_types
+%title: CfgScript Types
+%shorttitle: Types
+%chapter: acdk_cfgscript_hb_lang_types_any, acdk_cfgscript_hb_lang_types_basic, acdk_cfgscript_hb_lang_types_object, acdk_cfgscript_hb_lang_types_arrays, \
+          acdk_cfgscript_hb_lang_types_enum, acdk_cfgscript_hb_lang_types_props
+%keywords: types
+%body:
+<chapterline/>
+<pageintro>
+CfgScript supports a rich type system
+</pageintro>
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_vardecl]
+
+<subschapterstable/>
+
+.

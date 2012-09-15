@@ -1,0 +1,180 @@
+%id: aal_reference_defun
+%title: AAL Function Types
+%shorttitle: Function Types
+%body:
+<chapterline/>
+<pageintro>
+Function Types are equaly to Function pointer
+and/or class methods pointer in C/C++.
+</pageintro>
+
+
+<jumptable/>
+<jump1>Concept</jump1>
+<rs>
+// case 1 static call
+defun StaticCallable static void ();
+
+class AClass 
+{
+  public void operator() {}
+  public static void staticmethod() {}
+  public void method() {}
+  public void method2() {}
+  String operator+(String other) { return other; }
+}
+class BClass
+{
+  public static void operator()() {}
+}
+AClass acls = new AClass();
+StaticCallable staticcallable;
+staticcallable = AClass.staticmethod; 
+staticcallable = acls.method;
+staticcallable = AClass;
+staticcallable = acls;
+staticcallable = new () { public void operator()() {} };
+staticcallable = new () { public void foo() {} }.foo
+staticcallable();
+
+// case 2 object call
+defun ObjectCall void ();
+ObjectCall objcall;
+objcall = acls.method;
+objcall = acls.method2;
+objcall = acls;
+acls.objcall();
+
+// case 3 statc operator calls
+defun StaticStringAdder static String operator+(String s);
+
+StringAdder sadder;
+sadder = acls;
+sadder = new () { public String operator+(String s) { return s; } };
+sadder + "asdf";
+</rs>
+
+<jump1>Implemenation</jump1>
+<rs>
+class AClass
+{
+  public String adder(String s) { return s; }
+}
+
+// case 1 static call
+defun StaticStringAdder static String (String s);
+// ->
+interface StaticStringAdder
+{
+  public String operator()(String s);
+}
+// <- 
+
+StaticCallable staticcallable;
+// -> just an Interface reference
+
+staticcallable = acls.method;
+// -> 
+class AClass_method_caller
+      implements StaticStringAdder
+{
+  AClass target;
+  AClass_method_caller(AClass t) : target(t) {}
+  public String operator(String s) { return target.adder(s); }
+}
+staticcallable = new AClass_method_caller(acls);
+// <-
+
+</rs>
+<jump1>Defintion</jump1>
+<rs>
+  defun TypeName FunctionSignature
+</rs>
+<jump1>Sample</jump1>
+<jump2>Initialize with Functions</jump2>
+<rs>
+defun FooCallable String (String s, int i);
+
+String fooFunction(String s, int i) { return s.substr(i); }
+FooCallable callable;
+
+callable = fooFunction;
+callable("Hello", 1);
+</rs>
+
+<jump2>Initialize with object instance Methods</jump2>
+<rs>
+defun FooCallable String (String s, int i);
+
+class AClass
+{
+  public AClass() {}
+  public String bar(String s, int i) { return s.substr(i); }
+}
+
+FooCallable callable;
+AClass acls = new AClass();
+callable = acls.bar;
+callable("Hello", 1);
+</rs>
+
+<jump2>Initialize with object</jump2>
+<rs>
+defun FooCallable staticString (String s, int i);
+
+class AClass
+{
+  public AClass() {}
+  public String operator()(String s, int i) { return s.substr(i); }
+}
+
+FooCallable callable;
+AClass acls = new AClass();
+callable = acls;
+callable("Hello", 1);
+</rs>
+
+<jump2>Initialize with class</jump2>
+<rs>
+defun String FooCallable(String s, int i);
+
+class AClass
+{
+  public static String operator()(String s, int i) { return s.substr(i); }
+}
+
+FooCallable callable;
+callable = AClass;
+callable("Hello", 1);
+</rs>
+<jump2>Working with operators</jump2>
+<rs>
+defun StringShifter String operator<<(String str);
+
+String operator<<(String s) { return str.length() << 1; }
+StringShifter shifter = 
+</rs>
+<jump1>Implementation</jump1>
+Freestanding function will translated into
+classes:
+<rs>
+using acdk.lang;
+String foo(String s, int i)
+{
+  return s.substr(i);
+} 
+foo("Hallo", 1);
+
+// will be translated into
+class foo 
+{
+  public static String operator()(String s, int i)
+  {
+    return s.substr(i);
+  }
+}
+foo.operator()("Hallo", 1);
+</rs>
+
+
+.

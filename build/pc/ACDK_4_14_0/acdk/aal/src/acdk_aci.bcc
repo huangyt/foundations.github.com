@@ -1,0 +1,285 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CCINCLUDE= -I.  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_ACI_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=""
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_text.lib"
+
+OUTFILE="..\..\bin\acdk_aci.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_aci\bcc"
+SOURCES= 	"acdk\aci\aci_metainf_base.cpp" \
+	"acdk\aci\ClazzSymbolTable.cpp" \
+	"acdk\aci\Compiler.cpp" \
+	"acdk\aci\DClazzInfo.cpp" \
+	"acdk\aci\DClazzInfoPersist.cpp" \
+	"acdk\aci\SymbolTable.cpp" \
+	"acdk\aci\ast\AstNode.cpp" \
+	"acdk\aci\ast\ast_metainf_base.cpp" \
+	"acdk\aci\ast\Terminal.cpp" \
+	"acdk\aci\parser\BlockCommentParseNode.cpp" \
+	"acdk\aci\parser\DecimalLiteralParseNode.cpp" \
+	"acdk\aci\parser\FloatLiteralParseNode.cpp" \
+	"acdk\aci\parser\IdentifierParseNode.cpp" \
+	"acdk\aci\parser\KeywordParseNode.cpp" \
+	"acdk\aci\parser\ParseEnv.cpp" \
+	"acdk\aci\parser\ParseException.cpp" \
+	"acdk\aci\parser\parser_metainf_base.cpp" \
+	"acdk\aci\parser\RegScanParseNode.cpp" \
+	"acdk\aci\parser\Scanner.cpp" \
+	"acdk\aci\parser\StringTerminalParseNode.cpp" \
+	"acdk\aci\parser\SyntaxNode.cpp" \
+	"acdk\aci\parser\SyntaxParseNode.cpp" \
+	"acdk\aci\parser\TerminalParseNode.cpp" \
+	"acdk\aci\vm\EvalEnv.cpp" \
+	"acdk\aci\vm\ExecutableCollector.cpp" \
+	"acdk\aci\vm\OpCodeStm.cpp" \
+	"acdk\aci\vm\vm_metainf_base.cpp" \
+	"acdk\aci\util\util_metainf_base.cpp" \
+	"acdk\aci\sasm\AsmParseNode.cpp" \
+
+HEADER= 	"acdk\aci\AccLoader.h" \
+	"acdk\aci\aci.h" \
+	"acdk\aci\aci_metainf.h" \
+	"acdk\aci\ClazzSymbolTable.h" \
+	"acdk\aci\Compiler.h" \
+	"acdk\aci\Config.h" \
+	"acdk\aci\core_stack.h" \
+	"acdk\aci\DClazzInfo.h" \
+	"acdk\aci\StdAci.h" \
+	"acdk\aci\SymbolTable.h" \
+	"acdk\aci\ast\AciCodeAttributeData.h" \
+	"acdk\aci\ast\ast.h" \
+	"acdk\aci\ast\AstNode.h" \
+	"acdk\aci\ast\AstNodeVisitor.h" \
+	"acdk\aci\ast\ast_metainf.h" \
+	"acdk\aci\ast\EofTerminal.h" \
+	"acdk\aci\ast\Expression.h" \
+	"acdk\aci\ast\Identifier.h" \
+	"acdk\aci\ast\Keyword.h" \
+	"acdk\aci\ast\Literal.h" \
+	"acdk\aci\ast\Statement.h" \
+	"acdk\aci\ast\Terminal.h" \
+	"acdk\aci\ast\Whitespace.h" \
+	"acdk\aci\parser\BlockCommentParseNode.h" \
+	"acdk\aci\parser\DecimalLiteralParseNode.h" \
+	"acdk\aci\parser\FloatLiteralParseNode.h" \
+	"acdk\aci\parser\IdentifierParseNode.h" \
+	"acdk\aci\parser\KeywordParseNode.h" \
+	"acdk\aci\parser\LineCommentParseNode.h" \
+	"acdk\aci\parser\LiteralParseNode.h" \
+	"acdk\aci\parser\ParseEnv.h" \
+	"acdk\aci\parser\ParseException.h" \
+	"acdk\aci\parser\ParseNode.h" \
+	"acdk\aci\parser\parser.h" \
+	"acdk\aci\parser\RegScanParseNode.h" \
+	"acdk\aci\parser\Scanner.h" \
+	"acdk\aci\parser\StringTerminalParseNode.h" \
+	"acdk\aci\parser\SyntaxNode.h" \
+	"acdk\aci\parser\SyntaxParseNode.h" \
+	"acdk\aci\parser\TerminalParseNode.h" \
+	"acdk\aci\parser\WhiteSpaceParseNode.h" \
+	"acdk\aci\vm\EvalEnv.h" \
+	"acdk\aci\vm\Executable.h" \
+	"acdk\aci\vm\OpCodeOp.h" \
+	"acdk\aci\vm\OpCodeStm.h" \
+	"acdk\aci\vm\vm.h" \
+	"acdk\aci\util\CodeLocation.h" \
+	"acdk\aci\util\Source.h" \
+	"acdk\aci\util\StringSource.h" \
+	"acdk\aci\util\TStackedSet.h" \
+	"acdk\aci\util\util.h" \
+	"acdk\aci\sasm\AsmParseNode.h" \
+	"acdk\aci\sasm\sasm.h" \
+
+OBJECTS= 	"..\tobj\acdk_aci\bcc\aci_metainf_base.obj" \
+	"..\tobj\acdk_aci\bcc\ClazzSymbolTable.obj" \
+	"..\tobj\acdk_aci\bcc\Compiler.obj" \
+	"..\tobj\acdk_aci\bcc\DClazzInfo.obj" \
+	"..\tobj\acdk_aci\bcc\DClazzInfoPersist.obj" \
+	"..\tobj\acdk_aci\bcc\SymbolTable.obj" \
+	"..\tobj\acdk_aci\bcc\AstNode.obj" \
+	"..\tobj\acdk_aci\bcc\ast_metainf_base.obj" \
+	"..\tobj\acdk_aci\bcc\Terminal.obj" \
+	"..\tobj\acdk_aci\bcc\BlockCommentParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\DecimalLiteralParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\FloatLiteralParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\IdentifierParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\KeywordParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\ParseEnv.obj" \
+	"..\tobj\acdk_aci\bcc\ParseException.obj" \
+	"..\tobj\acdk_aci\bcc\parser_metainf_base.obj" \
+	"..\tobj\acdk_aci\bcc\RegScanParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\Scanner.obj" \
+	"..\tobj\acdk_aci\bcc\StringTerminalParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\SyntaxNode.obj" \
+	"..\tobj\acdk_aci\bcc\SyntaxParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\TerminalParseNode.obj" \
+	"..\tobj\acdk_aci\bcc\EvalEnv.obj" \
+	"..\tobj\acdk_aci\bcc\ExecutableCollector.obj" \
+	"..\tobj\acdk_aci\bcc\OpCodeStm.obj" \
+	"..\tobj\acdk_aci\bcc\vm_metainf_base.obj" \
+	"..\tobj\acdk_aci\bcc\util_metainf_base.obj" \
+	"..\tobj\acdk_aci\bcc\AsmParseNode.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_aci\bcc\aci_metainf_base.obj": "acdk\aci\aci_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\aci_metainf_base.cpp"
+
+"..\tobj\acdk_aci\bcc\ClazzSymbolTable.obj": "acdk\aci\ClazzSymbolTable.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\ClazzSymbolTable.cpp"
+
+"..\tobj\acdk_aci\bcc\Compiler.obj": "acdk\aci\Compiler.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\Compiler.cpp"
+
+"..\tobj\acdk_aci\bcc\DClazzInfo.obj": "acdk\aci\DClazzInfo.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\DClazzInfo.cpp"
+
+"..\tobj\acdk_aci\bcc\DClazzInfoPersist.obj": "acdk\aci\DClazzInfoPersist.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\DClazzInfoPersist.cpp"
+
+"..\tobj\acdk_aci\bcc\SymbolTable.obj": "acdk\aci\SymbolTable.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\SymbolTable.cpp"
+
+"..\tobj\acdk_aci\bcc\AstNode.obj": "acdk\aci\ast\AstNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\ast\AstNode.cpp"
+
+"..\tobj\acdk_aci\bcc\ast_metainf_base.obj": "acdk\aci\ast\ast_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\ast\ast_metainf_base.cpp"
+
+"..\tobj\acdk_aci\bcc\Terminal.obj": "acdk\aci\ast\Terminal.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\ast\Terminal.cpp"
+
+"..\tobj\acdk_aci\bcc\BlockCommentParseNode.obj": "acdk\aci\parser\BlockCommentParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\BlockCommentParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\DecimalLiteralParseNode.obj": "acdk\aci\parser\DecimalLiteralParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\DecimalLiteralParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\FloatLiteralParseNode.obj": "acdk\aci\parser\FloatLiteralParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\FloatLiteralParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\IdentifierParseNode.obj": "acdk\aci\parser\IdentifierParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\IdentifierParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\KeywordParseNode.obj": "acdk\aci\parser\KeywordParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\KeywordParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\ParseEnv.obj": "acdk\aci\parser\ParseEnv.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\ParseEnv.cpp"
+
+"..\tobj\acdk_aci\bcc\ParseException.obj": "acdk\aci\parser\ParseException.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\ParseException.cpp"
+
+"..\tobj\acdk_aci\bcc\parser_metainf_base.obj": "acdk\aci\parser\parser_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\parser_metainf_base.cpp"
+
+"..\tobj\acdk_aci\bcc\RegScanParseNode.obj": "acdk\aci\parser\RegScanParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\RegScanParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\Scanner.obj": "acdk\aci\parser\Scanner.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\Scanner.cpp"
+
+"..\tobj\acdk_aci\bcc\StringTerminalParseNode.obj": "acdk\aci\parser\StringTerminalParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\StringTerminalParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\SyntaxNode.obj": "acdk\aci\parser\SyntaxNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\SyntaxNode.cpp"
+
+"..\tobj\acdk_aci\bcc\SyntaxParseNode.obj": "acdk\aci\parser\SyntaxParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\SyntaxParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\TerminalParseNode.obj": "acdk\aci\parser\TerminalParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\parser\TerminalParseNode.cpp"
+
+"..\tobj\acdk_aci\bcc\EvalEnv.obj": "acdk\aci\vm\EvalEnv.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\vm\EvalEnv.cpp"
+
+"..\tobj\acdk_aci\bcc\ExecutableCollector.obj": "acdk\aci\vm\ExecutableCollector.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\vm\ExecutableCollector.cpp"
+
+"..\tobj\acdk_aci\bcc\OpCodeStm.obj": "acdk\aci\vm\OpCodeStm.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\vm\OpCodeStm.cpp"
+
+"..\tobj\acdk_aci\bcc\vm_metainf_base.obj": "acdk\aci\vm\vm_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\vm\vm_metainf_base.cpp"
+
+"..\tobj\acdk_aci\bcc\util_metainf_base.obj": "acdk\aci\util\util_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\util\util_metainf_base.cpp"
+
+"..\tobj\acdk_aci\bcc\AsmParseNode.obj": "acdk\aci\sasm\AsmParseNode.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci\bcc" "acdk\aci\sasm\AsmParseNode.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_aci.dll"
+	del "..\tobj\acdk_aci\bcc\aci_metainf_base.obj"
+	del "..\tobj\acdk_aci\bcc\ClazzSymbolTable.obj"
+	del "..\tobj\acdk_aci\bcc\Compiler.obj"
+	del "..\tobj\acdk_aci\bcc\DClazzInfo.obj"
+	del "..\tobj\acdk_aci\bcc\DClazzInfoPersist.obj"
+	del "..\tobj\acdk_aci\bcc\SymbolTable.obj"
+	del "..\tobj\acdk_aci\bcc\AstNode.obj"
+	del "..\tobj\acdk_aci\bcc\ast_metainf_base.obj"
+	del "..\tobj\acdk_aci\bcc\Terminal.obj"
+	del "..\tobj\acdk_aci\bcc\BlockCommentParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\DecimalLiteralParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\FloatLiteralParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\IdentifierParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\KeywordParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\ParseEnv.obj"
+	del "..\tobj\acdk_aci\bcc\ParseException.obj"
+	del "..\tobj\acdk_aci\bcc\parser_metainf_base.obj"
+	del "..\tobj\acdk_aci\bcc\RegScanParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\Scanner.obj"
+	del "..\tobj\acdk_aci\bcc\StringTerminalParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\SyntaxNode.obj"
+	del "..\tobj\acdk_aci\bcc\SyntaxParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\TerminalParseNode.obj"
+	del "..\tobj\acdk_aci\bcc\EvalEnv.obj"
+	del "..\tobj\acdk_aci\bcc\ExecutableCollector.obj"
+	del "..\tobj\acdk_aci\bcc\OpCodeStm.obj"
+	del "..\tobj\acdk_aci\bcc\vm_metainf_base.obj"
+	del "..\tobj\acdk_aci\bcc\util_metainf_base.obj"
+	del "..\tobj\acdk_aci\bcc\AsmParseNode.obj"
+
+

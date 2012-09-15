@@ -1,0 +1,88 @@
+%id: acdk_make_targets
+%title: ACDK Make targets
+
+%body:
+
+<htmlauto/>
+<pageintro>
+acdkmake supports several platforms and compilers.
+It automatically try to find a suitable compiler to 
+translate a source.
+
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>About Targets</jump1>
+Because acdkmake supports several platforms and compilers,
+a target is bundle of settings which specifies the needed
+tools to compile, link, install, etc.
+
+The targets are organized as an hierarchy. For example
+the target <i>linux</i> is derived from the targets <i>unix</i>
+and <i>gcc</i>.
+
+The core target definition is defined in the file
+<pre>cfg/cfginclude/compile_specs.cfg</pre>.
+
+<jump1>Selecting targets</jump1>
+At the beginning starting <b>acdkmc</b> it try to
+find a suitable target on the current enviromnent.
+Therefore it try to figure out on what host type 
+acdkmake is running and try to figure out what compiler
+works. On a MS Windows host it try to locate the Visual C++
+compiler, and if this fails it looking for a Borland C++ compiler.
+
+
+<jump1>Available Targets</jump1>
+The variable AMAKE_TARGET set the build target.
+
+You can list all supported targets with the <c>-dump-targets</c>
+option.
+To view the specs for a target you can use the 
+<c>-dump-target  &lt;targetname&gt;</c> option.
+
+Following targets are known by acdkmake.
+
+<jump2>linux</jump2>
+<li> Platform: Linux
+<li> Compiler gcc
+<li> Shell: bash/sh
+
+<jump2>vc</jump2>
+<li> Platform: Windows NT, XP.
+<li> Compiler: Visual C++ 6.0
+<li> Shell: cmd
+
+<jump2>vc7</jump2>
+Same as %ref[#vc] but using Visual C++ 7 or higher
+
+<jump2>bsd</jump2>
+<li> Platform: FreeBSD
+<li> Compiler: gcc
+<li> Shell: bash/sh
+
+<jump2>bcc</jump2>
+<li> Platform: Windows NT, XP.
+<li> Compiler: Borland C++ 5.5.x
+<li> Shell: cmd
+
+<jump2>sungcc</jump2>
+<li> Platform: Solaris.
+<li> Compiler: gcc
+<li> Shell: bash/sh
+
+<jump2>lintel</jump2>
+<li> Platform: Linux.
+<li> Compiler: Intel C++
+<li> Shell: bash/sh
+
+<jump2>mingw</jump2>
+<li> Platform: Windows NT/XP.
+<li> Compiler: gcc
+<li> Shell: cmd
+
+
+
+.

@@ -1,0 +1,185 @@
+using acdk.tools.aunit;
+
+class TextConsoleCharWriter
+extends acdk.lang.Object
+implements acdk.io.CharWriter
+{
+  StringBuffer _buffer;
+  TextConsoleCharWriter() 
+  {
+    _buffer = new StringBuffer();
+  }
+  void writeChar(char c) 
+  {
+    synchronized(this)
+    {
+      _buffer.append(c);
+    }
+  }
+  void writeChar(ucchar c)
+  {
+    synchronized(this)
+      _buffer.append(c);
+  }
+  void writeString(String str)
+  {
+    synchronized(this)
+      _buffer.append(str);
+    //out.println("WS: " + str);
+  }
+  String fetchBuffer()
+  {
+    synchronized(this)
+    {
+      String ret = _buffer.toString();
+      _buffer.set("");
+      return ret;
+    }
+  }
+  void flush() {}
+  void close() {}
+}
+
+enum ATRIds
+{
+  TestTreeId = 1001,
+  RunTestId,
+  RunTimerId,
+  CurrentTestST,
+  StResult,
+  RunBtnId,
+  Event_MenuQuit,
+  Event_MenuAbout,
+  TbHelpId,
+  Event_TestListenerPing,
+  Event_ClearLog,
+  TestRepId,
+  TestLogId
+  
+}
+
+class GuiListener
+extends acdk.lang.Object
+implements acdk.tools.aunit.TestListener
+{
+  String _lastTest;
+  String _lastState;
+  String _lastErrMsg;
+  acdk.wx.EvtHandler _pingTo;
+  int runnedTest = 0;
+  bool shouldStop;
+  GuiListener(acdk.wx.EvtHandler pingTo)
+  {
+    shouldStop = false;
+    _lastState = "";
+    _lastTest = "";
+    _lastErrMsg = "";
+    _pingTo = pingTo;
+  }
+  bool startTest(Test test)
+  {
+    synchronized(this)
+    {
+      if (shouldStop == true)
+        return false;
+    }
+    _lastState = "start";
+    _lastTest = test.toString();
+    NotifyEvent notify = new NotifyEvent(Event.EvtNull, Event_TestListenerPing);
+    _pingTo.addPendingEvent(notify);
+    System.out.println("start test: " + _lastTest);
+    return true;
+  }
+  void endTest(Test test)
+  {
+    runnedTest = runnedTest + 1;
+    _lastState = "end";
+    _lastTest = test.toString();
+    System.out.println("end test: " + _lastTest);
+  }
+  void addError(Test test, Throwable ex)
+  {
+    _lastState = "error";
+    _lastTest = test.toString();
+    _lastErrMsg = ex.getMessage();
+  }
+  void addFailure(Test test, TestException ex)
+  {
+    _lastState = "fail";
+    _lastTest = test.toString();
+    _lastErrMsg = ex.getMessage();
+  }
+  void addSuccess(Test test, TestExpression testExpr) 
+  {
+    _lastState = "success";
+    _lastTest = test.toString();
+    //_lastErrMsg = ex.getMessage();
+  }
+  String getLastMessage()
+  {
+    synchronized(this)
+    {
+      String ret = _lastState + ": " + _lastTest;
+      if (_lastErrMsg.equals("") == false)
+        ret = ret + ": " + _lastErrMsg;
+      return ret;
+    }
+  }
+  void doStop()
+  {
+    synchronized(this) {
+      shouldStop = true;
+    }
+  }
+}
+
+class TestRunThread
+extends acdk.lang.Thread
+{
+  Test test;
+  TestResult _result;
+  TestRunThread(Test t, TestResult result)
+  {
+    test = t; 
+    _result = result; 
+  }
+  
+  void run()
+  {
+    //result = new TestResult();
+    test.run(_result); 
+  }
+}
+
+class ConfigTools
+{
+  static Properties _environ = System.getEnvironment();
+  static void initCfg()
+  {
+    if (testCfg.path != Nil)
+    {
+      String path = ConfigTools._environ.getProperty("PATH");
+      if (path == Nil)
+        path = ConfigTools._environ.getProperty("Path");
+      StringBuffer np = new StringBuffer(path);
+      foreach (String pe in testCfg.path)
+      {
+        out.println(pe);
+        np << File.pathSeparator() << pe;
+      }
+      ConfigTools._environ.setProperty("PATH", np.toString());
+      ConfigTools._environ.setProperty("Path", np.toString());
+      //out.println("New Path: " + np.toString());
+    }
+    if (testCfg.environ != Nil)
+    {
+      foreach (String k in testCfg.environ.getKeys())
+      {
+        ConfigTools._environ.setProperty(k, testCfg.environ.getStringVal(k));
+      }
+    }
+  }
+  static Properties getTestEnv() { return ConfigTools._environ; }
+}
+ConfigTools.initCfg();
+

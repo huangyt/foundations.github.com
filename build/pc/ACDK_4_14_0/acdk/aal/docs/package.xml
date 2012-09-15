@@ -1,0 +1,62 @@
+<package>
+AAL - Artefaktur Aspect Language.
+
+<name>aal</name>
+
+<title>
+AAL (aal)
+</title>
+
+
+<shortdescription>
+aal is an experimental language.
+Currently it is pre-alpha.
+</shortdescription>
+
+<description>
+aal is an experimental language for scripting with 
+aspect oriented features.
+Currently it is only a play zone for experimenting
+with advanced language features, like static and
+dynamic types. 
+A dynamic compiler should enable the language to 
+enhance the compiler in all aspects at compile time.
+The dynamic compiler enables to implement aspect oriented
+techniques into the compiler.
+</description>
+
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+<copyright>
+Copyright &copy; 2002 by Roger Rene Kommer
+</copyright>
+<license>
+ACDK Free Edition License.
+See %ref[acdk_license].
+</license>
+<dependencies>
+  %ref[acdk_core, acdk_core].
+  %ref[acdk_text, acdk_text].
+</dependencies>
+
+<namespaces>
+  acdk::aal;
+</namespaces>
+
+<authors>
+  Roger René Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+  Nothing at the moment.
+</todo>
+
+
+<notes>
+
+</notes>
+<changes>
+Still in alpha status.
+</changes>
+</package>

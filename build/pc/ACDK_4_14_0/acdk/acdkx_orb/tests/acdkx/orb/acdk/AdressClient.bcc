@@ -1,0 +1,81 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../../../src  -I../../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\..\bin\acdk_core.lib" "..\..\..\..\..\bin\acdk_net.lib" "..\..\..\..\..\bin\acdk_text.lib" "..\..\..\..\..\bin\org_xml.lib" "..\..\..\..\..\bin\acdk_xml.lib" "..\..\..\..\..\bin\acdkx_orb.lib"
+
+OUTFILE="..\..\..\..\..\bin\AdressClient.exe"
+OUTDIR = "..\..\..\..\..\bin"
+INTDIR = ".\tobj\AdressClient\bcc"
+SOURCES= 	"AdressClient.cpp" \
+	"IdlMappingTest.h" \
+	"acdk_metainf_base.cpp" \
+	"acdk_metainf\acdk_metainf_ext.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\AdressClient\bcc\AdressClient.obj" \
+	".\tobj\AdressClient\bcc\acdk_metainf_base.obj" \
+	".\tobj\AdressClient\bcc\acdk_metainf_ext.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\AdressClient\bcc\AdressClient.obj": "AdressClient.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\AdressClient\bcc" "AdressClient.cpp"
+
+".\tobj\AdressClient\bcc\IdlMappingTest.obj": "IdlMappingTest.h"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\AdressClient\bcc" "IdlMappingTest.h"
+
+".\tobj\AdressClient\bcc\acdk_metainf_base.obj": "acdk_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\AdressClient\bcc" "acdk_metainf_base.cpp"
+
+".\tobj\AdressClient\bcc\acdk_metainf_ext.obj": "acdk_metainf\acdk_metainf_ext.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\AdressClient\bcc" "acdk_metainf\acdk_metainf_ext.cpp"
+
+
+
+clean:
+	del "..\..\..\..\..\bin\AdressClient.exe"
+	del ".\tobj\AdressClient\bcc\AdressClient.obj"
+	del ".\tobj\AdressClient\bcc\acdk_metainf_base.obj"
+	del ".\tobj\AdressClient\bcc\acdk_metainf_ext.obj"
+
+

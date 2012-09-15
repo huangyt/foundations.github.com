@@ -1,0 +1,80 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I$(ACDK_PERL_INCLUDE)  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_PERL_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=-L"$(ACDK_PERL_LIBPATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_text.lib" $(ACDK_PERL_LIB)
+
+OUTFILE="..\..\bin\acdk_perl.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_perl\bcc"
+SOURCES= 	"acdk\perl\Perl.cpp" \
+	"acdk\perl\PerlInterpreter.cpp" \
+	"acdk\perl\PerlObject.cpp" \
+
+HEADER= 	"acdk\perl\Config.h" \
+	"acdk\perl\PerlInterpreter.h" \
+	"acdk\perl\PerlObject.h" \
+
+OBJECTS= 	"..\tobj\acdk_perl\bcc\Perl.obj" \
+	"..\tobj\acdk_perl\bcc\PerlInterpreter.obj" \
+	"..\tobj\acdk_perl\bcc\PerlObject.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_perl\bcc\Perl.obj": "acdk\perl\Perl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_perl\bcc" "acdk\perl\Perl.cpp"
+
+"..\tobj\acdk_perl\bcc\PerlInterpreter.obj": "acdk\perl\PerlInterpreter.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_perl\bcc" "acdk\perl\PerlInterpreter.cpp"
+
+"..\tobj\acdk_perl\bcc\PerlObject.obj": "acdk\perl\PerlObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_perl\bcc" "acdk\perl\PerlObject.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_perl.dll"
+	del "..\tobj\acdk_perl\bcc\Perl.obj"
+	del "..\tobj\acdk_perl\bcc\PerlInterpreter.obj"
+	del "..\tobj\acdk_perl\bcc\PerlObject.obj"
+
+

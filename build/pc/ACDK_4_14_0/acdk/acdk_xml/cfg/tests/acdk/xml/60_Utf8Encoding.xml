@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <!-- describing the title -->
+  <title value="This is the Title"/>
+  <body>
+    Roger René Kommer;
+    Dörnbergstraße 11
+  </body>
+</book>

@@ -1,0 +1,16 @@
+
+
+// create a Com Object, like Microsoft Word
+word = new acdkx.com.ComObject("Word.Application");
+// use this object, like it is own
+word.Visible = 1;
+doc = word.Documents.add();
+sel = word.ActiveWindow.Selection;
+sel.TypeText("This is ");
+sel.Font.Bold =  1;
+sel.TypeText("ACDK");
+sel.Font.Bold = 0;
+sel.TypeText(" instrumenting Word through acdk_cfgscript");
+acdk.lang.Thread.sleep(3000);
+word.Quit(0);
+

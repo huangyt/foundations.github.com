@@ -1,0 +1,21 @@
+%id: acdk_cfgscript_hb
+%title: CfgScript Handbook
+%shorttitle: CfgScript Handbook
+%chapter: acdk_cfgscript_hb_intro, acdk_cfgscript_hb_start, acdk_cfgscript_interpreter, \
+          acdk_cfgscript_hb_lang, acdk_cfgscript_hb_lib, acdk_cfgscript_embedd, \
+          acdk_cfgscript_hb_ide, acdk_cfgscript_hb_debug, \
+          acdk_cfgscript_templates, \
+          acdk_cfgscript_samples, ifnid[cfgscript_hb_print: acdk_cfgscript_hb_wishlist]
+%keywords: CfgScript handbook
+%seealso: acdk::cfgscript=namespace_acdk__cfgscript
+%body:
+<pageintro>
+CfgScript is a object oriented scripting language similar to Java/JavaScript. 
+CfgScript is uses and is used by ACDK for scripting purposes.
+</pageintro>
+
+<htmlauto/>
+
+<subschapterstable/>
+
+.

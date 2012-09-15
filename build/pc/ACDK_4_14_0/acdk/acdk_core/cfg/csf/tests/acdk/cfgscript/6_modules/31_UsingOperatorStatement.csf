@@ -1,0 +1,13 @@
+
+out.println("'using' operator doesn't work yet");
+
+if (false)
+{
+StringBuffer sb = new StringBuffer("");
+{
+  using sb;
+  << "This is a stream Text ";
+  << 42 << " using streambuffer";
+}
+out.println(sb.toString());
+}

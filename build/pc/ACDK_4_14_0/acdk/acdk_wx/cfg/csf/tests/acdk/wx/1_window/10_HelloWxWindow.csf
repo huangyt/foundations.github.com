@@ -1,0 +1,111 @@
+
+// use classes and enumerations from the acdk.wx namespace
+// the package acdk_wx will be loaded automatically be the 
+// ClassLoader
+using acdk.wx;
+
+// IDs for the controls and the menu commands
+enum MyEvents
+{
+  // menu items
+  Event_Quit = 1,
+  Event_About,
+  // ListBox id
+  Event_ListBoxSelected
+}
+
+/**
+  an own dialog
+*/
+class AboutDialog
+extends Dialog
+{
+  Button _okButton;
+  StaticText _label;
+  AboutDialog(Window parent)
+  {
+    super(parent, -1, "About", Point.defaultPosition(), new Size(200, 200))
+    // a little bit complicated layout management
+    // using XML ressource for Dialog description is much easier
+    setAutoLayout(true);
+    LayoutConstraints layout = new LayoutConstraints();
+    layout.top().sameAs(this, Top, 10);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _label = new StaticText(this, -1, "Hello");
+    _label.setConstraints(layout);
+
+    layout = new LayoutConstraints();
+    layout.top().below(_label);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().asIs();
+    layout.height().asIs();
+    _okButton = new Button(this, CID_OK, "Close");
+    _okButton.setConstraints(layout);
+    ListBox list = new ListBox(this, Event_ListBoxSelected);
+    list.appendAndEnsureVisible("First");
+    list.appendAndEnsureVisible("Second");
+    list.appendAndEnsureVisible("Third");
+    layout = new LayoutConstraints();
+    layout.top().below(_okButton);
+    layout.centreX().sameAs(this, CentreX);
+    layout.width().sameAs(this, Width);
+    layout.width().asIs();
+    layout.bottom().sameAs(this, Bottom);
+    list.setConstraints(layout);
+    
+    // use keyword delegate to connect events with methods
+    connect(CommandEvent.EvtCommandListboxSelected, Event_ListBoxSelected, delegate onListBoxSelected);
+  }
+  void onListBoxSelected(Event event)
+  {
+    Window.messageBox("ListBox selected: " + event.getString());
+  }
+}
+
+
+class MyFrame
+extends Frame
+{
+  MyFrame() 
+  {
+    Menu menuFile = new Menu();
+    menuFile.append(Event_About, "&About...\tCtrl-A", "Show about dialog");
+    menuFile.appendSeparator();
+    menuFile.append(Event_Quit, "E&xit\tAlt-X", "Quit this program");
+    MenuBar menuBar = new MenuBar();
+    menuBar.append(menuFile, "&File");
+    setMenuBar(menuBar);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_Quit, delegate onQuit);
+    connect(CommandEvent.EvtCommandMenuSelected, Event_About, delegate onAbout);
+    
+    setTitle("Test");
+  }
+  void onQuit(Event event)
+  {
+    close(true);
+  }
+  void onAbout(CommandEvent event)
+  {
+    AboutDialog about = new AboutDialog(this);
+    about.setSizeConstraint(1, 1, 300, 400);
+    about.showModal();
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    MyFrame win = new MyFrame();
+    win.show(true);
+    return true;
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args); // run the application until MyFrame is closed
+

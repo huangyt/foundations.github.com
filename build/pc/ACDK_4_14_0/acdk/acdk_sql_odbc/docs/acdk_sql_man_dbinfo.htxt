@@ -1,0 +1,187 @@
+%id: acdk_sql_man_dbinfo
+%title: ACDK SQL Database information
+%shorttitle: Database information
+%keywords: SQL, ODBC, Types
+%body:
+<chapterline/>
+<pageintro>
+Receiving meta data from database objects.
+</pageintro>
+
+
+<htmlauto/>
+<jumptable/>
+
+
+<jump1>Query Metadata for ResultSet</jump1>
+<source>
+    // create a statement
+    RStatement statement = connection->createStatement();
+    RString sql = "SELECT intcol, realcol, stringcol FROM acdk_select_test"; 
+    RResultSet rset = statement->executeQuery(sql);
+    // retrieving meta information from the result set
+    RResultSetMetaData mdata = rset->getMetaData();
+    int colcount = mdata->getColumnCount(); 
+    for (int i = 1; i <= colcount; ++i)
+    {
+      // the meta data from each column
+      RString label = mdata->getColumnLabel(i); 
+      RString name = mdata->getColumnName(i);
+      RString schema = mdata->getSchemaName(i);
+      int type = mdata->getColumnType(i);
+      RString typname = mdata->getColumnTypeName(i);
+    }
+</source>
+
+<jump1>Receive available Database objects</jump1>
+
+<source>
+  RDatabaseMetaData dmd = connection->getMetaData();
+  RResultSet rset = dmd->getTables("", "", ""); // works for oracle, but not for  Microsoft SQL Server
+  System::out << "Tables:\n";
+  while (rset->next() == true) 
+  {
+    System::out << "\t";
+    RString catalog = rset->getString(1);
+    RString schema = rset->getString(2);
+    RString tableName = rset->getString(3);
+    RString tableType = rset->getString(4);
+    RString remarks = rset->getString(5);
+    if (catalog != Nil)
+      System::out << "; Catalog: " << catalog;
+    if (schema != Nil)
+      System::out << "; Schema: " << schema;
+    if (tableName != Nil)
+      System::out << "; TableName: " << tableName;
+    if (tableType != Nil)
+      System::out << "; tableType: " << tableType;
+    if (remarks != Nil)
+      System::out << "; remarks: " << tableType;
+    System::out << "\n";
+  }
+  System::out << "\n";
+  System::out->flush();
+</source>
+
+<jump1>Receive Database MetaData</jump1>
+<source>
+  
+  RDatabaseMetaData dmd = connection->getMetaData();
+  // 
+  RString dbname = dmd->getDatabaseProductName();
+  RString dbversion = dmd->getDatabaseProductVersion();
+  
+  // print out the available information of the database
+  System::out 
+    << "Database: " << dbname << "; Version: " << dbversion << "\n"
+    << "User: " << dmd->getUserName() << "\n"
+    << "IsReadOnly: " << dmd->isReadOnly() << "\n"
+    << "nullsAreSortedHigh: " << dmd->nullsAreSortedHigh() << "\n"
+    << "nullsAreSortedLow: " << dmd->nullsAreSortedHigh() << "\n"
+    << "nullsAreSortedAtStart: " << dmd->nullsAreSortedHigh() << "\n"
+    << "nullsAreSortedAtEnd: " << dmd->nullsAreSortedHigh() << "\n"
+    << "getDriverName: " << dmd->getDriverName() << "\n"
+    << "getDriverVersion: " << dmd->getDriverVersion() << "\n"
+    << "usesLocalFiles: " << dmd->usesLocalFiles() << "\n"
+    << "usesLocalFilePerTable: " << dmd->usesLocalFilePerTable() << "\n"
+    << "supportsMixedCaseIdentifiers: " << dmd->supportsMixedCaseIdentifiers() << "\n"
+    << "storesUpperCaseIdentifiers: " << dmd->storesUpperCaseIdentifiers() << "\n"
+    << "storesLowerCaseIdentifiers: " << dmd->storesLowerCaseIdentifiers() << "\n"
+    << "storesMixedCaseIdentifiers: " << dmd->storesMixedCaseIdentifiers() << "\n"
+    << "supportsMixedCaseQuotedIdentifiers: " << dmd->supportsMixedCaseQuotedIdentifiers() << "\n"
+    << "storesUpperCaseQuotedIdentifiers: " << dmd->storesUpperCaseQuotedIdentifiers() << "\n"
+    << "storesLowerCaseQuotedIdentifiers: " << dmd->storesLowerCaseQuotedIdentifiers() << "\n"
+    << "storesMixedCaseQuotedIdentifiers: " << dmd->storesMixedCaseQuotedIdentifiers() << "\n"
+    << "getSQLKeywords: " << dmd->getSQLKeywords() << "\n"
+    << "getNumericFunctions: " << dmd->getNumericFunctions() << "\n"
+    << "getStringFunctions: " << dmd->getStringFunctions() << "\n"
+    << "getSystemFunctions: " << dmd->getSystemFunctions() << "\n"
+    << "getDateTimeFunctions: " << dmd->getDateTimeFunctions() << "\n"
+    << "getSearchStringEscape: " << dmd->getSearchStringEscape() << "\n"
+    << "getExtraNameCharacters: " << dmd->getExtraNameCharacters() << "\n"
+    
+    << "supportsAlterTableWithAddColumn: " << dmd->supportsAlterTableWithAddColumn() << "\n"
+    << "supportsAlterTableWithDropColumn: " << dmd->supportsAlterTableWithDropColumn() << "\n"
+    << "supportsColumnAliasing: " << dmd->supportsColumnAliasing() << "\n"
+    << "nullPlusNonNullIsNull: " << dmd->nullPlusNonNullIsNull() << "\n"
+    << "supportsConvert: " << dmd->supportsConvert() << "\n"
+    << "supportsTableCorrelationNames: " << dmd->supportsTableCorrelationNames() << "\n"
+    << "supportsDifferentTableCorrelationNames: " << dmd->supportsDifferentTableCorrelationNames() << "\n"
+    << "supportsExpressionsInOrderBy: " << dmd->supportsExpressionsInOrderBy() << "\n"
+    << "supportsOrderByUnrelated: " << dmd->supportsOrderByUnrelated() << "\n"
+    << "supportsGroupBy: " << dmd->supportsGroupBy() << "\n"
+    << "supportsGroupByUnrelated: " << dmd->supportsGroupByUnrelated() << "\n"
+    << "supportsGroupByBeyondSelect: " << dmd->supportsGroupByBeyondSelect() << "\n"
+    << "supportsLikeEscapeClause: " << dmd->supportsLikeEscapeClause() << "\n"
+    << "supportsMultipleResultSets: " << dmd->supportsMultipleResultSets() << "\n"
+    << "supportsMultipleTransactions: " << dmd->supportsMultipleTransactions() << "\n"
+    << "supportsNonNullableColumns: " << dmd->supportsNonNullableColumns() << "\n"
+    << "supportsMinimumSQLGrammar: " << dmd->supportsMinimumSQLGrammar() << "\n"
+    << "supportsCoreSQLGrammar: " << dmd->supportsCoreSQLGrammar() << "\n"
+    << "supportsExtendedSQLGrammar: " << dmd->supportsExtendedSQLGrammar() << "\n"
+    << "supportsANSI92EntryLevelSQL: " << dmd->supportsANSI92EntryLevelSQL() << "\n"
+    << "supportsANSI92IntermediateSQL: " << dmd->supportsANSI92IntermediateSQL() << "\n"
+    << "supportsANSI92FullSQL: " << dmd->supportsANSI92FullSQL() << "\n"
+    << "supportsIntegrityEnhancementFacility: " << dmd->supportsIntegrityEnhancementFacility() << "\n"
+    << "supportsFullOuterJoins: " << dmd->supportsFullOuterJoins() << "\n"
+    << "supportsLimitedOuterJoins: " << dmd->supportsLimitedOuterJoins() << "\n"
+    << "getSchemaTerm: " << dmd->getSchemaTerm() << "\n"
+    << "getProcedureTerm: " << dmd->getProcedureTerm() << "\n"
+    << "getCatalogTerm: " << dmd->getCatalogTerm() << "\n"
+    << "isCatalogAtStart: " << dmd->isCatalogAtStart() << "\n"
+    << "getCatalogSeparator: " << dmd->getCatalogSeparator() << "\n"
+    << "getCatalogSeparator: " << dmd->getCatalogSeparator() << "\n"
+    << "supportsSchemasInProcedureCalls: " << dmd->supportsSchemasInProcedureCalls() << "\n"
+    << "supportsSchemasInTableDefinitions: " << dmd->supportsSchemasInTableDefinitions() << "\n"
+    << "supportsSchemasInIndexDefinitions: " << dmd->supportsSchemasInIndexDefinitions() << "\n"
+    << "supportsSchemasInPrivilegeDefinitions: " << dmd->supportsSchemasInPrivilegeDefinitions() << "\n"
+    << "supportsCatalogsInDataManipulation: " << dmd->supportsCatalogsInDataManipulation() << "\n"
+    << "supportsCatalogsInProcedureCalls: " << dmd->supportsCatalogsInProcedureCalls() << "\n"
+    << "supportsCatalogsInTableDefinitions: " << dmd->supportsCatalogsInTableDefinitions() << "\n"
+    << "supportsCatalogsInIndexDefinitions: " << dmd->supportsCatalogsInIndexDefinitions() << "\n"
+    // not supported << "supportsCatalogInPrivilegeDefinitions: " << dmd->supportsCatalogInPrivilegeDefinitions() << "\n"
+    << "supportsPositionedDelete: " << dmd->supportsPositionedDelete() << "\n"
+    << "supportsPositionedUpdate: " << dmd->supportsPositionedUpdate() << "\n"
+    << "supportsSelectForUpdate: " << dmd->supportsSelectForUpdate() << "\n"
+    << "supportsStoredProcedures: " << dmd->supportsStoredProcedures() << "\n"
+    << "supportsSubqueriesInComparisons: " << dmd->supportsSubqueriesInComparisons() << "\n"
+    << "supportsSubqueriesInExists: " << dmd->supportsSubqueriesInExists() << "\n"
+    << "supportsSubqueriesInIns: " << dmd->supportsSubqueriesInIns() << "\n"
+    << "supportsSubqueriesInQuantifieds: " << dmd->supportsSubqueriesInQuantifieds() << "\n"
+    << "supportsCorrelatedSubqueries: " << dmd->supportsCorrelatedSubqueries() << "\n"
+    << "supportsUnion: " << dmd->supportsUnion() << "\n"
+    << "supportsUnionAll: " << dmd->supportsUnionAll() << "\n"
+    << "supportsOpenCursorsAcrossCommit: " << dmd->supportsOpenCursorsAcrossCommit() << "\n"
+    << "supportsOpenCursorsAcrossRollback: " << dmd->supportsOpenCursorsAcrossRollback() << "\n"
+    << "supportsOpenStatementsAcrossCommit: " << dmd->supportsOpenStatementsAcrossCommit() << "\n"
+    << "supportsOpenStatementsAcrossRollback: " << dmd->supportsOpenStatementsAcrossRollback() << "\n"
+    << "getMaxBinaryLiteralLength: " << dmd->getMaxBinaryLiteralLength() << "\n"
+    << "getMaxCharLiteralLength: " << dmd->getMaxCharLiteralLength() << "\n"
+    << "getMaxColumnNameLength: " << dmd->getMaxColumnNameLength() << "\n"
+    << "getMaxColumnsInGroupBy: " << dmd->getMaxColumnsInGroupBy() << "\n"
+    << "getMaxColumnsInIndex: " << dmd->getMaxColumnsInIndex() << "\n"
+    << "getMaxColumnsInOrderBy: " << dmd->getMaxColumnsInOrderBy() << "\n"
+    << "getMaxColumnsInSelect: " << dmd->getMaxColumnsInSelect() << "\n"
+    << "getMaxColumnsInTable: " << dmd->getMaxColumnsInTable() << "\n"
+    << "getMaxConnections: " << dmd->getMaxConnections() << "\n"
+    << "getMaxCursorNameLength: " << dmd->getMaxCursorNameLength() << "\n"
+    << "getMaxIndexLength: " << dmd->getMaxIndexLength() << "\n"
+    << "getMaxSchemaNameLength: " << dmd->getMaxSchemaNameLength() << "\n"
+    << "getMaxProcedureNameLength: " << dmd->getMaxProcedureNameLength() << "\n"
+    << "getMaxCatalogNameLength: " << dmd->getMaxCatalogNameLength() << "\n"
+    << "getMaxRowSize: " << dmd->getMaxRowSize() << "\n"
+    << "doesMaxRowSizeIncludeBlobs: " << dmd->doesMaxRowSizeIncludeBlobs() << "\n"
+    << "getMaxStatementLength: " << dmd->getMaxStatementLength() << "\n"
+    << "getMaxStatements: " << dmd->getMaxStatements() << "\n"
+    << "getMaxTableNameLength: " << dmd->getMaxTableNameLength() << "\n"
+    << "getMaxTablesInSelect: " << dmd->getMaxTablesInSelect() << "\n"
+    << "getDefaultTransactionIsolation: " << dmd->getDefaultTransactionIsolation() << "\n"
+    << "supportsTransactions: " << dmd->supportsTransactions() << "\n"
+    << "supportsDataDefinitionAndDataManipulationTransactions: " << dmd->supportsDataDefinitionAndDataManipulationTransactions() << "\n"
+    << "supportsDataManipulationTransactionsOnly: " << dmd->supportsDataManipulationTransactionsOnly() << "\n"
+    << "dataDefinitionCausesTransactionCommit: " << dmd->dataDefinitionCausesTransactionCommit() << "\n"
+    << "dataDefinitionIgnoredInTransactions: " << dmd->dataDefinitionIgnoredInTransactions() << "\n"
+  ;
+
+</source>
+.

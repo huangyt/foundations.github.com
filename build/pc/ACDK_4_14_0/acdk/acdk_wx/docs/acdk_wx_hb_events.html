@@ -1,0 +1,159 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>acdk_wx Events</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK WX</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_wx_hb.html">acdk_wx Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Events
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_installation.html">Compile acdk_wx</a> | <a  href="acdk_wx_hb_mapping.html">Mapping</a> | <a  href="acdk_wx_hb_overview_classes.html">Class Overview</a> | <a  href="acdk_wx_hb_minimal.html">Minimal Sample</a> | <a  href="acdk_wx_sample.html">An ACDK WX Sample</a> | Events | <a  href="acdk_wx_hb_apps.html">Applications</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_wx Events</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_wx Events</h1> -->
+<p class="PageIntro">
+How to react on Events.
+</p>
+<br>
+<br>
+Using events in CfgScript:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+using acdk.wx;
+
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyFrame
+extends Frame
+{
+  MyFrame() 
+  {
+    super(<B><FONT COLOR="#BC8F8F">&quot;Event Sample&quot;</FONT></B>);
+    connect(SizeEvent.EvtSize, -1, delegate onSize); <I><FONT COLOR="#B22222">// using delegate to connect member method onSize
+</FONT></I>    connect(MoveEvent.EvtMove, -1, lambda[<B><FONT COLOR="#A020F0">this</FONT></B>] { out.println(<B><FONT COLOR="#BC8F8F">&quot;on Move&quot;</FONT></B>); }); <I><FONT COLOR="#B22222">// using lambda expression
+</FONT></I>    connect(CloseEvent.EvtCloseWindow, -1, 
+      lambda[<B><FONT COLOR="#A020F0">this</FONT></B>] <I><FONT COLOR="#B22222">// the new anonomous function is member of MyFrame
+</FONT></I>        <B><FONT COLOR="#228B22">void</FONT></B> (CloseEvent event) 
+        { 
+          out.println(<B><FONT COLOR="#BC8F8F">&quot;on Close&quot;</FONT></B>); 
+          close(); <I><FONT COLOR="#B22222">// call this.close()
+</FONT></I>        }
+    );
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onSize(SizeEvent event)
+  {
+    out.println(<B><FONT COLOR="#BC8F8F">&quot;onSize&quot;</FONT></B>);
+  }
+}
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  <B><FONT COLOR="#228B22">bool</FONT></B> onInit()
+  {
+    (<B><FONT COLOR="#A020F0">new</FONT></B> MyFrame()).show(true);
+    <B><FONT COLOR="#A020F0">return</FONT></B> true; 
+  }
+}
+
+StringArray args = <B><FONT COLOR="#A020F0">new</FONT></B> StringArray(0);
+acdk.wx.App.createGui(<B><FONT COLOR="#BC8F8F">&quot;MyApp&quot;</FONT></B>, args);
+</PRE></td></tr></table>
+<br>
+Using Events in ACDK C++:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<B><FONT COLOR="#0000FF">ACDK_DECL_CLASS</FONT></B>(MyFrame);
+<B><FONT COLOR="#228B22">class</FONT></B> MyFrame
+: <B><FONT COLOR="#228B22">public</FONT></B> Frame
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  MyFrame(IN(RString) str) 
+  : Frame(str) 
+  {
+    connect(MoveEvent.EvtMove, -1, (ObjectEventFunction)&amp;MyFrame::onMove);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> onMove(IN(RMoveEvent) event)
+  {
+    RPoint pt = event-&gt;getPosition();
+    <B><FONT COLOR="#5F9EA0">acdk</FONT></B>::lang::System::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;OnMove&quot;</FONT></B>);
+  }
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> Main 
+: extends App
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">bool</FONT></B> onInit()
+  {
+    (<B><FONT COLOR="#A020F0">new</FONT></B> MyFrame(<B><FONT COLOR="#BC8F8F">&quot;Hello Wx&quot;</FONT></B>))-&gt;show(true);
+    <B><FONT COLOR="#A020F0">return</FONT></B> true;
+  }
+};
+
+<B><FONT COLOR="#228B22">int</FONT></B>
+<B><FONT COLOR="#0000FF">main</FONT></B>(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>* argv[], <B><FONT COLOR="#228B22">char</FONT></B>** envptr)
+{
+  RStringArray args = <B><FONT COLOR="#A020F0">new</FONT></B> StringArray(0);
+  <B><FONT COLOR="#A020F0">return</FONT></B> App::createGui(<B><FONT COLOR="#A020F0">new</FONT></B> MyApp(), args);
+} 
+</PRE></td></tr></table>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+The event object instance given in a event handler method lifes only
+inside the event handler method. 
+<br>
+</td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_wx_hb_installation.html">Compile acdk_wx</a> | <a  href="acdk_wx_hb_mapping.html">Mapping</a> | <a  href="acdk_wx_hb_overview_classes.html">Class Overview</a> | <a  href="acdk_wx_hb_minimal.html">Minimal Sample</a> | <a  href="acdk_wx_sample.html">An ACDK WX Sample</a> | Events | <a  href="acdk_wx_hb_apps.html">Applications</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

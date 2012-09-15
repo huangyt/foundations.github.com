@@ -1,0 +1,93 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdk_vfile
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdk_vfile_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_vfile_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_vfile_tar_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_vfile_tar_Test failed; exit 1; 
+	$(ACDKHOME)\bin\acdk_vfile_zip_Test_d
+	if ERRORLEVEL 1 n echo Test acdk_vfile_zip_Test failed; exit 1; 
+
+
+
+acdk_vfile-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile.lsp -pdir src bcc
+
+acdk_vfile_file2rc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_file2rc.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_file2rc.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_file2rc.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_file2rc.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_file2rc.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_file2rc.lsp -pdir src bcc
+
+acdk_vfile_convert-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_convert.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_convert.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_convert.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_convert.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_convert.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdk_vfile_convert.lsp -pdir src bcc
+
+acdk_vfile_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile\acdk_vfile_Test.lsp -pdir tests/acdk/vfile dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile\acdk_vfile_Test.lsp -pdir tests/acdk/vfile linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile\acdk_vfile_Test.lsp -pdir tests/acdk/vfile sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile\acdk_vfile_Test.lsp -pdir tests/acdk/vfile bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile\acdk_vfile_Test.lsp -pdir tests/acdk/vfile mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile\acdk_vfile_Test.lsp -pdir tests/acdk/vfile bcc
+
+acdk_vfile_tar_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/tar\acdk_vfile_tar_Test.lsp -pdir tests/acdk/vfile/tar dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/tar\acdk_vfile_tar_Test.lsp -pdir tests/acdk/vfile/tar linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/tar\acdk_vfile_tar_Test.lsp -pdir tests/acdk/vfile/tar sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/tar\acdk_vfile_tar_Test.lsp -pdir tests/acdk/vfile/tar bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/tar\acdk_vfile_tar_Test.lsp -pdir tests/acdk/vfile/tar mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/tar\acdk_vfile_tar_Test.lsp -pdir tests/acdk/vfile/tar bcc
+
+acdk_vfile_zip_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/zip\acdk_vfile_zip_Test.lsp -pdir tests/acdk/vfile/zip dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/zip\acdk_vfile_zip_Test.lsp -pdir tests/acdk/vfile/zip linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/zip\acdk_vfile_zip_Test.lsp -pdir tests/acdk/vfile/zip sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/zip\acdk_vfile_zip_Test.lsp -pdir tests/acdk/vfile/zip bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/zip\acdk_vfile_zip_Test.lsp -pdir tests/acdk/vfile/zip mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdk/vfile/zip\acdk_vfile_zip_Test.lsp -pdir tests/acdk/vfile/zip bcc
+
+
+makemake:: acdk_vfile-makemake acdk_vfile_file2rc-makemake acdk_vfile_convert-makemake acdk_vfile_Test-makemake acdk_vfile_tar_Test-makemake acdk_vfile_zip_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdk_vfile.lsp
+
+

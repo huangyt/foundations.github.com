@@ -1,0 +1,200 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CFLAGSX= $(WX_CFLAGS)
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../include 
+DEFINES= -DOS_WIN32 -DIN_ACDK_WX_LIB
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" $(ACDK_WX_WXLIBS_DEBUG)
+
+OUTFILE="..\..\bin\acdk_wx.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_wx"
+SOURCES= 	"acdk\wx\App.cpp" \
+	"acdk\wx\Event.cpp" \
+	"acdk\wx\Frame.cpp" \
+	"acdk\wx\Notebook.cpp" \
+	"acdk\wx\TreeCtrl.cpp" \
+	"acdk\wx\Window.cpp" \
+	"acdk\wx\WxObject.cpp" \
+	"acdk\wx\wx_metainf_base.cpp" \
+
+HEADER= 	"acdk\wx\App.h" \
+	"acdk\wx\ArtProvider.h" \
+	"acdk\wx\Bitmap.h" \
+	"acdk\wx\BitmapButton.h" \
+	"acdk\wx\BitmapDataObject.h" \
+	"acdk\wx\BoxSizer.h" \
+	"acdk\wx\Button.h" \
+	"acdk\wx\Caret.h" \
+	"acdk\wx\CheckBox.h" \
+	"acdk\wx\Choice.h" \
+	"acdk\wx\ClientData.h" \
+	"acdk\wx\ClientDC.h" \
+	"acdk\wx\Clipboard.h" \
+	"acdk\wx\Colour.h" \
+	"acdk\wx\ColourData.h" \
+	"acdk\wx\ColourDialog.h" \
+	"acdk\wx\ComboBox.h" \
+	"acdk\wx\Config.h" \
+	"acdk\wx\Control.h" \
+	"acdk\wx\ControlWithItems.h" \
+	"acdk\wx\Cursor.h" \
+	"acdk\wx\DataFormat.h" \
+	"acdk\wx\DataObject.h" \
+	"acdk\wx\DataObjectComposite.h" \
+	"acdk\wx\DataObjectSimple.h" \
+	"acdk\wx\DC.h" \
+	"acdk\wx\Dialog.h" \
+	"acdk\wx\DirDialog.h" \
+	"acdk\wx\DropSource.h" \
+	"acdk\wx\DropTarget.h" \
+	"acdk\wx\Event.h" \
+	"acdk\wx\FileDataObject.h" \
+	"acdk\wx\FileDialog.h" \
+	"acdk\wx\FileDropTarget.h" \
+	"acdk\wx\Font.h" \
+	"acdk\wx\FontData.h" \
+	"acdk\wx\FontDialog.h" \
+	"acdk\wx\Frame.h" \
+	"acdk\wx\Gauge.h" \
+	"acdk\wx\GDIImage.h" \
+	"acdk\wx\GDIObject.h" \
+	"acdk\wx\HtmlWindow.h" \
+	"acdk\wx\Icon.h" \
+	"acdk\wx\LayoutConstraints.h" \
+	"acdk\wx\ListBox.h" \
+	"acdk\wx\MDIChildFrame.h" \
+	"acdk\wx\MDIClientWindow.h" \
+	"acdk\wx\MDIParentFrame.h" \
+	"acdk\wx\MemoryDC.h" \
+	"acdk\wx\Menu.h" \
+	"acdk\wx\MenuBar.h" \
+	"acdk\wx\MenuItem.h" \
+	"acdk\wx\Notebook.h" \
+	"acdk\wx\PaintDC.h" \
+	"acdk\wx\Panel.h" \
+	"acdk\wx\Pen.h" \
+	"acdk\wx\PostScriptDC.h" \
+	"acdk\wx\ProgressDialog.h" \
+	"acdk\wx\RadioBox.h" \
+	"acdk\wx\RadioButton.h" \
+	"acdk\wx\Region.h" \
+	"acdk\wx\ScreenDC.h" \
+	"acdk\wx\ScrolledWindow.h" \
+	"acdk\wx\SingleChoiceDialog.h" \
+	"acdk\wx\Sizer.h" \
+	"acdk\wx\Slider.h" \
+	"acdk\wx\SpinButton.h" \
+	"acdk\wx\SpinCtrl.h" \
+	"acdk\wx\SplitterWindow.h" \
+	"acdk\wx\StaticBitmap.h" \
+	"acdk\wx\StaticBox.h" \
+	"acdk\wx\StaticText.h" \
+	"acdk\wx\StatusBar.h" \
+	"acdk\wx\Structs.h" \
+	"acdk\wx\TextCtrl.h" \
+	"acdk\wx\TextCtrlCharWriter.h" \
+	"acdk\wx\TextDataObject.h" \
+	"acdk\wx\TextDropTarget.h" \
+	"acdk\wx\TextEntryDialog.h" \
+	"acdk\wx\Timer.h" \
+	"acdk\wx\ToggleButton.h" \
+	"acdk\wx\ToolBar.h" \
+	"acdk\wx\ToolTip.h" \
+	"acdk\wx\TreeCtrl.h" \
+	"acdk\wx\Validator.h" \
+	"acdk\wx\Window.h" \
+	"acdk\wx\WindowDC.h" \
+	"acdk\wx\WindowStyle.h" \
+	"acdk\wx\Wizard.h" \
+	"acdk\wx\WizardPage.h" \
+	"acdk\wx\wx.h" \
+	"acdk\wx\WxObject.h" \
+	"acdk\wx\XmlResource.h" \
+
+OBJECTS= 	"..\tobj\acdk_wx\App.obj" \
+	"..\tobj\acdk_wx\Event.obj" \
+	"..\tobj\acdk_wx\Frame.obj" \
+	"..\tobj\acdk_wx\Notebook.obj" \
+	"..\tobj\acdk_wx\TreeCtrl.obj" \
+	"..\tobj\acdk_wx\Window.obj" \
+	"..\tobj\acdk_wx\WxObject.obj" \
+	"..\tobj\acdk_wx\wx_metainf_base.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_wx\App.obj": "acdk\wx\App.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\App.cpp"
+
+"..\tobj\acdk_wx\Event.obj": "acdk\wx\Event.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\Event.cpp"
+
+"..\tobj\acdk_wx\Frame.obj": "acdk\wx\Frame.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\Frame.cpp"
+
+"..\tobj\acdk_wx\Notebook.obj": "acdk\wx\Notebook.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\Notebook.cpp"
+
+"..\tobj\acdk_wx\TreeCtrl.obj": "acdk\wx\TreeCtrl.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\TreeCtrl.cpp"
+
+"..\tobj\acdk_wx\Window.obj": "acdk\wx\Window.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\Window.cpp"
+
+"..\tobj\acdk_wx\WxObject.obj": "acdk\wx\WxObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\WxObject.cpp"
+
+"..\tobj\acdk_wx\wx_metainf_base.obj": "acdk\wx\wx_metainf_base.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n"..\tobj\acdk_wx" "acdk\wx\wx_metainf_base.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_wx.dll"
+	del "..\tobj\acdk_wx\App.obj"
+	del "..\tobj\acdk_wx\Event.obj"
+	del "..\tobj\acdk_wx\Frame.obj"
+	del "..\tobj\acdk_wx\Notebook.obj"
+	del "..\tobj\acdk_wx\TreeCtrl.obj"
+	del "..\tobj\acdk_wx\Window.obj"
+	del "..\tobj\acdk_wx\WxObject.obj"
+	del "..\tobj\acdk_wx\wx_metainf_base.obj"
+
+

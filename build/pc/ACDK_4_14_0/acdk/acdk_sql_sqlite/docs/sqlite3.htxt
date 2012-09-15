@@ -1,0 +1,30 @@
+%id: sqlite3
+%title: SQLite3 util
+%shorttitle: sqlite3
+%body:
+<htmlauto/>
+<pageintro>
+SQLite3 is the orignal command line utility from the SQLite distribution.
+</pageintro>
+
+<jumptable/>
+<jump1>SQLite3 usage</jump1>
+SQLite3 is a command line utility to execute SQL command and modify, import, export a SQLite3 database.
+
+<jump2>Start sqlite3</jump2>
+Start the sqlite3 tool with:
+<c>sqlite3 dbfile.db</c>
+
+Now you can either enter an internal command (type <c>.help</c> to receive a list of internal
+commands) or enter a SQL statement.
+
+
+<jump1>Other (GUI) Tools</jump1>
+
+There are countless free and commercial graphical tools for most platforms supported by ACDK to manipulate SQLite3 databases.
+
+Please refer to %ref[http://www.sqlite.org/cvstrac/wiki?p=SqliteTools, http://www.sqlite.org/cvstrac/wiki?p=SqliteTools].
+
+
+
+.

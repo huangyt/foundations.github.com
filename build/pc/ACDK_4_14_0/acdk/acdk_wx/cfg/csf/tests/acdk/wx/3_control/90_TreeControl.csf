@@ -1,0 +1,68 @@
+
+using acdk.wx;
+
+
+enum MyIds
+{
+  TreeControlId = 1001
+}
+class MyFrame
+extends Frame
+{
+  TreeCtrl _treectrl;
+  MyFrame(String title) 
+  {
+    super(title);
+    _treectrl = new TreeCtrl(this, TreeControlId, new Point(0, 0), new Size(200, 200));
+    TreeItemId root = _treectrl->addRoot("Files");
+    _treectrl.setItemData(root, new TreeItemData(System::getAcdkHome()));
+    _treectrl.connect(TreeEvent.EvtCommandTreeItemExpanding, TreeControlId, delegate onTreeItemClick); 
+    TreeItemId node1 = _treectrl.appendItem(root, "<not expanded>");
+  }
+  void onTreeItemClick(TreeEvent event)
+  {
+    TreeItemId item = event.getItem();
+    int cookie = 0;
+    if (_treectrl.itemHasChildren(item) == false)
+      return;
+    TreeItemId firstChild = _treectrl.getFirstChild(item, cookie);
+    out.println(_treectrl.getItemText(firstChild));
+    if (_treectrl.getItemText(firstChild).equals("<not expanded>") == false)
+      return;
+      
+    _treectrl.deleteItem(firstChild);
+    
+    String dirs = _treectrl.getItemData(item).getData();
+    
+    acdk.io.File dir = new File(dirs);
+    //out.println("dirs: " + dirs);
+    StringArray subs = dir.list(Nil, acdk.io.FileListDirectories);
+    foreach (String sd in subs)
+    {
+      //out.println("sd: " + sd);
+      TreeItemId tid = _treectrl.appendItem(item, sd);
+      _treectrl.setItemData(tid, new TreeItemData(dir.getCanonicalPath() + "/" + sd));
+      _treectrl.appendItem(tid, "<not expanded>");
+    }
+    subs = dir.list(Nil, acdk.io.FileListFiles);
+    foreach (String sd in subs)
+    {
+      TreeItemId tid = _treectrl.appendItem(item, sd);
+      _treectrl.setItemData(tid, new TreeItemData(dir.getCanonicalPath() + "/" + sd));
+    }
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    (new MyFrame("Hallo")).show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

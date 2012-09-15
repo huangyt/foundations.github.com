@@ -1,0 +1,220 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acdk_text/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fPIC $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT -DIN_ACDK_TEXT_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-G -Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/text/acdk_text_Package.cpp \
+	acdk/text/Base64.cpp \
+	acdk/text/DateFormat.cpp \
+	acdk/text/DateFormatSymbols.cpp \
+	acdk/text/DecimalFormat.cpp \
+	acdk/text/DecimalFormatSymbols.cpp \
+	acdk/text/FieldPosition.cpp \
+	acdk/text/Format.cpp \
+	acdk/text/NumberFormat.cpp \
+	acdk/text/ParsePosition.cpp \
+	acdk/text/RegExp.cpp \
+	acdk/text/SimpleDateFormat.cpp \
+	acdk/text/Template.cpp \
+	acdk/text/text_metainf_base.cpp \
+	acdk/text/regexp/pcre/maketables.c \
+	acdk/text/regexp/pcre/pcre.c \
+	acdk/text/regexp/pcre/pcreposix.c \
+
+HEADER= 	acdk/text/AbstractFormatedOutput.h \
+	acdk/text/Base64.h \
+	acdk/text/Config.h \
+	acdk/text/DateFormat.h \
+	acdk/text/DateFormatSymbols.h \
+	acdk/text/DecimalFormat.h \
+	acdk/text/DecimalFormatSymbols.h \
+	acdk/text/FieldPosition.h \
+	acdk/text/Format.h \
+	acdk/text/FormatedOutput.h \
+	acdk/text/HTMLFormatedOutput.h \
+	acdk/text/NumberFormat.h \
+	acdk/text/ParseException.h \
+	acdk/text/ParsePosition.h \
+	acdk/text/RegExp.h \
+	acdk/text/SimpleDateFormat.h \
+	acdk/text/Template.h \
+	acdk/text/text.h \
+	acdk/text/TextFormatedOutput.h \
+	acdk/text/text_all.h \
+
+OBJECTS= 	../tobj/acdk_text/sunos-gcc/acdk_text_Package.o \
+	../tobj/acdk_text/sunos-gcc/Base64.o \
+	../tobj/acdk_text/sunos-gcc/DateFormat.o \
+	../tobj/acdk_text/sunos-gcc/DateFormatSymbols.o \
+	../tobj/acdk_text/sunos-gcc/DecimalFormat.o \
+	../tobj/acdk_text/sunos-gcc/DecimalFormatSymbols.o \
+	../tobj/acdk_text/sunos-gcc/FieldPosition.o \
+	../tobj/acdk_text/sunos-gcc/Format.o \
+	../tobj/acdk_text/sunos-gcc/NumberFormat.o \
+	../tobj/acdk_text/sunos-gcc/ParsePosition.o \
+	../tobj/acdk_text/sunos-gcc/RegExp.o \
+	../tobj/acdk_text/sunos-gcc/SimpleDateFormat.o \
+	../tobj/acdk_text/sunos-gcc/Template.o \
+	../tobj/acdk_text/sunos-gcc/text_metainf_base.o \
+	../tobj/acdk_text/sunos-gcc/maketables.o \
+	../tobj/acdk_text/sunos-gcc/pcre.o \
+	../tobj/acdk_text/sunos-gcc/pcreposix.o \
+
+
+FINALTARGET=../../bin/libacdk_text.so
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/libacdk_text.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_text.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_text.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_text/sunos-gcc/acdk_text_Package.o: acdk/text/acdk_text_Package.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/acdk_text_Package.o -c acdk/text/acdk_text_Package.cpp
+
+../tobj/acdk_text/sunos-gcc/Base64.o: acdk/text/Base64.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/Base64.o -c acdk/text/Base64.cpp
+
+../tobj/acdk_text/sunos-gcc/DateFormat.o: acdk/text/DateFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/DateFormat.o -c acdk/text/DateFormat.cpp
+
+../tobj/acdk_text/sunos-gcc/DateFormatSymbols.o: acdk/text/DateFormatSymbols.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/DateFormatSymbols.o -c acdk/text/DateFormatSymbols.cpp
+
+../tobj/acdk_text/sunos-gcc/DecimalFormat.o: acdk/text/DecimalFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/DecimalFormat.o -c acdk/text/DecimalFormat.cpp
+
+../tobj/acdk_text/sunos-gcc/DecimalFormatSymbols.o: acdk/text/DecimalFormatSymbols.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/DecimalFormatSymbols.o -c acdk/text/DecimalFormatSymbols.cpp
+
+../tobj/acdk_text/sunos-gcc/FieldPosition.o: acdk/text/FieldPosition.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/FieldPosition.o -c acdk/text/FieldPosition.cpp
+
+../tobj/acdk_text/sunos-gcc/Format.o: acdk/text/Format.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/Format.o -c acdk/text/Format.cpp
+
+../tobj/acdk_text/sunos-gcc/NumberFormat.o: acdk/text/NumberFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/NumberFormat.o -c acdk/text/NumberFormat.cpp
+
+../tobj/acdk_text/sunos-gcc/ParsePosition.o: acdk/text/ParsePosition.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/ParsePosition.o -c acdk/text/ParsePosition.cpp
+
+../tobj/acdk_text/sunos-gcc/RegExp.o: acdk/text/RegExp.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/RegExp.o -c acdk/text/RegExp.cpp
+
+../tobj/acdk_text/sunos-gcc/SimpleDateFormat.o: acdk/text/SimpleDateFormat.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/SimpleDateFormat.o -c acdk/text/SimpleDateFormat.cpp
+
+../tobj/acdk_text/sunos-gcc/Template.o: acdk/text/Template.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/Template.o -c acdk/text/Template.cpp
+
+../tobj/acdk_text/sunos-gcc/text_metainf_base.o: acdk/text/text_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/text_metainf_base.o -c acdk/text/text_metainf_base.cpp
+
+../tobj/acdk_text/sunos-gcc/maketables.o: acdk/text/regexp/pcre/maketables.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/maketables.o -c acdk/text/regexp/pcre/maketables.c
+
+../tobj/acdk_text/sunos-gcc/pcre.o: acdk/text/regexp/pcre/pcre.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/pcre.o -c acdk/text/regexp/pcre/pcre.c
+
+../tobj/acdk_text/sunos-gcc/pcreposix.o: acdk/text/regexp/pcre/pcreposix.c
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_text/sunos-gcc/pcreposix.o -c acdk/text/regexp/pcre/pcreposix.c
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_text.so $(OBJECTS)
+
+  

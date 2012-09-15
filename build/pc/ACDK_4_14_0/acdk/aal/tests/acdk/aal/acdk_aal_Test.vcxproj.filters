@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include=".">
+      <UniqueIdentifier>{7fdb9420-2a71-4434-89a4-85210b393619}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk_aal_AalObject_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_AritmExpr_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Arrays_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Basics_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_BinaryExpr_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Closure_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Compiler_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_DefunStatements_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_DeriveObject_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Exceptions_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_ExtendClass_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Functions_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Interpret_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_LiteralWrapping_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_LogicalExpr_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Operator_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_ParameterPassing_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_RelExpr_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Scanner_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Statements_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk_aal_WeakInvoke_Test.cpp">
+      <Filter>.</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

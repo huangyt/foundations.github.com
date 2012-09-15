@@ -1,0 +1,170 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>acdk_wx Installation</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK WX</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Compile acdk_wx<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../docs/acdk_general_compile_acdk.html">Compile ACDK</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK WX Readme</a> | Compile acdk_wx | <a  href="acdk_wx_hb.html">acdk_wx Handbook</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_wx Installation</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_wx Installation</h1> -->
+<p class="PageIntro">
+How to install acdk_wx.
+</p>
+<br>
+<br>
+<a name="jumptable66"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compile acdk libraries"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Compile acdk libraries</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Download wxWidgets library"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Download wxWidgets library</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Windows"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Windows</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Visual Studio"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Visual Studio</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#On Linux"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;On Linux</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Configure ACDK"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configure ACDK</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compile acdk_wx"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Compile acdk_wx</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Running executables using acdk_wx"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Running executables using acdk_wx</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compile acdk libraries">Compile acdk libraries</a></h2>
+At the first step you have to compile all depending
+ACDK libraries (like <code>acdk_core</code>).<br>
+Please refer to <a  href="../../docs/acdk_general_compile_acdk.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Compile ACDK</a>.<br>
+<br>
+<h2><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Download wxWidgets library">Download wxWidgets library</a></h2>
+<br>
+You need the wxWindow/wxWidgets library
+from <a  href="http://www.wxwidgets.org/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://www.wxwidgets.org</a>.<br>
+<br>
+Grap the version 2.5.3 or later and compile it.<br>
+<br>
+When compiling acdk_wx you have probably modify some include and
+library path in the project/make files.<br>
+<br>
+I used wxWindows version 2.4.1/2, 2.5.x and 2.6.<br>
+<br>
+Currently acdk_wx was tested on MS Windows and Linux using GTK.<br>
+<h3><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Windows">Windows</a></h3>
+<h4><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Visual Studio">Visual Studio</a></h4>
+<br>
+Download the standard MSC package and install it.<br>
+Be care, do not install it into a directory, which has a space.<br>
+<br>
+Compiling wxWidgets with Visual Studio use the project file:<br>
+\build\msw\wx_dll.dsw and compile all enclosing project with
+following targets:<br>
+"Win32 DLL Unicode Release"
+"Win32 DLL Unicode Debug"
+<br>
+Open the contrib\build\fl\fl.dsw
+and compile it with the same targets.<br>
+<br>
+contrib\build\stc\stc.dsw
+and compile it with the same targets.<br>
+<br>
+Now edit the acdkenv.cmd file and ajust the installation
+path (ACDK_WX_PATH) for wxWidgets. 
+<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+It seems that the dependencies in the wx_dll.dsw has circular reference.<br>
+Try to remove some dependencies from the adv project if you have problem
+to compile all targets.<br>
+</td></tr></table>
+<h3><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="On Linux">On Linux</a></h3>
+<br>
+in wxWidgets use:<br>
+<code>./configure --prefix=/artefaktur/wxwidgets --enable-debug_gdb  --enable-debug --enable-shared --enable-xrc --enable-html --enable-mdi --enable-unicode --disable-no_rtti --disable-no_exceptions</code>
+(you may have to ajust --prefix argument).<br>
+<br>
+Because ACDK uses exceptions you have to ./configure wxWidgets with the
+<code>--disable-no_rtti --disable-no_exceptions </code> otions
+<br>
+Next just <code>make</code> the wxWidgets library.<br>
+Then goto into the contrib directory and <code>make</code>.<br>
+<br>
+It is better not to install the wxWidget package into the standard directories (like <code>/usr</code>), 
+because it may conflict with
+your default wxWidgets installation.<br>
+<br>
+<br>
+<h2><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configure ACDK">Configure ACDK</a></h2>
+After compiling <m>acdk_wx</m> you probably have to ajust some
+configuration in ACDK:<br>
+<ul class="FeatureList">
+  <li class="Feature"> Unix: open <code>acdk_globals.[your platform]</code> in the ACDK root directory and 
+      ajust the <code>WX_LIBS</code> and WX_CFLAGS values to point
+      to the correct directories and library names.<br>
+      
+  <li class="Feature"> Windows: open the <code>acdkenv.cmd</code> ACDK root directory and ajust the 
+      <code>ACDK_WX_*</code> values.<br>
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <code>startvstudio6.cmd</code>).<br>
+      Alternately you can also add these environment variables into your global
+      environment. 
+</ul>
+<br>
+<h2><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compile acdk_wx">Compile acdk_wx</a></h2>
+If the environment variables are set correctly <m>acdk_wx</m> can be compiled.<br>
+<br>
+<h2><a href="#jumptable66"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Running executables using acdk_wx">Running executables using acdk_wx</a></h2>
+To run an executble using <m>acdk_wx</m> you may have set
+environment variables (<code>PATH</code> on Windows and <code>LD_LIBRARY_PATH</code>)
+to point to ACDK <code>bin</code> directory and the directory of the shared libraries
+of wxWidgets.<br>
+On windows you can use the <code>acdkenv.cmd</code> for this purpose.<br>
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <code>acdkenv.[platform]</code> before executing the application.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK WX Readme</a> | Compile acdk_wx | <a  href="acdk_wx_hb.html">acdk_wx Handbook</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

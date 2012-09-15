@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{266eb521-ce6a-46c2-97e1-8a3475e47f80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\make">
+      <UniqueIdentifier>{6cba561d-2966-41eb-b79d-0ec1c0287df5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\make\make_dmiproxy">
+      <UniqueIdentifier>{917f95db-f17a-4c0e-a55b-fddb9dce1ea2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\make\make_dmiproxy\make_dmiproxy.cpp">
+      <Filter>acdk\make\make_dmiproxy</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\make\make_dmiproxy\make_dmiproxy1.cpp">
+      <Filter>acdk\make\make_dmiproxy</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

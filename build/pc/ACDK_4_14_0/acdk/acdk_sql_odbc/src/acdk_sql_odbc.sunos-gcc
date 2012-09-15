@@ -1,0 +1,203 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acdk_sql_odbc/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fPIC $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT -DIN_ACDK_SQL_ODBC_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-G -Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_sql 
+CFLAGSX= $(ACDK_SQL_ODBC_CFLAGS)
+LDFLAGSX = 
+
+SOURCES= 	acdk/sql/odbc/ODBCCallableStatement.cpp \
+	acdk/sql/odbc/ODBCColumn.cpp \
+	acdk/sql/odbc/ODBCConnection.cpp \
+	acdk/sql/odbc/ODBCDatabaseMetaData.cpp \
+	acdk/sql/odbc/ODBCDriver.cpp \
+	acdk/sql/odbc/ODBCHandle.cpp \
+	acdk/sql/odbc/ODBCPreparedStatement.cpp \
+	acdk/sql/odbc/ODBCResultSet.cpp \
+	acdk/sql/odbc/ODBCResultSetMetaData.cpp \
+	acdk/sql/odbc/ODBCStatement.cpp \
+	acdk/sql/odbc/odbc_metainf_base.cpp \
+	acdk/sql/odbc/odbc_metainf/odbc_metainf_ext.cpp \
+	acdk/sql/odbc/odbc_metainf/odbc_metainf_ext1.cpp \
+	acdk/sql/odbc/odbc_metainf/odbc_metainf_ext2.cpp \
+	acdk/sql/odbc/odbc_metainf/odbc_metainf_ext3.cpp \
+
+HEADER= 	acdk/sql/odbc/Config.h \
+	acdk/sql/odbc/odbc.h \
+	acdk/sql/odbc/ODBCArray.h \
+	acdk/sql/odbc/ODBCCallableStatement.h \
+	acdk/sql/odbc/ODBCColumn.h \
+	acdk/sql/odbc/ODBCConnection.h \
+	acdk/sql/odbc/ODBCDatabaseMetaData.h \
+	acdk/sql/odbc/ODBCDriver.h \
+	acdk/sql/odbc/ODBCHandle.h \
+	acdk/sql/odbc/ODBCPreparedStatement.h \
+	acdk/sql/odbc/ODBCResultSet.h \
+	acdk/sql/odbc/ODBCResultSetMetaData.h \
+	acdk/sql/odbc/ODBCStatement.h \
+
+OBJECTS= 	../tobj/acdk_sql_odbc/sunos-gcc/ODBCCallableStatement.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCColumn.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCConnection.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCDatabaseMetaData.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCDriver.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCHandle.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCPreparedStatement.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCResultSet.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCResultSetMetaData.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/ODBCStatement.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_base.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext1.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext2.o \
+	../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext3.o \
+
+
+FINALTARGET=../../bin/libacdk_sql_odbc.so
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/libacdk_sql_odbc.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_sql_odbc.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_sql_odbc.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCCallableStatement.o: acdk/sql/odbc/ODBCCallableStatement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCCallableStatement.o -c acdk/sql/odbc/ODBCCallableStatement.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCColumn.o: acdk/sql/odbc/ODBCColumn.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCColumn.o -c acdk/sql/odbc/ODBCColumn.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCConnection.o: acdk/sql/odbc/ODBCConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCConnection.o -c acdk/sql/odbc/ODBCConnection.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCDatabaseMetaData.o: acdk/sql/odbc/ODBCDatabaseMetaData.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCDatabaseMetaData.o -c acdk/sql/odbc/ODBCDatabaseMetaData.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCDriver.o: acdk/sql/odbc/ODBCDriver.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCDriver.o -c acdk/sql/odbc/ODBCDriver.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCHandle.o: acdk/sql/odbc/ODBCHandle.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCHandle.o -c acdk/sql/odbc/ODBCHandle.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCPreparedStatement.o: acdk/sql/odbc/ODBCPreparedStatement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCPreparedStatement.o -c acdk/sql/odbc/ODBCPreparedStatement.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCResultSet.o: acdk/sql/odbc/ODBCResultSet.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCResultSet.o -c acdk/sql/odbc/ODBCResultSet.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCResultSetMetaData.o: acdk/sql/odbc/ODBCResultSetMetaData.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCResultSetMetaData.o -c acdk/sql/odbc/ODBCResultSetMetaData.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/ODBCStatement.o: acdk/sql/odbc/ODBCStatement.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/ODBCStatement.o -c acdk/sql/odbc/ODBCStatement.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_base.o: acdk/sql/odbc/odbc_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_base.o -c acdk/sql/odbc/odbc_metainf_base.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext.o: acdk/sql/odbc/odbc_metainf/odbc_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext.o -c acdk/sql/odbc/odbc_metainf/odbc_metainf_ext.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext1.o: acdk/sql/odbc/odbc_metainf/odbc_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext1.o -c acdk/sql/odbc/odbc_metainf/odbc_metainf_ext1.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext2.o: acdk/sql/odbc/odbc_metainf/odbc_metainf_ext2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext2.o -c acdk/sql/odbc/odbc_metainf/odbc_metainf_ext2.cpp
+
+../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext3.o: acdk/sql/odbc/odbc_metainf/odbc_metainf_ext3.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_sql_odbc/sunos-gcc/odbc_metainf_ext3.o -c acdk/sql/odbc/odbc_metainf/odbc_metainf_ext3.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_sql_odbc.so $(OBJECTS)
+
+  

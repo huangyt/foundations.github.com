@@ -1,0 +1,139 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDK_HOME)
+.if exists($(ACDKHOME)/acdk_globals.bsd)
+.include "$(ACDKHOME)/acdk_globals.bsd"
+.endif
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdkx_rdmi
+
+# where to store the .a, .so and executables
+
+BINDIR?=../../bin
+CCOMPILER?=g++ -Wall -Wno-unused
+CCOPTS?=$(XCCOPTS) -g -fpic $(CCOPTSX)
+CCINCLUDE?=$(XCCINCLUDE)  -I .  -I ../../include  -I ../../include  $(CCINCLUDEX)
+DEFINES?=$(XDEFINES)  -D_REENTRANT -DIN_ACDKX_RDMI_LIB $(DEFINESX)
+
+LINKSO?=g++ -shared 
+LINKEXE?=g++ 
+
+LINK?=g++ -shared
+SYSLDFLAGS?=-g -fpic
+
+CFLAGSX=
+LDFLAGSX = 
+
+
+# user ld flags
+LDFLAGS=$(XLDFLAGS)   $(LDFLAGSX)
+
+SYSLIBRARIES?=$($SYSLIBRARIES) -lc_r -lm $(SYSLIBRARIESX)
+
+ACDKMC?=$(ACDKHOME)/bin/acdkmc
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_net 
+
+
+SOURCES= 	acdkx/rdmi/BinaryProtocol.cpp \
+	acdkx/rdmi/LocalObjectRepository.cpp \
+	acdkx/rdmi/rdmi_metainf_base.cpp \
+	acdkx/rdmi/RemoteDmiProxy.cpp \
+	acdkx/rdmi/RemoteDmiServer.cpp \
+	acdkx/rdmi/TcpServer.cpp \
+
+HEADER= 	acdkx/rdmi/BinaryProtocol.h \
+	acdkx/rdmi/Config.h \
+	acdkx/rdmi/Connection.h \
+	acdkx/rdmi/LocalObjectRepository.h \
+	acdkx/rdmi/Protocol.h \
+	acdkx/rdmi/ProtocolImpl.h \
+	acdkx/rdmi/rdmi.h \
+	acdkx/rdmi/RemoteDmiProxy.h \
+	acdkx/rdmi/RemoteDmiServer.h \
+	acdkx/rdmi/ServerImpl.h \
+	acdkx/rdmi/TcpServer.h \
+
+OBJECTS= 	../tobj/acdkx_rdmi/BinaryProtocol.o \
+	../tobj/acdkx_rdmi/LocalObjectRepository.o \
+	../tobj/acdkx_rdmi/rdmi_metainf_base.o \
+	../tobj/acdkx_rdmi/RemoteDmiProxy.o \
+	../tobj/acdkx_rdmi/RemoteDmiServer.o \
+	../tobj/acdkx_rdmi/TcpServer.o \
+
+
+FINALTARGET=../../bin/libacdkx_rdmi.so
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/libacdkx_rdmi.so: $(OBJECTS)
+	cd ${.CURDIR}; $(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdkx_rdmi.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdkx_rdmi.bsd.deps
+
+depend: 
+	@cd ${.CURDIR}; \
+	echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+.if exists(./$(DEPSFILE))
+.include "./$(DEPSFILE)"
+.endif
+
+../tobj/acdkx_rdmi/BinaryProtocol.o: acdkx/rdmi/BinaryProtocol.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_rdmi/BinaryProtocol.o -c acdkx/rdmi/BinaryProtocol.cpp
+
+../tobj/acdkx_rdmi/LocalObjectRepository.o: acdkx/rdmi/LocalObjectRepository.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_rdmi/LocalObjectRepository.o -c acdkx/rdmi/LocalObjectRepository.cpp
+
+../tobj/acdkx_rdmi/rdmi_metainf_base.o: acdkx/rdmi/rdmi_metainf_base.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_rdmi/rdmi_metainf_base.o -c acdkx/rdmi/rdmi_metainf_base.cpp
+
+../tobj/acdkx_rdmi/RemoteDmiProxy.o: acdkx/rdmi/RemoteDmiProxy.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_rdmi/RemoteDmiProxy.o -c acdkx/rdmi/RemoteDmiProxy.cpp
+
+../tobj/acdkx_rdmi/RemoteDmiServer.o: acdkx/rdmi/RemoteDmiServer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_rdmi/RemoteDmiServer.o -c acdkx/rdmi/RemoteDmiServer.cpp
+
+../tobj/acdkx_rdmi/TcpServer.o: acdkx/rdmi/TcpServer.cpp
+	cd ${.CURDIR}; $(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdkx_rdmi/TcpServer.o -c acdkx/rdmi/TcpServer.cpp
+
+
+
+metainfo:
+	cd ${.CURDIR}; $(ACDKMC) acdkx/rdmi;\
+
+
+outputdirectories::
+	@cd ${.CURDIR}; \
+	if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdkx_rdmi.so $(OBJECTS)
+
+  

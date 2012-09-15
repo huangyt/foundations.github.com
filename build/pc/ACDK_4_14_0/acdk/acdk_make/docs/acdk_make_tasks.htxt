@@ -1,0 +1,192 @@
+%id: acdk_make_tasks
+%title: ACDK Make Tasks
+%shorttitle: Tasks
+%seealso: acdk::make::Task=class_acdk__make__Task
+%body:
+
+<htmlauto/>
+<pageintro>
+acdkmake provides build in Tasks for most common 
+used build functions.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Task Types</jump1>
+To tell amake to to a job a Task has to be created.
+For different jobs different Tasks can be created:
+
+<li> %ref[acdk_tutorial_types#Namespaces].
+
+<jump2>Base Task Types</jump2>
+
+<jump3>Task</jump3>
+%cref[acdk::make::Task] is the base interface
+for all acdkmake tasks.
+
+<jump3>AbstractTask</jump3>
+%cref[acdk::make::AbstractTask] is the abstract
+class implementation on which most builin amake
+Tasks are based on.
+
+<jump3>ProjectTask</jump3>
+%cref[acdk::make::ProjectTask] is a wrapper
+to other Tasks. Normally it simple executes
+its sub tasks.
+
+
+<jump2>File related classes</jump2>
+
+<jump3>DirExists</jump3>
+%cref[acdk::make::DirExistsTask] ensures that
+a directory exists.
+
+<jump3>FileCopyTask</jump3>
+%cref[acdk::make::FileCopyTask] copy/install
+    a collection of Files.
+ 
+<jump3>FileDeleteTask</jump3>
+%cref[acdk::make::FileDeleteTask] removes
+    a collection of Files.
+ 
+<jump3>FileDependTask</jump3>
+%cref[acdk::make::FileDependTask] checks if
+    source file(s) is/are newer than target file.
+
+<jump3>LookupFileTask</jump3>
+%cref[acdk::make::LookupFileTask] try to locate
+a given type of file.
+
+<jump2>C++ related classes</jump2>
+
+<jump3>CompileTask</jump3>
+<f> %cref[acdk::make::CompileTask] compiles an
+    C++ source.
+
+<jump3>CppSourceDependTask</jump3>
+<f> %cref[acdk::make::CppSourceDependTask] checks
+for include dependencies of a C++ source.
+If a source file includes a header and this
+header has a younger modification time as 
+the target object file, the source has to
+be recompiled.
+
+CppSourceDependTask does not use an external
+C preprocessor but uses an own build in parser.
+This internal parser does not regard defines, but
+evaluates all include files. This has the effect, 
+that also #included header are evaluated which 
+are deactivated by #define.
+
+In normal mode CppSourceDependTask follows all
+header, included by <c>#include "Header.h"</c>
+and <c>#include <Header.h></c> recursivelly.
+With the constructor arguments <c>checkRecursive</c>
+the recursive parsing (also parse the included 
+headers for includes can be switched off.
+With the constructor argument <c>onlyDirectIncludes</c>
+only includes with the form <c>#include "Header.h"</c>
+are parsed (which are normally project own header files), 
+whereas <c>#include <Header.h></c> are ignored.
+
+With the acdkmc comandline option <c>-dd</c> only
+direct includes will be parsed. The acdk command line
+<c>-dn</c> the CompileTask will not check for source
+dependencies.
+
+Different to external C++ parsers the CppSourceDependTask
+caches all parsed dependencies for a header file, so
+parsing all headers should consume much time.
+The CompileTask caches the pre-parsed dependency try
+over all sources of the project.
+
+
+<jump2>Generic Execution Task</jump2>
+
+
+<jump3>ScriptExecuteTask</jump3>
+%cref[acdk::make::ScriptExecuteTask] executes
+a given CfgScript file.
+
+<jump3>ShellExecuteTask</jump3>
+%cref[acdk::make::ShellExecuteTask] executes
+a given executable.
+
+
+<jump2>ACDK specific Tasks</jump2>
+The tasks starting with Acdk are specific tasks which
+collect the standard tasks to compile and install
+ACDK projects.
+
+<jump3>AcdkBinaryTask</jump3>
+%cref[acdk::make::AcdkBinaryTask] creates
+an ACDK binary. 
+This task is the base class for AcdkLibTask and AcdkExeTask.
+
+An AcdkBinary tasks asumes that the sources are
+organized following way:
+<pre>
+./acdk_prj           -> Project directory
+./acdk_prj/build.csf -> amake file.
+./acdk_prj/src/namespace1/namespace2/Source.cpp -> sources are in src sub directory
+./acdk_prj/tobj/*     -> object files will stored here
+./acdk_prj/cfg        -> Project configuration files
+./bin                 -> acdk binary directory
+./include             -> install target of sources (./include/namespac1/namespace2/Source.cpp)
+./cfg                 -> install target of cfg from ./acdk_prj/cfg
+</pre>
+
+An AcdkBinaryTasks devides from two sources:
+Ordinary sources (files and directories) and 
+Module directories.
+For modules the %ref[acdkmc_man] meta compiler
+will parse the header and generates metainf files.
+In the subdirectory metainf_modulename cpp files 
+will be generated containing extended metainfo.
+
+If for example AcdkBinaryTask is named my_package 
+AcdkBinaryTask defines the preprocessor value
+USE_MY_PACKAGE.
+
+<jump3>AcdkExeTask</jump3>
+
+%cref[acdk::make::AcdkExeTask] creates an 
+ACDK executable.
+
+<jump3>AcdkLibTask</jump3>
+%cref[acdk::make::AcdkLibTask] creates an 
+ACDK libarary (static or shared).
+
+<jump3>AcdkMetainfLibTask</jump3>
+%cref[acdk::make::AcdkMetainfLibTask] creates 
+a library containing the extended metainfo 
+created by %ref[acdkmc_man] for a given AcdkLibTask.
+
+
+<jump3>AcdkTestExeTask</jump3>
+%cref[acdk::make::AcdkTestExeTask] creates an ACDK test executable.
+Different to the AcdkBinaryTask the directory layout is:
+<pre>
+Source: 
+./acdk_prj/tests/namespace1/namespace2/namespace1_namespace2_Source_Test.cpp
+
+Installed Source: 
+./include/tests/namespace1/namespace2/namespace1_namespace2_Source_Test.cpp
+</pre>
+
+<jump3>AcdkProjectTask</jump3>
+%cref[acdk::make::AcdkProjectTask] is derived
+from ProjectTask. AcdkProjectTask installes
+the cfg files (from ./cfg) into $ACDKHOME/cfg.
+
+
+<jump2>Java specific Tasks</jump2>
+
+<jump3>JavaCompileTask</jump3>
+%cref[acdk::make::JavaCompileTask] compiles a
+java file.
+
+
+
+.

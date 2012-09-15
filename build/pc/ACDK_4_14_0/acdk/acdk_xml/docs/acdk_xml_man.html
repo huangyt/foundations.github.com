@@ -1,0 +1,242 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK XML</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK XML</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDK XML<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="man3/acdk_xml_XMLObjectReaderWriter_man.html">XMLObject[Reader|Writer]</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK XML Readme</a> | ACDK XML | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="expat_copying.html">COPYING of expat</a> | <a  href="libxml_copying.html">COPYING of libxml2</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK XML</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK XML</h1> -->
+<p class="PageIntro">
+ACDK XML is a XML parsing framework similar to the java.xml package.
+</p>
+<br>
+<br>
+<a name="jumptable59"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Features"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Features</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Interfaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Interfaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sample using libxml2"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sample using libxml2</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Reading a XML file"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Reading a XML file</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Building an XML File"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Building an XML File</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Sample parsing HTML"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sample parsing HTML</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+<h3><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Features">Features</a></h3>
+Feature list:<br>
+<ul class="FeatureList">
+<li class="Feature"> Non-Validating and validating XML SAX parser.<br>
+<li class="Feature"> Non-Validating validating XML DOM parser.<br>
+<li class="Feature"> Supports Ascii, ISO Latin 1 and UTF8 encoding.<br>
+<li class="Feature"> XPath suppport.<br>
+<li class="Feature"> Namespace support.<br>
+<li class="Feature"> Object serialization from/to XML (<a  href="man3/acdk_xml_XMLObjectReaderWriter_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;XMLObject[Reader|Writer]</a>).<br>
+</ul>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> All encodings supported by the ACDK framework acdk::locale.<br>
+</ul>
+<br>
+<h3><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Interfaces">Interfaces</a></h3>
+The acdk xml interfaces for SAX and DOM is a mixture of the official interface
+definition (<a  href="http://www.saxproject.org"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://www.saxproject.org</a> and 
+<a  href="http://www.w3.org/TR/DOM-Level-2-Core/core.html"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://www.w3.org/TR/DOM-Level-2-Core/core.html</a>)
+and the dom4j modell (<a  href="http://www.dom4j.org/"><img border="0" src="./../../docs\images/url_html.gif" alt="http">&nbsp;http://www.dom4j.org/</a>), which simplifies
+the official dom modell.<br>
+<br>
+The interfaces can be found the namespace <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__xml__sax"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::xml::sax</a>, <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__w3c__dom"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::w3c::dom</a> and are
+implementation independent.<br>
+<br>
+<br>
+<h3><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h3>
+<br>
+The acdk_xml modules has to alternative implementations:<br>
+<ul class="FeatureList">
+  <li class="Feature"> libxml2 is a c xml library from the gnome project
+  <ul class="FeatureList">
+    <li class="Feature"> Implementation in acdk::xml::libxmldom
+    <li class="Feature"> SAX 2 parser
+    <li class="Feature"> DOM 2
+    <li class="Feature"> external entities
+    <li class="Feature"> Validating agains a DTD
+    <li class="Feature"> Namespace
+    <li class="Feature"> XPath
+  </ul>
+  <li class="Feature"> expat is a c xml library
+  <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td> This implementation is deprecated. Please use the class in
+       acdk::xml::libxmldom
+  </td></tr></table>
+  <ul class="FeatureList">
+    <li class="Feature"> Implementation in acdk::xml::sax, acdk::xml::dom
+    <li class="Feature"> SAX parser
+    <li class="Feature"> DOM 2
+  </ul>
+</ul>
+<br>
+<b>To parse an XML file to a DOM Tree, use the libxml implemenation!</b>
+<br>
+<h2><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h2>
+<h3><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample using libxml2">Sample using libxml2</a></h3>
+<h4><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Reading a XML file">Reading a XML file</a></h4>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// link org_xml and acdk_xml to the application
+</FONT></I>#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;org/w3c/dom/NodeList.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/xml/libxmldom/LibXMLDocumentBuilder.h&gt;</FONT></B>
+using namespace ::org::w3c::dom;
+using namespace ::org::xml::sax;
+using namespace ::acdk::xml::libxmldom;
+
+LibXMLDocumentBuilder parser;
+parser.setExtendedFlags(XMLRF_PARSE_DTDVALID); <I><FONT COLOR="#B22222">// validate the XML file
+</FONT></I>::acdk::io::RFile f = <B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::io::File(<B><FONT COLOR="#BC8F8F">&quot;MyXMLFile.xml&quot;</FONT></B>);
+::acdk::io::RReader in = f-&gt;getReader();
+RLibXMLDocument doc = (RLibXMLDocument)parser.parse(in, ::acdk::net::URL::fileAsUrlName(f));
+RString v = doc-&gt;selectNode(<B><FONT COLOR="#BC8F8F">&quot;/book/body/text()&quot;</FONT></B>)-&gt;getNodeValue();
+RString v2 = doc-&gt;selectNode(<B><FONT COLOR="#BC8F8F">&quot;/book&quot;</FONT></B>)-&gt;selectNode(<B><FONT COLOR="#BC8F8F">&quot;body/text()&quot;</FONT></B>)-&gt;getNodeValue();
+</PRE></td></tr></table>    
+<br>
+<h4><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Building an XML File">Building an XML File</a></h4>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+RDocument document = LibXMLDocumentBuilder().newDocument();
+  RElement root = document-&gt;addElement(<B><FONT COLOR="#BC8F8F">&quot;root&quot;</FONT></B>);
+  RElement author1 = root-&gt;addElement( <B><FONT COLOR="#BC8F8F">&quot;author&quot;</FONT></B> )
+                         -&gt;addAttribute( <B><FONT COLOR="#BC8F8F">&quot;name&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;James&quot;</FONT></B> )
+                          -&gt;addAttribute( <B><FONT COLOR="#BC8F8F">&quot;location&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;UK&quot;</FONT></B> )
+                          -&gt;addText( <B><FONT COLOR="#BC8F8F">&quot;James Strachan&quot;</FONT></B> );
+        
+  RElement author2 = root-&gt;addElement( <B><FONT COLOR="#BC8F8F">&quot;author&quot;</FONT></B> )
+                         -&gt;addAttribute( <B><FONT COLOR="#BC8F8F">&quot;name&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;Bob&quot;</FONT></B> )
+                         -&gt;addAttribute( <B><FONT COLOR="#BC8F8F">&quot;location&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;US&quot;</FONT></B> )
+                         -&gt;addText( <B><FONT COLOR="#BC8F8F">&quot;Bob McWhirter&quot;</FONT></B> );
+
+  RString xmlstr = document-&gt;toXML();
+  <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Created Document: &quot;</FONT></B> + xmlstr);
+</PRE></td></tr></table>
+Output:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Created Document: &lt;?xml version=<B><FONT COLOR="#BC8F8F">&quot;1.0&quot;</FONT></B>?&gt;
+ &lt;root&gt;
+  &lt;author name=<B><FONT COLOR="#BC8F8F">&quot;James&quot;</FONT></B> location=<B><FONT COLOR="#BC8F8F">&quot;UK&quot;</FONT></B>&gt;James Strachan&lt;/author&gt;
+  &lt;author name=<B><FONT COLOR="#BC8F8F">&quot;Bob&quot;</FONT></B> location=<B><FONT COLOR="#BC8F8F">&quot;US&quot;</FONT></B>&gt;Bob McWhirter&lt;/author&gt;
+ &lt;/root&gt;
+</PRE></td></tr></table>
+<br>
+Please refer to <code>acdk_xml_dom_LibXML_Test.cpp</code> for more samples, how to use
+the parser.<br>
+<h4><a href="#jumptable59"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample parsing HTML">Sample parsing HTML</a></h4>
+This sample shows parsing a HTML page using CfgScript:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+using acdk.xml.libxmldom;
+using org.xml; 
+using org.w3c.dom;
+
+String urlString = <B><FONT COLOR="#BC8F8F">&quot;http://acdk.sourceforge.net&quot;</FONT></B>;
+URL url = <B><FONT COLOR="#A020F0">new</FONT></B> URL(urlString); 
+Reader in = url.openStream();
+
+DocumentBuilder docBuilder = <B><FONT COLOR="#A020F0">new</FONT></B> LibXMLDocumentBuilder();
+<I><FONT COLOR="#B22222">// tell the parser that the document is a HTML document (and not XML)
+</FONT></I>docBuilder-&gt;setExtendedFlags(acdk.xml.sax.XMLRF_PARSE_HTML_FLAGS);  
+<I><FONT COLOR="#B22222">// do parsing
+</FONT></I>Document acdkdoc = docBuilder.parse(in, urlString);
+<I><FONT COLOR="#B22222">// select the text of &lt;title&gt; via xpath
+</FONT></I>out.println(<B><FONT COLOR="#BC8F8F">&quot;The Title of the page is: &quot;</FONT></B> + acdkdoc.selectNode(<B><FONT COLOR="#BC8F8F">&quot;/html/head/title/text()&quot;</FONT></B>).getData());
+</PRE></td></tr></table>
+<br>
+A more complex sample, which merges two HTML Documents can be viewed at <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_csf_acdk_tools_docutils_mergewxdocs_csf"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;csf_acdk_tools_docutils_mergewxdocs_csf</a>.<br>
+<br>
+<jump2>Sample using XML expat DOM</jump1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>expat is deprecated</td></tr></table>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/lang/System.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/CharArrayReader.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/File.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/GlobFilenameFilter.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/io/MemWriter.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;acdk/xml/dom/DOMParser.h&gt;</FONT></B>
+#<B><FONT COLOR="#5F9EA0">include</FONT></B> <B><FONT COLOR="#BC8F8F">&lt;org/w3c/dom/NodeList.h&gt;</FONT></B>
+
+::acdk::io::RFile f = <B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::io::File(<B><FONT COLOR="#BC8F8F">&quot;MyXMLFile.xml&quot;</FONT></B>);
+::acdk::io::RReader in = f-&gt;getReader();
+::acdk::io::MemWriter bout;
+in-&gt;trans(&amp;bout);
+::acdk::xml::dom::RDOMParser parser = <B><FONT COLOR="#A020F0">new</FONT></B> ::acdk::xml::dom::DOMParser();
+::acdk::xml::dom::RXMLDocument doc = parser-&gt;parse(bout.getBuffer());
+RString v = doc-&gt;selectNode(<B><FONT COLOR="#BC8F8F">&quot;/book/body/text()&quot;</FONT></B>)-&gt;getNodeValue();
+RString v2 = doc-&gt;selectNode(<B><FONT COLOR="#BC8F8F">&quot;/book&quot;</FONT></B>)-&gt;selectNode(<B><FONT COLOR="#BC8F8F">&quot;body/text()&quot;</FONT></B>)-&gt;getNodeValue();
+
+</PRE></td></tr></table>
+<br>
+Please refer also to the source of the unitests of acdk_xml.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK XML Readme</a> | ACDK XML | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="expat_copying.html">COPYING of expat</a> | <a  href="libxml_copying.html">COPYING of libxml2</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

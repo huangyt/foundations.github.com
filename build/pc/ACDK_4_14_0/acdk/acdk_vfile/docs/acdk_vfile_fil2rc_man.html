@@ -1,0 +1,94 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdk_vfile_file2rc">
+<title>acdk_vfile_file2rc</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Virtual Files</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdk_vfile_file2rc
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">acdk_vfile_readme</a> | <a  href="acdk_vfile_man.html">acdk_vfile man</a> | <a  href="acdk_vfile_convert_man.html">acdk_vfile_convert</a> | acdk_vfile_file2rc | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="acdk_vfile_zlib_license.html">ZLIB license</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdk_vfile_file2rc</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdk_vfile_file2rc</h1> -->
+<p class="PageIntro">
+acdk_vfile_file2rc converts a binary file to a
+byte array in a C file.
+</p>
+<a name="jumptable64"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Usage"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Usage</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+<h2><a href="#jumptable64"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Usage">Usage</a></h2>
+<pre>
+acdk_vfile_file2rc &lt;input filename&gt &lt;output filename&gt;
+</pre>
+
+Convert binary file &lt;input filename&gt into a byte array.
+
+Sample:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B> ressource_array[] = {
+  80,  75,   3,   4,  20,   0,   2,   0,   8,   0,  93, 146, 121,  42,  15, 201, 192, 170, 169,   0,   0
+  ,   0, 116,   1,   0,   0,  27,   0,  21,   0,  97,  99, 100, 107,  45,  49,  46,  48,  49,  47,  97,  99
+  <I><FONT COLOR="#B22222">// and so on
+</FONT></I>} ;
+<B><FONT COLOR="#228B22">int</FONT></B> ressource_size = 36608;
+
+</PRE></td></tr></table>
+
+This C file can be used to include them as ressource files.
+
+Please refer to <a  href="acdk_vfile_man.html#Embedding archive files into ressources"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Embedding archive files into ressources</a>)
+how to use this local internal file from code.
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">acdk_vfile_readme</a> | <a  href="acdk_vfile_man.html">acdk_vfile man</a> | <a  href="acdk_vfile_convert_man.html">acdk_vfile_convert</a> | acdk_vfile_file2rc | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> | <a  href="acdk_vfile_zlib_license.html">ZLIB license</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

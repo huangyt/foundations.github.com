@@ -1,0 +1,406 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="installation, setup">
+<title>How to compile ACDK</title>
+<link rel="stylesheet" type="text/css" href="./../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK</a><br>
+<img src="./../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_general_install.html">Installation</a><br>
+<img src="./../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Compile ACDK<br>See also:<br>&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_core/docs/packages_deps.html">Dependencies</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_wx/docs/acdk_wx_hb_installation.html">Compile acdk_wx</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_python/docs/acdk_python_install.html">Compile acdk_python</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_perl/docs/acdk_perl_install.html">Compile acdk_perl</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_tcl/docs/acdk_tcl_install.html">Compile acdk_tcl</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_java/docs/acdk_java_man_installation.html">Compile acdk_java</a>
+<br>
+&nbsp;&nbsp;<img src="./../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../acdk_net/docs/acdkx_net_ssl.html">acdkx_net_ssl</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Compile ACDK | <a  href="acdk_general_install_upgrade.html">Upgrade ACDK</a> | <a  href="acdk_general_compile_own_executable.html">Create own Executable</a> | <a  href="acdk_general_compile_own_lib.html">Create own Library</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>How to compile ACDK</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>How to compile ACDK</h1> -->
+
+<br>
+<p class="PageIntro">
+This is a generic installation for ACDK packages.<br>
+</p>
+<br>
+<a name="jumptable2"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General notes"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;General notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Supported Plattforms"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Supported Plattforms</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Unpacking"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Unpacking</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Unix"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Unix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Windows"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Windows</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Setting up the environment"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Setting up the environment</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#ACDK enviromnent variables"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;ACDK enviromnent variables</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#External Libraries"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;External Libraries</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compiling using make files"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Compiling using make files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Unix"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Unix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Linux"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Linux</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Notes for Linux"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Notes for Linux</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Solaris"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Solaris</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Windows Visual Studio"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Windows Visual Studio</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Visual Studio 6"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Visual Studio 6</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Visual Studio .NET / 7"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Visual Studio .NET / 7</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Visual Studio 2005 Express Beta"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Visual Studio 2005 Express Beta</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Lancher scripts for the Visual Studio IDEs"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Lancher scripts for the Visual Studio IDEs</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Borland C++-Builder X"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Borland C++-Builder X</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Borland BCC 5.5x"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Borland BCC 5.5x</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Missing Header/Libraries"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Missing Header/Libraries</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Compiling using acdkmake"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Compiling using acdkmake</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Usual targets"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Usual targets</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Required Libraries"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;Required Libraries</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#More information"><img border="0" src="./../docs\images/arrow_down_stop.gif">&nbsp;More information</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General notes">General notes</a></h2>
+ACDK is split in several packages. Each package 
+can be installed/compiled separately.<br>
+Most packages <a  href="../acdk_core/docs/packages_deps.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;depends on other ACDK packages</a>. 
+For instance the package acdk_lisp depends 
+on acdk_core and acdk_text. These packages
+must be installed before you try to install and 
+compile the acdk_lisp package. Please refer to the 
+package documentation regarding the detailed requirements.<br>
+<br>
+<br>
+This installation note describes the installation of one ACDK 
+package named "acdk_package".<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Supported Plattforms">Supported Plattforms</a></h2>
+<table class="stdtable" border="0" cellspacing="0" cellpadding="0" width="570"><tr valign="top"><td valign="top" width="100%">  
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Windows NT 4/2000/XP</td><td valign="top" width="285">MS Visual C++ 6 (released)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Windows NT 4/2000/XP</td><td valign="top" width="285">MS Visual C++ 7/2003 (AKA .NET), MS Visual Studio 2005 Express Beta</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Windows NT 4/2000/XP</td><td valign="top" width="285">Borland BCC 5.5 (experimental)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Windows NT 4/2000/XP</td><td valign="top" width="285">Boland C++-Builder 6 (experimental)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Windows NT 4/2000/XP</td><td valign="top" width="285">Boland C++-Builder X (experimental)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Windows NT 4/2000/XP</td><td valign="top" width="285">gcc 2.92 (static linked)(experimental)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Linux</td><td valign="top" width="285">gcc 2.95.2 - 4.x (released)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Linux</td><td valign="top" width="285">Borland C++-BuilderX and gcc</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Linux on 64bit Opteron</td><td valign="top" width="285">gcc 3.x (released)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Sun Solaris 9/10 Intel</td><td valign="top" width="285">gcc 2.95.2 - 3.x(released)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Sun Solaris 9 Sparc</td><td valign="top" width="285">gcc 2.95.2 - 3.x(released)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">Sun Solaris</td><td valign="top" width="285">Sun Workshop 5.2/3 (experimental)</td></tr></table>
+ <table border="0" cellspacing="0" cellpadding="0" width="100%"><tr valign="top"><td valign="top" width="285">FreeBSD 4.0 - 5.x</td><td valign="top" width="285">gcc 2.95.2 - 3.4(released)</td></tr></table>
+</td></tr></table>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Unpacking">Unpacking</a></h2>
+The ACDK packages are provided 2 formats: Unix .tar.gz and 
+Windows .zip format. The packages contains the same files, but 
+in the windows .zip packages the sources are encoded in the 
+windows file format ("\r\n").<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Unix">Unix</a></h3>
+You can unpack ACDK in home directory or in any other
+location.<br>
+<pre><code>
+cd /usr/local # the parent directory of ACDK
+tar zxf acdk-*.tar.gz # and untar the package
+</code></pre>
+<br>
+This extract the files into a directory:<br>
+/usr/local/acdk/<br>
+where:<br>
+<code>/usr/local/acdk</code><br>
+is the <code><b>ACDKHOME</b></code>.<br>
+<br>
+<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Windows">Windows</a></h3>
+On Windows platform unzip the ACDK package 
+in one directory:<br>
+for example <code>c:\artefaktur</code>
+<pre><code>
+d:\artefaktur
+</code></pre>
+This will create 
+the directory:<br>
+<pre><code>
+d:\artefaktur\acdk
+</code></pre>
+<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Setting up the environment">Setting up the environment</a></h2>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="ACDK enviromnent variables">ACDK enviromnent variables</a></h3>
+<br>
+Whenever you want to configure, compile, install 
+or run ACDK, following environment variable
+are needed:<br>
+<ul>
+<li> <b>ACDKHOME</b>: The home of ACDK, target of
+installed header, and other files.<br>
+<br>
+<li> <b>PATH</b>: Path to search executable. You may
+extend this with the ACDK binary path:<br>
+<code>
+export PATH=%PATH%:$ACDKHOME/bin # bash or ksh<br>
+</code>
+<li> <b>LD_LIBRARY_PATH</b>: Path to search shared libraries. 
+  You have to extend this to the ACDK library path:<br>
+<code>
+export PATH=%PATH%:$ACDKHOME/bin<br>
+</code>
+</ul>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="External Libraries">External Libraries</a></h3>
+Some optional packages (like acdk_net, acdk_wx, acdk_perl, acdk_python, acdk_tcl, acdk_sql_odbc)
+external libraries need to be installed. The name, locatation and other
+settings can be (and probably must) be corrected in following configuration
+files.<br>
+<ul class="FeatureList">
+<li class="Feature"> acdkenv.cmd for Visual Studio Windows
+<li class="Feature"> acdkbccenv.cmd for Borland
+<li class="Feature"> acdk_globals.linux for linux
+<li class="Feature"> acdk_globals.bsd for FreeBSD
+<li class="Feature"> acdk_globals.sunos-gcc for Solaris with GCC.<br>
+</ul>
+<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compiling using make files">Compiling using make files</a></h2>
+For the distributed ACDK packages the project files and 
+makefiles are already generated.<br>
+<br>
+The platform makes does understand normally following commands:<br>
+<ul class="FeatureList">
+<li class="Feature"> all: install and compile
+<li class="Feature"> install: copy the header and configuration in ACDKHOME/include
+<li class="Feature"> compile: compile the sources
+<li class="Feature"> clean: removes the executables, libraries, .o/.obj files
+<li class="Feature"> clean-temps: removes only .o/.obj files
+<li class="Feature"> test: run test units
+</ul>
+<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Unix">Unix</a></h3>
+global settings for the make process (for external libraries, like perl, python, wxWidgets, etc.)
+can ajusted in the file <code>$ACDKHOME/acdk_globals.${target}</code>
+(target = linux, etc.)
+If this file exists, it will be included from the 
+project make files.<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Linux">Linux</a></h3>
+To compile ACDK you must have installed GCC 2.95.2 or grater 
+compiler on your system.<br>
+<br>
+<pre><code>
+cd /usr/local/acdk/acdk
+make -f acdk_all.linux all
+</code></pre>
+<br>
+<h4><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes for Linux">Notes for Linux</a></h4>
+On computer with more CPU, add __SMP__ define
+in the $ACDKHOME/acdk_globals.linux
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Solaris">Solaris</a></h3>
+To compile ACDK you must have installed GCC 2.95.2 or grater 
+compiler on your system.<br>
+<pre><code>
+cd /usr/local/acdk
+make -f acdk_all.sunos-gcc all
+</code></pre>
+<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Windows Visual Studio">Windows Visual Studio</a></h3>
+<h4><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Visual Studio 6">Visual Studio 6</a></h4>
+You need Visual Studio 6 SP3 or later
+to compile the packages on Windows (NT/2000).<br>
+<pre><code>
+cd d:\artefaktur\acdk
+nmake -f acdk_all.nmake all
+</code></pre>
+<br>
+You can also use Visual Studio to open the provided
+.dsw, first you have to execute <code>nmake -f acdk_all.nmake install</code>
+to install the headers and configuration.<br>
+<br>
+<h4><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Visual Studio .NET / 7">Visual Studio .NET / 7</a></h4>
+You can use the provided .dsw and .dsp also 
+with Visual Studio .NET respectivally Visual C++ 7.<br>
+Before compiling with IDE, you have to execute <code>nmake -f acdk_all.nmake install</code>
+to install the headers and configuration.<br>
+<br>
+<h4><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Visual Studio 2005 Express Beta">Visual Studio 2005 Express Beta</a></h4>
+A good alternative to the free Borland compiler (see below) for MS Windows is the 
+free (for personal use) <a  href="http://lab.msdn.microsoft.com/express/visualc/default.aspx"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;Visual Studio 2005 Express from Microsoft</a>. 
+Currently the support of ACDK for Visual Studio 2005 Express is much better than
+for the Borland compilers.<br>
+<br>
+You can download Visual Studio 2005 Express (Beta) from Microsoft.<br>
+Additionally you need also the Platfrom SDK for your Operation system (for example XP).<br>
+The Platform SDK is also available from Microsoft for <a  href="http://www.microsoft.com/msdownload/platformsdk/sdkupdate/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;download</a>.<br>
+See also the instruction, how to <a  href="http://lab.msdn.microsoft.com/express/visualc/usingpsdk/default.aspx"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;use the SDK with the Express Edition</a>.<br>
+<br>
+Open the ACDK .dsw/.dsp project files with Visual Studio C++ 2005. Visual Studio ask you to
+convert these project files into the new project format: Confirm with Yes to All.<br>
+<br>
+<br>
+Before compiling with IDE, you have to execute <code>nmake -f acdk_all.nmake install</code>
+to install the headers and configuration.<br>
+<br>
+Due a bug in the IDE in the acdk_core com workspaces you may have to modify the linker settings for the acdk_core project:<br>
+add 
+user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib  advapi32.lib shell32.lib  ole32.lib oleaut32.lib uuid.lib wsock32.lib
+to the input for the linker.<br>
+Also add this libraries to the input in all projects of the acdkx_com workspaces.<br>
+<h4><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Lancher scripts for the Visual Studio IDEs">Lancher scripts for the Visual Studio IDEs</a></h4>
+Some ACDK projects (like <a  href="../acdk_wx/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK WX</a>, <a  href="../acdk_perl/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Perl</a>, <a  href="../acdk_python/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Python</a>, <a  href="../acdk_tcl/index.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Tcl</a>)
+needs external libraries. These libraries are configured in batch files (see <a  href="acdk_general_compile_acdk.html#External Libraries"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;External Libraries</a>).<br>
+In the root path of ACDK there are also batch files to load these batch files start the Visual IDEs.<br>
+<ul class="FeatureList">
+<li class="Feature"> startvstudio6.cmd: to Start Visual Studio 6
+<li class="Feature"> startvstudio7.cmd: to Start Visual Studio 7/2003
+<li class="Feature"> startvstudio2005expr: to Start Visual Studio 2005 Express
+</ul>
+You may have to edit these starter scripts to ajust the path to the IDEs.<br>
+<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Borland C++-Builder X">Borland C++-Builder X</a></h3>
+The <code>.bpgr</code> and <code>.cbx</code> are for C++-Builder X for
+the Windows and Linux platforms. On both platforms only the
+debug compile mode is configured. 
+C++-Builder can be download for free for personal use.<br>
+<br>
+Before compiling ACDK with C++-Builder the header has to be installed
+(using Borland make (<code>.bcc</code>) on Windows or gnu make on linux).<br>
+<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Borland BCC 5.5x">Borland BCC 5.5x</a></h3>
+On the Windows platform the <code>.bcc</code> make files
+can be used in connection the free Borland command line
+compiler.<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Missing Header/Libraries">Missing Header/Libraries</a></h2>
+Some packages (f.e. acdk_perl, acdk_tcl, acdk_java, acdk_python, acdk_java, etc.) 
+you need header to include and libraries to link. 
+For these package you may have to correct the include
+and library settings in the make/project files.<br>
+Please refer also to the readmes of these packages.<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compiling using acdkmake">Compiling using acdkmake</a></h2>
+Instead of using the platform 'make' you can
+also use acdkmake to build ACDK projects.<br>
+<br>
+You need to download the acdk_tools package compiled
+for your platform.<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+The acdk_tools package is not always available as binary distribution.<br>
+In this case you have to compile acdk_core, acdk_text, acdk_make with
+the given native make files.<br>
+</td></tr></table>
+<br>
+Extract the acdk_tools package in different
+directory than acdk packages.<br>
+<br>
+<pre>
+ACDK packages:
+d:\projects\acdk\acdk_core\*.*
+/d/projects/acdk/acdk_core/*.*
+                 etc.
+
+ACDK tools:
+d:\projects\acdk_tools\*.*
+/d/projects/acdk_tools/*.*
+</pre>
+<br>
+Set in shell (cmd, bash) the environment
+variables <b><code>ACDK_TOOLS_HOME=/d/projects/acdk_tools</code></b>
+and <b><code>ACDKHOME=/d/projects/acdk</code></b>.<br>
+<br>
+extend the PATH with /d/projects/acdk_tools/bin
+On unices you may also have to extend the LD_LIBRARY_PATH
+with this directory.<br>
+<br>
+In the package directory should be a build.csf file, which
+is the make file for acdkmake.<br>
+/d/projects/acdk/acdk_core/build.csf.<br>
+<br>
+In this directory just execute acdkmake to compile the project.<br>
+<br>
+<h3><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Usual targets">Usual targets</a></h3>
+ACDK build.csf files normally understands following make commands:<br>
+<ul class="FeatureList">
+<li class="Feature"> build
+<li class="Feature"> clean
+<li class="Feature"> install
+<li class="Feature"> compile
+<li class="Feature"> test
+</ul>
+Please refer to the <a  href="../acdk_make/docs/acdk_make_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Make documentation</a> for
+more information.<br>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Required Libraries">Required Libraries</a></h2>
+For some packages additionally libraries are required:<br>
+<ul class="FeatureList">
+<li class="Feature"> acdk_wx: <a  href="http://www.wxwidgets.org"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;wxWidgets at www.wxwidgets.org</a>.<br>
+<li class="Feature"> acdk_java: <a  href="http://java.sun.com"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;Java SDK (1.3) at java.sun.com</a>.<br>
+<li class="Feature"> acdk_tcl: <a  href="http://tcl.sourceforge.net/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;Tcl at tcl.sourceforge.net</a>.<br>
+<li class="Feature"> acdk_perl: <a  href="http://www.perl.com/"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;Perl 5.x at www.perl.com</a> or
+    <a  href="http://www.activestate.com"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;www.activestate.com</a>.<br>
+<li class="Feature"> acdk_python: <a  href="http://www.python.org"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;Python at www.python.org</a>.<br>
+</ul>
+<br>
+<h2><a href="#jumptable2"><img border="0" src="./../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="More information">More information</a></h2>
+<br>
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net"><img border="0" src="./../docs\images/url_html.gif" alt="http">&nbsp;ACDK home</a>.<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_support"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;ACDK support</a>.<br>
+<li class="Feature"> <a  href="packages.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK packages</a>.<br>
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_install"><img border="0" src="./../docs\images/url_html.gif" alt="">&nbsp;ACDK installation concepts</a>.<br>
+<li class="Feature"> <a  href="../acdk_make/docs/acdk_make_man.html"><img border="0" src="./../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Make documentation</a>.<br>
+</ul>
+<br>
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Compile ACDK | <a  href="acdk_general_install_upgrade.html">Upgrade ACDK</a> | <a  href="acdk_general_compile_own_executable.html">Create own Executable</a> | <a  href="acdk_general_compile_own_lib.html">Create own Library</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

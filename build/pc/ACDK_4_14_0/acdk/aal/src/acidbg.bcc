@@ -1,0 +1,69 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CCINCLUDE= -I.  -I$(ACDK_WX_INCLUDE)  -I$(ACDK_WX_INCLUDE_PLATTFORM)  -I$(ACDK_WX_INCLUDE_CONTRIB)  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=-L"$(ACDK_WX_LIB_PATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_aci.lib" "..\..\bin\acdk_aci_guidbg.lib" "..\..\bin\acdk_wx.lib" $(ACDK_WX_WXLIBS_DEBUG)
+
+OUTFILE="..\..\bin\acidbg.exe"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acidbg"
+SOURCES= 	"acdk\tools\acidbg\acidbg.cpp" \
+	"..\..\acdk_core\src\acdk\res\wx.rc" \
+
+HEADER= 	"acdk\tools\acidbg\AciDbgFrame.h" \
+
+OBJECTS= 	"..\tobj\acidbg\acidbg.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acidbg\acidbg.obj": "acdk\tools\acidbg\acidbg.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acidbg" "acdk\tools\acidbg\acidbg.cpp"
+
+"..\tobj\acidbg\wx.obj": "..\..\acdk_core\src\acdk\res\wx.rc"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acidbg" "..\..\acdk_core\src\acdk\res\wx.rc"
+
+
+
+clean:
+	del "..\..\bin\acidbg.exe"
+	del "..\tobj\acidbg\acidbg.obj"
+
+

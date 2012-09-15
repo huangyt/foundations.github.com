@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_sql_sqlite.cbx"/>
+  <project path="src/sqlite3.cbx"/>
+  <project path="src/acdk_sql_sqlite_metainf.cbx"/>
+  <project path="tests/acdk/sql/sqlite/acdk_sql_sqlite_Test.cbx"/>
+
+</projectgroup>

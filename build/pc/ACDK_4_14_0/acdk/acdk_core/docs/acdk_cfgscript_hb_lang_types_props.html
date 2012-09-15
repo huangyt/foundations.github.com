@@ -1,0 +1,164 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Props, dictionary, acdk::cfgscript::Props">
+<title>CfgScript Properties Type</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_types.html">Types</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Props Type
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_types_any.html">Any Type</a> | <a  href="acdk_cfgscript_hb_lang_types_basic.html">Basic Types</a> | <a  href="acdk_cfgscript_hb_lang_types_object.html">Object Types</a> | <a  href="acdk_cfgscript_hb_lang_types_arrays.html">Array Types</a> | <a  href="acdk_cfgscript_hb_lang_types_enum.html">Enum Type</a> | Props Type |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Properties Type</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Properties Type</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_types_any.html">Any Type</a> | <a  href="acdk_cfgscript_hb_lang_types_basic.html">Basic Types</a> | <a  href="acdk_cfgscript_hb_lang_types_object.html">Object Types</a> | <a  href="acdk_cfgscript_hb_lang_types_arrays.html">Array Types</a> | <a  href="acdk_cfgscript_hb_lang_types_enum.html">Enum Type</a> | Props Type |</p>
+<p class="PageIntro">
+Property provides an hierarchical string indexed container.
+</p>
+
+<br>
+<a name="jumptable27"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#The Props class"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;The Props class</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#PropsLiteral"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;PropsLiteral</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Samples"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Samples</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable27"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="The Props class">The Props class</a></h2>
+The <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__cfgscript__Props"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::cfgscript::Props</a> class implements the basic
+structures as dictionaries in CfgScript. 
+<br>
+Although designed for usage in CfgScript, the Props class is also
+very handy to be used directly in C++ as an enhanced property class.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Props myprops = <B><FONT COLOR="#A020F0">new</FONT></B> Props();
+myprops.set(<B><FONT COLOR="#BC8F8F">&quot;first&quot;</FONT></B>, 1);
+myprops.set(<B><FONT COLOR="#BC8F8F">&quot;second&quot;</FONT></B>, <B><FONT COLOR="#A020F0">new</FONT></B> StringBuffer(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>));
+</PRE></td></tr></table>
+<br>
+The same can be expressed in more easier way:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Props myprops = <B><FONT COLOR="#A020F0">new</FONT></B> Props();
+myprops.first =  1;
+myprops.second =  <B><FONT COLOR="#A020F0">new</FONT></B> StringBuffer(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+</PRE></td></tr></table>
+<br>
+The implementation of local variables and member variables CfgScript classes
+are implemented as Props.<br>
+Inside a script the variable <code>__props</code> represents all local
+defined variables:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// demonstration that local variables are just
+</FONT></I><I><FONT COLOR="#B22222">// entries in the __props Props
+</FONT></I><B><FONT COLOR="#228B22">int</FONT></B> i = 43;
+{
+  <I><FONT COLOR="#B22222">// local variable
+</FONT></I>  <B><FONT COLOR="#228B22">int</FONT></B> i = 42;
+  <I><FONT COLOR="#B22222">// local variable
+</FONT></I>  String s = <B><FONT COLOR="#BC8F8F">&quot;Hallo&quot;</FONT></B>;
+  __script.assertTest(__props.i == i); <I><FONT COLOR="#B22222">// always true
+</FONT></I>  __script.assertTest(i  == __props.get(<B><FONT COLOR="#BC8F8F">&quot;i&quot;</FONT></B>));<I><FONT COLOR="#B22222">// always true
+</FONT></I>  <I><FONT COLOR="#B22222">// accessing the parent scope 
+</FONT></I>  __script.assertTest(43 == __props.getParentProps().i);
+}
+</PRE></td></tr></table>
+<br>
+C++ DMI Note:<br>
+Props overload the peek and poke (reading and writing
+object member) to access directly the contained property
+values, whereas the keys are mapped as object members.<br>
+<br>
+<h2><a href="#jumptable27"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="PropsLiteral">PropsLiteral</a></h2>
+<pre>
+PropsLiteral
+: '{' [ PropsLiterals ] '}'
+;
+
+PropsLiterals
+: PropsLiteralValue [ ',' PropsLiterals ]
+;
+
+PropsLiteralValue
+: Identifier ':' <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a>
+;
+
+</pre>
+<br>
+<h2><a href="#jumptable27"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Samples">Samples</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Props props  = {
+  <B><FONT COLOR="#5F9EA0">a</FONT></B>: 1, <I><FONT COLOR="#B22222">// contains atomar type
+</FONT></I>  <B><FONT COLOR="#5F9EA0">b</FONT></B>: [ 42, 43 ], <I><FONT COLOR="#B22222">// contains an array
+</FONT></I>  
+  <B><FONT COLOR="#5F9EA0">c</FONT></B>: { 
+    <B><FONT COLOR="#5F9EA0">d</FONT></B>: <B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>,
+    <B><FONT COLOR="#5F9EA0">e</FONT></B>: [ <B><FONT COLOR="#BC8F8F">&quot;a&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;b&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;c&quot;</FONT></B> ],
+    <B><FONT COLOR="#5F9EA0">f</FONT></B>: <B><FONT COLOR="#BC8F8F">&quot;${a.b}&quot;</FONT></B>,
+    <B><FONT COLOR="#5F9EA0">g</FONT></B>: <B><FONT COLOR="#BC8F8F">&quot;${place.getLocation()}&quot;</FONT></B>
+  } <I><FONT COLOR="#B22222">// contains a substructur
+</FONT></I>};
+out.println(props.asCfgScriptLiteral(<B><FONT COLOR="#BC8F8F">&quot;Test&quot;</FONT></B>));
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_types_any.html">Any Type</a> | <a  href="acdk_cfgscript_hb_lang_types_basic.html">Basic Types</a> | <a  href="acdk_cfgscript_hb_lang_types_object.html">Object Types</a> | <a  href="acdk_cfgscript_hb_lang_types_arrays.html">Array Types</a> | <a  href="acdk_cfgscript_hb_lang_types_enum.html">Enum Type</a> | Props Type |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

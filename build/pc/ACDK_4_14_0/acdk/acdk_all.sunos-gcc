@@ -1,0 +1,136 @@
+
+PACKAGES=acdk_core acdk_text acdk_make acdk_net acdk_boot acdk_xml acdk_vfile \
+         acdk_lisp acdkx_orb  acdkx_rdmi \
+         acdk_sql acdk_sql_sqlite \
+         acdk_perl acdk_python acdk_tcl acdk_java \
+         acdk_sql_odbc \
+         acdk_tools_java2acdk
+
+TARGETS=$(PACKAGES)
+OLDTARGETS=acdkx_sol
+
+PACKAGEVERSION=1.01
+PERL=perl
+MAKETARGET=sunos-gcc
+
+#SHELL=bash
+default:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -k -f  $$target.$(MAKETARGET); \
+	  cd ..; \
+	done
+
+all:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -k -f $$target.$(MAKETARGET) all; \
+	  cd ..; \
+	done
+
+compile:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -k -f $$target.$(MAKETARGET) compile; \
+	  cd ..; \
+	done
+
+
+clean:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -f $$target.$(MAKETARGET) clean; \
+	  cd ..; \
+	done
+
+depend:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) depend; \
+	  cd ..; \
+	done
+
+projectgen:
+	for target in $(TARGETS); do \
+		cd $$target; \
+		PWD=$(PWD)/$$target ../bin/acdklisp -acdk-home=.. $$target.lsp; \
+		cd ..; \
+	done
+
+install:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -f $$target.$(MAKETARGET) install; \
+	  cd ..; \
+	done
+
+doc:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -f $$target.$(MAKETARGET) doc; \
+	  cd ..; \
+	done
+
+
+distrib:
+	if test ! -d distribution; then \
+    mkdir distribution; \
+  fi; \
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -f $$target.$(MAKETARGET) distrib; \
+	  cd ..; \
+	done
+
+test:
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -f $$target.$(MAKETARGET) test; \
+	  cd ..; \
+	done
+
+
+ddistrib:
+	if test ! -d distribution; then \
+    mkdir distribution; \
+  fi; \
+	for target in $(TARGETS); do \
+	  cd $$target; \
+	  PWD=$(PWD)/$$target $(MAKE) -f $$target.$(MAKETARGET) ddistrib; \
+	  cd ..; \
+	done
+
+
+makemake:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) makemake; \
+	  cd ..; \
+	done
+	
+metamakemake:
+	@for target in $(TARGETS); do \
+	  cd $$target; \
+	  $(MAKE) -f $$target.$(MAKETARGET) metamakemake; \
+	  cd ..; \
+	done
+
+
+	
+
+RELACDKHOME=..
+ACDKMAKE=../bin/acdklisp -acdk-home=$(RELACDKHOME)
+
+acdkmake::
+	for target in $(TARGETS); do \
+	  cd $$target; \
+    PWD=$(PWD)/$$target $(ACDKMAKE) -acdk-home=$(RELACDKHOME) $$target.lsp; \
+	  cd ..; \
+	done;
+
+TARBALL=acdk_all-linux-$(PACKAGEVERSION).tgz
+
+#distrib:
+#	$(PERL) ./bin/makedistr.pl -archiv distribution/$(TARBALL) -src '.';
+  
+  

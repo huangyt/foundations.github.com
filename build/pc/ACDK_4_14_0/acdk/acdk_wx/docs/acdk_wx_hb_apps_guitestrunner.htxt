@@ -1,0 +1,17 @@
+%id: acdk_wx_hb_apps_guitestrunner
+%title: acdk_wx GuiTestRunner
+%shorttitle: GuiTestRunner
+%body:
+<pageintro>
+GuiTestRunner is is GUI frontend for executing ACDK Unit Tests.
+</pageintro>
+<htmlauto/>
+
+The application guitestrunner is a tool to execute acdk unit test executable.
+A script version also can be found in <c>acdk/acdk_core/cfg/csf/lib/tests/AcdkTestRunner.csf</c>
+
+<image src="guitestrunner1.gif"/>
+
+
+
+.

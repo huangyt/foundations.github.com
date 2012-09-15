@@ -1,0 +1,36 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+#pragma strict
+
+class AClass 
+extends acdk.lang.Object
+{
+  int _avar;
+  AClass() { _avar = 1; }
+  int getVar() { return _avar; }
+}
+
+class BClass 
+extends AClass
+{
+  int _bvar;
+  BClass() { _bvar = 2; }
+  int getVar() { return _bvar; }
+}
+
+
+
+out.println(
+"===================================
+Test for resolving virtual calls
+");
+
+AClass cls = new BClass();
+int erg = cls.getVar();
+if (erg == 2)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

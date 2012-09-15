@@ -1,0 +1,51 @@
+# this is a wrapper makefile
+# pnmake7.template
+
+
+ACDKHOME = ..
+ACDKLISP=$(ACDKHOME)\bin\acdklisp
+!include "$(ACDKHOME)\acdk_globals.nmake7"
+
+PACKAGE = acdkx_com
+
+all: install compile 
+  
+compile::
+  devenv $(PACKAGE).sln /build debug
+  devenv $(PACKAGE).sln /build release
+
+clean::
+  devenv $(PACKAGE).sln /clean debug
+  devenv $(PACKAGE).sln /clean release
+
+
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdkx_com_Test_d
+	if ERRORLEVEL 1 n echo Test acdkx_com_Test failed; exit 1; 
+
+
+
+acdkx_com-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_com.lsp -pdir src linux
+
+acdkx_com_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/com\acdkx_com_Test.lsp -pdir tests/acdkx/com linux
+
+
+makemake:: acdkx_com-makemake acdkx_com_Test-makemake 
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdkx_com.lsp
+
+

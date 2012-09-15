@@ -1,0 +1,28 @@
+
+using acdk.wx;
+
+class MyFrame
+extends Frame
+{
+  MyFrame(String title) 
+  {
+    super(title);
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    //Window.messageBox("start");
+    Frame win = new MyFrame("Hallo");
+    //Frame win = new Frame("Hallo");
+    win.show(true);
+    return true; 
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{1b70896a-f7fa-4941-8c42-d1cfe664e18f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools">
+      <UniqueIdentifier>{e32f541d-eae0-4fe0-9528-f45bcb112b12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\tools\acidbg">
+      <UniqueIdentifier>{104ab7b7-1ae5-4927-ab5d-c7b13e2e79be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{55ca2da1-4642-4d48-82c6-c320176e619f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{54aad1e2-4730-45b5-bcc4-01ae56c0429f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\acdk_core">
+      <UniqueIdentifier>{8a47b82b-979d-48cb-b902-2649cb3ec005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\acdk_core\src">
+      <UniqueIdentifier>{51c669bb-c69c-4dff-a1e4-94ac2673a13b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\acdk_core\src\acdk">
+      <UniqueIdentifier>{555d5c05-e42f-40c4-85df-e755de9d25c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\acdk_core\src\acdk\res">
+      <UniqueIdentifier>{7b96722a-6a2c-4287-8bee-04a0a38ec4b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\tools\acidbg\AciDbgFrame.h">
+      <Filter>acdk\tools\acidbg</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\tools\acidbg\acidbg.cpp">
+      <Filter>acdk\tools\acidbg</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\acdk_core\src\acdk\res\wx.rc">
+      <Filter>..\..\acdk_core\src\acdk\res</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

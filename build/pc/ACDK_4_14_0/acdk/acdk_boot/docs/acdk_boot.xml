@@ -1,0 +1,12 @@
+
+<package>
+  <name>
+    acdk_boot
+  </name>
+  <description>
+    To demonstrate, how to write an ACDK library 
+    acdk_boot provides a set of classes and interfaces
+    which does not do really something.
+  </description>
+</package>
+  

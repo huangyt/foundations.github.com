@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-05-03T11:31:47</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 2; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basic_Test.standard">Basic_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basic_Test.exception">Basic_Test.exception</a> <br>
+</td></tr></table>
+<h2><a id="Basic_Test.standard">Basic_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Basic_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Basic_Test.standard
+T: inet:/1.0.0.0:1111; Accept new connections
+T: inet:/1.0.0.0:1111; Accept new connections
+D: inet:/1.0.0.0:1111; Start write message: NewObject count: 5; [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="acdk/lang/StringBuffer"] [RemoteStringType;acdk/lang/String=""] [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="Test"] 
+D: inet:/1.0.0.0:1111; End write message: NewObject
+D: inet:/1.0.0.0:1111; Start read message
+T: inet:/1.0.0.0:1111; Accepted new connections: inet:/1.0.0.0:42518
+D: inet:/1.0.0.0:42518; Start read message
+T: inet:/1.0.0.0:1111; Accept new connections
+T: inet:/1.0.0.0:1111; Accept new connections
+D: inet:/1.0.0.0:42518; End read message: 4 count: 5; [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="acdk/lang/StringBuffer"] [RemoteStringType;acdk/lang/String=""] [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="Test"] 
+T: inet:/1.0.0.0:1111; Accept new connections
+D: Create new ROI [431760] on [inet:/127.0.0.1:1111] for [inet:/1.0.0.0:42518]
+D: inet:/1.0.0.0:42518; Start write message: ReturnValue count: 2; [RemoteIntValueType;int=0] [RemoteIdType;inet:/1.0.0.0:1111;;431760] 
+D: inet:/1.0.0.0:42518; End write message: ReturnValue
+D: inet:/1.0.0.0:42518; Start read message
+D: inet:/1.0.0.0:1111; End read message: 11 count: 2; [RemoteIntValueType;int=0] [RemoteIdType;inet:/1.0.0.0:1111;;431760] 
+T: inet:/1.0.0.0:1111; Accept new connections
+T: inet:/1.0.0.0:1111; Accept new connections
+D: inet:/1.0.0.0:1111; Start write message: Invoke count: 4; [RemoteIntValueType;int=1] [RemoteIdType;inet:/1.0.0.0:1111;;431760] [RemoteStringType;acdk/lang/String="finalize"] [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:1111; End write message: Invoke
+D: inet:/1.0.0.0:1111; Start read message
+D: inet:/1.0.0.0:42518; End read message: 5 count: 4; [RemoteIntValueType;int=1] [RemoteIdType;inet:/1.0.0.0:1111;;431760] [RemoteStringType;acdk/lang/String="finalize"] [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:42518; Start write message: ReturnVoid count: 1; [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:42518; End write message: ReturnVoid
+D: inet:/1.0.0.0:42518; Start read message
+D: inet:/1.0.0.0:1111; End read message: 12 count: 1; [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:1111; Start write message: ReleaseRef count: 1; [RemoteIdType;inet:/1.0.0.0:1111;;431760] 
+D: inet:/1.0.0.0:1111; End write message: ReleaseRef
+D: inet:/1.0.0.0:1111; Start read message
+D: inet:/1.0.0.0:42518; End read message: 3 count: 1; [RemoteIdType;inet:/1.0.0.0:1111;;431760] 
+D: Release ROI [431760] on [inet:/127.0.0.1:1111] for [inet:/1.0.0.0:42518]
+D: inet:/1.0.0.0:42518; Start write message: ReturnVoid count: 0; 
+D: inet:/1.0.0.0:42518; End write message: ReturnVoid
+D: inet:/1.0.0.0:42518; Start read message
+D: inet:/1.0.0.0:1111; End read message: 12 count: 0; 
+T: inet:/1.0.0.0:1111; shutdown RemoteDmiServer now
+T: inet:/1.0.0.0:1111; leave RemoteDmiServer::run() shutdown set
+</pre>
+<h2><a id="Basic_Test.exception">Basic_Test.exception</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Standard Output:<hr><pre>  called in : -24777328
+  called in : -23755392
+  called in : -29098440
+  called in : -24047020
+  called in : -24149176
+  called in : -29326404
+  called in : -23817452
+  called in : -29231336
+  called in : -49002404
+  called in : -28851052
+  called in : -28849284
+  called in : -28831844
+  called in : -35648052
+  called in : -35641332
+  called in : -35632696
+  called in : -35623136
+  called in : -29136144
+  called in : -29134636
+  called in : -18457016
+</pre>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basic_Test.standard] End Test
+[AUNIT:ENDT] End Test: Basic_Test.standard
+[AUNIT:STRT][Basic_Test.exception] Start Test
+[AUNIT:STRT] Start Test: Basic_Test.exception
+T: inet:/1.0.0.0:1112; Accept new connections
+T: inet:/1.0.0.0:1112; Accept new connections
+D: inet:/1.0.0.0:1112; Start write message: NewObject count: 5; [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="acdk.lang.StringBuffer"] [RemoteStringType;acdk/lang/String=""] [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="hello"] 
+D: inet:/1.0.0.0:1112; End write message: NewObject
+D: inet:/1.0.0.0:1112; Start read message
+T: inet:/1.0.0.0:1112; Accepted new connections: inet:/1.0.0.0:42519
+D: inet:/1.0.0.0:42519; Start read message
+T: inet:/1.0.0.0:1112; Accept new connections
+T: inet:/1.0.0.0:1112; Accept new connections
+D: inet:/1.0.0.0:42519; End read message: 4 count: 5; [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="acdk.lang.StringBuffer"] [RemoteStringType;acdk/lang/String=""] [RemoteIntValueType;int=0] [RemoteStringType;acdk/lang/String="hello"] 
+D: Create new ROI [519528] on [inet:/127.0.0.1:1112] for [inet:/1.0.0.0:42519]
+D: inet:/1.0.0.0:42519; Start write message: ReturnValue count: 2; [RemoteIntValueType;int=0] [RemoteIdType;inet:/1.0.0.0:1112;;519528] 
+D: inet:/1.0.0.0:42519; End write message: ReturnValue
+D: inet:/1.0.0.0:42519; Start read message
+D: inet:/1.0.0.0:1112; End read message: 11 count: 2; [RemoteIntValueType;int=0] [RemoteIdType;inet:/1.0.0.0:1112;;519528] 
+D: inet:/1.0.0.0:1112; Start write message: Invoke count: 6; [RemoteIntValueType;int=1] [RemoteIdType;inet:/1.0.0.0:1112;;519528] [RemoteStringType;acdk/lang/String="substring"] [RemoteIntValueType;int=16] [RemoteIntValueType;int=-42] [RemoteIntValueType;int=234234] 
+D: inet:/1.0.0.0:1112; End write message: Invoke
+D: inet:/1.0.0.0:1112; Start read message
+D: inet:/1.0.0.0:42519; End read message: 5 count: 6; [RemoteIntValueType;int=1] [RemoteIdType;inet:/1.0.0.0:1112;;519528] [RemoteStringType;acdk/lang/String="substring"] [RemoteIntValueType;int=16] [RemoteIntValueType;int=-42] [RemoteIntValueType;int=234234] 
+T: inet:/1.0.0.0:1112; Accept new connections
+D: inet:/1.0.0.0:42519; Start write message: ReturnException count: 1; [RemoteSerializedType;acdk/lang/StringIndexOutOfBoundsException=acdk/lang/StringIndexOutOfBoundsException] 
+D: inet:/1.0.0.0:42519; End write message: ReturnException
+D: inet:/1.0.0.0:42519; Start read message
+D: inet:/1.0.0.0:1112; End read message: 13 count: 1; [RemoteSerializedType;acdk/lang/StringIndexOutOfBoundsException=acdk/lang/StringIndexOutOfBoundsException] 
+SubSSTstr(). endidx is out of range: String=[hello];  AccessIndex=[234234]; MaxIndex=[5]; 
+T: inet:/1.0.0.0:1112; shutdown RemoteDmiServer now
+D: inet:/1.0.0.0:1112; Start write message: Invoke count: 4; [RemoteIntValueType;int=1] [RemoteIdType;inet:/1.0.0.0:1112;;519528] [RemoteStringType;acdk/lang/String="finalize"] [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:1112; End write message: Invoke
+D: inet:/1.0.0.0:1112; Start read message
+D: inet:/1.0.0.0:42519; End read message: 5 count: 4; [RemoteIntValueType;int=1] [RemoteIdType;inet:/1.0.0.0:1112;;519528] [RemoteStringType;acdk/lang/String="finalize"] [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:42519; Start write message: ReturnVoid count: 1; [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:42519; End write message: ReturnVoid
+D: inet:/1.0.0.0:42519; Start read message
+D: inet:/1.0.0.0:1112; End read message: 12 count: 1; [RemoteIntValueType;int=0] 
+D: inet:/1.0.0.0:1112; Start write message: ReleaseRef count: 1; [RemoteIdType;inet:/1.0.0.0:1112;;519528] 
+D: inet:/1.0.0.0:1112; End write message: ReleaseRef
+D: inet:/1.0.0.0:1112; Start read message
+D: inet:/1.0.0.0:42519; End read message: 3 count: 1; [RemoteIdType;inet:/1.0.0.0:1112;;519528] 
+D: Release ROI [519528] on [inet:/127.0.0.1:1112] for [inet:/1.0.0.0:42519]
+D: inet:/1.0.0.0:42519; Start write message: ReturnVoid count: 0; 
+D: inet:/1.0.0.0:42519; End write message: ReturnVoid
+D: inet:/1.0.0.0:42519; Start read message
+D: inet:/1.0.0.0:1112; End read message: 12 count: 0; 
+</pre>
+</body></html>

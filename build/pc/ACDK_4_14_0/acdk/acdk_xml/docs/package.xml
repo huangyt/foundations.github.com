@@ -1,0 +1,150 @@
+<package>
+<name>acdk_xml</name>
+
+<title>
+ACDK XML (acdk_xml)
+</title>
+
+<shortdescription>
+  acdk_xml contains some classes regarding XML, including a XML-serialisation.
+</shortdescription>
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<description>
+
+<m>acdk_xml</m> contains a class framework to parse XML and HTML files
+with a SAX or DOM Parser. It also validation, namespaces and XPath
+expressions.
+
+The module <m>org_xml</m> contains the interface defintions following
+Java mapping of the %ref[SAX interface, http://www.saxproject.org/]
+(defined in %nsref[org::xml::sax] and the Java mapping of the DOM 
+(Document Object Model) by the %ref[W3C, http://www.w3.org/TR/DOM-Level-2-Core/core.html]
+(defined in %nsref[org::w3c::dom]).
+
+To make handling with DOM a little bit more comfortable the acdk enrich
+the original DOM interface with methods inspired by the %ref[dom4j, http://www.dom4j.org]
+Java library.
+
+Currently two implementation for the SAX and DOM parsers are available:
+
+The first is based on the %ref[<m>expat</m>, http://expat.sourceforge.net/] library
+(which is %ref[included, expat_copying] in <m>acdk_xml</m>). 
+It is a lean SAX implementation and has also
+basic DOM support. It can be found in the namespace %nsref[acdk::xml::sax] and
+%nsref[acdk::xml::dom].
+
+The better choice is the %ref[<m>libxml2</m>, http://xmlsoft.org/] implementation, 
+which supports namespaces, DOM Reading and Writing, parsing XML and HTML.
+Access and manipulation to/of a DOM Tree is also possible via XPath expressions.
+The corresponding classes can be found in the namespace %nsref[acdk::xml::libxmldom].
+
+A copy of the underlying libxml2 C library is in %ref[included, libxml_copying].
+
+Sample code can be found in %ref[acdk_xml_man] and the unit tests 
+%ref[acdk_xml_dom_LibXML_Test.cpp, tests_acdk_xml_dom_acdk_xml_dom_LibXML_Test_cpp].
+
+<m>acdk_xml</m> also contains some basic object serialization to/from XML 
+(%ref[acdk_xml_XMLObjectReaderWriter_man] and %cref[acdk::xml::XMLObjectWriter]);
+
+</description>
+
+<license>
+ACDK Free Edition License.
+See also: %ref[expat_copying].
+See also: %ref[libxml_copying]
+</license>
+
+<dependencies>
+%ref[acdk_core]
+%ref[acdk_text]
+%ref[acdk_net]
+</dependencies>
+
+<namespaces>%nsref[org::w3c::dom]
+%nsref[org::w3c::dom::traversal]
+%nsref[org::w3c::dom::xpath]
+%nsref[org::xml::sax]
+%nsref[org::xml::sax::helpers]
+%nsref[acdk::xml]
+%nsref[acdk::xml::sax]
+%nsref[acdk::xml::dom]
+%nsref[acdk::xml::libxmldom]
+%nsref[acdk::xml::parsers]
+</namespaces>
+
+<plattforms>
+  All platforms supported by ACDK.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>  
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+- fixed buggy LibXMLNode::cloneNode()
+- Support for parsing HTML to DOM (via LibXMLDocumentBuilder)
+- Node::write support for writing XML or HTML
+- upgrade of libxml2 to version 2.6.17.
+
+===========================================================
+4.13.0
+- Extended the org::w3c::dom classes for more convinience
+  following the dom4j pattern.
+- Added alternative XML Parser and DOM-model using
+  libxml2 implementation, which supports namespaces, 
+  DOM support, XPath and validation.
+- Implemented DOM (acdk::xml::dom).
+
+Please refer also to %ref[../ChangeLog].
+
+===========================================================
+4.10.0
+- Fixed more unicode bugs.
+
+===========================================================
+4.02.1
+- Fixed Unicode compatibilty bugs in interfaces and
+  implementation.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixes.
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+- Ajustments to ACDK 2.
+- The acdk/xml/XMLObjectReader/Writer is ajusted to
+  the acdk/io/AbstractObjectReader/Writer in acdk_core
+
+===========================================================
+1.01.0
+
+- Enhanced Metainfo compiler for CORBA functionality.
+- Improved Configurations.
+===========================================================
+1.00.2.
+- Initial revision.
+</changes>
+
+<notes>
+</notes>
+</package>

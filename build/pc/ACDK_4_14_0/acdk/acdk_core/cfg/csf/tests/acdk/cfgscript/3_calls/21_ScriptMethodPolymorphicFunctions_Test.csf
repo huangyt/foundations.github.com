@@ -1,0 +1,31 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+class AClass 
+extends acdk.lang.Object
+{
+  int _avar;
+  AClass() { _avar = 1; }
+  // not working int getVar(int i = 2) { return i; }
+  int getVar(int i) { return i; }
+  int getVar() { return getVar(2); }
+  static int getStaticVar(int i) { return i; }
+  static int getStaticVar() { return getStaticVar(2); }
+}
+
+out.println(
+"===================================
+Test for supporting functions with default argument initializer
+");
+
+AClass cls = new AClass();
+int erg1 = cls.getVar();
+int erg2 = cls.getVar(3);
+int erg3 = AClass.getStaticVar();
+out.println("erg1: " + erg1 + "; erg2: " + erg2);
+if (erg1 == 2 && erg2 == 3 && erg3 == 2)
+  out.println("TEST OK");
+else
+  out.println("TEST FAILED");

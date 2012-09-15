@@ -1,0 +1,5 @@
+#!/bin/sh
+#!ignorenextline
+eval 'exec acdkcfgscript $0 ${1:"$@"}'
+
+System.out.println("executed");

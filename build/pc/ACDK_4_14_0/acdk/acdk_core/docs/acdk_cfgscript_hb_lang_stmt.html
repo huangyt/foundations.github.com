@@ -1,0 +1,135 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>CfgScript Statements</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang.html">Language</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Statements<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_expr.html">Expression statement</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_block.html">block {} Statement</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_branch.html">Branch Statements</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_loop.html">Loop Statements</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html">Type Declaration</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html">Variable Declaration</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_sync.html">Synchronize Statements</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_with.html">With Statement</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_using.html">Using Statement</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb_lang_stmt_typealias.html">Type Alias</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | Statements | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Statements</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Statements</h1> -->
+<p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | Statements | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p>
+<p class="PageIntro">
+Statments represends the basic operations to control execution flow
+</p>
+
+<br>
+<a name="jumptable33"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Statement"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Statement</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable33"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Statement">Statement</a></h2>
+<pre>
+Statement
+: <a  href="acdk_cfgscript_hb_lang_expr.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Expression</a> 
+| <a  href="acdk_cfgscript_hb_lang_stmt_block.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BlockStatment</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_branch.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;BranchStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_loop.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;LoopStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_sync.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;SynchronizeStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;TypeDecl</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;VarDecl</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_using.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;UsingStatement</a>
+| <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;TypeAliasStatement</a>
+;
+</pre>
+<br>
+<table border="0" width="99%"><tr><td class="subchaptersframe"><small><i>Sub chapter pages:</i></small><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_expr.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Expression Statement</a></p><p class="pagesummary">
+The ExpressionStatment just terminate an Expression with a ';'
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_block.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript block Statement</a></p><p class="pagesummary">
+The block statement groups multiple statements.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_branch.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Branch Statements</a></p><p class="pagesummary">
+Branches are conditional or unconditinal
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_loop.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Loop Statements</a></p><p class="pagesummary">
+Various loops, like do/while, while, for, foreach are available
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_typedecl.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Type Declaration Statements</a></p><p class="pagesummary">
+Type declarations introduces new Types in a Script
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_vardecl.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Variable Declaration Statements</a></p><p class="pagesummary">
+Type declarations introduces new Variable in a Script
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_sync.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript Synchronize Statements</a></p><p class="pagesummary">
+CfgScript allow real multithread applications.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_with.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript with Statement</a></p><p class="pagesummary">
+The with statement introduce a shortcut to 
+an often used expression.
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_using.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript using Statements</a></p><p class="pagesummary">
+Using Statement import namespaces or object into current
+scope
+</p><p class="subchapterlink"><a  href="acdk_cfgscript_hb_lang_stmt_typealias.html"><img border="0" src="./../../docs\images/url_chapter.gif">&nbsp;CfgScript typealias Statements</a></p><p class="pagesummary">
+Type alias introduces new name for anothother type name 
+</p></td></tr></table><!-- subchaptersframe -->
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_cfgscript_hb_lang_syntax.html">Syntax Elements</a> | <a  href="acdk_cfgscript_hb_lang_source.html">Source</a> | <a  href="acdk_cfgscript_hb_lang_pre.html">Preprocessor</a> | <a  href="acdk_cfgscript_hb_lang_types.html">Types</a> | <a  href="acdk_cfgscript_hb_lang_expr.html">Expressions</a> | <a  href="acdk_cfgscript_hb_lang_expr_backtick.html">Backtick Expressions</a> | Statements | <a  href="acdk_cfgscript_hb_lang_class.html">Class</a> | <a  href="acdk_cfgscript_hb_lang_logging.html">Logging</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

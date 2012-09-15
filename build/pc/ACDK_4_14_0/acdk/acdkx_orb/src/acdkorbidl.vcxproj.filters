@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdkx">
+      <UniqueIdentifier>{b03337c1-bfd6-45cc-83d2-17981d29f689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb">
+      <UniqueIdentifier>{a1be90ed-0851-46bd-a10a-c2e389ce1269}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdkx\orb\idl">
+      <UniqueIdentifier>{b20b0dc3-701d-4c23-914c-d65658ff8a30}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdkx\orb\idl\acdkorbidl.cpp">
+      <Filter>acdkx\orb\idl</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

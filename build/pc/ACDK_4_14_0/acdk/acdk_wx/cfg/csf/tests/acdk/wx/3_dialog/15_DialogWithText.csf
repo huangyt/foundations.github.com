@@ -1,0 +1,30 @@
+
+using acdk.wx;
+
+
+class MyDialog
+extends acdk.wx.Dialog
+{
+  MyDialog()
+  {
+    super(Nil, -1, "Hello, Text Dialog", Point.defaultPosition(), new
+    Size(200, 200));
+
+    TextCtrl text = new TextCtrl(this, -1, "Hello");
+  }
+}
+
+class MyApp
+extends acdk.wx.App
+{
+  MyApp() {}
+  bool onInit()
+  {
+    Dialog win = new MyDialog();
+    win.showModal();
+    return false; // don't continue
+  }
+}
+
+StringArray args = new StringArray(0);
+acdk.wx.App.createGui("MyApp", args);

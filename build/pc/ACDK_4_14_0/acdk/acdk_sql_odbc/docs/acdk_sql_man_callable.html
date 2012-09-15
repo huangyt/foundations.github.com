@@ -1,0 +1,124 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Stored Procedures">
+<title>ACDK SQL Stored Procedures</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK SQL ODBC</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_sql_man.html">ACDK SQL Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Stored Procedures
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | Stored Procedures | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK SQL Stored Procedures</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK SQL Stored Procedures</h1> -->
+<p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | Stored Procedures | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p>
+<p class="PageIntro">
+  How to invoke stored procedures/functions.
+</p>
+
+<br>
+<br>
+<a name="jumptable120"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Create the stored procedures"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Create the stored procedures</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Call the stored procedures"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Call the stored procedures</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable120"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Create the stored procedures">Create the stored procedures</a></h2>
+The following code creates a stored procedure with 2 in parameter and 2 out parameter.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    RString sql;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (dmd-&gt;getDatabaseProductName()-&gt;equals(<B><FONT COLOR="#BC8F8F">&quot;Oracle&quot;</FONT></B>) == true)
+    {
+      sql = <B><FONT COLOR="#BC8F8F">&quot;CREATE PROCEDURE acdk_sql_function(instr in varchar2, innum in integer, outstr out varchar2, outnum out integer) AS\n&quot;</FONT></B>
+                    <B><FONT COLOR="#BC8F8F">&quot;begin\n&quot;</FONT></B>
+                    <B><FONT COLOR="#BC8F8F">&quot; outstr:=CONCAT(instr, ' SQL');\n&quot;</FONT></B>
+                    <B><FONT COLOR="#BC8F8F">&quot; outnum:=innum + 1;\n&quot;</FONT></B>
+                    <B><FONT COLOR="#BC8F8F">&quot;end;&quot;</FONT></B>
+                    ;
+    } 
+    <B><FONT COLOR="#A020F0">else</FONT></B> <I><FONT COLOR="#B22222">// asume MS SQL 2000
+</FONT></I>    {
+      sql = <B><FONT COLOR="#BC8F8F">&quot;CREATE PROCEDURE acdk_sql_function @instr varchar(20), @innum SMALLINT, @outstr varchar(20) OUTPUT, @outnum SMALLINT OUTPUT\n&quot;</FONT></B>
+                    <B><FONT COLOR="#BC8F8F">&quot;AS\n&quot;</FONT></B>
+                    <B><FONT COLOR="#BC8F8F">&quot;SET @outstr = @instr + ' SQL'\n&quot;</FONT></B>
+                    <I><FONT COLOR="#B22222">//&quot;print @outstr\n&quot;
+</FONT></I>                    <B><FONT COLOR="#BC8F8F">&quot;SET @outnum = @innum + 1\n&quot;</FONT></B>
+                    ;
+    }
+    RStatement statement = connection-&gt;createStatement(); 
+    <B><FONT COLOR="#228B22">int</FONT></B> rows = statement-&gt;executeUpdate(sql);
+</PRE></td></tr></table>
+<br>
+<h2><a href="#jumptable120"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Call the stored procedures">Call the stored procedures</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+    RString sql = <B><FONT COLOR="#BC8F8F">&quot;{ CALL acdk_sql_function ( ?, ?, ?, ?) }&quot;</FONT></B>;
+    RCallableStatement statement = connection-&gt;prepareCall(sql);
+    statement-&gt;setString(1, <B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>);  
+    statement-&gt;setInt(2, 42);
+    statement-&gt;registerOutParameter(3, ::acdk::sql::NativeVarCharSqlType);
+    statement-&gt;registerOutParameter(4, ::acdk::sql::IntegerSqlType);  
+    
+    <B><FONT COLOR="#228B22">int</FONT></B> count = statement-&gt;executeUpdate(); 
+    RString serg = statement-&gt;getString(3); 
+    <I><FONT COLOR="#B22222">//serg = serg-&gt;convert(CCAscii);
+</FONT></I>    <B><FONT COLOR="#5F9EA0">System</FONT></B>::out-&gt;println(<B><FONT COLOR="#BC8F8F">&quot;Erg is: &quot;</FONT></B> + serg);
+    testAssert(serg-&gt;equals(<B><FONT COLOR="#BC8F8F">&quot;ACDK SQL&quot;</FONT></B>) == true);
+    <B><FONT COLOR="#228B22">int</FONT></B> ierg = statement-&gt;getInt(4);
+    testAssert(ierg == 43);
+</PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_sql_man_inst.html">Installation</a> | <a  href="acdk_sql_man_types.html">Types</a> | <a  href="acdk_sql_man_basics.html">Basic Operations</a> | <a  href="acdk_sql_man_prep.html">Prepared Statements</a> | Stored Procedures | <a  href="acdk_sql_man_dbinfo.html">Database information</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

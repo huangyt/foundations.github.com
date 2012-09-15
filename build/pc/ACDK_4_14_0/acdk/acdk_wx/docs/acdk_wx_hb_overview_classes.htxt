@@ -1,0 +1,1204 @@
+%id: acdk_wx_hb_overview_classes
+%title: acdk_wx Class Overview
+%shorttitle: Class Overview
+%body:
+<pageintro>
+Overview of the ported classes.
+</pageintro>
+<htmlauto/>
+<jumptable/>
+
+<table border=1 padding=0 width="100%">
+<tr>
+<th align=left>wxWidgetClass</th><th align=left>ACDK Class</th><th align=left>Annotation</th>
+</tr>
+<tr>
+<td>wxAcceleratorEntry</td>
+</tr>
+<tr>
+<td>wxAcceleratorTable</td>
+</tr>
+<tr>
+<td>wxActivateEvent</td><td>%cref[acdk::wx::ActivateEvent]</td>
+</tr>
+<tr>
+<td>wxApp</td><td>%cref[acdk::wx::App]</td>
+</tr>
+<tr>
+<td>wxArray, wxArrayString</td><td>&nbsp;</td><td>acdk::lang::ObjectArray, acdk::lang::StringArray</td>
+</tr>
+<tr>
+<td>wxArtProvider</td><td>%cref[acdk::wx::ArtProvider]</td>
+</tr>
+<tr>
+<td>wxAutomationObject</td>
+</tr>
+<tr>
+<td>wxBitmap</td><td>%cref[acdk::wx::Bitmap]</td>
+</tr>
+<tr>
+<td>wxBitmapButton</td><td>%cref[acdk::wx::BitmapButton]</td>
+</tr>
+<tr>
+<td>wxBitmapDataObject</td><td>%cref[acdk::wx::BitmapDataObject]</td>
+</tr>
+<tr>
+<td>wxBitmapHandler</td><td>&nbsp;</td><td>Not sure, if this is needed in user code</td>
+</tr>
+<tr>
+<td>wxBoxSizer</td><td>%cref[acdk::wx::BoxSizer]</td>
+</tr>
+<tr>
+<td>wxBrush</td><td>%cref[acdk::wx::Brush]</td>
+</tr>
+<tr>
+<td>wxBrushList</td><td></td><td>acdk::wx::BrushArray</td>
+</tr>
+<tr>
+<td>wxBufferedInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxBufferedOutputStream</td><td></td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxBusyCursor</td>
+</tr>
+<tr>
+<td>wxBusyInfo</td>
+</tr>
+<tr>
+<td>wxButton</td><td>%cref[acdk::wx::Button]</td>
+</tr>
+<tr>
+<td>wxCalculateLayoutEvent</td>
+</tr>
+<tr>
+<td>wxCalendarCtrl</td>
+</tr>
+<tr>
+<td>wxCalendarDateAttr</td>
+</tr>
+<tr>
+<td>wxCalendarEvent</td>
+</tr>
+<tr>
+<td>wxCaret</td><td>%cref[acdk::wx::Caret]</td>
+</tr>
+<tr>
+<td>wxCheckBox</td><td>%cref[acdk::wx::CheckBox]</td>
+</tr>
+<tr>
+<td>wxCheckListBox</td><td>%cref[acdk::wx::CheckListBox]</td>
+</tr>
+<tr>
+<td>wxChoice</td><td>%cref[acdk::wx::Choice]</td>
+</tr>
+<tr>
+<td>wxClassInfo</td><td></td><td>use own ACDK classes %cref[acdk::lang::Class]</td>
+</tr>
+<tr>
+<td>wxClient</td>
+</tr>
+<tr>
+<td>wxClientDC</td><td>%cref[acdk::wx::ClientDC]</td>
+</tr>
+<tr>
+<td>wxClientData</td><td>%cref[acdk::wx::ClientData]</td>
+</tr>
+<tr>
+<td>wxClientDataContainer</td>
+</tr>
+<tr>
+<td>wxClipboard</td><td>%cref[acdk::wx::Clipboard]</td>
+</tr>
+<tr>
+<td>wxCloseEvent</td><td>%cref[acdk::wx::CloseEvent]</td>
+</tr>
+<tr>
+<td>wxCmdLineParser</td>
+</tr>
+<tr>
+<td>wxColour</td><td>%cref[acdk::wx::Colour]</td>
+</tr>
+<tr>
+<td>wxColourData</td><td>%cref[acdk::wx::ColourData]</td>
+</tr>
+<tr>
+<td>wxColourDatabase</td>
+</tr>
+<tr>
+<td>wxColourDialog</td><td>%cref[acdk::wx::ColourDialog]</td>
+</tr>
+<tr>
+<td>wxComboBox</td><td>%cref[acdk::wx::ComboBox]</td>
+</tr>
+<tr>
+<td>wxCommand</td>
+</tr>
+<tr>
+<td>wxCommandEvent</td><td>%cref[acdk::wx::CommandEvent]</td>
+</tr>
+<tr>
+<td>wxCommandProcessor</td>
+</tr>
+<tr>
+<td>wxCondition</td><td>&nbsp;</td><td>use own ACDK synchronization methods in %cref[acdk::lang::Object]</td>
+</tr>
+<tr>
+<td>wxConfigBase</td>
+</tr>
+<tr>
+<td>wxConnection</td>
+</tr>
+<tr>
+<td>wxContextHelp</td>
+</tr>
+<tr>
+<td>wxContextHelpButton</td>
+</tr>
+<tr>
+<td>wxControl</td><td>%cref[acdk::wx::Control]</td>
+</tr>
+<tr>
+<td>wxCountingOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxCriticalSection</td><td>&nbsp;</td><td>use own ACDK synchronization methods in %cref[acdk::lang::Object]</td>
+</tr>
+<tr>
+<td>wxCriticalSectionLocker</td><td>&nbsp;</td><td>use own ACDK synchronization methods in %cref[acdk::lang::Object]</td>
+</tr>
+<tr>
+<td>wxCSConv</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::locale] and %cref[acdk::lang::String]</td>
+</tr>
+<tr>
+<td>wxCursor</td><td>%cref[acdk::wx::Cursor]</td>
+</tr>
+<tr>
+<td>wxCustomDataObject</td><td>&nbsp;</td><td>(has to be created with wxCustomDataObjectFwd)</td>
+</tr>
+<tr>
+<td>wxDatabase</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDataFormat</td><td>%cref[acdk::wx::DataFormat]</td>
+</tr>
+<tr>
+<td>wxDataInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxDataObject</td><td>%cref[acdk::wx::DataObject]</td>
+</tr>
+<tr>
+<td>wxDataObjectComposite</td><td>%cref[acdk::wx::DataObjectComposite]</td>
+</tr>
+<tr>
+<td>wxDataObjectSimple</td><td>%cref[acdk::wx::DataObjectSimple]</td>
+</tr>
+<tr>
+<td>wxDataOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxDate</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date]</td>
+</tr>
+<tr>
+<td>wxDateSpan</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date]</td>
+</tr>
+<tr>
+<td>wxDateTime</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date]</td>
+</tr>
+<tr>
+<td>wxDateTimeHolidayAuthority</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date]</td>
+</tr>
+<tr>
+<td>wxDateTimeWorkDays</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date]</td>
+</tr>
+<tr>
+<td>wxDb</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbColDataPtr</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbColDef</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbColFor</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbColInf</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbConnectInf</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbIdxDef</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbInf</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbColDef</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbTable</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDbTableInf</td<td>&nbsp;</td>><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxDC</td><td>%cref[acdk::wx::DC]</td>
+</tr>
+<tr>
+<td>wxDCClipper</td>
+</tr>
+<tr>
+<td>wxDebugContext</td>
+</tr>
+<tr>
+<td>wxDebugStreamBuf</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxDialog</td><td>%cref[acdk::wx::Dialog]</td>
+</tr>
+<tr>
+<td>wxDialUpEvent</td>
+</tr>
+<tr>
+<td>wxDialUpManager</td>
+</tr>
+<tr>
+<td>wxDir</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxDirDialog</td><td>%cref[acdk::wx::DirDialog]</td>
+</tr>
+<tr>
+<td>wxDirTraverser</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxDllLoader</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::ClassLoader]</td>
+</tr>
+<tr>
+<td>wxDocChildFrame</td>
+</tr>
+<tr>
+<td>wxDocManager</td>
+</tr>
+<tr>
+<td>wxDocMDIChildFrame</td>
+</tr>
+<tr>
+<td>wxDocMDIParentFrame</td>
+</tr>
+<tr>
+<td>wxDocParentFrame</td>
+</tr>
+<tr>
+<td>wxDocTemplate</td>
+</tr>
+<tr>
+<td>wxDocument</td>
+</tr>
+<tr>
+<td>wxDragImage</td>
+</tr>
+<tr>
+<td>wxDropFilesEvent</td><td>&nbsp;</td><td>Only useable on MS Windows, replaced by DropSource/DropTarget</td>
+</tr>
+<tr>
+<td>wxDropSource</td><td>%cref[acdk::wx::DropSource]</td>
+</tr>
+<tr>
+<td>wxDropTarget</td><td>%cref[acdk::wx::DropTarget]</td>
+</tr>
+<tr>
+<td>wxDynamicLibrary</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::ClassLoader]</td>
+</tr>
+<tr>
+<td>wxEncodingConverter</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::locale]</td>
+</tr>
+<tr>
+<td>wxEraseEvent</td>
+</tr>
+<tr>
+<td>wxEvent</td><td>%cref[acdk::wx::Event]</td>
+</tr>
+<tr>
+<td>wxEvtHandler</td><td>%cref[acdk::wx::EvtHandler]</td>
+</tr>
+<tr>
+<td>wxExpr</td><td>&nbsp;</td><td>use own build in ACDK scripting languages</td>
+</tr>
+<tr>
+<td>wxExprDatabase</td><td>&nbsp;</td><td>use own build in ACDK scripting languages</td>
+</tr>
+<tr>
+<td>wxFFile</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxFFileInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFFileOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFFileStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFile</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxFileDataObject</td><td>%cref[acdk::wx::FileDataObject]</td>
+</tr>
+<tr>
+<td>wxFileDialog</td><td>%cref[acdk::wx::FileDialog]</td>
+</tr>
+<tr>
+<td>wxFileDropTarget</td><td>%cref[acdk::wx::FileDropTarget]</td>
+</tr>
+<tr>
+<td>wxFileHistory</td>
+</tr>
+<tr>
+<td>wxFileInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFileName</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxFileOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFileStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFileSystem</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFileSystemHandler</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFileType</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFilterInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFilterOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxFindDialogEvent</td>
+</tr>
+<tr>
+<td>wxFindReplaceData</td>
+</tr>
+<tr>
+<td>wxFindReplaceDialog</td>
+</tr>
+<tr>
+<td>wxFlexGridSizer</td><td>%cref[acdk::wx::FlexGridSizer]</td>
+</tr>
+<tr>
+<td>wxFocusEvent</td><td>%cref[acdk::wx::FocusEvent]</td>
+</tr>
+<tr>
+<td>wxFont</td><td>%cref[acdk::wx::Font]</td>
+</tr>
+<tr>
+<td>wxFontData</td><td>%cref[acdk::wx::FontData]</td>
+</tr>
+<tr>
+<td>wxFontDialog</td><td>%cref[acdk::wx::FontDialog]</td>
+</tr>
+<tr>
+<td>wxFontEnumerator</td>
+</tr>
+<tr>
+<td>wxFontList</td>
+</tr>
+<tr>
+<td>wxFontMapper</td>
+</tr>
+<tr>
+<td>wxFrame</td><td>%cref[acdk::wx::Frame]</td>
+</tr>
+<tr>
+<td>wxDateTimeHolidayAuthority</td>
+</tr>
+<tr>
+<td>wxFSFile</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxFTP</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::net::ftp]</td>
+</tr>
+<tr>
+<td>wxGauge</td><td>%cref[acdk::wx::Gauge]</td>
+</tr>
+<tr>
+<td>wxGDIObject</td><td>%cref[acdk::wx::GDIObject]</td>
+</tr>
+<tr>
+<td>wxGenericDirCtrl</td>
+</tr>
+<tr>
+<td>wxGenericValidator</td>
+</tr>
+<tr>
+<td>wxGLCanvas</td>
+</tr>
+<tr>
+<td>wxGrid</td>
+</tr>
+<tr>
+<td>wxGridCellAttr</td>
+</tr>
+<tr>
+<td>wxGridCellBoolEditor</td>
+</tr>
+<tr>
+<td>wxGridCellChoiceEditor</td>
+</tr>
+<tr>
+<td>wxGridCellEditor</td>
+</tr>
+<tr>
+<td>wxGridCellFloatEditor</td>
+</tr>
+<tr>
+<td>wxGridCellNumberEditor</td>
+</tr>
+<tr>
+<td>wxGridCellTextEditor</td>
+</tr>
+<tr>
+<td>wxGridEditorCreatedEvent</td>
+</tr>
+<tr>
+<td>wxGridEvent</td>
+</tr>
+<tr>
+<td>wxGridRangeSelectEvent</td>
+</tr>
+<tr>
+<td>wxGridSizeEvent</td>
+</tr>
+<tr>
+<td>wxGridCellBoolRenderer</td>
+</tr>
+<tr>
+<td>wxGridCellFloatRenderer</td>
+</tr>
+<tr>
+<td>wxGridCellNumberRenderer</td>
+</tr>
+<tr>
+<td>wxGridCellRenderer</td>
+</tr>
+<tr>
+<td>wxGridCellStringRenderer</td>
+</tr>
+<tr>
+<td>wxGridTableBase</td>
+</tr>
+<tr>
+<td>wxGridSizer</td>
+</tr>
+<tr>
+<td>wxHashMap</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::util]</td>
+</tr>
+<tr>
+<td>wxHashTable</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::util]</td>
+</tr>
+<tr>
+<td>wxHelpController</td>
+</tr>
+<tr>
+<td>wxHelpControllerHelpProvider</td>
+</tr>
+<tr>
+<td>wxHelpEvent</td><td>%cref[acdk::wx::HelpEvent]</td>
+</tr>
+<tr>
+<td>wxHelpProvider</td>
+</tr>
+<tr>
+<td>wxHtmlCell</td>
+</tr>
+<tr>
+<td>wxHtmlColourCell</td>
+</tr>
+<tr>
+<td>wxHtmlContainerCell</td>
+</tr>
+<tr>
+<td>wxHtmlDCRenderer</td>
+</tr>
+<tr>
+<td>wxHtmlEasyPrinting</td>
+</tr>
+<tr>
+<td>wxHtmlFilter</td>
+</tr>
+<tr>
+<td>wxHtmlHelpController</td>
+</tr>
+<tr>
+<td>wxHtmlHelpData</td>
+</tr>
+<tr>
+<td>wxHtmlHelpFrame</td>
+</tr>
+<tr>
+<td>wxHtmlLinkInfo</td>
+</tr>
+<tr>
+<td>wxHtmlParser</td>
+</tr>
+<tr>
+<td>wxHtmlPrintout</td>
+</tr>
+<tr>
+<td>wxHtmlTag</td>
+</tr>
+<tr>
+<td>wxHtmlTagHandler</td>
+</tr>
+<tr>
+<td>wxHtmlTagsModule</td>
+</tr>
+<tr>
+<td>wxHtmlWidgetCell</td>
+</tr>
+<tr>
+<td>wxHtmlWindow</td><td>%cref[acdk::wx::HtmlWindow]</td>
+</tr>
+<tr>
+<td>wxHtmlWinParser</td>
+</tr>
+<tr>
+<td>wxHtmlWinTagHandler</td>
+</tr>
+<tr>
+<td>wxHTTP</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxIcon</td><td>%cref[acdk::wx::Icon]</td>
+</tr>
+<tr>
+<td>wxIconBundle</td>
+</tr>
+<tr>
+<td>wxIconizeEvent</td>
+</tr>
+<tr>
+<td>wxIdleEvent</td><td>%cref[acdk::wx::IdleEvent]</td>
+</tr>
+<tr>
+<td>wxImage</td><td>%cref[acdk::wx::Image]</td>
+</tr>
+<tr>
+<td>wxImageHandler</td><td>%cref[acdk::wx::ImageHandler]</td>
+</tr>
+<tr>
+<td>wxImageList</td><td>&nbsp;</td><td>use acdk::wx::ImageArray</td>
+</tr>
+<tr>
+<td>wxIndividualLayoutConstraint</td>
+</tr>
+<tr>
+<td>wxInitDialogEvent</td><td>%cref[acdk::wx::InitDialogEvent]</td>
+</tr>
+<tr>
+<td>wxInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxIPV4address</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxJoystick</td>
+</tr>
+<tr>
+<td>wxJoystickEvent</td>
+</tr>
+<tr>
+<td>wxKeyEvent</td><td>%cref[acdk::wx::KeyEvent]</td>
+</tr>
+<tr>
+<td>wxLayoutAlgorithm</td>
+</tr>
+<tr>
+<td>wxLayoutConstraints</td><td>%cref[acdk::wx::LayoutConstraints]</td>
+</tr>
+<tr>
+<td>wxList</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::util]</td>
+</tr>
+<tr>
+<td>wxListBox</td><td>%cref[acdk::wx::ListBox]</td>
+</tr>
+<tr>
+<td>wxListCtrl</td><td>%cref[acdk::wx::ListCtrl]</td>
+</tr>
+<tr>
+<td>wxListEvent</td><td>%cref[acdk::wx::ListEvent]</td>
+</tr>
+<tr>
+<td>wxListItem</td><td>%cref[acdk::wx::ListItem]</td>
+</tr>
+<tr>
+<td>wxListView</td>
+</tr>
+<tr>
+<td>wxLocale</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::locale]</td>
+</tr>
+<tr>
+<td>wxLog</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::util::logging]</td>
+</tr>
+<tr>
+<td>wxLogChain</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::util::logging]</td>
+</tr>
+<tr>
+<td>wxLogGui</td>
+</tr>
+<tr>
+<td>wxLogNull</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::util::logging]</td>
+</tr>
+<tr>
+<td>wxLogPassThrough</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::util::logging]</td>
+</tr>
+<tr>
+<td>wxLogStderr</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::util::logging]</td>
+</tr>
+<tr>
+<td>wxLogStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::util::logging]</td>
+</tr>
+<tr>
+<td>wxLogTextCtrl</td>
+</tr>
+<tr>
+<td>wxLogWindow</td>
+</tr>
+<tr>
+<td>wxLongLong</td><td>&nbsp;</td><td>use own ACDK basic type jlong</td>
+</tr>
+<tr>
+<td>wxMask</td>
+</tr>
+<tr>
+<td>wxMaximizeEvent<td>%cref[acdk::wx::MaximizeEvent]</td></td>
+</tr>
+<tr>
+<td>wxMBConv</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::locale] and %cref[acdk::lang::String]</td>
+</tr>
+<tr>
+<td>wxMBConvFile</td><td>use own ACDK classes in %nsref[acdk::locale] and %cref[acdk::lang::String]</td>
+</tr>
+<tr>
+<td>wxMBConvUTF7</td><td>use own ACDK classes in %nsref[acdk::locale] and %cref[acdk::lang::String]</td>
+</tr>
+<tr>
+<td>wxMBConvUTF8</td><td>use own ACDK classes in %nsref[acdk::locale] and %cref[acdk::lang::String]</td>
+</tr>
+<tr>
+<td>wxMDIChildFrame</td><td>%cref[acdk::wx::wxMDIChildFrame]</td>
+</tr>
+<tr>
+<td>wxMDIClientWindow</td><td>%cref[acdk::wx::MDIClientWindow]</td>
+</tr>
+<tr>
+<td>wxMDIParentFrame</td><td>%cref[acdk::wx::MDIParentFrame]</td>
+</tr>
+<tr>
+<td>wxMemoryDC</td><td>%cref[acdk::wx::MemoryDC]</td>
+</tr>
+<tr>
+<td>wxMemoryFSHandler</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxMemoryInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxMemoryOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxMenu</td><td>%cref[acdk::wx::Menu]</td>
+</tr>
+<tr>
+<td>wxMenuBar</td><td>%cref[acdk::wx::MenuBar]</td>
+</tr>
+<tr>
+<td>wxMenuEvent</td><td>%cref[acdk::wx::MenuEvent]</td>
+</tr>
+<tr>
+<td>wxMenuItem</td><td>%cref[acdk::wx::MenuItem]</td>
+</tr>
+<tr>
+<td>wxMessageDialog</td><td>&nbsp;</td><td>use the messageBox method in %cref[acdk::wx::Window]</td>
+</tr>
+<tr>
+<td>wxMetafile</td><td>&nbsp;</td><td>Seems only usable on MS Windows</td>
+</tr>
+<tr>
+<td>wxMetafileDC</td><td>&nbsp;</td><td>Seems only usable on MS Windows</td>
+</tr>
+<tr>
+<td>wxMimeTypesManager</td>
+</tr>
+<tr>
+<td>wxMiniFrame</td>
+</tr>
+<tr>
+<td>wxModule</td><td>&nbsp;</td><td>use own ACDK classes, like %cref[acdk::lang::ClassLoader]</td>
+</tr>
+<tr>
+<td>wxMouseEvent</td><td>%cref[acdk::wx::MouseEvent]</td>
+</tr>
+<tr>
+<td>wxMoveEvent</td><td>%cref[acdk::wx::MoveEvent]</td>
+</tr>
+<tr>
+<td>wxMultipleChoiceDialog</td>
+</tr>
+<tr>
+<td>wxMutex</td><td>&nbsp;</td><td>use own ACDK synchronization methods in %cref[acdk::lang::Object]</td>
+</tr>
+<tr>
+<td>wxMutexLocker</td><td>&nbsp;</td><td>use own ACDK synchronization methods in %cref[acdk::lang::Object]</td>
+</tr>
+<tr>
+<td>wxNode</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::util]</td>
+</tr>
+<tr>
+<td>wxNotebook</td><td>%cref[acdk::wx::Notebook]</td>
+</tr>
+<tr>
+<td>wxNotebookEvent</td><td>%cref[acdk::wx::NotebookEvent]</td>
+</tr>
+<tr>
+<td>wxNotebookSizer</td>
+</tr>
+<tr>
+<td>wxNotifyEvent</td><td>%cref[acdk::wx::NotifyEvent]</td>
+</tr>
+<tr>
+<td>wxObject</td><td>%cref[acdk::wx::WxObject]</td>
+</tr>
+<tr>
+<td>wxObjectRefData</td>
+</tr>
+<tr>
+<td>wxOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxPageSetupDialog</td>
+</tr>
+<tr>
+<td>wxPageSetupDialogData</td>
+</tr>
+<tr>
+<td>wxPaintDC</td><td>%cref[acdk::wx::PaintDC]</td>
+</tr>
+<tr>
+<td>wxPaintEvent/td>
+</tr>
+<tr>
+<td>wxPalette</td><td>%cref[acdk::wx::Palette]</td>
+</tr>
+<tr>
+<td>wxPanel</td><td>%cref[acdk::wx::Panel]</td>
+</tr>
+<tr>
+<td>wxPathList</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxPen</td><td>%cref[acdk::wx::Pen]</td>
+</tr>
+<tr>
+<td>wxPenList</td>
+</tr>
+<tr>
+<td>wxPlotCurve</td>
+</tr>
+<tr>
+<td>wxPlotWindow</td>
+</tr>
+<tr>
+<td>wxPoint</td><td>%cref[acdk::wx::Pen]</td>
+</td>
+</tr>
+<tr>
+<td>wxPostScriptDC</td><td>%cref[acdk::wx::PostScriptDC]</td>
+</tr>
+<tr>
+<td>wxPreviewCanvas</td>
+</tr>
+<tr>
+<td>wxPreviewControlBar</td>
+</tr>
+<tr>
+<td>wxPreviewFrame</td>
+</tr>
+<tr>
+<td>wxPrintData</td>
+</tr>
+<tr>
+<td>wxPrintDialog</td>
+</tr>
+<tr>
+<td>wxPrintDialogData</td>
+</tr>
+<tr>
+<td>wxPrinter</td>
+</tr>
+<tr>
+<td>wxPrinterDC</td>
+</tr>
+<tr>
+<td>wxPrintout</td>
+</tr>
+<tr>
+<td>wxPrintPreview</td>
+</tr>
+<tr>
+<td>wxPrivateDropTarget</td>
+</tr>
+<tr>
+<td>wxProcess</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::Runtime]</td>
+</tr>
+<tr>
+<td>wxProcessEvent</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::Runtime]</td>
+</tr>
+<tr>
+<td>wxProgressDialog</td><td>%cref[acdk::wx::ProgressDialog]</td>
+</tr>
+<tr>
+<td>wxProtocol</td>
+</tr>
+<tr>
+<td>wxQuantize</td>
+</tr>
+<tr>
+<td>wxQueryCol</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxQueryField</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxQueryLayoutInfoEvent</td>
+</tr>
+<tr>
+<td>wxRadioBox</td><td>%cref[acdk::wx::RadioBox]</td>
+</tr>
+<tr>
+<td>wxRadioButton</td><td>%cref[acdk::wx::RadioButton]</td>
+</tr>
+<tr>
+<td>wxRealPoint</td>
+</tr>
+<tr>
+<td>wxRecordSet</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::sql]</td>
+</tr>
+<tr>
+<td>wxRect</td><td>%cref[acdk::wx::Rect]</td>
+</tr>
+<tr>
+<td>wxRegEx</td><td>&nbsp;</td><td>use own ACDK classes %cref[acdk::util::RegExp]</td>
+</tr>
+<tr>
+<td>wxRegion</td><td>%cref[acdk::wx::Region]</td>
+</tr>
+<tr>
+<td>wxRegionIterator</td>
+</tr>
+<tr>
+<td>wxSashEvent</td><td>%cref[acdk::wx::SashEvent]</td>
+</tr>
+<tr>
+<td>wxSashLayoutWindow</td><td>%cref[acdk::wx::SashLayoutWindow]</td>
+</tr>
+<tr>
+<td>wxSashWindow</td><td>%cref[acdk::wx::SashWindow]</td>
+</tr>
+<tr>
+<td>wxScreenDC</td><td>%cref[acdk::wx::ScreenDC]</td>
+</tr>
+<tr>
+<td>wxScopedArray</td><td>&nbsp;</td><td>use own ACDK memory management</td>
+</tr>
+<tr>
+<td>wxScopedPtr</td><td>&nbsp;</td><td>use own ACDK memory management</td>
+</tr>
+<tr>
+<td>wxScrollBar</td><td>%cref[acdk::wx::ScrollBar]</td>
+</tr>
+<tr>
+<td>wxScrolledWindow</td><td>%cref[acdk::wx::ScrolledWindow]</td>
+</tr>
+<tr>
+<td>wxScrollEvent</td><td>%cref[acdk::wx::ScrollEvent]</td>
+</tr>
+<tr>
+<td>wxScrollWinEvent</td><td>%cref[acdk::wx::ScrollWinEvent]</td>
+</tr>
+<tr>
+<td>wxSemaphore</td><td>&nbsp;</td><td>use own ACDK synchronization methods in %cref[acdk::lang::Object]</td>
+</tr>
+<tr>
+<td>wxServer</td>
+</tr>
+<tr>
+<td>wxSimpleHelpProvider</td>
+</tr>
+<tr>
+<td>wxSingleChoiceDialog</td>
+</tr>
+<tr>
+<td>wxSingleInstanceChecker</td>
+</tr>
+<tr>
+<td>wxSize</td><td>%cref[acdk::wx::Size]</td>
+</tr>
+<tr>
+<td>wxSizeEvent</td><td>%cref[acdk::wx::SizeEvent]</td>
+</tr>
+<tr>
+<td>wxSizer</td><td>%cref[acdk::wx::Sizer]</td>
+</tr>
+<tr>
+<td>wxSlider</td><td>%cref[acdk::wx::Slider]</td>
+</tr>
+<tr>
+<td>wxSockAddress</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSocketBase</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSocketClient</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSocketEvent</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSocketInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSocketOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSocketServer</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io] and %nsref[acdk::net]</td>
+</tr>
+<tr>
+<td>wxSpinButton</td><td>%cref[acdk::wx::SpinButton]</td>
+</tr>
+<tr>
+<td>wxSpinCtrl</td><td>%cref[acdk::wx::SpinCtrl]</td>
+</tr>
+<tr>
+<td>wxSpinEvent</td><td>%cref[acdk::wx::SpinEvent]</td>
+</tr>
+<tr>
+<td>wxSplitterEvent</td><td>%cref[acdk::wx::SplitterEvent]</td>
+</tr>
+<tr>
+<td>wxSplitterWindow</td><td>%cref[acdk::wx::SplitterWindow]</td>
+</tr>
+<tr>
+<td>wxStaticBitmap</td><td>%cref[acdk::wx::StaticBitmap]</td>
+</tr>
+<tr>
+<td>wxStaticBox</td><td>%cref[acdk::wx::StaticBox]</td>
+</tr>
+<tr>
+<td>wxStaticBoxSizer</td><td>%cref[acdk::wx::StaticBoxSizer]</td>
+</tr>
+<tr>
+<td>wxStaticLine</td><td>%cref[acdk::wx::StaticLine]</td>
+</tr>
+<tr>
+<td>wxStaticText</td><td>%cref[acdk::wx::StaticText]</td>
+</tr>
+<tr>
+<td>wxStatusBar</td><td>%cref[acdk::wx::StatusBar]</td>
+</tr>
+<tr>
+<td>wxStopWatch</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::SysDate]</td>
+</tr>
+<tr>
+<td>wxStreamBase</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxStreamBuffer</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxStreamToTextRedirector</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxString</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::String]</td>
+</tr>
+<tr>
+<td>wxStringBuffer</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::StringBuffer]</td>
+</tr>
+<tr>
+<td>wxStringClientData</td>
+</tr>
+<tr>
+<td>wxStringList</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::StringBuffer]</td>
+</tr>
+<tr>
+<td>wxStringTokenizer</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::StreamTokenizer] and %cref[acdk::util::StringTokenizer]</td>
+</tr>
+<tr>
+<td>wxSysColourChangedEvent</td>
+</tr>
+<tr>
+<td>wxSystemOptions</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::System]</td>
+</tr>
+<tr>
+<td>wxSystemSettings</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::System]</td>
+</tr>
+<tr>
+<td>wxTabCtrl</td><td></td><td>see %cref[acdk::wx::Notebook]</td>
+</tr>
+<tr>
+<td>wxTabEvent</td><td>%cref[acdk::wx::TabEvent]</td>
+</tr>
+<tr>
+<td>wxTaskBarIcon</td>
+</tr>
+<tr>
+<td>wxTempFile</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::io::File]</td>
+</tr>
+<tr>
+<td>wxTextAttr</td><td>%cref[acdk::wx::TextAttr]</td>
+</tr>
+<tr>
+<td>wxTextCtrl</td><td>%cref[acdk::wx::TextCtrl]</td>
+</tr>
+<tr>
+<td>wxTextDataObject</td><td>%cref[acdk::wx::TextDataObject]</td>
+</tr>
+<tr>
+<td>wxTextDropTarget</td><td>%cref[acdk::wx::TextDropTarget]</td>
+</tr>
+<tr>
+<td>wxTextEntryDialog</td><td>%cref[acdk::wx::TextEntryDialog]</td>
+</tr>
+<tr>
+<td>wxTextFile</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxTextInputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxTextOutputStream</td><td>&nbsp;</td><td>use own ACDK classes in %nsref[acdk::io]</td>
+</tr>
+<tr>
+<td>wxTextValidator</td>
+</tr>
+<tr>
+<td>wxThread</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::Thread]</td>
+</tr>
+<tr>
+<td>wxTime</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date]</td>
+</tr>
+<tr>
+<td>wxTimer</td><td>%cref[acdk::wx::Timer]</td>
+</tr>
+<tr>
+<td>wxTimerEvent</td><td>%cref[acdk::wx::TimerEvent]</td>
+</tr>
+<tr>
+<td>wxTimeSpan</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::util::Date] or %cref[acdk::util::SysDate]</td>
+</tr>
+<tr>
+<td>wxTipProvider</td>
+</tr>
+<tr>
+<td>wxTipWindow</td>
+</tr>
+<tr>
+<td>wxToggleButton</td><td>%cref[acdk::wx::ToggleButton]</td>
+</tr>
+<tr>
+<td>wxToolBar</td><td>%cref[acdk::wx::ToolBar]</td>
+</tr>
+<tr>
+<td>wxToolTip</td><td>%cref[acdk::wx::ToolTip]</td>
+</tr>
+<tr>
+<td>wxTreeCtrl</td><td>%cref[acdk::wx::TreeCtrl]</td>
+</tr>
+<tr>
+<td>wxTreeEvent</td><td>%cref[acdk::wx::TreeEvent]</td>
+</tr>
+<tr>
+<td>wxTreeItemData</td><td>%cref[acdk::wx::TreeItemData]</td>
+</tr>
+<tr>
+<td>wxTreeLayout</td>
+</tr>
+<tr>
+<td>wxTreeLayoutStored</td>
+</tr>
+<tr>
+<td>wxUpdateUIEvent</td>
+</tr>
+<tr>
+<td>wxURL</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::net::URL]</td>
+</tr>
+<tr>
+<td>wxValidator</td><td>%cref[acdk::wx::Validator]</td>
+</tr>
+<tr>
+<td>wxVariant</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::dmi::DmiObject]</td>
+</tr>
+<tr>
+<td>wxVariantData</td><td>&nbsp;</td><td>use own ACDK class %cref[acdk::lang::dmi::DmiObject]</td>
+</tr>
+<tr>
+<td>wxView</td>
+</tr>
+<tr>
+<td>wxWave</td>
+</tr>
+<tr>
+<td>wxWindow</td><td>%cref[acdk::wx::Window]</td>
+</tr>
+<tr>
+<td>wxWindowDC</td><td>%cref[acdk::wx::WindowDC]</td>
+</tr>
+<tr>
+<td>wxWindowDisabler</td>
+</tr>
+<tr>
+<td>wxWizard</td><td>%cref[acdk::wx::wxWizard]</td>
+</tr>
+<tr>
+<td>wxWizardEvent</td>
+</tr>
+<tr>
+<td>wxWizardPage</td><td>%cref[acdk::wx::WizardPage]</td>
+</tr>
+<tr>
+<td>wxWizardPageSimple</td>
+</tr>
+<tr>
+<td>wxXmlResource</td><td>%cref[acdk::wx::XmlResource]</td>
+</tr>
+<tr>
+<td>wxXmlResourceHandler</td>
+</tr>
+<tr>
+<td>wxZipInputStream</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::vfile::zip]</td>
+</tr>
+<tr>
+<td>wxZlibInputStream</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::vfile::zip]</td>
+</tr>
+<tr>
+<td>wxZlibOutputStream</td><td>&nbsp;</td><td>use own ACDK classes %nsref[acdk::vfile::zip]</td>
+</tr>
+
+</table>
+
+.

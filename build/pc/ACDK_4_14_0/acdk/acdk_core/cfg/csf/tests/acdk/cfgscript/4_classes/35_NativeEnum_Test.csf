@@ -1,0 +1,7 @@
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+using acdk.lang.dmi;
+
+VarType vt = DoubleVT;

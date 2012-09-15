@@ -1,0 +1,180 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdkx_orb, ORB, CORBA">
+<title>ACDKX ORB Readme</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK ORB</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACDKX ORB Readme
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | ACDKX ORB Readme | <a  href="acdkx_orb_static_skel.html">Static Proxy and Skeleton</a> | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | <a  href="acdkxorbidl_man.html">acdkorbidl</a> | <a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDKX ORB Readme</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDKX ORB Readme</h1> -->
+<p class="PageIntro">
+ACDKX ORB provides a lean/fast/easy to use CORBA ORB for ACDK.</p>
+
+
+<a name="jumptable100"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#General"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;General</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Title"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Title</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Version"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Short Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Short Description</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Authors"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Authors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#License"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;License</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Description"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Description</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Notes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Notes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Todo"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Todo</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Changes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Changes</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="General">General</a></h2>
+  <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Title">Title</a></h3>
+    ACDKX ORB (acdkx_orb)  <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Version">Version</a></h3>
+    Distribution version: 4.14.<br>
+    Package version: 4.14.0.
+   
+  <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Short Description">Short Description</a></h3>
+    <pre class="quoted">
+  ACDKX ORB provides a lean/fast/easy to use CORBA ORB for ACDK.    </pre>
+  <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h3>
+    <pre class="quoted">
+      <a  href="../../acdk_core/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Core</a>
+<a  href="../../acdk_text/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK Text</a>
+<a  href="../../acdk_xml/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK XML</a>
+    </pre>
+  <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+    <pre class="quoted">
+      <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_org__omg"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;org::omg</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdkx__arb"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdkx::arb</a>
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=namespace_acdkx__orb"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdkx::orb</a>
+    </pre>
+  <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Authors">Authors</a></h3>
+    <pre class="quoted">
+      Roger Rene Kommer (kommer@artefaktur.com).    </pre>
+   <h3><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="License">License</a></h3>
+    <pre class="quoted">
+      ACDK Free Edition License.    </pre>
+<h2><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Description">Description</a></h2>
+  <m>acdkx_orb</m> implements a CORBA ORB for ACDK Objects.
+
+It is designed to fit into the ACDK DMI concept, which
+means that each CORBA object can be controled by any 
+ACDK DMI Client (ACDK C++, CfgScript, COM, Perl, Lisp, Python, 
+Tcl, Java) and each ACDK Server (ACDK C++, CfgScript, COM, Lisp, Java)
+can provide its interfaces as CORBA components.  
+
+Different to official C++ language binding, the <a  href="acdkx_orb_mapping.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK binding</a>
+is much more simple. 
+
+<m>acdkx_orb</m> provides a <a  href="../../acdk_core/docs/acdkmc.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdkmc</a> plugin to generated <a  href="acdkx_orb_static_skel.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;static skeletons</a>
+directly from source (not IDL). For usage with other orbs the <a  href="acdkxorbidl_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;<m>acdkxorbidl</m></a> can be used
+to generade IDL definitions from ACDK C++ headers.
+
+An experimental <a  href="acdkx_orb_dynamic_proxy.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;dynamic binding</a> can be used to comunikate via IIOP without any
+static skeleton.
+<h2><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Notes">Notes</a></h2>
+  <pre class="quoted">
+  Panta rei.  </pre>
+
+<h2><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Todo">Todo</a></h2>
+  <pre class="quoted">
+  This is version is beta. Some things works,
+  some other not.  </pre>
+ 
+<h2><a href="#jumptable100"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Changes">Changes</a></h2>
+  <pre class="quoted">
+    ===========================================================
+4.13.0
+- added -c option to acdkorbidl.
+- fixed CDRObjectReader::readString() memory overwrite bug.
+- implement dynamic dispatching using DmiProxy
+
+===========================================================
+4.10.0
+
+Please refer also to <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=..%2fChangeLog"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;ChangeLog</a>.
+- Minor compilation problems fixed.
+
+===========================================================
+4.02.0
+- Configuration and documentation fixed
+
+===========================================================
+4.01.1
+- Ajustments to modified metainfo
+- minor documentation changes.
+
+===========================================================
+4.00.1
+- Ajustments to Unicode and revised metainfo.
+
+===========================================================
+2.00.1
+- Start Integration into ACDK DMI.
+  Corba Objects can act as DMI Server and
+  all ACDK DMI Server objects can be addressed
+  with CORBA clients. 
+- Introduced connection pooling.
+- Make some unit tests.
+
+- Not stable at the moment
+
+
+===========================================================
+1.01.0
+
+- initial revision  </pre>
+
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | ACDKX ORB Readme | <a  href="acdkx_orb_static_skel.html">Static Proxy and Skeleton</a> | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | <a  href="acdkxorbidl_man.html">acdkorbidl</a> | <a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

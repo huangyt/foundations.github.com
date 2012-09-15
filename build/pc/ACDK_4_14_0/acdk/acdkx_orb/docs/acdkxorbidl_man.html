@@ -1,0 +1,194 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="acdkorbidl, IDL, CORBA IDL">
+<title>acdkorbidl</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK ORB</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;acdkorbidl
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDKX ORB Readme</a> | <a  href="acdkx_orb_static_skel.html">Static Proxy and Skeleton</a> | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | acdkorbidl | <a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>acdkorbidl</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>acdkorbidl</h1> -->
+<p class="PageIntro">
+With acdkorbidl the CORBA IDL definitions of a compiled package
+can be extracted
+</p>
+
+<br>
+<br>
+<a name="jumptable102"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Usage"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Usage</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Mapping"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Mapping</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Namespaces"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Namespaces</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Classes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Exceptions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Exceptions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Parameter / Member types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Parameter / Member types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Methods"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Methods</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Non-static methods"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Non-static methods</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Non-static Memberfields"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Non-static Memberfields</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Constructors, static methods and members"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Constructors, static methods and members</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#CORBA IDL related ACDK MetaAttributes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CORBA IDL related ACDK MetaAttributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Value Types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Value Types</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<h2><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Usage">Usage</a></h2>
+<pre>
+acdkorbidl [options]
+    with options:
+      -o|--output <filename>   where to write output
+      -u|--unit <unitname>     unit to include (multiple usage possible, example acdk::text)
+      --no-fields              no attributes
+      -k|--only-known          generate only known declared corba-interface
+      -x|--only-explict        generate only explicit declared corba-interface
+      -c|--classname <classname> generate IDL for a single class (example acdk/text/RegExp)
+</pre>
+The units has to be already been compiled and located in the $ACDKHOME directory,
+so the classloader can find them.<br>
+<br>
+<h2><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Mapping">Mapping</a></h2>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Namespaces">Namespaces</a></h3>
+Namespaces are mapped to modules.<br>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Classes">Classes</a></h3>
+normal classes are mapped to interfaces.<br>
+The ACKD class acdk::lang::Object will be renamed
+to IDL interface acdk::lang::AObject.<br>
+<br>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Exceptions">Exceptions</a></h3>
+ACDK exceptions are mapped to corresponding
+exceptions in CORBA. ACDK exceptions are
+classes derived from acdk::lang::Throwable.<br>
+Because CORBA doesn't supported derived exceptions,
+and methods, these are suppressed in the translated
+CORBA exceptions. All members (including private) 
+of the exception and its parents are included in the 
+CORBA exceptions.<br>
+<br>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parameter / Member types">Parameter / Member types</a></h3>
+The parameters are mapped corresponding to
+the standard ACDK/CORBA type mapping.<br>
+<br>
+Exceptions cannot be used as Parameter or member.<br>
+Methods and field members containing exception
+as parameter will be suppressed.<br>
+<br>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Methods">Methods</a></h3>
+<h4><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Non-static methods">Non-static methods</a></h4>
+Public non-static methods are normal methods.<br>
+Methods, which contains a non-confirming parameter
+are suppressed. 
+<br>
+<h4><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Non-static Memberfields">Non-static Memberfields</a></h4>
+Public ACDK non-static members are mapped
+to interface attributes.<br>
+<br>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Constructors, static methods and members">Constructors, static methods and members</a></h3>
+For each class containing public constrturs or static methods
+or members an additionally interface will be created:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+<I><FONT COLOR="#B22222">// ACDK class
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> AClass
+{
+  ACDK_WITH_METAINFO(AClass)
+<B><FONT COLOR="#228B22">public</FONT></B>:
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> pubStaticInt;
+  RString pubString;
+  AClass(IN(RString) str)
+  : pubString(str)
+  {
+  }
+  <B><FONT COLOR="#228B22">int</FONT></B> baz();
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> foo();
+  <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> bar();
+};
+</PRE></td></tr></table>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#A020F0">interface</FONT></B> AClass
+{
+  <B><FONT COLOR="#A020F0">attribute</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> pubString;
+  <B><FONT COLOR="#A020F0">long</FONT></B> foo();
+};
+
+<B><FONT COLOR="#A020F0">interface</FONT></B> AClassCorFactory
+{
+  AClass createAClass(<B><FONT COLOR="#A020F0">in</FONT></B> <B><FONT COLOR="#A020F0">string</FONT></B> str); <I><FONT COLOR="#B22222">// was constructor
+</FONT></I>  <B><FONT COLOR="#A020F0">attribute</FONT></B> <B><FONT COLOR="#A020F0">long</FONT></B> pubStaticInt;
+  <B><FONT COLOR="#A020F0">long</FONT></B> bar();
+}
+</PRE></td></tr></table>
+<h2><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CORBA IDL related ACDK MetaAttributes">CORBA IDL related ACDK MetaAttributes</a></h2>
+<jump2>Unit include hints</jump>
+To include other IDL files an StringTagAttribute can be 
+attached to an Unit declaration. Use the tag name acdkx_orb_UnitInclude1, 
+acdkx_orb_UnitInclude2, etc to add include statemants.<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// ACDK header
+</FONT></I>ACDK_UNITATTRIBUTE(acdk.tools.mc.StringTagAttribute(<B><FONT COLOR="#BC8F8F">&quot;acdkx_orb_UnitInclude1&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;acdk_core.idl&quot;</FONT></B>))
+ACDK_UNITATTRIBUTE(acdk.tools.mc.StringTagAttribute(<B><FONT COLOR="#BC8F8F">&quot;acdkx_orb_UnitInclude2&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;acdk_text.idl&quot;</FONT></B>))
+ACDK_DECL_UNIT(acdk_tools_aunit)
+</PRE></td></tr></table>
+will result in:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td></td></tr></table>
+<br>
+<h3><a href="#jumptable102"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Value Types">Value Types</a></h3>
+ACDK_UNITATTRIBUTE(acdk.tools.mc.StringTagAttribute("acdkx_orb_StructType"))
+<br>
+Default constructor the public method or <code>static RObject create_instance()</code> must exists.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDKX ORB Readme</a> | <a  href="acdkx_orb_static_skel.html">Static Proxy and Skeleton</a> | <a  href="acdkx_orb_dynamic_proxy.html">Automatic Dynamic Proxy</a> | acdkorbidl | <a  href="acdkx_orb_concept.html">Concept of acdkx_orb</a> | <a  href="../../docs/acdk_general_install.html">Installation</a> | <a  href="../../docs/ACDK-FreeLicense.html">License</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,77 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I.  -I$(ACDK_PERL_INCLUDE)  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=-L"$(ACDK_PERL_LIBPATH)"
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib" "..\..\..\..\bin\acdk_perl.lib" $(ACDK_PERL_LIB)
+
+OUTFILE="..\..\..\..\bin\acdk_perl_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_perl_Test\bcc"
+SOURCES= 	"acdk_perl_Test.cpp" \
+	"acdk_perl_Basics.cpp" \
+	"acdk_perl_CoObject.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_perl_Test\bcc\acdk_perl_Test.obj" \
+	".\tobj\acdk_perl_Test\bcc\acdk_perl_Basics.obj" \
+	".\tobj\acdk_perl_Test\bcc\acdk_perl_CoObject.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_perl_Test\bcc\acdk_perl_Test.obj": "acdk_perl_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_perl_Test\bcc" "acdk_perl_Test.cpp"
+
+".\tobj\acdk_perl_Test\bcc\acdk_perl_Basics.obj": "acdk_perl_Basics.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_perl_Test\bcc" "acdk_perl_Basics.cpp"
+
+".\tobj\acdk_perl_Test\bcc\acdk_perl_CoObject.obj": "acdk_perl_CoObject.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_perl_Test\bcc" "acdk_perl_CoObject.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_perl_Test.exe"
+	del ".\tobj\acdk_perl_Test\bcc\acdk_perl_Test.obj"
+	del ".\tobj\acdk_perl_Test\bcc\acdk_perl_Basics.obj"
+	del ".\tobj\acdk_perl_Test\bcc\acdk_perl_CoObject.obj"
+
+

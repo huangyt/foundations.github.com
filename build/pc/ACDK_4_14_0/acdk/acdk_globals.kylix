@@ -1,0 +1,75 @@
+# acdk_globals.linux
+
+PERL=perl
+
+#WINPERL=//d/programr/lang/perl/interpreter/perl-5.6.0/bin/perl
+#PERL=$(WINPERL)
+#PERL5LIB=d:/artefaktur/genweb/bin
+
+SHELL=bash
+SRC2HTML=src2html
+WEBHOME=/artefaktur/wweb/acdk/modules
+GENWEBHOME=../../genweb
+
+INSTALL=/usr/bin/install -c
+INSTALL_PROGRAM=${INSTALL}
+INSTALL_SCRIPT=${INSTALL_PROGRAM}
+INSTALL_DATA=${INSTALL} -m 644
+MAN_PATH=/usr/local/man
+ACDKLISP=$(ACDKHOME)/bin/acdklisp
+
+# if set, will overwritten
+CCOPTS=-v -RT 
+#-xxxp
+
+# will be before to the default CCOPTS
+XCCOPTS=
+
+# will be after the default CCOPTS
+CCOPTSX= 
+
+# On single CPU machines
+# the -D__SMP__ can be 
+# deactivated
+XDEFINES=-DACDK_NO_NULLPOINTER_CHECKING \
+	-DACDK_NO_TRACE_CALLS \
+	-D__SMP__ 
+
+#-DACDK_USE_EXT_REFERER
+
+SYSLIBRARIES=-lpthread -lm -ldl
+
+# liberty may be used to demangle C++ names
+# ACDK_HAS_LIBERTY should be defined. 
+# -liberty
+
+
+
+gdefault:: default
+
+
+# changelog
+clog:
+	$(PERL) ../../genweb/bin/cvs2cl.pl
+	
+
+pdistrib::
+	cd ../..; \
+	ln -s ./acdk ./acdk-$(DISTRIBVERSION); \
+	if test "$(PACKAGENAME)" == "acdk_core"; then \
+	  $(PERL) ./genweb/bin/backup.pl \
+      --nostdp \
+      '-P.+/.*' +Pacdk_core '+P^bin' +Pinclude/note.txt +Pcfg/general \
+      --stdpattern --exclbin --exclcvs --distignore \
+      -eclass \
+      --name $(PACKAGENAME)-src-$(PACKAGEVERSION) \
+      acdk-$(DISTRIBVERSION); \
+  else \
+	  $(PERL) ./genweb/bin/backup.pl \
+      --nostdp \
+      '-P.*' '+P^$(PACKAGENAME)' \
+      --stdpattern --exclbin --exclcvs --distignore \
+      --name $(PACKAGENAME)-src-$(PACKAGEVERSION) \
+      acdk-$(DISTRIBVERSION); \
+  fi; \
+  rm ./acdk-$(DISTRIBVERSION)

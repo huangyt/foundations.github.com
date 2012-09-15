@@ -1,0 +1,14 @@
+%id: acdk_wx_hb
+%title: acdk_wx Handbook
+%shorttitle: acdk_wx Handbook
+%chapter: acdk_wx_hb_installation, acdk_wx_hb_mapping, acdk_wx_hb_overview_classes, acdk_wx_hb_minimal, \
+          acdk_wx_sample, acdk_wx_hb_events, acdk_wx_hb_apps
+%body:
+<pageintro>
+Handbook for using acdk_wx - ACDKs rich client GUI libaries.
+</pageintro>
+<htmlauto/>
+
+<subschapterstable/>
+
+.

@@ -1,0 +1,27 @@
+%id: acdk_boot_man
+%title: acdk_boot - Manual
+%shorttitle: acdk_boot man
+%seealso: acdk_HelloWorld_man
+%keywords: acdk_boot, acdk::boot
+%body:
+<chapterline/>
+<pageintro>
+A sample ACDK package shared library/DLL 
+to demonstrate some basic ACDK features.
+</pageintro>
+
+<jumptable/>
+
+<jump2>NAME</jump2>
+  acdk_boot - a sample ACDK library
+  
+<jump2>DESCRIPTION</jump2>
+<greptag fname="./acdk_boot.xml" tag="description"/>
+
+<jump2>FILES</jump2>
+
+<fl>
+<f> bin/acdk_boot.*<br>
+    The library files
+</fl>
+.

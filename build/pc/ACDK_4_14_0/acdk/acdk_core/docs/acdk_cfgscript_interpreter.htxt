@@ -1,0 +1,141 @@
+%id: acdk_cfgscript_interpreter
+%title: The CfgScript Interpreter acdkcfgscript
+%shorttitle: acdkcfgscript
+%keywords: interpreter, acdkcfgscript
+%seealso: acdk_cfgscript_embedd
+%body:
+<chapterline/>
+<pageintro>
+<c>acdkcfgscript</c> is the command line interpreter for executing CfgScript scripts.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Syntax</jump1>
+
+When starting the acdkcfgscript executable without arguments you will receive following output:
+<source>
+CfgScript Interpreter. Copyright 2003-2005 by Roger Rene Kommer, artefaktur
+Syntax:
+  acdkcfgscript <acdk-options> <cfgscript-options> file.csf <script arguments>
+  acdkcfgscript <acdk-options> <cfgscript-options> -e <scriptcode>
+cfgscript-options:
+  -csfinclude directory     insert include search directory
+  -csfpath    directory     insert path for the CfgScript class loader
+  -csfdebug                 start interpreter in debug mode
+  -csfdebugonfail           branch to debugger if exception is thrown
+  
+acdk-options:
+common acdk options:
+  -acdk-home=<pathname>   set the path to acdk home directory
+  -acdk-home <pathname>
+  -acdk-tools-home=<pathname>   set the path to acdk tools home directory
+  -acdk-tools-home <pathname>
+  -acdk-path <pathlist>   Env path list for ACDKPATH, to find acdk libraries
+  -acdk-gc                run with mark/sweep garbage collection (experimental)
+  -acdk-rc                run with reference counting garbage collection
+  -acdk-rcgc              run with reference counting and mark/sweek gc
+  -acdk-pa                run with PageAllocator garbage collection (default)
+  -acdk-st                run in single thread mode
+  -cygpath                on windows platform runs in cygwin enviromnent
+  -acdk-enc <char enc>    use encoding for console in/output
+  -acdk-maxmem <number>   limit memory usage -1 no limit, otherwise number of MB
+  -loglevel <loglevel>    integer [0(all)-65535(Non)] or 
+                                  [All|Trace|Debug|Info|Warn|Note|Error|Fatal|None]
+
+
+</source>
+
+<jump2>Execute a Script File</jump2>
+The base syntax to start a CfgScript is:
+<c>cfgscript MyScriptFile.csf</c>
+
+If you want to pass argument to the script:
+<c>cfgscript MyScriptFile.csf -first -second</c>
+
+These arguments are availabe in the script:
+<source>
+foreach (String arg in scriptargs)
+{
+  out.println("Script Argument: " + arg);
+}
+</source>
+
+<jump2>Execute a Script passed as argument</jump2>
+To execute a mini script directly from commandline just use the <c>-e</c> option:
+
+<c>cfgscript -e 'out.println("hello");'</c>
+
+Please note: the quoting of the following code after the <c>-e</c> option depends on the operation system and shell you use.
+
+<jump2>Associate csf script file with the acdkcfgscript interpreter</jump2>
+On MS Windows, use the standard mechanism to associate a file extension with a program to open.
+
+<fl>
+<f> On Unix you can add following lines to the top of a script file:
+
+<source>
+#!/bin/sh
+#!ignorenextline
+eval 'exec acdkcfgscript $0 ${1:"$@"}'
+
+System.out.println("executed"); // this is the first line of the real script
+</source>
+<f> make the script file executable (<c>chmod +x scriptfile.csf</c>).
+<f> Add the <c>$ACDKHOME/bin</c> path to the environment variable <c>PATH</c> and <c>LD_LIBRARY_PATH</c>.
+</fl>
+
+<jump2>CfgScript Options</jump2>
+<jump3>-csfinclude / CSFINCLUDES</jump3>
+The <c>-csfinclude</c> option insert a search path for the %ref[include statement, acdk_cfgscript_hb_lang_source#IncludeStatement].
+
+You can also use the <c>CSFINCLUDES</c> environment variable, to declare a list of include path.
+On Unix:
+<c>export CSFINCLUDES=/usr/local/acdk/extmodules/csf:~/acdk/csf/include</c>
+
+On Windows:
+<c>set CSFINCLUDES=c:\programr\acdk\extmodules\csf;c:\MyDocs\acdk\csf\include</c>
+
+
+<jump3>-csfpath / CSFPATH</jump3>
+
+The <c>-csfpath</c> insert a directory in the CSFPATH environment variable.
+Is a list of directory where the CfgScript ClassLoader tries to load CfgScript Classes.
+
+Please refer also to: %ref[CfgScript ClassLoader, acdk_cfgscript_hb_lib#CfgScript ClassLoader].
+
+<jump3>-csfdebug</jump3>
+Start the interpreter in the debugging mode.
+Please refer to %ref[acdk_cfgscript_hb_debug].
+
+<jump3>-csfdebugonfail</jump3>
+if <c>-csfdebugonfail</c> is set the interpreter branches to the %ref[debugger, acdk_cfgscript_hb_debug]
+if any exception will be thrown.
+
+<jump2>acdk-options</jump2>
+
+The <c>acdk-options</c> are documented in %ref[acdk_core_man].
+
+<jump1>Script Environment</jump1>
+When starting the interpreter some variables are predefined:
+
+<fl>
+<f> %cref[acdk::cfgscript::Script] <c>__script</c> Instance of the current executed script.
+<f> %cref[acdk::cfgscript::Props] <c>__props</c> The set of variables visible in current scope.
+<f> All enviromnent varialbes.
+<f> <c>true, false, Nil, null</c>: as corresponing literal values.
+<f> %cref[acdk::io::PrintWriter] <c>out</c>, <c>err</c> and <c>in</c>. Normally an alias to member of 
+    %cref[acdk::lang::System].
+
+</fl>
+
+Inside the method of CfgScriptClass following variables are set:
+<fl>
+<f> <c>this</c> if method is not static.
+<f> <c>super</c> super class.
+</fl>
+
+
+.

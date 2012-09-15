@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{9a1b4c2c-4699-4db7-bd37-ccdd38c7b658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\text">
+      <UniqueIdentifier>{5399770c-6f6a-4b1e-b999-fb8a24ad38de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\text\regexp">
+      <UniqueIdentifier>{f78b157a-f901-4fbd-b942-54f7bbac2bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\text\regexp\pcre">
+      <UniqueIdentifier>{3088014e-c7e0-4a53-bc55-443084f48ea8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\text\AbstractFormatedOutput.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\Base64.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\Config.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\DateFormat.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\DateFormatSymbols.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\DecimalFormat.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\DecimalFormatSymbols.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\FieldPosition.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\Format.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\FormatedOutput.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\HTMLFormatedOutput.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\NumberFormat.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\ParseException.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\ParsePosition.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\RegExp.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\SimpleDateFormat.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\Template.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\text.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\TextFormatedOutput.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\text\text_all.h">
+      <Filter>acdk\text</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\text\acdk_text_Package.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\Base64.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\DateFormat.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\DateFormatSymbols.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\DecimalFormat.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\DecimalFormatSymbols.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\FieldPosition.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\Format.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\NumberFormat.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\ParsePosition.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\RegExp.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\SimpleDateFormat.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\Template.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\text_metainf_base.cpp">
+      <Filter>acdk\text</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\regexp\pcre\maketables.c">
+      <Filter>acdk\text\regexp\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\regexp\pcre\pcre.c">
+      <Filter>acdk\text\regexp\pcre</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\text\regexp\pcre\pcreposix.c">
+      <Filter>acdk\text\regexp\pcre</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+%id: acdk_cfgscript_hb_lang_types_object
+%title: CfgScript Object Types
+%shorttitle: Object Types
+%seealso: acdk_cfgscript_hb_lang_class
+%body:
+<chapterline/>
+<pageintro>
+All CfgScript types based on ACDK Object.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Using Objects</jump1>
+CfgScript Objects are also ACDK classes an vice versa.
+
+The usage of objects are quite similar to ACDK, Java, JavaScript,
+and C#.
+
+To create a new object <c>new</c> has to be used:
+
+<source>
+acdk.lang.StringBuffer sb = new acdk.lang.StringBuffer("asdf");
+sb.length() == 4;
+</source>
+
+This example shows also, that the objects are organized in namespaces.
+
+See also: %ref[acdk_cfgscript_hb_lang_class]
+
+.

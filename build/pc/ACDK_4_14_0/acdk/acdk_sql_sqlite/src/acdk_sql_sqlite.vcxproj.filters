@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{061e3cca-2021-4c60-ae9d-8b7e0ef348bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql">
+      <UniqueIdentifier>{aac85ed5-88f6-4cc4-ba21-bc743bcd704b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\sql\sqlite">
+      <UniqueIdentifier>{890c089c-61f8-4a72-b16e-0f686e1142b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sqlitesrc">
+      <UniqueIdentifier>{9dcb0378-0548-46d7-b8d4-0b25a84d8806}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\sql\sqlite\Config.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteConnection.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteDatabaseMetaData.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteDriver.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LitePreparedStatement.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteResultSet.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteResultSetMetaData.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteStatement.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\LiteTable.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\sql\sqlite\sqlite.h">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\sql\sqlite\LiteConnection.cpp">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\LiteDatabaseMetaData.cpp">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\LiteResultSet.cpp">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\LiteStatement.cpp">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\LiteTable.cpp">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\sql\sqlite\sqlite_metainf_base.cpp">
+      <Filter>acdk\sql\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\alter.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\attach.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\auth.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\btree.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\build.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\date.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\delete.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\expr.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\func.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\hash.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\insert.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\legacy.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\main.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\opcodes.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\os_unix.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\os_win.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\pager.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\parse.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\pragma.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\printf.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\random.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\select.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\table.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\tokenize.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\trigger.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\update.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\utf.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\util.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vacuum.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbe.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbeapi.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbeaux.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\vdbemem.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlitesrc\where.c">
+      <Filter>sqlitesrc</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

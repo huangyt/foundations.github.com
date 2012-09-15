@@ -1,0 +1,565 @@
+%id: acdk_aal_concept_opcode
+%chapter: acdk_aal_concept_opcode_expression, acdk_aal_concept_opcode_statements, \
+          acdk_aal_concept_opcode_class, acdk_aal_concept_opcode_dmi
+%title: AAL OpCode 
+%shorttitle: OpCode
+%body:
+<chapterline/>
+<pageintro>
+Intermediate OpCode for AAL.
+</pageintro>
+
+
+<subschapterstable/>
+
+<jumptable/>
+<jump1>Basics</jump1>
+Using an OpCode for execution and maybe transpile to Java ByteCode or
+.NET CIL.
+For both languages an assembler language should be used.
+
+<jump1>Aspects</jump1>
+
+<jump2>Integrate in the ParseTree</jump2>
+OpCodes are nodes below the Code nodes.
+Code::executes() delegates the call to 
+OpCodes.
+
+Maybe translation can be done on the fly.
+
+<jump2>Stack based Byte Code</jump2>
+
+<jump3>ByteCode as Sub-Nodes</jump3>
+On each CodeNode the Byte Code of the construct will
+be attached. 
+The ByteCode contains an ObjectArray. The Elements can be
+either a OpCode statement (like 'push 1') or a
+Link to another ByteCode.
+
+<jump2>Basic Types</jump2>
+
+Use ScriptVar as basic type. 
+
+All OpCodes operates on ScriptVar, so they don't
+make a difference to i2, i4, r4, Object etc.
+
+<jump3>Local Variables</jump3>
+<fl>
+<f> Use Instance variable name in Byte-Code?
+<f> Use .data section (StackFrame)?
+</fl>
+
+<rs>
+int i = 1 + 2;
+
+// will be: 
+.data i int
+push 1
+push 2
+add
+pushlval .data[0]
+assign
+
+i = 1;
+// maybe also
+push 1
+assign i
+
+</rs>
+
+<jump2>DMI mapping</jump2>
+
+
+<jump3>Static Resolution</jump3>
+<jump4>Function Call</jump4>
+<jump4>Build-In-Functions</jump4>
+
+<rs>
+// Minimal sample
+
+void foo() { }
+// Callee
+push Nil
+ret
+
+foo();
+
+// Caller
+push "foo" // class name
+push "operator_popc"
+push 0 // argcount | flags
+invoke_static
+pop
+</rs>
+
+
+<jump4>Named parameter</jump4>
+
+<rs>
+void foo(int i = 0, String s = Nil);
+foo(s: "AAL", i: 2);
+
+push 2
+push "i"
+push "AAL"
+push "s"
+push 2 // number of named params
+push 0  // number of unnamed params
+push "foo"
+callnp
+</rs>
+
+<jump4>Member Access</jump4>
+<jump5>Write access</jump5>
+<rs>
+class AClass
+{
+public: int foo;
+};
+
+// AClass cls
+acls.foo = 2;
+
+push acls
+push 2
+poke 'foo'
+
+// or
+push 2
+push acdk
+push 'foo'
+getmemberlval
+assign
+
+// or
+push acls
+push 'foo'
+push 2
+invoke 
+</rs>
+
+// or
+implement operator=() on the object reference.
+which may be most general approach.
+
+<rs>
+acdk.lang.System.out.println("asdf");
+push "acdk/lang/System"
+push "out"
+peek_static   // top on stack is out
+push "println" 
+push "asdf"
+push 1
+invoke
+
+</rs>
+<jump2>Type definitions</jump2>
+To define Types, special Opcodes should
+be used.
+
+<ol>
+<li> Don't use OpCodes for Class Definition but use the 
+    Code nodes and the Environment to define classes.
+    Pro: Easy to implement.
+<li> Use structured declarative statement (.defclass) in the opcode.
+    Con: Has to established a Parser for OpCode.
+    
+<li> Use basic stack based op codes to create type.
+    Con: Hard to understand, not portable to other ByteCode languages.
+<li> Use serialized ClazzInfo to define Classes.
+     The classes can be loaded via a ClassLoader
+     Pro: easy to implement.
+     Pro: Fast execution
+     
+</ol>
+
+<rs>
+class AClass
+{
+  public void foo(int i);
+};
+// Case 1 has no OpCode
+
+// Case 2 
+.defclass AClass extends BClass
+  .defmethod void foo (int i) 
+.endclass
+
+// Case 3
+push "AClass"
+clsdef // class AClass is on top
+push "BClass"
+clsextends
+push "void" // return type
+push "foo" // method name
+push "int"
+push "i"
+push 1 // argument count, method flags
+defmethod
+pop // removes the class defintion
+
+// Case 4
+
+</rs>
+
+<jump2>Persistence</jump2>
+The a compiled unit should be stored
+into a binary file:
+<jump3>String Ressource</jump3>
+Maybe a string dictionary similar to the Java Class format.
+
+
+<jump3>Codes</jump3>
+For debugging purpose may also include 
+the original AST with all Codes.
+
+<jump3>SymbolTables</jump3>
+Symboltable holds defined ClazzInfo ressources
+and tries to resolves external type definitions.
+
+
+After postParse() the SymbolTable is build.
+The SymbolTable is a mapping from String (VarName) to Type.
+
+
+<jump3>Script</jump3>
+<rs>
+class AalClassFile
+{
+   short magic; // 0xaacf
+   int version_mayor;
+   int version_minor;
+   SymbolTableArray symbols;
+   OpCodeArray symbols;
+   CodeArray codes; // debug information
+};
+</rs>
+
+<jump2>ActivationFrame</jump2>
+
+<jump3>General</jump3>
+For runtime the names should be resolved to simple index into
+an ActivationFrame. The ActivationFrame holds all local
+variables of the current block. 
+
+The ActivationFrame creates two OpCodes blocks:
+Push all local variables on the stack before emitting the
+childCodes of the ActivateFrame.
+After emmitting the the childCodes, save last value on the stack
+if needed, pop all local variables.
+
+<rs>
+// AFS = ActivationFrameStack
+int foo(int i) // AFS[0]
+{
+  int j; // AFS[1]
+  {
+    // // AFS[2]
+    return i;
+  }
+}
+
+AFS[1]: pop ScriptVar(int(0));
+ret AFS[0][0]. // save AFS[0][0] value and unwind AFS until function will be leaved.
+</rs>
+
+To enable returning from everywhere in the ActivationFrame Stack
+(and exceptions too) the ret operation has to call a method unwind
+to pop all local variables.
+The ret value must not saved on the local variable stack, otherwise it
+will be also discarged at the unwind operation.
+
+Positive index values address the values from the bottom (0)
+Negativ values (beginning with -1, which is the last pushed value) 
+addresses the values from top of the stack.
+
+<jump5>Variable declarations in a ActivationFrame</jump5>
+<rs>
+void foo()
+{
+  int i = 42;
+  i = i + 1;
+  if (i == 42)
+    return;
+  int j = i;
+  return j;
+}
+</rs>
+The example defines a variable i, uses this variable and 
+than defines another variable j. 
+In C both variables i and j will be created at beginning of the 
+function block. In C++ only the first variable i will be created.
+
+If using the C++ creation manner of local variables, the 
+AF must be managed dynamically:
+<rs>
+lvar int
+push 42
+store 0
+...
+lval int
+load 0
+store 1
+load 1
+ret
+</rs>
+
+<jump4>Function ActivationFrame</jump4>
+<jump5>Parameter passing</jump5>
+Functions ActivationFrame are specialized ActivationFrame.
+
+Question: 
+Caller should push arguments on stack. But should also the 
+caller pop the arguments to avoid stack under/overflow?
+
+The advantage of the case, that the callee pops the arguments
+is, that less OpCodes are generated (a function normally calls
+many functions).
+
+<rs>
+foo(42, 41);
+push 41
+push 42
+push 2 // 2 arguments, 0 unnamed, standard call
+call foo
+
+int foo(int i, int j)
+{
+  //Stack:  i, j, Number of arguments (2)
+  return i + j;
+  pop AFS[0][2]
+  pop AFS[0][1]
+  add 
+  ret AFS[0][0]
+} // 
+</rs>
+
+<rs>
+invokation flags = number of arguments (byte) |
+                   number of named arguments (byte) << 8
+                   unused << 16
+                   flags << 24 
+flags:
+enum InvokationFlags
+{
+  StandardFrame = 0x00,
+  
+};
+</rs>
+
+
+<jump5>Parameter attributes</jump5>
+
+<jump6>in attributes</jump6>
+In case a parameter will be passed with the 'in' attribute
+it will be possible just to reuse parents AF slot.
+An flag of the ScriptVar has to ensure, that the value must not
+be changed.
+
+<jump6>out/inout attributes</jump6>
+In case a parameter will be passed with the 'out' or 'inout' attribute
+it will be possible just to reuse parents AF slot.
+Otherwise the ScriptVar must be a reference type.
+
+<jump4>Exceptions</jump4>
+Exceptions has to be hold by the ActivationFrame and
+delegate to parent ActivationFrame.
+
+Java handles this with ExceptionsTables, which markes
+an OpCodeBlock internally and the target PC in case 
+of an active Exception.
+
+<jump4>Script</jump4>
+<rs>
+
+// function and global ActivationFrame
+class ActivationFrame
+: implements OpCode
+{ 
+  ScriptVar _returnValue;
+  RThrowable _activeException;
+  ActivationFrame(ActivationFrame* parent = 0);
+  void execute();
+  void unwind();
+}
+
+// a block
+class ActivationFrameScope
+{
+  ActivationFrame& _af;
+  int _top;
+  void unwind();
+}
+</rs>
+
+
+<rs>
+  createaf
+  clvar int
+void foo(int i)
+{
+    // createafscope
+  int j = 1;
+    // clval int
+    // push 1
+    // store AF[1]
+  { // createafscope
+    int j = i;
+    // clval int
+    // load AF[0]
+    // store AF[2] 
+  } // destroyafscope
+  
+  j = 2;
+  // push 2
+  // store AF[1]
+  int k = 1;
+   // clval int
+   // push 1
+   // store AF[2]
+   
+} // destroyafscope
+// destroyaf
+</rs>
+
+
+<rs>
+int i;
+while (i < 3)
+  i = i + 1;
+
+  clval int // asume on AF[1]
+loopentry:
+  load 1
+  push 3
+  lt
+  brnull loopexit
+  
+  load 1
+  push 1
+  add
+  store 1
+  
+  br loopentry
+loopexit:
+</rs>
+
+<rs>
+
+Same now with block:
+
+while (i < 3)
+{
+  i = i + 1;
+}
+
+ clval int // asume on AF[1]
+loopentry:
+  oopentry:
+  load 1
+  push 3
+  lt
+  brnull loopexit
+  
+  createafscope
+  load 1
+  push 1
+  add
+  store 1
+  destroyafscope
+  br loopentry
+  
+loopexit:
+  
+  
+</rs>
+<jump3>ClazzInfo Ressource</jump3>
+Store the DClazzInfo as binary, compatible with
+ClazzInfo C-structures to make loading an ClazzInfo
+a simple task.
+Maybe use a type of memory mapped file.
+Link from a ClazzMethodInfo to the starting OPStatement
+of these function.
+
+<jump3>OpStatements</jump3>
+Binary, as stream.
+
+<jump2>Optimizations</jump2>
+
+<jump3>Elimination of local temp vars</jump3>
+<rs>
+0: clvr 0
+1: push ""Hello ""
+2: push "acdk/lang/StringBuffer"
+3: push 1
+4: new
+5: store 0                        lvar 0 will only used in next line (pop stack and store at 0)
+6: load 0                         (load 0 and push on stack
+7: clvr 1
+8: store 1
+9: push ""ACDK""
+10: push "append"
+11: load 1
+12: push 1
+13: invoke
+14: pop
+
+Can be:
+
+0: <deleted>
+1: push ""Hello ""
+2: push "acdk/lang/StringBuffer"
+3: push 1
+4: new
+5: <deleted>
+6: <deleted>
+7: clvr 0
+8: store 0
+9: push ""ACDK""
+10: push "append"
+11: load 0
+12: push 1
+13: invoke
+14: pop
+
+</rs>
+
+
+<jump1>Op Codes</jump1>
+
+<jump2>Stack</jump2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>nop</td>  <td>?</td>     <td>nop</td>  <td>No operation</td></tr>
+<tr><td>ldc</td>  <td>loadx</td>     <td>ldc</td>  <td>Load constant on stack</td></tr>
+<tr><td>dup</td>  <td>?</td>     <td>dup</td>  <td>Duplicates the top most element</td></tr>
+</table>
+
+<jump2>Arithmetik and Logical Ops</jump2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>add</td>  <td>?</td>     <td>add</td>  <td>Add both values on top</td></tr>
+
+</table>
+
+<jump2>Branches</jump2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>br</td>  <td>?</td>     <td>br</td>  <td>Branch (goto) to label</td></tr>
+<tr><td>brtrue</td>  <td>?</td>     <td>brtrue</td>  <td>Branch (goto) to label if true</td></tr>
+<tr><td>brfalse</td>  <td>?</td>     <td>brtrue</td>  <td>Branch (goto) to label if false</td></tr>
+</table>
+
+<jump2>Invocation</jump2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>AAL</th>  <th>JVM</th>       <th>CIL</th>   <th>Explenation</th></tr>
+<tr><td>inv</td>  <td>?</td>     <td>callvirt</td>  <td>Call the virtual method</td></tr>
+<tr><td>invs</td>  <td>?</td>     <td>?</td>  <td>Invoke Static</td></tr>
+<tr><td>inve</td>  <td>?</td>     <td>?</td>  <td>Invoke with extended Invocation Frame</td></tr>
+<tr><td>invse</td>  <td>?</td>     <td>?</td>  <td>Invoke static with extended Invocation Frame</td></tr>
+<tr><td>new</td>  <td>?</td>     <td>?</td>  <td>create new Object.<br> Also pass allocator</td></tr>
+<tr><td>newe</td>  <td>?</td>     <td>?</td>  <td>create new Object with extended Invocation Frame</td></tr>
+</table>
+
+
+.

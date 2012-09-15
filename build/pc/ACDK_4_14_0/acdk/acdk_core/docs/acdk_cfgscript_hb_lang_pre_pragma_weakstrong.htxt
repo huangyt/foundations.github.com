@@ -1,0 +1,50 @@
+%id: acdk_cfgscript_hb_lang_pre_pragma_weakstrong
+%title: CfgScript Weak/Strong Pragma
+%shorttitle: Pragma weak/strong
+%keywords: pragma weak, pragma strong
+%body:
+<chapterline/>
+<pageintro>
+The <c>pragma weak/strong</c> controls how type declarations
+are requested by the CfgScript interpreter.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+
+<jump1>Syntax</jump1>
+<pre>
+PragmaStrictWeakStatement
+: '#' 'pragma' 'strict'
+| '#' 'pragma' 'weak'
+;
+</pre>
+
+<jump1>Usage</jump1>
+<c>#pragma strict</c> force interpreter only to accept typed
+variable declarations.
+<c>#pragma weak</c> - which is default - also allows ad hoc
+untyped variable declarations.
+
+<source>
+#pragma strict
+int k = 3;
+try {
+  i = 42; // i is not declared before, trows an exception
+  out.println("TEST FAILED");
+} catch (acdk.cfgscript.ScriptException ex) {
+  out.println("expected exception: " + ex.getMessage()); 
+  out.println("TEST OK");
+}
+
+#pragma weak
+
+j = 42; // weak mode should allow ad hoc variables
+
+out.println("TEST OK");
+
+</source>
+Please refer also to %ref[acdk_cfgscript_hb_lang_stmt_vardecl].
+
+.

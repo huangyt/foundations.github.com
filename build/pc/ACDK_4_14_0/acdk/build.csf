@@ -1,0 +1,67 @@
+
+alltests = new acdk.make.TestTask("tests");
+alltests.registerTask("alltests");
+__script.include("acdk_core/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_text/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_boot/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_net/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_vfile/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_make/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_xml/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_lisp/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdkx_orb/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+{
+  __script.include("acdkx_com/build.csf", :noDuplicates = true, :changeDir = true);
+  alltests.addDependingTask(test);
+}
+__script.include("acdk_sql/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_sql_odbc/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+
+__script.include("aal/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+
+//__script.include("acdk_java/build.csf", :noDuplicates = true, :changeDir = true);
+//alltests.addDependingTask(test);
+__script.include("acdk_perl/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_tcl/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+__script.include("acdk_python/build.csf", :noDuplicates = true, :changeDir = true);
+alltests.addDependingTask(test);
+
+default = new acdk.make.ProjectTask("default");
+default.addSubTask("acdk_core_prj");
+default.addSubTask("acdk_text_prj");
+default.addSubTask("acdk_boot_prj");
+default.addSubTask("acdk_net_prj");
+default.addSubTask("acdk_xml_prj");
+default.addSubTask("acdk_make_prj");
+default.addSubTask("acdk_vfile_prj");
+default.addSubTask("acdk_lisp_prj");
+default.addSubTask("acdkx_orb_prj");
+
+if (__props.containsInStringArrayVal("AMAKE_TARGET_TAGS", "windows"))
+  default.addSubTask("acdkx_com_prj");
+
+default.addSubTask("acdk_sql_prj");
+default.addSubTask("acdk_sql_odbc_prj");
+default.addSubTask("acdk_perl_prj");
+default.addSubTask("acdk_tcl_prj");
+default.addSubTask("acdk_python_prj");
+alltests.registerTask("test");
+
+//default.addSubTask("acdk_java_prj");
+

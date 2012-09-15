@@ -1,0 +1,61 @@
+%id: acdkx_net_ssl
+%title: acdkx_net_ssl manual
+%shorttitle: acdkx_net_ssl
+%keywords: SSL, HTTPS
+%body:
+<pageintro>
+  <m>acdkx_net_ssl</m> provides an implementation for
+  SSLSocket and a client URLConnection for the <c>https</c>  
+  protocol.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Installation</jump1>
+<jump2>OpenSSL</jump2>
+
+The implementation <m>acdkx_net_ssl</m> uses the 
+%ref[<m>OpenSSL</m>, http://www.openssl.org] libary for the encryption and the SSL protocol.
+
+To compile <m>acdkx_net_ssl</m> you need to install the OpenSSL library.
+You can download it at %ref[http://www.openssl.org/source/, http://www.openssl.org/source/].
+
+On many unix distributions the OpenSLL libraries and headers are already installed.
+
+On windows you probably have to download/compile at your own. 
+Please refer to the <c>INSTALL.[our platform]</c> files included in the <c>OpenSSL</c> 
+distribution.
+
+At least following libraries has be compiled:
+<fl>
+<f> libeay32
+<f> SSLeay32
+</fl>
+
+<jump2>Compiling acdkx_net_ssl</jump2>
+To compile acdkx_net_ssl (and derived executables) you have to ajust
+the global settings in <c>acdkenv.cmd</c> for windows platform or <c>acdk_globals.*</c>
+for unix platforms.
+Please refer to following environment variables:
+<fl>
+<f> ACDK_OPENSSL_PATH
+<f> ACDK_OPENSSL_INCLUDE
+<f> ACDK_OPENSSL_LIBPATH
+<f> ACDK_OPENSSL_LIBS
+</fl>
+For using a IDE (like Visual Studio) it is recommendable to start the IDE with one
+of the starter scripts (<c>f.e. startvstudio6.cmd</c>) in the ACDK root directory.
+
+<jump1>Using acdkx_net_ssl</jump1>
+Currently ony very basic features are available.
+
+Here the sample to use HTTPSUrlConnection:
+
+<source>
+	acdk::net::RURL url = new acdk::net::URL("https://www.openssl.org");
+	// get the byte writer from standard output 
+  acdk::io::RWriter rout = ::acdk::lang::System::out->getWriter();
+  // retrieve a HTTPS connection, get intput, transfer all input to system out.
+  url->openConnection()->getInputStream()->trans(rout);
+</source>
+.

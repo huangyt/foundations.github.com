@@ -1,0 +1,70 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2000 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008 -tWD -tWR -tWM -q -R -Od 
+CCINCLUDE= -I../src  -I../include  -I../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpd -aa -c -Gi -D"" -v
+PRJLDFLAGS=""
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0d32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib
+LIBS = $(SYSLIBRARIES)  "..\..\bin\acdk_core.lib" "..\..\bin\acdk_cfgscript.lib" "..\..\bin\acdk_text.lib" "..\..\bin\acdk_aci.lib"
+
+OUTFILE="..\..\bin\acdk_aci_dmiproxy.dll"
+OUTDIR = "..\..\bin"
+INTDIR = "..\tobj\acdk_aci_dmiproxy\bcc"
+SOURCES= 	"acdk\aci\ast\ast_dmiproxy\ast_dmiproxy.cpp" \
+	"acdk\aci\parser\parser_dmiproxy\parser_dmiproxy.cpp" \
+
+HEADER= 
+OBJECTS= 	"..\tobj\acdk_aci_dmiproxy\bcc\ast_dmiproxy.obj" \
+	"..\tobj\acdk_aci_dmiproxy\bcc\parser_dmiproxy.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+"..\tobj\acdk_aci_dmiproxy\bcc\ast_dmiproxy.obj": "acdk\aci\ast\ast_dmiproxy\ast_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci_dmiproxy\bcc" "acdk\aci\ast\ast_dmiproxy\ast_dmiproxy.cpp"
+
+"..\tobj\acdk_aci_dmiproxy\bcc\parser_dmiproxy.obj": "acdk\aci\parser\parser_dmiproxy\parser_dmiproxy.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) -n"..\tobj\acdk_aci_dmiproxy\bcc" "acdk\aci\parser\parser_dmiproxy\parser_dmiproxy.cpp"
+
+
+
+clean:
+	del "..\..\bin\acdk_aci_dmiproxy.dll"
+	del "..\tobj\acdk_aci_dmiproxy\bcc\ast_dmiproxy.obj"
+	del "..\tobj\acdk_aci_dmiproxy\bcc\parser_dmiproxy.obj"
+
+

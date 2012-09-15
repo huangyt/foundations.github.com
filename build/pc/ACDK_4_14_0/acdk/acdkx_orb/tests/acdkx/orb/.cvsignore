@@ -1,0 +1,6 @@
+*.deps
+obj
+*.plg
+*.ref
+Debug
+tobj

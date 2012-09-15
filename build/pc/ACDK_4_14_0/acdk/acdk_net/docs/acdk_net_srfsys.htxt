@@ -1,0 +1,12 @@
+%id: acdk_net_srfsys_man
+%title: acdk_net_srfsys manual
+%keywords: acdk_net_srfsys, Simple Remote File System, file system
+%body:
+<pageintro>
+  Simple Remote file system using standard acdk::io::File plugin 
+  interface.
+</pageintro>
+
+<p><i>... to be continued ...</i></p>
+
+.

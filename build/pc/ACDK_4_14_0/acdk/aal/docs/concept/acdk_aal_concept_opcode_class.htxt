@@ -1,0 +1,176 @@
+%id: acdk_aal_concept_opcode_class
+%title: AAL OpCode Class
+%shorttitle: Class
+%body:
+<chapterline/>
+<pageintro>
+Intermediate OpCode for AAL.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Class definitions and DMI</jump1>
+In the first implementation a class invocation should
+be handled via DMI.
+Later it may be usefull to implement a native OpCode interface.
+
+See also: %ref[acdk_aal_concept_opcode_dmi].
+
+<jump1>Activation Frame</jump1>
+<fl>
+<f> Safe PC
+<f> Pop Arguments and load them into 
+    current frame.
+<f> Jump to first PC of frunction
+</fl>
+<jump2>Format</jump2>
+<rs>
+
+</rs>
+<jump2>Sample</jump2>
+This is a very simple Activation Frame.
+
+<rs>
+cls.foo("a", 42);
+
+// Caller
+push 42
+push "a"
+load [cls]
+push "foo"
+push 3 // flags = 2 arguments + this
+invoke
+pop // return value
+
+// Callee
+// Activation Frame
+// "foo" and flags (2) will be consumed by invoke
+clvr 0
+store 0 // this = cls
+clvr 1
+store 1 // "a"
+clvr 2
+store 2 // 42
+
+
+</rs>
+
+<jump1>invoke</jump1>
+<jump2>Caller</jump2>
+<rs>
+class AClass 
+{ 
+  String foo(int i) 
+  { 
+    return acdk.lang.Integer.toString(i) } 
+  }
+}
+s = acls.foo(42);
+
+push 42
+load [acls]
+push "foo"
+push 2    // 2 arguments
+invoke
+store [s]
+</rs>
+
+<jump2>Callee</jump2>
+<rs>
+// code sample see above
+ActivateFrame[0] = this
+ActivateFrame[1] = int i
+
+</rs>
+<jump1>peek</jump1>
+<rs>
+AClass acls = new AClass(42);
+int i = acls._ivar;
+clvr [x]
+load [acls]
+push "_ivar"
+push 0 // flags
+peekr
+store [i]
+
+</rs>
+<jump1>Constructor</jump1>
+<jump2>new</jump2>
+
+<jump3>Caller</jump3>
+<rs>
+Top of Stack before call
+----------------------------
+int       Invocation flags
+str       ClassName
+arg n     Last Argument
+arg n-1
+arg 0     First Argument
+
+Top of Stack after call
+----------------------------
+obj       new created Object
+</rs>
+
+
+<jump3>Callee</jump3>
+<rs>
+class AClass
+{
+  AClass() {}
+}
+
+// static AClass.AClass
+load 0 // load this
+push "_init_AClass"
+push 0 // args+flags
+invoke
+ret
+
+// __init_AClass
+load 0
+ret
+
+<rs>
+class AClass
+{
+  int _var;
+  AClass(int v)
+  : _var(v)
+  {
+  }
+}
+
+class BClass extends AClass
+{
+  public BClass(int var)
+  : AClass(var)
+  {
+  }
+}
+
+The new already created an Object is in ActivationFrame at index 0
+// __init_Bclass(int var)
+load 1 // argument
+push "__init_AClass"
+load 0 // this
+push 1
+invoke
+pop // remove this from stack leaved by __init_AClass
+push 0 // push this
+ret
+
+// __init_AClass
+load 1
+push "_var"
+load 0 // this
+push 0 // flags
+poke 
+push 0
+ret
+</rs>
+
+<jump1>Destructor</jump1>
+
+.

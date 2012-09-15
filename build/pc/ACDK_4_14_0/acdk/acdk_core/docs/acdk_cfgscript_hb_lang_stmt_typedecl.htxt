@@ -1,0 +1,22 @@
+%id: acdk_cfgscript_hb_lang_stmt_typedecl
+%title: CfgScript Type Declaration Statements
+%shorttitle: Type Declaration
+%body:
+<chapterline/>
+<pageintro>
+Type declarations introduces new Types in a Script
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>TypeDecl</jump1>
+<pre>
+TypeDecl
+: %ref[Enumeration, acdk_cfgscript_hb_lang_types_enum]
+| %ref[ClassDecl, acdk_cfgscript_hb_lang_class_decl]
+;
+</pre>
+
+
+.

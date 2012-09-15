@@ -1,0 +1,537 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACI Concept</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;ACI Concept<br>See also:<br>&nbsp;&nbsp;<img src="./../../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_aal_concept_parser.html">AAL parser</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | ACI Concept | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACI Concept</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACI Concept</h1> -->
+<p class="PageIntro">
+Conceptional thinking about design of ACI.
+</p>
+
+<a name="jumptable133"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Important classes of the compiler framework"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Important classes of the compiler framework</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Parsing States"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Parsing States</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Scanning, Parsing"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Scanning, Parsing</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Transforming"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Transforming</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Compiling, Execution"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Compiling, Execution</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Eval Blocks"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Eval Blocks</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Attributes"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Attributes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Sample: Transformation of free functions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Sample: Transformation of free functions</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Inject debugging"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Inject debugging</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Build in and plugin language features"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Build in and plugin language features</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#OpCode is just also an branch in Code Tree"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;OpCode is just also an branch in Code Tree</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Thinking about compiled format"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Thinking about compiled format</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Important classes of the compiler framework">Important classes of the compiler framework</a></h2>
+<h3><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parsing States">Parsing States</a></h3>
+States for building ASTs:
+<ul class="FeatureList">
+<li class="Feature"> Syntax using ParseNodes
+<li class="Feature"> Semantic resolutions
+    Parses declaration, declared types are available
+<li class="Feature"> Definition of types are parsed and defined.
+    Statements and expressions are evaluated
+<li class="Feature"> Generating OpCodes
+<li class="Feature"> Collecting OpCodes
+</ul>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+
+interface ParseSource
+{
+  
+};
+
+
+<B><FONT COLOR="#228B22">class</FONT></B> Compiler
+{
+<B><FONT COLOR="#228B22">public</FONT></B>:
+ <I><FONT COLOR="#B22222">/**
+    @param listener callback
+    @param state TransformState or 0
+    @param codeName name of code or Nil
+    @param listenerState one of TransformListenerState
+  */</FONT></I>
+  
+  <B><FONT COLOR="#228B22">void</FONT></B> registerCodeTransformListener(IN(RCodeTransformListener) listener);
+  
+  
+};
+
+<I><FONT COLOR="#B22222">/**
+  Alternativelly to enumerations
+  the queries on AST may be strings
+*/</FONT></I>
+<B><FONT COLOR="#228B22">enum</FONT></B> TransformState
+{
+  DetectSource,
+  BuildSyntax,
+  InvalidSyntax,
+  BuildDeclSemantic,
+  InvalidDeclSemantic,
+  BuildDefSemantic,
+  InvalidDefSemantic,
+  BuildOpCode,
+  InvalidOpCode,
+  CollectOpCode
+};
+
+<B><FONT COLOR="#228B22">enum</FONT></B> ParseState
+{
+  PSSyntax    = 0x00010,
+  PSSemantic  = 0x00020,
+  PSOpCode    = 0x00040
+};
+
+<B><FONT COLOR="#228B22">enum</FONT></B> CodeType
+{
+  CTSyntax    = 0x00002,
+  CTSemantic  = 0x00004,
+  CTOpCode    = 0x00008
+  
+};
+
+<B><FONT COLOR="#228B22">enum</FONT></B> TransformListenerState
+{
+  UnknownTransform = 0x00,
+  BeforeTransform = 0x01,
+  AfterTransform 
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> CodeTransformListener 
+{
+  <B><FONT COLOR="#228B22">void</FONT></B> onTransform(TransformListenerState transState, IN(RCode) code, <B><FONT COLOR="#228B22">int</FONT></B> state, IN(RCompiler) comp)
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> Code
+{
+  Code* _parent;
+  <B><FONT COLOR="#228B22">int</FONT></B> _codeType;
+ 
+  
+  <B><FONT COLOR="#228B22">void</FONT></B> defaultActionOnChields(<B><FONT COLOR="#228B22">int</FONT></B> state, IN(RCompiler) comp)
+  {
+    <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i = 0; i &lt; _childs-&gt;length(); ++i)
+    _childs[i]-&gt;transform(state, comp);
+  }
+  <B><FONT COLOR="#228B22">void</FONT></B> transform(<B><FONT COLOR="#228B22">int</FONT></B> state, IN(RCompiler) comp)
+  {
+    callBeforeListener(state, comp);
+    doTransform(state, comp);
+    callAfterListener(state, comp);
+  }
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> doTransform(<B><FONT COLOR="#228B22">int</FONT></B> state, IN(RCompiler) comp)
+  {
+    <B><FONT COLOR="#A020F0">switch</FONT></B> (state)
+    {
+    <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">InvalidSyntax</FONT></B>:
+      defaultActionOnChields(state, comp);
+      <B><FONT COLOR="#A020F0">if</FONT></B> (_codeType &gt;= CTSyntax)
+        childs = <B><FONT COLOR="#A020F0">new</FONT></B> CodeArray(0);
+      <B><FONT COLOR="#A020F0">break</FONT></B>;
+    <B><FONT COLOR="#5F9EA0">default</FONT></B>:
+      defaultActionOnChields(state, comp);
+      <B><FONT COLOR="#A020F0">break</FONT></B>;
+    }
+  }
+  <I><FONT COLOR="#B22222">/*
+    return semantic element of the tree
+    This may be a type or part of type.
+    A method returns the Metainfo of the method (DClazzMethodInfo)
+  */</FONT></I>
+  RSemantic getSem(){ <B><FONT COLOR="#A020F0">return</FONT></B> Nil }
+  <I><FONT COLOR="#B22222">/**
+    return the semantic of the current Node.
+    A method returns the type of the return value
+  */</FONT></I>
+  RSemantic getExpressionSem() { <B><FONT COLOR="#A020F0">return</FONT></B> Nil }
+  RCode getParent() { <B><FONT COLOR="#A020F0">return</FONT></B> _parent; }
+  <B><FONT COLOR="#228B22">int</FONT></B> getChildCount() { <B><FONT COLOR="#A020F0">return</FONT></B> 0; }
+  RCode getNthChild(<B><FONT COLOR="#228B22">int</FONT></B> i) { THROW1(Exception, <B><FONT COLOR="#BC8F8F">&quot;has no child&quot;</FONT></B> }; }
+  
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> Executor
+{
+  <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> execute(IN(RCompiler) comp, IN(REvalEnv) env) = 0;
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> OpCode 
+: extends Code
+, implements Executor
+{
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> CodeWithChilds : extends Code
+{
+  RCodeArray _childs;
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> CodeWithST : extends CodeWithChilds
+{
+  RSymbolTable _st;
+};
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyCode : extends Code
+{
+  <B><FONT COLOR="#228B22">void</FONT></B> doTransform(<B><FONT COLOR="#228B22">int</FONT></B> state, IN(RCompiler) comp)
+  {
+    <B><FONT COLOR="#A020F0">switch</FONT></B> (state)
+    {
+    <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">BuildDeclSemantic</FONT></B>:
+      parseSemantic(comp);
+      <B><FONT COLOR="#A020F0">break</FONT></B>;
+    <B><FONT COLOR="#5F9EA0">default</FONT></B>:
+      <B><FONT COLOR="#5F9EA0">Code</FONT></B>::doTransform(state, comp);
+      <B><FONT COLOR="#A020F0">break</FONT></B>;
+    }
+  }
+};
+</PRE></td></tr></table>
+<h3><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Scanning, Parsing">Scanning, Parsing</a></h3>
+
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__ParseNode"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::ParseNode</a> contains a parsing rule. (This class may
+be renamed later to SyntaxNode.)
+The general version of ParseNode uses BNF syntax to genrates instances of <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__Code"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::Code</a>
+which are leafes of an AST (Abstract Syntax Tree).
+
+The first step of the compiler builds the AST.
+
+Open issues:
+<ul class="FeatureList">
+<li class="Feature"> Whitespaces and Comments should be also available
+    as AstNodes.
+</ul>
+
+<h3><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Transforming">Transforming</a></h3>
+Open Issues:
+<ul class="FeatureList">
+<li class="Feature"> Modifing AstNodes (replace/insert/delete childs):
+    The orginal AST should be available. The replaces/deleted
+    AstNodes should still be available.
+    <pre>
+    foreach (ElementType el in collection) 
+    { 
+    /* Operate on el */
+    } 
+    results in
+    ForeachStatement
+      LVarDecl
+      Expression(1)
+      Block(1)
+    will be modified to:
+    {
+      Iterator tempVarIt = collection.iterator();
+      while (tempVarIt.hasNext() == true)
+      {
+        ElementType el = tempVarIt.next();
+        {
+          /* Operate on el */
+        }
+      }
+    }
+    Block // synthetic org -> ForeachStatement
+      LVarDecl  // synthetic
+        Initializer (modified Expression(1))
+      WhileStatement //synthetic
+        Expression //synthetic
+        Block // syntetic
+          LvarDecl //synthetic
+            Initializer 
+          Block -> Block(1)
+    </pre>
+    To make this Transformation a ForEachParseNode has to be registered
+    which generates the initial AST for <code>foreach</code>.
+    After analysing semantics a AstNodeListener has to transform
+    the original ForEachStatement AST to a Block with enclosing
+    WhileStatement.
+    
+</ul>
+See Eval Bocks below.
+
+<h3><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Compiling, Execution">Compiling, Execution</a></h3>
+The base class of higher language parsing/evaluation will be done
+by <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__aci__Code"><img border="0" src="./../../../docs\images/url_html.gif" alt="">&nbsp;acdk::aci::Code</a> implementation. 
+
+The second step of the compiler transform the AST.
+A traditional task on this step is to generate executable (pseudo-) code 
+from the grammar. 
+
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Eval Blocks">Eval Blocks</a></h2>
+Before text will be parsed the Eval Block will be parsed and executed.
+
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+[ normal code ]
+
+</PRE></td></tr></table>
+Inside the EvalBlock the Compiler can be modified.
+If the EvalBlock is defined on module level, the modifications of the 
+Compiler are valid until end of the module (source text).
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// MyModule1</FONT></I>
+unit myunit;
+[ 
+  <I><FONT COLOR="#B22222">// modify compiler
+</FONT></I>]
+
+<I><FONT COLOR="#B22222">// MyModule2
+</FONT></I>[
+  using myunit.MyModule1;
+  <I><FONT COLOR="#B22222">// use Compiler modifications from MyModule1
+</FONT></I>]
+</PRE></td></tr></table>
+
+Scoped block should also be possible:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+{
+  {
+    [ .... ]
+    <I><FONT COLOR="#B22222">// compiler modifications should only be valid in this block.
+</FONT></I>  }
+}
+</PRE></td></tr></table>
+
+Nested Evaluations:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+[
+  [
+    SubEval block.
+  ]
+  Eval block 
+]
+Normal Code
+</PRE></td></tr></table>
+Before Normal Code will be parsed Eval Block will be executed.
+Bore Eval Block will be parsed SubEval block will be executed.
+
+Importing rule scope:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// acdk/aal/regexp/RegExp.aal</FONT></I>
+package acdk.aal.regexp;
+<B><FONT COLOR="#228B22">class</FONT></B> RegExpParseNode
+extends acdk.aci.ParseNode
+{
+  <I><FONT COLOR="#B22222">// ....
+</FONT></I>}
+[
+  compiler.registerParseNode(<B><FONT COLOR="#A020F0">new</FONT></B> acdk.lang.reflect.Unit(<B><FONT COLOR="#BC8F8F">&quot;acdk.aal.RegExp&quot;</FONT></B>), <B><FONT COLOR="#A020F0">new</FONT></B> RegExpParseNode());
+]
+
+<I><FONT COLOR="#B22222">// MyFile.aal
+</FONT></I>{
+  [ use syntax acdk.aal.RegExp;  ] <I><FONT COLOR="#B22222">// should import library namespace and corresponding Compiler plugings
+</FONT></I>  String s = <B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>;
+  s =~ s/a/A/g;
+}
+String s = <B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>;
+s =~ s/a/A/g; <I><FONT COLOR="#B22222">// this should give a syntax error, because regexp syntax is not available
+</FONT></I></PRE></td></tr></table>
+
+<h3><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Attributes">Attributes</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+[&gt; <I><FONT COLOR="#B22222">/* Code access following AST */</FONT></I> ]
+<B><FONT COLOR="#228B22">class</FONT></B> MyClass
+{
+}
+</PRE></td></tr></table>
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample: Transformation of free functions">Sample: Transformation of free functions</a></h2>
+ACDK itself doesn't support free functions. With a 
+AAL plugin global function can be supported.
+
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+[
+  <I><FONT COLOR="#B22222">// pseudo
+</FONT></I>  <B><FONT COLOR="#228B22">class</FONT></B> FreeFunctionParseNode
+  extends ParseNode
+  {
+    <B><FONT COLOR="#228B22">public</FONT></B> FreeFunctionParseNode(...) {}
+    <B><FONT COLOR="#228B22">void</FONT></B> postParse(Compiler comp)
+    {
+      <I><FONT COLOR="#B22222">// operate on AST and generate Class with name of function and operator
+</FONT></I>    }
+  }
+  Compiler comp = Compiler.getCompiler().
+  comp.registerRule(<B><FONT COLOR="#A020F0">new</FONT></B> FreeFunctionParseNode(<B><FONT COLOR="#BC8F8F">&quot;FreeFunctionParseNode&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;ClassDeclMethod $&quot;</FONT></B>));
+  
+  <I><FONT COLOR="#B22222">//ParseNode pn = comp.findRule(&quot;TypeDecl&quot;);
+</FONT></I>  <I><FONT COLOR="#B22222">//pn.setSyntax(pn.getSyntax() + &quot; | FreeFunctionParseNode&quot;);
+</FONT></I>  
+  comp.registerRule(<B><FONT COLOR="#A020F0">new</FONT></B> ParseNode(<B><FONT COLOR="#BC8F8F">&quot;TypeDecl&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;FreeFunctionParseNode&quot;</FONT></B>));
+]
+<B><FONT COLOR="#228B22">int</FONT></B> <B><FONT COLOR="#0000FF">add</FONT></B>(<B><FONT COLOR="#228B22">int</FONT></B> i, <B><FONT COLOR="#228B22">int</FONT></B> j) { <B><FONT COLOR="#A020F0">return</FONT></B> i + j; }
+
+<I><FONT COLOR="#B22222">//  ============================================================================
+</FONT></I><I><FONT COLOR="#B22222">//  will transfered to
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> add
+{
+	<B><FONT COLOR="#228B22">public</FONT></B> <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> <B><FONT COLOR="#A020F0">operator</FONT></B>()(<B><FONT COLOR="#228B22">int</FONT></B> i, <B><FONT COLOR="#228B22">int</FONT></B> j) { <B><FONT COLOR="#A020F0">return</FONT></B> i + j; }
+}
+<I><FONT COLOR="#B22222">// in the transform/postparse step
+</FONT></I></PRE></td></tr></table>
+
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Inject debugging">Inject debugging</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+[ compiler.applyAfterPostParse(<B><FONT COLOR="#A020F0">new</FONT></B> DebugListener()); ] <I><FONT COLOR="#B22222">// loading </FONT></I>
+<B><FONT COLOR="#228B22">int</FONT></B> j = 0;
+j = j + 1;
+
+will tranfered to:
+<B><FONT COLOR="#0000FF">__debug_brk_stm</FONT></B>();
+<B><FONT COLOR="#228B22">int</FONT></B> j = 0;
+<B><FONT COLOR="#0000FF">__debug_brk_stm</FONT></B>();
+j = j + 1;
+<B><FONT COLOR="#0000FF">__debug_brk_stm</FONT></B>();
+</PRE></td></tr></table>
+
+
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Build in and plugin language features">Build in and plugin language features</a></h2>
+Following features has to be build in:
+<ul class="FeatureList">
+<li class="Feature"> Basic type system
+<li class="Feature"> Object representation
+<li class="Feature"> Object calls
+<li class="Feature"> Basic ParseNodes like Expression, Statement, LVarDecl, IfStatement, WhileStatement, GotoStatement, etc.
+</ul>
+
+Following features can be implemented as compiler plugin:
+<ul class="FeatureList">
+<li class="Feature"> Free functions
+<li class="Feature"> named parameter in call
+<li class="Feature"> Debugging, breakpoints
+<li class="Feature"> lambda expressions (as anon delegates)
+<li class="Feature"> All statements
+<li class="Feature"> All expressions
+<li class="Feature"> code inlining
+<li class="Feature"> SQL expressions
+<li class="Feature"> Regular Expressions
+<li class="Feature"> Attributes (see also ACDK Attributes)
+<li class="Feature"> Here documents
+<li class="Feature"> new statements like <code>foreach</code>
+<li class="Feature"> user type conversion, like automatic literale object wrapping
+<li class="Feature"> Parsing comment strings for documentation (javadoc)
+<li class="Feature"> Assembler nodes
+<li class="Feature"> Transpiler (java .class, .net ILM, Parrot, etc.)
+<li class="Feature"> GUI description language
+<li class="Feature"> Optimizing like Constand Folding, Unroll Loops, Inlining, Call optimizing (non-virtual)
+<li class="Feature"> Macros/Templates
+<li class="Feature"> Alternative Language (Lisp for example)
+</ul>
+
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OpCode is just also an branch in Code Tree">OpCode is just also an branch in Code Tree</a></h2>
+<pre>
+int i = 2 + (3 * 4);
+
+Statement
+	Assignment
+		VarName i
+			op clvr	(0)
+			op push 0
+			op store 0
+		Assign
+			PlusOp
+				Literal 2
+					op push 2
+				MultiOp
+					Literal 3
+						Op push 3
+					Literal 4
+						Op push 4
+					Op mul
+				op add
+			Op loadref 0
+			Op assign
+	pop
+			
+resulting ops
+0: clvr 0 // i
+1: push 0 // initialize local value
+2: store 0 // initialize local value
+3: push 2 // Terminal
+4: push 3 // Terminal
+5: push 4 // Terminal
+6: mul
+7: add
+8: loadref 0 // i
+9: assign
+10: pop // discarge expression result for ExprStatement
+</pre>
+
+
+<h2><a href="#jumptable133"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Thinking about compiled format">Thinking about compiled format</a></h2>
+See <a  href="acdk_aci_compiled.html"><img border="0" src="./../../../docs\images/url_rhtm.gif" alt="">&nbsp;Compiled Format</a>.
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | ACI Concept | <a  href="acdk_aal_concept_languagedef.html">AAL definition</a> | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

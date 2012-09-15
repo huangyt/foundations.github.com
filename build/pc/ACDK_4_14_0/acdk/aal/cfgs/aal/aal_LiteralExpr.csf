@@ -1,0 +1,50 @@
+
+using acdk.aci.ast;
+using acdk.aci.parser;
+using acdk.aci.vm;
+
+class aal.LiteralExpr
+extends AstNodeWithChilds
+{
+  LiteralExpr(AstNode parent, ParseNode pn, String nodeName)
+  {
+    super(parent, pn, nodeName);
+    
+    //acdk.lang.System.out.println("########## LiteralNode: " + nodeName);
+    
+    //__script.breakToDebug();
+  }
+  static void renderNodes(AstNode node, String ident)
+  {
+     out << ident << "NODE(" << node.getClass().toString() << "): " << node->toString() << "\n";
+      RString nident = ident + " ";
+      for (int i = 0; i < node->getChildCount(); ++i)
+        LiteralExpr.renderNodes(node->getChild(i), nident);
+  }
+  static void renderTree(AstNode node)
+  {
+    AstNode p = node->getParent();
+    if (p == Nil)
+      LiteralExpr.renderNodes(node, "");
+    else
+      LiteralExpr.renderTree(p);
+  }
+  void genOpCode(Compiler comp) 
+  {
+    /*
+    //__script.breakToDebug();
+    //__props.dump();
+    out.println("THISCLASS: " + getClass().toString());
+    out.println("THISCLASS2: " + this.getClass().toString());
+    //LiteralExpr.renderTree(this);
+    LiteralExpr.renderNodes(this, "");
+    Any c = getChild(0);
+    out.println("CHILD: " + c->getClass().toString());
+    out.println("CHILDVAL: " + c->getValue().getClass().toString());
+    */
+    Any val = getChild(0)->getValue();
+    addChild(new acdk::aci::vm::OpCodeStm1(this, acdk::aci::vm::OCO_PUSH, val), true);
+  }
+}
+
+AalHelper.defineParseNode("LiteralExpr");

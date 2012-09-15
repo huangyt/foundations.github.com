@@ -1,0 +1,13 @@
+*.deps
+*.ncb
+*.opt
+*.txt
+*.html
+filelist.lst
+bin
+linkedreferences.dat
+obj
+tobj
+*.suo
+ids.db
+ChangeLog

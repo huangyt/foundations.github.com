@@ -1,0 +1,22 @@
+/* XPM */
+static char * folder_ok_xpm[] = {
+"16 16 3 1",
+" 	c Gray100",
+".	c Black",
+"X	c Green",
+"             ...",
+"            .XX.",
+"            .XX.",
+"           .XXX.",
+"           .XX. ",
+"          .XXX. ",
+".         .XX.  ",
+"..       .XXX.  ",
+".X.      .XX.   ",
+".XX.    .XXX.   ",
+".XXX.   .XX.    ",
+" .XXX. .XXX.    ",
+"  .XXX..XX.     ",
+"   .XXXXXX.     ",
+"    .XXXX.      ",
+"     .....      "};

@@ -1,0 +1,9 @@
+
+int IncludedVar = 42;
+class IncludedClass
+{
+  String svar;
+  IncludedClass(String s) { svar = s; }
+  String toString() { return getClass().toString() + " " + svar; }
+}
+

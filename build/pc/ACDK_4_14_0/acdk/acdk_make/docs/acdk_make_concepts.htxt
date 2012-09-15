@@ -1,0 +1,128 @@
+%id: acdk_make_concepts
+%title: ACDK Make concepts
+
+%body:
+
+<htmlauto/>
+<pageintro>
+Description of the internal concepts of acdkmake.
+</pageintro>
+
+
+<jumptable/>
+
+<jump1>Props hierarchy</jump1>
+<pre>
+Root
+  [Enviromnent]
+  <- acdkmake globals
+    <- build props (passed to Task.execute())
+      <- Target specific Props (held by Task)
+
+</pre>
+<jump1>General C++ Task</jump1>
+<fl>
+<f> Build options
+  <sfl>
+    <f> Load other configuration .csf before starting build.csf.
+    <f> Use generated project files (f.e. msdev.exe) instead of own builder
+    <f> Plugin for eclipse
+  </sfl>
+<f> Compile options
+  <f> Support for compiling <c>c</c> Sources.
+  <sfl>
+  <f> optional use <c>libtool</c> to compile
+  <f> C++ options for rtti, exception support
+  <f> console/windows options
+  <f> Support for static libraries
+  <f> Support for mingw.
+  <f> support for ressource compiler (vc, borland)
+  <f> flag for threaded applications (set compiler and linker settings)
+  <f> Parser for compiler to unify compiler output (warnings, errors).
+  </sfl>
+<f> Generation options
+  <sfl>
+    <f> Build make and project files  
+  </sfl>
+</fl>
+
+<jump1>Tasks and Tools</jump1>
+<fl>
+<f> Tool
+  <sfl>
+  <f> Class (like CCompiler)
+  <f> Tribe (like vc6, posix-gnuc, dos, unix)
+  </sfl>
+</fl>
+
+<jump2>Tool-Classes</jump2>
+Tools are identified by ToolClass (CCompiler) and ToolTribe.
+
+<fl>
+<f> FileTranslater. Has Input and Output files and additionally log output
+<f> CCompiler (FileTranslater):  compiles .c -> .o/.obj
+<f> CCCompiler (FileTranslater): compiles .c -> .o/.obj
+<f> JavaCompiler (FileTranslater): JC_
+<f> Linker (FileTranslater): CCC_
+<f> Builder uses tools like amake, make, devenv, ant
+<f> ExeBuilder, LibBuilder, StaticLibBuilder, SharedLibBuilder:
+    Can use Compiler/Linker or make/project files
+<f> ProjectGenerator, ProjectGroupGenerator, ProjectTargetGenerator
+<f> VersionControl
+<f> Shell
+<f> FileCopy, FileMove, FileRemove, FileMakeDir
+<f> Install
+<f> acdkmc
+<f> ResourceCompiler
+</fl>
+
+<pre>
+ProjectBuilder:
+
+  CppExeBuilder: SharedLibBuilder
+    FileDependTask
+    CCCompiler
+    LINKER(EXE)  
+  CppSharedLibBuilder
+      CCCompiler
+      Linker(SHARED)
+  
+ProjectBuilder:
+  CppExeBuilder:
+    make -f xxx target
+
+</pre>
+<source>
+// pseudo code
+
+  
+class Tool extends Task
+{
+  String getToolClass();
+  String getToolTribe();
+  
+  Tool initTool(Props props);
+  static Tool getTool(String toolClass, String toolTribe = Nil);
+}
+
+class FileTranslater extends Tool
+{
+  bool translates(String fileExt);
+  String translatesTo(String file);
+}
+
+
+RCCompiler cc = (RCCompiler)Tools::getTool("CCompiler");
+RCCompiler cc = (RCCompiler)Tools::getTool("CCompiler", "vc");
+
+
+Props p = new Props(
+</source>
+
+<jump2>Selection, Input</jump2>
+If more than one or none ToolTribe was found, may interact with
+user to select the tool.
+
+<jump2>ToolOutputFilter</jump2>
+The ToolOutputFilter filters the output of 
+.

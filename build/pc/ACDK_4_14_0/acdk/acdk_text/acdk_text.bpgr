@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_text.cbx"/>
+  <project path="src/acdk_text_metainf.cbx"/>
+  <project path="tests/acdk/text/acdk_text_Test.cbx"/>
+
+</projectgroup>

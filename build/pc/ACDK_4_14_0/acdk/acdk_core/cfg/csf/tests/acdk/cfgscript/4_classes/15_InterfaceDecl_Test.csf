@@ -1,0 +1,36 @@
+
+/**
+This is a test unit to test acdk.cfgscript 
+*/
+
+
+interface AInterface
+//implements acdk.lang.Comparable
+{
+  AInterface() {}
+  void doIt();
+}
+
+interface BInterface
+{
+  void doItAlso() = 0;
+}
+
+class AClass 
+implements AInterface
+{
+  AClass() {}
+  void doIt() { out.println("OK"); }  
+  void doItAlso() { out.println("OK2"); }  
+}
+
+AInterface i = new AClass();
+i.doIt();
+i.doItAlso();
+i = new AInterface(); // illegal
+try {
+  i.doIt();
+  out.println("TEST FAILED");
+} catch (NoSuchMethodException ex) {
+  out.println("TEST OK");
+}

@@ -1,0 +1,43 @@
+%id: root
+%title: Artefaktur Component Development Kit (ACDK)
+%shorttitle: ACDK
+%chapter: acdk_readme, acdk_general_install, acdk_license, acdk_packages, acdk_links, content, allindex
+
+%body:
+
+<pageintro>
+<greptag fname="./docs/package.xml" tag="shortdescription"/>
+</pageintro>
+<p></p>
+
+Artefaktur Development Kit (ACDK) <greptag fname="./docs/package.xml" tag="package-version"/><br/>
+<greptag fname="./docs/package.xml" tag="copyright"/>
+
+<htmlauto/>
+<p>
+For installation note:
+%ref[acdk_general_install].
+
+ACDK License:
+%ref[acdk_license].
+
+This documentationis only a small part of the complete ACDK documentation.
+The complete documentation  - including handbook and API reference - is available online at:
+%ref[http://acdk.sourceforge.net/, http://acdk.sourceforge.net/].
+or can be downloaded at:
+%ref[http://sourceforge.net/projects/acdk/, http://sourceforge.net/projects/acdk/].
+
+<htmlauto>
+Please refer also to:
+<fl>
+<f> %ref[http://acdk.sourceforge.net/, http://acdk.sourceforge.net/] (Web at Sourceforge).
+<f> %ref[http://www.artefaktur.com/, http://www.artefaktur.com/] (Home of Artefaktur).
+<f> %ref[http://www.artefaktur.ch/, http://www.artefaktur.ch/] (Mirror)
+<f> %ref[http://sourceforge.net/projects/acdk/, http://sourceforge.net/projects/acdk/] (Support at Sourceforge).
+<f> %ref[Roger Rene Kommer, mailto:kommer@artefaktur.com] (Mail Author).
+</fl>
+</htmlauto>
+<hr>
+<subschapterstable/>
+
+.

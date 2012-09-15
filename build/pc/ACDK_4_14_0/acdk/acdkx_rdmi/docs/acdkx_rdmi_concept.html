@@ -1,0 +1,226 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Concept about Remote DMI</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Remote DMI</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Concept about Remote DMI
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK RDMI Readme</a> | <a  href="acdk_net_rdmi_hb.html">RDMI Handbook</a> | Concept about Remote DMI |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Concept about Remote DMI</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Concept about Remote DMI</h1> -->
+<a name="jumptable124"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Design Goals"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Design Goals</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Scribble"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Scribble</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Sample code"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Sample code</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Protocoll"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Protocoll</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable124"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Design Goals">Design Goals</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> <b>Usage</b>
+<ul class="SubFeatureList">
+  <li class="Feature"> No need to derive from Remoting interfaces (like CORBA, RDMI)
+      or explicit signatures (with Remoting excpetions).
+  <li class="Feature"> No IDL needed, but working directly with reflection information.
+  <li class="Feature"> Every interface/class can be invoked by RDMI.
+  <li class="Feature"> Support of in, out, inout, byref and byval.
+  <li class="Feature"> Weak invocation doesn't need the type information on the client
+      if something is wrong with arguments, the server will respond with exception.
+      out, inout parameters are not available for weak invocation.
+      Weak invocation uses a opaque Object as client object.
+  <li class="Feature"> Strong invocation uses type information to map in, out, byval byref
+      to parameter set.
+      Remote references can be casted to native Interfaces. Client and Server 
+      code doesn't make difference between remote and local objects.
+  <li class="Feature"> The weak and strong uses the standard DMI mechanism with New, invoke, 
+      static_invoke, peek, poke, static_peek, static_poke.
+  <li class="Feature"> Selection, if parameter are tranfered by value or by (remote-) reference
+      can be declared by the the parameter attributes of the interface definition.
+  <li class="Feature"> If no interface definition is available, Throwable, Strings, Serializables and basic
+      types are transfered by value, all others by reference.
+  <li class="Feature"> 3 ways to identify how to transfer arguments:
+  <ul class="SubFeatureList">
+    <li class="Feature"> implicit by type of parameter
+    <li class="Feature"> by declaration of interfaces.
+    <li class="Feature"> by using byRef(), byVal() operators in client code.
+  </ul>
+  <li class="Feature"> Thrown Exception are transfered transparent from client to server.
+  <li class="Feature"> Remote class loading is not possible for native C++ classes.
+      In a later version interfaces and classes maybe transfered CfgScript.
+</ul>
+<li class="Feature"> <b>Protocol</b>
+<ul class="SubFeatureList">
+  <li class="Feature"> Multiple transport and protocol possible, like
+      binary over TCP, HTTP/XML, etc.
+  <li class="Feature"> Using standard reference based GC (no need for explicit calls
+      to dispose objects).
+  <li class="Feature"> Standard references lifes as long a connection lifes.
+      This has to be emulated in connectionless transports like HTTP.
+  <li class="Feature"> Objects independed from connection may be allocated.
+  <li class="Feature"> No need for nameservices.
+  <li class="Feature"> A client is also a server, which enables callback scenarios.
+  <li class="Feature"> Security: In the first version RDMI is only designed to run 
+      on trusted environmnet, mostly running even on the same platform.
+      
+</ul>
+</ul>
+The RDMIServer and RDMIClient should provide a simple remote DMI call interface
+on TCP/IP basis.
+All interfaces with DmiProxy available are handled transparent.
+
+<h2><a href="#jumptable124"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Scribble">Scribble</a></h2>
+
+<h3><a href="#jumptable124"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Sample code">Sample code</a></h3>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+RRdmiClient client = <B><FONT COLOR="#A020F0">new</FONT></B> RdmiClient(<B><FONT COLOR="#BC8F8F">&quot;localhost:1111&quot;</FONT></B>);
+RMyInterface iface = (RMyInterface)client-&gt;New(<B><FONT COLOR="#BC8F8F">&quot;my.Class&quot;</FONT></B>, MyInterface::getClass(), arg1);
+RMyObject = iface-&gt;myFunction(arg1);
+RMyOtherInterface mo = <B><FONT COLOR="#A020F0">new</FONT></B> MyOtherClass(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+iface-&gt;registerMyListener(mo);
+iface-&gt;iterThroughtListener(); <I><FONT COLOR="#B22222">// remote server may call back client 
+</FONT></I></PRE></td></tr></table>
+
+Client/Server impl:
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#0000FF">RdmiServer::call</FONT></B>(...)
+{
+  <B><FONT COLOR="#A020F0">while</FONT></B> (true)
+  {
+    RDmiRequest req = requestFromCall(...);
+    RDmiRequest resp = sendReceive(req);
+    <B><FONT COLOR="#A020F0">if</FONT></B> (resp-&gt;isReturnOrEx() == true) <I><FONT COLOR="#B22222">// remote call returned immediatelly
+</FONT></I>    {
+      responseToCall(resp, ...);
+      <B><FONT COLOR="#A020F0">return</FONT></B>;
+    }
+    <I><FONT COLOR="#B22222">// recursive back call
+</FONT></I>    RRdmiRequest respresp = resp-&gt;handle();
+    sendReceive(respresp);
+  }
+    
+}
+<B><FONT COLOR="#228B22">void</FONT></B>
+<B><FONT COLOR="#0000FF">RdmiServer::run</FONT></B>()
+{
+  <B><FONT COLOR="#A020F0">while</FONT></B> (true)
+  {
+    RRdmiRequest req = server-&gt;nextRequest();
+    <B><FONT COLOR="#A020F0">if</FONT></B> (req-&gt;isShootdown() == true)
+      <B><FONT COLOR="#A020F0">break</FONT></B>;
+    RRdmiRequest resp = req-&gt;handle();
+    server-&gt;send(resp);
+  }
+}
+</PRE></td></tr></table>
+<h2><a href="#jumptable124"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Protocoll">Protocoll</a></h2>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#5F9EA0">RDMICall</FONT></B>: Header CallOrReturn
+
+Header
+  Call    0
+  Return  1 
+
+Return
+: 0 Return
+| 1 Exception
+;
+
+returnValue
+: ValueOrException
+;  
+
+Value
+: <B><FONT COLOR="#228B22">enum</FONT></B> RemoteRefId, ClassName
+| <B><FONT COLOR="#228B22">enum</FONT></B> BasicValue TypeChar Value
+| <B><FONT COLOR="#228B22">enum</FONT></B> ObjectValue SerializedObject
+;
+  
+<B><FONT COLOR="#228B22">enum</FONT></B> InvokeCmd {
+  ShootDown,
+  AddRef,
+  <I><FONT COLOR="#B22222">/** 
+    @param remoteObjectId 
+    @return ReturnValue, int refCount after release
+  */</FONT></I>
+  ReleaseRef,
+  <I><FONT COLOR="#B22222">/** 
+    @param ClassName
+    @param Args 
+    @return ReturnValue
+  */</FONT></I>
+  New,
+  <I><FONT COLOR="#B22222">/**
+    @param remoteObjectId
+    @param methodName
+    @param Args
+    @return ReturnValue
+  Invoke,
+  ....
+}
+// server
+RRemoteDmiServer server = new RemoteDmiServer(portNo); // listen at port
+
+// client
+RRemoteDmiClient client = new RemoteDmiClient(portNo);
+RStringBuffer sb = (RStringBuffer)client-&gt;New(&quot;acdk/lang/StringBuffer&quot;, &quot;Hello&quot;);
+RString s = sb-&gt;toString();
+</FONT></I></PRE></td></tr></table>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="readme.html">ACDK RDMI Readme</a> | <a  href="acdk_net_rdmi_hb.html">RDMI Handbook</a> | Concept about Remote DMI |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

@@ -1,0 +1,2001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{6debe71d-b200-40cf-8b49-92f5600661e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang">
+      <UniqueIdentifier>{29561003-f2e6-49a0-ab33-c4cb07aa11b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\dmi">
+      <UniqueIdentifier>{afe33b83-2815-4796-a59a-f1c02b6d7edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\sys">
+      <UniqueIdentifier>{7a353157-c6e3-41f3-b8a1-5ba51aefaa61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\ref">
+      <UniqueIdentifier>{227010dc-a207-498d-9779-238fb69f9fc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lang\reflect">
+      <UniqueIdentifier>{01f68f47-1670-4489-aa74-ac1dd6dd5c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\io">
+      <UniqueIdentifier>{b022e8d5-9af1-4f82-8c27-e1e46df6c181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util">
+      <UniqueIdentifier>{a496d42a-3051-413a-b7c0-bcd0a313a196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\util\logging">
+      <UniqueIdentifier>{0acd4fca-c9d8-472f-98b6-7b28a276f54e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\locale">
+      <UniqueIdentifier>{333387a9-450d-4a5d-918f-ce5f07ce18e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\lang\dmi\AcdkDmiClient.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\AcdkStdWeakTypeDmiClient.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\ClazzInfo.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\dmi_metainf_base.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiClient.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiDelegate.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiObject.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\DmiProxy.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\Marshaler.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\MetaAttribute.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\MetaInfo.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\MetaObject.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\ScriptVar.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\ScriptVar2.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\StdDispatch.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\dmi\SysFields.cpp">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\Allocator.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BackTrace.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BitmapPagedAllocator.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BoehmGC.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\BoehmGCAllocator.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_condition.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_fastmutex.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_memcheck.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_memtrace.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_mutex.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_recursivemutex.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_semaphore.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_specific.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_system.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\core_winimage.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\Garbage_Heap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\LocalGcHeap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\MarkSweepGc.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\ObjectHeap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\ObjectLockPool.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\PagedAllocator.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\PagedHeap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\RC_GC_Heap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\RC_Heap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\StackAllocator.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\StackHeap.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\sys\TracedRawAllocator.cpp">
+      <Filter>acdk\lang\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\acdk_lang_ref_Package.cpp">
+      <Filter>acdk\lang\ref</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\NotifyObjectEvent.cpp">
+      <Filter>acdk\lang\ref</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\ref_metainf_base.cpp">
+      <Filter>acdk\lang\ref</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\Reference.cpp">
+      <Filter>acdk\lang\ref</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\ReferenceQueue.cpp">
+      <Filter>acdk\lang\ref</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ref\SharedOwning.cpp">
+      <Filter>acdk\lang\ref</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Constructor.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Enumeration.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Field.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Method.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Modifier.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Parameter.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\reflect_metainf_base.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\reflect\Unit.cpp">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\acdk_lang_Package.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\BasicArray.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Boolean.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Byte.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ByteBuffer.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Character.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Class.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ClassCastException.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ClassLoader.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\CmdLineOption.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\CmdLineParser.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Double.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Float.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Integer.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\lang_metainf_base.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Long.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Math.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Number.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Object.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ObjectArrayBase.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ObjectArrayImpl.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ObjectDebug.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Package.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Process.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Runtime.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\SharedLibrary.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Short.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StackFrame.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\String.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StringBuffer.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StringOld.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\StringUtf8Utils.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\System.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\SystemError.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Thread.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\ThreadGroup.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Throwable.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\UnicodeCharacter.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lang\Void.cpp">
+      <Filter>acdk\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractCharFilterReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractCharReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractCharWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractFilterWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractObjectReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractObjectWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\AbstractReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\acdk_io_Package.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ASCIIDataReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ASCIIDataWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryDataReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryDataWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryObjectReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BinaryObjectWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BufferedReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\BufferedWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ByteBufferReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ByteBufferWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ByteToCharReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharArrayReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharArrayWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\CharToByteWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleCharReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleCharWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\ConsoleWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\File.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileAbstractImpl.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileDescriptor.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileImpl.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileInfo.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileReaderWriterImpl.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileStandardImpl.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileStatus.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileSystem.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\FileWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\GlobFilenameFilter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\InputReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\io_metainf_base.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\IOException.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\JoinedReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\LineNumberCharReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\LineNumberReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\MemoryMappedFile.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\MemReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\MemWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PipedReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PipedWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PrintWriter.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PushbackCharReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\PushbackReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\RandomAccessFile.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\Reader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\RessourceFileSystem.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\StandardFileSystem.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\StreamTokenizer.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\SubReader.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\io\Writer.cpp">
+      <Filter>acdk\io</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\AbstractLogConsumer.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\FileConsumer.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\Level.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\Logger.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\logging_metainf_base.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\LogManager.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\RollingFileConsumer.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\SimpleFormatter.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\StdFormatter.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\TransactionConsumer.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\logging\Win32DbgConsumer.cpp">
+      <Filter>acdk\util\logging</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractCollection.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractList.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractListSubList.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractMap.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractSequentialList.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\AbstractSet.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\acdk_util_Package.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\ArrayList.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Arrays.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\BitSet.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Bucket.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Calendar.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Collections.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Date.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\GregorianCalendar.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\HashMap.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\HashSet.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Hashtable.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\LinkedList.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\ListResourceBundle.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Locale.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Properties.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\PropertiesListener.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\PropertyResourceBundle.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Random.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\ResourceBundle.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SimpleCalendar.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SimpleListResourceBundle.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SimpleTimeZone.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\StringTokenizer.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\SysDate.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\TimeZone.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\TreeMap.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\TreeSet.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\util_metainf_base.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\Vector.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\util\WeakHashMap.cpp">
+      <Filter>acdk\util</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\AsciiEncoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\AsciiUtfEncoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\ByteAsciiEncoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\CEscapeEncoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\Encoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\IsoEncoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\IsoTables.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\locale_metainf_base.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\UCS2Encoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\UnicodeTable.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\locale\UTF8Encoding.cpp">
+      <Filter>acdk\locale</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\lang\dmi\AcdkDmiClient.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\AcdkStdWeakTypeDmiClient.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\ClazzAttributesRes.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\ClazzInfo.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\ClazzInfoInternals.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\dmi.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\DmiClient.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\DmiDelegate.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\DmiNamedArg.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\DmiObject.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\DmiObjectArray.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\DmiProxy.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\Marshaler.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\MetaAttribute.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\MetaInfo.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\MetaInfoChildsArray.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\MetaInfoFlags.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\MetaObject.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\NamedArgs.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\ScriptInterpreter.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\ScriptVar.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\ScriptVarInl.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\StdDispatch.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\dmi\SysFields.h">
+      <Filter>acdk\lang\dmi</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\Allocator.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\AllocatorInternals.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\BackTrace.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\BitmapPagedAllocator.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\BoehmGC.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\BoehmGCAllocator.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\ControlPushPopOnStack.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_alloca.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_atomicop.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_atomicop_linux.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_condition.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_fastmutex.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_guard.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_hashmap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_memcheck.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_memtrace.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_mutex.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_pair.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_prim.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_ptherror.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_recursivemutex.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_semaphore.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_sharedlib.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_smartptr.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_specific.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_static_vector.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_string.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_substring.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_sys_static_mutex.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_syslocal.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_system.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_thread_id.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_threadsys.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_tick.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_value_scope.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_vector.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\core_winimage.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\default_vc_warnings.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\disable_vc_warnings.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\Garbage_Heap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\HeapFrame.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\LocalGcHeap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\ObjectHeap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\ObjectLockPool.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\PagedAllocator.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\PagedHeap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RC_GC_Heap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RC_Heap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHeap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder1.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder2.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder3.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder3Inl.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder4.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolder5.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolderExt.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\RefHolderX.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\StackAllocator.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\StackHeap.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\StaticObjectWrapper.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\sys.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\SysRefHolder.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\sys\TracedRawAllocator.h">
+      <Filter>acdk\lang\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\NotifyObjectEvent.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\PhantomReference.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\ref.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\Reference.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\ReferenceQueue.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\SharedOwning.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\SoftReference.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ref\WeakReference.h">
+      <Filter>acdk\lang\ref</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\AccessibleObject.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Constructor.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Enumeration.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Field.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\InvocationTargetException.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Member.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Method.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Modifier.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Parameter.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\reflect.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\reflect\Unit.h">
+      <Filter>acdk\lang\reflect</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ArithmeticException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ArrayIndexOutOfBoundsException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\BasicArray.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\BasicArrayInl.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Boolean.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Byte.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ByteBuffer.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Character.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Class.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ClassCastException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ClassLoader.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ClassNotFoundException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Cloneable.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\CloneNotSupportedException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\CmdLineOption.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\CmdLineParseException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\CmdLineParser.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Comparable.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\DmiException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\DmiTypeConversionException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Double.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Error.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Exception.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ExceptionDeclarations.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ExtObject.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Float.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\IllegalAccessException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\IllegalArgumentException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\IllegalMonitorStateException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\IllegalStateException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\IllegalThreadStateException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\IndexOutOfBoundsException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\InOutPreDeclaration.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\InstantiationException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Integer.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\InterfaceBase.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\InterruptedException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\lang.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\lang_all.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Long.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Math.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\NoSuchDmiElementException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\NoSuchElementException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\NoSuchFieldException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\NoSuchMethodException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\NullPointerException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Number.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\NumberFormatException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Object.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectArrayBase.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectArrayBaseInl.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectArrayImpl.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectBase.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectDebug.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectImpl.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ObjectInline.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\OutOfMemoryError.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Package.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ParamsMismatchException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Process.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Runnable.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Runtime.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\RuntimeException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\SharedLibrary.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Short.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StackFrame.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StackOverflowError.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\String.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StringBuffer.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StringConcenator.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StringIndexOutOfBoundsException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StringInline.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StringInternals.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\StringUtf8Utils.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\System.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\SystemError.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\SystemInline.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\SystemIntern.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Thread.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ThreadDeath.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ThreadGroup.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ThreadImpl.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ThreadLocal.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\ThreadLocalImpl.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Throwable.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\UnicodeCharacter.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\UnsupportedOperationException.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lang\Void.h">
+      <Filter>acdk\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractCharFilterReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractCharFilterWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractCharReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractCharWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractFilterReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractFilterWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractObjectReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractObjectWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractStorageReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractStorageWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\AbstractWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ASCIIDataReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ASCIIDataWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BinaryDataReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BinaryDataWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BinaryObjectReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BinaryObjectWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BufferedReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BufferedWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ByteBufferReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ByteBufferWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\BytePtrReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ByteToCharReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ByteToCharWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\CharArrayReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\CharArrayWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\CharReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\CharToByteReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\CharToByteWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\CharWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ConsoleCharReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ConsoleCharWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ConsoleReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ConsoleWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\DataReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\DataWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\EOFException.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\File.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileAbstractImpl.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileDescriptor.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileFilter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileImpl.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileInfo.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FilenameFilter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileNotFoundException.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileReaderWriterImpl.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileStandardImpl.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileStatus.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileSystem.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileSystemFactory.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FileWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FilterReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\FilterWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\GlobFilenameFilter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\InputReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\io.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\io_all.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\IOException.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\JoinedReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\LineNumberCharReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\LineNumberReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\MemoryMappedFile.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\MemReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\MemWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\NullWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ObjectReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ObjectStreamException.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\ObjectWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\OutputDebugStringWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\PipedReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\PipedWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\PrintWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\PushbackCharReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\PushbackReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\RandomAccessFile.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\Reader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\RessourceFileImpl.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\RessourceFileSystem.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\Serializable.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\SerializedObjectDescriptor.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\StandardFileSystem.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\Storage.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\StreamTokenizer.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\StringReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\StringWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\SubReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\TeeCharWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\TeeReader.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\TeeWriter.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\io\Writer.h">
+      <Filter>acdk\io</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\AbstractLogConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\ConsoleConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\FileConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\Formatter.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\Level.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\Log.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\LogConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\Logger.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\logging.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\LogManager.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\LogRecord.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\MsgBoxConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\NamedLogArgs.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\RollingFileConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\SimpleFormatter.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\StdFormatter.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\TransactionConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\Win32DbgConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\logging\WriterConsumer.h">
+      <Filter>acdk\util\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractCollection.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractListIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractListListIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractListSubList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractSequentialList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\AbstractSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\acdk_util_classes.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\ArrayIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\ArrayList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Arrays.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\BasicMapEntry.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\BitSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Bucket.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Calendar.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Collection.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Collections.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Comparator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\ConcurrentModificationException.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Date.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Dictionary.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\DoubleIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\EmptyCollectionIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Enumeration.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\EventListener.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\EventListenerProxy.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\EventObject.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\GregorianCalendar.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\HashMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\HashSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Hashtable.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\IdentityHashMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Iterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\LinkedList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\List.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\ListIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\ListResourceBundle.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Locale.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Map.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\MissingResourceException.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\NoSuchElementException.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Properties.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\PropertiesListener.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\PropertyResourceBundle.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Random.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\ResourceBundle.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Set.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SimpleCalendar.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SimpleListResourceBundle.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SimpleTimeZone.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SingleObjectIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SortedMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SortedSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\StringTokenizer.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SynchronizedCollections.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\SysDate.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractCollection.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractListIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractListListIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractListSubList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TAbstractSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TArrayList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TBasicMapEntry.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TBucket.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TCollection.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TComparator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TDoubleIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\THashMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\THashSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TimeZone.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TList.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TListIterator.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TreeMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TreeSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TSet.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TSortedMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\TTreeMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\util.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\util_all.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\Vector.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\util\WeakHashMap.h">
+      <Filter>acdk\util</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-10_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-13_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-14_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-15_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-16_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-1_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-2_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-3_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-4_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-5_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-6_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-7_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-8_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\8859-9_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\AsciiEncoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\AsciiUtfEncoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\ByteAsciiEncoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CEscapeEncoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CharacterCodingException.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CodingErrorAction.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1250_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1251_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1252_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1253_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1254_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1255_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1256_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1257_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\CP1258_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\Decoder.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\Encoder.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\Encoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\IBM-850_mapping.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\IllegalCharsetNameException.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\IsoEncoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\locale.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\UCS2Encoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\UnicodeTable.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\UnmappableCharacterException.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\locale\UTF8Encoding.h">
+      <Filter>acdk\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\acdk.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\acdk_all.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\AcdkCoreConfig.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\Compiler.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\Config.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\Platform.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\Version.h">
+      <Filter>acdk</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

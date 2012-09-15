@@ -1,0 +1,17 @@
+%id: acdk_net_rdmi
+%title: About Remote DMI
+%keywords: Remote DMI, DMI, rdmi
+%body:
+<pageintro>
+RDMI or Remote DMI is a remoting interfacing
+for ACDK similar to Java RMI.
+</pageintro>
+
+<jumptable/>
+<jump1>Introduction</jump1>
+
+
+
+See %ref[acdkx_rdmi_concept].
+
+.

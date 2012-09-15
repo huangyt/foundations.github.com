@@ -1,0 +1,55 @@
+
+%id: acdk_security_man
+%title: acdk_security  - manual
+%shorttitle: man acdk_security
+%keywords: acdk_security, acdk::security
+%seealso: %seealso: acdk::security=namespace_acdk__security
+%body:
+<pageintro>
+Man page of acdk_security_dll.
+</pageintro>
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Shortdescription</jump1>
+ <greptag fname="./acdk_security_dll.xml" tag="shortdescription"/>
+ 
+<jump1>Description</jump1>
+ <greptag fname="./acdk_security_dll.xml" tag="description"/>
+
+ <jump2>Dependencies</jump2>
+    <quoted>
+<perleval> return acdk::getDependencies("./acdk_security_dll.xml"); </perleval>
+    </quoted>
+  <jump2>Namespaces</jump2>
+    <quoted>
+<perleval> return acdk::getnsrefs("./acdk_security_dll.xml"); </perleval>
+    </quoted>
+  <jump2>Authors</jump2>
+    <quoted>
+<greptag fname="./acdk_security_dll.xml" tag="authors"/>
+    </quoted>
+   <jump2>License</jump2>
+    <quoted>
+<greptag fname="./acdk_security_dll.xml" tag="license"/>
+    </quoted>
+<jump1>Description</jump1>
+  <quoted>
+<greptag fname="./acdk_security_dll.xml" tag="description"/>
+  </quoted>
+<jump1>Notes</jump1>
+  <quoted>
+<greptag fname="./acdk_security_dll.xml" tag="notes"/>
+  </quoted>
+
+<jump1>Todo</jump1>
+  <quoted>
+<greptag fname="./acdk_security_dll.xml" tag="todo"/>
+  </quoted>
+ 
+<jump1>Changes</jump1>
+  <quoted>
+<greptag fname="./acdk_security_dll.xml" tag="changes"/>
+  </quoted>
+.

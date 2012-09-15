@@ -1,0 +1,47 @@
+%id: acdk_cfgscript_hb_lang_source
+%title: CfgScript Source
+%shorttitle: Source
+%keywords: pragma
+%body:
+<chapterline/>
+<pageintro>
+CfgScript Source files normally ends with <c>.csf</c>.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Source text files</jump1>
+<pre>
+SourceText
+: %ref[Comments, #Comments]
+| %ref[Preprocessor, acdk_cfgscript_hb_lang_pre]
+| %ref[Statement, acdk_cfgscript_hb_lang_stmt]*
+;
+</pre>
+The source files are normal text files.
+
+The encoding of the source text file
+will be configured via the standard
+encoding settings of ACDK.
+
+
+<jump1>Comments</jump1>
+<pre>
+Comments
+: '/*' .* '*/'
+| '//' .* '\n'
+;
+</pre>
+CfgScript support the standard Java/C++ comments:
+<source>
+// One line comment
+/*
+  Multiline 
+  comments
+*/
+</source>
+
+
+
+.

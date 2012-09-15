@@ -1,0 +1,185 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+ACDKHOME=$(ACDKHOME)
+
+# where to store the .o files
+OBJECTDIR=../tobj/acdk_cfgscript/cygwin-static
+
+# where to store the .a, .so and executables
+BINDIR=../../bin
+
+CCOMPILER=g++ -Wall -Wno-unused
+CCOPTS=-g
+CFLAGSX=
+CCINCLUDE= -I ../src  -I ../include  -I ../../include 
+DEFINES= -DOS_CYGWIN32 -D_REENTRANT -DIN_ACDK_CFGSCRIPT_LIB
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+LINK=g++ -shared
+LDFLAGS=-g
+SYSLIBRARIES=
+LIBS = $(SYSLIBRARIES)   ../../bin/acdk_core.a
+AR=ar rc
+RANLIB=ranlib
+
+SOURCES= 	acdk/cfgscript/cfgscript_metainf_base.cpp \
+	acdk/cfgscript/Delegate.cpp \
+	acdk/cfgscript/ExecutionStack.cpp \
+	acdk/cfgscript/Props.cpp \
+	acdk/cfgscript/Script.cpp \
+	acdk/cfgscript/Script2.cpp \
+	acdk/cfgscript/ScriptClassLoader.cpp \
+	acdk/cfgscript/ScriptDebug.cpp \
+	acdk/cfgscript/ScriptEval.cpp \
+	acdk/cfgscript/ScriptExpr.cpp \
+	acdk/cfgscript/ScriptObject.cpp \
+	acdk/cfgscript/ScriptSource.cpp \
+	acdk/cfgscript/ScriptStatements.cpp \
+	acdk/cfgscript/ShellExecutor.cpp \
+	acdk/cfgscript/SourceTokenizer.cpp \
+	acdk/cfgscript/cfgscript_metainf/cfgscript_metainf_ext.cpp \
+	acdk/cfgscript/cfgscript_metainf/cfgscript_metainf_ext1.cpp \
+
+HEADER= 	acdk/cfgscript/cfgscript.h \
+	acdk/cfgscript/ChDir.h \
+	acdk/cfgscript/Config.h \
+	acdk/cfgscript/ExecutionStack.h \
+	acdk/cfgscript/Props.h \
+	acdk/cfgscript/Script.h \
+	acdk/cfgscript/ScriptClassLoader.h \
+	acdk/cfgscript/ScriptDebug.h \
+	acdk/cfgscript/ScriptEval.h \
+	acdk/cfgscript/ScriptException.h \
+	acdk/cfgscript/ScriptExpr.h \
+	acdk/cfgscript/ScriptGlobals.h \
+	acdk/cfgscript/ScriptObject.h \
+	acdk/cfgscript/ScriptSource.h \
+	acdk/cfgscript/ShellExecutor.h \
+	acdk/cfgscript/SourceTokenizer.h \
+
+OBJECTS= 	../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_base.o \
+	../tobj/acdk_cfgscript/cygwin-static/Delegate.o \
+	../tobj/acdk_cfgscript/cygwin-static/ExecutionStack.o \
+	../tobj/acdk_cfgscript/cygwin-static/Props.o \
+	../tobj/acdk_cfgscript/cygwin-static/Script.o \
+	../tobj/acdk_cfgscript/cygwin-static/Script2.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptClassLoader.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptDebug.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptEval.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptExpr.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptObject.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptSource.o \
+	../tobj/acdk_cfgscript/cygwin-static/ScriptStatements.o \
+	../tobj/acdk_cfgscript/cygwin-static/ShellExecutor.o \
+	../tobj/acdk_cfgscript/cygwin-static/SourceTokenizer.o \
+	../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_ext.o \
+	../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_ext1.o \
+
+
+FINALTARGET=../../bin/acdk_cfgscript.a
+
+default: outputdirectories $(FINALTARGET)
+all: clean depend outputdirectories $(FINALTARGET)
+
+../../bin/acdk_cfgscript.a: $(OBJECTS)
+	$(AR) $@ $(OBJECTS)
+	-@ ($(RANLIB) $@ || true) >/dev/null 2>&1
+
+DEPSFILE=acdk_cfgscript.cygwin-static.deps
+
+depend: 
+	@echo -n "Making dependencies ... "; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo -n "$(OBJECTDIR)/" >> $(DEPSFILE); \
+	    $(CC) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_base.o: acdk/cfgscript/cfgscript_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_base.o -c acdk/cfgscript/cfgscript_metainf_base.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/Delegate.o: acdk/cfgscript/Delegate.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/Delegate.o -c acdk/cfgscript/Delegate.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ExecutionStack.o: acdk/cfgscript/ExecutionStack.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ExecutionStack.o -c acdk/cfgscript/ExecutionStack.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/Props.o: acdk/cfgscript/Props.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/Props.o -c acdk/cfgscript/Props.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/Script.o: acdk/cfgscript/Script.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/Script.o -c acdk/cfgscript/Script.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/Script2.o: acdk/cfgscript/Script2.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/Script2.o -c acdk/cfgscript/Script2.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptClassLoader.o: acdk/cfgscript/ScriptClassLoader.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptClassLoader.o -c acdk/cfgscript/ScriptClassLoader.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptDebug.o: acdk/cfgscript/ScriptDebug.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptDebug.o -c acdk/cfgscript/ScriptDebug.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptEval.o: acdk/cfgscript/ScriptEval.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptEval.o -c acdk/cfgscript/ScriptEval.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptExpr.o: acdk/cfgscript/ScriptExpr.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptExpr.o -c acdk/cfgscript/ScriptExpr.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptObject.o: acdk/cfgscript/ScriptObject.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptObject.o -c acdk/cfgscript/ScriptObject.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptSource.o: acdk/cfgscript/ScriptSource.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptSource.o -c acdk/cfgscript/ScriptSource.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ScriptStatements.o: acdk/cfgscript/ScriptStatements.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ScriptStatements.o -c acdk/cfgscript/ScriptStatements.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/ShellExecutor.o: acdk/cfgscript/ShellExecutor.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/ShellExecutor.o -c acdk/cfgscript/ShellExecutor.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/SourceTokenizer.o: acdk/cfgscript/SourceTokenizer.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/SourceTokenizer.o -c acdk/cfgscript/SourceTokenizer.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_ext.o: acdk/cfgscript/cfgscript_metainf/cfgscript_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_ext.o -c acdk/cfgscript/cfgscript_metainf/cfgscript_metainf_ext.cpp
+
+../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_ext1.o: acdk/cfgscript/cfgscript_metainf/cfgscript_metainf_ext1.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_cfgscript/cygwin-static/cfgscript_metainf_ext1.o -c acdk/cfgscript/cfgscript_metainf/cfgscript_metainf_ext1.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_cfgscript.a $(OBJECTS)
+
+  

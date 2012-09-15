@@ -1,0 +1,15 @@
+#pragma strict
+int k = 3;
+try {
+  i = 42; // i is not declared before
+  out.println("TEST FAILED");
+} catch (acdk.cfgscript.ScriptException ex) {
+  out.println("expected exception: " + ex.getMessage()); 
+  out.println("TEST OK");
+}
+
+#pragma weak
+
+j = 42; // weak mode should allow ad hoc variables
+
+out.println("TEST OK");

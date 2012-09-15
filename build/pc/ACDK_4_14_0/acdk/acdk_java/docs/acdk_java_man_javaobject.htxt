@@ -1,0 +1,57 @@
+%id: acdk_java_man_javaobject
+%title: acdk::java::JavaObject
+%seealso: acdk_java_man_typemapping
+%keywords: DMI Client Java
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+With the ACDK class acdk::java::JavaObject you can use any Java class
+inside C++ using the standard DMI interfaces.
+</pageintro>
+
+<jumptable/>
+
+<jump1>The Hello World example</jump1>
+
+<source lang="cpp">
+
+  // create a new java object
+  ::acdk::java::RJavaObject jo = new ::acdk::java::JavaObject("java/lang/StringBuffer", 
+                                                              (const char*)"Hello");
+  
+  // call the method append of the the java object
+  jo->invoke("append", (const char*)" Java from ACDK");
+  
+  // call the method toString of the Java object
+  RObject str = (RString)jo->invoke("toString");
+  
+  // get the static public member of the java object
+  RObject jout = ::acdk::java::JavaObject::peek_static("java/lang/System", "out");
+  
+  // call the invoke method of the ::acdk::langObject
+  // The DMI automatically dispatches the call to the 
+  // corresponding Java Object
+  jout->invoke("println", str);
+  
+  RObject aout = System::out;
+  // Same interface works also with ACDK objects.
+  aout->invoke("println", str);
+</source>
+
+<jump1>DMI Interface</jump1>
+
+The standard DMI interface works with following exceptions:
+
+<fl>
+<f> Object::peek_static and Object::poke_static 
+    does not map directly to the corresponding Java member.
+    You can use JavaObject::peek_static or Object::invoke_static(classname, 
+                                                                 "peek_static", 
+                                                                 membername)
+    instead.
+</fl>
+.
+
+
+

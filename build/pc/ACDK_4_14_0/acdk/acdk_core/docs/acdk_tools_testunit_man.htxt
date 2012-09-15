@@ -1,0 +1,150 @@
+%id: acdk_tools_aunit_man
+%title: ACDK Unit Test - Manual
+%shorttitle: ACDK Unit Tests
+%keywords: acdk_tools_aunit, unit tests, testing, acdk::tools::aunit
+%seealso: acdk::tools::aunit=namespace_acdk__tools__aunit, \
+          Classes functions and macros=group_acdkaunit
+%body:
+<pageintro>
+  ACDK Unit Test (acdk_tools_aunit) is a library to create regression tests for
+  acdk classes. It is inspired by the Xtrem Programming tool from
+  Kent Beck.
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Write a Test</jump1>
+The idea for unit tests is to write an executable 
+for a unit, which make a self test for each class
+in this unit. A unit is mostly identical to the collection
+of classes of a C++ namespace.
+
+In ACDK projects tests can be found in the ./tests
+directory.
+
+
+<jump2>The main()</jump2>
+
+<source>
+//begin our_unit_Test.cpp
+#include <acdk/tools/aunit/TestRunner.h>
+#include <acdk/lang/System.h>
+
+ACDK_TEST_MAIN
+
+//end our_unit_Test.cpp
+</source>
+
+
+<jump2>A Class Test case</jump2>
+For each class in the unit create a .cpp file,
+which contains the tests for this class.
+
+<source>
+// begin our_unit_FirstClass.cpp
+#include <acdk/tools/aunit/TestRunner.h>
+#include <your/unit/FirstClass.h>
+
+namespace tests {
+namespace our {
+namespace unit {
+  
+BEGIN_DECLARE_TEST( FirstClass_Test )
+  DECLARE_TEST( constructors )
+  DECLARE_TEST( method1 )
+  // more tests here
+END_DECLARE_TEST( FirstClass_Test  )
+
+BEGIN_DEFINE_TEST( FirstClass_Test )
+  ADD_TEST( FirstClass_Test, constructors ) 
+  ADD_TEST( FirstClass_Test, method1  ) 
+  // more tests here
+END_DEFINE_TEST( FirstClass_Test )
+
+using namespace acdk::lang;
+using namespace your::unit;
+
+void FirstClass_Test::constructors()
+{
+  RFirstClass fc = new FirstClass();
+  testAssert(fc != Nil);
+  testAssert(fc->isOk());
+  //etc.
+}
+
+
+void FirstClass_Test::method1  ()
+{
+  int expectedVal = 42;
+  RFirstClass fc = new FirstClass();
+  testAssert(fc->method1() == expectedVal);
+}
+
+} // namespace unit 
+} // namespace our 
+} // namespace tests 
+  
+
+// end our_unit_FirstClass.cpp
+</source>
+
+<jump1>Run the tests</jump1>
+A test executable normally should run without arguments and
+exit with 0 if all tests succeeded.
+<source>
+./our_unit_Test
+</source>
+
+For debugging reasons it may usefull to start a single test.
+<source>
+# test the class FirstClass
+./our_unit_Test FirstClass_Test 
+
+# test only method FirstClass_Test.method1
+./our_unit_Test FirstClass_Test.method1
+</source>
+
+To list all available tests in a executable you can type:
+<source>
+./our_unit_Test -test-list
+</source>
+
+<jump2>HTML reports</jump2>
+If you start a unit test with the option <c>-test-htmlreport</c>
+HTML report pages are generated for the test in <c>$ACDKHOME/testreports</c>.
+
+<jump2>More options</jump2>
+Run your test executable with the option <c>-help</c> to receive
+all available options.
+
+<jump1>Using CfgScript as Unit Tests</jump1>
+ACDK C++ libraries, which includes Metainfo, may also be tested
+via CfgScript files. 
+
+Insert this into a CPP for the test driver:
+<source>
+// C++
+using namespace acdk::tools::aunit;
+TestRunnerStaticAdder scriptTests(new CfgScriptTestSuite("$(ACDKHOME)/acdk_sql_sqlite/cfg/csf/tests/acdk/sql/sqlite", true));
+</source>
+will execute all CfgScript in the directory <c>$(ACDKHOME)/acdk_sql_sqlite/cfg/csf/tests/acdk/sql/sqlite</c> (and subdirectories)
+which ends with <c>_Test.csf</c> as unit test.
+
+<jump2>API documentation</jump2>
+
+Please refer also to %ref[API documentation, group_acdkaunit].
+
+<jump1>GUI Test Runner</jump1>
+To run ACDK Unit test, there is also a GUI runner avaible.
+To run the AcdkTestRunner you have also to compile the %ref[acdk_wx] module.
+Then type:
+<c>acdkcfgscript[_d.exe|_r.exe] acdk_core/cfg/csf/lib/test/AcdkTestRunner.csf</c>.
+
+<image src="AcdkTestRunner.gif" descr="GUI to run ACDK Unit Tests"/>
+
+This application is written with %ref[CfgScript, acdk_cfgscript_hb] and %ref[acdk_wx].
+
+
+
+.

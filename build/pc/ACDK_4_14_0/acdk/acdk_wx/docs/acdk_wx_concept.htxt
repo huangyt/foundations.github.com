@@ -1,0 +1,41 @@
+%id: acdk_wx_concept
+%title: acdk_wx Concepts
+%shorttitle: Concepts
+%body:
+<pageintro>
+Implementation notes for acdk_wx.
+</pageintro>
+<htmlauto/>
+<jumptable/>
+<jump1>Installation</jump1>
+You need the wxWindow/wxWidgets library
+from %ref[http://www.wxwidgets.org, http://www.wxwidgets.org/].
+
+When compiling acdk_wx you have probably modify some include and
+library path in the project/make files.
+
+I used wxWindows version 2.4.2.
+
+<jump1>Difference between wxWidgets and acdk_wx</jump1>
+wxWidgets itself is a C++ library, but uses a different
+object modell than ACDK. 
+<jump2>Names</jump2>
+<jump3>Classes</jump3>
+Most (all?) classes and types starts with <c>wx</c> in wxWidgets.
+acdk_wx uses namespaces:
+<c>wxWindow</c> becomes to <c>acdk::wx::Window</c> in ACDK.
+
+<jump3>Methods</jump3>
+The names of Methods starts with upper case in wxWidgets. The methods
+in ACDK WX starts with lower case. This has two reasons: Methods names
+with starting lower case is conforming to ACDK style guide and avoid
+overloading troubles between these two class hierarchies.
+
+<jump3>Defines/Enumerations</jump3>
+ACDK doesn't support defines - of course defines can be used in ACDK,
+but they are not visible as meta info. 
+All int defines of wxWidgets are tranfered to enumerations. 
+wxWidget value <c>wxEVT_COMMAND_CHOICE_SELECTED</c> becomes to <c>acdk::wx::EvtCommandChoiceSelected</c>
+in ACDK WX.
+
+.

@@ -1,0 +1,41 @@
+
+
+#include "amake_config.csf"
+
+
+acdk_make = new acdk.make.AcdkLibTask("acdk_make");
+acdk_make.addModule("src/acdk/make");
+acdk_make.addSource("src/acdk/make/make_metainf");
+acdk_make.addAcdkLib("acdk_core");
+acdk_make.addAcdkLib("acdk_cfgscript");
+
+// Create a standard ACDK console executable 
+acdkmake = new acdk.make.AcdkExeTask("acdkmake");
+
+acdkmake.addSource("src/acdk/make/main");
+acdkmake.addAcdkLib("acdk_core");
+acdkmake.addAcdkLib("acdk_cfgscript");
+acdkmake.addAcdkLib("acdk_make");
+acdkmake.addSubTask("acdk_make");
+
+acdk_make_Test = new acdk.make.AcdkTestExeTask("acdk_make_Test");
+acdk_make_Test.addSource("tests/acdk/make");
+acdk_make_Test.addAcdkLib("acdk_core");
+acdk_make_Test.addAcdkLib("acdk_cfgscript");
+//acdk_make_Test.addAcdkLib("acdk_text");
+acdk_make_Test.addAcdkLib("acdk_tools_aunit");
+acdk_make_Test.addAcdkLib("acdk_make");
+acdk_make_Test.addSubTask("acdk_make");
+
+/*
+  make a project 
+*/
+default = new acdk.make.ProjectTask("default");
+default.addSubTask("acdk_make");
+default.addSubTask("acdkmake");
+default.addSubTask("acdk_make_Test");
+default.registerTask("acdk_make_prj");
+
+// what to test will be a task named "test"
+//test = new acdk.make.TestTask("test");
+//test.addTest("acdk_make_Test");

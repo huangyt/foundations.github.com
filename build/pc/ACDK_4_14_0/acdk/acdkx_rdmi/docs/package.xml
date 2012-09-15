@@ -1,0 +1,65 @@
+<package>
+<name>acdkx_rdmi</name>
+
+<title>
+ACDK Remote DMI (acdkx_rdmi)
+</title>
+
+<shortdescription>
+acdkx_rmdi implements a transparent remote invocation for ACDK.
+</shortdescription>
+
+<distribution-version>4.14</distribution-version>
+<package-version>4.14.0</package-version>
+
+<copyright>
+Copyright &copy; 2000 - 2005 by Roger Rene Kommer, artefaktur
+</copyright>
+<description>
+
+<m>acdkx_rdmi</m> provides a transparent remoting for all ACDK objects.
+
+Currently it is in alpha status. For completion acdkx_rdmi an asynchronous IO
+framework has to be established.
+Some %ref[conceptual notes, acdkx_rdmi_concept] are available.
+
+</description>
+
+<license>
+ACDK Free Edition License (%ref[acdk_license]).
+</license>
+
+<dependencies>
+%ref[acdk_core]
+%ref[acdk_net]
+</dependencies>
+
+<namespaces>
+%nsref[acdkx::rdmi]
+</namespaces>
+
+<plattforms>
+All.
+</plattforms>
+
+<authors>
+Roger Rene Kommer (kommer@artefaktur.com).
+</authors>
+
+<todo>
+Alpha version. 
+</todo>
+
+<changes>
+===========================================================
+4.14.0
+
+Initial revision
+Please refer also to %ref[../ChangeLog].
+
+</changes>
+
+<notes>
+
+</notes>
+</package>

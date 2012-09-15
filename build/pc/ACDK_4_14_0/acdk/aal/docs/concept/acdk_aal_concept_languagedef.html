@@ -1,0 +1,600 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>AAL definition</title>
+<link rel="stylesheet" type="text/css" href="./../../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../index.html">ACDK</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../../docs/packages.html">Packages</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">AAL</a><br>
+<img src="./../../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_aal_concept.html">Concept</a><br>
+<img src="./../../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;AAL definition
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | AAL definition | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>AAL definition</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>AAL definition</h1> -->
+<p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | AAL definition | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p>
+<p class="PageIntro">
+Spec of the language.
+</p>
+
+
+<a name="jumptable134"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Code Unit"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Code Unit</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Comments"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Comments</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Types"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Other Types"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Other Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Arrays"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Arrays</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Coercion"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Coercion</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Storage types of values"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Storage types of values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Allocator"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Allocator</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Module / Namespace"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Module / Namespace</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Syntax"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Syntax</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Imports"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Imports</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Globals"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Globals</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Functions"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Functions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Syntax"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Syntax</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Classes"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Classes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Syntax"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Syntax</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Extend class methods/overwrite methods"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Extend class methods/overwrite methods</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#External Classes"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;External Classes</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Functions and Methods"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Functions and Methods</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Parameters"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Parameters</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Rest parameter types"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Rest parameter types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Operators"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Operators</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Assocation of operators"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Assocation of operators</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Operator precendence"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Operator precendence</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable3"  style="border-style:none" href="#Name mapping for operators"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Name mapping for operators</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Closures"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Closures</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Defun"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Defun</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Intro"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Intro</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Implementation"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Implementation</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Statement"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Statement</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Left Hand Expression Assignments"><img border="0" src="./../../../docs\images/arrow_down_stop.gif">&nbsp;Left Hand Expression Assignments</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Code Unit">Code Unit</a></h2>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Comments">Comments</a></h3>
+Enable C and C++ comments.
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Types">Types</a></h2>
+
+The standard type system of ACDK should be supported:
+<ul class="FeatureList">
+<li class="Feature"> Basic Types (int, char, etc.)
+<li class="Feature"> Class/Object Types
+<li class="Feature"> Function (implemented as anon Classes with operator()
+</ul>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Other Types">Other Types</a></h3>
+<ul class="FeatureList">
+<li class="Feature"> Arrays of basic types and Objects (may implemented as object)
+<li class="Feature"> Enumerations (mapped to type?)
+<li class="Feature"> Const/static values (may implement a 'freeze' features of Objects)
+<li class="Feature"> Unions (probably not)
+</ul>
+
+<h4><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Arrays">Arrays</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;aal<br>
+String[][]&nbsp;ds&nbsp;=&nbsp;String[][](2);<br>
+//&nbsp;acdk<br>
+StringArrayArray&nbsp;ds&nbsp;=&nbsp;StringArrayArray(2);<br>
+ds[0]&nbsp;=&nbsp;new&nbsp;StringArray(0);<br>
+ds[1]&nbsp;=&nbsp;new&nbsp;StringArray(0);<br>
+<br></font>
+</td></tr></table>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Coercion">Coercion</a></h3>
+Which Types should be automatically converted:
+<ul class="FeatureList">
+<li class="Feature"> int -> long (widen to long)
+<li class="Feature"> long -> int (error?, but castable)
+<li class="Feature"> int -> float (error?, but castable)
+<li class="Feature"> flot -> int (error, but castable)
+<li class="Feature"> int -> Object (Integer)
+<li class="Feature"> Object -> int (error, but castable)
+</ul>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Storage types of values">Storage types of values</a></h3>
+<ul class="FeatureList">
+<li class="Feature"> Basic types as value by default.
+<li class="Feature"> Object types as reference by default.
+<li class="Feature"> in, out, inout, byval, byref modifier.
+</ul>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Allocator">Allocator</a></h3>
+Support for Allocator, similar to C++/ACDK.
+Maybe use attributes for the 'new' operator?
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+Class&nbsp;A&nbsp;{&nbsp;/*&nbsp;...&nbsp;*/&nbsp;}<br>
+A&nbsp;a&nbsp;=&nbsp;[OnStack]&nbsp;new&nbsp;A();<br>
+//&nbsp;or<br>
+A&nbsp;a&nbsp;=&nbsp;&nbsp;new&nbsp;[OnStack]&nbsp;A();<br></font>
+</td></tr></table>
+The allocator concept is quite difficult to implement, may not
+implementable for all back ends (Java-ByteCode).
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Module / Namespace">Module / Namespace</a></h2>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax">Syntax</a></h3>
+Form 1:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+namespace&nbsp;unit&nbsp;{<br>
+//&nbsp;all&nbsp;declaration&nbsp;in&nbsp;this&nbsp;block&nbsp;are&nbsp;part&nbsp;of&nbsp;unit<br>
+}<br></font>
+</td></tr></table>
+
+Form 2:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+package&nbsp;unit;<br>
+//&nbsp;all&nbsp;further&nbsp;declaration&nbsp;are&nbsp;part&nbsp;of&nbsp;unit<br></font>
+</td></tr></table>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h3>
+Problem: 
+- Should be implemented as Class with public static members?
+- Or should be implemented as namespace (using Unit)?
+
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Imports">Imports</a></h3>
+imports just make the types of the given unit
+available in current scope. It is equivalent
+to 'using namespace unit;' of C++.
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+namespace&nbsp;unit&nbsp;{<br>
+&nbsp;&nbsp;import&nbsp;anotherunit;<br>
+}<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Globals">Globals</a></h3>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+int&nbsp;myGlobalInt&nbsp;=&nbsp;42;<br>
+any&nbsp;myGlobalAny&nbsp;=&nbsp;initFunc();<br></font>
+</td></tr></table>
+
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Functions">Functions</a></h2>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax">Syntax</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+int&nbsp;foo(int&nbsp;i,&nbsp;String&nbsp;s)<br>
+{<br>
+}<br></font>
+</td></tr></table>
+
+Sample to implement a single method interface:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+interface&nbsp;IFace<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;foo(int&nbsp;i,&nbsp;String&nbsp;s);<br>
+}<br>
+int&nbsp;foo(int&nbsp;i,&nbsp;String&nbsp;s)&nbsp;implements&nbsp;IFace;<br>
+int&nbsp;foo(int&nbsp;i,&nbsp;String&nbsp;s)&nbsp;implements&nbsp;IFace.foo;<br>
+<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h3>
+Alternatives:
+<ul class="FeatureList">
+<li class="Feature"> Each free standing function has an assiated Class.
+    <table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;foo(int&nbsp;i,&nbsp;String&nbsp;s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//is&nbsp;mapped&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;foo&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;int&nbsp;operator()(int&nbsp;i,&nbsp;String&nbsp;s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;alt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;int&nbsp;__call_static(int&nbsp;i&nbsp;,&nbsp;String&nbsp;s);&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;__call_dynamic(int&nbsp;i&nbsp;,&nbsp;String&nbsp;s);&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br></font>
+</td></tr></table>
+   Pro: Can be used as Object in Callback situation.
+   Pro: Can be used to implement Interfaces.
+   Con: Overhead of ClazzInfos
+<li class="Feature"> Functions are public static methods of the surounding unit.
+    Pro/Con: opposite to free standing classes.
+</ul>
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Classes">Classes</a></h2>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Syntax">Syntax</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+extends&nbsp;AnotherClass<br>
+implements&nbsp;AInterface<br>
+{<br>
+&nbsp;&nbsp;int&nbsp;_myVar;<br>
+&nbsp;&nbsp;AClass(int&nbsp;ival)<br>
+&nbsp;&nbsp;:&nbsp;_myVar(ival)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_myVar&nbsp;=&nbsp;ival;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this._myVar&nbsp;=&nbsp;ival;<br>
+&nbsp;&nbsp;}<br>
+}<br></font>
+</td></tr></table>
+Allowing different flavor (Java, C++).
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h3>
+For each class a DClazzInfo instance will be generated, which is compatible with DMI ClazzInfo.
+This enables full DMI Server and Client functionality of Script Classes.
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Extend class methods/overwrite methods">Extend class methods/overwrite methods</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;foo(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i;&nbsp;}<br>
+}<br>
+AClass&nbsp;a&nbsp;=&nbsp;new&nbsp;AClass();<br>
+<br>
+//&nbsp;extend&nbsp;the&nbsp;class&nbsp;with&nbsp;bar<br>
+extend&nbsp;int&nbsp;AClass.bar(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i;&nbsp;}<br>
+<br>
+//&nbsp;extend&nbsp;instance&nbsp;with&nbsp;method<br>
+extend&nbsp;int&nbsp;a.bar(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i;&nbsp;}<br>
+<br>
+//&nbsp;overwrite&nbsp;instance&nbsp;method<br>
+overwrite&nbsp;int&nbsp;a.foo(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i&nbsp;+&nbsp;1;&nbsp;}<br>
+<br>
+//&nbsp;overwrite&nbsp;class&nbsp;method<br>
+overwrite&nbsp;int&nbsp;AClass.foo(int&nbsp;i)&nbsp;{&nbsp;return&nbsp;i&nbsp;+&nbsp;1;&nbsp;}<br>
+<br>
+//&nbsp;failure,&nbsp;because&nbsp;incompatible&nbsp;signature<br>
+overwrite&nbsp;int&nbsp;AClass.foo(long&nbsp;i)&nbsp;{&nbsp;return&nbsp;i&nbsp;+&nbsp;1;&nbsp;<br>
+<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="External Classes">External Classes</a></h3>
+By default all ACDK and aal classes defined in current source file are available.
+To include the definition of other classes, a type of import functionality has 
+to be provided:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+[&nbsp;//&nbsp;these&nbsp;will&nbsp;be&nbsp;evaluated&nbsp;while&nbsp;compile&nbsp;time<br>
+&nbsp;&nbsp;use&nbsp;AcdkLib("acdk/net");<br>
+&nbsp;&nbsp;use&nbsp;AcdkClass("acdk/net/SocketServer");<br>
+&nbsp;&nbsp;use&nbsp;JavaClass("java/util/HashMap");<br>
+&nbsp;&nbsp;use&nbsp;ComClass("Ms.Word");<br>
+}<br></font>
+</td></tr></table>
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Functions and Methods">Functions and Methods</a></h2>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Parameters">Parameters</a></h3>
+<ul class="FeatureList">
+<li class="Feature"> attributes in, out, inout: <table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+&nbsp;void&nbsp;foo(in&nbsp;int&nbsp;ival,&nbsp;out&nbsp;int&nbsp;oval);<br></font>
+</td></tr></table>
+<li class="Feature"> named attributes <table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+foo(str&nbsp;:=&nbsp;"asdf",&nbsp;ival&nbsp;:=&nbsp;42);<br></font>
+</td></tr></table>
+<li class="Feature"> default attributes <table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(int&nbsp;ival&nbsp;=&nbsp;42);<br></font>
+</td></tr></table>
+<li class="Feature"> Rest-Collector as Array: <table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(int&nbsp;ival,&nbsp;rest&nbsp;ObjectArray&nbsp;args);<br></font>
+</td></tr></table>
+<li class="Feature"> Rest-Collector as Hash: <table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+void&nbsp;foo(int&nbsp;ival,&nbsp;rest&nbsp;Params&nbsp;args);<br></font>
+</td></tr></table>
+</ul>
+
+<h4><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Rest parameter types">Rest parameter types</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;ACDK<br>
+typedef&nbsp;ScriptVarArray&nbsp;RestArgs;<br>
+typedef&nbsp;core_vector&lt;NamedArg&gt;&nbsp;NamedRestArgs;<br>
+<br>
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;void&nbsp;foo(int&nbsp;i,&nbsp;IN(acdk::lang::dmi::RDmiObjectArray)&nbsp;rest);<br>
+&nbsp;&nbsp;void&nbsp;bar(int&nbsp;i,&nbsp;IN(acdk::lang::dmi::RDNamedArgArray)&nbsp;rest);<br>
+};<br>
+<br>
+AClass::standardDispatch(&nbsp;const&nbsp;char*&nbsp;classname,&nbsp;const&nbsp;char*&nbsp;fname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;ScriptVar&amp;&nbsp;ret<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;ScriptVarArray&amp;&nbsp;args<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;DmiClient&amp;&nbsp;dc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;IN(::acdk::lang::RStringArray)&nbsp;namedArgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;int&nbsp;flags<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;const&nbsp;ClazzInfo*&nbsp;clazzinfo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;const&nbsp;ClazzMethodInfo*&nbsp;methinf/*&nbsp;=&nbsp;0*/)<br>
+{<br>
+&nbsp;&nbsp;//&nbsp;incase&nbsp;of&nbsp;foo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foo(args[0].getIntVar(),&nbsp;getRest(1,&nbsp;args,&nbsp;namedArgs));<br>
+&nbsp;&nbsp;//&nbsp;in&nbsp;case&nbsp;of&nbsp;bar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foo(args[0].getIntVar(),&nbsp;getNamedRest(1,&nbsp;args,&nbsp;namedArgs));<br>
+};<br>
+<br>
+ClazzMethodInfo*&nbsp;findFunction(...)<br>
+{<br>
+&nbsp;&nbsp;if&nbsp;(arg-&gt;isRest())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;meth;<br>
+&nbsp;&nbsp;if&nbsp;(args-&gt;isNamedRest())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;checkEnoughNamedParameter()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br></font>
+</td></tr></table>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;aal<br>
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;void&nbsp;foo(int&nbsp;i,&nbsp;DmiObject[]&nbsp;rest);<br>
+&nbsp;&nbsp;void&nbsp;foo(int&nbsp;i,&nbsp;DmiNamedArgs&nbsp;rest);<br>
+}<br></font>
+</td></tr></table>
+
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Operators">Operators</a></h3>
+Enable to create operators for classes:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;A<br>
+{<br>
+&nbsp;&nbsp;A(String&nbsp;str);<br>
+&nbsp;&nbsp;String&nbsp;toString();<br>
+&nbsp;&nbsp;A&nbsp;operator+(A&nbsp;a)&nbsp;{&nbsp;return&nbsp;new&nbsp;A(toString()&nbsp;+&nbsp;a.toString());&nbsp;}<br>
+&nbsp;&nbsp;//&nbsp;internal&nbsp;name&nbsp;of&nbsp;this&nbsp;operator:&nbsp;'operator_plus'<br>
+&nbsp;&nbsp;void&nbsp;operator()(int&nbsp;i);<br>
+&nbsp;&nbsp;//&nbsp;internal&nbsp;name&nbsp;of&nbsp;this&nbsp;operator:&nbsp;'operator_call'<br>
+}<br></font>
+</td></tr></table>
+
+Rules for operators:
+An operator is a stream of chars except:
+<ul class="FeatureList">
+<li class="Feature"> char '(' except it is the first character in operator
+<li class="Feature"> any legal identifier char (A-Za-z0-9_)
+<li class="Feature"> white spaces
+</ul>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;A<br>
+{<br>
+&nbsp;&nbsp;//&nbsp;not&nbsp;very&nbsp;reasonable&nbsp;operator&nbsp;'(/^$\|@#%.,?'<br>
+&nbsp;&nbsp;operator&nbsp;(/^$\|@#%.,?(int&nbsp;a);<br>
+}<br></font>
+</td></tr></table>
+
+Operators can have none or one parameter and follows the rules of C++.
+The corresponding DMI methods for an operator are named by following
+rule:
+
+<h4><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Assocation of operators">Assocation of operators</a></h4>
+
+By default all operators are associated with 
+the left hand operant.
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;//&nbsp;left&nbsp;hand&nbsp;operator<br>
+&nbsp;&nbsp;AClass&nbsp;operator+(AClass&nbsp;cls);<br>
+&nbsp;&nbsp;//&nbsp;aclass1&nbsp;+&nbsp;aclass2&nbsp;-&gt;&nbsp;aclass1.operator+(aclass2)<br>
+&nbsp;&nbsp;AClass&nbsp;operator++();<br>
+&nbsp;&nbsp;//&nbsp;aclass1++&nbsp;aclass2&nbsp;-&gt;&nbsp;aclass1.operator++()<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;//&nbsp;implicit&nbsp;right&nbsp;hand&nbsp;operator&nbsp;in&nbsp;C++<br>
+&nbsp;&nbsp;AClass&nbsp;operator++(int);&nbsp;//&nbsp;C++<br>
+&nbsp;&nbsp;//&nbsp;aclass1++&nbsp;aclass2&nbsp;-&gt;&nbsp;aclass2.operator++()&nbsp;//&nbsp;C++&nbsp;only<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;//&nbsp;right&nbsp;hand&nbsp;operator<br>
+&nbsp;&nbsp;AClass&nbsp;rhoperator+();<br>
+&nbsp;&nbsp;//&nbsp;++aclass1-&gt;&nbsp;aclass1.operator++()&nbsp;//&nbsp;C++&nbsp;only<br>
+}<br>
+<br></font>
+</td></tr></table>
+If calling an operator, first an matching operatant
+on the left side of the operator will be found. If 
+non found, an matching rhoperator will be searched for
+the operant on the right side.
+
+This will be done on runtime in case of dynamic binding
+or at compile time in case of static binding.
+
+<h4><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Operator precendence">Operator precendence</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+obj.member+a;&nbsp;//&nbsp;obj.operator.(member).operator+(a)<br>
+a+obj.member;&nbsp;//&nbsp;a.operator+(obj).operator.(member)&nbsp;//&nbsp;not&nbsp;the&nbsp;right&nbsp;way<br></font>
+</td></tr></table>
+List predefined operators in order of strength:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+(...)<br>
+[...]<br>
+.&amp;nbsp;<br>
+++&nbsp;--<br>
+*&nbsp;/<br>
++&nbsp;-<br>
+<br></font>
+</td></tr></table>
+<h4><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Name mapping for operators">Name mapping for operators</a></h4>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+operator&nbsp;&gt;=(...);<br>
+//&nbsp;is<br>
+operator_gt_eq(...);<br></font>
+</td></tr></table>
+List of known operator with its corresponding names:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+dt&nbsp;.&nbsp;dot<br>
+eq&nbsp;=&nbsp;equal<br>
+lt&nbsp;&lt;&nbsp;lessthen<br>
+gt&nbsp;&gt;&nbsp;greaterthen<br>
+nt&nbsp;!&nbsp;not<br>
+cm&nbsp;,&nbsp;comma<br>
+pl&nbsp;+&nbsp;plus<br>
+hs&nbsp;#&nbsp;hash<br>
+ps&nbsp;%&nbsp;per[s]cent<br>
+as&nbsp;*&nbsp;asterix<br>
+mi&nbsp;-&nbsp;minus<br>
+sl&nbsp;/&nbsp;slash<br>
+bo&nbsp;[&nbsp;bracketopen<br>
+bc&nbsp;]&nbsp;bracketclose<br>
+dp&nbsp;:&nbsp;double&nbsp;point<br>
+bs&nbsp;\&nbsp;backslash<br>
+vb&nbsp;|&nbsp;verticalbar<br>
+rf&nbsp;^&nbsp;roof<br>
+qs&nbsp;?&nbsp;question<br>
+la&nbsp;&amp;&nbsp;logical&nbsp;and<br>
+po&nbsp;(&nbsp;parantesisopen<br>
+pc&nbsp;)&nbsp;parantesisclose<br>
+tl&nbsp;~&nbsp;tilde<br>
+at&nbsp;@&nbsp;at<br>
+pg&nbsp;§&nbsp;paragraph<br>
+dl&nbsp;$&nbsp;dollar<br>
+co&nbsp;{&nbsp;closure&nbsp;open<br>
+cc&nbsp;}&nbsp;closure&nbsp;close<br></font>
+</td></tr></table>
+If no name mapping was found for a operator sign, the ascii code of the sign will 
+be used.
+
+
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Closures">Closures</a></h2>
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Defun">Defun</a></h2>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Intro">Intro</a></h3>
+Working with closures it may not very handy always to 
+define an interface for each method/operator.
+
+For the operator definitions of an interface, class or closure should
+automatically the typed interface available:
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+class&nbsp;AClass<br>
+{<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;...&nbsp;}<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;int&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;...&nbsp;}<br>
+&nbsp;&nbsp;public&nbsp;int&nbsp;doSomeThing(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;...&nbsp;}<br>
+&nbsp;&nbsp;public&nbsp;static&nbsp;int&nbsp;staticMethod(int&nbsp;i)&nbsp;{&nbsp;...&nbsp;}<br>
+}<br>
+<br>
+defun&nbsp;AnCall&nbsp;int&nbsp;(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+//&nbsp;or&nbsp;alias<br>
+defun&nbsp;AnCall&nbsp;int&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+defun&nbsp;AnPlusCall&nbsp;int&nbsp;operator+(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+defun&nbsp;AnStaticCall&nbsp;static&nbsp;int&nbsp;(int&nbsp;i);<br>
+<br>
+void&nbsp;foo(AnCall&nbsp;callable)<br>
+{<br>
+&nbsp;&nbsp;callable("asdf",&nbsp;42);<br>
+}<br>
+<br>
+void&nbsp;bar(AnStaticCall&nbsp;callable)<br>
+{<br>
+&nbsp;&nbsp;callable(42);<br>
+}<br>
+<br>
+AnCall&nbsp;callable&nbsp;=&nbsp;new&nbsp;AClass();&nbsp;//&nbsp;using&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)<br>
+AnCall&nbsp;callable&nbsp;=&nbsp;new&nbsp;AClass().doSomeThing;&nbsp;//&nbsp;use&nbsp;doSomeThing(String&nbsp;s,&nbsp;int&nbsp;i)<br>
+AnCall&nbsp;callable&nbsp;=&nbsp;new&nbsp;()&nbsp;{&nbsp;int&nbsp;operator()(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;{&nbsp;...&nbsp;}&nbsp;};<br>
+AnCall&nbsp;callable&nbsp;=&nbsp;AClass;&nbsp;//&nbsp;using&nbsp;static&nbsp;int&nbsp;AClass.operator()(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+foo(callable);<br>
+AnStaticCall&nbsp;staticcall&nbsp;=&nbsp;AClass.staticMethod;<br>
+bar(staticcall);<br>
+<br></font>
+</td></tr></table>
+
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Implementation">Implementation</a></h3>
+May be support from DMI, which allows
+to generate ClazzInfos for Functions.
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+ACDK_DECL_FUNC(StringAdder);<br>
+class&nbsp;StringAdder<br>
+{<br>
+&nbsp;&nbsp;ACDK_WITH_FUNC_METAINFO<br>
+public:<br>
+&nbsp;&nbsp;RString&nbsp;operator+(IN(RString)&nbsp;s);<br>
+};<br></font>
+</td></tr></table>
+Which generates ClazzInfo for the operator+.
+
+
+
+<h2><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Statement">Statement</a></h2>
+<h3><a href="#jumptable134"><img border="0" src="./../../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Left Hand Expression Assignments">Left Hand Expression Assignments</a></h3>
+<table width="100%" border="1" cellspacing="0" cellpadding="10">
+          <tr><td bgcolor="#EEEEEE"><font size="-1" face="monospace">
+//&nbsp;has&nbsp;to&nbsp;push&nbsp;outOf&nbsp;the&nbsp;variable&nbsp;of&nbsp;<br>
+//&nbsp;foo.bar&nbsp;<br>
+foo.bar&nbsp;=&nbsp;x;<br>
+<br>
+//&nbsp;or&nbsp;more&nbsp;complex<br>
+(x,&nbsp;b)&nbsp;=&nbsp;x;<br>
+<br></font>
+</td></tr></table>
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="../acdk_aal_ip.html">Intentional Programming</a> | <a  href="acdk_aci_concept.html">ACI Concept</a> | AAL definition | <a  href="acdk_aal_concept_languagesyntax.html">AAL syntax</a> | <a  href="acdk_aal_concept_parser.html">AAL parser</a> | <a  href="acdk_aal_concept_objects.html">Object Representation</a> | <a  href="acdk_aal_concept_opcode.html">OpCode</a> | <a  href="acdk_aal_concept_links.html">Reference Links</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

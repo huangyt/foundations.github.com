@@ -1,0 +1,45 @@
+%id: acdk_cfgscript_hb_lang_stmt_using
+%title: CfgScript using Statements
+%shorttitle: Using Statement
+%seealso: acdk_cfgscript_hb_lang_stmt_with
+%keywords: using
+%body:
+<chapterline/>
+<pageintro>
+Using Statement import namespaces or object into current
+scope
+</pageintro>
+
+<htmlauto/>
+<pre>
+UsingStatement
+: 'using' FqIdentifier ';'
+;
+</pre>
+
+The using operator introduces a short access to namespace, classes and class/object members.
+<source>
+{
+  // using namespace
+  using acdk.lang;
+  System.out.println("asdf");
+}
+{
+  // using static class methods/members
+  using acdk.lang.System;
+  out.println("asdf");
+}
+{
+  // using member
+  using acdk.lang.System.out;
+  println("asdf");
+}
+</source>
+the using clause on member only works if the underlying class (here acdk.lang.System) is
+not a weak class (for example a COM-Class) but owns typed information, like
+ACDK classes or CfgScript classes.
+
+See also: %ref[acdk_cfgscript_hb_lang_stmt_with].
+See also: %ref[acdk_cfgscript_hb_lang_stmt_typealias].
+
+.

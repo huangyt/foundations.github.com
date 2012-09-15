@@ -1,0 +1,123 @@
+###
+### This file is part of ACDK
+### Copyrighted (c) 2000-2005 by Roger Rene Kommer - artefaktur
+### 
+
+
+ACDKHOME = ..
+
+
+PACKAGE = acdkx_rdmi
+
+all: install compile 
+
+!include "$(ACDKHOME)\acdk_globals.nmake"
+  
+compile::
+  msdev $(PACKAGE).dsw /MAKE ALL
+
+clean::
+  msdev $(PACKAGE).dsw /MAKE ALL /CLEAN
+
+clean-temps::
+  del /S $(TEMPFILES)
+
+install::
+  set ACDKHOME=$(ACDKHOME)
+  set PACKAGE=$(PACKAGE)
+  set WEBHOME=$(WEBHOME)
+  call $(ACDKHOME)\bin\install.cmd
+
+
+test::
+	$(ACDKHOME)\bin\acdkx_rdmi_Test_d $(AUNIT_TESTOPTS)
+
+
+
+acdkx_rdmi-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src cbx
+
+RDMIServer-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src cbx
+
+acdkx_rdmi_metainf-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src cbx
+
+acdkx_rdmi_Test-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi cbx
+
+
+makemake:: acdkx_rdmi-makemake RDMIServer-makemake acdkx_rdmi_metainf-makemake acdkx_rdmi_Test-makemake 
+
+dsp-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src dsp
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi dsp
+
+linux-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src linux
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi linux
+
+sunos-gcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src sunos-gcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi sunos-gcc
+
+bsd-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src bsd
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi bsd
+
+mingw-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src mingw
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi mingw
+
+bcc-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src bcc
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi bcc
+
+cbx-makemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\RDMIServer.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) src\acdkx_rdmi_metainf.lsp -pdir src cbx
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) tests/acdkx/rdmi\acdkx_rdmi_Test.lsp -pdir tests/acdkx/rdmi cbx
+
+
+metamakemake:
+	$(ACDKLISP) -acdk-home=$(ACDKHOME) acdkx_rdmi.lsp
+
+
+

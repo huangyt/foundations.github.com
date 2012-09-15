@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{cb5bfb42-699b-474e-b6fb-f23a251f7b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java">
+      <UniqueIdentifier>{b5a4b372-a1eb-40d0-b1bd-c6777526062b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\java\serialization">
+      <UniqueIdentifier>{d5621fd3-1d21-4a0c-882f-bd0515e0018d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\java\serialization\ClassDescription.h">
+      <Filter>acdk\java\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\serialization\ClassTypeMapping.h">
+      <Filter>acdk\java\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\serialization\Config.h">
+      <Filter>acdk\java\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\serialization\JavaObjectReader.h">
+      <Filter>acdk\java\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\serialization\JavaObjectWriter.h">
+      <Filter>acdk\java\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\java\serialization\serialization.h">
+      <Filter>acdk\java\serialization</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\java\serialization\a2jser_java_io.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\serialization\a2jser_java_lang.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\serialization\a2jser_java_util.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\serialization\ClassDescription.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\serialization\ClassTypeMapping.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\serialization\JavaObjectReader.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\java\serialization\JavaObjectWriter.cpp">
+      <Filter>acdk\java\serialization</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

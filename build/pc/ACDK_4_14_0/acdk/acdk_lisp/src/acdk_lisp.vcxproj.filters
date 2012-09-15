@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{88cadb1b-4439-441b-a348-06a1ef509968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lisp">
+      <UniqueIdentifier>{864e1b60-0bce-41df-a869-be799040d18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\lisp\lisp_metainf">
+      <UniqueIdentifier>{98787ccf-233a-4b5f-a609-24010ca70b4a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\lisp\acdk_lisp_decl.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\Config.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\Function.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\lisp.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispArray.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispAtom.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispBinaryCode.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispBuildInFunction.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispCallBack.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispClass.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispCode.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispDmiClient.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispEnvironment.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispException.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispFunction.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispInterpreter.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispList.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispObject.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispSymbol.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispTemplateFilter.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispTokenizer.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\LispVar.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\lisp\StackFrame.h">
+      <Filter>acdk\lisp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\lisp\Lisp.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispBinaryCode.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispCallBack.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispClass.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispDmiClient.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispEnvironment.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispException.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispFunction.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispList.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispObject.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispObject_clazzinfo.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispTemplateFilter.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispTokenizer.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\LispVar.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\lisp_metainf_base.cpp">
+      <Filter>acdk\lisp</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\lisp_metainf\lisp_metainf_ext.cpp">
+      <Filter>acdk\lisp\lisp_metainf</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\lisp\lisp_metainf\lisp_metainf_ext1.cpp">
+      <Filter>acdk\lisp\lisp_metainf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

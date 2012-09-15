@@ -1,0 +1,52 @@
+%id: acdk_cfgscript_hb_lang_stmt_with
+%title: CfgScript with Statement
+%shorttitle: With Statement
+%seealso: acdk_cfgscript_hb_lang_stmt_using
+%keywords: with
+%body:
+<chapterline/>
+<pageintro>
+The with statement introduce a shortcut to 
+an often used expression.
+</pageintro>
+
+<htmlauto/>
+<pre>
+WithStatement
+: 'with' '(' Expression ')' Statement
+</pre>
+
+The expression will be evaluated in the with statement. 
+Inside the Statement (normally a BlockStatement) the
+expression is available when using the '.' operator.
+
+<source>
+with (acdk.lang.System.out)
+{
+  .print("Hello ");
+  .print("in");
+  .println(" with statement");
+}
+</source>
+
+Different to %ref[using statements, acdk_cfgscript_hb_lang_stmt_using] the
+with statement has an performance profit, because the with expression
+will only be evaluated once.
+
+With Statements can also be nested:
+<source>
+
+with (acdk.lang.System.out)
+{
+  .println("This goes to out");
+  with (acdk.lang.System.err)
+  {
+    .println("This goes to err");
+  }
+  .println("This goes to out");
+}
+</source>
+<p>
+See also: %ref[acdk_cfgscript_hb_lang_stmt_using].
+
+.

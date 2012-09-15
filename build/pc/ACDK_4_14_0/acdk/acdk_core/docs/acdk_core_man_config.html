@@ -1,0 +1,280 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Runtime Configuration of ACDK</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_core_man.html">man acdk_core</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Runtime Configuration
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Runtime Configuration | <a  href="acdk_core_io-concept.html">Reader / Writer</a> | <a  href="acdk_io_FileSystem.html">acdk::io::FileSystem</a> | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | <a  href="acdk_util_logging.html">ACDK Logging framework</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Runtime Configuration of ACDK</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Runtime Configuration of ACDK</h1> -->
+<p class="PageIntro">
+How to use runtime configure in ACDK applications.
+</p>
+
+<br>
+<br>
+<a name="jumptable9"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Over all description of runtime configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Over all description of runtime configuration</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Dependencies"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Dependencies</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Command Line options"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Command Line options</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Property files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Property files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Global acdk configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Global acdk configuration</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Application specific configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Application specific configuration</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Further configuation"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Further configuation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#User defined properties files"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;User defined properties files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Enhanced configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Enhanced configuration</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Over all description of runtime configuration">Over all description of runtime configuration</a></h2>
+Different to configuration at compile time, the runtime configuration
+is used to control ACDK functionality at runtime.<br>
+The runtime configuration can also be used for user defined configuration values
+of applications.<br>
+<br>
+<h2><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Dependencies">Dependencies</a></h2>
+Configuration using the System properties (see <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__lang__System"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::lang::System</a> for <code> System::getProperty(), setProperty()</code>)
+of an ACDK application is done on multiple steps:<br>
+<ul class="FeatureList">
+<li class="Feature"> Read the operation system environment into the System properties.<br>
+<li class="Feature"> Read the configuration file <code>$ACDKTOOLSHOME/cfg/acdk.cfg</code> if exists.<br>
+<li class="Feature"> Read the configuration file <code>myexecutable.cfg</code> in the same directory 
+		as the executable if exists.<br>
+<li class="Feature"> Parse the command line options (especially the <code>-D</code> options.<br>
+</ul>
+<br>
+Each step will overwrite the values, which are configured previous steps.<br>
+<br>
+<h2><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Command Line options">Command Line options</a></h2>
+<br>
+<code>acdk::lang::System::main()</code>
+understands following flags:<br>
+<ul>
+<li> <b>-acdk-st</b>: run in single thread modus. Object::lock() will have no effect.<br>
+<li> <b>-acdk-home=[homedir]</b> set internally this as ACDK_HOME env variable.<br>
+     This variable often used when a ACDK application looks for its configuration
+     files. The standard ClassLoader also try to find ACDK libraries in the 
+     ACDK_HOME/bin directory.<br>
+<li> <b>-acdk-tools-home=[homedir]</b> set internally this as ACDK_TOOLS_HOME env variable.<br>
+     Has same usage as -acdk-home but overwrite -acdk-home. This is used if acdk tools
+     are used which are stored in a directory not equal to ACDKHOME.<br>
+     If ACDK_TOOLS_HOME is not set, the parent directory of the executable 
+     will be used (executable=acdk/bin/myexe, ACDK_TOOLS_HOME=acdk ).<br>
+<li> <b>-acdk-path=[pathlist]</b> set internally ACDKPATH env variable.<br>
+     Variable will be used by the ClassLoader to locate additionally ACDK libraries.<br>
+     Multiple path should be devided by the path seperator (':' on unix and ';' on windows
+     platform). The argument -acdk-path=path can also specified multiple times on the command line.<br>
+<li> <b>-Dkey=value</b>: Define a system property.<br>
+			<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td> Command line options, starting with <code>-D</code> are reserved to ACDK.</td></tr></table>
+<li> <b>-acdk-st</b>: Run the executable in single thread mode. No synchronization
+      will be done. This option can improve performance in single threaded application, 
+      but may be crash in multithreaded applications.<br>
+<li> <b>-acdk-sp</b>: The application run on a single cpu machine.<br>
+      On some platforms this option speed up executation about a factor of 0.10 - 0.20.<br>
+      But on other platform - which have no native support for atomic integer operation
+      - the executable will be speed up by a factor up to 2.<br>
+<li> <b>-acdk-enc [char enc]</b>: This option set the "user.encoding" property. This string value
+     will be used as default encoding for all CharReader/Writer.<br>
+     See also <a  href="acdk_core_locale_encoding.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;String Encoding</a> for valid values.<br>
+<li> <b>-loglevel [loglevel]</b>: Set the threshold value for all logging. 
+     All log message with a lower log level will discarged. By default the threshold
+     is 'Warn'.<br>
+     loglevel can be either a integer between 0 (all log message will print) and
+     65535 (no log message will print) or a string value: 
+     All, Trace, Debug, Info, Note, Warn, Error, Fatal, None.<br>
+<li> <b>-acdk-pa</b>: Use the PagedHeap-Allocator.<br>
+<li> <b>-acdk-rc</b>: Use only Reference Counting. No debugging information about the heaps
+     is availabe.<br>
+<li> <b>-acdk-rcgc</b>: Use Reference Counting + Mark/Sweep collection. 
+<li> <b>-acdk-gc</b>: Use the Boehm Conservative Collector.<br>
+      Only available if compiled and linked with the the Boehm Conservative Collector.<br>
+      <b><i>-acdk-gc is Experimental and may not work.</i></b>
+<li> <b>-acdk-maxmem [maxmem]</b>: Limit usage of process to memory in megabyte.<br>
+			if maxmem is -1 process memory usage is unlimited.<br>
+			By default memory usage is limited to 1000 MB.<br>
+					
+</ul>
+These flags will striped from the command line and the applications main function will
+not see it.<br>
+<br>
+<h2><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Property files">Property files</a></h2>
+<h3><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Global acdk configuration">Global acdk configuration</a></h3>
+Global configuration (for all users and ACDK applications) can be done in the
+<code>$ACDKHOME/cfg/acdk.cfg</code>. The orignal file can be found in <code>acdk_core/cfg/acdk.cfg</code>.<br>
+<br>
+Here the default <code>acdk.cfg</code> provided by the ACDK distribution:<br>
+<br>
+<pre>
+# This a standard configuration file for ACDK
+# 
+
+
+# Plugin interface for FileSystems
+# acdk.io.filesystem.fileNameParts is a map of parts of filename
+# mapped to the classname of a SystemFactor
+# note special file names may contain either the character @ or contains
+# the sequence :// (for urls)
+# 
+# the names of the filenameparts must be numbered from 0 until n (without 
+# gaps). When loading plugin file system the same sequence will be tried.
+
+acdk.io.filesystem.protocol.container.0=.zip@=acdk/vfile/zip/ZipFileSystemFactory
+acdk.io.filesystem.protocol.container.1=.ZIP@=acdk/vfile/zip/ZipFileSystemFactory
+acdk.io.filesystem.protocol.container.2=.tar@=acdk/vfile/tar/TarFileSystemFactory
+acdk.io.filesystem.protocol.container.3=.TAR@=acdk/vfile/zip/TarFileSystemFactory
+
+# filename has to start with the url
+acdk.io.filesystem.protocol.url.0=ftp://=acdk/net/ftp/FTPFileSystemFactory
+acdk.io.filesystem.protocol.url.1=http://=acdk/net/UrlFileSystemFactory
+
+#
+# factories which implements the class acdk.net.URLStreamFactories
+acdk.net.urlfactories.ftp=acdk/net/ftp/FTPUrlStreamHandlerFactory
+acdk.net.urlfactories.https=acdkx/net/ssl/HTTPSUrlStreamHandlerFactory
+
+# Read only. Contains the internal version of ACDK
+# acdk.vm.version=
+
+# Read only. Vendor 
+# acdk.vm.vendor=Ing.Buero Kommer, Artefaktur
+
+# Read only. Contains for example 
+# acdk.vm.name=ACDK 4.14.0
+
+# used by acdk::io::File for temporary files
+# normally initialized by the environmnet variable TMP or TEMP
+# acdk.io.tmpdir=/tmp
+
+# User login name
+# Initialized from the environment variables USERNAME or LOGNAME
+# user.name=
+
+# Users Home directory
+# Initialized with enviromnent variableHOME or HOMEDRIVE/HOMEPATH (windows)
+# user.home=
+
+# Line Seperator
+# On windows contains \\n\\r on other systems \\n
+# line.separator=
+
+# Operation system name
+# initialized with enviromnent variable OS(windows) or OSTYPE.
+# This value is only informative. 
+# For making choices in code use System::getPlatformFlags() instead.
+# os.name
+
+# Operation system architectur
+# initialized with enviromnent variable PROCESSOR_ARCHITECTURE(windows) or HOSTTYPE
+# This value is only informative. 
+# For making choices in code use System::getPlatformFlags() instead.
+# os.arch
+
+# Read only variable for file seperator
+# This value is only informative. In code use File::separator() instead.
+# file.separator
+
+# Read only variable for file seperator
+# This value is only informative. In code use File::pathSeparator() instead.
+# path.separator
+
+# user/system language 
+# used to configure default Locale
+#	user.language
+
+# user/system country
+# used to configure default Locale
+# user.region
+
+# Subvariant of Locale
+# user.variant
+
+# defines the default encoding used for console input and output
+# by default this is initialized by the operation system default
+# user.encoding
+
+# acdk.lang.ClassPath=path to loadable modules
+# acdk.lang.ClassToLib.acdk.mydir.MyClass=libname
+
+# define an alias for a given namespace to a library name
+# used by the classloader to find the shared library for
+# a given class. This sample load the libary org_xml if searching
+# for mapped org.w3c.*
+# The key may also be a complete ClassName, whereas "." or "::" should
+# be replaced by a "_".
+
+acdk.lang.ClassLoader.libalias.org_w3c=org_xml
+
+</pre>
+<br>
+<h3><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Application specific configuration">Application specific configuration</a></h3>
+On startup ACDK looks for a file name
+with the same file name of the executable (excluding
+'.exe' on Windows) and a <code>.cfg</code>.<br>
+ACDK expects that this file is a property file. 
+ACDK will  load this property file at startup and in case of re-initialization.<br>
+ 
+<h2><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Further configuation">Further configuation</a></h2>
+<h3><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="User defined properties files">User defined properties files</a></h3>
+Applications can define their own properties files and load them with the
+<a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=class_acdk__util__Properties"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;acdk::util::Properties</a> <code>load()</code> method.<br>
+<br>
+<h3><a href="#jumptable9"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Enhanced configuration">Enhanced configuration</a></h3>
+With the <a  href="acdk_cfgscript_hb.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;CfgScript</a> language more advanced 
+configuration can be done: not only setting passive strings, which 
+has to be evaluated in the applications code, but real glue code to connect
+C++ and CfgScript classes.<br>
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Runtime Configuration | <a  href="acdk_core_io-concept.html">Reader / Writer</a> | <a  href="acdk_io_FileSystem.html">acdk::io::FileSystem</a> | <a  href="acdk_core_locale_encoding.html">String Encoding</a> | <a  href="acdk_util_logging.html">ACDK Logging framework</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

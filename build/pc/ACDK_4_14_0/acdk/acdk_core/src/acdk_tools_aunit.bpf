@@ -1,0 +1,9 @@
+USEUNIT("acdk\tools\aunit\TestUnit.cpp");
+USEUNIT("acdk\tools\aunit\DmiTestClass.cpp");
+USEUNIT("acdk\tools\aunit\TestRunner.cpp");
+USEUNIT("acdk\tools\aunit\aunit_clazzinfo.cpp");
+USELIB("..\..\bin\acdk_core.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint

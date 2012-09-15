@@ -1,0 +1,113 @@
+
+using acdkx.rdmi;
+using acdk.net;
+using acdk.util.logging;
+RLogger log = LogManager::getCreateLogger("acdkx.rdmi");
+log->addConsumer(new ConsoleConsumer(new SimpleFormatter()));
+LogManager::MinLevel = Debug;
+LogManager::Threshold  = Debug;
+
+using acdk.cfgscript.ScriptGlobals;
+/*
+int i = 2;
+i = inOf(i);
+return;
+*/
+RemoteDmiServer client = new RemoteDmiServer(new TcpServer(InetAddress::getLocalHost(), 1111), new BinaryProtocol());
+{
+  acdk.tools.aunit.DmiTestClass tc = client.createRemoteAs("acdk.tools.aunit.DmiTestClass", "acdk.tools.aunit.DmiTestClass");
+  /*
+  int outi = 0;
+  String outs = "";
+  tc.inOutMethod(3, "Test", outi, outs);
+  out.println("outi: " + outi + "; outs: " + outs);
+  */
+   /*{
+    __script.breakToDebug();
+    IntegerArray ia = [ new Integer(1), new Integer(2), new Integer(3) ];
+    int sum = tc.makeSum(ia);
+    out.println("sum of " + ia.toString() + " is " + sum);
+  }*/
+  /*
+  {
+    Number n1 = new Integer(1);
+    Number n2 = new Short(2);
+    Number n3 = new Byte(3);
+    // does not work 
+    NumberArray ia = [ n1, n2, n3 ];
+    out.println("ia: " + ia.GetClass().getName());
+    out.println("NumberArray: " + NumberArray.GetClass().getName());
+    out.println("as: " + byValAs(ia, NumberArray.GetClass()).getClass().getName());
+    __script.breakToDebug();
+    int sum = tc.makeSum(byVal(ia));
+    out.println("sum of " + ia.toString() + " is " + sum);
+  }
+  */
+  try {
+      Object o = client.createRemote("acdk.lang.StringBuffer", "hello");
+      o.substring(-42, 2004);
+    } catch (IndexOutOfBoundsException ex) {
+      ex.printStackTrace();
+      out.println(ex.getMessage());
+      
+    }
+}
+/*
+Object r = client.createRemote("acdk/lang/StringBuffer", "Hello");
+out.println(r.toString());
+__script.breakToDebug();
+client.shutdownRemote();
+*/
+return;
+
+class ScriptSayHello
+      implements acdk.tools.aunit.SayHelloInterface
+{
+  String _name;
+  ScriptSayHello(String name)
+  {
+    _name = name;
+  }
+  RString sayHello(IN(RString) sayto)
+  {
+    out.println("inside ScriptSayHello\n");
+    return "say Hello from " + _name + " to " + sayto;
+  }
+}
+
+acdk.tools.aunit.DmiTestClass tc = new acdk.tools.aunit.DmiTestClass();
+{
+  int outi = 0;
+  String outs = "";
+  tc.inOutMethod(3, "Test", outi, outs);
+  out.println("outi: " + outi + "; outs: " + outs);
+}
+ScriptSayHello sa = new ScriptSayHello("first");
+out.println(tc.sayHelloViaInterface(sa, "second"));
+Object rtc = client.createRemote("acdk/tools/aunit/DmiTestClass");
+out.println(rtc.sayHelloViaInterface(sa, "second"));
+
+Object remoteOut = client.peekStaticRemote("acdk/lang/System", "out");
+remoteOut.println("hello on other out");
+
+Any rcls = client.createRemote("TestRemoteClass");
+StringBuffer sb = new StringBuffer("A");
+rcls.modifyStringBuffer(byRef(sb));
+out.println("returned sb: " + sb.toString());
+sb = new StringBuffer("A");
+rcls.modifyStringBuffer(byVal(sb));
+out.println("returned sb: " + sb.toString());
+
+/*
+concept:
+CfgScript:
+  acdk.lang.Comparable c = remote.method_byRefAs(Comparable.GetClass(), 
+                                               dbyVal(other), 
+                                               dbyRef(other), 
+                                               dbyRefAs(other, Comparable.GetClass()));
+C++
+  RComparable c = remote.invokeAs(Comparable::GetClass(), 
+                                  dbyVal(other), 
+                                  dbyVal(other),
+                                  dbyRefAs(other, Comparable::GetClass());
+*/

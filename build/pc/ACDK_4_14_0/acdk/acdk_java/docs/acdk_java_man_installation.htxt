@@ -1,0 +1,101 @@
+%id: acdk_java_man_installation
+%title: acdk_java Installation
+%shorttitle: Compile acdk_java
+%seealso: acdk_general_install
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+With the module acdk_java you can access ACDK objects from Java and
+Java objects from ACDK.
+</pageintro>
+
+<jumptable/>
+
+<jump1>Download / Install JDK</jump1>
+You need JDK 1.2 or later. I only have tested it
+with Suns JDK 1.3.x and 1.4.x.
+
+<note>
+  GCC with the GCJ provides  JNI headers, which are <b>not</b> compatible
+  with <m>acdk_java</m>. You need to use JDK headers and libraries.
+</note>
+
+<jump2>Configure ACDK</jump2>
+After installing the JDK you probably have to ajust some
+configuration in acdk:
+<fl>
+  <f> Unix: open <c>acdk_globals.[your platform]</c> in the ACDK root directory and 
+      ajust the <c>ACDK_JAVA_*</c> values to point
+      to the correct directories and library names.
+      
+  <f> Windows: open the <c>acdkenv.cmd</c> ACDK root directory and ajust the 
+      <c>ACDK_JAVA_*</c> values.
+      You have to execute this batch file before you compile
+      the project in a cmd windows. 
+      If you use an IDE (like Visual Studio) use some of the 
+      start scripts in the ACDK root directory (like <c>startvstudio6.cmd</c>).
+      Alternately you can also add these environment variables into your global
+      environment. 
+</fl>
+
+<jump1>Compile acdk_java</jump1>
+If the environment variables are set correctly acdk_java can be compiled.
+
+
+
+You have to to include the vm-path to your PATH variable.
+For example:
+<fl>
+<f> NT: c:\jdk1.3.1\jre\bin\classic
+<f> Unix /usr/lib/jdk1.3.1/bin
+</fl>
+
+On Unix plattform you have also to insert the JVM library path
+to you LD_LIBRARY_PATH. The libraries can reside in different 
+sub directories
+<code><small>
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jdk1.3.1/jre/lib/i386/native_threads:/usr/lib/jdk1.3.1/jre/lib/i386/classic:/usr/lib/jdk1.3.1/jre/lib/i386
+<small></code>
+
+<jump1>Running executables using acdk_java</jump1>
+If you want to use the AcdkObject through Java you have to add 
+$ACDK_HOME to our CLASSPATH environment variable.
+
+To run an executble using <m>acdk_java</m> you may have set
+environment variables (<c>PATH</c> on Windows and <c>LD_LIBRARY_PATH</c>)
+to point to ACDK <c>bin</c> directory and the directory of the shared libraries
+of Python.
+
+<jump1>Compile the Java files</jump1>
+Beside the standard package build mechanism, there
+is an additionally makefile to build the Java class files:
+<code>
+[n]make -f acdk_java.jmk
+</code>
+The classes are stored below the 
+ACDKHOME/bin directory, so you have to 
+extend our CLASSPATH enviromnent variable with this
+directory.
+
+<jump1>Execute the Tests</jump1>
+
+You have to set the ACDKHOME variable to the 
+root directory of our ACDK installation.
+
+You have to add the path $ACDKHOME/bin to
+your PATH environment variable.
+On windows you can use the <c>acdkenv.cmd</c> for this purpose.
+On Unix os (Linux, bsd, solaris) you 
+may 'source' the <c>acdkenv.[platform]</c> before executing the application.
+
+<jump1>Open Issues</jump1>
+<fl>
+<f> More tests of the DMI functions.
+<f> using the acdk_java package will not work with threads.
+</fl>
+
+.
+
+
+

@@ -1,0 +1,19 @@
+USEUNIT("acdk_lang_Test.cpp");
+USEUNIT("acdk_lang_Throwable_Test.cpp");
+USEUNIT("acdk_lang_Float_Test.cpp");
+USEUNIT("acdk_lang_Integer_Test.cpp");
+USEUNIT("acdk_lang_ObjectBase_Test.cpp");
+USEUNIT("acdk_lang_String_Test.cpp");
+USEUNIT("acdk_lang_StringBuffer_Test.cpp");
+USEUNIT("acdk_lang_StringExt_Test.cpp");
+USEUNIT("acdk_lang_Thread_Test.cpp");
+USEUNIT("acdk_lang_Thread_Test2.cpp");
+USEUNIT("acdk_lang_ThreadLocal_Test.cpp");
+USELIB("..\..\..\..\bin\acdk_tools_aunit.lib");
+USELIB("..\..\..\..\bin\acdk_core.lib");
+USEUNIT("acdk_lang_ClassLoader_Test.cpp");
+USEUNIT("acdk_lang_Double_Test.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

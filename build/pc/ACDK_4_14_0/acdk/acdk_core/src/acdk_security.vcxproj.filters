@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="acdk">
+      <UniqueIdentifier>{fd437f57-2549-4b7c-96c5-5307536e92bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="acdk\security">
+      <UniqueIdentifier>{6ac6ee36-d009-4a7b-a9b2-123e52009f81}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\security\GeneralSecurityException.h">
+      <Filter>acdk\security</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\security\MessageDigest.h">
+      <Filter>acdk\security</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\security\MessageDigestSpi.h">
+      <Filter>acdk\security</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\security\NoSuchAlgorithmException.h">
+      <Filter>acdk\security</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\security\security.h">
+      <Filter>acdk\security</Filter>
+    </ClInclude>
+    <ClInclude Include="acdk\security\SHAMessageDigest.h">
+      <Filter>acdk\security</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\security\acdk_security_Package.cpp">
+      <Filter>acdk\security</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\security\MessageDigest.cpp">
+      <Filter>acdk\security</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\security\security_metainf_base.cpp">
+      <Filter>acdk\security</Filter>
+    </ClCompile>
+    <ClCompile Include="acdk\security\SHAMessageDigest.cpp">
+      <Filter>acdk\security</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

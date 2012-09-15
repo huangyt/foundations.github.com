@@ -1,0 +1,345 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>CfgScript Introduction</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Core</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_man.html">man acdk_cfgscript</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Introduction
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Introduction | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>CfgScript Introduction</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>CfgScript Introduction</h1> -->
+<p class="curchapterline"> | Introduction | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p>
+<p class="PageIntro">
+CfgScript is a full featured scripting language
+based on ACDK. CfgScript is used in the 
+the ACDK Metacompiler and the ACDK Make.
+</p>
+
+<br>
+<br>
+<a name="jumptable15"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#About CfgScript"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;About CfgScript</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Use Cases"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Use Cases</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Prototypes"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Prototypes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Tools"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Tools</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Testing"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Testing</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Component glue"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Component glue</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Configuration"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Configuration</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Customization"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Customization</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Some features"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Some features</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Object Oriented Language"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Object Oriented Language</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Rich call interface"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Rich call interface</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Instrumenting C++-Classes in scripting code"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Instrumenting C++-Classes in scripting code</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Using third part frameworks and scripting languages"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Using third part frameworks and scripting languages</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Derive C++ in Scripting language"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Derive C++ in Scripting language</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Server Objects implemented in CfgScript"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Server Objects implemented in CfgScript</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#CfgScript and GUI"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;CfgScript and GUI</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="About CfgScript">About CfgScript</a></h2>
+<br>
+CfgScript is a typed scripting language with similarities to Java and C#.<br>
+<br>
+Nearly all that can be done with ACDK in C++ can also be done in CfgScript.<br>
+The same classes are used C++ as in CfgScript.<br>
+<br>
+Of course some specific features of C++, like pointers, templates, and stack variables
+are not supported in the scripting language, but for compensation CfgScript provides
+high-level language constructs - missing in C++, like <code>foreach loops</code>, lamda expressions,
+backtick evaluation, multimethods and complex type literals.<br>
+<br>
+CfgScript has a similar relationship to ACDK C++ as Tcl has to C. 
+In component based development C++ classes can be tied by CfgScript together to
+an application.<br>
+<br>
+CfgScript can also serve configuration components to an C++ application, communicating
+via C++ interfaces.<br>
+ 
+Complete Applications can be build in CfgScript in various domains, like multi threaded
+network application, handling XML files, accessing SQL databases and easily and fast 
+written rich GUI applications.<br>
+<br>
+<h2><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Use Cases">Use Cases</a></h2>
+<br>
+CfgScript can be used for many purposes.<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Prototypes">Prototypes</a></h3>
+On the basis of the ACDK libraries prototypes can be implemented 
+very fast. 
+<ul class="FeatureList">
+<li class="Feature"> No creation of make files is needed.<br>
+<li class="Feature"> No compilation of the script needed.<br>
+<li class="Feature"> One click/enter to run the application.<br>
+<li class="Feature"> Easy translation from CfgScript to C++ if the prototype should
+		be transformed to a compiled application.<br>
+</ul>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Tools">Tools</a></h3>
+Often Prototypes lives longer than originally was planned.<br>
+Simple tools - which are somewhere between shell scripts and C++/Java - can 
+be easily developed.<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Testing">Testing</a></h3>
+For a given ACDK C++ library (or of course also CfgScript class libraries) 
+test driver can be <a  href="acdk_tools_testunit_man.html#Using CfgScript as Unit Tests"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;implemented in CfgScript</a>.<br>
+ 
+In the ACDK library <a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK WX</a> most test applications are not in C++, but in CfgScript.<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Component glue">Component glue</a></h3>
+Because of the neat integration of CfgScript with components implemented C++, COM, CORBA
+CfgScript is a good choice to connect these components with some scripting (see also below).<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Configuration">Configuration</a></h3>
+The standard configuration mechanism in ACDK for configuration are <code>properties</code> files
+with the same format known from Java.<br>
+But the properties files are limited to <code>key=value</code> string pairs.<br>
+CfgScript can be used to create typed, hierarchical structured configuration sets.<br>
+See in <a  href="acdk_cfgscript_hb_lang_types_props.html#Samples"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Properties Type</a>.<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Customization">Customization</a></h3>
+Many complex software systems needs more than static data for configuration.<br>
+Configuration with dynamic parts (program code) often called Customization.<br>
+<br>
+CfgScript can also be used as extended configuration with does not only setup some
+configuration data, but setup and glue components to a customized application.<br>
+<br>
+<h2><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Some features">Some features</a></h2>
+<ul class="FeatureList">
+<li class="Feature"> Java/C# like <a  href="acdk_cfgscript_hb_lang_syntax.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;syntax</a>, with same constructs as in ACDK C++.<br>
+<li class="Feature"> Alternatively also ACDK C++  like syntax can be parsed. This is usable to use CfgScript
+    as prototype language, which may transferred later to C++.<br>
+<li class="Feature"> Runs on Windows, Linux, Solaris, FreeBSD
+<li class="Feature"> common <a  href="acdk_cfgscript_hb_lang_types_basic.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;basic types</a>, like bool char, short, int, long, float, double.<br>
+<li class="Feature"> <a  href="acdk_cfgscript_hb_lang_types_any.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Any-Type</a>.<br>
+<li class="Feature"> container types like <a  href="acdk_cfgscript_hb_lang_types_arrays.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;arrays</a> and dictionaries.<br>
+<li class="Feature"> Literal support for <a  href="acdk_cfgscript_hb_lang_types_props.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Props</a> (basically a hierarchical dictionary)
+    and <a  href="acdk_cfgscript_hb_lang_types_arrays.html#ArrayLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;arrays</a>.<br>
+<li class="Feature"> Fully <a  href="acdk_cfgscript_hb_lang_class.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;object oriented</a>.<br>
+<li class="Feature"> Support for <a  href="acdk_cfgscript_hb_lang_class_method.html#OperatorMethod"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;operation overloading</a>.<br>
+<li class="Feature"> Customizable <a  href="acdk_cfgscript_hb_lang_pre_pragma_cast.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;casting rules</a> from strict (Java like) to lazy (Perl like)
+<li class="Feature"> Support for <a  href="acdk_cfgscript_hb_lang_expr_lambda.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;lamda</a> expressions.<br>
+<li class="Feature"> Support for <a  href="acdk_cfgscript_hb_lang_expr_delegate.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;delegates</a> directly assigned from a lamda
+    expression of a object/class method.<br>
+<li class="Feature"> Support for <a  href="acdk_cfgscript_hb_lang_types_enum.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;enumerations</a>.<br>
+<li class="Feature"> common <a  href="acdk_cfgscript_hb_lang_stmt.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;control structures</a> like: if, for, do, while, foreach, switch, break, return, continue, with
+<li class="Feature"> Support for <a  href="acdk_cfgscript_hb_lang_expr_literal.html#StringLiteral"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;unicode character</a>.<br>
+<li class="Feature"> Supports <a  href="acdk_cfgscript_hb_lang_expr_backtick.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;evaluate embedded variables in string</a> like perl, tcl or sh
+<li class="Feature"> <a  href="acdk_cfgscript_hb_lang_stmt_branch.html#TryCatchStatement"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Exceptions</a>: throw, catch, finally
+<li class="Feature"> Java like, <a  href="acdk_cfgscript_hb_lang_stmt_sync.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;multithreading support</a> (synchronized)
+<li class="Feature"> support for namespaces and modules, including <a  href="acdk_cfgscript_hb_lang_stmt_using.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;using</a> and
+    <a  href="acdk_cfgscript_hb_lang_stmt_typealias.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;typealiase</a>.<br>
+<li class="Feature"> Seamless <a  href="acdk_cfgscript_embedd.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;integration of the interpreter into C++</a>. 
+<li class="Feature"> Seamless <a  href="acdk_cfgscript_hb_lib.html#Available Classes"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;using C++ classes in CfgScript</a>.<br>
+<li class="Feature"> Seamless <a  href="acdk_cfgscript_hb_lib.html#Using CfgScript Classes in C++"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;using CfgScript classes in C++</a>.<br>
+<li class="Feature"> Seamless integration of <a  href="acdk_cfgscript_hb_intro.html#Using third part frameworks and scripting languages"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;other DMI Server like COM</a>.<br>
+<li class="Feature"> <a  href="acdk_cfgscript_hb_lib.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ClassLoader</a> for CfgScript files, C++ ACDK libraries, COM, JAVA and CORBA servers.<br>
+<li class="Feature"> Different to Java or C# CfgScript not compiled, but a true interpreted language.<br>
+<li class="Feature"> Integrated <a  href="acdk_cfgscript_hb_lang_logging.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;logging</a>.<br>
+<li class="Feature"> Integrated <a  href="acdk_cfgscript_hb_debug.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;debugger</a>.<br>
+<li class="Feature"> Integrated <a  href="acdk_cfgscript_templates.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;JSP like templates</a>.<br>
+</ul>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Object Oriented Language">Object Oriented Language</a></h3>
+<ul class="FeatureList">
+<li class="Feature"> Same object model as Java, C# with owner defined:<br>
+<li class="Feature"> Classes
+<li class="Feature"> Interfaces
+<li class="Feature"> Enums
+</ul>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Rich call interface">Rich call interface</a></h3>
+<ul class="FeatureList">
+<li class="Feature"> user defined operator overloading
+<li class="Feature"> in, out, inout parameter attributes
+<li class="Feature"> byref, byval parameter attributes for remoting
+<li class="Feature"> Polymorphic functions
+<li class="Feature"> called by named parameters
+<li class="Feature"> default value for parameter
+<li class="Feature"> Call with rest (like ... in C/C++)
+<li class="Feature"> Call with named rest (similar to ..., but the elements are named parameters)
+<li class="Feature"> Delegates for signal/slot constructions
+<li class="Feature"> lambda expressions for in place function definition
+</ul>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Instrumenting C++-Classes in scripting code">Instrumenting C++-Classes in scripting code</a></h3>
+Every in ACDK defined C++-class, interface and Enumeration 
+can be used inside the script as naturally and seamless.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// CfgScript
+</FONT></I><I><FONT COLOR="#B22222">// StringBuffer is an ACDK-C++ class
+</FONT></I>acdk.lang.StringBuffer sb = <B><FONT COLOR="#A020F0">new</FONT></B> acdk.lang.StringBuffer(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+sb.append(<B><FONT COLOR="#BC8F8F">&quot;asdf&quot;</FONT></B>);
+acdk.lang.System.out.println(sb.toString());
+</PRE></td></tr></table>
+<br>
+CfgScript uses the ACDK C++ Classes as default library framework, which 
+supports things like:<br>
+<ul class="FeatureList">
+<li class="Feature"> Reflection mechanism
+<li class="Feature"> IO
+<li class="Feature"> collections
+<li class="Feature"> regular expression
+<li class="Feature"> logging
+<li class="Feature"> networking
+<li class="Feature"> and many other libraries
+</ul>
+<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Using third part frameworks and scripting languages">Using third part frameworks and scripting languages</a></h3>
+ACDK has object integration of following frameworks:<br>
+<ul class="FeatureList">
+<li class="Feature"> Java
+<li class="Feature"> COM
+<li class="Feature"> CORBA
+</ul>
+<br>
+Object from these technology frameworks can be used inside CfgScript
+in a seamless way.<br>
+Example:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// create a Com Object, like Microsoft Word
+</FONT></I>word = <B><FONT COLOR="#A020F0">new</FONT></B> acdkx.com.ComObject(<B><FONT COLOR="#BC8F8F">&quot;Word.Application&quot;</FONT></B>);
+<I><FONT COLOR="#B22222">// use this object, like it is own
+</FONT></I>word.Visible = 1;
+doc = word.Documents.add();
+sel = word.ActiveWindow.Selection;
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;This is &quot;</FONT></B>);
+sel.Font.Bold =  1;
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot;ACDK&quot;</FONT></B>);
+sel.Font.Bold = 0;
+sel.TypeText(<B><FONT COLOR="#BC8F8F">&quot; instrumenting Word through acdk_cfgscript&quot;</FONT></B>);
+acdk.lang.Thread.sleep(3000);
+word.Quit(0);
+</PRE></td></tr></table> 
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Derive C++ in Scripting language">Derive C++ in Scripting language</a></h3>
+CfgScript can be used extend C++ classes. The extended
+class / implemented interface can be used inside C++ code, 
+like it is a own native C++ class 
+A common sample is:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<B><FONT COLOR="#228B22">class</FONT></B> MyElement
+extends acdk.lang.Object
+implements acdk.lang.Comparable
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> _el;
+  MyElement(<B><FONT COLOR="#228B22">int</FONT></B> e) { _el = e; }
+  <B><FONT COLOR="#228B22">int</FONT></B> getElement() { <B><FONT COLOR="#A020F0">return</FONT></B> _el; }
+  <B><FONT COLOR="#228B22">int</FONT></B> compareTo(acdk.lang.Object other) { <B><FONT COLOR="#A020F0">return</FONT></B> _el - other._el; }
+}
+acdk.util.Collection coll = <B><FONT COLOR="#A020F0">new</FONT></B> acdk.util.TreeSet(); <I><FONT COLOR="#B22222">// TreeSet is a native C++-Class
+</FONT></I>coll.add(<B><FONT COLOR="#A020F0">new</FONT></B> MyElement(1)); <I><FONT COLOR="#B22222">// C++ implementation calls the native C++ 
+</FONT></I>                            <I><FONT COLOR="#B22222">// interface method compareTo() to inserted the element sorted
+</FONT></I>coll.add(<B><FONT COLOR="#A020F0">new</FONT></B> MyElement(3));
+coll.add(<B><FONT COLOR="#A020F0">new</FONT></B> MyElement(2));
+it = coll.iterator();
+<B><FONT COLOR="#0000FF">while</FONT></B> (it.hasNext() == true)
+{
+  out.println(it.next().getElement());
+}
+</PRE></td></tr></table>
+<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Server Objects implemented in CfgScript">Server Objects implemented in CfgScript</a></h3>
+Classes/Objects implemented in CfgScript can be used
+by other component languages:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">// MyElement.csf
+</FONT></I><B><FONT COLOR="#228B22">class</FONT></B> MyElement
+extends acdk.lang.Object
+{
+  <B><FONT COLOR="#228B22">int</FONT></B> _el;
+  MyElement(<B><FONT COLOR="#228B22">int</FONT></B> e) { _el = e; }
+  <B><FONT COLOR="#228B22">int</FONT></B> getElement() { <B><FONT COLOR="#A020F0">return</FONT></B> _el; }
+  acdk.lang.String toString() { <B><FONT COLOR="#A020F0">return</FONT></B> String.valueOf(_el); }
+  <B><FONT COLOR="#228B22">void</FONT></B> addElement(<B><FONT COLOR="#228B22">int</FONT></B> i) { _el = _el + i; }
+}
+</PRE></td></tr></table>
+<br>
+Now in VBScript:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+Dim acdk
+Set acdk = CreateObject(<B><FONT COLOR="#BC8F8F">&quot;Acdk.Object&quot;</FONT></B>)
+dim script
+' load script
+set script = acdk.New(<B><FONT COLOR="#BC8F8F">&quot;acdk.cfgscript.Script&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;MyElement.csf&quot;</FONT></B>)
+
+' <B><FONT COLOR="#228B22">class</FONT></B> MyElement is now available as ActiveX component
+Dim myElement
+Set myElement = acdk.New(<B><FONT COLOR="#BC8F8F">&quot;MyElement&quot;</FONT></B>, 42)
+dim i
+i = myElement.getElement()
+myElement.addElement 42
+dim s
+s = myElement.toString()
+</PRE></td></tr></table>
+<br>
+<br>
+<h3><a href="#jumptable15"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="CfgScript and GUI">CfgScript and GUI</a></h3>
+I started a project <a  href="../../acdk_wx/index.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;ACDK WX</a> to provide GUI functionality
+to ACDK and CfgScript.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Introduction | <a  href="acdk_cfgscript_hb_start.html">Start</a> | <a  href="acdk_cfgscript_interpreter.html">acdkcfgscript</a> | <a  href="acdk_cfgscript_hb_lang.html">Language</a> | <a  href="acdk_cfgscript_hb_lib.html">Library</a> | <a  href="acdk_cfgscript_embedd.html">Embedding</a> | <a  href="acdk_cfgscript_hb_ide.html">CfgScript IDE</a> | <a  href="acdk_cfgscript_hb_debug.html">Debugging</a> | <a  href="acdk_cfgscript_templates.html">Templates</a> | <a  href="acdk_cfgscript_samples.html">Samples</a> | <a  href="acdk_cfgscript_hb_wishlist.html">Wish List</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

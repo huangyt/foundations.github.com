@@ -1,0 +1,54 @@
+ 
+
+#include "amake_config.csf"
+
+// Create a standard ACDK library named acdk_boot
+acdk_boot = new acdk.make.AcdkLibTask("acdk_boot");
+
+
+/*
+  add module: all *.cpp and *.h file in this
+  directory. *.h files contains ACDK classes with
+  meta information
+*/
+acdk_boot.addModule("src/acdk/boot");
+
+// need acdk_core as library  
+acdk_boot.addAcdkLib("acdk_core");
+
+// need acdk_text as library
+acdk_boot.addAcdkLib("acdk_text");
+
+// Create a standard ACDK console executable 
+HelloWorld = new acdk.make.AcdkExeTask("HelloWorld");
+//  add a single source. This also excepts pattern
+//  like "src/acdk/bla/*.cpp" 
+//  or   "src/acdk/blub/**/*.cpp"
+HelloWorld.addSource("src/acdk/HelloWorld.cpp");
+HelloWorld.addAcdkLib("acdk_core");
+HelloWorld.addAcdkLib("acdk_text");
+HelloWorld.addAcdkLib("acdk_boot");
+HelloWorld.addSubTask("acdk_boot");
+
+acdk_boot_Test = new acdk.make.AcdkTestExeTask("acdk_boot_Test");
+/*
+  Set base dir. For test units the base dir
+  should set to the source directory to be
+  compatible with old make files.
+*/
+acdk_boot_Test.setBaseDir("tests/acdk/boot");
+acdk_boot_Test.addSource("tests/acdk/boot");
+acdk_boot_Test.addAcdkLib("acdk_core");
+acdk_boot_Test.addAcdkLib("acdk_text");
+acdk_boot_Test.addAcdkLib("acdk_tools_aunit");
+acdk_boot_Test.addAcdkLib("acdk_boot");
+acdk_boot_Test.addSubTask("acdk_boot");
+
+/*
+  make a project 
+*/
+default = new acdk.make.AcdkProjectTask("default");
+default.addSubTask("acdk_boot");
+default.addSubTask("HelloWorld");
+default.addSubTask("acdk_boot_Test");
+default.registerTask("acdk_boot_prj");

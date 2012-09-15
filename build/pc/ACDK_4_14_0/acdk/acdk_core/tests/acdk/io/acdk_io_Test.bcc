@@ -1,0 +1,119 @@
+# 
+# This file is generated from acdkmake for Borland Make
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+ACDKHOME = ../../../..
+ACDK_HOME = $(ACDKHOME)
+!include "$(ACDKHOME)/acdk_globals.bcc"
+
+CC=bcc32.exe
+CCOPTS=-v -w-8070 -w-8030 -w-8057 -w-8026 -w-8027 -w-8066 -w-8008  -tWC -tWR -tWM -Od 
+CFLAGSX=
+CCINCLUDE= -I../src  -I../include  -I../../../../include 
+DEFINES= -DOS_WIN32 
+
+SYSLDFLAGS=-L$(OUTDIR) -Tpe -ap -c -v
+PRJLDFLAGS=
+
+LDFLAGS=$(SYSLDFLAGS) $(PRJLDFLAGS)
+LINK=ilink32.exe
+
+
+
+SYSOBJ=c0x32.obj
+ALLOBJ=$(SYSOBJ) $(OBJECTS)
+
+SYSLIBRARIES=import32.lib cw32mt.lib cw32i.lib
+LIBS = $(SYSLIBRARIES)  "..\..\..\..\bin\acdk_core.lib" "..\..\..\..\bin\acdk_tools_aunit.lib"
+
+OUTFILE="..\..\..\..\bin\acdk_io_Test.exe"
+OUTDIR = "..\..\..\..\bin"
+INTDIR = ".\tobj\acdk_io_Test\bcc"
+SOURCES= 	"acdk_io_Test.cpp" \
+	"acdk_io_File_Test.cpp" \
+	"acdk_io_ReaderWriter_Test.cpp" \
+	"acdk_io_BinaryDataReaderWriter_Test.cpp" \
+	"acdk_io_BinaryObjectReaderWriter_Test.cpp" \
+	"acdk_io_BufferedWriter_Test.cpp" \
+	"acdk_io_RandomAccessFile_Test.cpp" \
+	"acdk_io_RessourceFileImpl_Test.cpp" \
+	"acdk_io_PrintWriter_Test.cpp" \
+	"acdk_io_StreamTokenizer_Test.cpp" \
+
+HEADER= 
+OBJECTS= 	".\tobj\acdk_io_Test\bcc\acdk_io_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_File_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_ReaderWriter_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_BinaryDataReaderWriter_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_BinaryObjectReaderWriter_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_BufferedWriter_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_RandomAccessFile_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_RessourceFileImpl_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_PrintWriter_Test.obj" \
+	".\tobj\acdk_io_Test\bcc\acdk_io_StreamTokenizer_Test.obj" \
+
+
+
+$(OUTFILE):  $(INTDIR) $(OBJECTS)
+    $(LINK) @&&!
+    $(LDFLAGS)  +
+    $(ALLOBJ), +
+    $(OUTFILE),, +
+    $(LIBS), +
+    , 
+!
+	
+
+$(INTDIR) : 
+  if not exist $(INTDIR) mkdir $(INTDIR)
+
+default:: $(OUTFILE)
+
+".\tobj\acdk_io_Test\bcc\acdk_io_Test.obj": "acdk_io_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_File_Test.obj": "acdk_io_File_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_File_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_ReaderWriter_Test.obj": "acdk_io_ReaderWriter_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_ReaderWriter_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_BinaryDataReaderWriter_Test.obj": "acdk_io_BinaryDataReaderWriter_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_BinaryDataReaderWriter_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_BinaryObjectReaderWriter_Test.obj": "acdk_io_BinaryObjectReaderWriter_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_BinaryObjectReaderWriter_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_BufferedWriter_Test.obj": "acdk_io_BufferedWriter_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_BufferedWriter_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_RandomAccessFile_Test.obj": "acdk_io_RandomAccessFile_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_RandomAccessFile_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_RessourceFileImpl_Test.obj": "acdk_io_RessourceFileImpl_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_RessourceFileImpl_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_PrintWriter_Test.obj": "acdk_io_PrintWriter_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_PrintWriter_Test.cpp"
+
+".\tobj\acdk_io_Test\bcc\acdk_io_StreamTokenizer_Test.obj": "acdk_io_StreamTokenizer_Test.cpp"
+	$(CC) -c $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) -n".\tobj\acdk_io_Test\bcc" "acdk_io_StreamTokenizer_Test.cpp"
+
+
+
+clean:
+	del "..\..\..\..\bin\acdk_io_Test.exe"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_File_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_ReaderWriter_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_BinaryDataReaderWriter_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_BinaryObjectReaderWriter_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_BufferedWriter_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_RandomAccessFile_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_RessourceFileImpl_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_PrintWriter_Test.obj"
+	del ".\tobj\acdk_io_Test\bcc\acdk_io_StreamTokenizer_Test.obj"
+
+

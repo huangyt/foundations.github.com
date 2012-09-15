@@ -1,0 +1,64 @@
+%id: acdk_cfgscript_hb_lang_syntax
+%title: CfgScript Syntax Elements
+%shorttitle: Syntax Elements
+%keywords: syntax
+%body:
+<chapterline/>
+<pageintro>
+Explanation of Sytanx
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Starting Point</jump1>
+The syntax of CfgScript starts with a CfgScource:
+%ref[acdk_cfgscript_hb_lang_source].
+
+<jump1>Syntax of Syntax</jump1>
+The syntax follows the rules of the EBNF notation.
+<pre>
+Rule // name of Rule
+: Production // how to produce this rule
+| AlternativeProduction // alternative production
+; // end of rule
+
+Rule
+: '[' ']' // ' quoted strings must match in the source text
+| OtherRule // Identifier reference to other rule
+| FirstRule SecondRule // FirstRule has to match first, than SecondRule. 
+                      // Both may consume Characters of the source code
+;
+
+Rule
+: [ OptionalRule ] OtherRule // parts bracket with [ ] are optional
+| (XRule YRule)* // ( ) groups rules, * matches 0 - n times
+| ZRule+ // + matches 1 - n times
+;
+</pre>
+
+
+<jump1>Basic Elements</jump1>
+
+<jump2>Identifier</jump2>
+An identifier corresponds the rules of C/C++/Java identifiers.
+An identifier must not start with a digit.
+
+
+<jump2>TypeName</jump2>
+<pre>
+TypeName
+: %ref[BasicType, acdk_cfgscript_hb_lang_types_basic]
+| %ref[ComponentTypeName, #ComponentTypeName]
+</pre>
+
+
+<jump2>ComponentTypeName</jump2>
+<pre>
+ComponentTypeName
+: %ref[Identifier, #Identifier] [ '.' ComponentTypeName ]
+</pre>
+<jump2>Identifier</jump2>
+Please refer to %ref[acdk_cfgscript_hb_lang_expr_literal].
+
+.

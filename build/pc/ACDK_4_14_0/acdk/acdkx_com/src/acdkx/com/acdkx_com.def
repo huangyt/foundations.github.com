@@ -1,0 +1,8 @@
+
+LIBRARY acdkx_com_d.dll
+DESCRIPTION 'ACDK COM+ (c)2001 by artefaktur'
+EXPORTS
+	DllGetClassObject @1 PRIVATE
+	DllCanUnloadNow @2 PRIVATE
+	DllRegisterServer @3 PRIVATE
+	DllUnregisterServer @4 PRIVATE

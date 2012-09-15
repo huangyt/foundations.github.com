@@ -1,0 +1,66 @@
+%id: acdk_cfgscript_hb_ide
+%title: CfgScript IDE
+%shorttitle: CfgScript IDE
+%body:
+<chapterline/>
+<pageintro>
+Use CfgScript with IDEs.
+</pageintro>
+
+<htmlauto/>
+
+<jumptable/>
+
+<jump1>Console</jump1>
+The CfgScript interpreter is a classical command line interpreter.
+You can use any editor to edit .csf files.
+See also: %ref[acdk_cfgscript_hb_start] and %ref[acdk_cfgscript_hb_debug].
+
+<jump1>MS Windows</jump1>
+<jump2>Visual Studio</jump2>
+
+Add modify with regedit the key
+<c>HKEY_CURRENT_USER\Software\Microsoft\DevStudio\6.0\Text Editor\Tabs/Language Settings\C/C++\FileExtensions</c>
+and add csf for syntax highlighting (f.e.: <c>cpp;cxx;c;h;hxx;hpp;inl;tlh;tli;rc;rc2;csf</c>).
+
+Add a Tool starting the CfgScript interpreter.
+For example:
+<fl>
+<f> Command: C:\d\artefaktur\acdk\bin\acdkcfgscript_d.exe
+<f> Arguments: $(FilePath)
+<f> Working directory: $(FileDir)
+</fl>
+
+Now you can execute the csf file in the current editor.
+Output will be printed in the output window. If an exception occurs, the script stack trace
+will be printed. Double click onto 
+<pre>
+unhandled exception:
+SubSSTstr(). startidx is out of range: String=[asdf];  AccessIndex=[123]; MaxIndex=[4]; 
+In:
+C:\d\artefaktur\acdk\acdk_core\cfg\csf\tests\acdk\cfgscript\4_classes\25_ScriptOperator_Test.csf(14):     "asdf".substr(123);
+ Average Average.operator_pl(int v)
+C:\d\artefaktur\acdk\acdk_core\cfg\csf\tests\acdk\cfgscript\4_classes\25_ScriptOperator_Test.csf(26): av = av + 1 + 6; // calls Average.operator+()
+</pre>
+
+You can double click onto the error message to jump into the source.
+
+<jump2>UltraEdit</jump2>
+The UltraEdit editor allows to configure tools. 
+Configure the acdkcfgscript executable as tool, redirect the CfgScript output into
+a list output. So double click on a error message will enable to jump to source location.
+
+<jump2>Experimental GUI Debugger</jump2>
+In the %ref[acdk_wx] package is a very experimental GUI debugger CsfIDE.
+Currently it runs only under windows.
+
+<jump1>Unix/Linux</jump1>
+On Linux many Editor/IDE should be able to configure to edit 
+csf files (use Java syntax coloring) and to execute CfgScript directly
+from the Edtior/IDE.
+<fl>
+<f> Emacs
+<f> Anjuta
+</fl>
+
+.

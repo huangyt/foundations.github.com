@@ -1,0 +1,102 @@
+/*
+Delegate d2 = lambda int (int a1, int a2) { return a1 + a2; };
+int erg = d2.call(2, 3);
+out.println("d2.call(2, 3)=" + erg);
+*/
+// generates a anonymous function
+// syntax 'lambda { <MethodBody> }
+Delegate d1 = lambda { out.println("Called via Lambda"); };
+d1.call();
+
+// this lambda is equal to
+Delegate d2 = lambda Any (Rest rest) { out.println("Called via Lambda"); };
+d2.call();
+
+// here the alternative form of the adder expression above:
+Delegate d3 = lambda { return rest.get(0) + rest.get(1); };
+int erg2 = d3.call(2, 3);
+out.println("d3.call(2, 3)=" + erg2);
+
+// use the named parameter syntax to pass expressions to lambda at defintion time
+Delegate d5 = lambda [ivar: 42 - 1, text: "Hello again"] { out.println("local expressions ivar: " + ivar + " and: " + text); };
+d5.call();
+
+
+class BClass
+{
+  int _ivar = 42;
+  BClass() {}
+  int makeIt() { return 3; }
+  Delegate getLocalDelegate()
+  {
+    return lambda [this] 
+    { 
+      StringBuffer sb = new StringBuffer("");
+      sb << "Accessing members and methods of this: _ivar=" << _ivar << "; makeIt()=" << makeIt();
+      out.println(sb.toString()); 
+    };
+  }
+}
+BClass acls = new BClass();
+Delegate del = acls.getLocalDelegate();
+del.call();
+// not same same in one line (lispish)
+(new BClass()).getLocalDelegate().call();
+
+Delegate d4;
+{
+  int ivar = 42;
+  String text = "Hello";
+  // pass variable ivar to the lambda block
+  // It is like an argument, but initialized with a value at 
+  // definition time and not at call time
+  d4 = lambda [text, ivar] { out.println("local variable ivar: " + ivar + " and: " + text); };
+} // ivar and text goes out of scope
+d4.call();
+
+
+class AClass
+{
+  int _ivar;
+  AClass() { _ivar = 3; }
+  static void bar(Delegate del)
+  {
+    del.call();
+  }
+  static void barWithText(Delegate del, String text)
+  {
+    del.call(text);
+  }
+  static void barWithNum(Delegate del, int num)
+  {
+    del.call(num);
+  }
+  static void foo()
+  {
+    Delegate del;
+    /*
+    del = lambda void () { out.println("Called"); };
+    bar(del);
+    //del = lambda { out.println("Called"); };
+    del = lambda { out.println("Called with arg: " + rest.get(0)); };
+    barWithNum(del, 42);
+    barWithText(del, "hello");
+    del.call("Hello");
+    */
+    int ivar = 51;
+    del = lambda [ivar] { out.println("Called with local variable ivar: " + ivar); };
+    del.call();
+  }
+  void nonStaticFoo()
+  {
+    Delegate del;
+    del = lambda [this] { out.println("Called with this._ivar: " + _ivar); };
+    bar(del);
+  }
+  
+  
+};
+
+AClass.foo();
+AClass.barWithNum(lambda  { out.println("Called with arg: " + rest.get(0)); }, 41);
+(new AClass()).nonStaticFoo();

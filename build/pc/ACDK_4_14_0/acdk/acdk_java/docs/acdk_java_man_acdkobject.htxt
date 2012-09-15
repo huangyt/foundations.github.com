@@ -1,0 +1,99 @@
+%id: acdk_java_man_acdkobject
+%title: acdk.java.AcdkObject
+%seealso: acdk_java_man_typemapping
+%keywords: DMI Server Java
+%body:
+<chapterline/>
+<htmlauto/>
+<pageintro>
+With the Java class acdk.java.AcdkObject you can control ACDK and
+any ACDK DMI server objects via Java.
+</pageintro>
+
+<jumptable/>
+
+<jump1>The Hello World example</jump1>
+
+<source lang="java">
+
+import acdk.java.AcdkObject;
+
+class ACDK_Test
+{
+  public static void main(String[] args)
+  {
+    // get the ACDK version of StringBuffer
+    AcdkObject asb = AcdkObject.New("acdk/lang/StringBuffer", "Hello");
+    // call the method append of the ACDK StringBuffer
+    asb.invoke("append", " ACDK from Java");
+    
+    // Get the Standard output writer from ACDK System class
+    AcdkObject aout = (AcdkObject)AcdkObject.peek_static("acdk/lang/System", "out");
+    
+    // print the Hello message using ACDK
+    aout.invoke("println", asb.invoke("toString"));
+  }
+}
+
+</source>
+
+<jump1>DMI Interface</jump1>
+The class acdk.java.AcdkObject represents the standard DMI interface
+for Java. 
+The types of the arguments and return values will be boxed into Objects
+and mapped to corresponding ACDK classes.
+
+<source lang="java">
+/**
+  Note: This is simplified pseudo code 
+        Look at acdk_java/src/acdk/java/AcdkObject.java
+        for the real class.
+*/
+package acdk.java;
+public class AcdkObject
+{
+  /**
+     creates a new Instance of given ACDK class
+     @param arg1 and argn are placeholder for 0 - 7 arguments
+  */
+  public static AcdkObject(String classname, Object arg1, Object argn);
+  
+  public static AcdkObject(String classname, Object[] args);
+  /**
+    Call a non static method 
+  */
+  public Object invoke(String methodname, Object arg1, Object argn);
+  public Object invoke(String methodname, Object[] args);
+  /**
+    Call a static method
+  */
+  static Object invoke_static(String classname, String methodname, Object arg1, Object argn);
+  static Object invoke_static(String classname, String methodname, Object[] args);
+  
+  /**
+    read a non static public member
+  */
+  public Object peek(String fieldname);
+  /**
+    read a static public member
+  */
+  public static Object peek_static(String classname, String fieldname);
+  /**
+    Writes a non static member
+  */
+  public Object poke(String fieldname, Object newval);
+  /**
+    Writes a static member
+  */
+  public static Object poke_static (String classname, String fieldname, Object newval);
+  /**
+    Release the underlying ACDK DMI server object
+  */
+  public void dispose();
+}
+</source>
+
+.
+
+
+

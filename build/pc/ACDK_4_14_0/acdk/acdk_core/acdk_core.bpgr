@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Group-->
+<projectgroup>
+    <project path="src/acdk_core.cbx"/>
+  <project path="src/acdk_core_metainf.cbx"/>
+  <project path="src/acdk_core_dmiproxy.cbx"/>
+  <project path="src/acdk_security.cbx"/>
+  <project path="src/acdk_security_metainf.cbx"/>
+  <project path="src/acdk_security_dmiproxy.cbx"/>
+  <project path="src/acdk_cfgscript.cbx"/>
+  <project path="src/acdkcfgscript.cbx"/>
+  <project path="src/acdk_tools_mc.cbx"/>
+  <project path="src/acdkmc.cbx"/>
+  <project path="src/acdk_tools_aunit.cbx"/>
+  <project path="src/acdk_tools_aunit_metainf.cbx"/>
+  <project path="src/acdk_tools_aunit_dmiproxy.cbx"/>
+  <project path="tests/acdk/lang/sys/acdk_lang_sys_RefHolder_Test.cbx"/>
+  <project path="tests/acdk/lang/sys/acdk_lang_sys_Test.cbx"/>
+  <project path="tests/acdk/tools/aunit/acdk_tools_aunit_TestSuite_Test.cbx"/>
+  <project path="tests/acdk/lang/acdk_lang_Object_Test.cbx"/>
+  <project path="tests/acdk/lang/acdk_lang_Test.cbx"/>
+  <project path="tests/acdk/lang/dmi/acdk_lang_dmi_Test.cbx"/>
+  <project path="tests/acdk/lang/ref/acdk_lang_ref_Test.cbx"/>
+  <project path="tests/acdk/lang/reflect/acdk_lang_reflect_Test.cbx"/>
+  <project path="tests/acdk/io/acdk_io_Test.cbx"/>
+  <project path="tests/acdk/util/acdk_util_Test.cbx"/>
+  <project path="tests/acdk/util/logging/acdk_util_logging_Test.cbx"/>
+  <project path="tests/acdk/tools/mc/acdk_tools_mc_Test.cbx"/>
+  <project path="tests/acdk/locale/acdk_locale_Test.cbx"/>
+  <project path="tests/acdk/cfgscript/acdk_cfgscript_Test.cbx"/>
+
+</projectgroup>

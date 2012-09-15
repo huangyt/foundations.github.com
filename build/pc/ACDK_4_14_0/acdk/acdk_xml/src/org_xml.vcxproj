@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\org_xml\dsp_d\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\org_xml\dsp_r\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ORG_XML_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\org_xml\dsp_d\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\org_xml\dsp_d\org_xml.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\org_xml\dsp_d\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\org_xml\dsp_d\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\org_xml.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\org_xml.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\org_xml_d.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\org_xml_d.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_d.lib;..\..\bin\acdk_text_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ORG_XML_LIB;WIN32;NDEBUG;_WINDOWS;_MT;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\org_xml\dsp_r\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\org_xml\dsp_r\org_xml.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\org_xml\dsp_r\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\org_xml\dsp_r\</ProgramDataBaseFileName>
+      <AdditionalOptions> /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\org_xml.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\org_xml.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\org_xml_r.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\org_xml_r.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_r.lib;..\..\bin\acdk_text_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="org\xml\sax\AttributeList.h" />
+    <ClInclude Include="org\xml\sax\Attributes.h" />
+    <ClInclude Include="org\xml\sax\Config.h" />
+    <ClInclude Include="org\xml\sax\ContentHandler.h" />
+    <ClInclude Include="org\xml\sax\DeclHandler.h" />
+    <ClInclude Include="org\xml\sax\DocumentHandler.h" />
+    <ClInclude Include="org\xml\sax\DTDHandler.h" />
+    <ClInclude Include="org\xml\sax\EntityResolver.h" />
+    <ClInclude Include="org\xml\sax\ErrorHandler.h" />
+    <ClInclude Include="org\xml\sax\HandlerBase.h" />
+    <ClInclude Include="org\xml\sax\InputSource.h" />
+    <ClInclude Include="org\xml\sax\LexicalHandler.h" />
+    <ClInclude Include="org\xml\sax\Locator.h" />
+    <ClInclude Include="org\xml\sax\Parser.h" />
+    <ClInclude Include="org\xml\sax\sax.h" />
+    <ClInclude Include="org\xml\sax\SAXException.h" />
+    <ClInclude Include="org\xml\sax\SAXNotRecognizedException.h" />
+    <ClInclude Include="org\xml\sax\SAXNotSupportedException.h" />
+    <ClInclude Include="org\xml\sax\SAXParseException.h" />
+    <ClInclude Include="org\xml\sax\XMLFilter.h" />
+    <ClInclude Include="org\xml\sax\XMLReader.h" />
+    <ClInclude Include="org\xml\sax\helpers\AttributesImpl.h" />
+    <ClInclude Include="org\xml\sax\helpers\CollectiveErrorHandler.h" />
+    <ClInclude Include="org\xml\sax\helpers\DefaultHandler.h" />
+    <ClInclude Include="org\xml\sax\helpers\helpers.h" />
+    <ClInclude Include="org\xml\sax\helpers\LocatorImpl.h" />
+    <ClInclude Include="org\xml\sax\helpers\MiscXmlUtils.h" />
+    <ClInclude Include="org\xml\sax\helpers\NamespaceSupport.h" />
+    <ClInclude Include="org\xml\sax\helpers\StdErrorHandler.h" />
+    <ClInclude Include="org\xml\sax\helpers\XMLFilterImpl.h" />
+    <ClInclude Include="org\w3c\dom\Attr.h" />
+    <ClInclude Include="org\w3c\dom\Branch.h" />
+    <ClInclude Include="org\w3c\dom\CDATASection.h" />
+    <ClInclude Include="org\w3c\dom\CharacterData.h" />
+    <ClInclude Include="org\w3c\dom\Comment.h" />
+    <ClInclude Include="org\w3c\dom\Document.h" />
+    <ClInclude Include="org\w3c\dom\DocumentFragment.h" />
+    <ClInclude Include="org\w3c\dom\DocumentType.h" />
+    <ClInclude Include="org\w3c\dom\dom.h" />
+    <ClInclude Include="org\w3c\dom\DOMConfiguration.h" />
+    <ClInclude Include="org\w3c\dom\DOMError.h" />
+    <ClInclude Include="org\w3c\dom\DOMErrorHandler.h" />
+    <ClInclude Include="org\w3c\dom\DOMException.h" />
+    <ClInclude Include="org\w3c\dom\DOMImplementation.h" />
+    <ClInclude Include="org\w3c\dom\DOMLocator.h" />
+    <ClInclude Include="org\w3c\dom\DOMWriter.h" />
+    <ClInclude Include="org\w3c\dom\Element.h" />
+    <ClInclude Include="org\w3c\dom\Entity.h" />
+    <ClInclude Include="org\w3c\dom\EntityReference.h" />
+    <ClInclude Include="org\w3c\dom\NamedNodeMap.h" />
+    <ClInclude Include="org\w3c\dom\Node.h" />
+    <ClInclude Include="org\w3c\dom\NodeList.h" />
+    <ClInclude Include="org\w3c\dom\Notation.h" />
+    <ClInclude Include="org\w3c\dom\ProcessingInstruction.h" />
+    <ClInclude Include="org\w3c\dom\Text.h" />
+    <ClInclude Include="org\w3c\dom\xpath\xpath.h" />
+    <ClInclude Include="org\w3c\dom\xpath\XPathEvaluator.h" />
+    <ClInclude Include="org\w3c\dom\xpath\XPathException.h" />
+    <ClInclude Include="org\w3c\dom\xpath\XPathExpression.h" />
+    <ClInclude Include="org\w3c\dom\xpath\XPathNamespace.h" />
+    <ClInclude Include="org\w3c\dom\xpath\XPathNSResolver.h" />
+    <ClInclude Include="org\w3c\dom\xpath\XPathResult.h" />
+    <ClInclude Include="org\w3c\dom\traversal\DocumentTraversal.h" />
+    <ClInclude Include="org\w3c\dom\traversal\NodeFilter.h" />
+    <ClInclude Include="org\w3c\dom\traversal\NodeIterator.h" />
+    <ClInclude Include="org\w3c\dom\traversal\traversal.h" />
+    <ClInclude Include="org\w3c\dom\traversal\TreeWalker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="org\xml\sax\sax_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\AttributesImpl.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\helpers_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\MiscXmlUtils.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\xml\sax\helpers\NamespaceSupport.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\DOMWriter.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\dom_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\Node.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\xpath\xpath_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="org\w3c\dom\traversal\traversal_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /EHsc /Zm400   /EHsc /Zm400 </AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

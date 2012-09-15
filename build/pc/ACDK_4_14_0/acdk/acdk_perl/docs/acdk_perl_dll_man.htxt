@@ -1,0 +1,93 @@
+%id: acdk_perl_dll_man
+%title: acdk_perl Manual
+%seealso: acdk_perl_install, acdkperl_man
+%keywords: acdk_perl, Perl, DMI Client Perl
+%body:
+<htmlauto/>
+<pageintro>
+acdk_perl_man contains an interface to an perl interperter
+and the DMI code to script ACDK objects from perl code.
+</pageintro>
+
+<jumptable/>
+
+<jump1>ACDK / Perl</jump1>
+
+<jump2>Type mapping</jump2>
+Perl: number <-> ACDK: int/Integer.
+Perl: double <-> ACDK: double/Double.
+Perl: string <-> ACDK: String.
+Perl: array <-> ACDK: ObjectArray.
+Perl: hash <-> ACDK: HashMap.
+
+Note: The mapping of array and hash may change
+later.
+
+<jump2>command: sub acdk::new($;) / pacdk::new($;)</jump2>
+acdk::new creates a new ACDK-Object.
+argument 1: The fully qualified ACDK-Class name like "acdk/lang/StringBuffer".
+argument 2 - n: Arguments for the class constructor.
+return: a new Object , wich is a blessed scalar.
+Usage:
+<source lang="perl">
+## perl
+my $sb = pacdk::new("acdk/lang/StringBuffer", "Hallo ");
+</source>
+
+<jump2>command: sub acdk::invoke($$;) / pacdk::invoke($$;)</jump2>
+acdk::invoke invokes a method. 
+argument 1: the ACDK Object pointer of the class. 
+argument 2: the name of the method.
+argument 3-n: arguments of the method.
+return: returns the result of the method.
+
+Instead of using invoke, you can also use the '->' 
+operator to call a function:
+<source lang="perl">
+## perl
+my $sb = pacdk::new("acdk/lang/StringBuffer", "Hallo ");
+
+my $erg = pacdk::invoke($sb, "toString");
+# the same as 
+my $erg = $sb->toString();
+</source>
+
+<jump2>command: sub acdk::peek($$) / pacdk::peek($$)</jump2>
+acdk::peek reads a named attribute (member) of the class.
+argument 1: the ACDK Object pointer of the class. 
+argument 2: name of the member
+return: the value of the member
+
+<jump2>command: sub acdk::poke($$$) / pacdk::poke($$$)</jump2>
+acdk::peek sets a named attribute (member) of the class with new new value
+argument 1: the ACDK Object pointer of the class. 
+argument 2: name of the member
+argument 3: the new value of the member
+return: nothing
+
+<jump2>command: sub acdk::invoke_static($$;) / pacdk::invoke_static($$;)</jump2>
+acdk::invoke_static calls a static method.
+argument 1: name of the class as string.
+argument 2: name of the method as string.
+arguments 3-n: arguments of the method.
+return: returns the result of the method.
+
+<jump2>command: sub acdk::peek_static($$) / pacdk::peek_static($$)</jump2>
+reads a static member of an ACDK class.
+argument 1: name of the class as string.
+argument 2: name of the member as string.
+
+
+<jump2>command: sub acdk::perl2acdk($) / pacdk::perl2acdk($)</jump2>
+sub acdk::perl2acdk($) converts a perl variable to a 
+ACDK object.
+
+<jump2>command: sub acdk::acdk2perl($) / pacdk::acdk2perl($)</jump2>
+sub acdk::acdk2perl($) converts a acdk object to a 
+perl variable.
+
+
+.
+
+
+

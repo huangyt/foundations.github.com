@@ -1,0 +1,150 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>Type mapping between ACDK and Java</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Java</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_java_man.html">acdk_java</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Type mapping<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a>
+<br>
+&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="acdk_java_man_javaobject.html">acdk::java::JavaObject</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_java_man_intro.html">Intro</a> | <a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a> | <a  href="acdk_java_man_javaobject.html">acdk::java::JavaObject</a> | Type mapping | <a  href="acdk_java_man_installation.html">Compile acdk_java</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>Type mapping between ACDK and Java</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>Type mapping between ACDK and Java</h1> -->
+<p class="curchapterline"> | <a  href="acdk_java_man_intro.html">Intro</a> | <a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a> | <a  href="acdk_java_man_javaobject.html">acdk::java::JavaObject</a> | Type mapping | <a  href="acdk_java_man_installation.html">Compile acdk_java</a> |</p>
+<br>
+<p class="PageIntro">
+In the interfaces of acdk.java.AcdkObject and acdk::java::JavaObject
+the arguments, return values and Exception will be mapped from one
+language to the other.<br>
+</p>
+<br>
+<a name="jumptable86"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Basic Types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Basic Types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Strings"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Strings</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Object types"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Object types</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Exceptions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Exceptions</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Enhanced DMI functions"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Enhanced DMI functions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Overloading"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Overloading</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#Named Parameters"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Named Parameters</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="jumptable2"  style="border-style:none" href="#OUT/BYVAL"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;OUT/BYVAL</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Basic Types">Basic Types</a></h3>
+To enable a generic argument passing from Java to ACDK and vice versa, the 
+basic types will be boxed with the corresponding Object types:<br>
+<ul class="FeatureList">
+<li class="Feature"> boolean to Boolean
+<li class="Feature"> char to Character
+<li class="Feature"> byte to Byte
+<li class="Feature"> short to Short
+<li class="Feature"> int to Integer
+<li class="Feature"> float to Float
+<li class="Feature"> double to Double
+</ul>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Strings">Strings</a></h3>
+Strings will be converted from Java to ACDK.<br>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Object types">Object types</a></h3>
+<br>
+All other object will be converted:<br>
+<ul class="FeatureList">
+<li class="Feature"> From Java java.lang.Boolean, java.lang.Character, java.lang.Byte, java.lang.Short, 
+    java.lang.Integer, java.lang.Long, java.lang.Float and java.lang.Double to
+    the corresponding ACDK class.<br>
+<li class="Feature"> From all other Java java.lang.Object to ACDK acdk::java::JavaObject and vice versa
+<li class="Feature"> From ACDK acdk::lang::Object to Java acdk.java.AcdkObject
+</ul>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Exceptions">Exceptions</a></h3>
+Some basic Exceptions will be automatically converted in the the call interfaces
+of acdk.java.AcdkObject and acdk::java::JavaObject:<br>
+<ul class="FeatureList">
+<li class="Feature"> java.io.EOFException to and from acdk::io::EOFException
+<li class="Feature"> java.io.IOException to and from acdk::io::IOException
+<li class="Feature"> java.lang.Error to and from acdk::lang::Error
+<li class="Feature"> java.lang.NoSuchMethodException to and from acdk::lang::NoSuchMethodException
+<li class="Feature"> java.lang.ClassNotFoundException to and from acdk::lang::ClassNotFoundException
+<li class="Feature"> java.lang.IllegalAccessException to and from acdk::lang::IllegalAccessException
+<li class="Feature"> java.lang.NullPointerException to and from acdk::lang::NullPointerException
+<li class="Feature"> java.lang.IndexOutOfBoundsException to and from acdk::lang::IndexOutOfBoundsException
+<li class="Feature"> java.lang.RuntimeException to and from acdk::lang::RuntimeException
+<li class="Feature"> java.lang.Exception to and from acdk::lang::Exception
+<li class="Feature"> java.lang.Throwable to and from acdk::lang::Throwable
+</ul>
+Not only the exact types of the exceptions will mapped, but also derived classes to the
+the best fitting known exception type.<br>
+<br>
+<h2><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Enhanced DMI functions">Enhanced DMI functions</a></h2>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Overloading">Overloading</a></h3>
+ACDK and Java supports overloading in the DMI interface.<br>
+<br>
+<jump2>Default values for parameters<jump2>
+AcdkObject supports default values for parameters.<br>
+JavaObject not tested yet.<br>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Named Parameters">Named Parameters</a></h3>
+Not supported in acdk.java.AcdkObject and acdk::java::JavaObject.<br>
+<br>
+<h3><a href="#jumptable86"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="OUT/BYVAL">OUT/BYVAL</a></h3>
+There is no type mapping for enhanced Parameter attributes.<br>
+The package acdk_java_serialization can be used to serialize ACDK object
+to Java compatible binary stream.<br>
+See: <a  href="acdk_java_serialization_man.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;acdk_java_serialization</a>.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_java_man_intro.html">Intro</a> | <a  href="acdk_java_man_acdkobject.html">acdk.java.AcdkObject</a> | <a  href="acdk_java_man_javaobject.html">acdk::java::JavaObject</a> | Type mapping | <a  href="acdk_java_man_installation.html">Compile acdk_java</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

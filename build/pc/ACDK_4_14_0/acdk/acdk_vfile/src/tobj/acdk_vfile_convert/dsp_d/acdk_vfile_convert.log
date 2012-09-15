@@ -1,0 +1,29 @@
+﻿Build started 2012-9-8 18:48:56.
+     1>Project "C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\acdk_vfile_convert.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../src /I../include /I../../include /Zi /nologo /W0 /WX- /Od /Oy- /D OS_WIN32 /D WIN32 /D _DEBUG /D _WINDOWS /D _MT /D ACDK_DEBUG /D _VC80_UPGRADE=0x0600 /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo".\tobj\acdk_vfile_convert\dsp_d\\" /Fd".\tobj\acdk_vfile_convert\dsp_d\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt acdk\vfile\convert\Convert.cpp  /EHsc /Zm400   /EHsc /Zm400 
+         Convert.cpp
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.embed.manifest.res" .\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert_manifest.rc 
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\.\..\..\bin\acdk_vfile_convert.exe) does not match the Linker's OutputFile property value (C:\MSVCLib\build\ACDK_4_14_0\acdk\bin\acdk_vfile_convert_d.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(acdk_vfile_convert) does not match the Linker's OutputFile property value (acdk_vfile_convert_d). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\bin\acdk_vfile_convert_d.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib wsock32.lib ..\..\bin\acdk_core_d.lib ..\..\bin\acdk_vfile_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\MSVCLib\build\ACDK_4_14_0\acdk\bin\acdk_vfile_convert.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\..\..\bin\acdk_vfile_convert.lib" /MACHINE:X86 .\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.embed.manifest.res
+         .\tobj\acdk_vfile_convert\dsp_d\Convert.obj
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.embed.manifest" /manifest .\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.embed.manifest.res" .\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert_manifest.rc 
+       LinkEmbedManifest:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\bin\acdk_vfile_convert_d.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib wsock32.lib ..\..\bin\acdk_core_d.lib ..\..\bin\acdk_vfile_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\MSVCLib\build\ACDK_4_14_0\acdk\bin\acdk_vfile_convert.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\..\..\bin\acdk_vfile_convert.lib" /MACHINE:X86 .\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.exe.embed.manifest.res
+         .\tobj\acdk_vfile_convert\dsp_d\Convert.obj
+         acdk_vfile_convert.vcxproj -> C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\.\..\..\bin\acdk_vfile_convert.exe
+       FinalizeBuildStatus:
+         Deleting file ".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.unsuccessfulbuild".
+         Touching ".\tobj\acdk_vfile_convert\dsp_d\acdk_vfile_convert.lastbuildstate".
+     1>Done Building Project "C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\acdk_vfile_convert.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.17

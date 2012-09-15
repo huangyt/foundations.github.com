@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_aci\dsp_r\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\bin\</OutDir>
+    <IntDir>.\..\tobj\acdk_aci\dsp_d\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_ACI_LIB;WIN32;NDEBUG;_WINDOWS;_MT;ACDK_USE_GC;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_aci\dsp_r\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_aci\dsp_r\acdk_aci.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_aci\dsp_r\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_aci\dsp_r\</ProgramDataBaseFileName>
+      <AdditionalOptions> /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_aci.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_aci.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_aci_r.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_aci_r.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_r.lib;..\..\bin\acdk_cfgscript_r.lib;..\..\bin\acdk_text_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalIncludeDirectories>.;../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OS_WIN32;IN_ACDK_ACI_LIB;WIN32;_DEBUG;_WINDOWS;_MT;ACDK_USE_GC;ACDK_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\tobj\acdk_aci\dsp_d\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\..\tobj\acdk_aci\dsp_d\acdk_aci.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\tobj\acdk_aci\dsp_d\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\tobj\acdk_aci\dsp_d\</ProgramDataBaseFileName>
+      <AdditionalOptions> /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\bin\acdk_aci.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0407</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\bin\acdk_aci.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\acdk_aci_d.dll</OutputFile>
+      <ImportLibrary>.\..\..\bin\acdk_aci_d.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;..\..\bin\acdk_core_d.lib;..\..\bin\acdk_cfgscript_d.lib;..\..\bin\acdk_text_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="acdk\aci\AccLoader.h" />
+    <ClInclude Include="acdk\aci\aci.h" />
+    <ClInclude Include="acdk\aci\aci_metainf.h" />
+    <ClInclude Include="acdk\aci\ClazzSymbolTable.h" />
+    <ClInclude Include="acdk\aci\Compiler.h" />
+    <ClInclude Include="acdk\aci\Config.h" />
+    <ClInclude Include="acdk\aci\core_stack.h" />
+    <ClInclude Include="acdk\aci\DClazzInfo.h" />
+    <ClInclude Include="acdk\aci\StdAci.h" />
+    <ClInclude Include="acdk\aci\SymbolTable.h" />
+    <ClInclude Include="acdk\aci\ast\AciCodeAttributeData.h" />
+    <ClInclude Include="acdk\aci\ast\ast.h" />
+    <ClInclude Include="acdk\aci\ast\AstNode.h" />
+    <ClInclude Include="acdk\aci\ast\AstNodeVisitor.h" />
+    <ClInclude Include="acdk\aci\ast\ast_metainf.h" />
+    <ClInclude Include="acdk\aci\ast\EofTerminal.h" />
+    <ClInclude Include="acdk\aci\ast\Expression.h" />
+    <ClInclude Include="acdk\aci\ast\Identifier.h" />
+    <ClInclude Include="acdk\aci\ast\Keyword.h" />
+    <ClInclude Include="acdk\aci\ast\Literal.h" />
+    <ClInclude Include="acdk\aci\ast\Statement.h" />
+    <ClInclude Include="acdk\aci\ast\Terminal.h" />
+    <ClInclude Include="acdk\aci\ast\Whitespace.h" />
+    <ClInclude Include="acdk\aci\parser\BlockCommentParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\DecimalLiteralParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\FloatLiteralParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\IdentifierParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\KeywordParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\LineCommentParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\LiteralParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\ParseEnv.h" />
+    <ClInclude Include="acdk\aci\parser\ParseException.h" />
+    <ClInclude Include="acdk\aci\parser\ParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\parser.h" />
+    <ClInclude Include="acdk\aci\parser\RegScanParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\Scanner.h" />
+    <ClInclude Include="acdk\aci\parser\StringTerminalParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\SyntaxNode.h" />
+    <ClInclude Include="acdk\aci\parser\SyntaxParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\TerminalParseNode.h" />
+    <ClInclude Include="acdk\aci\parser\WhiteSpaceParseNode.h" />
+    <ClInclude Include="acdk\aci\vm\EvalEnv.h" />
+    <ClInclude Include="acdk\aci\vm\Executable.h" />
+    <ClInclude Include="acdk\aci\vm\OpCodeOp.h" />
+    <ClInclude Include="acdk\aci\vm\OpCodeStm.h" />
+    <ClInclude Include="acdk\aci\vm\vm.h" />
+    <ClInclude Include="acdk\aci\util\CodeLocation.h" />
+    <ClInclude Include="acdk\aci\util\Source.h" />
+    <ClInclude Include="acdk\aci\util\StringSource.h" />
+    <ClInclude Include="acdk\aci\util\TStackedSet.h" />
+    <ClInclude Include="acdk\aci\util\util.h" />
+    <ClInclude Include="acdk\aci\sasm\AsmParseNode.h" />
+    <ClInclude Include="acdk\aci\sasm\sasm.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acdk\aci\aci_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ClazzSymbolTable.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\Compiler.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\DClazzInfo.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\DClazzInfoPersist.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\SymbolTable.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\AstNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\ast_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\ast\Terminal.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\BlockCommentParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\DecimalLiteralParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\FloatLiteralParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\IdentifierParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\KeywordParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\ParseEnv.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\ParseException.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\parser_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\RegScanParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\Scanner.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\StringTerminalParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\SyntaxNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\SyntaxParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\parser\TerminalParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\EvalEnv.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\ExecutableCollector.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\OpCodeStm.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\vm\vm_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\util\util_metainf_base.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="acdk\aci\sasm\AsmParseNode.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm400   /Zm400 </AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

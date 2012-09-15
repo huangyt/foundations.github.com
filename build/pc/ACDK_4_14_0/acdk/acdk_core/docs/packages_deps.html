@@ -1,0 +1,197 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="">
+<title>ACDK Package Dependencies</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Dependencies<br>See also:<br>&nbsp;&nbsp;<img src="./../../docs\images/arrow_se.gif" alt="down">&nbsp;<a  href="../../docs/acdk_general_install.html">Installation</a>
+
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | Dependencies | <a  href="../index.html">ACDK Core</a> | <a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../../acdk_boot/index.html">ACDK Boot</a> | <a  href="../../acdk_text/index.html">ACDK Text</a> | <a  href="../../acdk_net/index.html">ACDK Net</a> | <a  href="../../acdk_xml/index.html">ACDK XML</a> | <a  href="../../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../../acdk_wx/index.html">ACDK WX</a> | <a  href="../../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../../acdk_make/index.html">ACDK Make</a> | <a  href="../../acdk_java/index.html">ACDK Java</a> | <a  href="../../acdk_perl/index.html">ACDK Perl</a> | <a  href="../../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../../acdk_python/index.html">ACDK Python</a> | <a  href="../../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../../acdk_sql/index.html">ACDK SQL</a> | <a  href="../../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../../docs/acdk_testreports.html">Test Reports</a> | <a  href="../../aal/index.html">AAL</a> | <a  href="../..">acdk_tools_java2acdk</a> |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Package Dependencies</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Package Dependencies</h1> -->
+<p class="PageIntro">
+Overview of the package dependencies.
+</p>
+
+<br>
+<br>
+See also: 
+<ul class="FeatureList">
+<li class="Feature"> <a  href="http://acdk.sourceforge.net/phpincl/gw/fwdid.php?id=acdk_install_layout"><img border="0" src="./../../docs\images/url_html.gif" alt="">&nbsp;Installation Layout</a>
+<li class="Feature"> <a  href="../../docs/acdk_general_install.html"><img border="0" src="./../../docs\images/url_rhtm.gif" alt="">&nbsp;Installation</a>
+</ul>
+<br>
+<script type="text/jscript" language="jscript">
+
+var pageID = 0;
+
+var isUpLevel = parent.isUpLevel;
+var OnShapeClick = null;
+if (!parent.isMac)
+{
+	OnShapeClick = parent.OnShapeClick;
+}
+
+var OnShapeKey = parent.OnShapeKey;
+var UpdateTooltip = parent.UpdateTooltip;
+var clickMenu = parent.clickMenu;
+var toggleMenuDiv = parent.toggleMenuDiv;
+var toggleMenuLink = parent.toggleMenuLink;
+var GoToPage = parent.GoToPage;
+
+
+if (parent.isUpLevel)
+{
+
+	if (parent.g_FirstPageToLoad != null && parent.g_FirstPageToLoad.length > 0)
+	{
+		if (parent.g_FileList[parent.g_CurPageIndex].PageID != pageID)
+		{
+			var fileEntry = parent.g_FileList[parent.g_CurPageIndex];
+			var fileToLoad = fileToLoad = fileEntry.PriImage;
+			if (fileEntry.SecImage.length > 0)
+			{
+				fileToLoad = fileEntry.SecImage;
+			}
+
+			location.replace(fileToLoad);
+		}
+
+		parent.g_FirstPageToLoad = null;
+	}
+
+
+	var viewMgr = new parent.CViewMgr();
+	parent.viewMgr = viewMgr;
+
+	viewMgr.SupportsDetails = true;
+	viewMgr.SupportsSearch = true;
+
+	viewMgr.put_Location = ViewMgrSetRasterLocation;
+	viewMgr.visBBoxLeft = 0.392034;
+	viewMgr.visBBoxRight = 8.072533;
+	viewMgr.visBBoxBottom = -9.214265;
+	viewMgr.visBBoxTop = 9.096155;
+	viewMgr.highlightDiv = null;
+}
+
+function load ()
+{
+	if(isUpLevel)
+	{
+		arrowdiv.innerHTML = '<img id="arrowgif" alt="Zeigt den Speicherort des ausgewählten Shapes an" src="arrow.gif"/>';
+
+		var pageIndex = parent.PageIndexFromID (pageID);
+		parent.CurPageUpdate (pageIndex);
+	}
+}
+
+function unload()
+{
+	if(isUpLevel)
+	{
+		viewMgr = null;
+		parent.viewMgr = null;
+	}
+}
+
+window.onload = load;
+window.onunload = unload;
+document.onclick = clickMenu;
+
+</script>
+<br>
+ 
+  <center>
+    <IMG SRC="modules_jpg_1.jpg" ALT="" BORDER="0" USEMAP="#visImageMap">
+  </center>
+  
+  <MAP NAME="visImageMap">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_sql_sqlite/index.html" target="_top" COORDS=" 155,1740 174,1759 384,1759 384,1619 365,1600 155,1600 155,1740" onmouseover="UpdateTooltip(this,0,250)" onfocus="UpdateTooltip(this,0,250)" onclick="return OnShapeClick(0,250);" onkeyup="OnShapeKey(0,250);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdkx_rdmi" origTitle="Package acdkx_rdmi" TITLE="Package acdkx_rdmi" HREF="../../acdkx_rdmi/index.html" target="_top" COORDS=" 473,1634 492,1653 681,1653 681,1555 662,1536 473,1536 473,1634" onmouseover="UpdateTooltip(this,0,264)" onfocus="UpdateTooltip(this,0,264)" onclick="return OnShapeClick(0,264);" onkeyup="OnShapeKey(0,264);">
+  <AREA shape="POLYGON" tabindex="1" ALT="OpenSSL" origTitle="OpenSSL" TITLE="OpenSSL" HREF="https://www.openssl.org/" target="_top" COORDS=" 267,1229 278,1239 344,1239 344,1210 333,1201 267,1201 267,1229" onmouseover="UpdateTooltip(this,0,257)" onfocus="UpdateTooltip(this,0,257)" onclick="return OnShapeClick(0,257);" onkeyup="OnShapeKey(0,257);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Java JVM" origTitle="Java JVM" TITLE="Java JVM" HREF="http://java.sun.com/j2se/" target="_top" COORDS=" 373,971 384,980 450,980 450,952 439,942 373,942 373,971" onmouseover="UpdateTooltip(this,0,252)" onfocus="UpdateTooltip(this,0,252)" onclick="return OnShapeClick(0,252);" onkeyup="OnShapeKey(0,252);">
+  <AREA shape="POLYGON" tabindex="1" ALT="ODBC/UnixOBDC" origTitle="ODBC/UnixOBDC" TITLE="ODBC/UnixOBDC" HREF="http://www.unixodbc.org/" target="_top" COORDS=" 405,1526 374,1526 374,1526 358,1526 358,1555 369,1564 435,1564 435,1536 424,1526 408,1526 408,1526 405,1526" onmouseover="UpdateTooltip(this,0,232)" onfocus="UpdateTooltip(this,0,232)" onclick="return OnShapeClick(0,232);" onkeyup="OnShapeKey(0,232);">
+  <AREA shape="POLYGON" tabindex="1" ALT="wxWidgets 2.4/2.5" origTitle="wxWidgets 2.4/2.5" TITLE="wxWidgets 2.4/2.5" HREF="http://www.wxwidgets.org/#_blank" target="_top" COORDS=" 625,411 618,411 618,440 629,449 695,449 695,421 684,411 680,411 680,411 625,411 625,411" onmouseover="UpdateTooltip(this,0,221)" onfocus="UpdateTooltip(this,0,221)" onclick="return OnShapeClick(0,221);" onkeyup="OnShapeKey(0,221);">
+  <AREA shape="POLYGON" tabindex="1" ALT="tcl8x" origTitle="tcl8x" TITLE="tcl8x" HREF="http://tcl.sourceforge.net/" target="_top" COORDS=" 369,863 380,872 447,872 447,844 435,835 369,835 369,863" onmouseover="UpdateTooltip(this,0,211)" onfocus="UpdateTooltip(this,0,211)" onclick="return OnShapeClick(0,211);" onkeyup="OnShapeKey(0,211);">
+  <AREA shape="POLYGON" tabindex="1" ALT="python2x" origTitle="python2x" TITLE="python2x" HREF="http://www.python.org/" target="_top" COORDS=" 368,753 379,763 446,763 446,734 434,725 368,725 368,753" onmouseover="UpdateTooltip(this,0,206)" onfocus="UpdateTooltip(this,0,206)" onclick="return OnShapeClick(0,206);" onkeyup="OnShapeKey(0,206);">
+  <AREA shape="POLYGON" tabindex="1" ALT="perl5x" origTitle="perl5x" TITLE="perl5x" HREF="http://www.perl.com/" target="_top" COORDS=" 364,647 376,657 442,657 442,628 430,619 364,619 364,647" onmouseover="UpdateTooltip(this,0,201)" onfocus="UpdateTooltip(this,0,201)" onclick="return OnShapeClick(0,201);" onkeyup="OnShapeKey(0,201);">
+  <AREA shape="POLYGON" tabindex="1" ALT="acdkcfgscript" origTitle="acdkcfgscript" TITLE="acdkcfgscript" HREF="../acdk_core/docs/acdk_cfgscript_hb.html" target="_top" COORDS=" 636,1009 629,1009 629,1024 705,1024 705,1009 698,1009 698,1009 636,1009 636,1009" onmouseover="UpdateTooltip(this,0,189)" onfocus="UpdateTooltip(this,0,189)" onclick="return OnShapeClick(0,189);" onkeyup="OnShapeKey(0,189);">
+  <AREA shape="POLYGON" tabindex="1" ALT="acdkmc" origTitle="acdkmc" TITLE="acdkmc" HREF="../acdk_core/docs/acdk_tools_mc_man.html" target="_top" COORDS=" 383,212 363,212 363,227 439,227 439,212 419,212 419,212 383,212 383,212" onmouseover="UpdateTooltip(this,0,184)" onfocus="UpdateTooltip(this,0,184)" onclick="return OnShapeClick(0,184);" onkeyup="OnShapeKey(0,184);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_lisp/index.html" target="_top" COORDS=" 133,1036 151,1055 314,1055 314,940 295,921 133,921 133,1036" onmouseover="UpdateTooltip(this,0,182)" onfocus="UpdateTooltip(this,0,182)" onclick="return OnShapeClick(0,182);" onkeyup="OnShapeKey(0,182);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdkx_com/index.html" target="_top" COORDS=" 551,723 570,741 738,741 738,689 719,670 551,670 551,723" onmouseover="UpdateTooltip(this,0,181)" onfocus="UpdateTooltip(this,0,181)" onclick="return OnShapeClick(0,181);" onkeyup="OnShapeKey(0,181);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_tcl/index.html" target="_top" COORDS=" 133,893 151,912 341,912 341,832 322,813 133,813 133,893" onmouseover="UpdateTooltip(this,0,168)" onfocus="UpdateTooltip(this,0,168)" onclick="return OnShapeClick(0,168);" onkeyup="OnShapeKey(0,168);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_python/index.html" target="_top" COORDS=" 133,783 151,802 341,802 341,723 322,704 133,704 133,783" onmouseover="UpdateTooltip(this,0,153)" onfocus="UpdateTooltip(this,0,153)" onclick="return OnShapeClick(0,153);" onkeyup="OnShapeKey(0,153);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_lisp/index.html" target="_top" COORDS=" 188,553 180,553 180,536 179,536 179,553 188,554" onmouseover="UpdateTooltip(this,0,144)" onfocus="UpdateTooltip(this,0,144)" onclick="return OnShapeClick(0,144);" onkeyup="OnShapeKey(0,144);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_lisp/index.html" target="_top" COORDS=" 202,546 188,546 188,561 255,561 255,546 241,546 241,545 202,545 202,546" onmouseover="UpdateTooltip(this,0,144)" onfocus="UpdateTooltip(this,0,144)" onclick="return OnShapeClick(0,144);" onkeyup="OnShapeKey(0,144);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_lisp/index.html" target="_top" COORDS=" 188,517 183,517 160,517 160,518 146,518 146,532 180,532 176,537 184,537 180,532 219,532 219,518 204,518 204,517 188,517" onmouseover="UpdateTooltip(this,0,144)" onfocus="UpdateTooltip(this,0,144)" onclick="return OnShapeClick(0,144);" onkeyup="OnShapeKey(0,144);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdk_lisp" origTitle="Package acdk_lisp" TITLE="Package acdk_lisp" HREF="../acdk_lisp/index.html" target="_top" COORDS=" 133,569 151,588 298,588 298,509 279,490 133,490 133,569" onmouseover="UpdateTooltip(this,0,120)" onfocus="UpdateTooltip(this,0,120)" onclick="return OnShapeClick(0,120);" onkeyup="OnShapeKey(0,120);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdkx_orb/index.html" target="_top" COORDS=" 452,1491 471,1510 660,1510 660,1412 641,1393 452,1393 452,1491" onmouseover="UpdateTooltip(this,0,141)" onfocus="UpdateTooltip(this,0,141)" onclick="return OnShapeClick(0,141);" onkeyup="OnShapeKey(0,141);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_perl/index.html" target="_top" COORDS=" 133,677 151,696 316,696 316,617 297,598 133,598 133,677" onmouseover="UpdateTooltip(this,0,140)" onfocus="UpdateTooltip(this,0,140)" onclick="return OnShapeClick(0,140);" onkeyup="OnShapeKey(0,140);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_sql_odbc/index.html" target="_top" COORDS=" 148,1558 167,1577 351,1577 351,1524 332,1505 148,1505 148,1558" onmouseover="UpdateTooltip(this,0,139)" onfocus="UpdateTooltip(this,0,139)" onclick="return OnShapeClick(0,139);" onkeyup="OnShapeKey(0,139);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_vfile/index.html" target="_top" COORDS=" 91,1369 110,1388 261,1388 261,1316 242,1297 91,1297 91,1369" onmouseover="UpdateTooltip(this,0,138)" onfocus="UpdateTooltip(this,0,138)" onclick="return OnShapeClick(0,138);" onkeyup="OnShapeKey(0,138);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_sql/index.html" target="_top" COORDS=" 91,1473 110,1492 271,1492 271,1417 252,1398 91,1398 91,1473" onmouseover="UpdateTooltip(this,0,137)" onfocus="UpdateTooltip(this,0,137)" onclick="return OnShapeClick(0,137);" onkeyup="OnShapeKey(0,137);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdk_make" origTitle="Package acdk_make" TITLE="Package acdk_make" HREF="../../acdk_make/index.html" target="_top" COORDS=" 499,632 518,651 679,651 679,571 660,552 499,552 499,632" onmouseover="UpdateTooltip(this,0,86)" onfocus="UpdateTooltip(this,0,86)" onclick="return OnShapeClick(0,86);" onkeyup="OnShapeKey(0,86);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdk_wx" origTitle="Package acdk_wx" TITLE="Package acdk_wx" HREF="../../acdk_wx/index.html" target="_top" COORDS=" 369,477 388,496 577,496 577,382 558,363 369,363 369,477" onmouseover="UpdateTooltip(this,0,73)" onfocus="UpdateTooltip(this,0,73)" onclick="return OnShapeClick(0,73);" onkeyup="OnShapeKey(0,73);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdk_text" origTitle="Package acdk_text" TITLE="Package acdk_text" HREF="../../acdk_text/index.html" target="_top" COORDS=" 66,448 85,467 246,467 246,392 227,373 66,373 66,448" onmouseover="UpdateTooltip(this,0,30)" onfocus="UpdateTooltip(this,0,30)" onclick="return OnShapeClick(0,30);" onkeyup="OnShapeKey(0,30);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdk_net" origTitle="Package acdk_net" TITLE="Package acdk_net" HREF="../../acdk_net/index.html" target="_top" COORDS=" 99,1244 118,1263 279,1263 279,1108 260,1089 99,1089 99,1244" onmouseover="UpdateTooltip(this,0,38)" onfocus="UpdateTooltip(this,0,38)" onclick="return OnShapeClick(0,38);" onkeyup="OnShapeKey(0,38);">
+  <AREA shape="POLYGON" tabindex="1" ALT="" origTitle="" TITLE="" HREF="../../acdk_xml/index.html" target="_top" COORDS=" 371,1371 390,1390 579,1390 579,1271 560,1252 371,1252 371,1371" onmouseover="UpdateTooltip(this,0,62)" onfocus="UpdateTooltip(this,0,62)" onclick="return OnShapeClick(0,62);" onkeyup="OnShapeKey(0,62);">
+  <AREA shape="POLYGON" tabindex="1" ALT="acdkcfgscript" origTitle="acdkcfgscript" TITLE="acdkcfgscript" HREF="../acdk_core/docs/acdk_cfgscript_hb.html" target="_top" COORDS=" 241,126 234,126 234,141 310,141 310,126 303,126 303,125 241,125 241,126" onmouseover="UpdateTooltip(this,0,28)" onfocus="UpdateTooltip(this,0,28)" onclick="return OnShapeClick(0,28);" onkeyup="OnShapeKey(0,28);">
+  <AREA shape="POLYGON" tabindex="1" ALT="acdk_tools_aunit" origTitle="acdk_tools_aunit" TITLE="acdk_tools_aunit" HREF="../acdk_core/docs/acdk_tools_testunit_man.html" target="_top" COORDS=" 112,249 106,249 83,249 77,249 55,249 55,250 47,250 47,265 142,265 142,250 135,250 135,249 112,249" onmouseover="UpdateTooltip(this,0,20)" onfocus="UpdateTooltip(this,0,20)" onclick="return OnShapeClick(0,20);" onkeyup="OnShapeKey(0,20);">
+  <AREA shape="POLYGON" tabindex="1" ALT="acdk_cfgscript" origTitle="acdk_cfgscript" TITLE="acdk_cfgscript" HREF="../acdk_core/docs/acdk_cfgscript_hb.html" target="_top" COORDS=" 215,98 209,98 186,98 186,98 180,98 180,114 261,114 261,98 255,98 255,98 215,98" onmouseover="UpdateTooltip(this,0,6)" onfocus="UpdateTooltip(this,0,6)" onclick="return OnShapeClick(0,6);" onkeyup="OnShapeKey(0,6);">
+  <AREA shape="POLYGON" tabindex="1" ALT="Package acdk_core" origTitle="Package acdk_core" TITLE="Package acdk_core" HREF="../../acdk_core/index.html" target="_top" COORDS=" 0,325 19,344 482,344 482,19 464,0 0,0 0,325" onmouseover="UpdateTooltip(this,0,2)" onfocus="UpdateTooltip(this,0,2)" onclick="return OnShapeClick(0,2);" onkeyup="OnShapeKey(0,2);">
+</MAP>
+  
+<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | Dependencies | <a  href="../index.html">ACDK Core</a> | <a  href="acdk_cfgscript_hb.html">CfgScript Handbook</a> | <a  href="../../acdk_boot/index.html">ACDK Boot</a> | <a  href="../../acdk_text/index.html">ACDK Text</a> | <a  href="../../acdk_net/index.html">ACDK Net</a> | <a  href="../../acdk_xml/index.html">ACDK XML</a> | <a  href="../../acdk_vfile/index.html">ACDK Virtual Files</a> | <a  href="../../acdk_wx/index.html">ACDK WX</a> | <a  href="../../acdk_lisp/index.html">ACDK Lisp</a> | <a  href="../../acdk_make/index.html">ACDK Make</a> | <a  href="../../acdk_java/index.html">ACDK Java</a> | <a  href="../../acdk_perl/index.html">ACDK Perl</a> | <a  href="../../acdk_tcl/index.html">ACDK Tcl</a> | <a  href="../../acdk_python/index.html">ACDK Python</a> | <a  href="../../acdkx_orb/index.html">ACDK ORB</a> | <a  href="../../acdkx_com/index.html">ACDKX COM+</a> | <a  href="../../acdk_sql/index.html">ACDK SQL</a> | <a  href="../../acdk_sql_sqlite/index.html">ACDK SQLite</a> | <a  href="../../acdk_sql_odbc/index.html">ACDK SQL ODBC</a> | <a  href="../../acdkx_rdmi/index.html">ACDK Remote DMI</a> | <a  href="../../docs/acdk_testreports.html">Test Reports</a> | <a  href="../../aal/index.html">AAL</a> | <a  href="../..">acdk_tools_java2acdk</a> |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

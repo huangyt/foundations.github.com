@@ -1,0 +1,22 @@
+﻿Build started 2012-8-15 11:10:16.
+     1>Project "C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\acdk_vfile_file2rc.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\tobj\acdk_vfile_file2rc\dsp_r\acdk_vfile_file2rc.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../src /I../include /I../../include /Zi /nologo /W1 /WX- /O2 /Ob1 /Oy- /D OS_WIN32 /D WIN32 /D NDEBUG /D _WINDOWS /D _MT /D _VC80_UPGRADE=0x0600 /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo".\tobj\acdk_vfile_file2rc\dsp_r\\" /Fd".\tobj\acdk_vfile_file2rc\dsp_r\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt acdk\vfile\file2rc\file2rc.cpp  /EHsc /Zm400   /EHsc /Zm400 
+         file2rc.cpp
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\.\..\..\bin\acdk_vfile_file2rc.exe) does not match the Linker's OutputFile property value (C:\MSVCLib\build\ACDK_4_14_0\acdk\bin\acdk_vfile_file2rc_r.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(acdk_vfile_file2rc) does not match the Linker's OutputFile property value (acdk_vfile_file2rc_r). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\bin\acdk_vfile_file2rc_r.exe" /INCREMENTAL:NO /NOLOGO odbc32.lib odbccp32.lib wsock32.lib ..\..\bin\acdk_core_r.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\tobj\acdk_vfile_file2rc\dsp_r\acdk_vfile_file2rc.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\MSVCLib\build\ACDK_4_14_0\acdk\bin\acdk_vfile_file2rc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\..\..\bin\acdk_vfile_file2rc.lib" /MACHINE:X86 .\tobj\acdk_vfile_file2rc\dsp_r\file2rc.obj
+         acdk_vfile_file2rc.vcxproj -> C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\.\..\..\bin\acdk_vfile_file2rc.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\..\bin\acdk_vfile_file2rc_r.exe;#1" /manifest .\tobj\acdk_vfile_file2rc\dsp_r\acdk_vfile_file2rc.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file ".\tobj\acdk_vfile_file2rc\dsp_r\acdk_vfile_file2rc.unsuccessfulbuild".
+         Touching ".\tobj\acdk_vfile_file2rc\dsp_r\acdk_vfile_file2rc.lastbuildstate".
+     1>Done Building Project "C:\MSVCLib\build\ACDK_4_14_0\acdk\acdk_vfile\src\acdk_vfile_file2rc.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.45

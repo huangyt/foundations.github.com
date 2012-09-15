@@ -1,0 +1,689 @@
+<html><body>
+<h1>Unit Test 2004-03-08T10:57:43</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 30; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.standard">StdDispatch_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.New">StdDispatch_Test.New</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.Invoke">StdDispatch_Test.Invoke</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.InvokeStatic">StdDispatch_Test.InvokeStatic</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.PeekPoke">StdDispatch_Test.PeekPoke</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.PeekPokeStatic">StdDispatch_Test.PeekPokeStatic</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.memberAccessCast">StdDispatch_Test.memberAccessCast</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.inOutParam">StdDispatch_Test.inOutParam</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.nameArgs">StdDispatch_Test.nameArgs</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.nameArgs2">StdDispatch_Test.nameArgs2</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.byval">StdDispatch_Test.byval</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.basicArrays">StdDispatch_Test.basicArrays</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.objectArrays">StdDispatch_Test.objectArrays</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.arrayPolymorphic">StdDispatch_Test.arrayPolymorphic</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.operatorFunctions">StdDispatch_Test.operatorFunctions</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.enumerations">StdDispatch_Test.enumerations</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.sampleCode">StdDispatch_Test.sampleCode</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.hashInvoke">StdDispatch_Test.hashInvoke</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#StdDispatch_Test.dmiProxy">StdDispatch_Test.dmiProxy</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClazzInfo_Test.findClasses">ClazzInfo_Test.findClasses</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClazzInfo_Test.findNamespaces">ClazzInfo_Test.findNamespaces</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClazzInfo_Test.assignable">ClazzInfo_Test.assignable</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClazzInfo_Test.toTypeName">ClazzInfo_Test.toTypeName</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClazzInfo_Test.enumeration">ClazzInfo_Test.enumeration</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ClazzInfo_Test.experimental">ClazzInfo_Test.experimental</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ScriptVar_Test.standard">ScriptVar_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DmiObject_Test.standard">DmiObject_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#MetaObject_Test.standard">MetaObject_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#MetaObject_Test.instanceAttribute">MetaObject_Test.instanceAttribute</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#MetaObject_Test.altName">MetaObject_Test.altName</a> <br>
+</td></tr></table>
+<h2><a id="StdDispatch_Test.standard">StdDispatch_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT] Start Test: StdDispatch_Test.standard
+[AUNIT:STRT] Start Test: StdDispatch_Test.standard
+[AUNIT:SUCC]: StdDispatch_Test.standard:
+acdk_lang_dmi_StdDispatch_Test.cpp(102): erg->equals((const char*)"Hello ACDK") == true
+[AUNIT:SUCC]: StdDispatch_Test.standard:
+acdk_lang_dmi_StdDispatch_Test.cpp(108): erg->equals("Hello ACDK") == true
+</pre>
+<h2><a id="StdDispatch_Test.New">StdDispatch_Test.New</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.standard
+[AUNIT:ENDT] End Test: StdDispatch_Test.standard
+[AUNIT:STRT] Start Test: StdDispatch_Test.New
+[AUNIT:STRT] Start Test: StdDispatch_Test.New
+Expected Exception: 
+No matching function found: ::acdk::tools::aunit::DmiTestClass::DmiTestClass(int)
+ Following functions are defined:
+	public:  ::acdk::tools::aunit::RDmiTestClass ::acdk::tools::aunit::DmiTestClass::DmiTestClass()
+	public:  ::acdk::tools::aunit::RDmiTestClass ::acdk::tools::aunit::DmiTestClass::DmiTestClass(IN(::acdk::lang::RString) str, int i)
+	public:  ::acdk::tools::aunit::RDmiTestClass ::acdk::tools::aunit::DmiTestClass::DmiTestClass(IN(::acdk::lang::RString) str)
+
+[AUNIT:SUCC]: StdDispatch_Test.New:
+acdk_lang_dmi_StdDispatch_Test.cpp(125): o1 != Nil
+[AUNIT:SUCC]: StdDispatch_Test.New:
+acdk_lang_dmi_StdDispatch_Test.cpp(127): o2 != Nil
+</pre>
+<h2><a id="StdDispatch_Test.Invoke">StdDispatch_Test.Invoke</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.New
+[AUNIT:ENDT] End Test: StdDispatch_Test.New
+[AUNIT:STRT] Start Test: StdDispatch_Test.Invoke
+[AUNIT:STRT] Start Test: StdDispatch_Test.Invoke
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(139): bool(o->invoke("dynamicMethodz", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(123456789012)), double(3.4), double(1.234567), o)) == true
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(140): char(o->invoke("dynamicMethodc", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(123456789012)), double(3.4), double(1.234567), o)) == 42
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(141): byte(o->invoke("dynamicMethodb", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 233
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(142): short(o->invoke("dynamicMethods", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 6000
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(143): int(o->invoke("dynamicMethodi", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 12345
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(144): jlong(o->invoke("dynamicMethodl", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(12345678)), double(3.4), double(1.234567), o)) == 12345678
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(147): double(o->invoke("dynamicMethodd", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 1.234567
+[AUNIT:SUCC]: StdDispatch_Test.Invoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(148): RObject(o->invoke("dynamicMethodO", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == o
+Expected Exception: 
+Method not found: public:  ::acdk::tools::aunit::DmiTestClass::privateMethod(...)
+</pre>
+<h2><a id="StdDispatch_Test.InvokeStatic">StdDispatch_Test.InvokeStatic</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 10  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.Invoke
+[AUNIT:ENDT] End Test: StdDispatch_Test.Invoke
+[AUNIT:STRT] Start Test: StdDispatch_Test.InvokeStatic
+[AUNIT:STRT] Start Test: StdDispatch_Test.InvokeStatic
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(162): bool(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodz", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(123456789012)), double(3.4), double(1.234567), o)) == true
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(163): char(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodc", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(123456789012)), double(3.4), double(1.234567), o)) == 42
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(164): byte(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodb", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 233
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(165): short(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethods", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 6000
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(166): int(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodi", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 12345
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(167): jlong(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodl", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == JLONG_CONSTANT(1234567890)
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(170): double(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodd", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == 1.234567
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(171): RObject(StdDispatch::invoke_static("acdk/tools/aunit/DmiTestClass", "staticMethodO", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(1234567890)), double(3.4), double(1.234567), o)) == o
+Expected Exception: 
+Method not found: public: static  ::acdk::tools::aunit::DmiTestClass::privateStaticMethod(...)
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(179): bool(StdDispatch::invoke_static("acdk::tools::aunit::DmiTestClass", "staticMethodz", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(123456789012)), double(3.4), double(1.234567), &o)) == true
+[AUNIT:SUCC]: StdDispatch_Test.InvokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(180): bool(StdDispatch::invoke_static("acdk.tools.aunit.DmiTestClass", "staticMethodz", true, char(42), byte(233), short(6000), int(12345), jlong(JLONG_CONSTANT(123456789012)), double(3.4), double(1.234567), &o)) == true
+</pre>
+<h2><a id="StdDispatch_Test.PeekPoke">StdDispatch_Test.PeekPoke</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.InvokeStatic
+[AUNIT:ENDT] End Test: StdDispatch_Test.InvokeStatic
+[AUNIT:STRT] Start Test: StdDispatch_Test.PeekPoke
+[AUNIT:STRT] Start Test: StdDispatch_Test.PeekPoke
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(189): bool(o->peek("pubBool")) == true
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(193): char(o->peek("pubChar")) == 42
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(196): byte(o->peek("pubByte")) == 13
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(200): short(o->peek("pubShort")) == 600
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(204): int(o->peek("pubInt")) == 12345
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(208): jlong(o->peek("pubLong")) == 123457890
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(217): double(o->peek("pubDouble")) == 1.2345
+[AUNIT:SUCC]: StdDispatch_Test.PeekPoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(221): RObject(o->peek("pubObject")) == o
+Expected Exception: 
+Field not found: MiPublic acdk.tools.aunit.DmiTestClass.privInt
+</pre>
+<h2><a id="StdDispatch_Test.PeekPokeStatic">StdDispatch_Test.PeekPokeStatic</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.PeekPoke
+[AUNIT:ENDT] End Test: StdDispatch_Test.PeekPoke
+[AUNIT:STRT] Start Test: StdDispatch_Test.PeekPokeStatic
+[AUNIT:STRT] Start Test: StdDispatch_Test.PeekPokeStatic
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(242): bool(StdDispatch::peek_static(cn, "pubStaticBool")) == true
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(246): char(StdDispatch::peek_static(cn, "pubStaticChar")) == 42
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(250): byte(StdDispatch::peek_static(cn, "pubStaticByte")) == 212
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(254): short(StdDispatch::peek_static(cn, "pubStaticShort")) == 1234
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(258): int(StdDispatch::peek_static(cn, "pubStaticInt")) == 123456
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(262): jlong(StdDispatch::peek_static(cn, "pubStaticLong")) == 123456789
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(270): double(StdDispatch::peek_static(cn, "pubStaticDouble")) == 1.3456
+[AUNIT:SUCC]: StdDispatch_Test.PeekPokeStatic:
+acdk_lang_dmi_StdDispatch_Test.cpp(274): RObject(StdDispatch::peek_static(cn, "pubStaticObject")) == o
+</pre>
+<h2><a id="StdDispatch_Test.memberAccessCast">StdDispatch_Test.memberAccessCast</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.PeekPokeStatic
+[AUNIT:ENDT] End Test: StdDispatch_Test.PeekPokeStatic
+[AUNIT:STRT] Start Test: StdDispatch_Test.memberAccessCast
+[AUNIT:STRT] Start Test: StdDispatch_Test.memberAccessCast
+</pre>
+<h2><a id="StdDispatch_Test.inOutParam">StdDispatch_Test.inOutParam</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.memberAccessCast
+[AUNIT:ENDT] End Test: StdDispatch_Test.memberAccessCast
+[AUNIT:STRT] Start Test: StdDispatch_Test.inOutParam
+[AUNIT:STRT] Start Test: StdDispatch_Test.inOutParam
+</pre>
+<h2><a id="StdDispatch_Test.nameArgs">StdDispatch_Test.nameArgs</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.inOutParam
+[AUNIT:ENDT] End Test: StdDispatch_Test.inOutParam
+[AUNIT:STRT] Start Test: StdDispatch_Test.nameArgs
+[AUNIT:STRT] Start Test: StdDispatch_Test.nameArgs
+[AUNIT:SUCC]: StdDispatch_Test.nameArgs:
+acdk_lang_dmi_StdDispatch_Test.cpp(349): erg.getBoolVar() == true
+[AUNIT:SUCC]: StdDispatch_Test.nameArgs:
+acdk_lang_dmi_StdDispatch_Test.cpp(364): erg.getBoolVar() == true
+[AUNIT:SUCC]: StdDispatch_Test.nameArgs:
+acdk_lang_dmi_StdDispatch_Test.cpp(381): erg.getBoolVar() == true
+</pre>
+<h2><a id="StdDispatch_Test.nameArgs2">StdDispatch_Test.nameArgs2</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.nameArgs
+[AUNIT:ENDT] End Test: StdDispatch_Test.nameArgs
+[AUNIT:STRT] Start Test: StdDispatch_Test.nameArgs2
+[AUNIT:STRT] Start Test: StdDispatch_Test.nameArgs2
+</pre>
+<h2><a id="StdDispatch_Test.byval">StdDispatch_Test.byval</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 7  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.nameArgs2
+[AUNIT:ENDT] End Test: StdDispatch_Test.nameArgs2
+[AUNIT:STRT] Start Test: StdDispatch_Test.byval
+[AUNIT:STRT] Start Test: StdDispatch_Test.byval
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(408): sb->toString()->equals("Text") == true
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(411): integer != dmitest.pubInteger
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(412): integer->equals(dmitest.pubInteger) == true
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(419): sb->toString()->equals("Text appended") == true
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(424): sb->toString()->equals("Text") == true
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(428): integer != dmitest.pubInteger
+[AUNIT:SUCC]: StdDispatch_Test.byval:
+acdk_lang_dmi_StdDispatch_Test.cpp(429): integer->equals(dmitest.pubInteger) == true
+</pre>
+<h2><a id="StdDispatch_Test.basicArrays">StdDispatch_Test.basicArrays</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 6  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.byval
+[AUNIT:ENDT] End Test: StdDispatch_Test.byval
+[AUNIT:STRT] Start Test: StdDispatch_Test.basicArrays
+[AUNIT:STRT] Start Test: StdDispatch_Test.basicArrays
+[AUNIT:SUCC]: StdDispatch_Test.basicArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(440): int(ia.invoke("length")) == 2
+[AUNIT:SUCC]: StdDispatch_Test.basicArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(441): int(ia.invoke("get", 1)) == 42
+[AUNIT:SUCC]: StdDispatch_Test.basicArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(443): int(ia.invoke("get", 1)) == 43
+[AUNIT:SUCC]: StdDispatch_Test.basicArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(445): int(ia.invoke("length")) == 3
+[AUNIT:SUCC]: StdDispatch_Test.basicArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(446): int(ia.invoke("get", 2)) == 44
+[AUNIT:SUCC]: StdDispatch_Test.basicArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(449): int(ia.invoke("get", 2)) == 45
+</pre>
+<h2><a id="StdDispatch_Test.objectArrays">StdDispatch_Test.objectArrays</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 13  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.basicArrays
+[AUNIT:ENDT] End Test: StdDispatch_Test.basicArrays
+[AUNIT:STRT] Start Test: StdDispatch_Test.objectArrays
+[AUNIT:STRT] Start Test: StdDispatch_Test.objectArrays
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(470): int(sa.invoke("length")) == 2
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(471): sa.invoke("get", 1).getStringVar()->equals("DMI") == true
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(473): int(sa.invoke("length")) == 3
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(474): sa.invoke("get", 2).getStringVar()->equals("appended") == true
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(477): sa.invoke("get", 2).getStringVar()->equals("modified") == true
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(486): int(dmitest.invoke("makeSum", inOf(ia))) == sum
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(488): int(dmitest.invoke("makeNumSum", inOf((RNumberArray)ia))) == sum
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(489): int(dmitest.invoke("makeNumSum", inOf(ia))) == sum
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(490): dmitest.sorted((RComparableArray)ia) == true
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(491): bool(dmitest.invoke("sorted", inOf(ia))) == true
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(492): bool(dmitest.invoke("sorted", inOf((RComparableArray)ia))) == true
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(498): tint->intValue() == 42
+[AUNIT:SUCC]: StdDispatch_Test.objectArrays:
+acdk_lang_dmi_StdDispatch_Test.cpp(504): tint->intValue() == 42
+</pre>
+<h2><a id="StdDispatch_Test.arrayPolymorphic">StdDispatch_Test.arrayPolymorphic</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.objectArrays
+[AUNIT:ENDT] End Test: StdDispatch_Test.objectArrays
+[AUNIT:STRT] Start Test: StdDispatch_Test.arrayPolymorphic
+[AUNIT:STRT] Start Test: StdDispatch_Test.arrayPolymorphic
+[AUNIT:SUCC]: StdDispatch_Test.arrayPolymorphic:
+acdk_lang_dmi_StdDispatch_Test.cpp(517): int(dmitest.invoke("methodWithBasicArray", &ia)) == 1
+[AUNIT:SUCC]: StdDispatch_Test.arrayPolymorphic:
+acdk_lang_dmi_StdDispatch_Test.cpp(518): int(dmitest.invoke("methodWithBasicArray", &ca)) == 2
+</pre>
+<h2><a id="StdDispatch_Test.operatorFunctions">StdDispatch_Test.operatorFunctions</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.arrayPolymorphic
+[AUNIT:ENDT] End Test: StdDispatch_Test.arrayPolymorphic
+[AUNIT:STRT] Start Test: StdDispatch_Test.operatorFunctions
+[AUNIT:STRT] Start Test: StdDispatch_Test.operatorFunctions
+[AUNIT:SUCC]: StdDispatch_Test.operatorFunctions:
+acdk_lang_dmi_StdDispatch_Test.cpp(527): erg == 45
+[AUNIT:SUCC]: StdDispatch_Test.operatorFunctions:
+acdk_lang_dmi_StdDispatch_Test.cpp(532): erg == 45
+[AUNIT:SUCC]: StdDispatch_Test.operatorFunctions:
+acdk_lang_dmi_StdDispatch_Test.cpp(537): erg == 45
+[AUNIT:SUCC]: StdDispatch_Test.operatorFunctions:
+acdk_lang_dmi_StdDispatch_Test.cpp(539): erg == 45
+</pre>
+<h2><a id="StdDispatch_Test.enumerations">StdDispatch_Test.enumerations</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.operatorFunctions
+[AUNIT:ENDT] End Test: StdDispatch_Test.operatorFunctions
+[AUNIT:STRT] Start Test: StdDispatch_Test.enumerations
+[AUNIT:STRT] Start Test: StdDispatch_Test.enumerations
+[AUNIT:SUCC]: StdDispatch_Test.enumerations:
+acdk_lang_dmi_StdDispatch_Test.cpp(592): int(dtcl.invoke("getEnumeration", ::acdk::tools::aunit::EnumValue2)) == ::acdk::tools::aunit::EnumValue4
+[AUNIT:SUCC]: StdDispatch_Test.enumerations:
+acdk_lang_dmi_StdDispatch_Test.cpp(593): int(dtcl.invoke("getEnumeration", inOf("acdk::tools::aunit::EnumValue2"))) == ::acdk::tools::aunit::EnumValue4
+</pre>
+<h2><a id="StdDispatch_Test.sampleCode">StdDispatch_Test.sampleCode</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.enumerations
+[AUNIT:ENDT] End Test: StdDispatch_Test.enumerations
+[AUNIT:STRT] Start Test: StdDispatch_Test.sampleCode
+[AUNIT:STRT] Start Test: StdDispatch_Test.sampleCode
+String should contain 'Hello ACDK': Hello ACDK
+String should contain 'Hello ACDK': Hello ACDK
+</pre>
+<h2><a id="StdDispatch_Test.hashInvoke">StdDispatch_Test.hashInvoke</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.sampleCode
+[AUNIT:ENDT] End Test: StdDispatch_Test.sampleCode
+[AUNIT:STRT] Start Test: StdDispatch_Test.hashInvoke
+[AUNIT:STRT] Start Test: StdDispatch_Test.hashInvoke
+[AUNIT:SUCC]: StdDispatch_Test.hashInvoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(553): meth != Nil
+[AUNIT:SUCC]: StdDispatch_Test.hashInvoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(562): sb.toString()->equals("Hallo42") == true
+[AUNIT:SUCC]: StdDispatch_Test.hashInvoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(573): meth != Nil
+[AUNIT:SUCC]: StdDispatch_Test.hashInvoke:
+acdk_lang_dmi_StdDispatch_Test.cpp(584): erg->equals("2a") == true
+</pre>
+<h2><a id="StdDispatch_Test.dmiProxy">StdDispatch_Test.dmiProxy</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.hashInvoke
+[AUNIT:ENDT] End Test: StdDispatch_Test.hashInvoke
+[AUNIT:STRT] Start Test: StdDispatch_Test.dmiProxy
+[AUNIT:STRT] Start Test: StdDispatch_Test.dmiProxy
+[AUNIT:SUCC]: StdDispatch_Test.dmiProxy:
+acdk_lang_dmi_StdDispatch_Test.cpp(648): s->equals("42") == true
+[AUNIT:SUCC]: StdDispatch_Test.dmiProxy:
+acdk_lang_dmi_StdDispatch_Test.cpp(650): s->equals("42") == true
+</pre>
+<h2><a id="ClazzInfo_Test.findClasses">ClazzInfo_Test.findClasses</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: StdDispatch_Test.dmiProxy
+[AUNIT:ENDT] End Test: StdDispatch_Test.dmiProxy
+[AUNIT:STRT] Start Test: ClazzInfo_Test.findClasses
+[AUNIT:STRT] Start Test: ClazzInfo_Test.findClasses
+</pre>
+<h2><a id="ClazzInfo_Test.findNamespaces">ClazzInfo_Test.findNamespaces</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ClazzInfo_Test.findClasses
+[AUNIT:ENDT] End Test: ClazzInfo_Test.findClasses
+[AUNIT:STRT] Start Test: ClazzInfo_Test.findNamespaces
+[AUNIT:STRT] Start Test: ClazzInfo_Test.findNamespaces
+</pre>
+<h2><a id="ClazzInfo_Test.assignable">ClazzInfo_Test.assignable</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 5  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ClazzInfo_Test.findNamespaces
+[AUNIT:ENDT] End Test: ClazzInfo_Test.findNamespaces
+[AUNIT:STRT] Start Test: ClazzInfo_Test.assignable
+[AUNIT:STRT] Start Test: ClazzInfo_Test.assignable
+[AUNIT:SUCC]: ClazzInfo_Test.assignable:
+acdk_lang_dmi_ClazzInfo_Test.cpp(98): integerclazz->assignableFrom(integerclazz) == true
+[AUNIT:SUCC]: ClazzInfo_Test.assignable:
+acdk_lang_dmi_ClazzInfo_Test.cpp(99): integerclazz->assignableFrom(Object::clazzInfo()) == false
+[AUNIT:SUCC]: ClazzInfo_Test.assignable:
+acdk_lang_dmi_ClazzInfo_Test.cpp(100): Object::clazzInfo()->assignableFrom(integerclazz) == true
+[AUNIT:SUCC]: ClazzInfo_Test.assignable:
+acdk_lang_dmi_ClazzInfo_Test.cpp(101): numberclazz->assignableFrom(integerclazz) == true
+[AUNIT:SUCC]: ClazzInfo_Test.assignable:
+acdk_lang_dmi_ClazzInfo_Test.cpp(102): integerclazz->assignableFrom(numberclazz) == false
+</pre>
+<h2><a id="ClazzInfo_Test.toTypeName">ClazzInfo_Test.toTypeName</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ClazzInfo_Test.assignable
+[AUNIT:ENDT] End Test: ClazzInfo_Test.assignable
+[AUNIT:STRT] Start Test: ClazzInfo_Test.toTypeName
+[AUNIT:STRT] Start Test: ClazzInfo_Test.toTypeName
+
+Onlye names:
+Default Class: 
+::acdk::lang::RStringBuffer
+TpFtJavaClass: 
+acdk.lang.StringBuffer
+TpFtLoadableClass: 
+acdk/lang/StringBuffer
+TpFtJavaSignature: 
+acdk/lang/StringBuffer
+TpFtACDKSignature: 
+acdk_lang_StringBuffer
+
+Onlye names:
+Default Class: 
+::acdk::lang::RObjectArray
+TpFtJavaClass: 
+acdk.lang.Object[]
+TpFtLoadableClass: 
+[acdk/lang/Object
+TpFtJavaSignature: 
+[acdk/lang/Object
+TpFtACDKSignature: 
+acdk_lang_ObjectArray
+
+Declarations:
+ACDK Class: 
+class StringBuffer
+TpFtJavaClass: 
+class StringBuffer
+
+Definition:
+ACDK Class: 
+class StringBuffer
+: extends ::acdk::lang::Object
+, implements ::acdk::lang::Cloneable
+{
+  private: bool _shared;
+  private: ::acdk::lang::RString _str;
+  public: static  ::acdk::lang::RClass GetClass();
+  public:  ::acdk::lang::RStringBuffer StringBuffer(IN(::acdk::lang::RString) str);
+  public:  ::acdk::lang::RStringBuffer StringBuffer();
+  private:  void _unShare(int mincap);
+  private:  void _unShare();
+  private:  void _unShare2(int mincap);
+  public:  ::acdk::lang::RStringBuffer append(IN(::acdk::lang::RString) c);
+  public:  ::acdk::lang::RStringBuffer append(char c);
+  public:  ::acdk::lang::RStringBuffer append(ucchar c);
+  public:  ::acdk::lang::RStringBuffer append(bool b);
+  public:  ::acdk::lang::RStringBuffer append(int b);
+  public:  ::acdk::lang::RStringBuffer append(jlong b);
+  public:  ::acdk::lang::RStringBuffer append(float b);
+  public:  ::acdk::lang::RStringBuffer append(double b);
+  public:  ::acdk::lang::RStringBuffer append(IN(::acdk::lang::RObject) b);
+  public:  ::acdk::lang::RStringBuffer append(int offset, int b) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  int capacity();
+  public:  ucchar charAt(int idx);
+  public: static  ::acdk::lang::RObject create_instance();
+  public:  ::acdk::lang::RStringBuffer deleteCharAt(int index) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer deleteRegion(int start, int end) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  void ensureCapacity(int mincap);
+  public:  void getChars(int srcBegin, int srcEnd, IN(RcharArray) dst, int dstBegin, IN(::acdk::locale::REncoder) enc);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, IN(::acdk::lang::RObject) obj) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, int b) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, jlong l) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, double d) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, char ch) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, ucchar ch) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, IN(::acdk::lang::RString) str) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, float f) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RStringBuffer insert(int offset, bool b) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  bool isCChar();
+  public:  bool isUc2Char();
+  public:  bool isUc4Char();
+  public:  int length();
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(bool other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(char other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(ucchar other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(byte other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(short other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(int other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(jlong other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(float other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(IN(::acdk::lang::RString) other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(IN(::acdk::lang::RObject) other);
+  public:  ::acdk::lang::RStringBuffer operator_lt_lt(double other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(IN(::acdk::lang::RString) other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(IN(::acdk::lang::RObject) other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(bool other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(char other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(ucchar other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(float other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(double other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(byte other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(short other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(int other);
+  public:  ::acdk::lang::RStringBuffer operator_pl_eq(jlong other);
+  public:  ::acdk::lang::RStringBuffer replace(int start, int end, IN(::acdk::lang::RString) str) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  void reset();
+  public:  ::acdk::lang::RStringBuffer reverse();
+  public:  ::acdk::lang::RStringBuffer set(IN(::acdk::lang::RString) str);
+  public:  void setCharAt(int idx, char c);
+  public:  void setCharAt(int idx, ucchar c);
+  public:  void setLength(int newLength) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RString substring(int start, int end) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+  public:  ::acdk::lang::RString substring(int start) THROWS1(::acdk::lang::RIndexOutOfBoundsException);
+};
+
+TpFtJavaClass: 
+class StringBuffer
+extends acdk.lang.Object
+, implements acdk.lang.Cloneable
+{
+  private boolean _shared;
+  private acdk.lang.String _str;
+  public static  acdk.lang.Class GetClass();
+  public  acdk.lang.StringBuffer StringBuffer(in acdk.lang.String str);
+  public  acdk.lang.StringBuffer StringBuffer();
+  private  void _unShare(int mincap);
+  private  void _unShare();
+  private  void _unShare2(int mincap);
+  public  acdk.lang.StringBuffer append(in acdk.lang.String c);
+  public  acdk.lang.StringBuffer append(char c);
+  public  acdk.lang.StringBuffer append(ucchar c);
+  public  acdk.lang.StringBuffer append(boolean b);
+  public  acdk.lang.StringBuffer append(int b);
+  public  acdk.lang.StringBuffer append(long b);
+  public  acdk.lang.StringBuffer append(float b);
+  public  acdk.lang.StringBuffer append(double b);
+  public  acdk.lang.StringBuffer append(in acdk.lang.Object b);
+  public  acdk.lang.StringBuffer append(int offset, int b) throws acdk.lang.IndexOutOfBoundsException;
+  public  int capacity();
+  public  ucchar charAt(int idx);
+  public static  acdk.lang.Object create_instance();
+  public  acdk.lang.StringBuffer deleteCharAt(int index) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer deleteRegion(int start, int end) throws acdk.lang.IndexOutOfBoundsException;
+  public  void ensureCapacity(int mincap);
+  public  void getChars(int srcBegin, int srcEnd, in char[] dst, int dstBegin, in acdk.locale.Encoder enc);
+  public  acdk.lang.StringBuffer insert(int offset, in acdk.lang.Object obj) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, int b) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, long l) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, double d) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, char ch) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, ucchar ch) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, in acdk.lang.String str) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, float f) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.StringBuffer insert(int offset, boolean b) throws acdk.lang.IndexOutOfBoundsException;
+  public  boolean isCChar();
+  public  boolean isUc2Char();
+  public  boolean isUc4Char();
+  public  int length();
+  public  acdk.lang.StringBuffer operator_lt_lt(boolean other);
+  public  acdk.lang.StringBuffer operator_lt_lt(char other);
+  public  acdk.lang.StringBuffer operator_lt_lt(ucchar other);
+  public  acdk.lang.StringBuffer operator_lt_lt(byte other);
+  public  acdk.lang.StringBuffer operator_lt_lt(short other);
+  public  acdk.lang.StringBuffer operator_lt_lt(int other);
+  public  acdk.lang.StringBuffer operator_lt_lt(long other);
+  public  acdk.lang.StringBuffer operator_lt_lt(float other);
+  public  acdk.lang.StringBuffer operator_lt_lt(in acdk.lang.String other);
+  public  acdk.lang.StringBuffer operator_lt_lt(in acdk.lang.Object other);
+  public  acdk.lang.StringBuffer operator_lt_lt(double other);
+  public  acdk.lang.StringBuffer operator_pl_eq(in acdk.lang.String other);
+  public  acdk.lang.StringBuffer operator_pl_eq(in acdk.lang.Object other);
+  public  acdk.lang.StringBuffer operator_pl_eq(boolean other);
+  public  acdk.lang.StringBuffer operator_pl_eq(char other);
+  public  acdk.lang.StringBuffer operator_pl_eq(ucchar other);
+  public  acdk.lang.StringBuffer operator_pl_eq(float other);
+  public  acdk.lang.StringBuffer operator_pl_eq(double other);
+  public  acdk.lang.StringBuffer operator_pl_eq(byte other);
+  public  acdk.lang.StringBuffer operator_pl_eq(short other);
+  public  acdk.lang.StringBuffer operator_pl_eq(int other);
+  public  acdk.lang.StringBuffer operator_pl_eq(long other);
+  public  acdk.lang.StringBuffer replace(int start, int end, in acdk.lang.String str) throws acdk.lang.IndexOutOfBoundsException;
+  public  void reset();
+  public  acdk.lang.StringBuffer reverse();
+  public  acdk.lang.StringBuffer set(in acdk.lang.String str);
+  public  void setCharAt(int idx, char c);
+  public  void setCharAt(int idx, ucchar c);
+  public  void setLength(int newLength) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.String substring(int start, int end) throws acdk.lang.IndexOutOfBoundsException;
+  public  acdk.lang.String substring(int start) throws acdk.lang.IndexOutOfBoundsException;
+}
+
+</pre>
+<h2><a id="ClazzInfo_Test.enumeration">ClazzInfo_Test.enumeration</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 3  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ClazzInfo_Test.toTypeName
+[AUNIT:ENDT] End Test: ClazzInfo_Test.toTypeName
+[AUNIT:STRT] Start Test: ClazzInfo_Test.enumeration
+[AUNIT:STRT] Start Test: ClazzInfo_Test.enumeration
+[AUNIT:SUCC]: ClazzInfo_Test.enumeration:
+acdk_lang_dmi_ClazzInfo_Test.cpp(201): ei != 0
+[AUNIT:SUCC]: ClazzInfo_Test.enumeration:
+acdk_lang_dmi_ClazzInfo_Test.cpp(203): ei != 0
+[AUNIT:SUCC]: ClazzInfo_Test.enumeration:
+acdk_lang_dmi_ClazzInfo_Test.cpp(206): ei != 0 && evi != 0 && evi->value == ::acdk::lang::dmi::LongVT
+</pre>
+<h2><a id="ClazzInfo_Test.experimental">ClazzInfo_Test.experimental</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ClazzInfo_Test.enumeration
+[AUNIT:ENDT] End Test: ClazzInfo_Test.enumeration
+[AUNIT:STRT] Start Test: ClazzInfo_Test.experimental
+[AUNIT:STRT] Start Test: ClazzInfo_Test.experimental
+</pre>
+<h2><a id="ScriptVar_Test.standard">ScriptVar_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ClazzInfo_Test.experimental
+[AUNIT:ENDT] End Test: ClazzInfo_Test.experimental
+[AUNIT:STRT] Start Test: ScriptVar_Test.standard
+[AUNIT:STRT] Start Test: ScriptVar_Test.standard
+[AUNIT:SUCC]: ScriptVar_Test.standard:
+acdk_lang_dmi_ScriptVar_Test.cpp(55): v1.addition(v2).getDoubleVar() == 13.2
+[AUNIT:SUCC]: ScriptVar_Test.standard:
+acdk_lang_dmi_ScriptVar_Test.cpp(56): v1.subtraction(v2).getDoubleVar() == 10.8
+[AUNIT:SUCC]: ScriptVar_Test.standard:
+acdk_lang_dmi_ScriptVar_Test.cpp(57): v1.multiply(ScriptVar(2)).getLongVar() == 24
+[AUNIT:SUCC]: ScriptVar_Test.standard:
+acdk_lang_dmi_ScriptVar_Test.cpp(58): v1.divide(ScriptVar(2)).getLongVar() == 6
+</pre>
+<h2><a id="DmiObject_Test.standard">DmiObject_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: ScriptVar_Test.standard
+[AUNIT:ENDT] End Test: ScriptVar_Test.standard
+[AUNIT:STRT] Start Test: DmiObject_Test.standard
+[AUNIT:STRT] Start Test: DmiObject_Test.standard
+</pre>
+<h2><a id="MetaObject_Test.standard">MetaObject_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: DmiObject_Test.standard
+[AUNIT:ENDT] End Test: DmiObject_Test.standard
+[AUNIT:STRT] Start Test: MetaObject_Test.standard
+[AUNIT:STRT] Start Test: MetaObject_Test.standard
+[AUNIT:SUCC]: MetaObject_Test.standard:
+acdk_lang_dmi_MetaObject_Test.cpp(62): maa->length() == 3
+MetaAttribute of class acdk/tools/aunit/DmiTestClass
+Key1: Val1
+Key2: Val2
+__acdk_classinitfunction: _initializeClass
+</pre>
+<h2><a id="MetaObject_Test.instanceAttribute">MetaObject_Test.instanceAttribute</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 8  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: MetaObject_Test.standard
+[AUNIT:ENDT] End Test: MetaObject_Test.standard
+[AUNIT:STRT] Start Test: MetaObject_Test.instanceAttribute
+[AUNIT:STRT] Start Test: MetaObject_Test.instanceAttribute
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(87): ma != Nil
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(89): erg->equals("Hello Class") == true
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(93): ma != Nil
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(95): erg->equals("Hello Object") == true
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(98): ma == Nil
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(106): ma != Nil
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(108): erg->equals("Hello Class") == true
+[AUNIT:SUCC]: MetaObject_Test.instanceAttribute:
+acdk_lang_dmi_MetaObject_Test.cpp(111): ma == Nil
+</pre>
+<h2><a id="MetaObject_Test.altName">MetaObject_Test.altName</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 4  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT] End Test: MetaObject_Test.instanceAttribute
+[AUNIT:ENDT] End Test: MetaObject_Test.instanceAttribute
+[AUNIT:STRT] Start Test: MetaObject_Test.altName
+[AUNIT:STRT] Start Test: MetaObject_Test.altName
+[AUNIT:SUCC]: MetaObject_Test.altName:
+acdk_lang_dmi_MetaObject_Test.cpp(123): methoderg == 3
+[AUNIT:SUCC]: MetaObject_Test.altName:
+acdk_lang_dmi_MetaObject_Test.cpp(125): methoderg == 4
+[AUNIT:SUCC]: MetaObject_Test.altName:
+acdk_lang_dmi_MetaObject_Test.cpp(127): methoderg == 3
+[AUNIT:SUCC]: MetaObject_Test.altName:
+acdk_lang_dmi_MetaObject_Test.cpp(129): methoderg == 5
+</pre>
+</body></html>

@@ -1,0 +1,157 @@
+# 
+# This file is generated from acdkmake
+# Copyright (C) 1999-2005 by Roger Rene Kommer, artefaktur
+# ALL RIGHTS RESERVED
+#
+
+# where acdk lives, target where to install
+# You may have to change this.
+ACDK_HOME=../..
+
+default: outputdirectories compile
+
+-include $(ACDK_HOME)/acdk_globals.sunos-gcc
+
+# where to store the .o files
+
+OBJECTDIR=../tobj/acdk_net_ftp/sunos-gcc
+
+# where to store the .a, .so and executables
+ifndef BINDIR 
+BINDIR=../../bin
+endif
+
+ifndef CCOMPILER
+CCOMPILER=g++ -Wall -Wno-unused
+endif
+
+ifndef CCOPTS
+CCOPTS=$(XCCOPTS) -g -fPIC $(CCOPTSX)
+endif
+
+ifndef CCINCLUDE
+CCINCLUDE=$(XCCINCLUDE)  -I .  -I ../../include  $(CCINCLUDEX)
+endif
+
+ifndef DEFINES
+DEFINES=$(XDEFINES)  -DOS_SOLARIS -D_REENTRANT -DIN_ACDK_NET_FTP_LIB $(DEFINESX)
+endif
+
+ifndef LINKSO
+LINKSO=g++ -shared 
+endif
+ifndef LINKEXE
+LINKEXE=g++ 
+endif
+
+
+ifndef LINK
+LINK=g++
+endif
+
+ifndef SYSLDFLAGS
+SYSLDFLAGS=-Wl,-G -Wl,-t -Wl,-R -Wl,$(LD_LIBRARY_PATH)
+endif 
+
+ifndef LDFLAGS
+LDFLAGS= 
+endif
+
+ifndef SYSLIBRARIES
+SYSLIBRARIES=-lpthread -lm -ldl -lposix4 -lsocket -lnsl
+endif
+
+LIBS = $(SYSLIBRARIES) -Wl,-Bdynamic -L$(BINDIR) -lacdk_core -lacdk_text -lacdk_net -lacdk_security 
+CFLAGSX=
+LDFLAGSX = 
+
+SOURCES= 	acdk/net/ftp/FTPClient.cpp \
+	acdk/net/ftp/FTPFileImpl.cpp \
+	acdk/net/ftp/FTPFileSystem.cpp \
+	acdk/net/ftp/FTPURLConnection.cpp \
+	acdk/net/ftp/FTPUrlStreamHandler.cpp \
+	acdk/net/ftp/ftp_metainf_base.cpp \
+	acdk/net/ftp/ftp_metainf/ftp_metainf_ext.cpp \
+
+HEADER= 	acdk/net/ftp/Config.h \
+	acdk/net/ftp/ftp.h \
+	acdk/net/ftp/FTPClient.h \
+	acdk/net/ftp/FTPFileImpl.h \
+	acdk/net/ftp/FTPFileSystem.h \
+	acdk/net/ftp/FTPURLConnection.h \
+	acdk/net/ftp/FTPUrlStreamHandler.h \
+
+OBJECTS= 	../tobj/acdk_net_ftp/sunos-gcc/FTPClient.o \
+	../tobj/acdk_net_ftp/sunos-gcc/FTPFileImpl.o \
+	../tobj/acdk_net_ftp/sunos-gcc/FTPFileSystem.o \
+	../tobj/acdk_net_ftp/sunos-gcc/FTPURLConnection.o \
+	../tobj/acdk_net_ftp/sunos-gcc/FTPUrlStreamHandler.o \
+	../tobj/acdk_net_ftp/sunos-gcc/ftp_metainf_base.o \
+	../tobj/acdk_net_ftp/sunos-gcc/ftp_metainf_ext.o \
+
+
+FINALTARGET=../../bin/libacdk_net_ftp.so
+
+
+all: clean depend outputdirectories $(FINALTARGET)
+compile: $(FINALTARGET)
+
+../../bin/libacdk_net_ftp.so: $(OBJECTS)
+	$(LINKSO) $(SYSLDFLAGS) $(LDFLAGS) -o ../../bin/libacdk_net_ftp.so $(OBJECTS) $(LIBS) $(LDFLAGSX)
+
+DEPSFILE=acdk_net_ftp.sunos-gcc.deps
+
+depend: 
+	@echo "Making dependencies ... \c"; \
+	  echo "# Dependencies created by make depend:" >$(DEPSFILE); \
+	  echo "" >> $(DEPSFILE); \
+	  for FILE in $(SOURCES) ; do \
+	    BASENAME=`basename $$FILE .cpp`; \
+	    echo "$(OBJECTDIR)/\c" >> $(DEPSFILE); \
+	    $(CCOMPILER) -M $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CFLAGSX) $$FILE >> $(DEPSFILE); \
+            echo "" >> $(DEPSFILE); \
+	  done; \
+	  echo Done.
+
+-include ./$(DEPSFILE)
+
+../tobj/acdk_net_ftp/sunos-gcc/FTPClient.o: acdk/net/ftp/FTPClient.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/FTPClient.o -c acdk/net/ftp/FTPClient.cpp
+
+../tobj/acdk_net_ftp/sunos-gcc/FTPFileImpl.o: acdk/net/ftp/FTPFileImpl.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/FTPFileImpl.o -c acdk/net/ftp/FTPFileImpl.cpp
+
+../tobj/acdk_net_ftp/sunos-gcc/FTPFileSystem.o: acdk/net/ftp/FTPFileSystem.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/FTPFileSystem.o -c acdk/net/ftp/FTPFileSystem.cpp
+
+../tobj/acdk_net_ftp/sunos-gcc/FTPURLConnection.o: acdk/net/ftp/FTPURLConnection.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/FTPURLConnection.o -c acdk/net/ftp/FTPURLConnection.cpp
+
+../tobj/acdk_net_ftp/sunos-gcc/FTPUrlStreamHandler.o: acdk/net/ftp/FTPUrlStreamHandler.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/FTPUrlStreamHandler.o -c acdk/net/ftp/FTPUrlStreamHandler.cpp
+
+../tobj/acdk_net_ftp/sunos-gcc/ftp_metainf_base.o: acdk/net/ftp/ftp_metainf_base.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/ftp_metainf_base.o -c acdk/net/ftp/ftp_metainf_base.cpp
+
+../tobj/acdk_net_ftp/sunos-gcc/ftp_metainf_ext.o: acdk/net/ftp/ftp_metainf/ftp_metainf_ext.cpp
+	$(CCOMPILER) $(CCOPTS) $(CCINCLUDE) $(DEFINES) $(CCOPTSX) $(CFLAGSX) -o ../tobj/acdk_net_ftp/sunos-gcc/ftp_metainf_ext.o -c acdk/net/ftp/ftp_metainf/ftp_metainf_ext.cpp
+
+
+
+
+outputdirectories::
+	@if test ! -d $(OBJECTDIR); \
+  then \
+		mkdir -p $(OBJECTDIR); \
+	fi; \
+	if test ! -d $(BINDIR); \
+  then \
+		mkdir -p $(BINDIR); \
+	fi 	
+
+
+
+clean::
+	rm -f ../../bin/acdk_net_ftp.so $(OBJECTS)
+
+  

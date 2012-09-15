@@ -1,0 +1,65 @@
+<html><body>
+<h1>Unit Test 2004-11-28T20:32:14</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 4; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.helloTcl">Basics_Test.helloTcl</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.helloACDK">Basics_Test.helloACDK</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Basics_Test.intAndFloats">Basics_Test.intAndFloats</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#ComObject_Test.helloWord">ComObject_Test.helloWord</a> <br>
+</td></tr></table>
+<h2><a id="Basics_Test.helloTcl">Basics_Test.helloTcl</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][Basics_Test.helloTcl] Start Test
+Interpreting Code: [
+puts "Hello Tcl"
+]
+</pre>
+<h2><a id="Basics_Test.helloACDK">Basics_Test.helloACDK</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.helloTcl] End Test
+[AUNIT:STRT][Basics_Test.helloACDK] Start Test
+Interpreting Code: [
+set sb [acdk_new "acdk/lang/StringBuffer" "Hallo "]
+acdk_invoke $sb append "Tcl from ACDK"
+puts [acdk_invoke $sb toString]
+]
+</pre>
+<h2><a id="Basics_Test.intAndFloats">Basics_Test.intAndFloats</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.helloACDK] End Test
+[AUNIT:STRT][Basics_Test.intAndFloats] Start Test
+Interpreting Code: [
+set integer [acdk_invoke_static "acdk/lang/Integer" toHexString 1234]
+puts $integer
+]
+</pre>
+<h2><a id="ComObject_Test.helloWord">ComObject_Test.helloWord</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][Basics_Test.intAndFloats] End Test
+[AUNIT:STRT][ComObject_Test.helloWord] Start Test
+Interpreting Code: [
+proc require_class { clsname } {
+  set cl [acdk_new "acdk/lang/ClassLoader"]
+  acdk_invoke $cl findClass $clsname
+}
+
+require_class "acdkx/com/ComObject"
+puts "class loaded"
+set word [acdk_invoke_static "acdkx/com/ComObject" "New" "Word.Application"]
+acdk_poke $word "Visible" 1
+set doc [acdk_invoke [acdk_peek $word "Documents"] add]
+set sel [acdk_peek [acdk_peek $word "ActiveWindow"] "Selection"]
+acdk_invoke $sel TypeText "This is "
+acdk_poke [acdk_peek $sel Font] Bold 1
+acdk_invoke $sel TypeText "ACDK"
+acdk_poke [acdk_peek $sel Font] Bold 0
+acdk_invoke $sel TypeText " instrumenting Word through acdk_tcl"
+acdk_invoke_static "acdk/lang/Thread" sleep 3000
+acdk_invoke $word Quit 0
+]
+</pre>
+</body></html>

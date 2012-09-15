@@ -1,0 +1,12 @@
+
+#include "IncludedScript.csf"
+
+if (IncludedVar != 42)
+{
+  out.println("TEST FAILED");
+  return 1;
+}
+IncludedClass cls = new IncludedClass("Hallo");
+out.println("included class: " + cls.toString());
+
+

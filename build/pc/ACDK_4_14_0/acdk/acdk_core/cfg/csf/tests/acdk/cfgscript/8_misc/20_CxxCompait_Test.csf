@@ -1,0 +1,8 @@
+
+
+
+
+RString s = new String("asdf");
+int len =  s->length();
+acdk::lang::System::out->println(s->toString());
+acdk::lang::System::out->println("TEST OK");

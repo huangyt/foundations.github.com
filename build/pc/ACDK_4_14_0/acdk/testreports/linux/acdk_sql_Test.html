@@ -1,0 +1,261 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<h1>Unit Test 2005-04-25T20:22:08</h1>
+<a href="index.html">Back to Index</a><br>
+<table border=0 width="100%"><tr><td bgcolor="green">TEST OK</td></tr></table>
+Tests: 4; Failures: 0; Errors: 0<br>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#DatabaseMetaData_Test.standard">DatabaseMetaData_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#PreparedStatement_Test.standard">PreparedStatement_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#CallableStatement_Test.standard">CallableStatement_Test.standard</a> <br>
+</td></tr></table>
+<table border=0 width="100%"><tr><td bgcolor="ltgreen"> <a href="#Select_Test.standard">Select_Test.standard</a> <br>
+</td></tr></table>
+<h2><a id="DatabaseMetaData_Test.standard">DatabaseMetaData_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:STRT][DatabaseMetaData_Test.standard] Start Test
+[AUNIT:STRT] Start Test: DatabaseMetaData_Test.standard
+Using ODBC connection: jdbc:odbc:acdkpsql/user=acdk/password=acdk
+Database: PostgreSQL; Version: 07.01.0003 PostgreSQL 7.4.5 on i686-pc-linux-gnu, compiled by GCC gcc (GCC) 3.3.4 (pre 3.3.5 20040809)
+User: acdk
+IsReadOnly: false
+nullsAreSortedHigh: false
+nullsAreSortedLow: false
+nullsAreSortedAtStart: false
+nullsAreSortedAtEnd: false
+getDriverName: libpsqlodbc.so
+getDriverVersion: 07.01.0003
+usesLocalFiles: false
+usesLocalFilePerTable: false
+supportsMixedCaseIdentifiers: false
+storesUpperCaseIdentifiers: false
+storesLowerCaseIdentifiers: true
+storesMixedCaseIdentifiers: true
+supportsMixedCaseQuotedIdentifiers: true
+storesUpperCaseQuotedIdentifiers: false
+storesLowerCaseQuotedIdentifiers: false
+storesMixedCaseQuotedIdentifiers: true
+getSQLKeywords: 
+getNumericFunctions: 
+getStringFunctions: CONCAT,LCASE,LENGTH,LOCATE,LTRIM,RTRIM,SUBSTRING,UCASE
+getSystemFunctions: 
+getDateTimeFunctions: NOW
+getSearchStringEscape: 
+getExtraNameCharacters: _
+supportsAlterTableWithAddColumn: true
+supportsAlterTableWithDropColumn: false
+supportsColumnAliasing: false
+nullPlusNonNullIsNull: false
+supportsConvert: false
+supportsTableCorrelationNames: true
+supportsDifferentTableCorrelationNames: true
+supportsExpressionsInOrderBy: false
+supportsOrderByUnrelated: false
+supportsGroupBy: true
+supportsGroupByUnrelated: false
+supportsGroupByBeyondSelect: false
+supportsLikeEscapeClause: false
+supportsMultipleResultSets: true
+supportsMultipleTransactions: true
+supportsNonNullableColumns: true
+supportsMinimumSQLGrammar: true
+supportsCoreSQLGrammar: true
+supportsExtendedSQLGrammar: false
+supportsIntegrityEnhancementFacility: false
+supportsFullOuterJoins: true
+supportsLimitedOuterJoins: false
+getSchemaTerm: owner
+getProcedureTerm: procedure
+getCatalogTerm: 
+isCatalogAtStart: true
+getCatalogSeparator: 
+getCatalogSeparator: 
+supportsSchemasInProcedureCalls: false
+supportsSchemasInTableDefinitions: false
+supportsSchemasInIndexDefinitions: false
+supportsSchemasInPrivilegeDefinitions: false
+supportsCatalogsInDataManipulation: false
+supportsCatalogsInProcedureCalls: false
+supportsCatalogsInTableDefinitions: false
+supportsCatalogsInIndexDefinitions: false
+supportsPositionedDelete: false
+supportsPositionedUpdate: false
+supportsSelectForUpdate: false
+supportsStoredProcedures: true
+supportsSubqueriesInComparisons: true
+supportsSubqueriesInExists: true
+supportsSubqueriesInIns: true
+supportsSubqueriesInQuantifieds: true
+supportsCorrelatedSubqueries: false
+supportsUnion: true
+supportsUnionAll: true
+supportsOpenCursorsAcrossCommit: false
+supportsOpenCursorsAcrossRollback: false
+supportsOpenStatementsAcrossCommit: false
+supportsOpenStatementsAcrossRollback: false
+getMaxBinaryLiteralLength: 0
+getMaxCharLiteralLength: 0
+getMaxColumnNameLength: -1073807328
+getMaxColumnsInGroupBy: -1073807360
+getMaxColumnsInIndex: -1073807360
+getMaxColumnsInOrderBy: -1073807360
+getMaxColumnsInSelect: -1073807360
+getMaxColumnsInTable: -1073807360
+getMaxConnections: 128
+getMaxCursorNameLength: 32
+getMaxIndexLength: 0
+getMaxSchemaNameLength: -1073807360
+getMaxProcedureNameLength: 0
+getMaxCatalogNameLength: 0
+getMaxRowSize: 0
+doesMaxRowSizeIncludeBlobs: true
+getMaxStatementLength: 0
+getMaxStatements: 0
+getMaxTableNameLength: 32
+getMaxTablesInSelect: 0
+getDefaultTransactionIsolation: 2
+supportsTransactions: true
+supportsDataDefinitionAndDataManipulationTransactions: true
+supportsDataManipulationTransactionsOnly: false
+dataDefinitionCausesTransactionCommit: false
+dataDefinitionIgnoredInTransactions: false
+Tables:
+	; Catalog: ; Schema: ; TableName: acdk_callablestatement_test; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: acdk_preparedstatement_test; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: acdk_select_test; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: applicable_roles; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: check_constraints; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: column_domain_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: column_privileges; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: column_udt_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: columns; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: constraint_column_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: constraint_table_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: data_type_privileges; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: domain_constraints; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: domain_udt_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: domains; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: element_types; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: enabled_roles; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: information_schema_catalog_name; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: key_column_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: parameters; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_aggregate; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_am; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_amop; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_amproc; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_attrdef; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_attribute; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_cast; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_class; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_constraint; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_conversion; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_database; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_depend; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_description; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_group; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_index; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_inherits; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_language; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_largeobject; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_listener; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_locks; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_namespace; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_opclass; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_operator; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_proc; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_rewrite; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_rules; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_settings; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_shadow; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_stat_activity; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_all_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_all_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_database; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_sys_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_sys_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_user_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_stat_user_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_all_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_all_sequences; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_all_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_sys_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_sys_sequences; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_sys_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_user_indexes; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_user_sequences; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statio_user_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_statistic; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_stats; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_trigger; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_type; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: pg_user; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: pg_views; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: referential_constraints; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: role_column_grants; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: role_routine_grants; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: role_table_grants; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: role_usage_grants; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: routine_privileges; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: routines; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: schemata; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: sql_features; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: sql_implementation_info; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: sql_languages; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: sql_packages; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: sql_sizing; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: sql_sizing_profiles; tableType: TABLE; remarks: TABLE
+	; Catalog: ; Schema: ; TableName: table_constraints; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: table_privileges; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: tables; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: triggered_update_columns; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: triggers; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: usage_privileges; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: view_column_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: view_table_usage; tableType: VIEW; remarks: VIEW
+	; Catalog: ; Schema: ; TableName: views; tableType: VIEW; remarks: VIEW
+
+</pre>
+<h2><a id="PreparedStatement_Test.standard">PreparedStatement_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 2  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][DatabaseMetaData_Test.standard] End Test
+[AUNIT:ENDT] End Test: DatabaseMetaData_Test.standard
+[AUNIT:STRT][PreparedStatement_Test.standard] Start Test
+[AUNIT:STRT] Start Test: PreparedStatement_Test.standard
+[AUNIT:SUCC]: PreparedStatement_Test.standard:
+acdk_sql_PreparedStatement.cpp(138): count == 2
+[AUNIT:SUCC]: PreparedStatement_Test.standard:
+acdk_sql_PreparedStatement.cpp(153): count == 1
+</pre>
+<h2><a id="CallableStatement_Test.standard">CallableStatement_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 1  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][PreparedStatement_Test.standard] End Test
+[AUNIT:ENDT] End Test: PreparedStatement_Test.standard
+[AUNIT:STRT][CallableStatement_Test.standard] Start Test
+[AUNIT:STRT] Start Test: CallableStatement_Test.standard
+using database: PostgreSQL
+executing: CREATE FUNCTION acdk_sql_function(varchar, integer) returns varchar as '
+DECLARE
+instr ALIAS FOR $1;
+instr innum for $2;
+begin
+ outstr:=CONCAT(instr, '' SQL'');
+end;
+' LANGUAGE plpgsql;
+[AUNIT:SUCC]: CallableStatement_Test.standard:
+acdk_sql_CallableStatement.cpp(167): CREATE PROCEDURE Failed for database system PostgreSQL: [SQLSTATE:][MESSAGE_TEXT:[unixODBC]Error while executing the query (non-fatal);
+ERROR:  language "plpgsql" does not exist][NATIVE_ERR:1181702]
+</pre>
+<h2><a id="Select_Test.standard">Select_Test.standard</a></h2>
+<table border=0 width="100%"><tr><td bgcolor="green">Test OK with 0  Test Expressions</td></tr></table>
+<br>Error output:<hr><pre>[AUNIT:ENDT][CallableStatement_Test.standard] End Test
+[AUNIT:ENDT] End Test: CallableStatement_Test.standard
+[AUNIT:STRT][Select_Test.standard] Start Test
+[AUNIT:STRT] Start Test: Select_Test.standard
+</pre>
+</body></html>

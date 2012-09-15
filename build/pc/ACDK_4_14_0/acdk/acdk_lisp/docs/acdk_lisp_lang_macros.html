@@ -1,0 +1,180 @@
+<head>
+<meta name="generator" content="GenWeb 1.0">
+
+<meta name="keywords" content="Lisp, macros, defmacro">
+<title>ACDK Lisp Macros</title>
+<link rel="stylesheet" type="text/css" href="./../../docs\images/artefaktur_moweb.css">
+
+</head>
+<body bgColor="#ffffff">
+<table with="100%" style="background-color:#F0F0F0;border-width:1px;border-style:solid;border-color:black;padding:3mm;text-align:justify"> <!-- border="2" cellspacing="0" > -->
+<tr width="100%">
+  <td width="200" valign="top" style="border-right-width:3px;border-right-style:solid;border-right-color:black">
+<p class="navleiste" align="right">
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../index.html">ACDK</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../../docs/packages.html">Packages</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="../index.html">ACDK Lisp</a><br>
+<img src="./../../docs\images/arrow_nw.gif" alt="down">&nbsp;<a  href="acdk_lisp_man.html">acdk_lisp Man</a><br>
+<img src="./../../docs\images/arrow_right_stop.gif" alt="down">&nbsp;Lisp Macros
+</p>
+</td>
+<td height="100%" width="600" valign="top" >
+<table width="100%" height="100%" valign="bottom" style="background-color:#F0F0F0;border-rigth-width:3px;border-rigth-style:solid;border-rigth-color:black;padding:1mm">
+  <tr>
+    <td style="height:40px">
+<center><p class="curchapterline"> | <a  href="acdk_lisp_lang_class.html">Lisp Classes</a> | Lisp Macros |</p></center>
+    </td>
+  </tr>
+  <tr valign="bottom" style="vertical-align:bottom">
+    <td style="background-color:#FFFFFF;border-top-style:solid;border-top-color:black;border-top-width:3px;padding-left:3mm;vertical-align=bottom">
+<h1>ACDK Lisp Macros</h1>
+    </td>
+  </tr>
+</table>
+</td>
+<td valign="top">
+<table height="100%" width="100%" style="border-left-style:solid;border-left-color:black;border-left-width:3px">
+  <tr >
+    <td valign="bottom" 
+        style="vertical-align:bottom;height:40px;FONT-SIZE:22pt;font-WEIGHT=bold;letter-spacing:4pt;TEXT-ALIGN:center">
+      <a href="http://acdk.sourceforge.net">ACDK</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" 
+        style="vertical-align:top;font-size=12pt;text-align:center;border-top-style:solid;border-top-color:black;border-top-width:3px;">
+        <a href="http://www.artefaktur.com">Artefaktur</a> Component<br>Development Kit
+    </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<hr>    
+<!-- <h1>ACDK Lisp Macros</h1> -->
+<br>
+<p class="PageIntro">
+Macros give Lisp the possibility to redesign its
+own language
+</p>
+<br>
+<a name="jumptable74"></a><table class="jumptableframe" width="100%"><tr><td><p><i><small>Content of this chapter:</small></i><br><br>&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Backquote and comma operator"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Backquote and comma operator</a><br>
+&nbsp;&nbsp;<a class="jumptable1"  style="border-style:none" href="#Define a macro with defmacro"><img border="0" src="./../../docs\images/arrow_down_stop.gif">&nbsp;Define a macro with defmacro</a><br>
+</p></td></tr></table><!-- jumptableframe -->
+<br>
+<br>
+<h2><a href="#jumptable74"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Backquote and comma operator">Backquote and comma operator</a></h2>
+<br>
+An expression can be quoted to protect the quoted expression
+for evaluation:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">;; Quote an atom:
+</FONT></I>'a
+<I><FONT COLOR="#B22222">;; Quote a list
+</FONT></I>'(a b c)
+<I><FONT COLOR="#B22222">; -&gt; (a b c)
+</FONT></I></PRE></td></tr></table>
+<br>
+An expression can also be backquoted. 
+<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+<I><FONT COLOR="#B22222">;; Quote an atom:
+</FONT></I>`a
+<I><FONT COLOR="#B22222">;; Quote a list
+</FONT></I>`(a b c) 
+<I><FONT COLOR="#B22222">; -&gt; (a b c)
+</FONT></I></PRE></td></tr></table>
+<br>
+The both expression are qually as long no comma or comma-at operator
+are defined:<br>
+With the comma operator the next token will 'unquoted' and will be evaled:<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(setf b 1)
+(setf l '(d e f))
+`(a ,b ,l c)
+<I><FONT COLOR="#B22222">; -&gt; (a 1 (d e f) c)
+</FONT></I></PRE></td></tr></table>
+<br>
+The difference between the comma an the comma-at operator is
+that the the comma-at operator will replace the resulting list 
+elements not the list.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(setf l '(d e f))
+`(a ,l c)
+<I><FONT COLOR="#B22222">; -&gt; (a  (d e f) c)
+</FONT></I>`(a ,@l c)
+<I><FONT COLOR="#B22222">; -&gt; (a  d e f c)
+</FONT></I></PRE></td></tr></table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="15"><p class="note\"><font size="32pt">!</font></p></td><td>
+ACDK Lisp doesn't support multiple backquotes and comma operators.<br>
+</td></tr></table>
+<br>
+<h2><a href="#jumptable74"><img border="0" src="./../../docs\images/arrow_up_stop.gif">&nbsp;</a><a class="jumptarget" name="Define a macro with defmacro">Define a macro with defmacro</a></h2>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(defmacro nil! (nilatt_a)
+  (setf nilatt_a nil)
+)
+
+(setf a 32)
+(nil! a)
+</PRE></td></tr></table>
+<br>
+Macros will be evaluated by parse time, not at runtime.<br>
+The resulting atom or list will be replaces at place 
+where the macro was called: The code will will be 'patched'.<br>
+After parsing the code above:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(setf a 32)
+(setf a nil)
+</PRE></td></tr></table>
+<br>
+The power of macros will be evolved in corporatation with
+the backquotes an the comma operators.<br>
+<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(defmacro doaddition (&amp;rest doaddition_args)
+  `(+ ,@doaddition_args) <I><FONT COLOR="#B22222">; replaces the argument list directly
+</FONT></I>)
+(setf a 3)
+(doaddition 1 a 4)
+
+</PRE></td></tr></table>
+Will expand to:<br>
+<table BGCOLOR="#F0F0F0" width="100%"><tr><td>
+<PRE>
+
+(setf a 3)
+(+ 1 a 4)
+</PRE></td></tr></table>
+<br>
+Please refer to online LISP manuals (google Lisp defmacro) 
+for more information.<br>
+
+<hr>
+<table width="100%" class="subchaptersframe">
+<tr><td>
+<center><p class="curchapterline"> | <a  href="acdk_lisp_lang_class.html">Lisp Classes</a> | Lisp Macros |</p></center>
+</td></tr></table>
+</body>
+</html>
+
+

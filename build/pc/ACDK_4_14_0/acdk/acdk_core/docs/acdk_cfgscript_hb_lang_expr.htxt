@@ -1,0 +1,32 @@
+%id: acdk_cfgscript_hb_lang_expr
+%title: CfgScript Expressions
+%shorttitle: Expressions
+%chapter: acdk_cfgscript_hb_lang_expr_literal, acdk_cfgscript_hb_lang_expr_assign,  \
+          acdk_cfgscript_hb_lang_expr_operator, acdk_cfgscript_hb_lang_expr_instanceof, \
+          acdk_cfgscript_hb_lang_expr_delegate, acdk_cfgscript_hb_lang_expr_lambda
+
+%body:
+<chapterline/>
+<pageintro>
+Expression results into a value 
+</pageintro>
+
+<htmlauto/>
+<jumptable/>
+
+<jump1>Expression</jump1>
+<pre>
+Expression
+: %ref[LiteralExpression, acdk_cfgscript_hb_lang_expr_literal]
+| %ref[AssignmentExpression, acdk_cfgscript_hb_lang_expr_assign]
+| %ref[OperatorExpression, acdk_cfgscript_hb_lang_expr_operator]
+| %ref[IdentifierExpression, acdk_cfgscript_interpreter#Script Environment]
+| NewExpression
+| %ref[InstanceOfExpression, acdk_cfgscript_hb_lang_expr_instanceof]
+| %ref[DelegateExpression, acdk_cfgscript_hb_lang_expr_delegate]
+| %ref[LambdaExpression, acdk_cfgscript_hb_lang_expr_lambda]
+;
+</pre>
+
+<subschapterstable/>
+.
